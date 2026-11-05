@@ -1,9 +1,9 @@
 {
   "dependencies": [
     "FSharp.Core/11.0.101-rc2.26504.105",
-    "Microsoft.DotNet.ILCompiler/11.0.0-rc.2.26504.105",
-    "Microsoft.NET.ILLink.Tasks/11.0.0-rc.2.26504.105",
-    "runtime.win-x64.Microsoft.DotNet.ILCompiler/11.0.0-rc.2.26504.105"
+    "Microsoft.DotNet.ILCompiler/11.0.0-rc.3.26522.148",
+    "Microsoft.NET.ILLink.Tasks/11.0.0-rc.3.26522.148",
+    "runtime.win-x64.Microsoft.DotNet.ILCompiler/11.0.0-rc.3.26522.148"
   ],
   "buildArguments": [
     "-p:PlaybookVerifyNative=true"

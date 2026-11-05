@@ -28,7 +28,7 @@ Script with a wildcard concatenates the models' SQL into one file. It does not s
 
 ## Constraints
 
-net11.0, EF11 RC2 and the matching tool are required here. EF10.0.13/net10.0 is a historical comparison, not another published edition. SDK11 RC2/C#15 and SDK10.0.402/C#14 are pinned. SQLite local disposable files are the only executed provider; no external resources, UI, renderer or workloads are involved. Explicit Design is required by the CLI consumer. RC2 evidence is not GA verification. Pingu authorized publication with the reproduced wildcard-list failure on 4 November 2026; successful wildcard-list proof remains incomplete.
+net11.0, EF11 RC2 and the matching tool are required here. EF10.0.13/net10.0 is a historical comparison, not another published edition. SDK11 RC3/C#15 and SDK10.0.403/C#14 are pinned. SQLite local disposable files are the only executed provider; no external resources, UI, renderer or workloads are involved. Explicit Design is required by the CLI consumer. RC3 evidence is not GA verification. Pingu authorized publication with the reproduced wildcard-list failure on 4 November 2026; successful wildcard-list proof remains incomplete.
 
 ## Evidence
 

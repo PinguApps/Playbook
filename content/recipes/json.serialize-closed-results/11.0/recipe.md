@@ -39,7 +39,7 @@ The structural classifier does not examine property values or nested content. Ze
 
 Separate T and nullable T cases overlap for non-null JSON and require deliberate custom classification. When a case accepts null the null selection rules differ from this sample; default storage remains possible. Union default is not an application success or refusal. See `csharp.closed-results` for matching, boxing and declaration restrictions.
 
-Use .NET 11 runtime/reference assemblies, SDK 11 and C# 15. System.Text.Json is supplied by the framework: no extra package assets, provider, platform-specific workload or rendering mode is needed. Metadata source generation is executed here; the reflection-only restriction of F# discriminated unions does not apply to this C# example. This does not establish a Native AOT publish or down-level package route. RC2 evidence is not GA verification; no experimental opt-in is used.
+Use .NET 11 runtime/reference assemblies, SDK 11 and C# 15. System.Text.Json is supplied by the framework: no extra package assets, provider, platform-specific workload or rendering mode is needed. Metadata source generation is executed here; the reflection-only restriction of F# discriminated unions does not apply to this C# example. This does not establish a Native AOT publish or down-level package route. RC3 evidence is not GA verification; no experimental opt-in is used.
 
 ## Evidence
 

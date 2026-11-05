@@ -1,6 +1,6 @@
 <!-- snippet:host-project -->
 <Project Sdk="Microsoft.NET.Sdk.WebAssembly">
-  <PropertyGroup><TargetFramework>net10.0</TargetFramework><LangVersion>14.0</LangVersion><AllowUnsafeBlocks>true</AllowUnsafeBlocks><ImplicitUsings>enable</ImplicitUsings><Nullable>enable</Nullable><RuntimeIdentifier>browser-wasm</RuntimeIdentifier><RuntimeFrameworkVersion>10.0.13</RuntimeFrameworkVersion><UseMonoRuntime>true</UseMonoRuntime><RestorePackagesWithLockFile>true</RestorePackagesWithLockFile><PublishTrimmed>false</PublishTrimmed><EnableDiagnostics>true</EnableDiagnostics><EventSourceSupport>true</EventSourceSupport></PropertyGroup>
+  <PropertyGroup><TargetFramework>net10.0</TargetFramework><LangVersion>14.0</LangVersion><AllowUnsafeBlocks>true</AllowUnsafeBlocks><ImplicitUsings>enable</ImplicitUsings><Nullable>enable</Nullable><RuntimeIdentifier>browser-wasm</RuntimeIdentifier><RuntimeFrameworkVersion>10.0.14</RuntimeFrameworkVersion><UseMonoRuntime>true</UseMonoRuntime><RestorePackagesWithLockFile>true</RestorePackagesWithLockFile><PublishTrimmed>false</PublishTrimmed><EnableDiagnostics>true</EnableDiagnostics><EventSourceSupport>true</EventSourceSupport></PropertyGroup>
   <ItemGroup><Compile Include="../../net11.0/LanternHostMono/Program.cs" Link="Program.cs" /></ItemGroup>
 </Project>
 <!-- endsnippet:host-project -->

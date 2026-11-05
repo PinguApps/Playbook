@@ -32,8 +32,8 @@ browser, Blazor rendering mode or experimental opt-in. The actual property has
 no ExperimentalAttribute. SDK/language release families and these reproduction
 pins are separate: the example uses no C#15-only syntax.
 
-The exact measured sets are SDK **10.0.402**, C# **14.0**, framework **10.0.13**
-and SDK **11.0.100-rc.2.26504.105**, C# **15.0**, framework
+The exact measured sets are SDK **10.0.403**, C# **14.0**, framework **10.0.14**
+and SDK **11.0.100-rc.3.26522.148**, C# **15.0**, framework
 **11.0.0-rc.2.26504.105**. Saved sample records contain build/run commands,
 input hashes, empty resolved library graphs, actual Roslyn product versions and
 hashes, loaded CoreLib/MVC/Routing paths, versions and hashes. Each execution
@@ -157,7 +157,7 @@ PATH integration before using an isolated .NET home. These commands restore the
 framework inputs during setup, build and execute locally; the sample opens only
 a disposable loopback port and closes it in `finally`.
 
-From the .NET10 sample directory, invoke `C:/Program Files/dotnet/dotnet.exe` with `build ./MarineRoutes.csproj -c Release`, then with `./bin/Release/net10.0/MarineRoutes.dll`. From the separate .NET11 directory, use `C:/Users/pingu/.dotnet-playbook-11/dotnet.exe` with the same build arguments, then `./bin/Release/net11.0/MarineRoutes.dll`. Set the child environment variable `DOTNET_ADD_GLOBAL_TOOLS_TO_PATH=0` before either command; restore the previous process value afterward. The repository evidence runner performs the locked build and execution with the explicit executable supplied by `-Dotnet`.
+From the .NET10 sample directory, invoke `C:/Program Files/dotnet/dotnet.exe` with `build ./MarineRoutes.csproj -c Release`, then with `./bin/Release/net10.0/MarineRoutes.dll`. From the separate .NET11 directory, use `C:/Users/pingu/AppData/Local/dotnetup/dotnet/dotnet.exe` with the same build arguments, then `./bin/Release/net11.0/MarineRoutes.dll`. Set the child environment variable `DOTNET_ADD_GLOBAL_TOOLS_TO_PATH=0` before either command; restore the previous process value afterward. The repository evidence runner performs the locked build and execution with the explicit executable supplied by `-Dotnet`.
 
 The `ArtifactIdentity` assertions intentionally require the recorded SDK layout,
 framework versions and audited reference bytes. They are reproduction checks,

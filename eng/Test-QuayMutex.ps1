@@ -1,8 +1,8 @@
 [CmdletBinding()]
 param([switch]$Record,
  [string]$Docker='C:/Program Files/Docker/Docker/resources/bin/docker.exe',
- [string]$Net10Dotnet='C:/Program Files/dotnet/dotnet.exe',
- [string]$Net11Dotnet='C:/Users/pingu/.dotnet-playbook-11/dotnet.exe')
+ [string]$Net10Dotnet=(Get-Command dotnet -CommandType Application | Select-Object -First 1).Source,
+ [string]$Net11Dotnet=(Get-Command dotnet -CommandType Application | Select-Object -First 1).Source)
 $ErrorActionPreference='Stop'
 $root=Split-Path $PSScriptRoot -Parent
 . (Join-Path $PSScriptRoot 'EstuaryProof.ps1')
@@ -12,24 +12,24 @@ $log=[Collections.Generic.List[string]]::new()
 $container='playbook-quay-'+[guid]::NewGuid().ToString('N')
 $created=$false
 try {
- foreach($version in '11.0.0-rc.2.26504.105','10.0.12'){
+ foreach($version in '11.0.0-rc.3.26522.148','10.0.12'){
   $file=Join-Path $scratch "$version.tar.gz"
   if(-not(Test-Path $file)){Invoke-WebRequest "https://builds.dotnet.microsoft.com/dotnet/Runtime/$version/dotnet-runtime-$version-linux-x64.tar.gz" -OutFile $file}
   $log.Add("RUNTIME_ARCHIVE=$version;sha256=$((Get-FileHash $file).Hash)")
  }
  try {
-  $image=(Invoke-Estuary $Docker $root @('image','inspect','mcr.microsoft.com/dotnet/sdk:10.0.402','--format','{{.Id}}')).Trim()
+  $image=(Invoke-Estuary $Docker $root @('image','inspect','mcr.microsoft.com/dotnet/sdk:10.0.403','--format','{{.Id}}')).Trim()
  } catch {
-  throw "Required local Docker image mcr.microsoft.com/dotnet/sdk:10.0.402 is unavailable. Fetch it first with '$Docker' pull mcr.microsoft.com/dotnet/sdk:10.0.402. $($_.Exception.Message)"
+  throw "Required local Docker image mcr.microsoft.com/dotnet/sdk:10.0.403 is unavailable. Fetch it first with '$Docker' pull mcr.microsoft.com/dotnet/sdk:10.0.403. $($_.Exception.Message)"
  }
  $log.Add("DOCKER_IMAGE=$image")
  $null=Invoke-Estuary $Docker $root @('run','--detach','--name',$container,'--network','none','--mount',"type=bind,source=$root,target=/src,readonly",'--mount',"type=bind,source=$scratch,target=/proof,readonly",$image,'sleep','600')
  $created=$true
- $setup='mkdir /runtime11 /runtimeold; tar -xzf /proof/11.0.0-rc.2.26504.105.tar.gz -C /runtime11; tar -xzf /proof/10.0.12.tar.gz -C /runtimeold; useradd -m -u 24101 quay_a; useradd -m -u 24102 quay_b; mkdir /run/quay_a /run/quay_b /run/quay_unknown; chown 24101:24101 /run/quay_a; chown 24102:24102 /run/quay_b; chown 24103:24103 /run/quay_unknown; chmod 700 /run/quay_*'
+ $setup='mkdir /runtime11 /runtimeold; tar -xzf /proof/11.0.0-rc.3.26522.148.tar.gz -C /runtime11; tar -xzf /proof/10.0.12.tar.gz -C /runtimeold; useradd -m -u 24101 quay_a; useradd -m -u 24102 quay_b; mkdir /run/quay_a /run/quay_b /run/quay_unknown; chown 24101:24101 /run/quay_a; chown 24102:24102 /run/quay_b; chown 24103:24103 /run/quay_unknown; chmod 700 /run/quay_*'
  $null=Invoke-Estuary $Docker $root @('exec',$container,'sh','-ec',$setup)
  foreach($major in '10','11'){
   $dotnet=if($major -eq '10'){$Net10Dotnet}else{$Net11Dotnet}
-  $sdk=if($major -eq '10'){'10.0.402'}else{'11.0.100-rc.2.26504.105'}
+  $sdk=if($major -eq '10'){'10.0.403'}else{'11.0.100-rc.3.26522.148'}
   $lang=if($major -eq '10'){'14.0'}else{'15.0'}
   $sample="samples/net$major.0/QuayMutex/QuayMutex.csproj"
   $directory=Split-Path (Join-Path $root $sample)
@@ -62,7 +62,7 @@ echo CROSS_USER_VERIFIED
    $actual=Invoke-Estuary $Docker $root @('exec',$container,'sh','-ec',$test.Replace("`r`n","`n"))
    Assert-Estuary $actual 'SAME_USER_EXCLUDED'
    Assert-Estuary $actual 'CROSS_USER_VERIFIED'
-   $expectedVersion=if($mode -eq 'historical'){'.NET 10.0.12'}elseif($major -eq '10'){'.NET 10.0.13'}else{'.NET 11.0.0-rc.2.26504.105'}
+   $expectedVersion=if($mode -eq 'historical'){'.NET 10.0.12'}elseif($major -eq '10'){'.NET 10.0.14'}else{'.NET 11.0.0-rc.3.26522.148'}
    Assert-Estuary $actual $expectedVersion
   }
   $unknown=Invoke-Estuary $Docker $root @('exec','--user','24103',$container,'env','-u','XDG_RUNTIME_DIR','HOME=/home/quay_a',$runtime,$dll,'default',"unknown-$major") -Exit 21
@@ -75,7 +75,7 @@ echo CROSS_USER_VERIFIED
    Assert-Estuary $old 'ENTERED=True'
    Assert-Estuary $old '.NET 10.0.12'
   }
-  Save-EstuaryEvidence $sample $sdk $lang "net$major.0" 'Real isolated Linux processes: same-user exclusion, cross-user default isolation and explicit global sharing; unknown UID fails despite HOME, owned XDG_RUNTIME_DIR remedies failure. Actual 10.0.12 historical control, 10.0.13 and RC2.' $info 'eng/Test-QuayMutex.ps1 -Record' -ExpectedInputs $inputs
+  Save-EstuaryEvidence $sample $sdk $lang "net$major.0" 'Real isolated Linux processes: same-user exclusion, cross-user default isolation and explicit global sharing; unknown UID fails despite HOME, owned XDG_RUNTIME_DIR remedies failure. Actual 10.0.12 historical control, 10.0.14 and RC3.' $info 'eng/Test-QuayMutex.ps1 -Record' -ExpectedInputs $inputs
  }
  Write-Host 'PASS real Unix mutex processes and storage controls'
 } finally {if($created){$null=Invoke-Estuary $Docker $root @('rm','--force',$container)}}

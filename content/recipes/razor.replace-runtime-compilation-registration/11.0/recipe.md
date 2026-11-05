@@ -106,7 +106,7 @@ MVC/Razor Pages only. ASPDEPR003 completes runtime-compilation obsoletion; the r
 
 The .NET 11 RC2 release note completes the diagnostic annotations on remaining overloads. It explicitly says runtime behavior is unchanged: retaining the obsolete registration still enables the same runtime compiler. Choosing to remove it changes the development workflow to build-time compilation/Hot Reload. No assertion is made that obsoletion itself disables view rendering.
 
-Requirements are the .NET/ASP.NET Core 11 server runtime and a compatible SDK. Exact recorded pins are SDK 10.0.402/C# 14 and 11.0.100-rc.2.26504.105/C# 15; they are test baselines, not instructions to force those compiler modes onto older application targets. The current sample has no additional package, provider, native workload or account. Supported server platforms are broader than the measured Windows x64 execution.
+Requirements are the .NET/ASP.NET Core 11 server runtime and a compatible SDK. Exact recorded pins are SDK 10.0.403/C# 14 and 11.0.100-rc.3.26522.148/C# 15; they are test baselines, not instructions to force those compiler modes onto older application targets. The current sample has no additional package, provider, native workload or account. Supported server platforms are broader than the measured Windows x64 execution.
 
 ## Evidence
 

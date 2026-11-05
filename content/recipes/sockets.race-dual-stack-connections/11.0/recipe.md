@@ -54,7 +54,7 @@ bound the whole operation. Retain the using scope for the socket's entire use.
 
 1. Target net11.0 using a .NET 11 SDK/runtime. The canonical project declares
    C# 15.0; no preview language switch or experimental diagnostic suppression is
-   needed for this reviewed API. Exact SDK11RC2/runtime11RC2 versions below are
+   needed for this reviewed API. Exact SDK11RC3/runtime11RC3 versions below are
    verification pins, separate from the recipe's release-family requirements.
 2. Choose Default to retain the runtime's default sequential-address policy in
    the reviewed RC2 implementation, or Parallel to race IPv4 and IPv6 attempts.
@@ -99,8 +99,8 @@ a production relay. No persistent DNS, hosts-file or route edit is required.
 ## Evidence
 
 eng/Test-NetworkBuffers.ps1 -Record -VerifySources builds and executes the real
-paired consumers using SDK10.0.402/runtime10.0.13 and
-SDK11.0.100-rc.2.26504.105/runtime11.0.0-rc.2.26504.105. There are no resolved
+paired consumers using SDK10.0.403/runtime10.0.14 and
+SDK11.0.100-rc.3.26522.148/runtime11.0.0-rc.3.26522.148. There are no resolved
 package dependencies. Saved records retain input hashes, commands, actual loaded
 CoreLib and compiler identities, audit-matching socket/name-resolution references,
 and Windows ws2_32.dll/dnsapi.dll versions and hashes.

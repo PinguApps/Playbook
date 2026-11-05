@@ -137,7 +137,7 @@
   "evidence": [
     {
       "kind": "compile-and-run",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "sample": "samples/net10.0/EndpointLedger/EndpointLedger.csproj",
       "scope": "Actual Windows x64 .NET10 strict UTF8/string adapter: IPv4/IPv6, port limits/defaults, malformed/UTF8 rejection, exact/large/short output and guards. No new byte/char/interface API or performance/GA claim.",
       "target": "net10.0",
@@ -145,7 +145,7 @@
     },
     {
       "kind": "compile-and-run",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "sample": "samples/net11.0/EndpointLedger/EndpointLedger.csproj",
       "scope": "Actual Windows x64 IPv4/IPv6 endpoint spans, port limits/defaults, malformed/UTF8 failures, exact/large/short output and guards; current byte Parse/char format/generic interfaces. No allocation/performance/GA claim.",
       "target": "net11.0",

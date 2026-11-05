@@ -14,7 +14,7 @@ Push-Location $directory
 try {
     $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH = '0'
     $sdk = (& $Dotnet --version | Out-String).Trim()
-    if ($sdk -cne '11.0.100-rc.2.26504.105') { throw "Unexpected SDK: $sdk" }
+    if ($sdk -cne '11.0.100-rc.3.26522.148') { throw "Unexpected SDK: $sdk" }
     & $Dotnet publish MarshDispatch.csproj -c Release -r win-x64 -p:PublishAot=true -o $output
     $result = (& (Join-Path $output 'MarshDispatch.exe') | Out-String).Trim()
     if ($result -cne '{"Station":"Reedbank","Birds":5}') { throw "Incorrect generated dispatch: $result" }

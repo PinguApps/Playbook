@@ -43,7 +43,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Sample pin 11.0.100-rc.2.26504.105; restore/build net11.0 assets."
+            "reason": "Sample pin 11.0.100-rc.3.26522.148; restore/build net11.0 assets."
           },
           "language": {
             "name": "C#",
@@ -114,7 +114,7 @@
       "language": "14.0",
       "kind": "compile-and-run",
       "target": "net10.0",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "scope": "Actual declared .NET 10/11 SDK compilation and loopback Kestrel execution: raw/authored Obsolete operation/type/property flags with current controls; document/operation/schema transformers, inline traversal, response reference and override, object/scalar JSON extensions; exact empty/non-empty PathBase server fixtures, optional root-slash transform and composed HTTP requests. No mock, cross-compilation or third-party generated-client claim.",
       "sample": "samples/net10.0/FenContracts/FenContracts.csproj"
     },
@@ -122,7 +122,7 @@
       "language": "15.0",
       "kind": "compile-and-run",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "scope": "Actual declared .NET 10/11 SDK compilation and loopback Kestrel execution: raw/authored Obsolete operation/type/property flags with current controls; document/operation/schema transformers, inline traversal, response reference and override, object/scalar JSON extensions; exact empty/non-empty PathBase server fixtures, optional root-slash transform and composed HTTP requests. No mock, cross-compilation or third-party generated-client claim.",
       "sample": "samples/net11.0/FenContracts/FenContracts.csproj"
     }

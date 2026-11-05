@@ -17,9 +17,9 @@
     "Emscripten/3.1.56"
   ],
   "dependencies": [
-    "Microsoft.NET.Sdk.WebAssembly.Pack/10.0.13"
+    "Microsoft.NET.Sdk.WebAssembly.Pack/10.0.14"
   ],
   "workloads": [
-    "wasm-tools/10.0.113/10.0.100"
+    "wasm-tools/10.0.114/10.0.100"
   ]
 }

@@ -1,8 +1,8 @@
 #requires -Version 7.4
 [CmdletBinding()]
 param(
-  [string]$Net10Dotnet = 'C:/Program Files/dotnet/dotnet.exe',
-  [string]$Net11Dotnet = 'C:/Users/pingu/.dotnet-playbook-11/dotnet.exe',
+  [string]$Net10Dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source,
+  [string]$Net11Dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source,
   [string]$OutputDirectory = ([IO.Path]::GetTempPath()),
   [switch]$Launch
 )
@@ -102,8 +102,8 @@ try {
   Write-Input (Join-Path $work 'Directory.Build.targets') '<Project />'
   Write-Input (Join-Path $work 'Directory.Packages.props') '<Project />'
   foreach ($baseline in @(
-    @{ target = 'net10.0'; sdk = '10.0.402'; dotnet = $Net10Dotnet; maui = '10.0.110' },
-    @{ target = 'net11.0'; sdk = '11.0.100-rc.2.26504.105'; dotnet = $Net11Dotnet; maui = '11.0.0-preview.6.26360.8' }
+    @{ target = 'net10.0'; sdk = '10.0.403'; dotnet = $Net10Dotnet; maui = '10.0.110' },
+    @{ target = 'net11.0'; sdk = '11.0.100-rc.3.26522.148'; dotnet = $Net11Dotnet; maui = '11.0.0-preview.6.26360.8' }
   )) {
     foreach ($framework in @('Wpf', 'WinForms', 'Maui')) {
       $directory = Join-Path $work "$($baseline.target)/$framework"

@@ -5,7 +5,7 @@
     "eng/Evidence.ps1"
   ],
   "dependencies": [
-    "Microsoft.AspNetCore.App.Internal.Assets/10.0.13",
+    "Microsoft.AspNetCore.App.Internal.Assets/10.0.14",
     "Microsoft.Extensions.AI.Abstractions/10.6.0"
   ],
   "nativeToolchains": [],

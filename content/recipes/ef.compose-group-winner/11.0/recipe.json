@@ -94,7 +94,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Stable API contract prepared using .NET11 RC2 SDK/runtime/EF packages; no experimental opt-in. Actual GA reconciliation remains outstanding."
+            "Stable API contract prepared using .NET11 RC3 SDK/runtime and EF11 RC2 packages; no experimental opt-in. Actual GA reconciliation remains outstanding."
           ]
         },
         "conditional": false,
@@ -126,7 +126,7 @@
       "target": "net10.0",
       "language": "14.0",
       "kind": "compile-and-run",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "scope": "Real SQL Server execution: deterministic tied winner IDs12/21 and related names, plus matched B/B, left-only A/null and right-only null/C. Previous EF10 uses anti-existence winner selection and left join plus right-only concatenation; EF11 uses GroupBy/First followed by navigation and translated FullJoin. Exact SDK/package closure retained in sample evidence; RC2 is not GA proof."
     },
     {
@@ -134,7 +134,7 @@
       "target": "net11.0",
       "language": "15.0",
       "kind": "compile-and-run",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "scope": "Real SQL Server execution: deterministic tied winner IDs12/21 and related names, plus matched B/B, left-only A/null and right-only null/C. Previous EF10 uses anti-existence winner selection and left join plus right-only concatenation; EF11 uses GroupBy/First followed by navigation and translated FullJoin. Exact SDK/package closure retained in sample evidence; RC2 is not GA proof."
     }
   ],

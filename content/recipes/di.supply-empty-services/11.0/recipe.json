@@ -117,7 +117,7 @@
       "kind": "compile-and-run",
       "sample": "samples/net10.0/MuseumServices/MuseumServices.csproj",
       "target": "net10.0",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "language": "14.0",
       "scope": "Actual Windows x64 managed JIT DI interface calls: absent/required/keyed services, built-ins/self queries, scopes/disposal, reference/value closed enumerables, open generics and AnyKey restrictions. No Native AOT, other-platform or GA execution."
     },
@@ -125,7 +125,7 @@
       "kind": "compile-and-run",
       "sample": "samples/net11.0/MuseumServices/MuseumServices.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "language": "15.0",
       "scope": "Actual Windows x64 managed JIT DI interface calls: absent/required/keyed services, built-ins/self queries, scopes/disposal, reference/value closed enumerables, open generics and AnyKey restrictions. No Native AOT, other-platform or GA execution."
     }

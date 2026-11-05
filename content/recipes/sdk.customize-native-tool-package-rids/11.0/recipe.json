@@ -65,7 +65,7 @@
           ],
           "renderingModes": [],
           "prerequisites": [
-            "Complete SDK/runtime installations; tested SDK10 10.0.402/runtime10.0.13 and SDK11 11.0.100-rc.2.26504.105/runtime11.0.0-rc.2.26504.105.",
+            "Complete SDK/runtime installations; tested SDK10 10.0.403/runtime10.0.14 and SDK11 11.0.100-rc.3.26522.148/runtime11.0.0-rc.3.26522.148.",
             "PowerShell 7 for the authoring checks. Restore setup may need nuget.org; served guidance is embedded offline.",
             "MSVC linker 14.51.36260.0, tool directory 14.51.36231, Windows SDK libraries 10.0.26100.0; supply absolute CppLinker and SkylarkMsvcLibraries, SkylarkUmLibraries and SkylarkUcrtLibraries."
           ],
@@ -109,7 +109,7 @@
       "kind": "compile-and-run",
       "sample": "samples/net10.0/SkylarkNative/SkylarkNative.csproj",
       "target": "net10.0",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "language": "14.0",
       "scope": "Real build/run plus native pack, PE inspection, local install/run and unsupported/missing-toolchain failures; Windows x64 only."
     },
@@ -117,7 +117,7 @@
       "kind": "compile-and-run",
       "sample": "samples/net11.0/SkylarkNative/SkylarkNative.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "language": "15.0",
       "scope": "Real build/run plus native pack, PE inspection, local install/run and unsupported/missing-toolchain failures; Windows x64 only."
     }

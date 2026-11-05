@@ -64,7 +64,7 @@
           ],
           "renderingModes": [],
           "prerequisites": [
-            "Complete measured SDK10.0.402/runtime10.0.13 and SDK11.0.100-rc.2.26504.105/runtime11RC2 installations; PowerShell7.",
+            "Complete measured SDK10.0.403/runtime10.0.14 and SDK11.0.100-rc.3.26522.148/runtime11RC3 installations; PowerShell7.",
             "Restore each pinned original project before the reader calls build --no-restore. No package, provider, workload or native compiler dependency for this route."
           ],
           "constraints": [
@@ -104,7 +104,7 @@
   ],
   "evidence": [
     {
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "target": "net10.0",
       "sample": "samples/net10.0/EstuaryEncoding/EstuaryEncoding.csproj",
       "scope": "Real paired Windows x64 build/run, raw non-ASCII diagnostic bytes under private CP1252/65001 consoles; default/false/true and source opt-out controls, explicit UTF-8 decode, mismatched reader corruption and actual failed builds. No working legacy producer opt-out is qualified.",
@@ -112,7 +112,7 @@
       "language": "14.0"
     },
     {
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "target": "net11.0",
       "sample": "samples/net11.0/EstuaryEncoding/EstuaryEncoding.csproj",
       "scope": "Real paired Windows x64 build/run, raw non-ASCII diagnostic bytes under private CP1252/65001 consoles; default/false/true and source opt-out controls, explicit UTF-8 decode, mismatched reader corruption and actual failed builds. No working legacy producer opt-out is qualified.",

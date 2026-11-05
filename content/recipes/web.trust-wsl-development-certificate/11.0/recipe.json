@@ -34,7 +34,7 @@
           "sdk": {
             "version": "11.0",
             "match": "release-family",
-            "reason": "Exact recorded pin 11.0.100-rc.2.26504.105; older sample 10.0.402.",
+            "reason": "Exact recorded pin 11.0.100-rc.3.26522.148; older sample 10.0.403.",
             "name": ".NET SDK"
           },
           "language": {
@@ -102,7 +102,7 @@
   "evidence": [
     {
       "target": "net10.0",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "kind": "compile",
       "language": "14.0",
       "sample": "samples/net10.0/EstuaryHttps/EstuaryHttps.csproj",
@@ -110,7 +110,7 @@
     },
     {
       "target": "net11.0",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "kind": "compile",
       "language": "15.0",
       "sample": "samples/net11.0/EstuaryHttps/EstuaryHttps.csproj",

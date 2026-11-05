@@ -1,7 +1,7 @@
 [CmdletBinding()]
 param(
-  [string]$Net10Dotnet = 'C:/Program Files/dotnet/dotnet.exe',
-  [string]$Net11Dotnet = 'C:/Users/pingu/.dotnet-playbook-11/dotnet.exe',
+  [string]$Net10Dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source,
+  [string]$Net11Dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source,
   [switch]$VerifySources
 )
 $ErrorActionPreference = 'Stop'
@@ -50,8 +50,8 @@ try {
     }
   }
   foreach ($baseline in @(
-    @{ target='net10.0'; dotnet=$Net10Dotnet; sdk='10.0.402'; runtime='10.0.13' },
-    @{ target='net11.0'; dotnet=$Net11Dotnet; sdk='11.0.100-rc.2.26504.105'; runtime='11.0.0-rc.2.26504.105' }
+    @{ target='net10.0'; dotnet=$Net10Dotnet; sdk='10.0.403'; runtime='10.0.14' },
+    @{ target='net11.0'; dotnet=$Net11Dotnet; sdk='11.0.100-rc.3.26522.148'; runtime='11.0.0-rc.3.26522.148' }
   )) {
     foreach ($name in 'WeatherImport','QuarryMaintenance') {
       $sample = "samples/$($baseline.target)/$name/$name.csproj"

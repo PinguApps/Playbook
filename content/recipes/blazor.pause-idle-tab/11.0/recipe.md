@@ -10,7 +10,7 @@ This is Interactive Server guidance. .NET 11 adds opt-in automatic pause in Comp
 
 .NET 10 has no AddAutoPause registration or Circuit.RequestCircuitPauseAsync. An application can still coordinate its supported Blazor.pauseCircuit/Blazor.resumeCircuit primitives from JavaScript. The original worksheet uses a small visibility timer and a server-to-browser bridge. This remains a valid application-owned policy; it does not reproduce all newer browser activity guards.
 
-Create TideCharts.csproj below. Enable Nullable and ImplicitUsings in its PropertyGroup (the repository supplies both through samples/Directory.Build.props). Restore/build with SDK 10.0.402 for the recorded baseline. The Web SDK supplies its matching Internal.Assets dependency; packages.lock.json records 10.0.13.
+Create TideCharts.csproj below. Enable Nullable and ImplicitUsings in its PropertyGroup (the repository supplies both through samples/Directory.Build.props). Restore/build with SDK 10.0.403 for the recorded baseline. The Web SDK supplies its matching Internal.Assets dependency; packages.lock.json records 10.0.14.
 
 {{snippet:project-10}}
 
@@ -109,7 +109,7 @@ For server-directed pause, cancellation of request is not guaranteed completed s
 
 ## Evidence
 
-Both original TideCharts projects compile with zero warnings/errors under SDK 10.0.402/C# 14 and SDK 11.0.100-rc.2.26504.105/C# 15. Saved compilation records contain exact inputs, dependencies and commands. Compilation is separate from browser/server execution.
+Both original TideCharts projects compile with zero warnings/errors under SDK 10.0.403/C# 14 and SDK 11.0.100-rc.3.26522.148/C# 15. Saved compilation records contain exact inputs, dependencies and commands. Compilation is separate from browser/server execution.
 
 Actual Chrome extension tests switch native tabs with focus emulation disabled. No document.hidden/visibilityState override or synthetic visibility event is used. RC2 idle execution observes down/closed, old-resource disposal, automatic return into a new circuit/resource and the original readings/sheet. A brief return before the delay prevents pause. A real held JS call keeps the resource alive beyond the delay; release allows pause. Enabled=false preserves a hidden circuit.
 

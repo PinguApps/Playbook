@@ -38,4 +38,4 @@ The CMS recipe accepts pure ML-KEM, not this composite format. Do not pass Compo
 
 ## Evidence
 
-Actual .NET 10 pure ML-KEM and .NET 11 composite samples compile and execute with public-only sender keys, real encapsulation/decapsulation, fixed-time equality and malformed-capsule rejection. The newer sample also executes classical HPKE seal/open and ciphertext-tampering rejection, and asserts the selected MLKEM768_P256 HPKE suite is unsupported. No mock stands in for the post-quantum operation. Exact dependencies, RC2 SDK, Linux image and OpenSSL version are recorded separately from GA readiness.
+Actual .NET 10 pure ML-KEM and .NET 11 composite samples compile and execute with public-only sender keys, real encapsulation/decapsulation, fixed-time equality and malformed-capsule rejection. The newer sample also executes classical HPKE seal/open and ciphertext-tampering rejection, and asserts the selected MLKEM768_P256 HPKE suite is unsupported. No mock stands in for the post-quantum operation. Exact dependencies, RC3 SDK, Linux image and OpenSSL version are recorded separately from GA readiness.

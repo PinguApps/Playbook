@@ -29,7 +29,7 @@
           "platforms": ["Browser"],
           "renderingModes": ["Interactive Server"],
           "prerequisites": [
-            "Use Microsoft.NET.Sdk.Web, net11.0, nullable and implicit usings. Virtualize is in Microsoft.AspNetCore.App; no separate virtualization package, provider, account or workload is required. The pinned SDK resolves Microsoft.AspNetCore.App.Internal.Assets 11.0.0-rc.2.26504.105.",
+            "Use Microsoft.NET.Sdk.Web, net11.0, nullable and implicit usings. Virtualize is in Microsoft.AspNetCore.App; no separate virtualization package, provider, account or workload is required. The pinned SDK resolves Microsoft.AspNetCore.App.Internal.Assets 11.0.0-rc.3.26522.148.",
             "Register Interactive Server, load matching blazor.web.js and allow the app's trusted boot script and local circuit connection. Put app styles in an allowed external stylesheet. The tested header enforces style-src 'self', style-src-elem 'self' and style-src-attr 'none'.",
             "Use a real scroll container, fixed-height rows and browser IntersectionObserver/MutationObserver/CSSOM support. Execute the policy controls and inspect actual visible distant IDs in the consumer browser."
           ],
@@ -61,8 +61,8 @@
     {"title": "Blazor CSP and separate script requirements", "url": "https://learn.microsoft.com/en-us/aspnet/core/blazor/security/content-security-policy?view=aspnetcore-11.0"}
   ],
   "evidence": [
-    {"sample": "samples/net10.0/BeaconReadings/BeaconReadings.csproj", "target": "net10.0", "sdk": "10.0.402", "language": "14.0", "kind": "compile", "scope": "Actual pinned Web SDK build. Separate real Chrome execution compares the explicit attribute exception with the enforced strict failure, visible distant IDs and attribute/element/CSSOM controls; no mocks."},
-    {"sample": "samples/net11.0/BeaconReadings/BeaconReadings.csproj", "target": "net11.0", "sdk": "11.0.100-rc.2.26504.105", "language": "15.0", "kind": "compile", "scope": "Actual pinned Web SDK build. Separate real Chrome execution checks strict response header, actual visible distant rows, bounded DOM window, return scrolling and enforced attribute/element controls without virtualization exceptions; no mocks."}
+    {"sample": "samples/net10.0/BeaconReadings/BeaconReadings.csproj", "target": "net10.0", "sdk": "10.0.403", "language": "14.0", "kind": "compile", "scope": "Actual pinned Web SDK build. Separate real Chrome execution compares the explicit attribute exception with the enforced strict failure, visible distant IDs and attribute/element/CSSOM controls; no mocks."},
+    {"sample": "samples/net11.0/BeaconReadings/BeaconReadings.csproj", "target": "net11.0", "sdk": "11.0.100-rc.3.26522.148", "language": "15.0", "kind": "compile", "scope": "Actual pinned Web SDK build. Separate real Chrome execution checks strict response header, actual visible distant rows, bounded DOM window, return scrolling and enforced attribute/element controls without virtualization exceptions; no mocks."}
   ],
   "snippets": {
     "older": {"path": "samples/net10.0/BeaconReadings/Program.cs", "region": "host", "language": "csharp"},

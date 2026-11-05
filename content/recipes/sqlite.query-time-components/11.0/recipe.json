@@ -43,7 +43,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Build the net11 consumer. Exact RC2 SDK and reference/runtime artifacts are verification pins, not GA evidence."
+            "reason": "Build the net11 consumer. Exact RC3 SDK and reference/runtime artifacts are verification pins, not GA evidence."
           },
           "language": {
             "name": "C#",
@@ -144,7 +144,7 @@
       "kind": "compile-and-run",
       "sample": "samples/net10.0/HeronSignals/HeronSignals.csproj",
       "target": "net10.0",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "language": "14.0",
       "scope": "Actual SQLite native version/source ID/DLL hash; eleven exact stored TEXT/null boundary and fractional inputs; tick round-trip; seven executed parameter-safe server filters with exact IDs and strftime SQL. EF10 rejects all three direct component predicates before any command; supported FromSqlInterpolated alternative executes."
     },
@@ -152,7 +152,7 @@
       "kind": "compile-and-run",
       "sample": "samples/net11.0/HeronSignals/HeronSignals.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "language": "15.0",
       "scope": "Actual SQLite native version/source ID/DLL hash; eleven exact stored TEXT/null boundary and fractional inputs; tick round-trip; seven executed parameter-safe server filters with exact IDs and strftime SQL. EF11 translates all three component predicates and rejects unsupported Millisecond before any command."
     }

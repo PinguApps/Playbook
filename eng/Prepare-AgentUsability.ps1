@@ -2,7 +2,7 @@
 param(
     [Parameter(Mandatory)][string]$Seed,
     [Parameter(Mandatory)][string]$Playbook,
-    [string]$Sdk = '11.0.100-rc.2.26504.105'
+    [string]$Sdk = '11.0.100-rc.3.26522.148'
 )
 
 # Dedicated, owner-authorized verification repository only. Never a product checkout.

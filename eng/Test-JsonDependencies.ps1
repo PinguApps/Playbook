@@ -1,7 +1,7 @@
 [CmdletBinding()]
 param(
-  [string]$Net10Dotnet = 'C:/Program Files/dotnet/dotnet.exe',
-  [string]$Net11Dotnet = 'C:/Users/pingu/.dotnet-playbook-11/dotnet.exe',
+  [string]$Net10Dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source,
+  [string]$Net11Dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source,
   [switch]$Record
 )
 $ErrorActionPreference = 'Stop'
@@ -135,7 +135,7 @@ try {
     $runners[$version] = $runner[0].FullName
     $log.Add("runner=Microsoft.TestPlatform.CLI/$version;sha256=$((Get-FileHash $archive).Hash.ToLowerInvariant());entry=$([IO.Path]::GetRelativePath($directory,$runner[0].FullName));newtonsoft=$([bool](Test-Path (Join-Path $runner[0].DirectoryName 'Newtonsoft.Json.dll')))")
   }
-  $sdkRoot = Join-Path (Split-Path $Net11Dotnet) 'sdk/11.0.100-rc.2.26504.105'
+  $sdkRoot = Join-Path (Split-Path $Net11Dotnet) 'sdk/11.0.100-rc.3.26522.148'
   foreach ($file in $manifest.inspectedSdk.files) {
     $actual = Join-Path $sdkRoot $file.file
     if ((Get-FileHash $actual).Hash.ToLowerInvariant() -cne $file.sha256) { throw "Audited SDK file drift: $($file.file)" }
@@ -149,13 +149,13 @@ try {
   }
   $prefix = $log.ToArray()
   $cases = @(
-    @{Path='net10.0/WeatherExtension';Name='WeatherExtension';Target='net10.0';Sdk='10.0.402';Language='14.0';Version='18.7.0';Extension=$true},
-    @{Path='net10.0/WeatherCollector';Name='WeatherCollector';Target='net10.0';Sdk='10.0.402';Language='14.0';Version='18.7.0';Extension=$true},
-    @{Path='net11.0/WeatherCollector';Name='WeatherCollector';Target='net11.0';Sdk='11.0.100-rc.2.26504.105';Language='15.0';Version='18.11.0';Extension=$true},
-    @{Path='net11.0/WeatherExtension';Name='WeatherExtension';Target='net11.0';Sdk='11.0.100-rc.2.26504.105';Language='15.0';Version='18.11.0';Extension=$true},
-    @{Path='WeatherJson';Name='WeatherTestsLegacy';Target='net10.0';Sdk='10.0.402';Language='14.0';Version='18.7.0';Extension=$false},
-    @{Path='net10.0/WeatherTests';Name='WeatherTests';Target='net10.0';Sdk='10.0.402';Language='14.0';Version='18.11.0';Extension=$false},
-    @{Path='net11.0/WeatherTests';Name='WeatherTests';Target='net11.0';Sdk='11.0.100-rc.2.26504.105';Language='15.0';Version='18.11.0';Extension=$false}
+    @{Path='net10.0/WeatherExtension';Name='WeatherExtension';Target='net10.0';Sdk='10.0.403';Language='14.0';Version='18.7.0';Extension=$true},
+    @{Path='net10.0/WeatherCollector';Name='WeatherCollector';Target='net10.0';Sdk='10.0.403';Language='14.0';Version='18.7.0';Extension=$true},
+    @{Path='net11.0/WeatherCollector';Name='WeatherCollector';Target='net11.0';Sdk='11.0.100-rc.3.26522.148';Language='15.0';Version='18.11.0';Extension=$true},
+    @{Path='net11.0/WeatherExtension';Name='WeatherExtension';Target='net11.0';Sdk='11.0.100-rc.3.26522.148';Language='15.0';Version='18.11.0';Extension=$true},
+    @{Path='WeatherJson';Name='WeatherTestsLegacy';Target='net10.0';Sdk='10.0.403';Language='14.0';Version='18.7.0';Extension=$false},
+    @{Path='net10.0/WeatherTests';Name='WeatherTests';Target='net10.0';Sdk='10.0.403';Language='14.0';Version='18.11.0';Extension=$false},
+    @{Path='net11.0/WeatherTests';Name='WeatherTests';Target='net11.0';Sdk='11.0.100-rc.3.26522.148';Language='15.0';Version='18.11.0';Extension=$false}
   )
   $captures = @()
   foreach ($case in $cases) {

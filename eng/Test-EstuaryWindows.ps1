@@ -1,7 +1,7 @@
 [CmdletBinding()]
 param(
-  [string]$Net10Dotnet='C:/Program Files/dotnet/dotnet.exe',
-  [string]$Net11Dotnet='C:/Users/pingu/.dotnet-playbook-11/dotnet.exe',
+  [string]$Net10Dotnet=(Get-Command dotnet -CommandType Application | Select-Object -First 1).Source,
+  [string]$Net11Dotnet=(Get-Command dotnet -CommandType Application | Select-Object -First 1).Source,
   [string]$VisualCppRoot='C:/Program Files (x86)/Microsoft Visual Studio/18/BuildTools/VC/Tools/MSVC/14.51.36231',
   [string]$WindowsSdkLibRoot='C:/Program Files (x86)/Windows Kits/10/Lib/10.0.26100.0',
   [switch]$Record
@@ -25,7 +25,7 @@ try {
   }
   foreach($major in '10','11') {
     $dotnet=if($major -eq '10'){$Net10Dotnet}else{$Net11Dotnet}
-    $sdk=if($major -eq '10'){'10.0.402'}else{'11.0.100-rc.2.26504.105'}
+    $sdk=if($major -eq '10'){'10.0.403'}else{'11.0.100-rc.3.26522.148'}
     $language=if($major -eq '10'){'14.0'}else{'15.0'}
     foreach($pin in (Get-Content (Join-Path $root 'samples/EstuarySdk/artifacts.json') -Raw|ConvertFrom-Json).artifacts|Where-Object sdk -CEQ $sdk){
       $file=Join-Path (Split-Path $dotnet) $pin.path

@@ -45,13 +45,13 @@
             "name": ".NET",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Actual Windows x64 test-host runtime: 10.0.13 or 11.0.0-rc.2.26504.105."
+            "reason": "Actual Windows x64 test-host runtime: 10.0.14 or 11.0.0-rc.3.26522.148."
           },
           "sdk": {
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Exact observed pins are 10.0.402 and 11.0.100-rc.2.26504.105; runtime/runner selection is separate."
+            "reason": "Exact observed pins are 10.0.403 and 11.0.100-rc.3.26522.148; runtime/runner selection is separate."
           },
           "language": {
             "name": "C#",
@@ -146,13 +146,13 @@
             "name": ".NET",
             "version": "10.0",
             "match": "release-family",
-            "reason": "Actual Windows x64 test-host runtime: 10.0.13 or 11.0.0-rc.2.26504.105."
+            "reason": "Actual Windows x64 test-host runtime: 10.0.14 or 11.0.0-rc.3.26522.148."
           },
           "sdk": {
             "name": ".NET SDK",
             "version": "10.0",
             "match": "release-family",
-            "reason": "Exact observed pins are 10.0.402 and 11.0.100-rc.2.26504.105; runtime/runner selection is separate."
+            "reason": "Exact observed pins are 10.0.403 and 11.0.100-rc.3.26522.148; runtime/runner selection is separate."
           },
           "language": {
             "name": "C#",
@@ -265,7 +265,7 @@
     {
       "sample": "samples/WeatherJson/WeatherTestsLegacy.csproj",
       "target": "net10.0",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "language": "14.0",
       "kind": "compile-and-run",
       "scope": "Actual pinned VSTest 18.7/18.11 consumers, one passed rainfall test per lane, adapter discovery and managed collector loading; audited source/packages, complete selected closure and missing-direct/test-runtime/extension-runtime controls."
@@ -273,7 +273,7 @@
     {
       "sample": "samples/net10.0/WeatherTests/WeatherTests.csproj",
       "target": "net10.0",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "language": "14.0",
       "kind": "compile-and-run",
       "scope": "Actual pinned VSTest 18.7/18.11 consumers, one passed rainfall test per lane, adapter discovery and managed collector loading; audited source/packages, complete selected closure and missing-direct/test-runtime/extension-runtime controls."
@@ -281,7 +281,7 @@
     {
       "sample": "samples/net11.0/WeatherTests/WeatherTests.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "language": "15.0",
       "kind": "compile-and-run",
       "scope": "Actual pinned VSTest 18.7/18.11 consumers, one passed rainfall test per lane, adapter discovery and managed collector loading; audited source/packages, complete selected closure and missing-direct/test-runtime/extension-runtime controls."
@@ -289,7 +289,7 @@
     {
       "sample": "samples/net10.0/WeatherExtension/WeatherExtension.csproj",
       "target": "net10.0",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "language": "14.0",
       "kind": "compile-and-run",
       "scope": "Actual pinned VSTest 18.7/18.11 consumers, one passed rainfall test per lane, adapter discovery and managed collector loading; audited source/packages, complete selected closure and missing-direct/test-runtime/extension-runtime controls."
@@ -297,7 +297,7 @@
     {
       "sample": "samples/net11.0/WeatherExtension/WeatherExtension.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "language": "15.0",
       "kind": "compile-and-run",
       "scope": "Actual pinned VSTest 18.7/18.11 consumers, one passed rainfall test per lane, adapter discovery and managed collector loading; audited source/packages, complete selected closure and missing-direct/test-runtime/extension-runtime controls."
@@ -305,7 +305,7 @@
     {
       "sample": "samples/net10.0/WeatherCollector/WeatherCollector.csproj",
       "target": "net10.0",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "language": "14.0",
       "kind": "compile-and-run",
       "scope": "Actual pinned VSTest 18.7/18.11 consumers, one passed rainfall test per lane, adapter discovery and managed collector loading; audited source/packages, complete selected closure and missing-direct/test-runtime/extension-runtime controls."
@@ -313,7 +313,7 @@
     {
       "sample": "samples/net11.0/WeatherCollector/WeatherCollector.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "language": "15.0",
       "kind": "compile-and-run",
       "scope": "Actual pinned VSTest 18.7/18.11 consumers, one passed rainfall test per lane, adapter discovery and managed collector loading; audited source/packages, complete selected closure and missing-direct/test-runtime/extension-runtime controls."

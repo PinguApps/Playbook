@@ -10,7 +10,7 @@ SDK 10 can run xUnit v3 on MTP with an explicitly authored project, as the runne
 
 {{snippet:older}}
 
-Its global.json pins SDK 10.0.402 and selects `"test": { "runner": "VSTest" }`. Run `dotnet test NUnitTests.csproj -c Release`. The test SDK supplies VSTest hosting, while the adapter connects NUnit assertions to it. Changing only the CLI runner selection does not add an executable MTP host to this project.
+Its global.json pins SDK 10.0.403 and selects `"test": { "runner": "VSTest" }`. Run `dotnet test NUnitTests.csproj -c Release`. The test SDK supplies VSTest hosting, while the adapter connects NUnit assertions to it. Changing only the CLI runner selection does not add an executable MTP host to this project.
 
 ## Newer approach
 
@@ -26,7 +26,7 @@ The alternative original xUnit MTP project uses its matching entry-point package
 
 {{snippet:xunit}}
 
-Choose one framework project; do not add both framework package sets to the same project merely to select a runner. With a global.json SDK pin of 11.0.100-rc.2.26504.105 and `"test": { "runner": "Microsoft.Testing.Platform" }`, run `dotnet test --project NUnitTests.csproj -c Release` or the equivalent --project RunnerTests.csproj command. These are original assertions rather than template tests:
+Choose one framework project; do not add both framework package sets to the same project merely to select a runner. With a global.json SDK pin of 11.0.100-rc.3.26522.148 and `"test": { "runner": "Microsoft.Testing.Platform" }`, run `dotnet test --project NUnitTests.csproj -c Release` or the equivalent --project RunnerTests.csproj command. These are original assertions rather than template tests:
 
 {{snippet:tests}}
 

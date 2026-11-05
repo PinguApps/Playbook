@@ -31,7 +31,7 @@ data, builds temporary consumers outside the repository, and removes those files
 Override `-Docker` on either script or `-Net10Dotnet`/`-Net11Dotnet` on the provider
 check with existing absolute executable paths when installations differ. The
 defaults are Docker Desktop's CLI, `C:\Program Files\dotnet\dotnet.exe`, and
-`C:\Users\pingu\.dotnet-playbook-11\dotnet.exe`. The dotnetup SDK directory on
+`C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe`. The dotnetup SDK directory on
 this machine advertised SDK 10.0.402 but lacked its runtime configuration; the
 check uses the complete installations without changing that shared setup.
 

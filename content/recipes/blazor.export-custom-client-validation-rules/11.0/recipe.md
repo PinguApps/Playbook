@@ -40,7 +40,7 @@ Rule names are case-sensitive, registrations are app-wide, and a repeated name r
 
 ## Migration
 
-1. Keep the server rule authoritative. Use Microsoft.NET.Sdk.Web, net11.0, C# 15.0, nullable and implicit usings enabled. The comparison uses net10.0/C# 14.0. No optional workload, native toolchain or experimental opt-in is required. The exact measured pins are SDK 10.0.402/framework and Internal.Assets 10.0.13 versus SDK 11.0.100-rc.2.26504.105/framework and Internal.Assets 11.0.0-rc.2.26504.105. SDK-aligned Internal.Assets is an implicit dependency, locked in each packages.lock.json; no additional PackageReference is required.
+1. Keep the server rule authoritative. Use Microsoft.NET.Sdk.Web, net11.0, C# 15.0, nullable and implicit usings enabled. The comparison uses net10.0/C# 14.0. No optional workload, native toolchain or experimental opt-in is required. The exact measured pins are SDK 10.0.403/framework and Internal.Assets 10.0.14 versus SDK 11.0.100-rc.3.26522.148/framework and Internal.Assets 11.0.0-rc.3.26522.148. SDK-aligned Internal.Assets is an implicit dependency, locked in each packages.lock.json; no additional PackageReference is required.
 2. Put AccessionAttribute, PlantEntry, Entry.razor and SubmissionCounts in namespace Playbook.Samples. Use _Imports.razor with @namespace Playbook.Samples and @using Microsoft.AspNetCore.Components, Microsoft.AspNetCore.Components.Forms, Microsoft.AspNetCore.Components.Routing, Microsoft.AspNetCore.Http and Playbook.Samples. Use this static document:
 
 {{snippet:document}}

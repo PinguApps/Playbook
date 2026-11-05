@@ -62,7 +62,7 @@
           "packages": [],
           "workloads": [],
           "packageAssets": [
-            "Microsoft.AspNetCore.Components and Components.Web from the matching shared/reference framework; locked Microsoft.AspNetCore.App.Internal.Assets 11.0.0-rc.2.26504.105 browser files supplied by the measured Web SDK."
+            "Microsoft.AspNetCore.Components and Components.Web from the matching shared/reference framework; locked Microsoft.AspNetCore.App.Internal.Assets 11.0.0-rc.3.26522.148 browser files supplied by the measured Web SDK."
           ],
           "providers": [
             "Application-owned scoped MaterialCatalogue resolved from the actual component service provider. No external provider/account."
@@ -75,7 +75,7 @@
           ],
           "prerequisites": [
             "Use net11.0 Web SDK, register Razor components/Interactive Server and map component endpoints/static assets with antiforgery.",
-            "The previous net10.0 comparison uses SDK 10.0.402, framework/browser assets 10.0.13 and C# 14; the current sample uses SDK/framework RC2 11.0.100-rc.2.26504.105 / 11.0.0-rc.2.26504.105.",
+            "The previous net10.0 comparison uses SDK 10.0.403, framework/browser assets 10.0.14 and C# 14; the current sample uses SDK/framework RC2 11.0.100-rc.3.26522.148 / 11.0.0-rc.3.26522.148.",
             "Inject the component's scoped IServiceProvider; register MaterialCatalogue as scoped. Do not create a root provider or a separate scope solely to enable validation."
           ],
           "constraints": [
@@ -119,7 +119,7 @@
     {
       "sample": "samples/net10.0/SailRepairs/SailRepairs.csproj",
       "target": "net10.0",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "language": "14.0",
       "kind": "compile",
       "scope": "Actual matching target, SDK and locked SDK-aligned browser assets; no cross-compilation."
@@ -127,7 +127,7 @@
     {
       "sample": "samples/net10.0/SailRepairs/SailRepairs.csproj",
       "target": "net10.0",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "language": "14.0",
       "kind": "execution",
       "record": "samples/net10.0/SailRepairs/behavior.evidence.json",
@@ -136,7 +136,7 @@
     {
       "sample": "samples/net11.0/SailRepairs/SailRepairs.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "language": "15.0",
       "kind": "compile",
       "scope": "Actual matching target, SDK and locked SDK-aligned browser assets; no cross-compilation."
@@ -144,7 +144,7 @@
     {
       "sample": "samples/net11.0/SailRepairs/SailRepairs.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "language": "15.0",
       "kind": "execution",
       "record": "samples/net11.0/SailRepairs/behavior.evidence.json",

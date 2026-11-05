@@ -127,7 +127,7 @@
     {
       "sample": "samples/net10.0/NumericGuidance/NumericGuidance.csproj",
       "target": "net10.0",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "language": "14.0",
       "kind": "compile-and-run",
       "scope": "Real target executions assert exact decimal values, both original BigInteger destination bit patterns, ties-to-even, and exceptions for NaN/infinity. This is not a full audit of every conversion direction, Math.Round migration or older-target/newer-SDK route. Actual managed execution; no mocks, cross-compilation or GA verification."
@@ -135,7 +135,7 @@
     {
       "sample": "samples/net11.0/NumericGuidance/NumericGuidance.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "language": "15.0",
       "kind": "compile-and-run",
       "scope": "Real target executions assert exact decimal values, both original BigInteger destination bit patterns, ties-to-even, and exceptions for NaN/infinity. This is not a full audit of every conversion direction, Math.Round migration or older-target/newer-SDK route. Actual managed execution; no mocks, cross-compilation or GA verification."
@@ -143,7 +143,7 @@
     {
       "sample": "samples/net10.0/InstrumentArchive/InstrumentArchive.csproj",
       "target": "net10.0",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "language": "14.0",
       "kind": "compile-and-run",
       "scope": "Real invariant G7/G15 policy with signs, exact ties-to-even, exponents, underflow, large finite values, range and nonfinite rejection. Parsed runtime inputs check Decimal-to-double/float/Half and BigInteger-to-double/float/Half, constructor/Convert/IConvertible/generic routes, negative symmetry, Half finite/tie/overflow controls and the retained extreme-midpoint limitation. Constants are read from embedded metadata separately from runtime casts. BFloat16 is tested only on net11. Compiler/ref/runtime hashes and exact no-package closure recorded; bounded managed evidence, not a universal conversion audit or GA proof."
@@ -151,7 +151,7 @@
     {
       "sample": "samples/net11.0/InstrumentArchive/InstrumentArchive.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "language": "15.0",
       "kind": "compile-and-run",
       "scope": "Real invariant G7/G15 policy with signs, exact ties-to-even, exponents, underflow, large finite values, range and nonfinite rejection. Parsed runtime inputs check Decimal-to-double/float/Half and BigInteger-to-double/float/Half, constructor/Convert/IConvertible/generic routes, negative symmetry, Half finite/tie/overflow controls and the retained extreme-midpoint limitation. Constants are read from embedded metadata separately from runtime casts. BFloat16 is tested only on net11. Compiler/ref/runtime hashes and exact no-package closure recorded; bounded managed evidence, not a universal conversion audit or GA proof."
@@ -159,7 +159,7 @@
     {
       "sample": "samples/net10.0-sdk11/InstrumentArchive/InstrumentArchive.csproj",
       "target": "net10.0",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "language": "14.0",
       "kind": "compile-and-run",
       "scope": "Real invariant G7/G15 policy with signs, exact ties-to-even, exponents, underflow, large finite values, range and nonfinite rejection. Parsed runtime inputs check Decimal-to-double/float/Half and BigInteger-to-double/float/Half, constructor/Convert/IConvertible/generic routes, negative symmetry, Half finite/tie/overflow controls and the retained extreme-midpoint limitation. Constants are read from embedded metadata separately from runtime casts. BFloat16 is tested only on net11. Compiler/ref/runtime hashes and exact no-package closure recorded; bounded managed evidence, not a universal conversion audit or GA proof."

@@ -100,7 +100,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Stable API contract prepared using .NET11 RC3 SDK/runtime/EF packages; no experimental opt-in. Actual GA reconciliation remains outstanding."
+            "Stable API contract prepared using .NET11 RC3 SDK/runtime and EF11 RC3 packages; no experimental opt-in. Actual GA reconciliation remains outstanding."
           ]
         },
         "conditional": false,
@@ -123,7 +123,7 @@
       "sample": "samples/net10.0/ReefIdentity/ReefIdentity.csproj",
       "language": "14.0",
       "scope": "Actual historical composite-ID reachability/collision and absent-path versus JSON-null IsDefined/CoalesceUndefined execution.",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "target": "net10.0",
       "kind": "compile-and-run"
     },

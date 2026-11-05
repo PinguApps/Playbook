@@ -32,7 +32,7 @@ The framework transfers the captured render-tree description, not the original d
 
 ## Migration
 
-1. Target net11.0 using Microsoft.NET.Sdk.Web and matching ASP.NET Core 11 reference/runtime and browser assets. The canonical project uses C# 15.0, nullable and implicit usings. SDK 11.0.100-rc.2.26504.105 and its locked Internal.Assets 11.0.0-rc.2.26504.105 are the measured baseline. No explicit package, provider, account, optional workload or experimental opt-in is required. The older project pins SDK 10.0.402, C# 14.0 and Internal.Assets 10.0.13.
+1. Target net11.0 using Microsoft.NET.Sdk.Web and matching ASP.NET Core 11 reference/runtime and browser assets. The canonical project uses C# 15.0, nullable and implicit usings. SDK 11.0.100-rc.3.26522.148 and its locked Internal.Assets 11.0.0-rc.3.26522.148 are the measured baseline. No explicit package, provider, account, optional workload or experimental opt-in is required. The older project pins SDK 10.0.403, C# 14.0 and Internal.Assets 10.0.14.
 2. Keep the App/Router static and mark ReadingPanel InteractiveServer as shown. Remove ReadingWrapper only when it has no other responsibility. Keep any necessary serializable parameters and move live event handling into the interactive component.
 3. In _Imports.razor import Microsoft.AspNetCore.Components, Microsoft.AspNetCore.Components.Routing, Microsoft.AspNetCore.Components.Web, static Microsoft.AspNetCore.Components.Web.RenderMode and Playbook.Samples; set @namespace Playbook.Samples. Put these original components together in that namespace.
 4. Use this complete Program.cs in both projects:

@@ -64,10 +64,10 @@ warnings as errors; the projects below declare their own runtime/language,
 nullable/import behavior and executable SDKs.
 
 Place global.json in **each** project directory. Set sdk.version to
-10.0.402 for the previous release or 11.0.100-rc.2.26504.105 for the current
+10.0.403 for the previous release or 11.0.100-rc.3.26522.148 for the current
 release, and set `rollForward` to `disable`. For example, the complete
-current file is `{"sdk":{"version":"11.0.100-rc.2.26504.105","rollForward":"disable"}}`.
-Use C# 14/.NET 10.0.13 assets versus C# 15/.NET 11.0.0-rc.2.26504.105 assets.
+current file is `{"sdk":{"version":"11.0.100-rc.3.26522.148","rollForward":"disable"}}`.
+Use C# 14/.NET 10.0.14 assets versus C# 15/.NET 11.0.0-rc.3.26522.148 assets.
 The exact pins are verification baselines; RC evidence is not GA certification.
 
 Place the shown Directory.Packages.props in each of the three project directories. It isolates package

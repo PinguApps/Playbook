@@ -1,8 +1,8 @@
 [CmdletBinding()]
 param(
   [string]$Docker = 'C:/Program Files/Docker/Docker/resources/bin/docker.exe',
-  [string]$Net10Image = 'mcr.microsoft.com/dotnet/sdk@sha256:0d99ebf1ccad15037b5c98c9fe8979d6b8dbac23812feae2277a0b277b5c5ffa',
-  [string]$Net11Image = 'mcr.microsoft.com/dotnet/sdk@sha256:bfabf51e74c5a7cf2fc4eac852145db86f4867d475257d809518d6a2b0fe71e1'
+  [string]$Net10Image = 'mcr.microsoft.com/dotnet/sdk@sha256:9c7b6b263d9d4c2e4718e16dae6d75cd8f4b5ccf206f1e7d48a98eb429981b03',
+  [string]$Net11Image = 'mcr.microsoft.com/dotnet/sdk@sha256:9fc2f44fba54c579b9b650f6feea29beff050fb030d797eac697de85a94ad77f'
 )
 
 $ErrorActionPreference = 'Stop'

@@ -44,7 +44,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Build against .NET 11 references; the exact RC2 SDK is a verification baseline."
+            "reason": "Build against .NET 11 references; the exact RC3 SDK is a verification baseline."
           },
           "language": {
             "name": "C#",
@@ -106,7 +106,7 @@
     {
       "sample": "samples/net10.0/OptionsStartup/OptionsStartup.csproj",
       "target": "net10.0",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "language": "14.0",
       "kind": "compile-and-run",
       "scope": "Real DI-backed crew validation and ordered hosted startup permit gate, acceptance and rejection."
@@ -114,7 +114,7 @@
     {
       "sample": "samples/net11.0/OptionsStartup/OptionsStartup.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "language": "15.0",
       "kind": "compile-and-run",
       "scope": "Real DI/generic/async startup, named dual and generated validators; seeded caches, synchronous access/reload failures. Separate script checks real SYSLIB1205 failing/fixed builds."

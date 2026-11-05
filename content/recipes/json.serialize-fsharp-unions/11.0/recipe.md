@@ -34,6 +34,6 @@ No provider, workload or rendering mode is required. The declared samples run on
 
 ## Evidence
 
-The exact SDK pins, resolved FSharp.Core dependencies, input hashes, build commands and actual execution output accompany this recipe. The saved records cover the .NET 10 and .NET 11 samples. The separate compiler probe confirms stable spreads, preview constructor rejection/acceptance and ordinary culture formatting. Reflection-free diagnostics use their own --reflectionfree executable; ordinary formatting is not substituted for that evidence. No trimmed or Native AOT publish/run, cross-compilation or mocks are claimed. RC2 evidence is not GA verification.
+The exact SDK pins, resolved FSharp.Core dependencies, input hashes, build commands and actual execution output accompany this recipe. The saved records cover the .NET 10 and .NET 11 samples. The separate compiler probe confirms stable spreads, preview constructor rejection/acceptance and ordinary culture formatting. Reflection-free diagnostics use their own --reflectionfree executable; ordinary formatting is not substituted for that evidence. No trimmed or Native AOT publish/run, cross-compilation or mocks are claimed. RC3 evidence is not GA verification.
 
 Official sources: [Official F# union support and restrictions](https://learn.microsoft.com/en-us/dotnet/standard/serialization/system-text-json/supported-types#f-discriminated-unions); [Built-in F# union converter](https://source.dot.net/System.Text.Json/System/Text/Json/Serialization/Converters/FSharp/FSharpUnionConverter.cs.html).

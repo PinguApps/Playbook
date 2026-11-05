@@ -2,12 +2,12 @@
   "kind": "official-review",
   "sample": "samples/net10.0/BuildAccessObserver/BuildAccessObserver.csproj",
   "target": "net10.0",
-  "sdk": "10.0.402",
+  "sdk": "10.0.403",
   "language": "14.0",
-  "command": "Read official command documentation, pinned contract sources and original source audit; author original examples. No sample build or experimental command executed.",
-  "scope": "Documentation-based provisional guidance authorized by Pingu on 3 November 2026. Sample compilation, composed-consumer and experimental behaviour proof remain pending.",
-  "recordedAt": "2026-11-03T17:50:30.0366909+00:00",
-  "sourceCommit": "714b5f78734a68aa6c327640b82185c4b8b24604",
+  "command": "Refresh pinned official source/artifact review and inspect unchanged canonical sample with updated intended SDK pin; no sample command executed by this source-review refresh.",
+  "scope": "Source review only after active SDK pin migration. Existing sample-specific native/platform/provisional exclusions remain; no new compilation, runtime, generated-output or UI claim.",
+  "recordedAt": "2026-11-05T02:41:07.0358170+00:00",
+  "sourceCommit": "2e41d5f1d326777a8860b535198adfafcb00ac38",
   "sourceDirty": true,
   "inputs": {
     "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
@@ -16,14 +16,14 @@
     "samples/Directory.Packages.props": "7209dd1e4245a84c619bada1f05c2505db0eb84ee6123af21759267b9c7e36a1",
     "samples/net10.0/BuildAccessObserver/AccessDecoder.cs": "076e0e6add8079a5577904472fba26190a13bdef6788d85a66f67cfacfd3a8ca",
     "samples/net10.0/BuildAccessObserver/BuildAccessObserver.csproj": "d11351e341c24cf4323e527f0c67bea6584a945281efd70f7762340f6f04549d",
-    "samples/net10.0/BuildAccessObserver/global.json": "30fdf1d1d5cfadd6447ab39d18cc5eec405cf1a5ec5b2e4b1d228a6fe757846d",
+    "samples/net10.0/BuildAccessObserver/global.json": "6e0770b2ba0441ab46cccab89febfa2cef6830df7a2aab62c025b4718a18999b",
     "samples/net10.0/BuildAccessObserver/verification.json": "69deeb654058ff092031a07a2bf40daa732d175cac180a96bf510844a549e83c"
   },
   "dependencies": [],
   "workloads": [],
   "nativeToolchains": [],
   "host": "Source authoring on Windows; no sample execution host qualified.",
-  "sdkInfo": "Intended global.json pin only, not executed compiler/runtime proof.",
+  "sdkInfo": "Intended SDK 10.0.403; not a compiler execution or workload-availability measurement.",
   "workloadInfo": "No sample workloads declared; no native instrumentation qualified.",
-  "output": "Reviewed official references in the recipe. Original canonical samples remain uncompiled; no test-map collection/selection, file-access callback capture or cancellation evidence. Package/hash and host switch preflights are separate discovery observations, not sample execution."
+  "output": "RC3 source-review refresh: canonical authored code and explicit packages are unchanged; the intended SDK selection changed. Official material was retrieved again and immutable hashes were checked where declared. Original platform/provisional limitations remain.\nSOURCE https://github.com/dotnet/msbuild/blob/main/documentation/specs/project-cache.md SHA256=389517051a44850684d1e75d0f94f33a69ffffb15344c83fa8ac82f3f4e8d034\nSOURCE https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/msbuild/src/Build/FileAccess/FileAccessData.cs SHA256=04efb52be4033afdf954f96dea508d281477f3a7f012ade3cfce127b6967dd3d\nSOURCE https://github.com/dotnet/dotnet/blob/a8dd0577c5c13f43a2f57fe33b4ff11b90f6371e/src/msbuild/src/Build/FileAccess/FileAccessData.cs SHA256=76aff7d309df8764142ae4b5694fcb50309e19e26cc0dbb580ee6eb85ec004b4\nSOURCE https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/msbuild/src/Build/BackEnd/Components/ProjectCache/ProjectCachePluginBase.cs SHA256=b8700d06ef0c2347c71fb10948e4024b2c7c97355c7ec05488ed30a8411384dc"
 }

@@ -26,13 +26,13 @@ foreach($f in @('wwwroot/index.html','wwwroot/fossil-observe.js')){
  Copy-Item (Join-Path $standalone "net11.0/FossilDesk/$f") (Join-Path $standalone "net10.0/FossilDesk/$f")
 }
 Copy-Item (Join-Path $standalone 'net11.0/FossilDesk/Directory.Packages.props') (Join-Path $standalone 'net11.0/FossilWorker/Directory.Packages.props')
-foreach($case in @(@('net10.0/FossilDesk','10.0.402'),@('net11.0/FossilDesk','11.0.100-rc.2.26504.105'),@('net11.0/FossilWorker','11.0.100-rc.2.26504.105'))){
+foreach($case in @(@('net10.0/FossilDesk','10.0.403'),@('net11.0/FossilDesk','11.0.100-rc.3.26522.148'),@('net11.0/FossilWorker','11.0.100-rc.3.26522.148'))){
  if(-not $body.Contains($case[1])){throw 'SDK missing from served instructions'}
  [IO.File]::WriteAllText((Join-Path $standalone "$($case[0])/global.json"),(@{sdk=@{version=$case[1];rollForward='disable';allowPrerelease=$case[0].StartsWith('net11')}}|ConvertTo-Json)+"`n")
 }
 $logs=@{}
 foreach($target in @('net10.0','net11.0')){
- $dotnet=if($target -eq 'net10.0'){'C:\Program Files\dotnet\dotnet.exe'}else{'C:\Users\pingu\.dotnet-playbook-11\dotnet.exe'}
+ $dotnet=if($target -eq 'net10.0'){(Get-Command dotnet -CommandType Application | Select-Object -First 1).Source}else{(Get-Command dotnet -CommandType Application | Select-Object -First 1).Source}
  Push-Location (Join-Path $standalone "$target/FossilDesk")
  try{
   $log=(& $dotnet restore ./FossilDesk.csproj|Out-String)+(& $dotnet build ./FossilDesk.csproj -c Release --no-restore|Out-String)
@@ -41,7 +41,7 @@ foreach($target in @('net10.0','net11.0')){
  }finally{Pop-Location}
 }
 Push-Location (Join-Path $standalone 'net11.0/FossilWorker')
-try { $logs.worker=(& 'C:\Users\pingu\.dotnet-playbook-11\dotnet.exe' build ./FossilWorker.csproj -c Release --no-restore|Out-String) } finally {Pop-Location}
+try { $logs.worker=(& (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source build ./FossilWorker.csproj -c Release --no-restore|Out-String) } finally {Pop-Location}
 $hashes=[ordered]@{}
 foreach($file in Get-ChildItem $standalone -Recurse -File|Sort-Object FullName){
  if($file.FullName -match '\\obj\\'){continue}

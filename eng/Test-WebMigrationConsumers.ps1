@@ -2,8 +2,8 @@
 param(
   [string]$ResponseDirectory = (Join-Path $PSScriptRoot '../artifacts/batch04/inspection'),
   [string]$OutputDirectory = (Join-Path $PSScriptRoot '../artifacts/batch04/consumers'),
-  [string]$Dotnet = 'C:/Program Files/dotnet/dotnet.exe',
-  [string]$Net11Dotnet = 'C:/Users/pingu/.dotnet-playbook-11/dotnet.exe',
+  [string]$Dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source,
+  [string]$Net11Dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source,
   [string]$PackageRoot = 'C:/Users/pingu/.nuget/packages',
   [string]$Generator = (Join-Path $PSScriptRoot '../artifacts/batch04/verified/protoc-gen-openapiv2-v2.31.0-windows-x86_64.exe')
 )

@@ -52,6 +52,6 @@ The API is not publisher-designated experimental, but the exact current package 
 
 ## Evidence
 
-Three original hosts compiled and executed: .NET 10 with NuGet.Packaging 7.9.0; .NET 11 with 8.0.0-rc.605; and .NET 10 with 8.0.0-rc.605. SDK pins were 10.0.402 and 11.0.100-rc.2.26504.105. Their current input-hashed records include exact locked transitive packages, compiler/runtime output and the asserted manifest identity. The behavior script also checks actual resolved compile/runtime asset paths: net8.0 for the older library and net10.0 for both current-library hosts.
+Three original hosts compiled and executed: .NET 10 with NuGet.Packaging 7.9.0; .NET 11 with 8.0.0-rc.605; and .NET 10 with 8.0.0-rc.605. SDK pins were 10.0.403 and 11.0.100-rc.3.26522.148. Their current input-hashed records include exact locked transitive packages, compiler/runtime output and the asserted manifest identity. The behavior script also checks actual resolved compile/runtime asset paths: net8.0 for the older library and net10.0 for both current-library hosts.
 
 These are real restored package consumers and local archive reads, not source review, mocks or cross-compilation. No net8 host, .NET Framework, native/mobile, remote feed operation or GA execution is claimed. Packed stdio tests separately check complete offline guidance and target-appropriate applicability, including the conditional .NET 10 route.

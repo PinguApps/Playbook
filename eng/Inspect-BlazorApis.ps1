@@ -1,7 +1,7 @@
 [CmdletBinding()]
 param(
-  [string]$Net10Root = 'C:/Program Files/dotnet',
-  [string]$Net11Root = 'C:/Users/pingu/.dotnet-playbook-11',
+  [string]$Net10Root = (Split-Path (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source -Parent),
+  [string]$Net11Root = (Split-Path (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source -Parent),
   [string]$OutputPath = (Join-Path $PSScriptRoot '../artifacts/blazor.assets.json'),
   [string]$CompareWith,
   [string]$SourceManifest = (Join-Path $PSScriptRoot '../docs/planning/audits/blazor.sources.json'),
@@ -114,15 +114,15 @@ function Get-TextAsset($File, $Root) {
 $temporary = Join-Path ([IO.Path]::GetTempPath()) "playbook-blazor-$([guid]::NewGuid().ToString('N'))"
 New-Item -ItemType Directory -Path $temporary | Out-Null
 try {
-  Add-Type -Path (Join-Path $Net10Root 'sdk/10.0.402/System.Reflection.MetadataLoadContext.dll')
+  Add-Type -Path (Join-Path $Net10Root 'sdk/10.0.403/System.Reflection.MetadataLoadContext.dll')
   $baselines = @(
-    @{ root=$Net10Root; sdk='10.0.402'; version='10.0.13'; target='net10.0' },
-    @{ root=$Net11Root; sdk='11.0.100-rc.2.26504.105'; version='11.0.0-rc.2.26504.105'; target='net11.0' }
+    @{ root=$Net10Root; sdk='10.0.403'; version='10.0.13'; runtime='10.0.14'; target='net10.0' },
+    @{ root=$Net11Root; sdk='11.0.100-rc.3.26522.148'; version='11.0.0-rc.2.26504.105'; runtime='11.0.0-rc.3.26522.148'; target='net11.0' }
   )
   $results = @()
   foreach ($baseline in $baselines) {
-    $core = Join-Path $baseline.root "packs/Microsoft.NETCore.App.Ref/$($baseline.version)/ref/$($baseline.target)"
-    $asp = Join-Path $baseline.root "packs/Microsoft.AspNetCore.App.Ref/$($baseline.version)/ref/$($baseline.target)"
+    $core = Join-Path $baseline.root "packs/Microsoft.NETCore.App.Ref/$($baseline.runtime)/ref/$($baseline.target)"
+    $asp = Join-Path $baseline.root "packs/Microsoft.AspNetCore.App.Ref/$($baseline.runtime)/ref/$($baseline.target)"
     $references = @(Get-ChildItem -LiteralPath $core,$asp -Filter '*.dll' | ForEach-Object FullName)
     $selected = @($references | Where-Object { [IO.Path]::GetFileName($_) -match '^Microsoft\.(AspNetCore\.(Components|Razor)(\.|\.dll)|JSInterop(\.|\.dll))' })
     $packages = @()
@@ -135,6 +135,8 @@ try {
         'microsoft.extensions.ai.abstractions' { '10.6.0' }
         'microsoft.extensions.dependencyinjection.abstractions' { '10.0.0' }
         'microsoft.aspnetcore.razor.language' { '6.0.0' }
+        'microsoft.aspnetcore.components.webassembly.server' { $baseline.runtime }
+        'microsoft.aspnetcore.components.webassembly.devserver' { $baseline.runtime }
         default { $baseline.version }
       }
       $url = "https://api.nuget.org/v3-flatcontainer/$id/$version/$id.$version.nupkg"
@@ -186,12 +188,12 @@ try {
       if ($_.Extension -in @('.targets','.props')) { $entry.lines=@([IO.File]::ReadAllText($_.FullName) -split '\r?\n') }
       $entry
     })
-    $templatePackage = @(Get-ChildItem (Join-Path $baseline.root "templates/$($baseline.version)") -Filter 'microsoft.dotnet.web.projecttemplates*.nupkg')
+    $templatePackage = @(Get-ChildItem (Join-Path $baseline.root "templates/$($baseline.runtime)") -Filter 'microsoft.dotnet.web.projecttemplates*.nupkg')
     if ($templatePackage.Count -ne 1) { throw 'Missing/ambiguous actual web template package.' }
     $templateRoot=Join-Path $temporary "templates-$($baseline.target)"
     [IO.Compression.ZipFile]::ExtractToDirectory($templatePackage[0].FullName,$templateRoot)
     $templates=@(Get-ChildItem $templateRoot -Recurse -File | Where-Object { $_.FullName -match '[\\/](BlazorWeb|BlazorWasm|BlazorWebWorker|BlazorWasmServiceDefaults)-CSharp[\\/]' -and $_.FullName -notmatch '[\\/](localize|bootstrap|lib)[\\/]|\.min\.|\.map$' -and $_.Extension -notin @('.png','.ico','.woff','.woff2') } | Sort-Object FullName | ForEach-Object { Get-TextAsset $_.FullName $templateRoot })
-    $results += [ordered]@{ sdk=$baseline.sdk; referencePack=$baseline.version; target=$baseline.target; metadataReaderSha256=Get-Hash (Join-Path $sdk 'System.Reflection.MetadataLoadContext.dll'); framework=$surfaces; packages=$packages; sdkSurfaces=$sdkSurfaces; razorTooling=$tooling; templatePackage=[ordered]@{ file=$templatePackage[0].Name; sha256=Get-Hash $templatePackage[0].FullName; files=$templates } }
+    $results += [ordered]@{ sdk=$baseline.sdk; referencePack=$baseline.runtime; packageVersion=$baseline.version; target=$baseline.target; metadataReaderSha256=Get-Hash (Join-Path $sdk 'System.Reflection.MetadataLoadContext.dll'); framework=$surfaces; packages=$packages; sdkSurfaces=$sdkSurfaces; razorTooling=$tooling; templatePackage=[ordered]@{ file=$templatePackage[0].Name; sha256=Get-Hash $templatePackage[0].FullName; files=$templates } }
   }
   $textDiffs=@()
   foreach ($family in @('razorTooling','packageFiles','templates')) {

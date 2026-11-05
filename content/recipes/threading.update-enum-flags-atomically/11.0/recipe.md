@@ -84,9 +84,9 @@ unmeasured; .NET 11 RC2 evidence does not establish final-GA verification.
 
 ## Evidence
 
-eng/Test-RuntimeCalls.ps1 -Record -VerifySources captures actual SDK10.0.402 /
-runtime10.0.13 and SDK11.0.100-rc.2.26504.105 /
-runtime11.0.0-rc.2.26504.105 consumers. Both build with warnings as errors, without
+eng/Test-RuntimeCalls.ps1 -Record -VerifySources captures actual SDK10.0.403 /
+runtime10.0.14 and SDK11.0.100-rc.3.26522.148 /
+runtime11.0.0-rc.3.26522.148 consumers. Both build with warnings as errors, without
 NuGet dependencies or workloads. Saved records contain exact input hashes,
 commands, compiler/CoreLib identities and System.Runtime/System.Threading reference
 hashes reconciled against the originating runtime-security audit. The bounded

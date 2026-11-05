@@ -74,7 +74,7 @@ This original current example follows the pinned official endpoint design and ke
 
 ## Migration
 
-1. Save the .NET 10 file set in its own HarbourTls directory. Restore/build with SDK10.0.402, supply the certificate path/password using your local configuration and run only when ready for actual HTTPS checks. Do not commit the password or modify shared trust.
+1. Save the .NET 10 file set in its own HarbourTls directory. Restore/build with SDK10.0.403, supply the certificate path/password using your local configuration and run only when ready for actual HTTPS checks. Do not commit the password or modify shared trust.
 2. Review the complete newer configuration and its exact artifact gap before copying it. The pinned current file set intentionally demonstrates the compilation failure; a successful current build is not claimed.
 3. When a matching public artifact exists, update its pin/lock and confirm the documented DirectTlsEndpoint members. Linux, OpenSSL and matching low-level native TLS runtime support must be qualified separately; Windows compilation is insufficient.
 4. Register UseDirectTls and select the explicit endpoint. Keep ordinary Listen/UseHttps for the default socket control. Scope ASPNETCORE_DIRECTTLS_001 acknowledgement to that registration/selection.
@@ -95,7 +95,7 @@ The .NET 10 route remains valid. The current source example teaches the intended
 
 Pingu authorized documentation-based recipe delivery on 3 November 2026. Final GA, browser/provider/AG-UI, renderer/storage and Linux native TLS behaviour checks remain pending and are not claimed. These deferred checks do not block this ticket; broader release readiness remains gated.
 
-Five available consumers compile on SDK10.0.402 or SDK11.0.100-rc.2.26504.105, with their actual locked dependencies and fresh input hashes. Current HarbourTls instead records the real CS0246 failure for missing DirectTlsEndpoint as official-review, never compilation success. The exact baselines relevant to this recipe are the two evidence records. No sample was executed.
+Five available consumers compile on SDK10.0.403 or SDK11.0.100-rc.3.26522.148, with their actual locked dependencies and fresh input hashes. Current HarbourTls instead records the real CS0246 failure for missing DirectTlsEndpoint as official-review, never compilation success. The exact baselines relevant to this recipe are the two evidence records. No sample was executed.
 
 The ordinary packed/installed tool is inspected separately over real stdio list/get, including full canonical Markdown and applicability. That verifies delivery, not the sample application. PIN-959 and PIN-964 retain broader coverage/readiness and actual-GA reconciliation.
 

@@ -12,7 +12,7 @@ An ordinary .NET 10 async method compiles to a state machine. It remains a valid
 
 ## Newer approach
 
-The same survey operation can use .NET 11 runtime-managed suspension. In the public RC2 SDK, opt in with the compiler feature in the project:
+The same survey operation can use .NET 11 runtime-managed suspension. In the public RC3 SDK, opt in with the compiler feature in the project:
 
 Add `using System;`, `using System.Threading.Tasks;`, `using System.Diagnostics;` and `using System.Runtime.CompilerServices;` to the source. These make the snippet complete even when the project does not enable implicit usings.
 
@@ -20,11 +20,11 @@ Add `using System;`, `using System.Threading.Tasks;`, `using System.Diagnostics;
 
 {{snippet:newer}}
 
-`Features` is a compiler-feature list; append rather than discard other entries. The installed RC2 SDK did **not** translate `UseRuntimeAsync=true` into this compiler flag. Some first-party build repositories wire that property themselves. For this public SDK, an explicit `runtime-async=off` compiler feature selects the state-machine implementation; `UseRuntimeAsync=false` alone does not override an explicit on flag. Check effective imports and emitted code rather than assuming the property has an effect. This measured distinction qualifies the cumulative documentation's property-only advice.
+`Features` is a compiler-feature list; append rather than discard other entries. The installed RC3 SDK did **not** translate `UseRuntimeAsync=true` into this compiler flag. Some first-party build repositories wire that property themselves. For this public SDK, an explicit `runtime-async=off` compiler feature selects the state-machine implementation; `UseRuntimeAsync=false` alone does not override an explicit on flag. Check effective imports and emitted code rather than assuming the property has an effect. This measured distinction qualifies the cumulative documentation's property-only advice.
 
 ## Migration
 
-1. Keep an ordinary async baseline and a genuinely pending operation. Select the .NET 11 SDK, `net11.0`, C# 15 and CoreCLR for this experimental route. No additional NuGet package or workload is needed. The exact verified SDK is 11.0.100-rc.2.26504.105 with runtime 11.0.0-rc.2.26504.105; these are evidence pins, not a claim of GA verification.
+1. Keep an ordinary async baseline and a genuinely pending operation. Select the .NET 11 SDK, `net11.0`, C# 15 and CoreCLR for this experimental route. No additional NuGet package or workload is needed. The exact verified SDK is 11.0.100-rc.3.26522.148 with runtime 11.0.0-rc.3.26522.148; these are evidence pins, not a claim of GA verification.
 2. Add `runtime-async=on` to `Features` for the application assembly. On this target, neither `LangVersion=preview` nor `EnablePreviewFeatures=true` is required for that flag. Rebuild dependencies separately if their generated implementation also needs changing.
 3. Inspect the method's implementation flags: bit `0x2000` (`MethodImplOptions.Async`) identifies runtime async. The comparison instead carries `AsyncStateMachineAttribute`. A successful compile against reference metadata is insufficient; execute pending success and failure on the matching runtime.
 4. Capture live diagnostics and thrown exceptions separately. In the recorded resumed survey call, live `StackTrace` output with runtime async omitted the state-machine-box frames visible with the flag off. Both exception traces retained `Survey.ReadDepth`. This bounded observation does not promise every logical parent frame, complete debugger stepping or identical exception stacks in other applications.

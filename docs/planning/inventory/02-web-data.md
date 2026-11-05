@@ -358,7 +358,7 @@ Each row corresponds to a WB inventory item; repeated sources group into the exi
 | `ef.scaffold-and-apply-migration` — Add and apply a migration in one command | Use new database-update add option while retaining generated files. | dotnet-ef/PMC; live schema mutation must be explicit in actual consumer workflow. | [E] `migrations-add-and-apply` | authored — PIN-878–880; paired QuarryMigrations and real SQL/CLI checks; RC2, GA pending |
 | `ef.remove-unapplied-migration-offline` — Undo local migration scaffolding without a reachable database | Use offline removal or explicit connection selection. | Offline excludes force; applied state is not checked offline. | [E] `migrations-remove-connection-offline` | authored — PIN-878–880; paired QuarryMigrations and real SQL/CLI checks; RC2, GA pending |
 | `ef.configure-migration-commands` — Share predictable design-time command defaults | Author dotnet-ef JSON config and targeted command overrides. | Directory lookup and relative paths; CLI overrides file. | [E] `dotnet-ef-config-file` | authored — PIN-882; paired CanalDesign consumers; real nested-directory dotnet-ef defaults and override checks; exact RC2, not GA proof |
-| `ef.reuse-current-build-in-pmc` — Run a design-time operation using an already-current build | Select PMC NoBuild for supported commands. | Visual Studio PMC; stale artifact risk; not an arbitrary skip-validation recommendation. | [E] `pmc-nobuild` | authored — PIN-883; paired CanalDesign consumers and supported PMC commands; interactive H_PMC_PROOF remains pending, PR publication approved by Pingu on 4 November 2026; exact RC2, not GA proof |
+| `ef.reuse-current-build-in-pmc` — Run a design-time operation using an already-current build | Select PMC NoBuild for supported commands. | Visual Studio PMC; stale artifact risk; not an arbitrary skip-validation recommendation. | [E] `pmc-nobuild` | authored — PIN-883; paired CanalDesign consumers and supported PMC commands; interactive H_PMC_PROOF verified by Pingu under PIN-957 on 5 November 2026: VS18.11.0/PMC7.11.0.24, SDK11 RC3 with EF11 RC2, current/stale migrations and actual SQLite schema/history; no EF RC3 or GA proof |
 | `ef.operate-across-contexts` — Apply a command consistently to several context models | Use context wildcard only on supported commands. | list/script/update/drop; multiple target databases and generated scripts. | [E] `dotnet-ef-context-wildcard` | authored — PIN-885; FleetTooling actual script/update/drop; RC2 wildcard list fails, Pingu authorized publication with explicit gap on 4 November 2026 |
 | `ef.capture-clean-migration-script` — Pipe only generated SQL into a deployment artifact | Remove log filtering; separate stdout payload/stderr diagnostics. | dotnet-ef scripts; change authored shell pipeline. | [E] Other improvements | authored — PIN-886; actual separate stdout/stderr capture and executable SQLite SQL |
 | `ef.stream-query-without-reexecution` — Use EF's asynchronous query adapter intentionally | Replace analyzer-detected ToAsyncEnumerable with AsAsyncEnumerable. | EF query behavior; not shared LINQ package migration alone. | [E] Other improvements | delivered: PIN-852, 11.0 edition; real EF command/disposal and EF1004 checks; runtime11 fast-path caveat retained |
@@ -491,8 +491,8 @@ PIN-959/PIN-965 and unrelated Human gates remain open.
 
 ## Structural inspection, ignored types and file tooling — PIN-1205–1207
 
-E17/E18/E19 have original Curlew comparisons on SDK10.0.402/EF10.0.13 and
-SDK11.0.100-rc.2.26504.105/EF11.0.0-rc.2.26504.105. Separate locks preserve
+E17/E18/E19 have original Curlew comparisons on SDK10.0.403/EF10.0.13 and
+SDK11.0.100-rc.3.26522.148/EF11.0.0-rc.2.26504.105. Separate locks preserve
 actual package graphs. SQLite3.53.3/3.53.4 execute real schema and persistence.
 
 `ef.inspect-structural-model-mappings/11.0` distinguishes entity and complex

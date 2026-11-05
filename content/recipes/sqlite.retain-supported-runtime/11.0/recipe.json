@@ -94,7 +94,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Stable migration contract, demonstrated using pinned .NET11 RC2 SDK/provider artifacts. No experimental API or experimental opt-in is used. Actual GA reconciliation remains pending in the existing release-wide gate."
+            "Stable migration contract, demonstrated using the .NET11 RC3 SDK and Sqlite11 RC2 artifacts. No experimental API or experimental opt-in is used. Actual GA reconciliation remains pending in the existing release-wide gate."
           ]
         },
         "sourceUrls": [
@@ -174,7 +174,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Stable migration contract, demonstrated using .NET SDK 10.0.402/runtime 10.0.13 with Microsoft.Data.Sqlite 11 RC2 provider artifacts. No experimental API or experimental opt-in is used. Actual GA reconciliation remains pending in the existing release-wide gate."
+            "Stable migration contract, demonstrated using .NET SDK 10.0.403/runtime 10.0.14 with Microsoft.Data.Sqlite 11 RC2 provider artifacts. No experimental API or experimental opt-in is used. Actual GA reconciliation remains pending in the existing release-wide gate."
           ]
         },
         "sourceUrls": [
@@ -195,7 +195,7 @@
         "usage": "optional-alternative",
         "selectionNotes": [
           "Retain provider10 deliberately: this net10.0 comparison still works; the separate net48 baseline proves the earlier-dependency alternative on Windows.",
-          "Retained-provider proof uses .NET SDK 10.0.402/runtime 10.0.13 with Microsoft.Data.Sqlite 10.0.13. The separate Sqlite11 comparison has RC2, not actual GA, proof. UWP/classic Xamarin native paths are excluded.",
+          "Retained-provider proof uses .NET SDK 10.0.403/runtime 10.0.14 with Microsoft.Data.Sqlite 10.0.13. The separate Sqlite11 comparison has RC2, not actual GA, proof. UWP/classic Xamarin native paths are excluded.",
           "This 11.0 migration edition does not add a .NET 10 foundation or a .NET Framework catalogue target."
         ],
         "requirements": {
@@ -254,7 +254,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Stable retained-provider route, demonstrated using .NET SDK 10.0.402/runtime 10.0.13 and Microsoft.Data.Sqlite 10.0.13. No experimental API or experimental opt-in is used. RC2/GA limitations apply to the separate Sqlite11/current-release comparison; its existing release-wide GA gate remains pending."
+            "Stable retained-provider route, demonstrated using .NET SDK 10.0.403/runtime 10.0.14 and Microsoft.Data.Sqlite 10.0.13. No experimental API or experimental opt-in is used. RC2/GA limitations apply to the separate Sqlite11/current-release comparison; its existing release-wide GA gate remains pending."
           ]
         },
         "sourceUrls": [
@@ -301,7 +301,7 @@
     {
       "sample": "samples/net10.0/QuaySeals/QuaySeals.csproj",
       "target": "net10.0",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "language": "14.0",
       "kind": "compile-and-run",
       "scope": "Real Windows x64 file-backed SQLite: parameterized apostrophe-containing value, committed insert, rolled-back update, exact value after connection reopen and database cleanup; package asset inspected by Record-SqliteRuntime.ps1."
@@ -309,7 +309,7 @@
     {
       "sample": "samples/net11.0/QuaySeals/QuaySeals.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "language": "15.0",
       "kind": "compile-and-run",
       "scope": "Real Windows x64 file-backed SQLite: parameterized apostrophe-containing value, committed insert, rolled-back update, exact value after connection reopen and database cleanup; package asset inspected by Record-SqliteRuntime.ps1."
@@ -317,7 +317,7 @@
     {
       "sample": "samples/net10.0/QuaySeals11/QuaySeals11.csproj",
       "target": "net10.0",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "language": "14.0",
       "kind": "compile-and-run",
       "scope": "Real Windows x64 file-backed SQLite: parameterized apostrophe-containing value, committed insert, rolled-back update, exact value after connection reopen and database cleanup; package asset inspected by Record-SqliteRuntime.ps1."
@@ -325,7 +325,7 @@
     {
       "sample": "samples/net48/QuaySeals/QuaySeals.csproj",
       "target": "net48",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "language": "7.3",
       "kind": "compile",
       "scope": "Compile actual net48/C#7.3 retained provider10 project with SDK10 and locked Framework reference assemblies. Direct EXE execution is a separate record."
@@ -333,7 +333,7 @@
     {
       "sample": "samples/net48/QuaySeals/QuaySeals.csproj",
       "target": "net48",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "language": "7.3",
       "kind": "execution",
       "record": "samples/net48/QuaySeals/execution.evidence.json",

@@ -1,8 +1,8 @@
 #Requires -Version 7.0
 [CmdletBinding()]
 param(
- [string]$Net10Dotnet='C:/Program Files/dotnet/dotnet.exe',
- [string]$Net11Dotnet='C:/Users/pingu/.dotnet-playbook-11/dotnet.exe'
+ [string]$Net10Dotnet=(Get-Command dotnet -CommandType Application | Select-Object -First 1).Source,
+ [string]$Net11Dotnet=(Get-Command dotnet -CommandType Application | Select-Object -First 1).Source
 )
 $ErrorActionPreference='Stop'
 $PSNativeCommandUseErrorActionPreference=$true
@@ -33,8 +33,8 @@ try {
  }
  foreach($v in 10,11) {
   $exe=if($v -eq 10){$Net10Dotnet}else{$Net11Dotnet}
-  $sdk=if($v -eq 10){'10.0.402'}else{'11.0.100-rc.2.26504.105'}
-  $runtime=if($v -eq 10){'10.0.13'}else{'11.0.0-rc.2.26504.105'}
+  $sdk=if($v -eq 10){'10.0.403'}else{'11.0.100-rc.3.26522.148'}
+  $runtime=if($v -eq 10){'10.0.14'}else{'11.0.0-rc.3.26522.148'}
   foreach($name in 'ObservatoryResults','ObservatoryBulletins') {
    $sample="samples/net$v.0/$name/$name.csproj"
    & (Join-Path $PSScriptRoot 'Record-Evidence.ps1') -Sample $sample -Dotnet $exe

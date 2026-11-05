@@ -49,6 +49,6 @@ OTLP generic endpoints are base addresses; transport and per-signal overrides af
 
 ## Evidence
 
-Reviewed the official CLI scope/default/opt-out documentation, .NET 11 SDK overview, CLI exporter activation source and OpenTelemetry exporter contract. The older/newer wrappers are independently authored canonical C# sources, intended for SDK 10.0.402/C# 14 and SDK 11.0.100-rc.2.26504.105/C# 15.
+Reviewed the official CLI scope/default/opt-out documentation, .NET 11 SDK overview, CLI exporter activation source and OpenTelemetry exporter contract. The older/newer wrappers are independently authored canonical C# sources, intended for SDK 10.0.403/C# 14 and SDK 11.0.100-rc.3.26522.148/C# 15.
 
 The saved records are source reviews, not compilations or measured telemetry evidence. No environment policy was applied to a live consumer, no data was sent and no collector/account was provisioned. Compilation, opt-out precedence, actual affected-command behavior, transport delivery and installed offline MCP retrieval remain unverified. Pending proof blocks release-ready packaging and is visible in discovery/detail. This target-11 edition does not add an unverified older-target route; RC documentation/source review is not GA verification.

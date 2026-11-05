@@ -1,5 +1,6 @@
 [CmdletBinding()]
-param([string]$Net11Dotnet = 'dotnet')
+param([string]$Net11Dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source,
+  [string]$Dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source)
 
 $ErrorActionPreference = 'Stop'
 $root = Split-Path $PSScriptRoot -Parent
@@ -66,9 +67,9 @@ public static class Program {
 </Project>
 "@ | Set-Content Probe.csproj
     $consumer | Set-Content Probe.cs
-    dotnet build Probe.csproj -c Release --nologo
+    & $Dotnet build Probe.csproj -c Release --nologo
     if ($LASTEXITCODE -ne 0) { throw 'The .NET 10 same-surface comparison failed to compile.' }
-    dotnet ./bin/Release/net10.0/Probe.dll
+    & $Dotnet ./bin/Release/net10.0/Probe.dll
     if ($LASTEXITCODE -ne 0) { throw 'The .NET 10 same-surface comparison failed to execute.' }
     Write-Host 'PASS: the interface helper surface already works on .NET 10 / C# 14'
   }

@@ -9,6 +9,6 @@
     "eng/Test-QuarryLedger.ps1"
   ],
   "dependencies": [
-    "Microsoft.AspNetCore.App.Internal.Assets/10.0.13"
+    "Microsoft.AspNetCore.App.Internal.Assets/10.0.14"
   ]
 }

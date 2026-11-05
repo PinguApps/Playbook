@@ -12,7 +12,7 @@ identity and strict trust policy, then use that same platform digest in the buil
 The verification client is Notation **1.3.2**, with ORAS **1.3.6** for registry
 discovery and copying test fixtures. Both are independently versioned native tools;
 verification itself needs no .NET SDK/runtime. The companion managed worker uses
-SDK10.0.402/C#14/ref10.0.13 or SDK11.0.100-rc.2.26504.105/C#15/ref11 RC2, compiled
+SDK10.0.403/C#14/ref10.0.13 or SDK11.0.100-rc.3.26522.148/C#15/ref11 RC2, compiled
 on Windows x64 and executed on Linux x64. No package, provider account, optional
 workload, UI rendering mode, system trust-store change or signing credential is
 required. Public MCR/certificate access is required for verification/setup;

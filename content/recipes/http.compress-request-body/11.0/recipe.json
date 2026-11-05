@@ -113,7 +113,7 @@
   ],
   "evidence": [
     {
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "scope": "Real TCP HTTP/1.1 upload: wire encodings/media type, compressed bytes and exact decompression. .NET 10 gzip/br; .NET 11 also zstd.",
       "sample": "samples/net10.0/HttpCapacity/HttpCapacity.csproj",
       "target": "net10.0",
@@ -121,7 +121,7 @@
       "language": "14.0"
     },
     {
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "scope": "Real TCP HTTP/1.1 upload: wire encodings/media type, compressed bytes and exact decompression. .NET 10 gzip/br; .NET 11 also zstd.",
       "sample": "samples/net11.0/HttpCapacity/HttpCapacity.csproj",
       "target": "net11.0",

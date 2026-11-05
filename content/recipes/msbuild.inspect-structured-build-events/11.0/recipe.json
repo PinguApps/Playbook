@@ -59,7 +59,7 @@
           },
           "sdk": {
             "name": ".NET SDK",
-            "version": "11.0.100-rc.2.26504.105",
+            "version": "11.0.100-rc.3.26522.148",
             "match": "exact",
             "reason": "The actual bundled MSBuild18.12 event producer/reader and compiler/dependency/resolver closure are hash qualified together."
           },
@@ -81,8 +81,8 @@
           ],
           "renderingModes": [],
           "prerequisites": [
-            "Complete .NET11 RC2 SDK installation, rollForward=disable and allowPrerelease=true; original controlled strong-named assembly graph and trusted project inputs.",
-            "SDK10.0.402/runtime+ref10.0.13 and C#14 additionally reproduce the older fallback. Exact installed artifacts are recorded separately in the sample pin manifest.",
+            "Complete .NET11 RC3 SDK installation, rollForward=disable and allowPrerelease=true; original controlled strong-named assembly graph and trusted project inputs.",
+            "SDK10.0.403/runtime+ref10.0.14 and C#14 additionally reproduce the older fallback. Exact installed artifacts are recorded separately in the sample pin manifest.",
             "PowerShell7 for sample evidence/installed inspection. No external provider, rendering mode, workload, optional native compiler or device is required."
           ],
           "constraints": [
@@ -94,7 +94,7 @@
           ],
           "optIns": [
             "MSBUILDUSESERVER=1 only in fixture children; MSBUILDUSESERVER=0 disables it. Requested server plus -nr:false produces NotUsed without -mt; no experimental -mt is used.",
-            "No ExperimentalAttribute diagnostic or preview-language suppression is required by these event APIs. RC2 SDK pin explicitly allows prerelease."
+            "No ExperimentalAttribute diagnostic or preview-language suppression is required by these event APIs. RC3 SDK pin explicitly allows prerelease."
           ],
           "stabilityLimitations": [
             "Preview-qualified exact SDK observation; new conflict records are gated by the18.12 feature wave. Do not disable the wave to claim typed emission.",
@@ -158,7 +158,7 @@
   ],
   "evidence": [
     {
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "target": "net10.0",
       "sample": "samples/net10.0/DepotEventReader/DepotEventReader.csproj",
       "scope": "Actual strong-named graph, MSB3277 and diagnostic binlog replay; CLI spawn/reuse/no-server task PID controls, real warning-as-error failure, text constructor and absent typed APIs. Exact complete SDK closure checked; no typed older route.",
@@ -166,7 +166,7 @@
       "kind": "compile-and-run"
     },
     {
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "target": "net11.0",
       "sample": "samples/net11.0/DepotEventReader/DepotEventReader.csproj",
       "scope": "Actual strong-named graph emits typed warning, non-warning dependency details and failed searches; matched binlog replay preserves victor/victim/loss/dependee/source/search fields. Actual Spawned/Reused same owned PID, requested no-reuse NotUsed reason, disabled absence; warning promotion fails with MSB3277. Event/text constructor controls and owned-handle cleanup; exact complete SDK closure. Windows x64 RC2 only.",

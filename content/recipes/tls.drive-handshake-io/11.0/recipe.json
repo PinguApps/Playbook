@@ -43,7 +43,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Build net11.0 references; the exact RC2 SDK is an evidence baseline."
+            "reason": "Build net11.0 references; the exact RC3 SDK is an evidence baseline."
           },
           "language": {
             "name": "C#",
@@ -125,7 +125,7 @@
       "kind": "compile-and-run",
       "sample": "samples/net10.0/CallerTls/CallerTls.csproj",
       "target": "net10.0",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "language": "14.0",
       "scope": "Windows real TLS: older SslStream TCP echo; newer caller-owned memory transfers with fragmented handshake, 50000-byte records, wrong-host rejection and close_notify. No socket-session or other-provider proof."
     },
@@ -133,7 +133,7 @@
       "kind": "compile-and-run",
       "sample": "samples/net11.0/CallerTls/CallerTls.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "language": "15.0",
       "scope": "Windows real TLS: older SslStream TCP echo; newer caller-owned memory transfers with fragmented handshake, 50000-byte records, wrong-host rejection and close_notify. No socket-session or other-provider proof."
     }

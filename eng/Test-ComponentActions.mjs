@@ -54,7 +54,7 @@ try {
         }
         assert.ok(ready, logs);
         const runtime = (await (await fetch(`${url}/audit`)).json()).runtime;
-        assert.match(runtime, new RegExp(`^\\.NET ${version === '10.0' ? '10\\.0\\.13$' : '11\\.0\\.0-rc\\.2\\.26504\\.105$'}`));
+        assert.match(runtime, new RegExp(`^\\.NET ${version === '10.0' ? '10\\.0\\.14$' : '11\\.0\\.0-rc\\.3\\.26522\\.148$'}`));
         await page.goto(url);
         await page.locator('#ticket').filter({ hasText: '40' }).waitFor();
         // Wait for the interactive connection: static HTML is not behavior proof.

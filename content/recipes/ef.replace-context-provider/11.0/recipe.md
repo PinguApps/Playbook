@@ -147,8 +147,8 @@ program is included so its assertions, lifetimes and failure controls remain off
 
 ## Constraints
 
-The previous consumer uses SDK 10.0.402, .NET 10.0.13, C# 14 and EF SQLite/InMemory
-10.0.13. The current consumer uses SDK 11.0.100-rc.2.26504.105, runtime
+The previous consumer uses SDK 10.0.403, .NET 10.0.13, C# 14 and EF SQLite/InMemory
+10.0.13. The current consumer uses SDK 11.0.100-rc.3.26522.148, runtime
 11.0.0-rc.2.26504.105, C# 15 and EF SQLite/InMemory 11.0.0-rc.2.26504.105. Those
 are measured artifacts, separate from the route's .NET/SDK 11 release-family
 prerequisite. No C#15-specific syntax or experimental suppression is required;

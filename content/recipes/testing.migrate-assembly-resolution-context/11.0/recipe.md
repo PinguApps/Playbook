@@ -13,7 +13,7 @@ The audited SDK10 PlatformAbstractions DLL has a mutable RequestingAssembly sett
 **Public18.7.0 does not have that property at all.** Public18.9 already has the new
 constructor. The source audit compares SDK builds, so package numbering cannot be
 used as a substitute for its actual old contract. The old resolver below therefore
-references exactly SDK10.0.402's PlatformAbstractions product18.7.0-release-26505-111,
+references exactly SDK10.0.403's PlatformAbstractions product18.7.0-release-26505-111,
 SHA256 e52ae9db24b333b65ccb15173d2db1fabd944f7f861e1b9209e613710bf624b5.
 This is a qualified historical direct-SDK consumer, not an independently stable
 SDK-embedding guarantee or a nonexistent public-package18.7 route.
@@ -76,8 +76,8 @@ Use Rules.csproj in rules-source and Plugin.csproj in plugin-source:
 1. Inspect the actual resolver assembly, target and source contract. The public
    SDK10 source audit's setter differs from package18.7; do not silently mix its DLL
    into a current TestHost closure. Keep the old SDK comparison in its own process.
-2. Create the projects/sources above. Pin the parent sample global.json to10.0.402
-   or11.0.100-rc.2.26504.105 with rollForward=disable, and copy that pin beside
+2. Create the projects/sources above. Pin the parent sample global.json to10.0.403
+   or11.0.100-rc.3.26522.148 with rollForward=disable, and copy that pin beside
    each nested resolver project. Set LEGACY_PLATFORM only on the
    old SDK resolver project. Restore/build each resolver in Release and retain its
    generated lock. Current projects obtain the complete locked TestHost/ObjectModel
@@ -101,8 +101,8 @@ Use Rules.csproj in rules-source and Plugin.csproj in plugin-source:
 
 ## Constraints
 
-The measured comparison is SDK **10.0.402**, C# **14**, runtime **10.0.13**
-versus SDK **11.0.100-rc.2.26504.105**, C# **15**, runtime
+The measured comparison is SDK **10.0.403**, C# **14**, runtime **10.0.14**
+versus SDK **11.0.100-rc.3.26522.148**, C# **15**, runtime
 **11.0.0-rc.2.26504.105**, on Windows x64. Public platform packages are pinned
 independently: **18.7.0** and **18.11.0**, with NuGet-generated locks. Both CLI
 packages actually ship a **net10.0** console, not a console TFM inferred from

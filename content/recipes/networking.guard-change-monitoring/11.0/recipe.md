@@ -22,7 +22,7 @@ For example, a station service can mark its cached observations stale in invalid
 
 ## Migration
 
-1. Target net11.0 with a .NET 11 SDK/runtime. The sample declares C#15; SDK11.0.100-rc.2.26504.105/runtime11.0.0-rc.2.26504.105 identify tested artifacts, not final-GA proof.
+1. Target net11.0 with a .NET 11 SDK/runtime. The sample declares C#15; SDK11.0.100-rc.3.26522.148/runtime11.0.0-rc.3.26522.148 identify tested artifacts, not final-GA proof.
 2. Retain the older route for net10.0. Replace only the desktop allowlist with the capability property, keeping explicit browser/WASI exclusions before accessing it.
 3. Supply short, thread-safe callbacks. Marshal UI updates to the application's dispatcher. Do not throw from an event callback or treat notification as successful service connectivity.
 4. Retain and dispose the returned IDisposable with its owner. Unsubscription prevents future delivery registration, but does not drain a callback already queued or running. Coordinate owner teardown separately when needed.

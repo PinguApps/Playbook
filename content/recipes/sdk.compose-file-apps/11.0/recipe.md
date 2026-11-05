@@ -6,7 +6,7 @@ Calculate free rack slots in a fictional depot while moving the arithmetic into 
 
 ## Older approach
 
-The include directive was serviced into SDK 10.0.300; it is not exclusive to .NET 11. The actual older comparison uses SDK 10.0.402, net10.0 and C# 14. Put Rack.cs beside slots.cs, and begin slots.cs with a shebang line `#!/usr/bin/env dotnet` before the source below. Run `dotnet run --file slots.cs -c Release -- --reserve 4`.
+The include directive was serviced into SDK 10.0.300; it is not exclusive to .NET 11. The actual older comparison uses SDK 10.0.403, net10.0 and C# 14. Put Rack.cs beside slots.cs, and begin slots.cs with a shebang line `#!/usr/bin/env dotnet` before the source below. Run `dotnet run --file slots.cs -c Release -- --reserve 4`.
 
 {{snippet:older}}
 
@@ -32,7 +32,7 @@ To maintain project references with the CLI, use `dotnet reference add --file sl
 
 ## Migration
 
-1. Start with sdk.run-file-utility when the utility is still one file. Use SDK 10.0.300 or later in the .NET 10 servicing line for source inclusion; the tested older baseline is 10.0.402.
+1. Start with sdk.run-file-utility when the utility is still one file. Use SDK 10.0.300 or later in the .NET 10 servicing line for source inclusion; the tested older baseline is 10.0.403.
 2. Move only supporting declarations to Rack.cs. Use a literal include for this bounded example. Globs and additional file types have their own build/cache consequences.
 3. Choose one owner for each type: included source, project reference or compiled assembly. Keep the referenced project's target compatible with the caller.
 4. With the pinned package directive shown here, disable inherited central package management deliberately. Alternatively remove the version from the package directive, keep CPM enabled and declare System.CommandLine 2.0.1 in Directory.Packages.props. Both were actually exercised.

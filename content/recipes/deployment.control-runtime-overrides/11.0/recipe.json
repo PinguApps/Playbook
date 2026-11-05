@@ -104,7 +104,7 @@
   "evidence": [
     {
       "sample": "samples/net10.0/TidalDiagnostics/TidalDiagnostics.csproj",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "language": "14.0",
       "scope": "Actual build and managed report execution; exact host behavior is separately verified in the execution record.",
       "kind": "compile-and-run",
@@ -113,7 +113,7 @@
     {
       "sample": "samples/net10.0/TidalDiagnostics/TidalDiagnostics.csproj",
       "record": "samples/net10.0/TidalDiagnostics/commands.evidence.json",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "language": "14.0",
       "scope": "Real isolated hostfxr/runtime precedence, nonduplicate merge, absent dev file, source regeneration, SDK generation/copy and production artifact execution; Windows x64 only.",
       "kind": "execution",
@@ -121,7 +121,7 @@
     },
     {
       "sample": "samples/net11.0/TidalDiagnostics/TidalDiagnostics.csproj",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "language": "15.0",
       "scope": "Actual build and managed report execution; exact host behavior is separately verified in the execution record.",
       "kind": "compile-and-run",
@@ -130,7 +130,7 @@
     {
       "sample": "samples/net11.0/TidalDiagnostics/TidalDiagnostics.csproj",
       "record": "samples/net11.0/TidalDiagnostics/commands.evidence.json",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "language": "15.0",
       "scope": "Real isolated hostfxr/runtime precedence, nonduplicate merge, absent dev file, source regeneration, SDK generation/copy and production artifact execution; Windows x64 only.",
       "kind": "execution",

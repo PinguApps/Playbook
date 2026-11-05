@@ -111,7 +111,7 @@
   "evidence": [
     {
       "language": "14.0",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "scope": "Actual .NET10 Windows support probes, 44/P256 sign/verify/tamper rejection and managed RSA2048/PSS sign/verify/tamper success. Exact native/compiler/reference/runtime hashes retained. No other ECDSA set, certificate or GA claim.",
       "kind": "compile-and-run",
       "sample": "samples/net10.0/ObservatoryBulletins/ObservatoryBulletins.csproj",
@@ -119,7 +119,7 @@
     },
     {
       "language": "15.0",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "scope": "Actual .NET11RC2 Windows support probes, native44/P256 sign/verify/tamper rejection and unsupported RSA2048/PSS failure. Exact native/compiler/reference/runtime hashes retained. No other ECDSA set, certificate or GA claim.",
       "kind": "compile-and-run",
       "sample": "samples/net11.0/ObservatoryBulletins/ObservatoryBulletins.csproj",

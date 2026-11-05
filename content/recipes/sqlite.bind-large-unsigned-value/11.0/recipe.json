@@ -198,7 +198,7 @@
       "target": "net10.0",
       "language": "14.0",
       "kind": "compile-and-run",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "scope": "Real in-memory SQLite: provider10 rejects direct UInt128 then explicit invariant D39 binding; full-width/zero/power-of-ten boundaries, exact TEXT/length, numeric ordering and parameter range comparison."
     },
     {
@@ -206,7 +206,7 @@
       "target": "net11.0",
       "language": "15.0",
       "kind": "compile-and-run",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "scope": "Real in-memory SQLite: direct UInt128 binding; full-width/zero/power-of-ten boundaries, exact 39-digit TEXT, ordered values and parameter range comparison; explicit GetString/Parse only."
     },
     {
@@ -214,7 +214,7 @@
       "target": "net10.0",
       "language": "14.0",
       "kind": "compile-and-run",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "scope": "Real in-memory SQLite: direct UInt128 binding; full-width/zero/power-of-ten boundaries, exact 39-digit TEXT, ordered values and parameter range comparison; explicit GetString/Parse only."
     }
   ],

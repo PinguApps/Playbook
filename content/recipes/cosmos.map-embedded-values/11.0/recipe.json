@@ -100,7 +100,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Stable API contract prepared using .NET11 RC2 SDK/runtime/EF packages; no experimental opt-in. Actual GA reconciliation remains outstanding."
+            "Stable API contract prepared using .NET11 RC3 SDK/runtime and EF11 RC2 packages; no experimental opt-in. Actual GA reconciliation remains outstanding."
           ]
         },
         "conditional": false,
@@ -122,7 +122,7 @@
     {
       "scope": "Actual isolated Cosmos emulator insert/read/update; independent SDK JSON object and array read-back; root-only EF11 tracking versus EF10 owned entries. Windows x64 consumer; no cloud, performance, other-platform or GA claim.",
       "language": "14.0",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "kind": "compile-and-run",
       "sample": "samples/net10.0/ReefManifest/ReefManifest.csproj",
       "target": "net10.0"
@@ -130,7 +130,7 @@
     {
       "scope": "Actual isolated Cosmos emulator insert/read/update; independent SDK JSON object and array read-back; root-only EF11 tracking versus EF10 owned entries. Windows x64 consumer; no cloud, performance, other-platform or GA claim.",
       "language": "15.0",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "kind": "compile-and-run",
       "sample": "samples/net11.0/ReefManifest/ReefManifest.csproj",
       "target": "net11.0"

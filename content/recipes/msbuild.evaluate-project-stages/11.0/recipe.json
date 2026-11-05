@@ -56,7 +56,7 @@
           },
           "sdk": {
             "name": ".NET SDK",
-            "version": "11.0.100-rc.2.26504.105",
+            "version": "11.0.100-rc.3.26522.148",
             "match": "exact",
             "reason": "Compile and execute against the complete matching installed SDK/MSBuild 18.12.0-1.26504.105 closure and SDK resolver."
           },
@@ -154,7 +154,7 @@
   ],
   "evidence": [
     {
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "scope": "Actual SDK10 full-evaluation host using Locator1.11.2 and complete installed closure: imported properties/items/metadata/targets/SDK resolution, real CLI property/item queries and explicit target-execution control. No older partial API. Exact compiler/reference/native-host/runtime/dependency hashes checked; loaded assemblies/imports recorded.",
       "target": "net10.0",
       "sample": "samples/net10.0/MuseumInventory/MuseumInventory.csproj",
@@ -162,8 +162,8 @@
       "language": "14.0"
     },
     {
-      "sdk": "11.0.100-rc.2.26504.105",
-      "scope": "Actual SDK11 RC2 host/Locator1.11.2: all partial stages, property-set/import equality, item values/metadata/counts versus Full, omitted/default Full, unavailable state failures, all three mutable factories rejecting every partial stage and undefined enum failure. Real CLI property/item outputs and explicit target control, actual SDK imports and complete loaded assembly closure. Exact artifact hashes checked. Windows x64 preview; no speed, down-level partial or actual-GA claim.",
+      "sdk": "11.0.100-rc.3.26522.148",
+      "scope": "Actual SDK11 RC3 host/Locator1.11.2: all partial stages, property-set/import equality, item values/metadata/counts versus Full, omitted/default Full, unavailable state failures, all three mutable factories rejecting every partial stage and undefined enum failure. Real CLI property/item outputs and explicit target control, actual SDK imports and complete loaded assembly closure. Exact artifact hashes checked. Windows x64 preview; no speed, down-level partial or actual-GA claim.",
       "target": "net11.0",
       "sample": "samples/net11.0/MuseumInventory/MuseumInventory.csproj",
       "kind": "compile-and-run",

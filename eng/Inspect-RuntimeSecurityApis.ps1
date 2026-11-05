@@ -1,7 +1,7 @@
 [CmdletBinding()]
 param(
-  [string]$Net10Root = 'C:/Program Files/dotnet',
-  [string]$Net11Root = 'C:/Users/pingu/.dotnet-playbook-11',
+  [string]$Net10Root = (Split-Path (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source -Parent),
+  [string]$Net11Root = (Split-Path (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source -Parent),
   [string]$OutputPath = (Join-Path $PSScriptRoot '../artifacts/runtime-security.assets.json'),
   [string]$CompareWith,
   [string]$SourceManifest = (Join-Path $PSScriptRoot '../docs/planning/audits/runtime-security.sources.json'),
@@ -120,20 +120,20 @@ function Test-InScope([string]$Path, [string]$Name) {
 $temporary = Join-Path ([IO.Path]::GetTempPath()) "playbook-runtime-security-$([guid]::NewGuid().ToString('N'))"
 New-Item -ItemType Directory -Path $temporary | Out-Null
 try {
-  Add-Type -Path (Join-Path $Net10Root 'sdk/10.0.402/System.Reflection.MetadataLoadContext.dll')
+  Add-Type -Path (Join-Path $Net10Root 'sdk/10.0.403/System.Reflection.MetadataLoadContext.dll')
   $baselines = @(
-    @{ root = $Net10Root; sdk = '10.0.402'; version = '10.0.13'; target = 'net10.0' },
-    @{ root = $Net11Root; sdk = '11.0.100-rc.2.26504.105'; version = '11.0.0-rc.2.26504.105'; target = 'net11.0' }
+    @{ root = $Net10Root; sdk = '10.0.403'; version = '10.0.13'; runtime = '10.0.14'; target = 'net10.0' },
+    @{ root = $Net11Root; sdk = '11.0.100-rc.3.26522.148'; version = '11.0.0-rc.2.26504.105'; runtime = '11.0.0-rc.3.26522.148'; target = 'net11.0' }
   )
   $results = @()
   foreach ($baseline in $baselines) {
-    $refDirectory = Join-Path $baseline.root "packs/Microsoft.NETCore.App.Ref/$($baseline.version)/ref/$($baseline.target)"
+    $refDirectory = Join-Path $baseline.root "packs/Microsoft.NETCore.App.Ref/$($baseline.runtime)/ref/$($baseline.target)"
     $references = @(Get-ChildItem -LiteralPath $refDirectory -Filter '*.dll' | ForEach-Object FullName)
     if ($references.Count -eq 0) { throw "Missing reference pack: $refDirectory" }
     $selected = @($references | Where-Object { [IO.Path]::GetFileName($_) -match '^System\.(Net\..*|Security.*|Threading.*|Reflection.*|Runtime|Runtime\.Extensions|Runtime\.Handles|Runtime\.InteropServices.*|Runtime\.CompilerServices.*|Runtime\.Loader)\.dll$' })
     Write-Host "Inspecting $($baseline.target): $($selected.Count) reference assemblies and selected security/transport packages."
     $framework = @($selected | Sort-Object | ForEach-Object { Get-Surface $_ $references })
-    $tooling = @(Get-ChildItem (Join-Path $baseline.root "packs/Microsoft.NETCore.App.Ref/$($baseline.version)/analyzers") -Recurse -Filter 'Microsoft.Interop.*.dll' | Sort-Object FullName | ForEach-Object {
+    $tooling = @(Get-ChildItem (Join-Path $baseline.root "packs/Microsoft.NETCore.App.Ref/$($baseline.runtime)/analyzers") -Recurse -Filter 'Microsoft.Interop.*.dll' | Sort-Object FullName | ForEach-Object {
       [ordered]@{ path = [IO.Path]::GetRelativePath($baseline.root, $_.FullName).Replace('\', '/'); sha256 = Get-Hash $_.FullName }
     })
     if ($tooling.Count -eq 0) { throw 'Missing framework analyzer/tooling artifacts.' }
@@ -169,21 +169,21 @@ try {
     $browserPackages = @('microsoft.netcore.app.runtime.mono.browser-wasm')
     if ($baseline.target -eq 'net11.0') { $browserPackages += 'microsoft.netcore.app.runtime.browser-wasm' }
     foreach ($id in $browserPackages) {
-      $url = "https://api.nuget.org/v3-flatcontainer/$id/$($baseline.version)/$id.$($baseline.version).nupkg"
-      $zip = Join-Path $temporary "$id.$($baseline.version).nupkg"
+      $url = "https://api.nuget.org/v3-flatcontainer/$id/$($baseline.runtime)/$id.$($baseline.runtime).nupkg"
+      $zip = Join-Path $temporary "$id.$($baseline.runtime).nupkg"
       Invoke-WebRequest -Uri $url -OutFile $zip
       $directory = "$zip.contents"
       [IO.Compression.ZipFile]::ExtractToDirectory($zip, $directory)
       $declarations = @(Get-ChildItem -LiteralPath $directory -Recurse -Filter 'dotnet.d.ts')
       if ($declarations.Count -ne 1) { throw "Missing/ambiguous browser public tooling: $id" }
       $browser += [ordered]@{
-        id = $id; version = $baseline.version; url = $url; sha256 = Get-Hash $zip
+        id = $id; version = $baseline.runtime; url = $url; sha256 = Get-Hash $zip
         path = [IO.Path]::GetRelativePath($directory, $declarations[0].FullName).Replace('\', '/')
         declarationsSha256 = Get-Hash $declarations[0].FullName
         declarations = @(Get-Content -LiteralPath $declarations[0].FullName)
       }
     }
-    $results += [ordered]@{ sdk = $baseline.sdk; referencePack = $baseline.version; target = $baseline.target; tooling = $tooling; browser = $browser; framework = $framework; packages = $packages }
+    $results += [ordered]@{ sdk = $baseline.sdk; referencePack = $baseline.runtime; packageVersion = $baseline.version; target = $baseline.target; tooling = $tooling; browser = $browser; framework = $framework; packages = $packages }
   }
   $diffs = @()
   foreach ($name in Get-Ordinal @($results.framework.name | Select-Object -Unique)) {

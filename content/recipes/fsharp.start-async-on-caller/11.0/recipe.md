@@ -22,7 +22,7 @@ The new runner starts the computation on the caller until its first suspension a
 2. Check the context before entering, then pass the computation. The example captures thread IDs on the caller, at entry and after Async.Sleep.
 3. Await asynchronously instead when blocking is unsuitable. RunSynchronouslyImmediate has no timeout overload; use a token for cooperative cancellation, or the ordinary runner where a timeout is needed.
 
-Use .NET 11 SDK, net11.0 and FSharp.Core 11; exact evidence pins are SDK 11.0.100-rc.2.26504.105 and FSharp.Core 11.0.101-rc2.26504.105, selecting lib/net10.0. The comparison pins SDK 10.0.402 and FSharp.Core 10.1.402 (lib/netstandard2.1). Set LangVersion to 11.0 for the newer example and 10.0 for the comparison.
+Use .NET 11 SDK, net11.0 and FSharp.Core 11; exact evidence pins are SDK 11.0.100-rc.3.26522.148 and FSharp.Core 11.0.101-rc2.26504.105, selecting lib/net10.0. The comparison pins SDK 10.0.403 and FSharp.Core 10.1.402 (lib/netstandard2.1). Set LangVersion to 11.0 for the newer example and 10.0 for the comparison.
 
 ## Constraints
 

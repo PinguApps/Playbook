@@ -6,8 +6,8 @@
     {"file":"timestamp.crt","type":"tsa","sha256":"df545bf919a2439c36983b54cdfc903dfa4f37d3996d8d84b4c31eec6f3c163e","url":"https://www.microsoft.com/pki/certs/MicRooCerAut_2010-06-23.crt"}
   ],
   "images": {
-    "10": {"tag":"10.0.13-azurelinux3.0","index":"sha256:5e6d01ac0f7860e7cf22ac0b0b5aebb3d72854b2e3dbcb7729a76aab9c1ce32c","amd64":"sha256:e454ed02b8c903dff0d7fd40a63451e55f16c186463d168a78e584738244f939"},
-    "11": {"tag":"11.0.0-rc.2-azurelinux4.0","index":"sha256:fef3cd3bd18e61d14dd7e66289e1a537d6a48fdc2d266e009744e299571c6afe","amd64":"sha256:3b52667dbaff185a1ddd4cefb16d9517e6945f6e61257faa2e57e6040877d95b"}
+    "10": {"tag":"10.0.14-azurelinux3.0","index":"sha256:ffd2a6bc65b06f31fc61ba60e70c12250e1da4816d1069961a25342d6cca93f8","amd64":"sha256:6b0cde57a2d55aa6ef5b9c9eafbc156e3c0e0b7c114134111103bc0a3e474517"},
+    "11": {"tag":"11.0.0-rc.3-azurelinux4.0","index":"sha256:d8235d0f69afc582c94082a622dc31fe60e466ddbc1fef509ebcc8725827b6a3","amd64":"sha256:811515cabb3edf04bbbef8da41adbd51beb7f973716046d80de77822d2c1dece"}
   },
   "registry":"registry@sha256:ddf754342cfc8acc51a56d5d0ab6af06826461864460636d8bd5c546dab2a7b8"
 }

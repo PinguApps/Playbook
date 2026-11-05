@@ -31,6 +31,6 @@ No provider, workload or rendering mode is required. The declared samples run on
 
 ## Evidence
 
-The exact SDK pins, resolved FSharp.Core dependencies, input hashes, build commands and actual execution output accompany this recipe. The saved records cover the .NET 10 and .NET 11 samples. The separate compiler probe confirms stable spreads, preview constructor rejection/acceptance and ordinary culture formatting. Reflection-free diagnostics use their own --reflectionfree executable; ordinary formatting is not substituted for that evidence. No trimmed or Native AOT publish/run, cross-compilation or mocks are claimed. RC2 evidence is not GA verification.
+The exact SDK pins, resolved FSharp.Core dependencies, input hashes, build commands and actual execution output accompany this recipe. The saved records cover the .NET 10 and .NET 11 samples. The separate compiler probe confirms stable spreads, preview constructor rejection/acceptance and ordinary culture formatting. Reflection-free diagnostics use their own --reflectionfree executable; ordinary formatting is not substituted for that evidence. No trimmed or Native AOT publish/run, cross-compilation or mocks are claimed. RC3 evidence is not GA verification.
 
 Official sources: [F# record constructor preview gate](https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/rc1/fsharp.md); [Synthesized all-fields constructor implementation](https://github.com/dotnet/fsharp/pull/19974).

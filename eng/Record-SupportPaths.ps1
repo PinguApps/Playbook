@@ -11,7 +11,7 @@ try {
  $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH='0'; $env:DOTNET_GENERATE_ASPNET_CERTIFICATE='false'; $env:MSBUILDUSESERVER='0'; $env:UseSharedCompilation='false'; $env:DOTNET_CLI_WORKLOAD_UPDATE_NOTIFY_DISABLE='true'; $env:DOTNET_CLI_TELEMETRY_OPTOUT='1'
  foreach($source in (Get-Content samples/SupportPaths/sources.json -Raw|ConvertFrom-Json).sources){$bytes=(Invoke-WebRequest $source.url).RawContentStream.ToArray();if([Convert]::ToHexStringLower([Security.Cryptography.SHA256]::HashData($bytes)) -cne $source.sha256){throw 'Source drift'}}
  foreach($major in 10,11){
-  $dn=if($major -eq 10){'C:/Program Files/dotnet/dotnet.exe'}else{'C:/Users/pingu/.dotnet-playbook-11/dotnet.exe'}
+  $dn=if($major -eq 10){(Get-Command dotnet -CommandType Application | Select-Object -First 1).Source}else{(Get-Command dotnet -CommandType Application | Select-Object -First 1).Source}
   foreach($name in 'ReedStation','ReedStationBrowser'){
    $sample="samples/net$major.0/$name/$name.csproj"
    if($Record){$kind=if($name -eq 'ReedStation'){'compile-and-run'}else{'compile'}; & "$PSScriptRoot/Record-Evidence.ps1" -Sample $sample -Dotnet $dn -Kind $kind}

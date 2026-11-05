@@ -83,9 +83,9 @@ internal static class Program
             coreLibSha256 = Convert.ToHexString(SHA256.HashData(File.ReadAllBytes(coreLib))).ToLowerInvariant(),
         }));
 #if NET11_0_OR_GREATER
-        const string expected = ".NET 11.0.0-rc.2.26504.105";
+        const string expected = ".NET 11.0.0-rc.3.26522.148";
 #else
-        const string expected = ".NET 10.0.13";
+        const string expected = ".NET 10.0.14";
 #endif
         Require(RuntimeInformation.FrameworkDescription == expected, "Runtime baseline drift: " + RuntimeInformation.FrameworkDescription + "; expected " + expected);
     }

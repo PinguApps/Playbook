@@ -85,7 +85,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Stable framework migration; .NET 11 compilation and execution evidence uses 11.0.100-rc.2.26504.105. GA reconciliation remains separate."
+            "Stable framework migration; .NET 11 compilation and execution evidence uses 11.0.100-rc.3.26522.148. GA reconciliation remains separate."
           ]
         },
         "sourceUrls": [
@@ -117,7 +117,7 @@
     {
       "sample": "samples/net10.0/FernPosters/FernPosters.csproj",
       "target": "net10.0",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "language": "14.0",
       "kind": "compile-and-run",
       "scope": "Real MVC Razor activation resolves the derived helper's services and renders a versioned src, encoded custom attribute and retained alt text on both baselines. Matching-SDK compilation and real execution; no mocks or cross-compilation. Windows x64 evidence does not establish GA or a platform matrix."
@@ -125,7 +125,7 @@
     {
       "sample": "samples/net11.0/FernPosters/FernPosters.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "language": "15.0",
       "kind": "compile-and-run",
       "scope": "Real MVC Razor activation resolves the derived helper's services and renders a versioned src, encoded custom attribute and retained alt text on both baselines. Matching-SDK compilation and real execution; no mocks or cross-compilation. Windows x64 evidence does not establish GA or a platform matrix."

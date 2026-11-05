@@ -26,7 +26,7 @@ Complete external ApiDocs.xml authoring input:
 2. Use inheritdoc for the override and include for the external summary. Publish the generated XML alongside the library; retain the external file in authoring inputs for reproducible builds.
 3. Inspect generated FSharpApi.xml: HarbourPolicy.Limit contains inheritdoc and dockLabel contains the expanded summary. Documentation tools may need their own inheritance resolution.
 
-Use .NET 11 SDK, net11.0 and FSharp.Core 11; exact evidence pins are SDK 11.0.100-rc.2.26504.105 and FSharp.Core 11.0.101-rc2.26504.105, selecting lib/net10.0. The comparison pins SDK 10.0.402 and FSharp.Core 10.1.402 (lib/netstandard2.1). Set LangVersion to 11.0 for the newer example and 10.0 for the comparison.
+Use .NET 11 SDK, net11.0 and FSharp.Core 11; exact evidence pins are SDK 11.0.100-rc.3.26522.148 and FSharp.Core 11.0.101-rc2.26504.105, selecting lib/net10.0. The comparison pins SDK 10.0.403 and FSharp.Core 10.1.402 (lib/netstandard2.1). Set LangVersion to 11.0 for the newer example and 10.0 for the comparison.
 
 ## Constraints
 

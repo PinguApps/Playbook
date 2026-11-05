@@ -53,8 +53,8 @@ the default controls as well as the custom ones.
 
 ## Evidence
 
-The paired projects pin SDK10.0.402/Controls10.0.110/C#14 versus SDK11 RC2
-11.0.100-rc.2.26504.105/Controls11.0.0-rc.2.26505.5/C#15. Native iOS26/27
+The paired projects pin SDK10.0.403/Controls10.0.110/C#14 versus SDK11 RC3
+11.0.100-rc.3.26522.148/Controls11.0.0-rc.2.26505.5/C#15. Native iOS26/27
 and Windows19041/20348 assets require their matching workloads; iOS minimum18.2
 and Windows minimum17763 are explicit. No provider, account, Blazor rendering,
 experimental API or preview-language opt-in is involved. This is stable API

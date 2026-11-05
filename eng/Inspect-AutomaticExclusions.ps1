@@ -1,8 +1,8 @@
 [CmdletBinding()]
 param(
   [string]$Manifest = (Join-Path $PSScriptRoot '../docs/planning/audits/automatic-exclusions.sources.json'),
-  [string]$Net10Root = 'C:/Program Files/dotnet',
-  [string]$Net11Root = 'C:/Users/pingu/.dotnet-playbook-11',
+  [string]$Net10Root = (Split-Path (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source -Parent),
+  [string]$Net11Root = (Split-Path (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source -Parent),
   [string]$OutputPath = (Join-Path $PSScriptRoot '../artifacts/automatic-exclusions.assets.json'),
   [string]$CompareWith
 )
@@ -23,13 +23,13 @@ try {
     Invoke-WebRequest -Uri $source.url -OutFile $file
     if ((Get-Hash $file) -ne $source.sha256) { throw "Source hash mismatch: $($source.id)" }
   }
-  $sdk = Join-Path $Net10Root 'sdk/10.0.402'
+  $sdk = Join-Path $Net10Root 'sdk/10.0.403'
   Add-Type -Path (Join-Path $sdk 'System.Reflection.MetadataLoadContext.dll')
-  $framework = @(Get-ChildItem (Join-Path $Net10Root 'packs/Microsoft.NETCore.App.Ref/10.0.13/ref/net10.0') -Filter '*.dll' | ForEach-Object FullName)
+  $framework = @(Get-ChildItem (Join-Path $Net10Root 'packs/Microsoft.NETCore.App.Ref/10.0.14/ref/net10.0') -Filter '*.dll' | ForEach-Object FullName)
   if (-not $framework.Count) { throw 'Install the declared .NET 10 reference pack.' }
   $assets = @(
-    @{ identity = 'SDK 10.0.402'; asset = 'FSharp/FSharp.Core.dll'; file = (Join-Path $sdk 'FSharp/FSharp.Core.dll') },
-    @{ identity = 'SDK 11.0.100-rc.2.26504.105'; asset = 'FSharp/FSharp.Core.dll'; file = (Join-Path $Net11Root 'sdk/11.0.100-rc.2.26504.105/FSharp/FSharp.Core.dll') }
+    @{ identity = 'SDK 10.0.403'; asset = 'FSharp/FSharp.Core.dll'; file = (Join-Path $sdk 'FSharp/FSharp.Core.dll') },
+    @{ identity = 'SDK 11.0.100-rc.3.26522.148'; asset = 'FSharp/FSharp.Core.dll'; file = (Join-Path $Net11Root 'sdk/11.0.100-rc.3.26522.148/FSharp/FSharp.Core.dll') }
   )
   foreach ($package in $inputs.packages) {
     $archive = Join-Path $scratch "$($package.id).$($package.version).nupkg"

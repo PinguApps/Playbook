@@ -139,7 +139,7 @@
       "kind": "compile-and-run",
       "sample": "samples/net10.0/UnsafeBoundaries/UnsafeBoundaries.csproj",
       "target": "net10.0",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "language": "14.0",
       "scope": "Original beacon frame decoding with legacy unsafe contexts; exact expected readings, unchanged input and short-frame rejection executed on .NET 10."
     },
@@ -147,7 +147,7 @@
       "kind": "compile-and-run",
       "sample": "samples/net11.0/UnsafeBoundaries/UnsafeBoundaries.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "language": "preview",
       "scope": "Same real frame checks with experimental member/body/caller boundaries on RC2. Separate forced-rebuild consumer, attribute, accessibility, AllowUnsafeBlocks, pointer span and preview/legacy checks run through eng/Test-UnsafeBoundaries.ps1; its input bytes are hashed, but those compiler results are documented separately."
     }

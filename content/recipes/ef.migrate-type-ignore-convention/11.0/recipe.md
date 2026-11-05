@@ -74,7 +74,7 @@ Windows x64 console/SQLite execution only; no rendering mode, NativeAOT or nativ
 
 ## Evidence
 
-Independent SDK10.0.402 / C#14 / EF10.0.13 and SDK11 RC2 / C#15 / EF11 RC2 graphs. SQLite3.53.3/3.53.4 are the measured bundled engines. Compilation and execution records identify inputs and locked dependencies. This is RC preparation evidence, not GA proof. No rendering mode or experimental opt-in is involved. No older-runtime EF11 route is supported. PIN-959 and PIN-965 remain separate gates.
+Independent SDK10.0.403 / C#14 / EF10.0.13 and SDK11 RC3 / C#15 / EF11 RC2 graphs. SQLite3.53.3/3.53.4 are the measured bundled engines. Compilation and execution records identify inputs and locked dependencies. This is RC preparation evidence, not GA proof. No rendering mode or experimental opt-in is involved. No older-runtime EF11 route is supported. PIN-959 and PIN-965 remain separate gates.
 
 ## References
 

@@ -11,7 +11,7 @@ internal static class AnalyzerChecks
     {
         string fixture = Path.Combine(repository, "artifacts", "gannet-assets", "net" + Environment.Version.Major, Guid.NewGuid().ToString("N"));
         Directory.CreateDirectory(fixture);
-        string dotnet = Environment.ProcessPath!, oldDotnet = Environment.GetEnvironmentVariable("GANNET_NET10_DOTNET") ?? "C:/Program Files/dotnet/dotnet.exe";
+        string dotnet = Environment.ProcessPath!, oldDotnet = Environment.GetEnvironmentVariable("GANNET_NET10_DOTNET") ?? Environment.ProcessPath!;
         string feed = Path.Combine(fixture, "feed"), cache = Path.Combine(fixture, "cache");
         Directory.CreateDirectory(feed);
         string analyzer = Path.Combine(fixture, "analyzer-source");

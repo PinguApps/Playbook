@@ -128,7 +128,7 @@
   ],
   "evidence": [
     {
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "scope": "Real loopback UDP DNS: original SRV target/port/priority/weight/TTL, NXDOMAIN, NODATA, pre-cancellation; Windows RC2 rejects custom port. No system DNS changes.",
       "sample": "samples/net10.0/DnsServices/DnsServices.csproj",
       "target": "net10.0",
@@ -136,7 +136,7 @@
       "language": "14.0"
     },
     {
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "scope": "Real loopback UDP DNS: original SRV target/port/priority/weight/TTL, NXDOMAIN, NODATA, pre-cancellation; Windows RC2 rejects custom port. No system DNS changes.",
       "sample": "samples/net11.0/DnsServices/DnsServices.csproj",
       "target": "net11.0",

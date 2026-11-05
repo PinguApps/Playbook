@@ -35,7 +35,7 @@
         "usage": "primary",
         "selectionNotes": [
           "Only complete static ~/ literals expand; [AssetPath] requires a string Parameter. Ordinary string parameters, bare paths and unrelated attributes are not inferred.",
-          "On the measured RC2 SDK, default source generation expands component parameters but leaves custom and built-in HTML ~/ paths literal. The executed HTML route uses documented UseRazorSourceGenerator=false. Retain explicit @Assets lookup if that route is unsuitable."
+          "On the measured RC3 SDK, default source generation expands component parameters but leaves custom and built-in HTML ~/ paths literal. The executed HTML route uses documented UseRazorSourceGenerator=false. Retain explicit @Assets lookup if that route is unsuitable."
         ],
         "requirements": {
           "runtime": {
@@ -61,7 +61,7 @@
           ],
           "packages": [],
           "packageAssets": [
-            "Matching Components reference/runtime assemblies; locked Microsoft.AspNetCore.App.Internal.Assets 11.0.0-rc.2.26504.105; SDK Razor compiler and task assemblies"
+            "Matching Components reference/runtime assemblies; locked Microsoft.AspNetCore.App.Internal.Assets 11.0.0-rc.3.26522.148; SDK Razor compiler and task assemblies"
           ],
           "workloads": [],
           "providers": [],
@@ -72,12 +72,12 @@
             "Static SSR, published ASP.NET Core server at /museum/"
           ],
           "prerequisites": [
-            "SDK 10.0.402 / framework-packages 10.0.13 / C# 14 comparison and SDK 11.0.100-rc.2.26504.105 / framework-packages 11.0.0-rc.2.26504.105 / C# 15 current test pins; pins are not universal exact prerequisites.",
+            "SDK 10.0.403 / framework-packages 10.0.14 / C# 14 comparison and SDK 11.0.100-rc.3.26522.148 / framework-packages 11.0.0-rc.3.26522.148 / C# 15 current test pins; pins are not universal exact prerequisites.",
             "Keep Razor 11 expansion enabled and set UseRazorSourceGenerator=false for this verified RC2 HTML route; publish MapStaticAssets endpoints and align base href with UsePathBase."
           ],
           "constraints": [
             "Only complete static ~/ literals expand; [AssetPath] requires a string Parameter. Ordinary string parameters, bare paths and unrelated attributes are not inferred.",
-            "On the measured RC2 SDK, default source generation expands component parameters but leaves custom and built-in HTML ~/ paths literal. The executed HTML route uses documented UseRazorSourceGenerator=false. Retain explicit @Assets lookup if that route is unsuitable.",
+            "On the measured RC3 SDK, default source generation expands component parameters but leaves custom and built-in HTML ~/ paths literal. The executed HTML route uses documented UseRazorSourceGenerator=false. Retain explicit @Assets lookup if that route is unsuitable.",
             "The public AssetPathAttributes convention class declares [AcceptsAssetPath(\"museum-image\", \"source\")]. This annotates compiler input; it does not implement or register a browser custom element.",
             "An unknown ~/ key lowers to Assets[\"key\"]; the collection returns the unmapped key. HTTP 404 proves no asset was created. Do not mistake prefix removal for a valid published URL.",
             "Verified static SSR and published fingerprinted URLs under /museum/. No interactive rendering, IDE/Hot Reload, arbitrary build host, runtime rewriting or older-target package route is claimed."
@@ -128,7 +128,7 @@
     {
       "sample": "samples/net10.0/MaritimeGallery/MaritimeGallery.csproj",
       "target": "net10.0",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "language": "14.0",
       "kind": "compile",
       "scope": "Actual matching target, SDK and locked dependencies."
@@ -136,7 +136,7 @@
     {
       "sample": "samples/net10.0/MaritimeGallery/MaritimeGallery.csproj",
       "target": "net10.0",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "language": "14.0",
       "kind": "execution",
       "scope": "Actual generated C#, restored dependencies, published fingerprinted asset HTTP retrieval at non-root base and unmarked/bare/unknown controls; RC2 compiler-route limitation retained.",
@@ -145,7 +145,7 @@
     {
       "sample": "samples/net11.0/MaritimeGallery/MaritimeGallery.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "language": "15.0",
       "kind": "compile",
       "scope": "Actual matching target, SDK and locked dependencies."
@@ -153,7 +153,7 @@
     {
       "sample": "samples/net11.0/MaritimeGallery/MaritimeGallery.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "language": "15.0",
       "kind": "execution",
       "scope": "Actual generated C#, restored dependencies, published fingerprinted asset HTTP retrieval at non-root base and unmarked/bare/unknown controls; RC2 compiler-route limitation retained.",

@@ -81,6 +81,13 @@ $access # Expect build=passed, https=pending-owner-setup, trust=not-tested.
 $access.work # Save this exact scratch path for setup, execution and cleanup.
 ```
 
+Prepare probes IPv4 loopback and IPv6 when supported before creating the fixture. A port
+can be reserved by Windows even when no listener is visible: during the RC3 refresh,
+54957 and 54958 were in the excluded range 54881–54980 and HTTP.sys returned error32.
+Port55457 passed the bind checks and the paired real HTTPS requests; the owned
+certificate, binding and URL reservation were removed afterwards. Choose another
+available `-Port` when needed; do not remove Windows reservations.
+
 `-Port` selects the port during Prepare only; Run uses the saved prefix. If you
 prepare another port, change the owner-selected `$port` literal in both owner
 blocks below to that same value. Use the prepared directory for `-WorkDirectory`.

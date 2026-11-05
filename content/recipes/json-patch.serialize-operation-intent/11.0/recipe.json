@@ -94,7 +94,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Stable API designation on the newer side; evidence uses SDK11.0.100-rc.2.26504.105 and runtime11.0.0-rc.2.26504.105, not actual GA. PIN-959/PIN-964 and unrelated Human gates remain open."
+            "Stable API designation on the newer side; evidence uses SDK11.0.100-rc.3.26522.148 and runtime11.0.0-rc.3.26522.148, not actual GA. PIN-959/PIN-964 and unrelated Human gates remain open."
           ]
         },
         "sourceUrls": [
@@ -131,7 +131,7 @@
     {
       "sample": "samples/net10.0/GlasshousePatch/GlasshousePatch.csproj",
       "target": "net10.0",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "language": "14.0",
       "kind": "compile-and-run",
       "scope": "Actual .NET10 SystemTextJson package: six operations serialized/deserialized/applied over HTTP, default serializer wire control, operation-aware corrected from/value/null omission and filtered spurious non-null from. Explicit/absent null inputs, invalid path/from, missing source, failed test, wrong type and partially failed working-copy rejection. Actual metadata, audited package assets and separately recorded compiler/runtime identities; no CS0618 warning claimed on this older target, no security/Newtonsoft/GA guarantee."
@@ -139,7 +139,7 @@
     {
       "sample": "samples/net11.0/GlasshousePatch/GlasshousePatch.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "language": "15.0",
       "kind": "compile-and-run",
       "scope": "Actual .NET11 RC2 SystemTextJson package: six operations serialized/deserialized/applied over HTTP, conditional value/null and from-null metadata with retained spurious non-null from. Explicit/absent null inputs, invalid path/from, missing source, failed test, wrong type and partially failed working-copy rejection. Actual default CS0618 compiler control, audited package assets and separately recorded compiler/runtime identities; no older-default-serializer control claimed on this target, no security/Newtonsoft/GA guarantee."

@@ -30,7 +30,7 @@ Use the same tsconfig and crew page as above. The minimal host maps the generate
 
 {{snippet:program}}
 
-Pin global.json to SDK 11.0.100-rc.2.26504.105 for this original RC2 build. From the project directory publish with `dotnet publish WebAssets.csproj -c Release -p:NodePath="<absolute-node-executable>" -o <fresh-output-directory>`. The result must contain wwwroot/bin/berths.js and wwwroot/crew/index.html; WebAssets.staticwebassets.endpoints.json includes the crew route.
+Pin global.json to SDK 11.0.100-rc.3.26522.148 for this original RC2 build. From the project directory publish with `dotnet publish WebAssets.csproj -c Release -p:NodePath="<absolute-node-executable>" -o <fresh-output-directory>`. The result must contain wwwroot/bin/berths.js and wwwroot/crew/index.html; WebAssets.staticwebassets.endpoints.json includes the crew route.
 
 For the library comparison, create ../RclAssets/RclAssets.csproj. Its older SDK-10 route keeps the explicit hook:
 

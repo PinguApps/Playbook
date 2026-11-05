@@ -11,13 +11,13 @@ $container='playbook-tide-mono-'+[guid]::NewGuid().ToString('N')
 $paths=@{}
 foreach($scope in 'Process','User','Machine'){$paths[$scope]=[Environment]::GetEnvironmentVariable('PATH',$scope)}
 try {
- $image=(Invoke-Estuary $Docker $root @('image','inspect','mcr.microsoft.com/dotnet/sdk:10.0.402','--format','{{.Id}}')).Trim()
+ $image=(Invoke-Estuary $Docker $root @('image','inspect','mcr.microsoft.com/dotnet/sdk:10.0.403','--format','{{.Id}}')).Trim()
  $null=Invoke-Estuary $Docker $root @('run','--detach','--name',$container,'--env','DOTNET_ADD_GLOBAL_TOOLS_TO_PATH=0','--env','DOTNET_CLI_TELEMETRY_OPTOUT=1','--mount',"type=bind,source=$root,target=/source,readonly",$image,'sleep','3600')
  $setup=@'
 set -eu
 apt-get update -qq
 DEBIAN_FRONTEND=noninteractive apt-get install -y -qq mono-devel clang zlib1g-dev curl >/tmp/setup.log 2>&1
-curl -fsSL https://builds.dotnet.microsoft.com/dotnet/Sdk/11.0.100-rc.2.26504.105/dotnet-sdk-11.0.100-rc.2.26504.105-linux-x64.tar.gz -o /tmp/sdk11.tar.gz
+curl -fsSL https://builds.dotnet.microsoft.com/dotnet/Sdk/11.0.100-rc.3.26522.148/dotnet-sdk-11.0.100-rc.3.26522.148-linux-x64.tar.gz -o /tmp/sdk11.tar.gz
 sha256sum /tmp/sdk11.tar.gz
 mkdir /sdk11 /work
 tar -xzf /tmp/sdk11.tar.gz -C /sdk11
@@ -42,7 +42,7 @@ sha256sum /usr/lib/mono/4.7.2-api/mscorlib.dll
  $native=@(('Mono/'+[regex]::Match($info,'Mono JIT compiler version ([^ ]+)').Groups[1].Value),
            ('Clang/'+[regex]::Match($info,'clang version ([^ ]+)').Groups[1].Value))
  foreach($major in '10','11'){
-  $sdk=if($major -eq '10'){'10.0.402'}else{'11.0.100-rc.2.26504.105'}
+  $sdk=if($major -eq '10'){'10.0.403'}else{'11.0.100-rc.3.26522.148'}
   $dotnet=if($major -eq '10'){'/usr/share/dotnet/dotnet'}else{'/sdk11/dotnet'}
   foreach($name in 'ObservatoryImporter','TideWindow'){
    $sample="samples/net$major.0/$name/$name.csproj"

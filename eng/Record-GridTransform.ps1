@@ -1,7 +1,7 @@
 [CmdletBinding()]
 param(
-  [string]$Net10Dotnet = 'C:/Program Files/dotnet/dotnet.exe',
-  [string]$Net11Dotnet = 'C:/Users/pingu/.dotnet-playbook-11/dotnet.exe',
+  [string]$Net10Dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source,
+  [string]$Net11Dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source,
   [switch]$RunReleaseChecks,
   [switch]$VerifySources
 )
@@ -46,7 +46,7 @@ try {
     try { $resolved = & $dotnet msbuild $project -t:ResolveFrameworkReferences -p:Configuration=Release -getItem:ResolvedTargetingPack | ConvertFrom-Json }
     finally { Pop-Location }
     $pack = @($resolved.Items.ResolvedTargetingPack | Where-Object Identity -CEQ 'Microsoft.NETCore.App')
-    $expectedRef = if ($variant -eq 'net10.0') { '10.0.13' } else { '11.0.0-rc.2.26504.105' }
+    $expectedRef = if ($variant -eq 'net10.0') { '10.0.14' } else { '11.0.0-rc.3.26522.148' }
     $validRef = $pack.Count -eq 1 -and $pack[0].TargetFramework -ceq $variant
     if ($validRef) {
       $validRef = if ($variant -eq 'net11.0' -and $RunReleaseChecks) {
@@ -54,7 +54,7 @@ try {
       } else { $pack[0].NuGetPackageVersion -ceq $expectedRef }
     }
     $validRuntime = $kind -ceq 'compile' -or $(if ($variant -eq 'net10.0') {
-      $record.output.Contains('runtime=.NET 10.0.13;')
+      $record.output.Contains('runtime=.NET 10.0.14;')
     } else { $record.output -cmatch '(?m)^runtime=\.NET 11\.0\.\d+;' })
     if (-not $validRef -or -not $validRuntime) {
       # Record-Evidence wrote this attempt; do not retain a rejected qualification.
@@ -78,7 +78,7 @@ try {
       Write-Host $policyOutput
       $record.command += "; $dotnet $assembly --policy-only"
       $record.output += "`n$policyOutput"
-      $record.scope = 'Actual SDK11 RC2 compilation with locked Tensor11 RC2 net11 assets; supplementary execution covers only ownership policies and Try capacity/shape false controls. The package lacks release/11.0 storage backport behavior. Successful current rejection/permitted-overlap/constructor execution and final SDK/package proof remain pending under PIN-962, following Pingu-approved full-release preparation.'
+      $record.scope = 'Actual SDK11 RC3 compilation with locked Tensor11 RC2 net11 assets; supplementary execution covers only ownership policies and Try capacity/shape false controls. The package lacks release/11.0 storage backport behavior. Successful current rejection/permitted-overlap/constructor execution and final SDK/package proof remain pending under PIN-962, following Pingu-approved full-release preparation.'
     }
     [IO.File]::WriteAllText($recordPath, ($record | ConvertTo-Json -Depth 40).Replace("`r`n","`n") + "`n")
   }

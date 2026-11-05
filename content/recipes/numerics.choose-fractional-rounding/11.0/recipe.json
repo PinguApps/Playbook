@@ -118,7 +118,7 @@
       "kind": "compile-and-run",
       "scope": "Runtime-parsed below/above midpoint inputs and negatives, large finite values, double digits16/17 and float7/9, invalid digits/modes, unchanged Decimal/no-digits controls; actual double/float/Half/NFloat and generic delegating calls. Paired real tensor packages exercise independent/in-place spans, zero/nonzero digits, all modes, capacity and shifted overlap failures; compiler/ref/runtime/package identities saved. Windows x64 CoreCLR JIT only; no newer package on net10 or GA claim.",
       "sample": "samples/net10.0/MeasurementExport/MeasurementExport.csproj",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "language": "14.0",
       "target": "net10.0"
     },
@@ -126,7 +126,7 @@
       "kind": "compile-and-run",
       "scope": "Runtime-parsed below/above midpoint inputs and negatives, large finite values, double digits16/17 and float7/9, invalid digits/modes, unchanged Decimal/no-digits controls; actual double/float/Half/NFloat and generic delegating calls. Paired real tensor packages exercise independent/in-place spans, zero/nonzero digits, all modes, capacity and shifted overlap failures; compiler/ref/runtime/package identities saved. Windows x64 CoreCLR JIT only; no newer package on net10 or GA claim.",
       "sample": "samples/net11.0/MeasurementExport/MeasurementExport.csproj",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "language": "15.0",
       "target": "net11.0"
     }

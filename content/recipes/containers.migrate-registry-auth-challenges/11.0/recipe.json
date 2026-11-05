@@ -67,7 +67,7 @@
           "renderingModes": [],
           "prerequisites": [
             "Complete SDK11, compatible runtime base and an authorized HTTPS registry/token service with a trusted certificate.",
-            "Measured digest-pinned SDK10.0.402/11RC2 images, runtime10.0.13/11RC2 and Distribution3.1.2. ORAS1.3.6 and Docker reproduce original published image execution.",
+            "Measured digest-pinned SDK10.0.403/11RC2 images, runtime10.0.13/11RC2 and Distribution3.1.2. ORAS1.3.6 and Docker reproduce original published image execution.",
             "Azure Linux4 selected current base remains Beta; fixture private trust and generated credentials are disposable only."
           ],
           "constraints": [
@@ -106,7 +106,7 @@
   ],
   "evidence": [
     {
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "target": "net10.0",
       "sample": "samples/net10.0/EstuaryRegistry/EstuaryRegistry.csproj",
       "scope": "Real isolated Linux x64 original worker build/run, Distribution3.1.2 TLS and local HTTP token exchanges, image push/run and SDK11 invalid-realm refusal before token requests; child-only trust and generated fixture credentials.",
@@ -114,7 +114,7 @@
       "language": "14.0"
     },
     {
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "target": "net11.0",
       "sample": "samples/net11.0/EstuaryRegistry/EstuaryRegistry.csproj",
       "scope": "Real isolated Linux x64 original worker build/run, Distribution3.1.2 TLS and local HTTP token exchanges, image push/run and SDK11 invalid-realm refusal before token requests; child-only trust and generated fixture credentials.",
@@ -126,7 +126,7 @@
       "scope": "Actual Windows SDK10 helper build; real Linux10/11 helper execution with explicit Major/prerelease roll-forward, TLS token gateway, real Distribution publication and SDK11 rejection controls.",
       "target": "net10.0",
       "sample": "samples/EstuarySdk/RegistryFixture/RegistryFixture.csproj",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "language": "14.0"
     }
   ],

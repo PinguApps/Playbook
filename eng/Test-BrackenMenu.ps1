@@ -17,7 +17,7 @@ $completed = $false
 try {
   $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH = '0'
   foreach ($major in @('10', '11')) {
-    $dotnet = if ($major -eq '10') { 'C:\Program Files\dotnet\dotnet.exe' } else { 'C:\Users\pingu\.dotnet-playbook-11\dotnet.exe' }
+    $dotnet = if ($major -eq '10') { (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source } else { (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source }
     $hostDirectory = Join-Path $Samples "net$major.0/BrackenMenu/Host"
     if (-not $SkipBuild) {
       Push-Location -LiteralPath $hostDirectory

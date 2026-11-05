@@ -66,7 +66,7 @@
             "Interactive Server/SignalR"
           ],
           "prerequisites": [
-            "Use Web SDK net11.0, AddRazorComponents/AddInteractiveServerComponents and AddInteractiveServerRenderMode. The pinned SDK resolves Internal.Assets 11.0.0-rc.2.26504.105; no external package/provider/account/workload. Match runtime and browser assets.",
+            "Use Web SDK net11.0, AddRazorComponents/AddInteractiveServerComponents and AddInteractiveServerRenderMode. The pinned SDK resolves Internal.Assets 11.0.0-rc.3.26522.148; no external package/provider/account/workload. Match runtime and browser assets.",
             "Require endpoint authorization and an authentication ticket with expiry. The Development-only loopback fixture issues a fictional 25-second cookie, disables sliding expiry and uses ephemeral Data Protection. Replace sign-in and keys for a real application.",
             "Permit WebSockets throughout browser/proxy/server. The example deliberately removes fallback; keep required alternatives in a consumer. The browser observer only makes closure visible.",
             "Choose finite buffering thresholds from workload measurements. This sample uses 8192/16384 bytes and separately permits 65536-byte SignalR receive messages. Transient cargo state is not persisted."
@@ -126,7 +126,7 @@
   "evidence": [
     {
       "kind": "compile",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "scope": "Actual pinned Web SDK compilation. Separate real Chrome/cookie-auth circuit execution verifies WebSocket upgrade, fallback rejection, a 27648-character roundtrip above both pipe thresholds, expiry closure and expiry-disabled controls. Exact inputs/artifacts in docs/verification/circuit-transport.md; no mocks, cross-compilation or load/memory-capacity claim.",
       "language": "14.0",
       "target": "net10.0",
@@ -134,7 +134,7 @@
     },
     {
       "kind": "compile",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "scope": "Actual pinned Web SDK compilation. Separate real Chrome/cookie-auth circuit execution verifies WebSocket upgrade, fallback rejection, a 27648-character roundtrip above both pipe thresholds, expiry closure and expiry-disabled controls. Exact inputs/artifacts in docs/verification/circuit-transport.md; no mocks, cross-compilation or load/memory-capacity claim.",
       "language": "15.0",
       "target": "net11.0",

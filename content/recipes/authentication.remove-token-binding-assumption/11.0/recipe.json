@@ -82,7 +82,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Stable migration goal prepared with SDK11.0.100-rc.2.26504.105/framework11.0.0-rc.2.26504.105. Actual-GA reconciliation, PIN-959/PIN-964 and unrelated Human gates remain open. No new experimental API opt-in."
+            "Stable migration goal prepared with SDK11.0.100-rc.3.26522.148/framework11.0.0-rc.3.26522.148. Actual-GA reconciliation, PIN-959/PIN-964 and unrelated Human gates remain open. No new experimental API opt-in."
           ]
         },
         "sourceUrls": [
@@ -119,7 +119,7 @@
     {
       "sample": "samples/net10.0/NightArchive/NightArchive.csproj",
       "target": "net10.0",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "language": "14.0",
       "kind": "compile-and-run",
       "scope": "Actual Kestrel HTTPS with absent ITlsTokenBindingFeature and optional historical telemetry; real protected curator/visitor/invalid/absent cookies, exact 200/403/401 outcomes, HTTP400 and denied-handler exclusion. Audited reference identities and compiler/runtime hashes; no browser token-binding implementation."
@@ -127,7 +127,7 @@
     {
       "sample": "samples/net11.0/NightArchive/NightArchive.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "language": "15.0",
       "kind": "compile-and-run",
       "scope": "Actual same authorization/HTTPS outcomes after removing feature lookup; isolated historical-source recompilation emits ASPDEPR010 on real RC2 references. No replacement protocol, production sign-in, channel-binding, browser or GA proof."

@@ -1,7 +1,7 @@
 [CmdletBinding()]
 param(
-  [string]$Net10Dotnet = 'C:/Program Files/dotnet/dotnet.exe',
-  [string]$Net11Dotnet = 'C:/Users/pingu/.dotnet-playbook-11/dotnet.exe',
+  [string]$Net10Dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source,
+  [string]$Net11Dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source,
   [string]$VcRoot = 'C:/Program Files (x86)/Microsoft Visual Studio/18/BuildTools/VC/Tools/MSVC/14.51.36231',
   [string]$WindowsKit = 'C:/Program Files (x86)/Windows Kits/10',
   [string]$Packages = (Join-Path $HOME '.nuget/packages')
@@ -19,9 +19,9 @@ $persistent = @{}
 foreach ($scope in 'User','Machine') { $persistent[$scope] = [Environment]::GetEnvironmentVariables($scope) | ConvertTo-Json -Compress }
 $previous = @{}
 foreach ($name in 'QUAY_MSBUILD_SDK','DOTNET_ADD_GLOBAL_TOOLS_TO_PATH','NUGET_PACKAGES') { $previous[$name] = [Environment]::GetEnvironmentVariable($name) }
-$nativeTools = @('MSVC/14.51.36231','WindowsSDK/10.0.26100.0','ILCompiler/11.0.0-rc.2.26504.105')
-$sdk10 = Join-Path (Split-Path $Net10Dotnet) 'sdk/10.0.402'
-$sdk11 = Join-Path (Split-Path $Net11Dotnet) 'sdk/11.0.100-rc.2.26504.105'
+$nativeTools = @('MSVC/14.51.36231','WindowsSDK/10.0.26100.0','ILCompiler/11.0.0-rc.3.26522.148')
+$sdk10 = Join-Path (Split-Path $Net10Dotnet) 'sdk/10.0.403'
+$sdk11 = Join-Path (Split-Path $Net11Dotnet) 'sdk/11.0.100-rc.3.26522.148'
 
 function Invoke-Child([string]$Executable, [string[]]$Arguments, [string]$Directory, [hashtable]$Environment = @{}) {
   $start = [Diagnostics.ProcessStartInfo]::new($Executable)

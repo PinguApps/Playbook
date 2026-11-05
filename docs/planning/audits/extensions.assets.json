@@ -4,23 +4,24 @@
   "dispositionManifestSha256": "34139734553602d659ced0a021b28305e9c2f36e71291b10f596e85809a6897b",
   "baselines": [
     {
-      "sdk": "10.0.402",
-      "referencePack": "10.0.13",
+      "sdk": "10.0.403",
+      "referencePack": "10.0.14",
+      "packageVersion": "10.0.13",
       "target": "net10.0",
-      "metadataReaderSha256": "1f2f4f18f9792aab21c77fa1cb716605c9d6c7fb8b9e8b0bc1159245148d33c9",
+      "metadataReaderSha256": "a1f28bc8e1170b8ea0792dd7a43e26f9daa8da84eed267cd1b987dc27ccfe1f1",
       "framework": [
         {
           "name": "Microsoft.Extensions.Caching.Abstractions.dll",
-          "sha256": "e598222343f71d837db54a9b61b1f2f1677bfbed9e122b77181b01e36a5cded3",
-          "path": "packs/Microsoft.AspNetCore.App.Ref/10.0.13/ref/net10.0/Microsoft.Extensions.Caching.Abstractions.dll",
+          "sha256": "18d76d6f9fb7e1f47909cf5cd3b8be44043ed8b56aa241ad1d5bf8826d1190f1",
+          "path": "packs/Microsoft.AspNetCore.App.Ref/10.0.14/ref/net10.0/Microsoft.Extensions.Caching.Abstractions.dll",
           "declarationCount": 211,
           "declarationsSha256": "710f778cf315eb2bd27a4ceb6ce97566d6322f0e8d82e2359bef34256477d811",
           "obsoleteDeclarations": []
         },
         {
           "name": "Microsoft.Extensions.Caching.Memory.dll",
-          "sha256": "e7fc7f06ffab3959f29cec979c29d15bdb36a3c6f63f288a6c97ae1245934a4e",
-          "path": "packs/Microsoft.AspNetCore.App.Ref/10.0.13/ref/net10.0/Microsoft.Extensions.Caching.Memory.dll",
+          "sha256": "6857b02370c6c020d637925d556cb19488a10a03545be5f700eed947340f6b28",
+          "path": "packs/Microsoft.AspNetCore.App.Ref/10.0.14/ref/net10.0/Microsoft.Extensions.Caching.Memory.dll",
           "declarationCount": 59,
           "declarationsSha256": "130742034750e5bdfa9a2ad4965f527419de064dbe907eee8cbcfb97a43ea9f5",
           "obsoleteDeclarations": [
@@ -29,184 +30,184 @@
         },
         {
           "name": "Microsoft.Extensions.Configuration.Abstractions.dll",
-          "sha256": "23ddad1d703c18fd20f7a2ed77594a1aa37c0fc68faab0089e628fc4fdfeadea",
-          "path": "packs/Microsoft.AspNetCore.App.Ref/10.0.13/ref/net10.0/Microsoft.Extensions.Configuration.Abstractions.dll",
+          "sha256": "5a7659692e2ea794beeaf6c7a7b48fc0b1a53faf2113b8dc6e7a60eb31e8f6c9",
+          "path": "packs/Microsoft.AspNetCore.App.Ref/10.0.14/ref/net10.0/Microsoft.Extensions.Configuration.Abstractions.dll",
           "declarationCount": 65,
           "declarationsSha256": "9a047c03372fe9f9aee2c2f42c07584cdc8a8c01cc5f7bb9566e3826eb9ddbd8",
           "obsoleteDeclarations": []
         },
         {
           "name": "Microsoft.Extensions.Configuration.Binder.dll",
-          "sha256": "3fcf68e403b7e9963977bac21def17c11e1c27149537f14da1fd019933d00aed",
-          "path": "packs/Microsoft.AspNetCore.App.Ref/10.0.13/ref/net10.0/Microsoft.Extensions.Configuration.Binder.dll",
+          "sha256": "fb396b900a9c571de74aa98d8b8939d6e25a0618b0839e02fc977b0f983acfa7",
+          "path": "packs/Microsoft.AspNetCore.App.Ref/10.0.14/ref/net10.0/Microsoft.Extensions.Configuration.Binder.dll",
           "declarationCount": 20,
           "declarationsSha256": "bdabce2f67d19daf598b8ed23a87175926d5e9e397bf3cfd888540981f47b218",
           "obsoleteDeclarations": []
         },
         {
           "name": "Microsoft.Extensions.Configuration.CommandLine.dll",
-          "sha256": "40634dcbd262019d47d974be80b5a4693581e8c963bd10d10c59fbe43ac21976",
-          "path": "packs/Microsoft.AspNetCore.App.Ref/10.0.13/ref/net10.0/Microsoft.Extensions.Configuration.CommandLine.dll",
+          "sha256": "23e7af735d32c56401f5c802061e65f1ddf56be91a30b8c039fcb72c1b3f3a70",
+          "path": "packs/Microsoft.AspNetCore.App.Ref/10.0.14/ref/net10.0/Microsoft.Extensions.Configuration.CommandLine.dll",
           "declarationCount": 18,
           "declarationsSha256": "8aa2cd38396ef576e4882cc7dea8200f32c6a1e036a615f3fa8ad9231736793b",
           "obsoleteDeclarations": []
         },
         {
           "name": "Microsoft.Extensions.Configuration.dll",
-          "sha256": "e57122059938751972620c7d21479c333e8a2b0fbc15b19a7d502cd42276c4d9",
-          "path": "packs/Microsoft.AspNetCore.App.Ref/10.0.13/ref/net10.0/Microsoft.Extensions.Configuration.dll",
+          "sha256": "da32c4d0e5d4c4bfda76ef21e49b75a40f858761e26ff4b0bc34513ae1d3ff48",
+          "path": "packs/Microsoft.AspNetCore.App.Ref/10.0.14/ref/net10.0/Microsoft.Extensions.Configuration.dll",
           "declarationCount": 118,
           "declarationsSha256": "5dddcad9ab107009c21ef02f85e772a91f16dbc773b445ea57b5399ab11d6b3d",
           "obsoleteDeclarations": []
         },
         {
           "name": "Microsoft.Extensions.Configuration.EnvironmentVariables.dll",
-          "sha256": "0f82dce44bfe1189c1467910cf03188e5107e0ea7bb9904251205375789b42fe",
-          "path": "packs/Microsoft.AspNetCore.App.Ref/10.0.13/ref/net10.0/Microsoft.Extensions.Configuration.EnvironmentVariables.dll",
+          "sha256": "525616ad756f389a291db4aa74b9a138f164194cf0f33404beb8926450936ec8",
+          "path": "packs/Microsoft.AspNetCore.App.Ref/10.0.14/ref/net10.0/Microsoft.Extensions.Configuration.EnvironmentVariables.dll",
           "declarationCount": 15,
           "declarationsSha256": "cfec40b32ccfcc585014b88b3ed0d0836689ab44973f8de29e993466f9353675",
           "obsoleteDeclarations": []
         },
         {
           "name": "Microsoft.Extensions.Configuration.FileExtensions.dll",
-          "sha256": "3290016b28b333ddf31c50599b21ef33379439679eb62e5b6a3cd0ceba674ef5",
-          "path": "packs/Microsoft.AspNetCore.App.Ref/10.0.13/ref/net10.0/Microsoft.Extensions.Configuration.FileExtensions.dll",
+          "sha256": "0d439a8e93a2675caad01790cb8217e7efb291a5e82f9dffb63cc0d1d6e38241",
+          "path": "packs/Microsoft.AspNetCore.App.Ref/10.0.14/ref/net10.0/Microsoft.Extensions.Configuration.FileExtensions.dll",
           "declarationCount": 49,
           "declarationsSha256": "df280d9062cdb95f14643646582ed6d8242c389927137661cd8ce863250d3107",
           "obsoleteDeclarations": []
         },
         {
           "name": "Microsoft.Extensions.Configuration.Ini.dll",
-          "sha256": "ddfef4914ec37c79c926f489996816fd8848fdcff1e66ace31a40e10ca37cb82",
-          "path": "packs/Microsoft.AspNetCore.App.Ref/10.0.13/ref/net10.0/Microsoft.Extensions.Configuration.Ini.dll",
+          "sha256": "108b1447d78f1be961f3fe7fce1be1c24429747e8314b0863fe918b0cb27b9a7",
+          "path": "packs/Microsoft.AspNetCore.App.Ref/10.0.14/ref/net10.0/Microsoft.Extensions.Configuration.Ini.dll",
           "declarationCount": 20,
           "declarationsSha256": "86fa7007b7597fe3ebe2bd9a3dde2901b19078d66e08a8aadcaf04785de56f50",
           "obsoleteDeclarations": []
         },
         {
           "name": "Microsoft.Extensions.Configuration.Json.dll",
-          "sha256": "c3861ffc980b853b1682b754a38d6bf64aec9f676410a8da3f867ddbbb2be437",
-          "path": "packs/Microsoft.AspNetCore.App.Ref/10.0.13/ref/net10.0/Microsoft.Extensions.Configuration.Json.dll",
+          "sha256": "d5c592c899e775d2effb251c5c764a7ba682bea2f19a84192c8cedf01ad077d6",
+          "path": "packs/Microsoft.AspNetCore.App.Ref/10.0.14/ref/net10.0/Microsoft.Extensions.Configuration.Json.dll",
           "declarationCount": 19,
           "declarationsSha256": "408a3958dc29fb3818c90e1bd445bdf9b6f627422f6eda574f244a28df252cf3",
           "obsoleteDeclarations": []
         },
         {
           "name": "Microsoft.Extensions.Configuration.KeyPerFile.dll",
-          "sha256": "54df64955e8cb1467f5282c35a32e1dd3726370df72851175fcc47393e9da1dd",
-          "path": "packs/Microsoft.AspNetCore.App.Ref/10.0.13/ref/net10.0/Microsoft.Extensions.Configuration.KeyPerFile.dll",
+          "sha256": "040af8c6075461de4ae2e859bb9a7d830a736da5a8c16d309ec26f7a3a5f115b",
+          "path": "packs/Microsoft.AspNetCore.App.Ref/10.0.14/ref/net10.0/Microsoft.Extensions.Configuration.KeyPerFile.dll",
           "declarationCount": 34,
           "declarationsSha256": "2e968614d3470f1f53fc5f6803bb4d91775614cc34d7ec91cd304f951ae7087a",
           "obsoleteDeclarations": []
         },
         {
           "name": "Microsoft.Extensions.Configuration.UserSecrets.dll",
-          "sha256": "be06c39ca08e2ec13341a6597eb89f41d1e1c7b078c62303e0445ee14ed64469",
-          "path": "packs/Microsoft.AspNetCore.App.Ref/10.0.13/ref/net10.0/Microsoft.Extensions.Configuration.UserSecrets.dll",
+          "sha256": "b7924fb28e75b309f012be2490b36f900a6449a776f8164674dd9071f8acf02c",
+          "path": "packs/Microsoft.AspNetCore.App.Ref/10.0.14/ref/net10.0/Microsoft.Extensions.Configuration.UserSecrets.dll",
           "declarationCount": 16,
           "declarationsSha256": "d4ffc791c37fadbde5edc2186d942c5216d4fcd49d9c36b0b7afd0733f4e813c",
           "obsoleteDeclarations": []
         },
         {
           "name": "Microsoft.Extensions.Configuration.Xml.dll",
-          "sha256": "270f12f1f06981ec7e354929325b82da7cb6d55a55bb718e7971a28d8902da7b",
-          "path": "packs/Microsoft.AspNetCore.App.Ref/10.0.13/ref/net10.0/Microsoft.Extensions.Configuration.Xml.dll",
+          "sha256": "b7c7ce4277ef59cdd617807c18f99f34698624ebbe035098e5918b9623763ef9",
+          "path": "packs/Microsoft.AspNetCore.App.Ref/10.0.14/ref/net10.0/Microsoft.Extensions.Configuration.Xml.dll",
           "declarationCount": 25,
           "declarationsSha256": "16685982f6f6ae0ce74f9fde20f4589b4d1f8362f9014e9c2997f268733e0b80",
           "obsoleteDeclarations": []
         },
         {
           "name": "Microsoft.Extensions.DependencyInjection.Abstractions.dll",
-          "sha256": "dd9f2da66d966dc263c7a1eb12357e85fee188ac9e823211b2220d5708978447",
-          "path": "packs/Microsoft.AspNetCore.App.Ref/10.0.13/ref/net10.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
+          "sha256": "284b6dddb9d3150e85f3518e290ea63363a7bbec461502a6cdab8fd4f335be70",
+          "path": "packs/Microsoft.AspNetCore.App.Ref/10.0.14/ref/net10.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
           "declarationCount": 262,
           "declarationsSha256": "7f3513fe98190519382ccea0cb037c07109722b79f3dda4e0f4dc165359acae0",
           "obsoleteDeclarations": []
         },
         {
           "name": "Microsoft.Extensions.DependencyInjection.dll",
-          "sha256": "b82c52b9975410e9f58259616a1f6cd4287105f2f4932bb39d958663bddf97c8",
-          "path": "packs/Microsoft.AspNetCore.App.Ref/10.0.13/ref/net10.0/Microsoft.Extensions.DependencyInjection.dll",
+          "sha256": "a8828afd960189012e6f76df3427e15312748973c19c9d920f5fa1bc8103b17e",
+          "path": "packs/Microsoft.AspNetCore.App.Ref/10.0.14/ref/net10.0/Microsoft.Extensions.DependencyInjection.dll",
           "declarationCount": 24,
           "declarationsSha256": "f94c079f782b68b47ed65ab34fcf311a14de4a5f25065abf27aef6ac15c321cd",
           "obsoleteDeclarations": []
         },
         {
           "name": "Microsoft.Extensions.Diagnostics.Abstractions.dll",
-          "sha256": "a221c6601464dc25bbd1cda80114a5c6620fbbdc5068539ddb4af275104c2443",
-          "path": "packs/Microsoft.AspNetCore.App.Ref/10.0.13/ref/net10.0/Microsoft.Extensions.Diagnostics.Abstractions.dll",
+          "sha256": "399337b974b9828879725e2581cd2a592561b0fbf5fae69fdfff81c577fec4dd",
+          "path": "packs/Microsoft.AspNetCore.App.Ref/10.0.14/ref/net10.0/Microsoft.Extensions.Diagnostics.Abstractions.dll",
           "declarationCount": 68,
           "declarationsSha256": "df0aed5c7ba6ec634eec0d0d6bdf11217401245cb11a83bebe72d528f35de34f",
           "obsoleteDeclarations": []
         },
         {
           "name": "Microsoft.Extensions.Diagnostics.dll",
-          "sha256": "31a3c35540758fb44d2b5c5338c3fd1a6631e838662a8536bf16b708acfc1497",
-          "path": "packs/Microsoft.AspNetCore.App.Ref/10.0.13/ref/net10.0/Microsoft.Extensions.Diagnostics.dll",
+          "sha256": "8d38280d15dee34bedc184a41b3b66222c4491f00d7168fc8b57df1ec48172aa",
+          "path": "packs/Microsoft.AspNetCore.App.Ref/10.0.14/ref/net10.0/Microsoft.Extensions.Diagnostics.dll",
           "declarationCount": 12,
           "declarationsSha256": "f74d7cca72640d3969542fe3298e5483c7b28061dc6ee7b3ad8d808646f52ead",
           "obsoleteDeclarations": []
         },
         {
           "name": "Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions.dll",
-          "sha256": "652923df3bd5dd713934f371e56a701c772670df19bf088537b86ee4b5c95b1e",
-          "path": "packs/Microsoft.AspNetCore.App.Ref/10.0.13/ref/net10.0/Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions.dll",
+          "sha256": "82b2f647a8315ac6ba92e6d1b61ae539f6e82de1d71823e66eed5b9fd09369d7",
+          "path": "packs/Microsoft.AspNetCore.App.Ref/10.0.14/ref/net10.0/Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions.dll",
           "declarationCount": 76,
           "declarationsSha256": "fb9532a858d57f84696820e266a11ff89a082289ac6d8c83970890d24721194b",
           "obsoleteDeclarations": []
         },
         {
           "name": "Microsoft.Extensions.Diagnostics.HealthChecks.dll",
-          "sha256": "efcdc2e7761e319e88ddfc85a70f072c949aa49ad4c8d3931b48c917a2e2fd36",
-          "path": "packs/Microsoft.AspNetCore.App.Ref/10.0.13/ref/net10.0/Microsoft.Extensions.Diagnostics.HealthChecks.dll",
+          "sha256": "de80840995d69ae1a49aff7486bcb7a1cac2e3f897c5f5a87e77f85551ccac16",
+          "path": "packs/Microsoft.AspNetCore.App.Ref/10.0.14/ref/net10.0/Microsoft.Extensions.Diagnostics.HealthChecks.dll",
           "declarationCount": 46,
           "declarationsSha256": "0b792b36f20dc9eb3baa040c7e37453cf87a3c350c9a5fb6de6480d0008794d9",
           "obsoleteDeclarations": []
         },
         {
           "name": "Microsoft.Extensions.FileProviders.Abstractions.dll",
-          "sha256": "cdd6254b8a3bccce26a737c9e7055d2fb8885e50da8433a3cc3d6ad1580b4300",
-          "path": "packs/Microsoft.AspNetCore.App.Ref/10.0.13/ref/net10.0/Microsoft.Extensions.FileProviders.Abstractions.dll",
+          "sha256": "b2704fa1cf638b1473cea8aa5d6cb0cdbfb834a1af65d2519376d127f68703e8",
+          "path": "packs/Microsoft.AspNetCore.App.Ref/10.0.14/ref/net10.0/Microsoft.Extensions.FileProviders.Abstractions.dll",
           "declarationCount": 56,
           "declarationsSha256": "a2e8bd49e91f95d3aa606720864f3d1e853bb4d02640bd3bf871550aa69af867",
           "obsoleteDeclarations": []
         },
         {
           "name": "Microsoft.Extensions.FileProviders.Composite.dll",
-          "sha256": "3c3ce32947115b06e78b87e651fbf48584975fa2b367f1513abcbe6e2de11971",
-          "path": "packs/Microsoft.AspNetCore.App.Ref/10.0.13/ref/net10.0/Microsoft.Extensions.FileProviders.Composite.dll",
+          "sha256": "5bc940bf16c8d1b3699db82295db51d922e8c671c7334a227b6c414a5cdfc6d7",
+          "path": "packs/Microsoft.AspNetCore.App.Ref/10.0.14/ref/net10.0/Microsoft.Extensions.FileProviders.Composite.dll",
           "declarationCount": 13,
           "declarationsSha256": "a1fd8eb657d4fe10cffa5dbfca69abd6d2be88b2051eb647f6e681ed7ff6a688",
           "obsoleteDeclarations": []
         },
         {
           "name": "Microsoft.Extensions.FileProviders.Embedded.dll",
-          "sha256": "bf5b8e61204bf23dbace746f5744bda8f079130c838f357abf43855725528e2c",
-          "path": "packs/Microsoft.AspNetCore.App.Ref/10.0.13/ref/net10.0/Microsoft.Extensions.FileProviders.Embedded.dll",
+          "sha256": "dd0cdde6f3ec053846e6c4fcb6f7dc397a1964f2a9d585d48a72fd65e923a3bc",
+          "path": "packs/Microsoft.AspNetCore.App.Ref/10.0.14/ref/net10.0/Microsoft.Extensions.FileProviders.Embedded.dll",
           "declarationCount": 31,
           "declarationsSha256": "4733103366b5204ccb0cb0f96776635e51bc5368a54a16e7293ed30376085295",
           "obsoleteDeclarations": []
         },
         {
           "name": "Microsoft.Extensions.FileProviders.Physical.dll",
-          "sha256": "7a23d67e6ca56cc17f00ab9455bfd54271c50bb0cc2cf6048f29f5e9e11e22ca",
-          "path": "packs/Microsoft.AspNetCore.App.Ref/10.0.13/ref/net10.0/Microsoft.Extensions.FileProviders.Physical.dll",
+          "sha256": "9269ef209eb7dfb8a7816655fccca9564f7682b71afb1a5d5e3cd15fe023f98a",
+          "path": "packs/Microsoft.AspNetCore.App.Ref/10.0.14/ref/net10.0/Microsoft.Extensions.FileProviders.Physical.dll",
           "declarationCount": 82,
           "declarationsSha256": "d4396834a3d3605c8f9a926c2ac133d27ad78d5dbd7adfe4cc9d953938730e11",
           "obsoleteDeclarations": []
         },
         {
           "name": "Microsoft.Extensions.FileSystemGlobbing.dll",
-          "sha256": "bac9d3729530a0eb3f5eb3a120b43973192829e3d44a530f7db41db34de85a2c",
-          "path": "packs/Microsoft.AspNetCore.App.Ref/10.0.13/ref/net10.0/Microsoft.Extensions.FileSystemGlobbing.dll",
+          "sha256": "6be655349836c86848ca2df5d380ec2296a940d39e9deb1c53080e570a8bfe55",
+          "path": "packs/Microsoft.AspNetCore.App.Ref/10.0.14/ref/net10.0/Microsoft.Extensions.FileSystemGlobbing.dll",
           "declarationCount": 218,
           "declarationsSha256": "fa9e8ad147c17350ea328658f49dd2dd16fc9e355318ff615c581d85e9757e01",
           "obsoleteDeclarations": []
         },
         {
           "name": "Microsoft.Extensions.Hosting.Abstractions.dll",
-          "sha256": "f4368653fab1f8c3dcbdc86a0488998102b1f15e62a094a945c74e83317719cf",
-          "path": "packs/Microsoft.AspNetCore.App.Ref/10.0.13/ref/net10.0/Microsoft.Extensions.Hosting.Abstractions.dll",
+          "sha256": "947ac5dc904581e087115d6c0c3850362660d3cc36efff9efc6d288298682059",
+          "path": "packs/Microsoft.AspNetCore.App.Ref/10.0.14/ref/net10.0/Microsoft.Extensions.Hosting.Abstractions.dll",
           "declarationCount": 139,
           "declarationsSha256": "b11337de29e19171571cf5863d49af5d061dbdad2534ccc32244ef14e9a2c30a",
           "obsoleteDeclarations": [
@@ -217,16 +218,16 @@
         },
         {
           "name": "Microsoft.Extensions.Hosting.dll",
-          "sha256": "1444e4c509fed7092a15b4183f4348b4bf8361c94977e3b7de79336281d820e6",
-          "path": "packs/Microsoft.AspNetCore.App.Ref/10.0.13/ref/net10.0/Microsoft.Extensions.Hosting.dll",
+          "sha256": "9030ab09908f4dc798ba0ca2c3ee04696ad7c40fcba2728ecc4ef1adeb221e90",
+          "path": "packs/Microsoft.AspNetCore.App.Ref/10.0.14/ref/net10.0/Microsoft.Extensions.Hosting.dll",
           "declarationCount": 131,
           "declarationsSha256": "c322ede4fd37784a32f031cdf8720fcd27ea2bbcdd9b56fdf270768d4f53d51b",
           "obsoleteDeclarations": []
         },
         {
           "name": "Microsoft.Extensions.Http.dll",
-          "sha256": "add1ce5f5015969cfcfc3be92c796969284054ff7cb7093b1a0915986b77d006",
-          "path": "packs/Microsoft.AspNetCore.App.Ref/10.0.13/ref/net10.0/Microsoft.Extensions.Http.dll",
+          "sha256": "184f99d096320db2357dcb3779730a9f87991caf647ef0b636fba5bc630ebd95",
+          "path": "packs/Microsoft.AspNetCore.App.Ref/10.0.14/ref/net10.0/Microsoft.Extensions.Http.dll",
           "declarationCount": 119,
           "declarationsSha256": "6df5ca94eee85fa6d2207c82aae73e4f289ac1e0c779843955fb87bf6979dc71",
           "obsoleteDeclarations": [
@@ -235,24 +236,24 @@
         },
         {
           "name": "Microsoft.Extensions.Logging.Abstractions.dll",
-          "sha256": "6b5504f753f47f98eab34e52deb8841b30b32d92ab62b252d13a2cc4ccd6e14c",
-          "path": "packs/Microsoft.AspNetCore.App.Ref/10.0.13/ref/net10.0/Microsoft.Extensions.Logging.Abstractions.dll",
+          "sha256": "3162f4fc4896067de83f1fc47a53160ae3e0ec80a5644d2a7e9f0a0a21822138",
+          "path": "packs/Microsoft.AspNetCore.App.Ref/10.0.14/ref/net10.0/Microsoft.Extensions.Logging.Abstractions.dll",
           "declarationCount": 192,
           "declarationsSha256": "3b9a40d18a4e564d20dde1367dead6acb207acd283ffa8e8487f55846a083295",
           "obsoleteDeclarations": []
         },
         {
           "name": "Microsoft.Extensions.Logging.Configuration.dll",
-          "sha256": "98fe30f40e02d7dd75d09a968f05b81b7084c5c2d34752654478b7638964d81f",
-          "path": "packs/Microsoft.AspNetCore.App.Ref/10.0.13/ref/net10.0/Microsoft.Extensions.Logging.Configuration.dll",
+          "sha256": "e18778f2c620a042017fe02641808e71e4a750378f24fda87aa81d5f5376e018",
+          "path": "packs/Microsoft.AspNetCore.App.Ref/10.0.14/ref/net10.0/Microsoft.Extensions.Logging.Configuration.dll",
           "declarationCount": 13,
           "declarationsSha256": "4f83d24ea8fd356130dd1ec63ba9d50e18146ba3a75be4a6593e1d83ca841fb0",
           "obsoleteDeclarations": []
         },
         {
           "name": "Microsoft.Extensions.Logging.Console.dll",
-          "sha256": "db9ac350f25d9cf28f3f0d9e063afd6302b3457c001d4e4c578a0aacd0f1fbdd",
-          "path": "packs/Microsoft.AspNetCore.App.Ref/10.0.13/ref/net10.0/Microsoft.Extensions.Logging.Console.dll",
+          "sha256": "709f4ff63891f801e72b5d569372c1e26bb5e2dda56238b4694ccf2bc61d883c",
+          "path": "packs/Microsoft.AspNetCore.App.Ref/10.0.14/ref/net10.0/Microsoft.Extensions.Logging.Console.dll",
           "declarationCount": 131,
           "declarationsSha256": "1b744f7f598d1f463942267c195ec69c042952201de14d7c6fcaad14be63cbe5",
           "obsoleteDeclarations": [
@@ -277,8 +278,8 @@
         },
         {
           "name": "Microsoft.Extensions.Logging.Debug.dll",
-          "sha256": "766d4880399e16c0b7a8e97a4bd95d78a968e84749888f36a7a5af7b96f7bc77",
-          "path": "packs/Microsoft.AspNetCore.App.Ref/10.0.13/ref/net10.0/Microsoft.Extensions.Logging.Debug.dll",
+          "sha256": "12fae3bbda90db9cbf641580b801dd7b234377ddecda40f77af760ebd53ca324",
+          "path": "packs/Microsoft.AspNetCore.App.Ref/10.0.14/ref/net10.0/Microsoft.Extensions.Logging.Debug.dll",
           "declarationCount": 9,
           "declarationsSha256": "668e132bb5e38bcfb94f413a2b201ba9d5b143f4f09d84f888b37362154e7fd9",
           "obsoleteDeclarations": [
@@ -289,16 +290,16 @@
         },
         {
           "name": "Microsoft.Extensions.Logging.dll",
-          "sha256": "e5983bcb5d6256d727ee2de2e455d035060bdc2470c9e3c680722bfe553eb9c9",
-          "path": "packs/Microsoft.AspNetCore.App.Ref/10.0.13/ref/net10.0/Microsoft.Extensions.Logging.dll",
+          "sha256": "e83a92998059612f390d348b786779b4d5257bdcd6dadb6a09102633b067e4b0",
+          "path": "packs/Microsoft.AspNetCore.App.Ref/10.0.14/ref/net10.0/Microsoft.Extensions.Logging.dll",
           "declarationCount": 77,
           "declarationsSha256": "2f6ddf0aadd4928c7f208f29bdf22cc91df9d3b9844a00116e693854d93dc6b3",
           "obsoleteDeclarations": []
         },
         {
           "name": "Microsoft.Extensions.Logging.EventLog.dll",
-          "sha256": "709dc19d514f30a010ee47bfa064634b7c83900a704b17b102cb64d0738037a0",
-          "path": "packs/Microsoft.AspNetCore.App.Ref/10.0.13/ref/net10.0/Microsoft.Extensions.Logging.EventLog.dll",
+          "sha256": "1409020170a585ca6f468605b93a87b640c95234215e45ceac22d75d63f5acc3",
+          "path": "packs/Microsoft.AspNetCore.App.Ref/10.0.14/ref/net10.0/Microsoft.Extensions.Logging.EventLog.dll",
           "declarationCount": 28,
           "declarationsSha256": "eebceb7da61b032ed2399419e340009ef37311bd24fc116f7834c5d7eb35f3a2",
           "obsoleteDeclarations": [
@@ -309,8 +310,8 @@
         },
         {
           "name": "Microsoft.Extensions.Logging.EventSource.dll",
-          "sha256": "2e01d464894ccf286e3a4deee00643d5a1b74657af20ac49ae77ef3dca932d9a",
-          "path": "packs/Microsoft.AspNetCore.App.Ref/10.0.13/ref/net10.0/Microsoft.Extensions.Logging.EventSource.dll",
+          "sha256": "4b1d7ff8425b2d30b3a5fb9f034fd9873c5e2d31f9b397c7a3cdd04346b66433",
+          "path": "packs/Microsoft.AspNetCore.App.Ref/10.0.14/ref/net10.0/Microsoft.Extensions.Logging.EventSource.dll",
           "declarationCount": 14,
           "declarationsSha256": "4524e67bf260d1a405aabe08cdbf2c18a46dcd7e5864995de5e0a1f7934e9545",
           "obsoleteDeclarations": [
@@ -319,8 +320,8 @@
         },
         {
           "name": "Microsoft.Extensions.Logging.TraceSource.dll",
-          "sha256": "e8eb7287188327eb1c5ee56522411977b828b18ddc9bd6e79ff2b4df1f5c3fde",
-          "path": "packs/Microsoft.AspNetCore.App.Ref/10.0.13/ref/net10.0/Microsoft.Extensions.Logging.TraceSource.dll",
+          "sha256": "b464003ceb25fa7660ddaa0f96d4d3cc7e0f4254c376116494d8faf03b8e99f4",
+          "path": "packs/Microsoft.AspNetCore.App.Ref/10.0.14/ref/net10.0/Microsoft.Extensions.Logging.TraceSource.dll",
           "declarationCount": 14,
           "declarationsSha256": "2dd458104da15e5a44a5d95f7f9d05264f61138cc13075331bcb2f8fe47da488",
           "obsoleteDeclarations": [
@@ -332,8 +333,8 @@
         },
         {
           "name": "Microsoft.Extensions.ObjectPool.dll",
-          "sha256": "d1991aa921e27c512e1d2a7d1765ab3a0dc86dff857fd3f1a5d818ad3a800f2e",
-          "path": "packs/Microsoft.AspNetCore.App.Ref/10.0.13/ref/net10.0/Microsoft.Extensions.ObjectPool.dll",
+          "sha256": "6dd9cd638438d1256c2b43dca09a9b3cae5804f844d745ce43e81aa991e9400c",
+          "path": "packs/Microsoft.AspNetCore.App.Ref/10.0.14/ref/net10.0/Microsoft.Extensions.ObjectPool.dll",
           "declarationCount": 54,
           "declarationsSha256": "e8addea0579117afdd2c9605c39a059769bc5dd875d37df3579748d9b996212a",
           "obsoleteDeclarations": [
@@ -343,32 +344,32 @@
         },
         {
           "name": "Microsoft.Extensions.Options.ConfigurationExtensions.dll",
-          "sha256": "d4662158dfffd3a80fd6345be476278c0cf661b94b002803ab6584aed64e6124",
-          "path": "packs/Microsoft.AspNetCore.App.Ref/10.0.13/ref/net10.0/Microsoft.Extensions.Options.ConfigurationExtensions.dll",
+          "sha256": "2624146e5cc7bb6e87168f945fd3d57beba7b374608dcfac9f6f02cb68f5dcd2",
+          "path": "packs/Microsoft.AspNetCore.App.Ref/10.0.14/ref/net10.0/Microsoft.Extensions.Options.ConfigurationExtensions.dll",
           "declarationCount": 20,
           "declarationsSha256": "1afbd83aff9d49014faba08be042b2ca14fa7c51f709826caca3631d52809e5e",
           "obsoleteDeclarations": []
         },
         {
           "name": "Microsoft.Extensions.Options.DataAnnotations.dll",
-          "sha256": "2339b839ef68d69989281dd95fc80ef317ea3b3018bec39876170cda9927fb34",
-          "path": "packs/Microsoft.AspNetCore.App.Ref/10.0.13/ref/net10.0/Microsoft.Extensions.Options.DataAnnotations.dll",
+          "sha256": "8bc6d747920040c1a028a7a69fb8aafce391db87872e947a908ea8bbf4da2393",
+          "path": "packs/Microsoft.AspNetCore.App.Ref/10.0.14/ref/net10.0/Microsoft.Extensions.Options.DataAnnotations.dll",
           "declarationCount": 7,
           "declarationsSha256": "db3809139ca951abe9c6968cf2d4c6c0fe9318d05774d3f45d05487668f439aa",
           "obsoleteDeclarations": []
         },
         {
           "name": "Microsoft.Extensions.Options.dll",
-          "sha256": "accb50807603bd9a9f2fcb3dddb31468ee2d374fb8cae369b7e18cd344b9c1f0",
-          "path": "packs/Microsoft.AspNetCore.App.Ref/10.0.13/ref/net10.0/Microsoft.Extensions.Options.dll",
+          "sha256": "7b876b941db535f6d7d10906c1d46519f5a618c4978bd3dbbdfea8a616cd29d2",
+          "path": "packs/Microsoft.AspNetCore.App.Ref/10.0.14/ref/net10.0/Microsoft.Extensions.Options.dll",
           "declarationCount": 405,
           "declarationsSha256": "0f012585f55f96305e410b0c934fd4fb6ac432ebbca868baa199c51c55eb6c7f",
           "obsoleteDeclarations": []
         },
         {
           "name": "Microsoft.Extensions.Primitives.dll",
-          "sha256": "72a53964357b610630bd5ebf021de6a21780a27e3c4c8cbb71b67560bfd6a054",
-          "path": "packs/Microsoft.AspNetCore.App.Ref/10.0.13/ref/net10.0/Microsoft.Extensions.Primitives.dll",
+          "sha256": "7372987468f08789b53bf0ec91f979dfe82f4f8a6b28bc4fbe78fb183fc020a1",
+          "path": "packs/Microsoft.AspNetCore.App.Ref/10.0.14/ref/net10.0/Microsoft.Extensions.Primitives.dll",
           "declarationCount": 157,
           "declarationsSha256": "2c8519aa3daff2eef7856d208aecf0ae639c2f16779e89445dc77ea8d21f2493",
           "obsoleteDeclarations": [
@@ -377,8 +378,8 @@
         },
         {
           "name": "Microsoft.Extensions.Validation.dll",
-          "sha256": "2f9e4412069d54310b0a929a641d46b266a94ae939d1d1b909fdb21fbeced782",
-          "path": "packs/Microsoft.AspNetCore.App.Ref/10.0.13/ref/net10.0/Microsoft.Extensions.Validation.dll",
+          "sha256": "1263b31e029cd7308e984655203ceebc06ec439e766411abbce0724a2e98fac3",
+          "path": "packs/Microsoft.AspNetCore.App.Ref/10.0.14/ref/net10.0/Microsoft.Extensions.Validation.dll",
           "declarationCount": 65,
           "declarationsSha256": "5373f71eede3bc98b26b73a82dc24b423610ece4355b4b6f20c5a7976e2c6db5",
           "obsoleteDeclarations": [
@@ -387,8 +388,8 @@
         },
         {
           "name": "System.ComponentModel.Annotations.dll",
-          "sha256": "376208941a5bc6fff13789c04f04c4d9a31497adcd7ee9375bbbcbb3db078a6b",
-          "path": "packs/Microsoft.NETCore.App.Ref/10.0.13/ref/net10.0/System.ComponentModel.Annotations.dll",
+          "sha256": "15b9b734e01968c98c8b3af3395d5110fbee534865dc678398d72ff4c776f413",
+          "path": "packs/Microsoft.NETCore.App.Ref/10.0.14/ref/net10.0/System.ComponentModel.Annotations.dll",
           "declarationCount": 405,
           "declarationsSha256": "da193528962208507ddab4f1254eab3b9636c896fb766b6f17f398595614a24d",
           "obsoleteDeclarations": [
@@ -399,40 +400,40 @@
         },
         {
           "name": "System.ComponentModel.DataAnnotations.dll",
-          "sha256": "6c90452506439ba7587afeb2c648eeec5b80c131e16c2f5b2c70a18c3e2bae12",
-          "path": "packs/Microsoft.NETCore.App.Ref/10.0.13/ref/net10.0/System.ComponentModel.DataAnnotations.dll",
+          "sha256": "f7675a194e2f444670b94d3d3866dd3dd16b48b332cc5811268ff903e6c17a65",
+          "path": "packs/Microsoft.NETCore.App.Ref/10.0.14/ref/net10.0/System.ComponentModel.DataAnnotations.dll",
           "declarationCount": 43,
           "declarationsSha256": "1b49d4adff7f8a1d73ffc3c2e69e69d63b15a3105aea1b56dacbfeb419f082c7",
           "obsoleteDeclarations": []
         },
         {
           "name": "System.Diagnostics.Contracts.dll",
-          "sha256": "f0a33aa33beefce08d19fda409844aaab858239f686c0cee665cea899d8f084c",
-          "path": "packs/Microsoft.NETCore.App.Ref/10.0.13/ref/net10.0/System.Diagnostics.Contracts.dll",
+          "sha256": "1b3f2741daabd7765154da4eeb634b7bdc2220734090570cd2301028dd777167",
+          "path": "packs/Microsoft.NETCore.App.Ref/10.0.14/ref/net10.0/System.Diagnostics.Contracts.dll",
           "declarationCount": 92,
           "declarationsSha256": "e30716fd798b4726b119f4fde9abe9cf223f4920c62a7a3f32b227babade91ae",
           "obsoleteDeclarations": []
         },
         {
           "name": "System.Diagnostics.Debug.dll",
-          "sha256": "c2cb62b25d91119705029c8e7adbac2aad4ec4123c0c31799c44faab51daeb2c",
-          "path": "packs/Microsoft.NETCore.App.Ref/10.0.13/ref/net10.0/System.Diagnostics.Debug.dll",
+          "sha256": "ba04477089ee6fc9ae8c2a8e711905fe1d7a113c785cb168d28eccaed435400b",
+          "path": "packs/Microsoft.NETCore.App.Ref/10.0.14/ref/net10.0/System.Diagnostics.Debug.dll",
           "declarationCount": 13,
           "declarationsSha256": "7c0a92094bfd2ac6fe5b0f6d00742d305e6f93238015bf89746356cd6704d5cc",
           "obsoleteDeclarations": []
         },
         {
           "name": "System.Diagnostics.DiagnosticSource.dll",
-          "sha256": "adf3f3a610ac7c2648697cce3926681bda6d1c1f9a313205ff5006b832450c4f",
-          "path": "packs/Microsoft.NETCore.App.Ref/10.0.13/ref/net10.0/System.Diagnostics.DiagnosticSource.dll",
+          "sha256": "d74901448d4cf9d0b98423c44b2dd5c1f48745721dc01f6ea334a05daa51e6a9",
+          "path": "packs/Microsoft.NETCore.App.Ref/10.0.14/ref/net10.0/System.Diagnostics.DiagnosticSource.dll",
           "declarationCount": 584,
           "declarationsSha256": "1054c19daafea88830d3bbb2ce2b64dc8d9c75bff176208d0384606a990a6881",
           "obsoleteDeclarations": []
         },
         {
           "name": "System.Diagnostics.StackTrace.dll",
-          "sha256": "85963d684436e090c6f487061639f045c99c05c6167bfa3b0cdae9cc74cbb842",
-          "path": "packs/Microsoft.NETCore.App.Ref/10.0.13/ref/net10.0/System.Diagnostics.StackTrace.dll",
+          "sha256": "e43aad1c651b1a296e5a2e908192c17b52f33a4c9f8ad31da935f84a6b9d20d4",
+          "path": "packs/Microsoft.NETCore.App.Ref/10.0.14/ref/net10.0/System.Diagnostics.StackTrace.dll",
           "declarationCount": 194,
           "declarationsSha256": "5eb87e723aaf398a3536586fff5761987362d9fd00402678f235f1509571c8f2",
           "obsoleteDeclarations": [
@@ -441,32 +442,32 @@
         },
         {
           "name": "System.Diagnostics.TextWriterTraceListener.dll",
-          "sha256": "c1d31dbb4a2095740283be6752e0bcbff3a06df73a709ce0d79321b03493183b",
-          "path": "packs/Microsoft.NETCore.App.Ref/10.0.13/ref/net10.0/System.Diagnostics.TextWriterTraceListener.dll",
+          "sha256": "84d26696dc74b7ee0ef826369e0b3f3740b8bdb5c1fa15345308fe8f82fcc08b",
+          "path": "packs/Microsoft.NETCore.App.Ref/10.0.14/ref/net10.0/System.Diagnostics.TextWriterTraceListener.dll",
           "declarationCount": 51,
           "declarationsSha256": "a12aba0cb7f8f2802211ea9b5eb0617eaa0c1ea9cff905a6a453f974a7cc14db",
           "obsoleteDeclarations": []
         },
         {
           "name": "System.Diagnostics.Tools.dll",
-          "sha256": "2d638b02eaccdaef5f5af49a93cb368b3c4bd4eaa93f7034d99a2fbfb8268dfc",
-          "path": "packs/Microsoft.NETCore.App.Ref/10.0.13/ref/net10.0/System.Diagnostics.Tools.dll",
+          "sha256": "dade40a11c2594fc03c84d119050f8b4281077bbc28298e3c2f6d96673cb0667",
+          "path": "packs/Microsoft.NETCore.App.Ref/10.0.14/ref/net10.0/System.Diagnostics.Tools.dll",
           "declarationCount": 3,
           "declarationsSha256": "6f425fc812b76ce0e8579ffc7c8dae31a9d53b6032ced213fa4af7cd7729e9c3",
           "obsoleteDeclarations": []
         },
         {
           "name": "System.Diagnostics.TraceSource.dll",
-          "sha256": "4dad1326cfb2987d07e745fb671e65fa64dc17de492e8e563f2dd592ab6ddc71",
-          "path": "packs/Microsoft.NETCore.App.Ref/10.0.13/ref/net10.0/System.Diagnostics.TraceSource.dll",
+          "sha256": "640fc476be8879e00f70d71ad5a5dc6f64ddeae00a6e53bb54c8c1798322d1c7",
+          "path": "packs/Microsoft.NETCore.App.Ref/10.0.14/ref/net10.0/System.Diagnostics.TraceSource.dll",
           "declarationCount": 318,
           "declarationsSha256": "dc55da4ab061e88eb47ff31fcd9b937ff1fcb37d008e9143de6ba536de05f4b2",
           "obsoleteDeclarations": []
         },
         {
           "name": "System.Diagnostics.Tracing.dll",
-          "sha256": "bedf70185c487be23f2f921e3f360559cb834883c7c39ac9d20814cbfe57ffe7",
-          "path": "packs/Microsoft.NETCore.App.Ref/10.0.13/ref/net10.0/System.Diagnostics.Tracing.dll",
+          "sha256": "217d30399278821e53c909fd30d4bca8c02a5be899813545af156e8be49d4168",
+          "path": "packs/Microsoft.NETCore.App.Ref/10.0.14/ref/net10.0/System.Diagnostics.Tracing.dll",
           "declarationCount": 346,
           "declarationsSha256": "066234f0a6b7166063074ecc6b63e7322d97b294c7023042d93a4aedfe689549",
           "obsoleteDeclarations": [
@@ -1300,15 +1301,16 @@
       ]
     },
     {
-      "sdk": "11.0.100-rc.2.26504.105",
-      "referencePack": "11.0.0-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
+      "referencePack": "11.0.0-rc.3.26522.148",
+      "packageVersion": "11.0.0-rc.2.26504.105",
       "target": "net11.0",
-      "metadataReaderSha256": "83e6f283f8c4a8a620de99277ac2463cafcc5341b0ea6bad2873bafd646ffe66",
+      "metadataReaderSha256": "1fcabc4637d7b12c1deee79a904f14d0ffa67c1e487d0c86a6cb5bfc9dd8fc6a",
       "framework": [
         {
           "name": "Microsoft.Extensions.Caching.Memory.dll",
-          "sha256": "e43cec82e36f20d50763a3730ac45b3382bed8114201fb508d98775c02f7db00",
-          "path": "packs/Microsoft.AspNetCore.App.Ref/11.0.0-rc.2.26504.105/ref/net11.0/Microsoft.Extensions.Caching.Memory.dll",
+          "sha256": "1ae3622d5a362e28311f6ae3a37fce9a6a4da50184112269bc6404478fd5dbc7",
+          "path": "packs/Microsoft.AspNetCore.App.Ref/11.0.0-rc.3.26522.148/ref/net11.0/Microsoft.Extensions.Caching.Memory.dll",
           "declarationCount": 63,
           "declarationsSha256": "37b217b43c9748a166c5a3f16593195689a6a9ce0206cf8eca009ee93847ffa3",
           "obsoleteDeclarations": [
@@ -1317,160 +1319,160 @@
         },
         {
           "name": "Microsoft.Extensions.Configuration.Binder.dll",
-          "sha256": "4d4fc3a14d7f8b4ffc4042003f7929e2ed431ba8128cba7b8827342937a2a1c6",
-          "path": "packs/Microsoft.AspNetCore.App.Ref/11.0.0-rc.2.26504.105/ref/net11.0/Microsoft.Extensions.Configuration.Binder.dll",
+          "sha256": "99d8841014f95ae627ec99f2882b3f7b3fce0dd19d094bb49b2359aaa66f4734",
+          "path": "packs/Microsoft.AspNetCore.App.Ref/11.0.0-rc.3.26522.148/ref/net11.0/Microsoft.Extensions.Configuration.Binder.dll",
           "declarationCount": 20,
           "declarationsSha256": "bdabce2f67d19daf598b8ed23a87175926d5e9e397bf3cfd888540981f47b218",
           "obsoleteDeclarations": []
         },
         {
           "name": "Microsoft.Extensions.Configuration.CommandLine.dll",
-          "sha256": "9e12fe467a87b9dd51488d7b26560995e78164ba00ca0ad6f7a4ed1de196676b",
-          "path": "packs/Microsoft.AspNetCore.App.Ref/11.0.0-rc.2.26504.105/ref/net11.0/Microsoft.Extensions.Configuration.CommandLine.dll",
+          "sha256": "897f83ab48d8a314330e82d68086f3ec14938d2e2b7153b42997d9076f1d2f98",
+          "path": "packs/Microsoft.AspNetCore.App.Ref/11.0.0-rc.3.26522.148/ref/net11.0/Microsoft.Extensions.Configuration.CommandLine.dll",
           "declarationCount": 18,
           "declarationsSha256": "8aa2cd38396ef576e4882cc7dea8200f32c6a1e036a615f3fa8ad9231736793b",
           "obsoleteDeclarations": []
         },
         {
           "name": "Microsoft.Extensions.Configuration.dll",
-          "sha256": "5e2ef87ee254b103421560826015f0582c39da0140836205be33fe0e7b4ea4b9",
-          "path": "packs/Microsoft.AspNetCore.App.Ref/11.0.0-rc.2.26504.105/ref/net11.0/Microsoft.Extensions.Configuration.dll",
+          "sha256": "d14bfd0ff832a07f49e80be95d9dc1564f9d9f51c9fa639c305d4bd7006c1e68",
+          "path": "packs/Microsoft.AspNetCore.App.Ref/11.0.0-rc.3.26522.148/ref/net11.0/Microsoft.Extensions.Configuration.dll",
           "declarationCount": 118,
           "declarationsSha256": "5dddcad9ab107009c21ef02f85e772a91f16dbc773b445ea57b5399ab11d6b3d",
           "obsoleteDeclarations": []
         },
         {
           "name": "Microsoft.Extensions.Configuration.EnvironmentVariables.dll",
-          "sha256": "cc98bbc672a92c418258553c35932d44f62d5c1352ac7ee727de72894d61c397",
-          "path": "packs/Microsoft.AspNetCore.App.Ref/11.0.0-rc.2.26504.105/ref/net11.0/Microsoft.Extensions.Configuration.EnvironmentVariables.dll",
+          "sha256": "923c5e14f39ffd9bfff982a6e1f60b5cfa2638d0db52f945fe56b0dcbeace989",
+          "path": "packs/Microsoft.AspNetCore.App.Ref/11.0.0-rc.3.26522.148/ref/net11.0/Microsoft.Extensions.Configuration.EnvironmentVariables.dll",
           "declarationCount": 24,
           "declarationsSha256": "78b91280f038567c40ee4791873a82ca32051f72d585b0e0f267d4936ea1c658",
           "obsoleteDeclarations": []
         },
         {
           "name": "Microsoft.Extensions.Configuration.FileExtensions.dll",
-          "sha256": "8e046e41b79e8ee720dfb0441b86ababbc2a06994ef190d54ef21431b434b3c2",
-          "path": "packs/Microsoft.AspNetCore.App.Ref/11.0.0-rc.2.26504.105/ref/net11.0/Microsoft.Extensions.Configuration.FileExtensions.dll",
+          "sha256": "eae8deeafdc680010e7a2016b4bba0fc2e2193e33fe8a06318adb2793d64b4da",
+          "path": "packs/Microsoft.AspNetCore.App.Ref/11.0.0-rc.3.26522.148/ref/net11.0/Microsoft.Extensions.Configuration.FileExtensions.dll",
           "declarationCount": 49,
           "declarationsSha256": "df280d9062cdb95f14643646582ed6d8242c389927137661cd8ce863250d3107",
           "obsoleteDeclarations": []
         },
         {
           "name": "Microsoft.Extensions.Configuration.Ini.dll",
-          "sha256": "fe2b786a273a9f37546f64f936bef0d6509681f70fa7517aab2a9be7e9ce9902",
-          "path": "packs/Microsoft.AspNetCore.App.Ref/11.0.0-rc.2.26504.105/ref/net11.0/Microsoft.Extensions.Configuration.Ini.dll",
+          "sha256": "a115d603a5a7d0831206925e5aecb12f73e79b55fe67ce314e08bff88a597139",
+          "path": "packs/Microsoft.AspNetCore.App.Ref/11.0.0-rc.3.26522.148/ref/net11.0/Microsoft.Extensions.Configuration.Ini.dll",
           "declarationCount": 20,
           "declarationsSha256": "86fa7007b7597fe3ebe2bd9a3dde2901b19078d66e08a8aadcaf04785de56f50",
           "obsoleteDeclarations": []
         },
         {
           "name": "Microsoft.Extensions.Configuration.Json.dll",
-          "sha256": "c2a419665d3d757126138948bd528c33078523207ab0a4c598197549c7360740",
-          "path": "packs/Microsoft.AspNetCore.App.Ref/11.0.0-rc.2.26504.105/ref/net11.0/Microsoft.Extensions.Configuration.Json.dll",
+          "sha256": "d71b08e2f9c50a4b4584d30f0fd18bab943c247b96619b40497d6c882d060b61",
+          "path": "packs/Microsoft.AspNetCore.App.Ref/11.0.0-rc.3.26522.148/ref/net11.0/Microsoft.Extensions.Configuration.Json.dll",
           "declarationCount": 19,
           "declarationsSha256": "408a3958dc29fb3818c90e1bd445bdf9b6f627422f6eda574f244a28df252cf3",
           "obsoleteDeclarations": []
         },
         {
           "name": "Microsoft.Extensions.Configuration.KeyPerFile.dll",
-          "sha256": "f2984552b81ebd59cb4059b17913957c64ae5c6ecc927e98256d9edcff82e43c",
-          "path": "packs/Microsoft.AspNetCore.App.Ref/11.0.0-rc.2.26504.105/ref/net11.0/Microsoft.Extensions.Configuration.KeyPerFile.dll",
+          "sha256": "c4bb75a1b94d1a289f8fe33d838bebb677a57966977e39a1ccff3da490b9e76a",
+          "path": "packs/Microsoft.AspNetCore.App.Ref/11.0.0-rc.3.26522.148/ref/net11.0/Microsoft.Extensions.Configuration.KeyPerFile.dll",
           "declarationCount": 34,
           "declarationsSha256": "2e968614d3470f1f53fc5f6803bb4d91775614cc34d7ec91cd304f951ae7087a",
           "obsoleteDeclarations": []
         },
         {
           "name": "Microsoft.Extensions.Configuration.UserSecrets.dll",
-          "sha256": "ff1d25a1806f7f70943982696d8ce0326067f0f1839f9e211e462d95be26178e",
-          "path": "packs/Microsoft.AspNetCore.App.Ref/11.0.0-rc.2.26504.105/ref/net11.0/Microsoft.Extensions.Configuration.UserSecrets.dll",
+          "sha256": "13f3c0b6054d658d0e3a8c080f7b54374081296d73cea1a203ede346443d87ec",
+          "path": "packs/Microsoft.AspNetCore.App.Ref/11.0.0-rc.3.26522.148/ref/net11.0/Microsoft.Extensions.Configuration.UserSecrets.dll",
           "declarationCount": 16,
           "declarationsSha256": "d4ffc791c37fadbde5edc2186d942c5216d4fcd49d9c36b0b7afd0733f4e813c",
           "obsoleteDeclarations": []
         },
         {
           "name": "Microsoft.Extensions.Configuration.Xml.dll",
-          "sha256": "94b101974a6dcd466d5c8e4c588f26efe78939f7b4ba5447b6f427cded054c51",
-          "path": "packs/Microsoft.AspNetCore.App.Ref/11.0.0-rc.2.26504.105/ref/net11.0/Microsoft.Extensions.Configuration.Xml.dll",
+          "sha256": "ddd1834d322b92b153542accfd3873cdc30f4811e4944852499e5a6a5dfbc1fe",
+          "path": "packs/Microsoft.AspNetCore.App.Ref/11.0.0-rc.3.26522.148/ref/net11.0/Microsoft.Extensions.Configuration.Xml.dll",
           "declarationCount": 25,
           "declarationsSha256": "16685982f6f6ae0ce74f9fde20f4589b4d1f8362f9014e9c2997f268733e0b80",
           "obsoleteDeclarations": []
         },
         {
           "name": "Microsoft.Extensions.DependencyInjection.dll",
-          "sha256": "abd113af17cf08817cb7997a4c7ad461c9a9d9abcb503db89e3891dee319156f",
-          "path": "packs/Microsoft.AspNetCore.App.Ref/11.0.0-rc.2.26504.105/ref/net11.0/Microsoft.Extensions.DependencyInjection.dll",
+          "sha256": "ac58f5313be03fc52eb03a1102d8239f7943490c2cd1041066dfec37199b111e",
+          "path": "packs/Microsoft.AspNetCore.App.Ref/11.0.0-rc.3.26522.148/ref/net11.0/Microsoft.Extensions.DependencyInjection.dll",
           "declarationCount": 24,
           "declarationsSha256": "f94c079f782b68b47ed65ab34fcf311a14de4a5f25065abf27aef6ac15c321cd",
           "obsoleteDeclarations": []
         },
         {
           "name": "Microsoft.Extensions.Diagnostics.dll",
-          "sha256": "5736f73a1f363f1c6d60aee5d0bb044080638bf648b91c2af046e6eeb36bcd68",
-          "path": "packs/Microsoft.AspNetCore.App.Ref/11.0.0-rc.2.26504.105/ref/net11.0/Microsoft.Extensions.Diagnostics.dll",
+          "sha256": "bf65b0cd03c7cbcf38fcca419ea415f72cd7c3f037fb7bd9f589e55553a3dd8f",
+          "path": "packs/Microsoft.AspNetCore.App.Ref/11.0.0-rc.3.26522.148/ref/net11.0/Microsoft.Extensions.Diagnostics.dll",
           "declarationCount": 20,
           "declarationsSha256": "f234c20c9824b6e5ce711aa8890c77c5e51080a395a90bd49fa4f369000bcaa8",
           "obsoleteDeclarations": []
         },
         {
           "name": "Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions.dll",
-          "sha256": "f5aba1901d119700d408b1e151cfc42c413293dbd9a7fa23324e06e2fe624452",
-          "path": "packs/Microsoft.AspNetCore.App.Ref/11.0.0-rc.2.26504.105/ref/net11.0/Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions.dll",
+          "sha256": "017dab16a8889de6043e3679cc0e9d6b4a83ae936a958e0846663e9da6695333",
+          "path": "packs/Microsoft.AspNetCore.App.Ref/11.0.0-rc.3.26522.148/ref/net11.0/Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions.dll",
           "declarationCount": 76,
           "declarationsSha256": "fb9532a858d57f84696820e266a11ff89a082289ac6d8c83970890d24721194b",
           "obsoleteDeclarations": []
         },
         {
           "name": "Microsoft.Extensions.Diagnostics.HealthChecks.dll",
-          "sha256": "c0606171da3a93ee50ecf8b84139ce3a7e5e2c4bb0de95f65eaa9cf82917d86b",
-          "path": "packs/Microsoft.AspNetCore.App.Ref/11.0.0-rc.2.26504.105/ref/net11.0/Microsoft.Extensions.Diagnostics.HealthChecks.dll",
+          "sha256": "7b9f0061738772a53fedf488e871fa4656986ad04fc178cba1c01c011ba0adec",
+          "path": "packs/Microsoft.AspNetCore.App.Ref/11.0.0-rc.3.26522.148/ref/net11.0/Microsoft.Extensions.Diagnostics.HealthChecks.dll",
           "declarationCount": 46,
           "declarationsSha256": "0b792b36f20dc9eb3baa040c7e37453cf87a3c350c9a5fb6de6480d0008794d9",
           "obsoleteDeclarations": []
         },
         {
           "name": "Microsoft.Extensions.FileProviders.Composite.dll",
-          "sha256": "1e94af2a81bb633504d3f7ee93510b2f1a000b37d02b37cf596406acf46ed951",
-          "path": "packs/Microsoft.AspNetCore.App.Ref/11.0.0-rc.2.26504.105/ref/net11.0/Microsoft.Extensions.FileProviders.Composite.dll",
+          "sha256": "ad71e901351a38715d5d2f50e467e92f31258b7a019848c948ef0062ef9228e8",
+          "path": "packs/Microsoft.AspNetCore.App.Ref/11.0.0-rc.3.26522.148/ref/net11.0/Microsoft.Extensions.FileProviders.Composite.dll",
           "declarationCount": 13,
           "declarationsSha256": "a1fd8eb657d4fe10cffa5dbfca69abd6d2be88b2051eb647f6e681ed7ff6a688",
           "obsoleteDeclarations": []
         },
         {
           "name": "Microsoft.Extensions.FileProviders.Embedded.dll",
-          "sha256": "30b5600410526ec6deb354101b65fb7c783f35739c88857cfb2552b8e7282da6",
-          "path": "packs/Microsoft.AspNetCore.App.Ref/11.0.0-rc.2.26504.105/ref/net11.0/Microsoft.Extensions.FileProviders.Embedded.dll",
+          "sha256": "5fb49d1e74aa74689e457e3efe8dbb92ee8e0f57f291177702ce7ba4796e0fc3",
+          "path": "packs/Microsoft.AspNetCore.App.Ref/11.0.0-rc.3.26522.148/ref/net11.0/Microsoft.Extensions.FileProviders.Embedded.dll",
           "declarationCount": 31,
           "declarationsSha256": "4733103366b5204ccb0cb0f96776635e51bc5368a54a16e7293ed30376085295",
           "obsoleteDeclarations": []
         },
         {
           "name": "Microsoft.Extensions.FileProviders.Physical.dll",
-          "sha256": "049729c3e642fe1beaf6a9e9ee52c63f01229daf669503eb15621e8cbb0ade90",
-          "path": "packs/Microsoft.AspNetCore.App.Ref/11.0.0-rc.2.26504.105/ref/net11.0/Microsoft.Extensions.FileProviders.Physical.dll",
+          "sha256": "ad00f35aa4b69d30499b823548ded9f1675177104e278f73d0d64eb64b0871fb",
+          "path": "packs/Microsoft.AspNetCore.App.Ref/11.0.0-rc.3.26522.148/ref/net11.0/Microsoft.Extensions.FileProviders.Physical.dll",
           "declarationCount": 82,
           "declarationsSha256": "d4396834a3d3605c8f9a926c2ac133d27ad78d5dbd7adfe4cc9d953938730e11",
           "obsoleteDeclarations": []
         },
         {
           "name": "Microsoft.Extensions.FileSystemGlobbing.dll",
-          "sha256": "c8e1acb3adfde8ef4877a06f2cfa426370e93b9cbb15eac802788b50e71f249d",
-          "path": "packs/Microsoft.AspNetCore.App.Ref/11.0.0-rc.2.26504.105/ref/net11.0/Microsoft.Extensions.FileSystemGlobbing.dll",
+          "sha256": "3822f5adc60cae5333bc055e4e497a227a48073547d46be5bfac26499ed9d508",
+          "path": "packs/Microsoft.AspNetCore.App.Ref/11.0.0-rc.3.26522.148/ref/net11.0/Microsoft.Extensions.FileSystemGlobbing.dll",
           "declarationCount": 218,
           "declarationsSha256": "fa9e8ad147c17350ea328658f49dd2dd16fc9e355318ff615c581d85e9757e01",
           "obsoleteDeclarations": []
         },
         {
           "name": "Microsoft.Extensions.Hosting.dll",
-          "sha256": "0dc8e817a11d1287bffcb8dcff1e375ee9cc2fa679573eebd93cea33f0b64974",
-          "path": "packs/Microsoft.AspNetCore.App.Ref/11.0.0-rc.2.26504.105/ref/net11.0/Microsoft.Extensions.Hosting.dll",
+          "sha256": "605984ed9fa1fcfe4ba6d4527f548cba797846d4b539d2ab32702d607506a9cf",
+          "path": "packs/Microsoft.AspNetCore.App.Ref/11.0.0-rc.3.26522.148/ref/net11.0/Microsoft.Extensions.Hosting.dll",
           "declarationCount": 131,
           "declarationsSha256": "c322ede4fd37784a32f031cdf8720fcd27ea2bbcdd9b56fdf270768d4f53d51b",
           "obsoleteDeclarations": []
         },
         {
           "name": "Microsoft.Extensions.Http.dll",
-          "sha256": "9e1b32d08a3795737ccd968c887d2128a5e9dd3de25ad096c593ec2c61de441a",
-          "path": "packs/Microsoft.AspNetCore.App.Ref/11.0.0-rc.2.26504.105/ref/net11.0/Microsoft.Extensions.Http.dll",
+          "sha256": "1ed4c17c1b36ff5123280bbde2b8f864a58b73cdfab3d58e9bd8bbd6e67cb128",
+          "path": "packs/Microsoft.AspNetCore.App.Ref/11.0.0-rc.3.26522.148/ref/net11.0/Microsoft.Extensions.Http.dll",
           "declarationCount": 119,
           "declarationsSha256": "6df5ca94eee85fa6d2207c82aae73e4f289ac1e0c779843955fb87bf6979dc71",
           "obsoleteDeclarations": [
@@ -1479,16 +1481,16 @@
         },
         {
           "name": "Microsoft.Extensions.Logging.Configuration.dll",
-          "sha256": "6efb1f374ea901c2e0bae39c06e619b56a29816479a36a889ebd2342eda13a9d",
-          "path": "packs/Microsoft.AspNetCore.App.Ref/11.0.0-rc.2.26504.105/ref/net11.0/Microsoft.Extensions.Logging.Configuration.dll",
+          "sha256": "5c4a80b4a00ad09eb74abbb6ab6ed4255d71e9260a81494fe13434ecba2e7a95",
+          "path": "packs/Microsoft.AspNetCore.App.Ref/11.0.0-rc.3.26522.148/ref/net11.0/Microsoft.Extensions.Logging.Configuration.dll",
           "declarationCount": 13,
           "declarationsSha256": "4f83d24ea8fd356130dd1ec63ba9d50e18146ba3a75be4a6593e1d83ca841fb0",
           "obsoleteDeclarations": []
         },
         {
           "name": "Microsoft.Extensions.Logging.Console.dll",
-          "sha256": "97d1647a12e1d832cde158ef5a79bbad89bf3da5fb61cf1c9780f6d2fd7a7203",
-          "path": "packs/Microsoft.AspNetCore.App.Ref/11.0.0-rc.2.26504.105/ref/net11.0/Microsoft.Extensions.Logging.Console.dll",
+          "sha256": "5abf4fee45e5800fe88912e53211697b2a837a67e68267ca06cc83f5e34c4fec",
+          "path": "packs/Microsoft.AspNetCore.App.Ref/11.0.0-rc.3.26522.148/ref/net11.0/Microsoft.Extensions.Logging.Console.dll",
           "declarationCount": 131,
           "declarationsSha256": "1b744f7f598d1f463942267c195ec69c042952201de14d7c6fcaad14be63cbe5",
           "obsoleteDeclarations": [
@@ -1513,8 +1515,8 @@
         },
         {
           "name": "Microsoft.Extensions.Logging.Debug.dll",
-          "sha256": "1bc5774ab470e68081e764a360010382e2421e96e06fb762ed98dc71f8acded6",
-          "path": "packs/Microsoft.AspNetCore.App.Ref/11.0.0-rc.2.26504.105/ref/net11.0/Microsoft.Extensions.Logging.Debug.dll",
+          "sha256": "b1d66a2e18025e34976568affdc0c8fe82293298d1ca63c21d8da6915c869407",
+          "path": "packs/Microsoft.AspNetCore.App.Ref/11.0.0-rc.3.26522.148/ref/net11.0/Microsoft.Extensions.Logging.Debug.dll",
           "declarationCount": 9,
           "declarationsSha256": "668e132bb5e38bcfb94f413a2b201ba9d5b143f4f09d84f888b37362154e7fd9",
           "obsoleteDeclarations": [
@@ -1525,16 +1527,16 @@
         },
         {
           "name": "Microsoft.Extensions.Logging.dll",
-          "sha256": "9eaab8808b9e1b75dd9638ee6e632d80207dd75d3d3b1d893129ebd986069670",
-          "path": "packs/Microsoft.AspNetCore.App.Ref/11.0.0-rc.2.26504.105/ref/net11.0/Microsoft.Extensions.Logging.dll",
+          "sha256": "2f05a9a09e205fa71089e8cf03e5468bce4730a959c70b7d4b733cc63092ca98",
+          "path": "packs/Microsoft.AspNetCore.App.Ref/11.0.0-rc.3.26522.148/ref/net11.0/Microsoft.Extensions.Logging.dll",
           "declarationCount": 77,
           "declarationsSha256": "2f6ddf0aadd4928c7f208f29bdf22cc91df9d3b9844a00116e693854d93dc6b3",
           "obsoleteDeclarations": []
         },
         {
           "name": "Microsoft.Extensions.Logging.EventLog.dll",
-          "sha256": "4b1ec59c6fe783dbd7173202b85cf9ae748f6fd7610f1af0e8838bfc8e3d4ed2",
-          "path": "packs/Microsoft.AspNetCore.App.Ref/11.0.0-rc.2.26504.105/ref/net11.0/Microsoft.Extensions.Logging.EventLog.dll",
+          "sha256": "137dd648d6c99a2a4966921172a72f042390f316fc8bb7030dd800774e0340a5",
+          "path": "packs/Microsoft.AspNetCore.App.Ref/11.0.0-rc.3.26522.148/ref/net11.0/Microsoft.Extensions.Logging.EventLog.dll",
           "declarationCount": 28,
           "declarationsSha256": "eebceb7da61b032ed2399419e340009ef37311bd24fc116f7834c5d7eb35f3a2",
           "obsoleteDeclarations": [
@@ -1545,8 +1547,8 @@
         },
         {
           "name": "Microsoft.Extensions.Logging.EventSource.dll",
-          "sha256": "e6b7eab5f40f6be5adae7b09657e12275bc2f75e0e928b5401d07565e2c2c496",
-          "path": "packs/Microsoft.AspNetCore.App.Ref/11.0.0-rc.2.26504.105/ref/net11.0/Microsoft.Extensions.Logging.EventSource.dll",
+          "sha256": "8aef68134ea123d5b2973af622fa6f8be8a4ac98131bf00f3dfa26870921697e",
+          "path": "packs/Microsoft.AspNetCore.App.Ref/11.0.0-rc.3.26522.148/ref/net11.0/Microsoft.Extensions.Logging.EventSource.dll",
           "declarationCount": 14,
           "declarationsSha256": "4524e67bf260d1a405aabe08cdbf2c18a46dcd7e5864995de5e0a1f7934e9545",
           "obsoleteDeclarations": [
@@ -1555,8 +1557,8 @@
         },
         {
           "name": "Microsoft.Extensions.Logging.TraceSource.dll",
-          "sha256": "211b026930ece8f42b35df00edb08c521bc7f017efac466a85a4372d56ef934c",
-          "path": "packs/Microsoft.AspNetCore.App.Ref/11.0.0-rc.2.26504.105/ref/net11.0/Microsoft.Extensions.Logging.TraceSource.dll",
+          "sha256": "7ddeaf8a78949ac62038ce9f55e47a817479bd8f46391e867d1d8341eb23e340",
+          "path": "packs/Microsoft.AspNetCore.App.Ref/11.0.0-rc.3.26522.148/ref/net11.0/Microsoft.Extensions.Logging.TraceSource.dll",
           "declarationCount": 14,
           "declarationsSha256": "2dd458104da15e5a44a5d95f7f9d05264f61138cc13075331bcb2f8fe47da488",
           "obsoleteDeclarations": [
@@ -1568,8 +1570,8 @@
         },
         {
           "name": "Microsoft.Extensions.ObjectPool.dll",
-          "sha256": "fc1ad5cf694efbe7f08841bdfdae382d61a880a04c15f9aaa2ff3130b8edb98a",
-          "path": "packs/Microsoft.AspNetCore.App.Ref/11.0.0-rc.2.26504.105/ref/net11.0/Microsoft.Extensions.ObjectPool.dll",
+          "sha256": "ab3c7d76537d30acea92b0e26c9225ef39b0445338afdb336229e1c4c063edc5",
+          "path": "packs/Microsoft.AspNetCore.App.Ref/11.0.0-rc.3.26522.148/ref/net11.0/Microsoft.Extensions.ObjectPool.dll",
           "declarationCount": 54,
           "declarationsSha256": "e8addea0579117afdd2c9605c39a059769bc5dd875d37df3579748d9b996212a",
           "obsoleteDeclarations": [
@@ -1579,24 +1581,24 @@
         },
         {
           "name": "Microsoft.Extensions.Options.ConfigurationExtensions.dll",
-          "sha256": "75bdb06f3d0a2646ccbc16857dda95f36ff8202a449cd251d8e6e78a2df454de",
-          "path": "packs/Microsoft.AspNetCore.App.Ref/11.0.0-rc.2.26504.105/ref/net11.0/Microsoft.Extensions.Options.ConfigurationExtensions.dll",
+          "sha256": "50217c80cf0dff6b681035faa3b6d53a9ad4d7220928568bf4904357ce8b4542",
+          "path": "packs/Microsoft.AspNetCore.App.Ref/11.0.0-rc.3.26522.148/ref/net11.0/Microsoft.Extensions.Options.ConfigurationExtensions.dll",
           "declarationCount": 20,
           "declarationsSha256": "1afbd83aff9d49014faba08be042b2ca14fa7c51f709826caca3631d52809e5e",
           "obsoleteDeclarations": []
         },
         {
           "name": "Microsoft.Extensions.Options.DataAnnotations.dll",
-          "sha256": "5e7ec4b4f01cf30fae95b97e89dc1ebc061afa8727020f274f64ab047c248996",
-          "path": "packs/Microsoft.AspNetCore.App.Ref/11.0.0-rc.2.26504.105/ref/net11.0/Microsoft.Extensions.Options.DataAnnotations.dll",
+          "sha256": "3e420055f31357392a8fe61597b2b798ac763393e622bea0b9fce37baf5f6118",
+          "path": "packs/Microsoft.AspNetCore.App.Ref/11.0.0-rc.3.26522.148/ref/net11.0/Microsoft.Extensions.Options.DataAnnotations.dll",
           "declarationCount": 8,
           "declarationsSha256": "85faae8fa3c3b754c8dd11303ff0368b95a2f1ad417c7ebdd5e74aa1e5b7f3a1",
           "obsoleteDeclarations": []
         },
         {
           "name": "Microsoft.Extensions.Validation.dll",
-          "sha256": "3ca269a3db7adb2280a1460ba48545890de7fde9827109c014d37565c2536a96",
-          "path": "packs/Microsoft.AspNetCore.App.Ref/11.0.0-rc.2.26504.105/ref/net11.0/Microsoft.Extensions.Validation.dll",
+          "sha256": "491a38caced16d01409ddd4761642d0bb389aecb021791448bedb2a41754377a",
+          "path": "packs/Microsoft.AspNetCore.App.Ref/11.0.0-rc.3.26522.148/ref/net11.0/Microsoft.Extensions.Validation.dll",
           "declarationCount": 62,
           "declarationsSha256": "d38e68092f35fb7088a5f65587a8b30470a6faecfa9931c029db39a0ce5edb1a",
           "obsoleteDeclarations": [
@@ -1606,48 +1608,48 @@
         },
         {
           "name": "Microsoft.Extensions.Caching.Abstractions.dll",
-          "sha256": "631c8d22f02526046a606ab379f6157cd9b3cf1f18e73df0a0cd0807a1b36356",
-          "path": "packs/Microsoft.NETCore.App.Ref/11.0.0-rc.2.26504.105/ref/net11.0/Microsoft.Extensions.Caching.Abstractions.dll",
+          "sha256": "63300600f2992ef1b7caee13413609d687f00bc63bf8b578882997959d6f8f87",
+          "path": "packs/Microsoft.NETCore.App.Ref/11.0.0-rc.3.26522.148/ref/net11.0/Microsoft.Extensions.Caching.Abstractions.dll",
           "declarationCount": 239,
           "declarationsSha256": "5afd39616c147ff9d88e087c3bd2377e1045b341fe8fb9c3a19bb76752837e05",
           "obsoleteDeclarations": []
         },
         {
           "name": "Microsoft.Extensions.Configuration.Abstractions.dll",
-          "sha256": "aedbee8364b8cf31b3a50434d1eed1b4aa28a9d75790efbea8cb3945b42a9a8b",
-          "path": "packs/Microsoft.NETCore.App.Ref/11.0.0-rc.2.26504.105/ref/net11.0/Microsoft.Extensions.Configuration.Abstractions.dll",
+          "sha256": "8b99ee01475e82f707e2f0754a90eeff4f9c83d950366b1f93f00e8c89c6dff1",
+          "path": "packs/Microsoft.NETCore.App.Ref/11.0.0-rc.3.26522.148/ref/net11.0/Microsoft.Extensions.Configuration.Abstractions.dll",
           "declarationCount": 67,
           "declarationsSha256": "871e860a92124f412896cd7f3e04a809653a06acc0f6c8fbedb5c7b58ee7e0b5",
           "obsoleteDeclarations": []
         },
         {
           "name": "Microsoft.Extensions.DependencyInjection.Abstractions.dll",
-          "sha256": "98ad847e98e96376d93261ae38b37e92cc1abaceb0748df9a3555659f0914301",
-          "path": "packs/Microsoft.NETCore.App.Ref/11.0.0-rc.2.26504.105/ref/net11.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
+          "sha256": "5b76c71f3593d07ff7165ddcf1666290e99fff3004a286fb0b0b8279431ec57a",
+          "path": "packs/Microsoft.NETCore.App.Ref/11.0.0-rc.3.26522.148/ref/net11.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
           "declarationCount": 265,
           "declarationsSha256": "7602b533b64c3924f7fc582f2535fc6834b5be6aae1ae87e839fac329018f400",
           "obsoleteDeclarations": []
         },
         {
           "name": "Microsoft.Extensions.Diagnostics.Abstractions.dll",
-          "sha256": "32aa0528b1ca2a527e086803249f2a0e1a827b8ab96b95df81f40846117d8db4",
-          "path": "packs/Microsoft.NETCore.App.Ref/11.0.0-rc.2.26504.105/ref/net11.0/Microsoft.Extensions.Diagnostics.Abstractions.dll",
+          "sha256": "f5800397306d80cb28ec15ef56634653603e64e4b71dc2c66dcc5ccc73191917",
+          "path": "packs/Microsoft.NETCore.App.Ref/11.0.0-rc.3.26522.148/ref/net11.0/Microsoft.Extensions.Diagnostics.Abstractions.dll",
           "declarationCount": 118,
           "declarationsSha256": "b29764eee92a2b4779a4b0d180738d11ac4d26a289cf42e4f5e665ecb379be11",
           "obsoleteDeclarations": []
         },
         {
           "name": "Microsoft.Extensions.FileProviders.Abstractions.dll",
-          "sha256": "3d2eab13732cb03b18eccde3a1c6f1826f9b285e26f310768fff8e460197b8ee",
-          "path": "packs/Microsoft.NETCore.App.Ref/11.0.0-rc.2.26504.105/ref/net11.0/Microsoft.Extensions.FileProviders.Abstractions.dll",
+          "sha256": "0171af3186b0c9273f195be899bc00d21c34f088eb7fc17e092ae413c14e4e67",
+          "path": "packs/Microsoft.NETCore.App.Ref/11.0.0-rc.3.26522.148/ref/net11.0/Microsoft.Extensions.FileProviders.Abstractions.dll",
           "declarationCount": 56,
           "declarationsSha256": "a2e8bd49e91f95d3aa606720864f3d1e853bb4d02640bd3bf871550aa69af867",
           "obsoleteDeclarations": []
         },
         {
           "name": "Microsoft.Extensions.Hosting.Abstractions.dll",
-          "sha256": "dcaad7874f460b1f779ff4e27fea116b58f48bc0ec551424db615360781f15e2",
-          "path": "packs/Microsoft.NETCore.App.Ref/11.0.0-rc.2.26504.105/ref/net11.0/Microsoft.Extensions.Hosting.Abstractions.dll",
+          "sha256": "cc1226b2076f6b56c12e62f87857b1875bde3b8978d787b2f0efd41a6dd93220",
+          "path": "packs/Microsoft.NETCore.App.Ref/11.0.0-rc.3.26522.148/ref/net11.0/Microsoft.Extensions.Hosting.Abstractions.dll",
           "declarationCount": 139,
           "declarationsSha256": "b11337de29e19171571cf5863d49af5d061dbdad2534ccc32244ef14e9a2c30a",
           "obsoleteDeclarations": [
@@ -1658,8 +1660,8 @@
         },
         {
           "name": "Microsoft.Extensions.Logging.Abstractions.dll",
-          "sha256": "867b64fcd5306b90eb233d6c22f3088ab9f91c9cd07b0067fc37159086f620ef",
-          "path": "packs/Microsoft.NETCore.App.Ref/11.0.0-rc.2.26504.105/ref/net11.0/Microsoft.Extensions.Logging.Abstractions.dll",
+          "sha256": "77de47be0b5113c40ddd7fbc0c9e4d2428728e87e7503fa1c265753e4f44a431",
+          "path": "packs/Microsoft.NETCore.App.Ref/11.0.0-rc.3.26522.148/ref/net11.0/Microsoft.Extensions.Logging.Abstractions.dll",
           "declarationCount": 216,
           "declarationsSha256": "30e55938416174a6680f1eca27ed6d7996f8c53cc1a7d8044375a66d2d04720d",
           "obsoleteDeclarations": [
@@ -1671,8 +1673,8 @@
         },
         {
           "name": "Microsoft.Extensions.Options.dll",
-          "sha256": "b7518154c2385b77fd7b121e7ff20e197635b9a1f09ebdc865bb730edf07e111",
-          "path": "packs/Microsoft.NETCore.App.Ref/11.0.0-rc.2.26504.105/ref/net11.0/Microsoft.Extensions.Options.dll",
+          "sha256": "58b34bd3063fc75f55aacc05324fcfe56c573f93f297063b3b99be9a42ad816f",
+          "path": "packs/Microsoft.NETCore.App.Ref/11.0.0-rc.3.26522.148/ref/net11.0/Microsoft.Extensions.Options.dll",
           "declarationCount": 512,
           "declarationsSha256": "6fb52bcf7db9fea016393a4d12ff3f175c2e7407eb10d008314c4f1c241b80bb",
           "obsoleteDeclarations": [
@@ -1681,8 +1683,8 @@
         },
         {
           "name": "Microsoft.Extensions.Primitives.dll",
-          "sha256": "96f96f8e7227007ae29fe360f4b279ac44529aef8c5ae9ff7325af2db605936c",
-          "path": "packs/Microsoft.NETCore.App.Ref/11.0.0-rc.2.26504.105/ref/net11.0/Microsoft.Extensions.Primitives.dll",
+          "sha256": "d4d2fda8cee0e73a46d66bde9ca9d541be0b9f9d726dea36381b650ee1f5018d",
+          "path": "packs/Microsoft.NETCore.App.Ref/11.0.0-rc.3.26522.148/ref/net11.0/Microsoft.Extensions.Primitives.dll",
           "declarationCount": 159,
           "declarationsSha256": "0c7f014fe16a20cd79697066f24fa84cf96a0c447afc8ee3c3688c54e4c736ac",
           "obsoleteDeclarations": [
@@ -1691,8 +1693,8 @@
         },
         {
           "name": "System.ComponentModel.Annotations.dll",
-          "sha256": "1749783a57dbc8542f32cb266661f6c37cce51874667f487ca2a3822bb99984d",
-          "path": "packs/Microsoft.NETCore.App.Ref/11.0.0-rc.2.26504.105/ref/net11.0/System.ComponentModel.Annotations.dll",
+          "sha256": "7ccd334637df2db14969e85bcb3c7cdf7729d9ad04eca6e52b82f277755637ac",
+          "path": "packs/Microsoft.NETCore.App.Ref/11.0.0-rc.3.26522.148/ref/net11.0/System.ComponentModel.Annotations.dll",
           "declarationCount": 432,
           "declarationsSha256": "7d7d4fa16fcad1f4b6f89f98be5b24220bd403b6a9282691aaba95ec180a1128",
           "obsoleteDeclarations": [
@@ -1703,40 +1705,40 @@
         },
         {
           "name": "System.ComponentModel.DataAnnotations.dll",
-          "sha256": "fe6661a3935c43929b7f2fce8904f199b7f041036735c2f51fa75fb80e1819e2",
-          "path": "packs/Microsoft.NETCore.App.Ref/11.0.0-rc.2.26504.105/ref/net11.0/System.ComponentModel.DataAnnotations.dll",
+          "sha256": "c6062729dd92da6f58b11bcd45662bfbeac16c7b359d8da95ec4fbd9d99cccc5",
+          "path": "packs/Microsoft.NETCore.App.Ref/11.0.0-rc.3.26522.148/ref/net11.0/System.ComponentModel.DataAnnotations.dll",
           "declarationCount": 43,
           "declarationsSha256": "1b49d4adff7f8a1d73ffc3c2e69e69d63b15a3105aea1b56dacbfeb419f082c7",
           "obsoleteDeclarations": []
         },
         {
           "name": "System.Diagnostics.Contracts.dll",
-          "sha256": "92e2432fd112aa9a6623b05abd7e36b79a6189dfe733cddb10bcc0d88645f4ae",
-          "path": "packs/Microsoft.NETCore.App.Ref/11.0.0-rc.2.26504.105/ref/net11.0/System.Diagnostics.Contracts.dll",
+          "sha256": "136de94d9235fc2f375d4cb1566a8f916ce513a1c5486bed1391ad8ddd0d20c9",
+          "path": "packs/Microsoft.NETCore.App.Ref/11.0.0-rc.3.26522.148/ref/net11.0/System.Diagnostics.Contracts.dll",
           "declarationCount": 92,
           "declarationsSha256": "e30716fd798b4726b119f4fde9abe9cf223f4920c62a7a3f32b227babade91ae",
           "obsoleteDeclarations": []
         },
         {
           "name": "System.Diagnostics.Debug.dll",
-          "sha256": "3a7f99f6d5a076e19fd1a845ed586ec82fdcfaf3aad194096ba54c4436a1b8d6",
-          "path": "packs/Microsoft.NETCore.App.Ref/11.0.0-rc.2.26504.105/ref/net11.0/System.Diagnostics.Debug.dll",
+          "sha256": "d56620900bdd2af4d7dad360f9686c3580b594957a67b9f3f2165e7c415a9bf1",
+          "path": "packs/Microsoft.NETCore.App.Ref/11.0.0-rc.3.26522.148/ref/net11.0/System.Diagnostics.Debug.dll",
           "declarationCount": 13,
           "declarationsSha256": "7c0a92094bfd2ac6fe5b0f6d00742d305e6f93238015bf89746356cd6704d5cc",
           "obsoleteDeclarations": []
         },
         {
           "name": "System.Diagnostics.DiagnosticSource.dll",
-          "sha256": "c28ffe0136d489b29ff52c2820b5f33ce65a9453c0fd45d6752185c47189f619",
-          "path": "packs/Microsoft.NETCore.App.Ref/11.0.0-rc.2.26504.105/ref/net11.0/System.Diagnostics.DiagnosticSource.dll",
+          "sha256": "4b47aa82588b5767a9da51e6938d35f40fa3d4f4dd06ca7ec1980f047bb08a80",
+          "path": "packs/Microsoft.NETCore.App.Ref/11.0.0-rc.3.26522.148/ref/net11.0/System.Diagnostics.DiagnosticSource.dll",
           "declarationCount": 601,
           "declarationsSha256": "f84bb1feb845fc24cf028f0f4a401e443724492a8f7673ca71f0c5c74a1fa008",
           "obsoleteDeclarations": []
         },
         {
           "name": "System.Diagnostics.StackTrace.dll",
-          "sha256": "12907f73c8ab642e0762987bd93b1358dc879d654462759369a269791693e423",
-          "path": "packs/Microsoft.NETCore.App.Ref/11.0.0-rc.2.26504.105/ref/net11.0/System.Diagnostics.StackTrace.dll",
+          "sha256": "ef88713e5e815b3a90f03994a07854c83998232f4d750f8948753c394baca378",
+          "path": "packs/Microsoft.NETCore.App.Ref/11.0.0-rc.3.26522.148/ref/net11.0/System.Diagnostics.StackTrace.dll",
           "declarationCount": 194,
           "declarationsSha256": "62b4114e2fd0a80c4fa9e5a8e812089d8a7e13ca6bdb61c0e9d1e34945b696d0",
           "obsoleteDeclarations": [
@@ -1745,32 +1747,32 @@
         },
         {
           "name": "System.Diagnostics.TextWriterTraceListener.dll",
-          "sha256": "726a79acc21930c6d3b02bb7c3f127a816644d980cc72ff542fb254e84a65ee9",
-          "path": "packs/Microsoft.NETCore.App.Ref/11.0.0-rc.2.26504.105/ref/net11.0/System.Diagnostics.TextWriterTraceListener.dll",
+          "sha256": "a3f8924e28a1a055ada55d153e2b56c086695595af170881ce7516a83c51e483",
+          "path": "packs/Microsoft.NETCore.App.Ref/11.0.0-rc.3.26522.148/ref/net11.0/System.Diagnostics.TextWriterTraceListener.dll",
           "declarationCount": 51,
           "declarationsSha256": "a12aba0cb7f8f2802211ea9b5eb0617eaa0c1ea9cff905a6a453f974a7cc14db",
           "obsoleteDeclarations": []
         },
         {
           "name": "System.Diagnostics.Tools.dll",
-          "sha256": "175dceec225c4897869949a2c8eff2d272b8e98a3e9d69bf866282e9c564421f",
-          "path": "packs/Microsoft.NETCore.App.Ref/11.0.0-rc.2.26504.105/ref/net11.0/System.Diagnostics.Tools.dll",
+          "sha256": "f60e1824367ba433acb500dc4d782a3c469108f24b5f5ebfd2d54d787a84f357",
+          "path": "packs/Microsoft.NETCore.App.Ref/11.0.0-rc.3.26522.148/ref/net11.0/System.Diagnostics.Tools.dll",
           "declarationCount": 3,
           "declarationsSha256": "6f425fc812b76ce0e8579ffc7c8dae31a9d53b6032ced213fa4af7cd7729e9c3",
           "obsoleteDeclarations": []
         },
         {
           "name": "System.Diagnostics.TraceSource.dll",
-          "sha256": "1e9c6894a8b7c422d371803a74f1a8ff574da7dd9ee191d3cd777ed69c8ca0f9",
-          "path": "packs/Microsoft.NETCore.App.Ref/11.0.0-rc.2.26504.105/ref/net11.0/System.Diagnostics.TraceSource.dll",
+          "sha256": "6de7695aead79a3d8d3efc1381755b0f8fbe050b06177c1325f5f9b258657879",
+          "path": "packs/Microsoft.NETCore.App.Ref/11.0.0-rc.3.26522.148/ref/net11.0/System.Diagnostics.TraceSource.dll",
           "declarationCount": 318,
           "declarationsSha256": "dc55da4ab061e88eb47ff31fcd9b937ff1fcb37d008e9143de6ba536de05f4b2",
           "obsoleteDeclarations": []
         },
         {
           "name": "System.Diagnostics.Tracing.dll",
-          "sha256": "a85191ad5de7a18491b667144abc9685f9ceb44275536f4c90c3eb75d51795fc",
-          "path": "packs/Microsoft.NETCore.App.Ref/11.0.0-rc.2.26504.105/ref/net11.0/System.Diagnostics.Tracing.dll",
+          "sha256": "3e1ea48a89e320ed0ca6411f82ae608ff0f1bde942a04ddee5b5f821370d0659",
+          "path": "packs/Microsoft.NETCore.App.Ref/11.0.0-rc.3.26522.148/ref/net11.0/System.Diagnostics.Tracing.dll",
           "declarationCount": 348,
           "declarationsSha256": "00725ca6e0d57b87aefde37eb1f24284d3fb90746d7d6a036007820b7582144f",
           "obsoleteDeclarations": [

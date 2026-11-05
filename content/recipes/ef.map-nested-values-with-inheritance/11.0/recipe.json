@@ -100,7 +100,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Stable API contract prepared using .NET11 RC2 SDK/runtime/EF packages; no experimental opt-in. Actual GA reconciliation remains outstanding."
+            "Stable API contract prepared using .NET11 RC3 SDK/runtime and EF11 RC2 packages; no experimental opt-in. Actual GA reconciliation remains outstanding."
           ]
         },
         "conditional": false,
@@ -143,7 +143,7 @@
       "sample": "samples/net10.0/FenStore/FenStore.csproj",
       "target": "net10.0",
       "language": "14.0",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "kind": "compile-and-run",
       "scope": "Real SQL Server TPT/TPC value-converted JSON round-trips with comparer; scalar key/index, computed JSON index, explicit identity resolution and duplicate rejection."
     },
@@ -151,7 +151,7 @@
       "sample": "samples/net11.0/FenStore/FenStore.csproj",
       "target": "net11.0",
       "language": "15.0",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "kind": "compile-and-run",
       "scope": "Real SQL Server TPT scalar/JSON, TPC scalar and concrete-subtype JSON round-trips; nested scalar key/index, physical JSON index, LINQ identity resolution and duplicate rejection. Inherited-base TPC JSON and nested-key FindAsync are failing excluded RC2 paths."
     }

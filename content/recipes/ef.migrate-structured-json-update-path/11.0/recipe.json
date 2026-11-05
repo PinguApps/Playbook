@@ -46,7 +46,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Build the net11.0 consumer; measured SDK 11.0.100-rc.2.26504.105 is RC2 evidence, not GA proof."
+            "reason": "Build the net11.0 consumer; measured SDK 11.0.100-rc.3.26522.148 is RC2 evidence, not GA proof."
           },
           "language": {
             "name": "C#",
@@ -66,7 +66,7 @@
             }
           ],
           "packageAssets": [
-            "EF10.0.13/net10.0 versus EF11.0.0-rc.2.26504.105/net11.0. SDK10.0.402/C#14 versus SDK11.0.100-rc.2.26504.105/C#15. SQL graphs pin Pkcs10.0.13 and SqlClient6.1.7/7.1.0. SQLite uses the locked platform bundle; actual native DLL hashes are in execution records. EF11 requires .NET11; no older-runtime route is offered. No workload or rendering mode applies. No experimental opt-in or NativeAOT claim. RC2 proof is not actual GA reconciliation."
+            "EF10.0.13/net10.0 versus EF11.0.0-rc.2.26504.105/net11.0. SDK10.0.403/C#14 versus SDK11.0.100-rc.3.26522.148/C#15. SQL graphs pin Pkcs10.0.13 and SqlClient6.1.7/7.1.0. SQLite uses the locked platform bundle; actual native DLL hashes are in execution records. EF11 requires .NET11; no older-runtime route is offered. No workload or rendering mode applies. No experimental opt-in or NativeAOT claim. RC2 proof is not actual GA reconciliation."
           ],
           "providers": [
             "SQL Server2025 17.0.5035.5 compatibility170; approved isolated Docker route"
@@ -82,7 +82,7 @@
             "The pinned assembly calls the type StructuredJsonPath, not the conflicting source draft name. EF10 carries a string path; EF11 carries segments and separate array indices. The public UpdateSqlGenerator hook is exercised directly to generate a bounded SQL Server assignment; it is not a registered replacement for the SQL Server provider generator and does not implement batching, concurrency or arbitrary provider updates. StructuredJsonPath.ToString takes an optional wildcard character, not a quoting character. Render property segments explicitly: a dot in a property name must remain one quoted segment. Reject unspecified or negative indices. The fixture tests the dotted name odd.name, concrete index 1, nested properties and whole-document replacement; it does not promise every possible SQL JSON path escape or SQL native json behavior. All values use @value. Root replacement intentionally replaces the document; sibling preservation applies to partial changes."
           ],
           "prerequisites": [
-            "PowerShell7, pinned SDK10.0.402 and SDK11 RC2, restored locked graphs. SQL samples use the approved isolated SqlServer.ps1 route. Run eng/Test-TernExtensions.ps1 -Record."
+            "PowerShell7, pinned SDK10.0.403 and SDK11 RC3, restored locked graphs. SQL samples use the approved isolated SqlServer.ps1 route. Run eng/Test-TernExtensions.ps1 -Record."
           ],
           "optIns": [],
           "stabilityLimitations": [
@@ -106,7 +106,7 @@
     {
       "language": "14.0",
       "sample": "samples/net10.0/TernPatches/TernPatches.csproj",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "target": "net10.0",
       "kind": "compile",
       "scope": "eng/Test-TernExtensions.ps1 -Record: real compilation and bounded provider execution with cleanup. No GA/NativeAOT/other-platform guarantee."
@@ -114,7 +114,7 @@
     {
       "language": "14.0",
       "sample": "samples/net10.0/TernPatches/TernPatches.csproj",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "target": "net10.0",
       "kind": "execution",
       "record": "samples/net10.0/TernPatches/behavior.evidence.json",
@@ -123,7 +123,7 @@
     {
       "language": "15.0",
       "sample": "samples/net11.0/TernPatches/TernPatches.csproj",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "target": "net11.0",
       "kind": "compile",
       "scope": "eng/Test-TernExtensions.ps1 -Record: real compilation and bounded provider execution with cleanup. No GA/NativeAOT/other-platform guarantee."
@@ -131,7 +131,7 @@
     {
       "language": "15.0",
       "sample": "samples/net11.0/TernPatches/TernPatches.csproj",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "target": "net11.0",
       "kind": "execution",
       "record": "samples/net11.0/TernPatches/behavior.evidence.json",

@@ -12,8 +12,8 @@ other list or an existing `scope=open` query value.
 
 The newer implementation targets **net11.0** with ASP.NET Core 11 and
 `Microsoft.AspNetCore.Components.QuickGrid` 11. Canonical verification uses SDK
-**11.0.100-rc.2.26504.105**, QuickGrid and SDK browser assets
-**11.0.0-rc.2.26504.105**, and C# **15.0**. These are RC2 measurements, not GA
+**11.0.100-rc.3.26522.148**, QuickGrid and SDK browser assets
+**11.0.0-rc.3.26522.148**, and C# **15.0**. These are RC2 measurements, not GA
 execution evidence. URL navigation is not marked experimental in these artifacts
 and requires no experimental opt-in. No workload, database/provider, native
 toolchain or account is required. The data below is in-memory `IQueryable`.
@@ -41,7 +41,7 @@ Create a Web SDK project named `WorkshopViews`. For the newer comparison set
 `TargetFramework` to `net11.0`, `LangVersion` to `15.0`, `RootNamespace` to
 `Playbook.Samples`, and `RestorePackagesWithLockFile` to `true`. Add a
 `PackageReference` with `Include="Microsoft.AspNetCore.Components.QuickGrid"`
-and `Version="11.0.0-rc.2.26504.105"`. Pin the SDK above in `global.json` with
+and `Version="11.0.0-rc.3.26522.148"`. Pin the SDK above in `global.json` with
 `rollForward: disable`. Keep this version-specific sample outside an automated
 central package policy, or explicitly give it an isolated package boundary.
 Restore to produce `packages.lock.json`, then use locked restore for verification.
@@ -82,8 +82,8 @@ namespace and creates page links itself. No native URL-state API is claimed for
 QuickGrid 10. The standard .NET 10 interactive controls remain a good choice
 when a view does not need a shareable URL.
 
-Use the same shell with `net10.0`, C# **14.0**, SDK **10.0.402**, and
-QuickGrid **10.0.13**. Its matching Web SDK browser assets are **10.0.13**.
+Use the same shell with `net10.0`, C# **14.0**, SDK **10.0.403**, and
+QuickGrid **10.0.14**. Its matching Web SDK browser assets are **10.0.14**.
 Do not put the QuickGrid 11 package on this older target to imitate the new route.
 This older application is comparison evidence, not an additional catalogue
 edition or an advertised older-target route for the newer API.

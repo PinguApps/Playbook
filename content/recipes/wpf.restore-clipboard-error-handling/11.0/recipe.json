@@ -36,7 +36,7 @@
           "sdk": {
             "version": "11.0",
             "match": "release-family",
-            "reason": "Exact recorded pin 11.0.100-rc.2.26504.105; older sample 10.0.402.",
+            "reason": "Exact recorded pin 11.0.100-rc.3.26522.148; older sample 10.0.403.",
             "name": ".NET SDK"
           },
           "language": {
@@ -66,7 +66,7 @@
             "Use an STA thread and the declared exact SDK; available Windows Desktop reference packs are required."
           ],
           "constraints": [
-            "RC2 evidence is not GA evidence. No global accessibility setting is changed."
+            "RC3 evidence is not GA evidence. No global accessibility setting is changed."
           ],
           "optIns": [
             "Set Windows.Clipboard.ThrowExceptionsForGetAPIs before the first data retrieval when errors must propagate."
@@ -107,7 +107,7 @@
     {
       "sample": "samples/net10.0/QuayTransfer/QuayTransfer.csproj",
       "target": "net10.0-windows",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "language": "14.0",
       "scope": "Controlled COM IDataObject failure through public WPF DataObject; no shared clipboard content replaced or read. No real external clipboard owner failure claimed.",
       "kind": "compile-and-run"
@@ -115,7 +115,7 @@
     {
       "sample": "samples/net11.0/QuayTransfer/QuayTransfer.csproj",
       "target": "net11.0-windows",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "language": "15.0",
       "scope": "Controlled COM IDataObject failure through public WPF DataObject; no shared clipboard content replaced or read. No real external clipboard owner failure claimed.",
       "kind": "compile-and-run"

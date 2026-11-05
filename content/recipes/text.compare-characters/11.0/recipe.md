@@ -30,7 +30,7 @@ Use char.Equals or Rune.Equals with StringComparison. The Turkish test deliberat
 
 A char can be only half of a surrogate pair; choose Rune when supplementary characters are possible. Culture-sensitive collation is not a universal identifier/security policy and can vary with ICU/NLS/platform versions. The recorded Turkish assertions are Windows globalization execution, not proof of every platform or every collation rule. Ordinal casing (ToUpperOrdinal/ToLowerOrdinal on char/string/Rune/spans) is separate from display casing or Unicode normalization; do not replace a culture-aware transform merely because both appear to uppercase ASCII.
 
-This edition targets .NET 11. It has no rendering mode, external provider, optional workload or experimental opt-in. It uses framework APIs and needs no additional package or package asset. The sample SDK pins 10.0.402 and 11.0.100-rc.2.26504.105 are reproducibility baselines, not mandatory exact consumer SDK installations. RC2 execution is not GA verification. No .NET 10 catalogue edition or conditional older-target package route is advertised.
+This edition targets .NET 11. It has no rendering mode, external provider, optional workload or experimental opt-in. It uses framework APIs and needs no additional package or package asset. The sample SDK pins 10.0.403 and 11.0.100-rc.3.26522.148 are reproducibility baselines, not mandatory exact consumer SDK installations. RC2 execution is not GA verification. No .NET 10 catalogue edition or conditional older-target package route is advertised.
 
 ## Evidence
 

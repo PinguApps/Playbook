@@ -1,7 +1,7 @@
 [CmdletBinding()]
 param(
-  [string]$Net10Root = 'C:/Program Files/dotnet',
-  [string]$Net11Root = 'C:/Users/pingu/.dotnet-playbook-11',
+  [string]$Net10Root = (Split-Path (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source -Parent),
+  [string]$Net11Root = (Split-Path (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source -Parent),
   [string]$NetFrameworkRoot = 'C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.7.2',
   [string]$OutputPath = (Join-Path $PSScriptRoot '../artifacts/ef.assets.json'),
   [string]$CompareWith,
@@ -150,15 +150,15 @@ function Get-Package([string]$Id, [string]$Version, [string]$Target) {
 $temporary = Join-Path ([IO.Path]::GetTempPath()) "playbook-ef-$([guid]::NewGuid().ToString('N'))"
 New-Item -ItemType Directory -Path $temporary | Out-Null
 try {
-  Add-Type -Path (Join-Path $Net10Root 'sdk/10.0.402/System.Reflection.MetadataLoadContext.dll')
+  Add-Type -Path (Join-Path $Net10Root 'sdk/10.0.403/System.Reflection.MetadataLoadContext.dll')
   $baselines = @(
-    @{ root=$Net10Root; sdk='10.0.402'; version='10.0.13'; target='net10.0' },
-    @{ root=$Net11Root; sdk='11.0.100-rc.2.26504.105'; version='11.0.0-rc.2.26504.105'; target='net11.0' }
+    @{ root=$Net10Root; sdk='10.0.403'; version='10.0.13'; runtime='10.0.14'; target='net10.0' },
+    @{ root=$Net11Root; sdk='11.0.100-rc.3.26522.148'; version='11.0.0-rc.2.26504.105'; runtime='11.0.0-rc.3.26522.148'; target='net11.0' }
   )
   $results = @()
   foreach ($baseline in $baselines) {
-    $core = Join-Path $baseline.root "packs/Microsoft.NETCore.App.Ref/$($baseline.version)/ref/$($baseline.target)"
-    $asp = Join-Path $baseline.root "packs/Microsoft.AspNetCore.App.Ref/$($baseline.version)/ref/$($baseline.target)"
+    $core = Join-Path $baseline.root "packs/Microsoft.NETCore.App.Ref/$($baseline.runtime)/ref/$($baseline.target)"
+    $asp = Join-Path $baseline.root "packs/Microsoft.AspNetCore.App.Ref/$($baseline.runtime)/ref/$($baseline.target)"
     $references = @(Get-ChildItem -LiteralPath $core,$asp -Filter '*.dll' | ForEach-Object FullName)
     if (-not $references.Count) { throw 'Missing pinned reference packs.' }
     $ids = @('microsoft.entityframeworkcore','microsoft.entityframeworkcore.abstractions',
@@ -252,7 +252,7 @@ try {
     Write-Host "Read $($baseline.target): $($packages.Count) packages, $(@($packages.assets).Count) selected assemblies."
     $sdkMetadataReferences=@($resolverPaths | Where-Object { [IO.Path]::GetFileName($_) -match '^Microsoft\.Build\.' } | Sort-Object | ForEach-Object { [ordered]@{name=[IO.Path]::GetFileName($_);sha256=Get-Hash $_} })
     $frameworkMetadataReferences=@(Get-ChildItem -LiteralPath $NetFrameworkRoot,(Join-Path $NetFrameworkRoot 'Facades') -Filter '*.dll' | Sort-Object FullName | ForEach-Object { [ordered]@{path=[IO.Path]::GetRelativePath($NetFrameworkRoot,$_.FullName).Replace('\','/');sha256=Get-Hash $_.FullName} })
-    $results += [ordered]@{ sdk=$baseline.sdk; referencePack=$baseline.version; target=$baseline.target; metadataReaderSha256=Get-Hash (Join-Path $Net10Root 'sdk/10.0.402/System.Reflection.MetadataLoadContext.dll'); sdkMetadataReferences=$sdkMetadataReferences; frameworkMetadataReferences=$frameworkMetadataReferences; packages=$packages }
+    $results += [ordered]@{ sdk=$baseline.sdk; referencePack=$baseline.runtime; packageVersion=$baseline.version; target=$baseline.target; metadataReaderSha256=Get-Hash (Join-Path $Net10Root 'sdk/10.0.403/System.Reflection.MetadataLoadContext.dll'); sdkMetadataReferences=$sdkMetadataReferences; frameworkMetadataReferences=$frameworkMetadataReferences; packages=$packages }
   }
   $diffs=@()
   foreach ($id in $ids) {

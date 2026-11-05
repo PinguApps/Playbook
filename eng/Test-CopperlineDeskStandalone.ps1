@@ -27,7 +27,7 @@ foreach($file in @('Host/Program.cs','Client/Program.cs','Host/App.razor','Host/
 }
 foreach($v in @(10,11)){
  Copy-Item -LiteralPath (Join-Path $standalone "net$v.0/Host/Directory.Packages.props") -Destination (Join-Path $standalone "net$v.0/Client/Directory.Packages.props")
- $sdk=if($v -eq 10){'10.0.402'}else{'11.0.100-rc.2.26504.105'}
+ $sdk=if($v -eq 10){'10.0.403'}else{'11.0.100-rc.3.26522.148'}
  if(-not $body.Contains($sdk) -or -not $body.Contains('rollForward disable')){throw 'SDK setup missing from body'}
  foreach($part in @('Host','Client')){
   [IO.File]::WriteAllText((Join-Path $standalone "net$v.0/$part/global.json"),(@{sdk=@{version=$sdk;rollForward='disable';allowPrerelease=($v -eq 11)}}|ConvertTo-Json -Depth 5)+"`n")
@@ -35,7 +35,7 @@ foreach($v in @(10,11)){
 }
 $logs=[ordered]@{}
 foreach($v in @(10,11)){
- $dotnet=if($v -eq 10){'C:\Program Files\dotnet\dotnet.exe'}else{'C:\Users\pingu\.dotnet-playbook-11\dotnet.exe'}
+ $dotnet=if($v -eq 10){(Get-Command dotnet -CommandType Application | Select-Object -First 1).Source}else{(Get-Command dotnet -CommandType Application | Select-Object -First 1).Source}
  Push-Location (Join-Path $standalone "net$v.0/Host")
  try{
   $restore=(& $dotnet restore Host.csproj|Out-String)

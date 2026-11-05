@@ -111,7 +111,7 @@
     {
       "sample": "samples/net10.0/LanternQueue/LanternQueue.csproj",
       "target": "net10.0",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "language": "14.0",
       "kind": "compile",
       "scope": "Actual pinned Web SDK compilation. Separate real browser proof holds provider requests, asserts initial/programmatic target text and visibility, bounds and virtualization. No mock or cross-compilation."
@@ -119,7 +119,7 @@
     {
       "sample": "samples/net11.0/LanternQueue/LanternQueue.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "language": "15.0",
       "kind": "compile",
       "scope": "Actual pinned Web SDK compilation. Separate real browser proof holds provider requests, asserts initial/programmatic target text and visibility, bounds and virtualization. No mock or cross-compilation."

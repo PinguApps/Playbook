@@ -125,7 +125,7 @@
   "evidence": [
     {
       "target": "net10.0",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "language": "14.0",
       "sample": "samples/net10.0/ClosedOutcomes/ClosedOutcomes.csproj",
       "scope": "Original case/payload matching and generated-metadata JSON round trips, null/default and ambiguous-object rejection. RC2 additionally executes explicit-registration precedence and missing-generated-inference failure. Exact records captured by eng/Record-Evidence.ps1; eng/Verify.ps1 reruns samples.",
@@ -133,7 +133,7 @@
     },
     {
       "target": "net11.0",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "language": "15.0",
       "sample": "samples/net11.0/ClosedOutcomes/ClosedOutcomes.csproj",
       "scope": "Original case/payload matching and generated-metadata JSON round trips, null/default and ambiguous-object rejection. RC2 additionally executes explicit-registration precedence and missing-generated-inference failure. Exact records captured by eng/Record-Evidence.ps1; eng/Verify.ps1 reruns samples.",

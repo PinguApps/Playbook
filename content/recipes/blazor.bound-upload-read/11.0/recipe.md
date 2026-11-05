@@ -150,14 +150,14 @@ read; IOException is reported as rejection or transfer failure without processin
 Cancellation is cooperative and does not undo already performed external effects;
 this example performs none before EOF.
 
-The current sample pins SDK 11.0.100-rc.2.26504.105, net11.0/C# 15 and
-ASP.NET Core/runtime 11.0.0-rc.2.26504.105. The previous sample pins SDK 10.0.402,
-net10.0/C# 14 and ASP.NET Core/runtime 10.0.13. These are exact verification
+The current sample pins SDK 11.0.100-rc.3.26522.148, net11.0/C# 15 and
+ASP.NET Core/runtime 11.0.0-rc.3.26522.148. The previous sample pins SDK 10.0.403,
+net10.0/C# 14 and ASP.NET Core/runtime 10.0.14. These are exact verification
 baselines, distinct from the release-family consumer prerequisites above.
 Microsoft.NET.Sdk.Web implicitly resolves the matching
 Microsoft.AspNetCore.App.Internal.Assets package; no other package/provider,
 optional workload or native SDK is needed. The stable APIs need no experimental
-opt-in. RC2 execution does not establish GA verification. Other browsers/OS,
+opt-in. RC3 execution does not establish GA verification. Other browsers/OS,
 WebAssembly, Hybrid, deployment and older-target/new-package routes are unverified.
 This edition is selected only for target 11.0; it adds no .NET 10 foundation.
 

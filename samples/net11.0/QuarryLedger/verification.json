@@ -9,7 +9,7 @@
     "eng/Test-QuarryLedger.ps1"
   ],
   "dependencies": [
-    "Microsoft.AspNetCore.App.Internal.Assets/11.0.0-rc.2.26504.105",
+    "Microsoft.AspNetCore.App.Internal.Assets/11.0.0-rc.3.26522.148",
     "Microsoft.Extensions.Caching.Hybrid/10.11.0"
   ]
 }

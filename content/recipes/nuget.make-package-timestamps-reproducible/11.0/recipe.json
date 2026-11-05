@@ -81,7 +81,7 @@
             "Deterministic=true with a fixed DeterministicTimestamp, e.g. 2000-01-01T00:00:00Z."
           ],
           "stabilityLimitations": [
-            "Verified with SDK 11.0.100-rc.2.26504.105 (RC2), not GA. No publisher-designated experimental API; GA reconciliation remains separate."
+            "Verified with SDK 11.0.100-rc.3.26522.148 (RC2), not GA. No publisher-designated experimental API; GA reconciliation remains separate."
           ]
         },
         "sourceUrls": [
@@ -111,7 +111,7 @@
   ],
   "evidence": [
     {
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "kind": "compile-and-run",
       "language": "14.0",
       "sample": "samples/net10.0/PackageTimestamps/PackageTimestamps.csproj",
@@ -119,11 +119,11 @@
       "target": "net10.0"
     },
     {
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "kind": "compile-and-run",
       "language": "15.0",
       "sample": "samples/net11.0/PackageTimestamps/PackageTimestamps.csproj",
-      "scope": "Actual Windows x64 compilation and RC2 SDK local packing with isolated feed/cache/home: fixed RFC3339/Unix timestamp repeatability, bounded equal package bytes, true build time and default/false payload modification times. Not signing, general whole-build reproducibility or GA proof.",
+      "scope": "Actual Windows x64 compilation and RC3 SDK local packing with isolated feed/cache/home: fixed RFC3339/Unix timestamp repeatability, bounded equal package bytes, true build time and default/false payload modification times. Not signing, general whole-build reproducibility or GA proof.",
       "target": "net11.0"
     }
   ],

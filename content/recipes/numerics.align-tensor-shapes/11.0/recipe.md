@@ -117,10 +117,10 @@ restoring the previous inconsistent shape handling. Views can share storage;
 retaining metadata does not grant ownership of that storage.
 
 The application route requires final .NET11 framework/package support and the
-selected net11 package asset. Current preparation uses actual SDK11 RC2,
-runtime/ref11RC2 and tensor11RC2 for compilation only; these are reproducibility
+selected net11 package asset. Current preparation uses actual SDK11 RC3,
+runtime/ref11RC3 and tensor11RC2 for compilation only; these are reproducibility
 pins, **not a supported package route to the new behavior**. The .NET10 comparison
-executes on runtime10.0.13 with tensor10.0.13. No newer-package-on-net10,
+executes on runtime10.0.14 with tensor10.0.13. No newer-package-on-net10,
 netstandard/.NET Framework multidimensional route, AOT/Mono or other-platform
 execution is established here. The eight target10 foundation editions remain.
 
@@ -134,10 +134,10 @@ successful verification and does not waive the pending gate.
 ## Evidence
 
 The original .NET10 normalization policy is compiled and executed with actual
-SDK10.0.402/C#14, runtime10.0.13 and locked System.Numerics.Tensors10.0.13/net10.
+SDK10.0.403/C#14, runtime10.0.14 and locked System.Numerics.Tensors10.0.13/net10.
 Its sums and retained destination metadata are checked. The current policy and
 complete future shape/view/Any/native suite are compiled using actual
-SDK11.0.100-rc.2.26504.105/C#15 and tensor11.0.0-rc.2.26504.105/net11.
+SDK11.0.100-rc.3.26522.148/C#15 and tensor11.0.0-rc.2.26504.105/net11.
 Saved records identify commands, selected dependencies, inputs and compiler,
 reference and package hashes. The current record is **compile**, not compile-and-run.
 

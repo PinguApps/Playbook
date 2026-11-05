@@ -1,5 +1,5 @@
 // snippet:collector
-using System.Text.Json;
+using System.Text;
 using System.Xml;
 using Microsoft.VisualStudio.TestPlatform.ObjectModel.DataCollection;
 
@@ -30,9 +30,14 @@ public sealed class QuayCollector : DataCollector
             "QUAY_COLLECTOR:" + typeof(TestCaseEventArgs).Assembly.FullName + ";location=" + typeof(TestCaseEventArgs).Assembly.Location);
         // Own immutable values, never a mutable TestElement or event-args reference.
         events.TestCaseStart += (_, input) => logger.LogWarning(input.Context,
-            "QUAY_EVENT:" + JsonSerializer.Serialize(ObserveCase.Start(input)));
+            Describe(ObserveCase.Start(input)));
         events.TestCaseEnd += (_, input) => logger.LogWarning(input.Context,
-            "QUAY_EVENT:" + JsonSerializer.Serialize(ObserveCase.End(input)));
+            Describe(ObserveCase.End(input)));
     }
+
+    // The collector host owns its serializer dependencies. Keep this diagnostic
+    // protocol on core APIs; Base64 preserves arbitrary test names on one line.
+    private static string Describe(CaseObservation observation)
+        => $"QUAY_EVENT:{observation.Phase}|{observation.Id}|{Convert.ToBase64String(Encoding.UTF8.GetBytes(observation.Name))}|{observation.IsChild}|{observation.Outcome}";
 }
 // endsnippet:collector

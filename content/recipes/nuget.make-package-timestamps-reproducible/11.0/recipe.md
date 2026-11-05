@@ -42,6 +42,6 @@ The recipe is catalogued for target 11. Its .NET 10 sample is comparison evidenc
 
 ## Evidence
 
-Original C# utilities compiled and ran on Windows x64 with SDKs 10.0.402 and 11.0.100-rc.2.26504.105. They created real local packages using the selected SDK, isolated feed/cache/home and unrelated temporary directories. Older builds verified post-pack normalized entry times. Current builds verified repeated fixed-RFC3339 entry times and bytes, equivalent Unix seconds, `true` build time, and default/false preservation of payload modification times.
+Original C# utilities compiled and ran on Windows x64 with SDKs 10.0.403 and 11.0.100-rc.3.26522.148. They created real local packages using the selected SDK, isolated feed/cache/home and unrelated temporary directories. Older builds verified post-pack normalized entry times. Current builds verified repeated fixed-RFC3339 entry times and bytes, equivalent Unix seconds, `true` build time, and default/false preservation of payload modification times.
 
 The attached current input-hashed records contain commands, runtime output and package SHA-256 values. These are actual compilation and execution, not mock builds or cross-compilation. No package was published; no Linux/macOS, signing-service or GA execution is claimed. Packed-tool checks separately establish offline list/get delivery, not reproducibility of all consumer packages.

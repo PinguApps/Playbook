@@ -2,7 +2,7 @@
 [CmdletBinding()]
 param(
     [switch]$Record,
-    [string]$Net10Dotnet = 'C:\Program Files\dotnet\dotnet.exe',
+    [string]$Net10Dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source,
     [string]$Net11Dotnet = (Join-Path (Split-Path $PSScriptRoot -Parent) 'artifacts/sdk11rc3/dotnet.exe'),
     [string]$Docker = 'C:\Program Files\Docker\Docker\resources\bin\docker.exe'
 )

@@ -48,7 +48,7 @@ policy separately when adapting the handler.
 ## Migration
 
 1. Target net11.0 with a .NET 11 SDK/runtime and retain nullable/implicit usings.
-   SDK11 RC2/C#15.0 are the measured canonical baseline. No package, workload,
+   SDK11 RC3/C#15.0 are the measured canonical baseline. No package, workload,
    external provider, rendering mode or experimental opt-in is needed for the
    newer route; System.IO.Compression and its native codec ship with the runtime.
 2. Set AutomaticDecompression to Zstandard plus the other formats you intend to
@@ -95,8 +95,8 @@ This recipe adds no ninth .NET 10 foundation or unrelated request-compression ch
 ## Evidence
 
 eng/Test-ProxyResponses.ps1 -Record -VerifySources builds/runs real paired
-CairnReports consumers with SDK10.0.402/runtime10.0.13 and
-SDK11.0.100-rc.2.26504.105/runtime11.0.0-rc.2.26504.105, zero warnings/errors.
+CairnReports consumers with SDK10.0.403/runtime10.0.14 and
+SDK11.0.100-rc.3.26522.148/runtime11.0.0-rc.3.26522.148, zero warnings/errors.
 Framework/reference hashes match the runtime/security and data/I/O audits.
 The exact resolved ZstdSharp.Port archive, selected/executed lib/net9.0 assembly,
 compiler/CoreLib and loaded framework/native codec identities are recorded.

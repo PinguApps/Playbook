@@ -28,7 +28,7 @@ NamedSwatch now contains a Color Value and a Name. Pass Value to MAUI rather tha
 
 ## Constraints
 
-This is native MAUI guidance, with no Blazor rendering mode, service, provider, account or preview-language opt-in. The Windows comparison pins SDK10.0.402/C#14/Controls10.0.110. Current projects pin SDK11.0.100-rc.2.26504.105/C#15/Controls11.0.0-rc.2.26505.5. These are RC preparation artifacts, not GA verification. Applicability lists exact intended native assets and workload composition. Only .NET11 has a served edition; .NET10 remains comparison-only.
+This is native MAUI guidance, with no Blazor rendering mode, service, provider, account or preview-language opt-in. The Windows comparison pins SDK10.0.403/C#14/Controls10.0.110. Current projects pin SDK11.0.100-rc.3.26522.148/C#15/Controls11.0.0-rc.2.26505.5. These are RC preparation artifacts, not GA verification. Applicability lists exact intended native assets and workload composition. Only .NET11 has a served edition; .NET10 remains comparison-only.
 
 ## Evidence
 

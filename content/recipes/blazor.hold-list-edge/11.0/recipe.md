@@ -28,8 +28,8 @@ store durable edits outside the row when that is required.
 Use a separate folder for each target, outside any unrelated shared build files.
 The following setup is complete; no repository checkout is needed. Install the
 chosen SDK and its matching ASP.NET Core runtime/assets before working offline.
-Use SDK `10.0.402`, `net10.0`, C# `14.0` and framework/assets `10.0.13` for the
-older app; use SDK `11.0.100-rc.2.26504.105`, `net11.0`, C# `15.0` and its matching
+Use SDK `10.0.403`, `net10.0`, C# `14.0` and framework/assets `10.0.14` for the
+older app; use SDK `11.0.100-rc.3.26522.148`, `net11.0`, C# `15.0` and its matching
 RC2 framework/assets for the newer app.
 
 1. Create `global.json` with an `sdk` object: set `version` to the chosen exact
@@ -170,11 +170,11 @@ default to a grid. Measure your content before overriding it.
 
 The primary route is net11.0/ASP.NET Core 11, SDK 11 and the sample's explicit
 C# 15 mode; the anchoring API itself does not require new language syntax.
-Actual pins are SDK `11.0.100-rc.2.26504.105` and matching ASP.NET Core reference,
+Actual pins are SDK `11.0.100-rc.3.26522.148` and matching ASP.NET Core reference,
 runtime and SDK `Microsoft.AspNetCore.App.Internal.Assets` browser assets. No
 separate Virtualize NuGet package, optional workload, database or service account
-is required. The previous comparison is net10.0/C# 14, SDK `10.0.402` and framework/
-Internal.Assets `10.0.13`. It is not a compatible older-target route for new APIs.
+is required. The previous comparison is net10.0/C# 14, SDK `10.0.403` and framework/
+Internal.Assets `10.0.14`. It is not a compatible older-target route for new APIs.
 
 RC2's actual list parameters carry no experimental attribute or required opt-in;
 no obsolete experimental suppression is taught. The cumulative release page's

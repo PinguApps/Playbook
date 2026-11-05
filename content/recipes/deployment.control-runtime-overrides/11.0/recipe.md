@@ -15,13 +15,13 @@ stands in for the selected value.
 
 ## Older approach
 
-The .NET 10 comparison uses SDK 10.0.402, C# 14, hostfxr and runtime 10.0.13:
+The .NET 10 comparison uses SDK 10.0.403, C# 14, hostfxr and runtime 10.0.14:
 
 {{snippet:older-project}}
 
 ## Newer approach
 
-The .NET 11 version uses SDK 11.0.100-rc.2.26504.105, C# 15 and matching RC2
+The .NET 11 version uses SDK 11.0.100-rc.3.26522.148, C# 15 and matching RC2
 hostfxr/runtime. These exact pins reproduce the evidence; they are separate from
 the feature requirement, .NET 11's host behavior introduced in Preview 6.
 
@@ -76,7 +76,7 @@ and the reported CoreLib path.
 
 ## Build and publish intentionally
 
-The actual SDK 10.0.402 and RC2 paths were evaluated and executed:
+The actual SDK 10.0.403 and RC2 paths were evaluated and executed:
 
 - For `Configuration=Release`, `GenerateRuntimeConfigDevFile` evaluates to
   `false` in SDK 10 and is unset in RC2; neither emits a sidecar. Explicitly building
@@ -119,9 +119,9 @@ This target-11 edition retains an actual .NET 10 comparison; it adds no historic
 .NET 10 foundation. Both samples are workload-free CoreCLR console applications
 with no NuGet dependencies, provider, browser/rendering mode or native compiler.
 The example's C# modes are sample pins, not language requirements for host merging.
-Execution evidence is Windows x64, SDK 10.0.402 / 11 RC2, hostfxr/CoreCLR
+Execution evidence is Windows x64, SDK 10.0.403 / 11 RC2, hostfxr/CoreCLR
 10.0.13 / 11.0.0-rc.2.26504.105. Other platforms need their own artifact check.
-No API here is experimental; RC2 evidence is not GA verification.
+No API here is experimental; RC3 evidence is not GA verification.
 
 ## Evidence
 

@@ -6,7 +6,7 @@ Use this recipe when reviewing a low-level API whose caller must guarantee memor
 
 ## Requirements and stability
 
-This edition targets **net11.0**, SDK **11.0**, and **C# preview**, with `Features=$(Features);updated-memory-safety-rules` and `AllowUnsafeBlocks=true`. The measured baseline is SDK **11.0.100-rc.2.26504.105**. These are experimental rules, not ordinary C# 15 behavior or GA verification. No newer-SDK/older-target route is offered. Use the declared compiler mode in both the library and consumers that need caller checking.
+This edition targets **net11.0**, SDK **11.0**, and **C# preview**, with `Features=$(Features);updated-memory-safety-rules` and `AllowUnsafeBlocks=true`. The measured baseline is SDK **11.0.100-rc.3.26522.148**. These are experimental rules, not ordinary C# 15 behavior or GA verification. No newer-SDK/older-target route is offered. Use the declared compiler mode in both the library and consumers that need caller checking.
 
 No NuGet package, package asset, provider, workload, rendering mode, account or native service is needed. The console examples run on a platform supported by their .NET runtime. The safe wrapper is equally usable by framework code; it does not establish browser, native UI or AOT behavior.
 

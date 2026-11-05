@@ -69,8 +69,8 @@ separate aggregations; no single-pass or measured performance claim is made.
 No mutation or ownership transfer is needed. This is independent of bit sets and
 key-based equality guidance.
 
-Exact tested baselines are SDK10.0.402/reference-runtime10.0.13 and
-SDK11.0.100-rc.2.26504.105/reference-runtime11.0.0-rc.2.26504.105. These pins identify
+Exact tested baselines are SDK10.0.403/reference-runtime10.0.14 and
+SDK11.0.100-rc.3.26522.148/reference-runtime11.0.0-rc.3.26522.148. These pins identify
 proof; release-family requirements describe selection. Windows x64 execution only;
 no floating-specific/NaN, other-platform, performance or final-GA behavior claim.
 

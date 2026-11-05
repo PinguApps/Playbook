@@ -74,7 +74,7 @@
           ],
           "constraints": [
             "CRC/Adler detect accidental corruption, not authentication. Exact package assets and equal input/output reflection only; optional RC2-on-net10 route is not advertised.",
-            "Previous SDK10.0.402/C#14/ref-runtime10.0.13; current SDK11.0.100-rc.2.26504.105/C#15/ref-runtime11RC2. Exact proof pins are separate from supported prerequisites.",
+            "Previous SDK10.0.403/C#14/ref-runtime10.0.14; current SDK11.0.100-rc.3.26522.148/C#15/ref-runtime11RC3. Exact proof pins are separate from supported prerequisites.",
             "Preserve the exact eight .NET10 foundations and existing recipe identities; comprehensive/actual-GA and existing Human gates remain open."
           ],
           "optIns": [],
@@ -87,7 +87,7 @@
         "selectionNotes": [
           "Match a binary format checksum using its Adler or CRC variant, reflection, initial/final parameters and byte order when detecting accidental corruption.",
           "CRC/Adler detect accidental corruption, not authentication. Exact package assets and equal input/output reflection only; optional RC2-on-net10 route is not advertised.",
-          "RC2 evidence is not actual-GA verification."
+          "RC3 evidence is not actual-GA verification."
         ],
         "evidenceSamples": [
           "samples/net11.0/TelemetryFrames/TelemetryFrames.csproj"
@@ -139,7 +139,7 @@
   "evidence": [
     {
       "scope": "Independent Adler32/CRC32C/CRC64-NVME/custom MPEG2 vectors and wire order; empty/fictional/20KB inputs, one-shot/segmented Append, reset isolation and short destination checks; actual locked package assets.",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "target": "net10.0",
       "kind": "compile-and-run",
       "sample": "samples/net10.0/TelemetryFrames/TelemetryFrames.csproj",
@@ -147,7 +147,7 @@
     },
     {
       "scope": "Independent Adler32/CRC32C/CRC64-NVME/custom MPEG2 vectors and wire order; empty/fictional/20KB inputs, one-shot/segmented Append, reset isolation and short destination checks; actual locked package assets.",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "target": "net11.0",
       "kind": "compile-and-run",
       "sample": "samples/net11.0/TelemetryFrames/TelemetryFrames.csproj",

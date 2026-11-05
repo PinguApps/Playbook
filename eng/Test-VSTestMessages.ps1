@@ -1,7 +1,7 @@
 [CmdletBinding()]
 param(
-  [string]$Net10Dotnet = 'C:/Program Files/dotnet/dotnet.exe',
-  [string]$Net11Dotnet = 'C:/Users/pingu/.dotnet-playbook-11/dotnet.exe',
+  [string]$Net10Dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source,
+  [string]$Net11Dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source,
   [switch]$Record
 )
 $ErrorActionPreference = 'Stop'
@@ -80,9 +80,9 @@ try {
     $log.Add("source=$($source.url);sha256=$($source.sha256)")
   }
   $cases = @(
-    @{Path='LaboratoryMessages';Target='net10.0';Sdk='10.0.402';Language='14.0';Version='18.7.0';Dotnet=$Net10Dotnet;Name='old10'},
-    @{Path='net10.0/LaboratoryBridge';Target='net10.0';Sdk='10.0.402';Language='14.0';Version='18.11.0';Dotnet=$Net10Dotnet;Name='current10'},
-    @{Path='net11.0/LaboratoryBridge';Target='net11.0';Sdk='11.0.100-rc.2.26504.105';Language='15.0';Version='18.11.0';Dotnet=$Net11Dotnet;Name='current11'}
+    @{Path='LaboratoryMessages';Target='net10.0';Sdk='10.0.403';Language='14.0';Version='18.7.0';Dotnet=$Net10Dotnet;Name='old10'},
+    @{Path='net10.0/LaboratoryBridge';Target='net10.0';Sdk='10.0.403';Language='14.0';Version='18.11.0';Dotnet=$Net10Dotnet;Name='current10'},
+    @{Path='net11.0/LaboratoryBridge';Target='net11.0';Sdk='11.0.100-rc.3.26522.148';Language='15.0';Version='18.11.0';Dotnet=$Net11Dotnet;Name='current11'}
   )
   $captures = @()
   foreach ($case in $cases) {

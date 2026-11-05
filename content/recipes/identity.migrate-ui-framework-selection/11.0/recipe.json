@@ -103,7 +103,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Exact reproduction uses SDK10.0.402 / framework10.0.13 / C#14 versus SDK11.0.100-rc.2.26504.105 / framework11.0.0-rc.2.26504.105 / C#15. These are tested pins, not minimum supported versions. RC2 is not actual-GA proof. The exact eight approved .NET10 foundations, stable identities, PIN-959/PIN-963/PIN-964 and unrelated Human gates remain unchanged."
+            "Exact reproduction uses SDK10.0.403 / framework10.0.14 / C#14 versus SDK11.0.100-rc.3.26522.148 / framework11.0.0-rc.3.26522.148 / C#15. These are tested pins, not minimum supported versions. RC2 is not actual-GA proof. The exact eight approved .NET10 foundations, stable identities, PIN-959/PIN-963/PIN-964 and unrelated Human gates remain unchanged."
           ]
         },
         "sourceUrls": [
@@ -135,7 +135,7 @@
   "evidence": [
     {
       "scope": "Both actual dependency sets compile. Published HTTP checks cover custom layout/CSS, missing-token 400, validation, denied unconfirmed account, allowed confirmed account and rejected external return URL. Actual package targets produce the Bootstrap4 warning. Both explicit5 and property-removal copies publish and execute. Chromium152/Electron44 on Windows at1280x800 rendered login and validation for all three publishes: loaded local stylesheets, labeled inputs, 480px panels, 414px buttons, readable red error text and no horizontal overflow; screenshots were visually inspected. This is server validation, not unobtrusive/client JavaScript proof.",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "sample": "samples/net10.0/VolunteerAccess/VolunteerAccess.csproj",
       "kind": "compile",
       "language": "14.0",
@@ -144,7 +144,7 @@
     {
       "scope": "Actual selected managed/native/tool/package/compiler/reference qualification and published behavior where applicable; no mock, cross-compilation or source review substitutes for execution.",
       "record": "samples/net10.0/VolunteerAccess/artifacts.evidence.json",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "sample": "samples/net10.0/VolunteerAccess/VolunteerAccess.csproj",
       "kind": "execution",
       "language": "14.0",
@@ -153,7 +153,7 @@
     {
       "scope": "Actual published Chromium login/validation layout and local CSS observations, with visually inspected retained screenshots. Current explicit5 and property-removal publishes both exercised. Not client JavaScript, all accessibility/mobile or GA proof.",
       "record": "samples/net10.0/VolunteerAccess/browser.evidence.json",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "sample": "samples/net10.0/VolunteerAccess/VolunteerAccess.csproj",
       "kind": "execution",
       "language": "14.0",
@@ -161,7 +161,7 @@
     },
     {
       "scope": "Both actual dependency sets compile. Published HTTP checks cover custom layout/CSS, missing-token 400, validation, denied unconfirmed account, allowed confirmed account and rejected external return URL. Actual package targets produce the Bootstrap4 warning. Both explicit5 and property-removal copies publish and execute. Chromium152/Electron44 on Windows at1280x800 rendered login and validation for all three publishes: loaded local stylesheets, labeled inputs, 480px panels, 414px buttons, readable red error text and no horizontal overflow; screenshots were visually inspected. This is server validation, not unobtrusive/client JavaScript proof.",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "sample": "samples/net11.0/VolunteerAccess/VolunteerAccess.csproj",
       "kind": "compile",
       "language": "15.0",
@@ -170,7 +170,7 @@
     {
       "scope": "Actual selected managed/native/tool/package/compiler/reference qualification and published behavior where applicable; no mock, cross-compilation or source review substitutes for execution.",
       "record": "samples/net11.0/VolunteerAccess/artifacts.evidence.json",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "sample": "samples/net11.0/VolunteerAccess/VolunteerAccess.csproj",
       "kind": "execution",
       "language": "15.0",
@@ -179,7 +179,7 @@
     {
       "scope": "Actual published Chromium login/validation layout and local CSS observations, with visually inspected retained screenshots. Current explicit5 and property-removal publishes both exercised. Not client JavaScript, all accessibility/mobile or GA proof.",
       "record": "samples/net11.0/VolunteerAccess/browser.evidence.json",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "sample": "samples/net11.0/VolunteerAccess/VolunteerAccess.csproj",
       "kind": "execution",
       "language": "15.0",

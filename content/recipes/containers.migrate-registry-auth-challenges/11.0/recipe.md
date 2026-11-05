@@ -16,7 +16,7 @@ containerize tool requirement.
 
 | Layer | Older comparison | Current example |
 | --- | --- | --- |
-| SDK / compiler language | 10.0.402 / C#14 | 11.0.100-rc.2.26504.105 / C#15 |
+| SDK / compiler language | 10.0.403 / C#14 | 11.0.100-rc.3.26522.148 / C#15 |
 | Target / runtime | net10.0 / 10.0.13 | net11.0 / 11.0.0-rc.2.26504.105 |
 | Executed platform | Linux x64 Docker SDK image | Linux x64 Docker SDK image |
 | Published base variant | Azure Linux3 runtime10.0.13 | Azure Linux4 **Beta** runtime11RC2 |
@@ -33,7 +33,7 @@ selected Beta base are not GA qualification or a production base-image recommend
 
 ## Older approach
 
-Save the older project and program together, using SDK10.0.402 with roll-forward
+Save the older project and program together, using SDK10.0.403 with roll-forward
 disabled. This is an original framework-dependent cargo worker, not a copied
 release-note application.
 
@@ -50,7 +50,7 @@ an unsafe realm.
 ## Newer approach
 
 Save the same program beside this current project. Select
-SDK11.0.100-rc.2.26504.105 using `global.json`, `rollForward: "disable"`.
+SDK11.0.100-rc.3.26522.148 using `global.json`, `rollForward: "disable"`.
 
 {{snippet:newer}}
 
@@ -103,7 +103,7 @@ and manifest operations to Distribution, rather than replacing SDK validation.
 Its credentials/token/root key are generated for one run. Never use its constant
 permissions or test token endpoint as a production authentication service.
 Save the first block as `RegistryFixture.csproj` and the second as `Program.cs`
-in a separate directory. Build with SDK10.0.402. The Linux SDK container runs this
+in a separate directory. Build with SDK10.0.403. The Linux SDK container runs this
 net10 helper on its available runtime, explicitly allowing Major/prerelease
 roll-forward for the fixture alone; the worker uses its own exact SDK/target.
 The helper arguments are the original worker directory, writable work directory,

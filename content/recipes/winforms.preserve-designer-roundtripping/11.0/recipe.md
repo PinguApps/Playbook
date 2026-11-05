@@ -38,7 +38,7 @@ The RC2 framework analyzer assets supply these rules. WFO2000/3002/3005/3009 def
 
 ## Constraints
 
-Windows Desktop runtime and STA are required. Current SDK11.0.100-rc.2.26504.105/C#15 is compared with SDK10.0.402/C#14; VB16.9 on both. No additional package, provider account, Blazor rendering mode or experimental opt-in. No .NET10 analyzer backport is claimed. The Designer is a Visual Studio tool and is not proved by the framework compiler alone. RC2 results are not GA proof.
+Windows Desktop runtime and STA are required. Current SDK11.0.100-rc.3.26522.148/C#15 is compared with SDK10.0.403/C#14; VB16.9 on both. No additional package, provider account, Blazor rendering mode or experimental opt-in. No .NET10 analyzer backport is claimed. The Designer is a Visual Studio tool and is not proved by the framework compiler alone. RC2 results are not GA proof.
 
 ## Evidence
 

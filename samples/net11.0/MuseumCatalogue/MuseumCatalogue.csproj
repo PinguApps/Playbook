@@ -6,7 +6,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <TargetFramework>net11.0</TargetFramework>
     <LangVersion>15.0</LangVersion>
-    <RuntimeFrameworkVersion>11.0.0-rc.2.26504.105</RuntimeFrameworkVersion>
+    <RuntimeFrameworkVersion>11.0.0-rc.3.26522.148</RuntimeFrameworkVersion>
     <RollForward>Disable</RollForward>
     <PackAsTool>true</PackAsTool>
     <PackageId>Gullhaven.Museum.Catalogue</PackageId>

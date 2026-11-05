@@ -31,7 +31,7 @@
         "conditional": false,
         "usage": "primary",
         "selectionNotes": [
-          "Actual SDK10.0.402 already exposes the evaluated import items. A handwritten XML include list and unevaluated item globs answer different questions.",
+          "Actual SDK10.0.403 already exposes the evaluated import items. A handwritten XML include list and unevaluated item globs answer different questions.",
           "Observed depth-first order and duplicate suppression describe these exact artifacts, not an immutable ordering or all-condition API guarantee."
         ],
         "sharedAreas": [
@@ -75,11 +75,11 @@
           ],
           "renderingModes": [],
           "prerequisites": [
-            "Complete SDK/runtime/ref installations. Tested SDK10.0.402, runtime/ref10.0.13, C#14; SDK11.0.100-rc.2.26504.105, runtime/ref11RC2, C#15.",
+            "Complete SDK/runtime/ref installations. Tested SDK10.0.403, runtime/ref10.0.14, C#14; SDK11.0.100-rc.3.26522.148, runtime/ref11RC3, C#15.",
             "PowerShell7 for the reproducible checks. Original local package setup uses no remote source; installed guidance is embedded offline."
           ],
           "constraints": [
-            "Actual SDK10.0.402 already exposes the evaluated import items. A handwritten XML include list and unevaluated item globs answer different questions.",
+            "Actual SDK10.0.403 already exposes the evaluated import items. A handwritten XML include list and unevaluated item globs answer different questions.",
             "Observed depth-first order and duplicate suppression describe these exact artifacts, not an immutable ordering or all-condition API guarantee.",
             "Only target11 is advertised. The real .NET10 comparison adds no ninth foundation or general SDK11-on-net10 route.",
             "No optional workload, provider, native compiler, rendering mode, production resource or public publication is required."
@@ -121,7 +121,7 @@
       "kind": "compile-and-run",
       "sample": "samples/net10.0/BeaconBuild/BeaconBuild.csproj",
       "target": "net10.0",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "language": "14.0",
       "scope": "Actual CLI evaluation and target execution on paired SDKs; SDK/nested paths, parent/Sdk metadata, unset/false controls, conditional closure, repeated ordering and duplicate MSB4011 suppression. No XML-list emulation."
     },
@@ -129,7 +129,7 @@
       "kind": "compile-and-run",
       "sample": "samples/net11.0/BeaconBuild/BeaconBuild.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "language": "15.0",
       "scope": "Actual CLI evaluation and target execution on paired SDKs; SDK/nested paths, parent/Sdk metadata, unset/false controls, conditional closure, repeated ordering and duplicate MSB4011 suppression. No XML-list emulation."
     }

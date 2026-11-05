@@ -55,7 +55,7 @@
           "packages": [
             {
               "name": "Microsoft.AspNetCore.Components.WebAssembly",
-              "version": "11.0.0-rc.2.26504.105",
+              "version": "11.0.0-rc.3.26522.148",
               "match": "exact",
               "reason": "Executed RC2 baseline."
             }
@@ -74,7 +74,7 @@
             "WebAssembly"
           ],
           "prerequisites": [
-            "Complete standalone project, pins, imports, document, startup JavaScript, JSON and local Node host are supplied below. Actual SDK 11.0.100-rc.2.26504.105/C# 15; interpreted publish uses PublishTrimmed=false, no wasm-tools/native compiler/AOT. Node 24.21.0 serves local fixtures only.",
+            "Complete standalone project, pins, imports, document, startup JavaScript, JSON and local Node host are supplied below. Actual SDK 11.0.100-rc.3.26522.148/C# 15; interpreted publish uses PublishTrimmed=false, no wasm-tools/native compiler/AOT. Node 24.21.0 serves local fixtures only.",
             "Load public settings before Blazor.start; configureRuntime.withEnvironmentVariables supplies browser runtime variables. Use Board__Endpoint for Board:Endpoint. Server OS variables do not automatically enter browser memory. No account, database or external endpoint is required."
           ],
           "constraints": [
@@ -126,7 +126,7 @@
       "kind": "compile",
       "language": "14.0",
       "sample": "samples/net10.0/EstuaryBoard/EstuaryBoard.csproj",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "scope": "Actual older SDK compilation only. Separate real Chrome WASM checks prove manual provider, two public profiles on unchanged assets, JSON fallback and later-provider precedence. Exact hashes/provenance/limits: docs/verification/browser-configuration.md."
     },
     {
@@ -134,8 +134,8 @@
       "kind": "compile",
       "language": "15.0",
       "sample": "samples/net11.0/EstuaryBoard/EstuaryBoard.csproj",
-      "sdk": "11.0.100-rc.2.26504.105",
-      "scope": "Actual RC2 SDK compilation only. Separate real Chrome WASM checks prove default provider, two public profiles on unchanged assets and duplicate-registration precedence regression. Exact hashes/provenance/limits: docs/verification/browser-configuration.md."
+      "sdk": "11.0.100-rc.3.26522.148",
+      "scope": "Actual RC3 SDK compilation only. Separate real Chrome WASM checks prove default provider, two public profiles on unchanged assets and duplicate-registration precedence regression. Exact hashes/provenance/limits: docs/verification/browser-configuration.md."
     }
   ],
   "snippets": {

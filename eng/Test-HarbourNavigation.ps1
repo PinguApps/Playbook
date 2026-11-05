@@ -48,14 +48,14 @@ try {
             $directory = Split-Path (Join-Path $root $sample)
             $target = if ($sample -like '*HarbourAndroid*') { 'net11.0-android37.0' } else { 'net11.0-windows10.0.20348.0' }
             $receipt = [ordered]@{
-                kind='official-review'; sample=$sample; target=$target; sdk='11.0.100-rc.2.26504.105'; language='15.0'
+                kind='official-review'; sample=$sample; target=$target; sdk='11.0.100-rc.3.26522.148'; language='15.0'
                 command='eng/Test-HarbourNavigation.ps1 -Record'
                 scope='Pinned official source and actual Controls.Core RC2 artifact review; not compilation or native execution.'
                 recordedAt=[DateTimeOffset]::UtcNow.ToString('O'); sourceCommit=(& 'C:/Program Files/Git/cmd/git.exe' -C $root rev-parse HEAD).Trim(); sourceDirty=$sourceDirty
                 inputs=(Get-EvidenceInputs $root $sample); dependencies=@(); workloads=@(); nativeToolchains=@()
                 host=[Runtime.InteropServices.RuntimeInformation]::OSDescription
-                sdkInfo='Intended SDK11 RC2 pin; Windows build attempted and failed NETSDK1147 because Microsoft.Maui.Sdk is absent.'
-                workloadInfo='SDK11 native MAUI SDK pack unavailable. No workload installed by this check.'
+                sdkInfo='Intended SDK11 RC3 pin; source/package review only, not a compiler or workload observation.'
+                workloadInfo='No workload query or installation in this source/package check.'
                 output='Official source hashes and Controls.Core package hash/member/Android37 asset checks passed. Android/Windows native behavior not executed.'
             }
             [IO.File]::WriteAllText((Join-Path $directory 'verification-evidence.json'),(ConvertTo-Json $receipt -Depth 30).Replace("`r`n","`n")+"`n")
@@ -66,8 +66,8 @@ try {
         $start = [Diagnostics.ProcessStartInfo]::new((Join-Path $root 'samples/net10.0/HarbourNavigation/bin/Release/net10.0-windows10.0.19041.0/win-x64/HarbourNavigation.exe'))
         $start.UseShellExecute = $false
         $start.Environment['HARBOUR_NAVIGATION_RECEIPT'] = $receiptPath
-        $start.Environment['DOTNET_ROOT'] = 'C:/Program Files/dotnet'
-        $start.Environment['DOTNET_ROOT_X64'] = 'C:/Program Files/dotnet'
+        $start.Environment['DOTNET_ROOT'] = (Split-Path (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source -Parent)
+        $start.Environment['DOTNET_ROOT_X64'] = (Split-Path (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source -Parent)
         $start.Environment['DOTNET_ADD_GLOBAL_TOOLS_TO_PATH'] = '0'
         $process = [Diagnostics.Process]::Start($start)
         try {

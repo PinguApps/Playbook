@@ -22,11 +22,11 @@ EF11 Add-Migration and Update-Database accept NoBuild. Load this complete CanalD
 
 ## Migration
 
-1. Install matching Tools and explicit Design references, restore, save all files, select the framework/configuration, and build target plus startup projects successfully in Visual Studio.
+1. Install matching Tools and explicit Design references, restore, save all files, select the framework/configuration, and build target plus startup projects successfully. In PMC, change to the project directory so dotnet resolves its SDK pin. A solution-root SDK10 pin can otherwise cause NETSDK1045 for this net11.0 project even with NoBuild: Tools still runs ResolvePackageAssets.
 2. Check that PMC resolves those exact freshly built artifacts. Use Add-Migration with NoBuild only while model, references and generated inputs remain unchanged.
 3. Inspect the generated migration and snapshot. Build again before Update-Database: the assembly used to scaffold cannot already contain the newly generated migration.
 4. Only against the disposable sample database, run Update-Database with NoBuild on that current build. On any model, source, package, configuration, framework, startup-project or generated-file change, rebuild or omit NoBuild.
-5. For H_PMC_PROOF, compare the generated migration with the expected model, then edit a mapped property without rebuilding and observe the stale-artifact risk in the real PMC. Rebuild and confirm the new model is used. Retain actual Visual Studio/NuGet host versions and results through PIN-957. These manual actions remain pending; CLI introspection is not their substitute.
+5. The PIN-957 check generated the expected Moorings table, then added BasinCode to source without rebuilding. NoBuild produced an empty migration from the old assembly. After rebuilding, another NoBuild migration added the column. Build again before applying that migration. Repeat this check when the declared inputs change.
 
 ## Constraints
 
@@ -34,7 +34,7 @@ This is Visual Studio on Windows with actual NuGet Package Manager Console and m
 
 ## Evidence
 
-Both original consumers compile and run; the matching Tools package source exposes NoBuild and forwards it to skipBuild for both commands. Actual interactive PMC execution, current/stale artifact outcomes and product integration remain pending H_PMC_PROOF / PIN-957. Pingu explicitly approved publishing this PR with PMC proof pending on 4 November 2026. The pending flag continues to block release-ready packaging; this exception does not claim that Human proof passed. Installed list/get verifies the full offline recipe and retains that limitation.
+Both original consumers compile and run. Pingu executed Add-Migration and Update-Database with NoBuild in actual Visual Studio 18.11.0, NuGet Package Manager Host 7.11.0.24 and Windows PowerShell 5.1.26100.9711. The build used SDK 11.0.100-rc.3.26522.148 with locked EF Tools/Design/SQLite 11.0.0-rc.2.26504.105. Generated migrations and a read-only SQLite query confirmed the table, all three applied migrations and the BasinCode column. The unchanged DLL hash and empty pre-rebuild migration establish the stale-artifact limitation. This is the tested mixed SDK/package baseline, not EF RC3 or GA proof; it does not establish every Visual Studio version. The linked PMC execution record distinguishes Pingu's console transcript from the agent's compilation and database inspection.
 
 ## Complete canonical projects
 

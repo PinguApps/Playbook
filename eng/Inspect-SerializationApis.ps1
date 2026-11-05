@@ -1,7 +1,7 @@
 [CmdletBinding()]
 param(
-  [string]$Net10Root = 'C:/Program Files/dotnet',
-  [string]$Net11Root = 'C:/Users/pingu/.dotnet-playbook-11',
+  [string]$Net10Root = (Split-Path (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source -Parent),
+  [string]$Net11Root = (Split-Path (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source -Parent),
   [string]$OutputPath = (Join-Path $PSScriptRoot '../artifacts/serialization.assets.json'),
   [string]$CompareWith,
   [string]$SourceManifest = (Join-Path $PSScriptRoot '../docs/planning/audits/serialization.sources.json')
@@ -110,14 +110,14 @@ function Get-Diff($Old, $New) {
 $temporary = Join-Path ([IO.Path]::GetTempPath()) "playbook-serialization-$([guid]::NewGuid().ToString('N'))"
 New-Item -ItemType Directory -Path $temporary | Out-Null
 try {
-  Add-Type -Path (Join-Path $Net10Root 'sdk/10.0.402/System.Reflection.MetadataLoadContext.dll')
+  Add-Type -Path (Join-Path $Net10Root 'sdk/10.0.403/System.Reflection.MetadataLoadContext.dll')
   $baselines = @(
-    @{ root = $Net10Root; sdk = '10.0.402'; version = '10.0.13'; target = 'net10.0' },
-    @{ root = $Net11Root; sdk = '11.0.100-rc.2.26504.105'; version = '11.0.0-rc.2.26504.105'; target = 'net11.0' }
+    @{ root = $Net10Root; sdk = '10.0.403'; version = '10.0.13'; runtime = '10.0.14'; target = 'net10.0' },
+    @{ root = $Net11Root; sdk = '11.0.100-rc.3.26522.148'; version = '11.0.0-rc.2.26504.105'; runtime = '11.0.0-rc.3.26522.148'; target = 'net11.0' }
   )
   $results = @()
   foreach ($baseline in $baselines) {
-    $refDirectory = Join-Path $baseline.root "packs/Microsoft.NETCore.App.Ref/$($baseline.version)/ref/$($baseline.target)"
+    $refDirectory = Join-Path $baseline.root "packs/Microsoft.NETCore.App.Ref/$($baseline.runtime)/ref/$($baseline.target)"
     $references = @(Get-ChildItem -LiteralPath $refDirectory -Filter '*.dll' | ForEach-Object FullName)
     $selected = @($references | Where-Object { [IO.Path]::GetFileName($_) -match '^System\.(Text\.Json|Runtime\.Serialization.*|Xml.*|Data\.Common)\.dll$' })
     $framework = @($selected | Sort-Object | ForEach-Object { Get-Surface $_ $references })
@@ -157,7 +157,7 @@ try {
       })
       $packages += [ordered]@{ id = $id; version = $baseline.version; url = $url; sha256 = Get-Hash $zip; repository = $nuspec.package.metadata.repository.url; commit = $nuspec.package.metadata.repository.commit; support = $support; assets = $assets; otherAssets = $otherAssets; tooling = $tooling }
     }
-    $results += [ordered]@{ sdk = $baseline.sdk; referencePack = $baseline.version; target = $baseline.target; framework = $framework; packages = $packages }
+    $results += [ordered]@{ sdk = $baseline.sdk; referencePack = $baseline.runtime; packageVersion = $baseline.version; target = $baseline.target; framework = $framework; packages = $packages }
   }
   $diffs = @()
   foreach ($old in $results[0].framework) {
@@ -200,7 +200,7 @@ try {
     Invoke-WebRequest -Uri $source.url -OutFile $download
     if ((Get-Hash $download) -cne $source.sha256) { throw "Official source hash mismatch: $($source.url)" }
     if ($source.path.EndsWith('/JsonSourceGenerator.DiagnosticDescriptors.cs')) {
-      $baseline = if ($source.commit -eq $results[0].packages[0].commit) { $results[0].referencePack } else { $results[1].referencePack }
+      $baseline = if ($source.commit -eq $results[0].packages[0].commit) { $results[0].packageVersion } else { $results[1].packageVersion }
       $record = @($sources.sourceGeneratorDiagnostics | Where-Object baseline -EQ $baseline)
       $body = Get-Content -LiteralPath $download -Raw
       $entries = @([regex]::Matches($body, '(?s)public static DiagnosticDescriptor.*?isEnabledByDefault:\s*(?:true|false)\);') | ForEach-Object { $_.Value.Trim() })

@@ -3,7 +3,7 @@
 param(
     [ValidateSet('Prepare', 'Run')][string]$Action = 'Prepare',
     [string]$WorkDirectory = (Join-Path ([IO.Path]::GetTempPath()) ('pb-web-' + [guid]::NewGuid().ToString('N'))),
-    [string]$Dotnet = 'C:/Program Files/dotnet/dotnet.exe',
+    [string]$Dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source,
     [ValidateRange(49152, 65535)][int]$Port = 54483
 )
 
@@ -45,13 +45,21 @@ function Invoke-ProbeProcess([string[]]$Arguments) {
 try {
     if ($Action -eq 'Prepare') {
         if (Test-Path -LiteralPath $work) { throw 'Choose a new work directory; existing files are never overwritten.' }
+        $addresses = @([Net.IPAddress]::Loopback)
+        if ([Net.Sockets.Socket]::OSSupportsIPv6) { $addresses += [Net.IPAddress]::IPv6Loopback }
+        foreach ($address in $addresses) {
+            $probe = [Net.Sockets.TcpListener]::new($address, $Port)
+            try { $probe.Start() }
+            catch { throw "Port $Port cannot be bound. Choose an available, unreserved -Port; leave existing Windows reservations unchanged. $($_.Exception.GetBaseException().Message)" }
+            finally { $probe.Stop() }
+        }
         [IO.Directory]::CreateDirectory($work) | Out-Null
         $files = @{
             'Directory.Build.props' = '<Project />'
             'Directory.Build.targets' = '<Project />'
             'Directory.Packages.props' = '<Project />'
             'NuGet.Config' = '<configuration><packageSources><clear /></packageSources></configuration>'
-            'global.json' = '{"sdk":{"version":"10.0.402","rollForward":"disable"}}'
+            'global.json' = '{"sdk":{"version":"10.0.403","rollForward":"disable"}}'
             'Access.csproj' = '<Project Sdk="Microsoft.NET.Sdk.Web"><PropertyGroup><TargetFramework>net10.0</TargetFramework><LangVersion>14.0</LangVersion><ImplicitUsings>enable</ImplicitUsings><Nullable>enable</Nullable><TreatWarningsAsErrors>true</TreatWarningsAsErrors></PropertyGroup></Project>'
             'Program.cs' = @'
 using System.Runtime.InteropServices;
@@ -88,7 +96,7 @@ finally { await app.StopAsync(CancellationToken.None); }
             [IO.File]::WriteAllText((Join-Path $work $file.Key), $file.Value.Replace("`r`n", "`n") + "`n")
         }
         $sdk = Invoke-ProbeProcess @('--version')
-        if ($sdk -ne '10.0.402') { throw "Unexpected SDK: $sdk" }
+        if ($sdk -ne '10.0.403') { throw "Unexpected SDK: $sdk" }
         Invoke-ProbeProcess @('build', 'Access.csproj', '-c', 'Release') |
             Set-Content -LiteralPath (Join-Path $work 'build.log')
         $manifest = [ordered]@{

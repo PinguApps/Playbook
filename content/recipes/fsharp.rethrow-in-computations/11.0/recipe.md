@@ -22,7 +22,7 @@ Inside the computation handler, return reraise () preserves the failure and orig
 2. Keep necessary logging or cleanup without replacing the exception with raise error, which can reset its stack. Preserve the result type with return reraise () here.
 3. Await both paths and inspect the exception at the outer boundary. Retain ExceptionDispatchInfo where preview is unsuitable.
 
-Use .NET 11 SDK, net11.0 and FSharp.Core 11; exact evidence pins are SDK 11.0.100-rc.2.26504.105 and FSharp.Core 11.0.101-rc2.26504.105, selecting lib/net10.0. The comparison pins SDK 10.0.402 and FSharp.Core 10.1.402 (lib/netstandard2.1). Set LangVersion to preview for the newer example and 10.0 for the comparison.
+Use .NET 11 SDK, net11.0 and FSharp.Core 11; exact evidence pins are SDK 11.0.100-rc.3.26522.148 and FSharp.Core 11.0.101-rc2.26504.105, selecting lib/net10.0. The comparison pins SDK 10.0.403 and FSharp.Core 10.1.402 (lib/netstandard2.1). Set LangVersion to preview for the newer example and 10.0 for the comparison.
 
 ## Constraints
 

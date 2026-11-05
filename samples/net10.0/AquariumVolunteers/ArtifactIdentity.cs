@@ -11,12 +11,12 @@ internal static class ArtifactIdentity
     public static void Verify()
     {
 #if NET10_0
-        const string sdk = "10.0.402";
-        const string framework = "10.0.13";
+        const string sdk = "10.0.403";
+        const string framework = "10.0.14";
         const string uiHash = "fbd7bbc2665767a342fdec21e1c13edb89f5e33b342a37c5b18487cf7613ba00";
 #else
-        const string sdk = "11.0.100-rc.2.26504.105";
-        const string framework = "11.0.0-rc.2.26504.105";
+        const string sdk = "11.0.100-rc.3.26522.148";
+        const string framework = "11.0.0-rc.3.26522.148";
         const string uiHash = "5dc1a5919cf11e62214f32537c7ea8fa4a56623e2d0ebaa51a00d21d24203249";
 #endif
         var identity = typeof(SignInManager<IdentityUser>).Assembly;

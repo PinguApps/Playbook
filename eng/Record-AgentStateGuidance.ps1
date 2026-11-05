@@ -1,8 +1,8 @@
 #Requires -Version 7.0
 [CmdletBinding()]
 param(
-  [string]$Net10Dotnet = 'C:\Program Files\dotnet\dotnet.exe',
-  [string]$Net11Dotnet = 'C:\Users\pingu\.dotnet-playbook-11\dotnet.exe'
+  [string]$Net10Dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source,
+  [string]$Net11Dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source
 )
 $ErrorActionPreference = 'Stop'
 $PSNativeCommandUseErrorActionPreference = $true
@@ -43,12 +43,12 @@ try {
           if ($exit -eq 0 -or $result -notmatch "CS0246.*DirectTlsEndpoint") { throw "Expected unavailable documented endpoint API, received: $result" }
           if (($before | ConvertTo-Json -Compress) -cne ((Get-EvidenceInputs $root $sample) | ConvertTo-Json -Compress)) { throw 'Inputs changed during availability check' }
           $record = [ordered]@{
-            kind='official-review'; sample=$sample; target='net11.0'; sdk='11.0.100-rc.2.26504.105'; language='15.0'
+            kind='official-review'; sample=$sample; target='net11.0'; sdk='11.0.100-rc.3.26522.148'; language='15.0'
             command="$dotnet restore $name.csproj --force-evaluate; $dotnet build $name.csproj -c Release --no-restore (expected CS0246); review pinned DirectTls documentation and exact package metadata"
             scope='Documentation-based current example; compilation attempted and blocked by absent DirectTlsEndpoint in pinned RC1. Not a successful compilation or native Linux execution record.'
             recordedAt=[DateTimeOffset]::UtcNow.ToString('O'); sourceCommit=(& 'C:/Program Files/Git/cmd/git.exe' -C $root rev-parse HEAD).Trim(); sourceDirty=$true
             inputs=$before; dependencies=@($manifest.dependencies); workloads=@(); nativeToolchains=@()
-            host=[Runtime.InteropServices.RuntimeInformation]::OSDescription; sdkInfo='Intended SDK11 RC2; actual command failed at missing documented package API.'
+            host=[Runtime.InteropServices.RuntimeInformation]::OSDescription; sdkInfo='Intended SDK11 RC3; actual command failed at missing documented package API.'
             workloadInfo='No workloads or native OpenSSL runtime qualified'; output=$result.Trim()
           }
           [IO.File]::WriteAllText((Join-Path $directory 'source-review.evidence.json'), ($record | ConvertTo-Json -Depth 30).Replace("`r`n","`n") + "`n")

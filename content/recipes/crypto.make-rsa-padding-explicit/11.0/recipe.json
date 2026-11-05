@@ -43,13 +43,13 @@
             "name": ".NET",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Current net11 consumer; actual RC2 is measured separately from final GA."
+            "reason": "Current net11 consumer; actual RC3 is measured separately from final GA."
           },
           "sdk": {
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Build current .NET11 references; exact RC2 is the reproduction baseline."
+            "reason": "Build current .NET11 references; exact RC3 is the reproduction baseline."
           },
           "language": {
             "name": "C#",
@@ -76,11 +76,11 @@
             "true maps to OaepSHA1; false maps to Pkcs1. Compatibility only, neither is a new-protocol recommendation.",
             "Same CAPI provider rejects OAEP-SHA256. Stronger-provider/algorithm/key migration requires separate peer agreement and positive proof, outside this slice.",
             "No fallback after decrypt failure; production key containers/HSMs and authenticated-encryption redesign are outside this guide.",
-            "Framework APIs only; no NuGet packages, workloads, rendering mode or experimental opt-ins. Previous SDK10.0.402/runtime10.0.13 and current SDK11RC2/runtime11RC2 are verification pins, not supported consumer minimums."
+            "Framework APIs only; no NuGet packages, workloads, rendering mode or experimental opt-ins. Previous SDK10.0.403/runtime10.0.14 and current SDK11RC3/runtime11RC3 are verification pins, not supported consumer minimums."
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Stable APIs; actual .NET11 GA reconciliation remains open. RC2 evidence is not final-GA proof."
+            "Stable APIs; actual .NET11 GA reconciliation remains open. RC3 evidence is not final-GA proof."
           ]
         },
         "sourceUrls": [
@@ -120,7 +120,7 @@
       "scope": "Windows paired compile/run with real ephemeral CAPI RSA2048: both legacy mappings cross-decrypt between runtimes in both directions; explicit overload equivalence, wrong padding/zeroed ciphertext and OAEP-SHA256 failure. Current old-source SYSLIB0064 probe and warning-free supported consumer; no other-platform/GA claim.",
       "sample": "samples/net10.0/InstrumentGateway/InstrumentGateway.csproj",
       "target": "net10.0",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "language": "14.0"
     },
     {
@@ -128,7 +128,7 @@
       "scope": "Windows paired compile/run with real ephemeral CAPI RSA2048: both legacy mappings cross-decrypt between runtimes in both directions; explicit overload equivalence, wrong padding/zeroed ciphertext and OAEP-SHA256 failure. Current old-source SYSLIB0064 probe and warning-free supported consumer; no other-platform/GA claim.",
       "sample": "samples/net11.0/InstrumentGateway/InstrumentGateway.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "language": "15.0"
     }
   ],

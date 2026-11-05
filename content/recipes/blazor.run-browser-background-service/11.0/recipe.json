@@ -57,7 +57,7 @@
               "match": "exact",
               "reason": "Actual restored RC2 host and matching browser assets. DevServer at this version supplies local serving only.",
               "name": "Microsoft.AspNetCore.Components.WebAssembly",
-              "version": "11.0.0-rc.2.26504.105"
+              "version": "11.0.0-rc.3.26522.148"
             }
           ],
           "workloads": [],
@@ -72,7 +72,7 @@
             "WebAssembly"
           ],
           "prerequisites": [
-            "Use the complete standalone BlazorWebAssembly SDK project, explicit imports/namespaces, document and JS/CSS supplied in Markdown. Actual SDK 11.0.100-rc.2.26504.105; DevServer and WebAssembly package 11.0.0-rc.2.26504.105. No native workload or AOT is needed.",
+            "Use the complete standalone BlazorWebAssembly SDK project, explicit imports/namespaces, document and JS/CSS supplied in Markdown. Actual SDK 11.0.100-rc.3.26522.148; DevServer and WebAssembly package 11.0.0-rc.3.26522.148. No native workload or AOT is needed.",
             "Register IHostedService with AddHostedService before Build and RunAsync. StartAsync must yield promptly; own and await the running task. The sample has local in-memory instrumentation only, no persistence provider or external service.",
             "An explicit live-document owner calls public WebAssemblyHost.DisposeAsync; .NET 11 stops registered services before disposing the renderer and provider. This demonstrates orderly resource disposal, not completion of RunAsync or runtime exit."
           ],
@@ -125,7 +125,7 @@
       "language": "14.0",
       "sample": "samples/net10.0/BeaconWatch/BeaconWatch.csproj",
       "scope": "Actual pinned SDK build only. Separate real WASM browser execution proves startup, responsive UI, timer cancellation, awaited service stop, root disposal and no further ticks after owned in-app shutdown. Exact source/artifact fingerprints and limits: docs/verification/browser-service-lifetime.md. No mocks or cross-compilation.",
-      "sdk": "10.0.402"
+      "sdk": "10.0.403"
     },
     {
       "target": "net11.0",
@@ -133,7 +133,7 @@
       "language": "15.0",
       "sample": "samples/net11.0/BeaconWatch/BeaconWatch.csproj",
       "scope": "Actual pinned SDK build only. Separate real WASM browser execution proves startup, responsive UI, timer cancellation, awaited service stop, root disposal and no further ticks after owned in-app shutdown. Exact source/artifact fingerprints and limits: docs/verification/browser-service-lifetime.md. No mocks or cross-compilation.",
-      "sdk": "11.0.100-rc.2.26504.105"
+      "sdk": "11.0.100-rc.3.26522.148"
     }
   ],
   "snippets": {

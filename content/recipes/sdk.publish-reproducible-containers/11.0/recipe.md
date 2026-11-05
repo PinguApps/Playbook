@@ -45,6 +45,6 @@ The sample's `LocalRegistry=Podman` is an explicit destination choice, not a req
 
 ## Evidence
 
-Reviewed official SDK RC1 reproducibility notes and the container configuration contract. Original canonical projects declare the intended 10.0.402 and 11.0.100-rc.2.26504.105 SDKs. Saved `official-review` records contain source/input hashes and explicitly report no compilation or execution.
+Reviewed official SDK RC1 reproducibility notes and the container configuration contract. Original canonical projects declare the intended 10.0.403 and 11.0.100-rc.3.26522.148 SDKs. Saved `official-review` records contain source/input hashes and explicitly report no compilation or execution.
 
 No repeat-publish experiment, registry-cache experiment, base-image resolution, NuGet timestamp comparison, image/index inspection or installed offline MCP retrieval occurred. The reproducibility result remains an expectation to verify, not a measured result. Pending proof blocks release-ready packaging and remains visible in discovery/detail. Target 10 is comparison-only; no unverified older-target route or additional historical foundation is declared. .NET 11 GA reconciliation remains outstanding.

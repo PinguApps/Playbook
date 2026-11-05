@@ -80,7 +80,7 @@ also requires client-authentication purpose and keeps verification flags strict.
 
 Primary target: .NET11/net11.0, C#15 sample mode, framework TLS/X509 APIs. No NuGet
 package, workload, rendering mode or experimental opt-in is needed. Actual test
-pins are SDK10.0.402/reference10.0.13 versus SDK11.0.100-rc.2.26504.105/reference11RC2;
+pins are SDK10.0.403/reference10.0.14 versus SDK11.0.100-rc.3.26522.148/reference11RC3;
 those describe verification, not universal exact-SDK installation requirements.
 The supported server ExtraStore policy also runs on the older runtime.
 

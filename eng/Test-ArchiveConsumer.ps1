@@ -1,7 +1,7 @@
 [CmdletBinding()]
 param(
   [string]$Dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source,
-  [string]$Net11Dotnet = 'C:\Users\pingu\.dotnet-playbook-11\dotnet.exe',
+  [string]$Net11Dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source,
   [switch]$RecordEvidence
 )
 
@@ -50,7 +50,7 @@ try {
   # Independent .NET 10 consumer, outside repository/shared project inheritance.
   Copy-Item -LiteralPath (Join-Path $root 'samples/net11.0/ArchiveContracts/GeneratedConsumer.cs.txt') -Destination (Join-Path $temporary 'Program.cs')
   [IO.File]::WriteAllText((Join-Path $temporary 'Consumer.csproj'), '<Project Sdk="Microsoft.NET.Sdk"><PropertyGroup><OutputType>Exe</OutputType><TargetFramework>net10.0</TargetFramework><ImplicitUsings>enable</ImplicitUsings><Nullable>disable</Nullable><TreatWarningsAsErrors>true</TreatWarningsAsErrors></PropertyGroup></Project>')
-  [IO.File]::WriteAllText((Join-Path $temporary 'global.json'), '{"sdk":{"version":"10.0.402","rollForward":"disable"}}')
+  [IO.File]::WriteAllText((Join-Path $temporary 'global.json'), '{"sdk":{"version":"10.0.403","rollForward":"disable"}}')
   Push-Location $temporary
   try { $result = & $Dotnet run -c Release -- $address | Out-String; Write-Host $result }
   finally { Pop-Location }
@@ -59,7 +59,7 @@ try {
   if ($RecordEvidence) {
     $manifest = Get-Content -LiteralPath verification.json -Raw | ConvertFrom-Json
     $record = [ordered]@{
-      kind = 'execution'; sample = $sample; target = 'net11.0'; sdk = '11.0.100-rc.2.26504.105'; language = '15.0'
+      kind = 'execution'; sample = $sample; target = 'net11.0'; sdk = '11.0.100-rc.3.26522.148'; language = '15.0'
       command = "eng/Test-ArchiveConsumer.ps1 -Dotnet '$Dotnet' -Net11Dotnet '$Net11Dotnet' -RecordEvidence"
       scope = 'Actual server OpenAPI 3.0 export, NSwag 14.7.1 generated C#, independent .NET 10 compilation and real loopback consumer; JSON extension data and expected text limitation.'
       recordedAt = [DateTimeOffset]::UtcNow.ToString('O'); sourceCommit = (& $git -C $root rev-parse HEAD).Trim(); sourceDirty = [bool](& $git -C $root status --porcelain -- samples eng/Test-ArchiveConsumer.ps1)

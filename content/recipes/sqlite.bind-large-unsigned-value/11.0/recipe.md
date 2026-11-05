@@ -31,9 +31,9 @@ not a provider `GetUInt128`/`GetFieldValue<UInt128>` round-trip claim. Do not ca
 through Int64, UInt64 or double. Parameter binding remains parameterized; do not
 interpolate the number into SQL.
 
-The tested old SDK is 10.0.402/C#14; current net11.0 is SDK
-11.0.100-rc.2.26504.105/C#15. The conditional net10.0/current-package project uses
-SDK10.0.402/C#14. No C#15-only syntax or experimental opt-in is required.
+The tested old SDK is 10.0.403/C#14; current net11.0 is SDK
+11.0.100-rc.3.26522.148/C#15. The conditional net10.0/current-package project uses
+SDK10.0.403/C#14. No C#15-only syntax or experimental opt-in is required.
 All current package pins are 11.0.0-rc.2.26504.105; these are RC2 results, not GA
 verification. Native Windows x64 SQLite is 3.53.3 with provider10 and 3.53.4 with
 provider11. Other native OS/architecture routes need suitable assets and their own
@@ -104,7 +104,7 @@ Int64 and UInt64, and both maximum UInt128 values.
 ## Optional .NET10 target with provider11
 
 This complete standalone project uses the same direct binding, actual provider11
-net10.0 asset and native bundle on .NET10. It compiled and ran with SDK10.0.402.
+net10.0 asset and native bundle on .NET10. It compiled and ran with SDK10.0.403.
 It is an optional dependency upgrade, not evidence that EF Core11 runs on .NET10.
 
 #### global.json

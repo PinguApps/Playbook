@@ -103,7 +103,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Stable API contract prepared using .NET11 RC2 SDK/runtime/EF packages; no experimental opt-in. Actual GA reconciliation remains outstanding."
+            "Stable API contract prepared using .NET11 RC3 SDK/runtime and EF11 RC2 packages; no experimental opt-in. Actual GA reconciliation remains outstanding."
           ]
         },
         "conditional": false,
@@ -126,7 +126,7 @@
       "sample": "samples/net10.0/ReefDocuments/ReefDocuments.csproj",
       "language": "14.0",
       "scope": "Actual EF10 shadow JSON read, EF11 absence, independent raw-document read/write, unknown-field preservation and stale ETag rejection.",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "target": "net10.0",
       "kind": "compile-and-run"
     },
@@ -134,7 +134,7 @@
       "sample": "samples/net11.0/ReefDocuments/ReefDocuments.csproj",
       "language": "15.0",
       "scope": "Actual EF10 shadow JSON read, EF11 absence, independent raw-document read/write, unknown-field preservation and stale ETag rejection.",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "target": "net11.0",
       "kind": "compile-and-run"
     }

@@ -1,6 +1,6 @@
 [CmdletBinding()]
 param(
- [string]$Net10Dotnet='C:/Program Files/dotnet/dotnet.exe',
+ [string]$Net10Dotnet=(Get-Command dotnet -CommandType Application | Select-Object -First 1).Source,
  [string]$Net11Dotnet=(Join-Path $PSScriptRoot '../artifacts/native-dotnet/dotnet.exe'),
  [string]$Node='C:/Program Files/nodejs/node.exe',
  [switch]$Record,[switch]$VerifySources
@@ -19,7 +19,7 @@ try {
   & $Node (Join-Path (Split-Path $Node) 'node_modules/npm/bin/npm-cli.js') install --prefix "$root/artifacts/host-types" --ignore-scripts --no-audit --no-fund typescript@5.9.3
  }
  $audit=Get-Content docs/planning/audits/runtime-security.assets.json -Raw | ConvertFrom-Json
- $routes=@(@('net10.0','Mono','10.0.13',$Net10Dotnet),@('net11.0','Mono','11.0.0-rc.2.26504.105',$Net11Dotnet),@('net11.0','CoreCLR','11.0.0-rc.2.26504.105',$Net11Dotnet))
+ $routes=@(@('net10.0','Mono','10.0.14',$Net10Dotnet),@('net11.0','Mono','11.0.0-rc.3.26522.148',$Net11Dotnet),@('net11.0','CoreCLR','11.0.0-rc.3.26522.148',$Net11Dotnet))
  foreach($route in $routes) {
   $target,$flavor,$version,$dotnet=$route
   $name="LanternHost$flavor";$directory=Join-Path $root "samples/$target/$name";$project="$directory/$name.csproj"
@@ -28,8 +28,15 @@ try {
   $package=Join-Path $HOME ".nuget/packages/$id/$version"
   $declarations="$package/runtimes/browser-wasm/native/dotnet.d.ts"
   $expected=@(($audit.baselines | Where-Object target -CEQ $target).browser | Where-Object id -CEQ $id)[0]
+  $archive="$package/$id.$version.nupkg"
+  if(-not(Test-Path $declarations)) {
+   $package=Join-Path (Split-Path $dotnet) "packs/$id/$version"
+   $declarations="$package/runtimes/browser-wasm/native/dotnet.d.ts"
+   $archive=Join-Path $root "artifacts/host-types/$id.$version.nupkg"
+   if(-not(Test-Path $archive)){Invoke-WebRequest $expected.url -OutFile $archive}
+  }
   if((Get-FileHash $declarations).Hash.ToLowerInvariant() -cne $expected.declarationsSha256){throw "Declaration drift: $id"}
-  if((Get-FileHash "$package/$id.$version.nupkg").Hash.ToLowerInvariant() -cne $expected.sha256){throw "Archive drift: $id"}
+  if((Get-FileHash $archive).Hash.ToLowerInvariant() -cne $expected.sha256){throw "Archive drift: $id"}
   Copy-Item $declarations "$types/_framework/dotnet.d.ts";Copy-Item "$directory/main.ts" "$types/main.ts"
   & $Node $tsc "$types/main.ts" --strict --target es2022 --module es2022 --lib es2022,dom --outDir "$types/out"
   # Reject the opposite diagnostic-provider spelling against the same actual declaration.

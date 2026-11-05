@@ -1,9 +1,9 @@
 [CmdletBinding()]
 param(
   [string]$Manifest = (Join-Path $PSScriptRoot '../docs/planning/audits/fsharp-contracts.sources.json'),
-  [string]$Net10Root = 'C:/Program Files/dotnet',
-  [string]$Net11Root = 'C:/Users/pingu/.dotnet-playbook-11',
-  [string]$ReferencePackVersion = '10.0.13',
+  [string]$Net10Root = (Split-Path (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source -Parent),
+  [string]$Net11Root = (Split-Path (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source -Parent),
+  [string]$ReferencePackVersion = '10.0.14',
   [string]$OutputPath = (Join-Path $PSScriptRoot '../artifacts/fsharp-contracts.json'),
   [string]$CompareWith
 )
@@ -29,15 +29,15 @@ try {
     Invoke-WebRequest $source.url -OutFile $file
     if ((Get-Hash $file) -ne $source.sha256) { throw "Source hash mismatch: $($source.path)" }
   }
-  $sdk = Join-Path $Net10Root 'sdk/10.0.402'
+  $sdk = Join-Path $Net10Root 'sdk/10.0.403'
   Add-Type -Path (Join-Path $sdk 'System.Reflection.MetadataLoadContext.dll')
   $framework = @(Get-ChildItem (Join-Path $Net10Root "packs/Microsoft.NETCore.App.Ref/$ReferencePackVersion/ref/net10.0") -Filter '*.dll' | ForEach-Object FullName)
   if (-not $framework.Count) { throw 'Install the declared .NET 10 reference pack.' }
   $results = @()
-  $sdkCore = [pscustomobject]@{ id = 'FSharp.Core'; version = 'SDK-11.0.100-rc.2.26504.105'; assets = @('FSharp.Core.dll'); local = $true }
+  $sdkCore = [pscustomobject]@{ id = 'FSharp.Core'; version = 'SDK-11.0.100-rc.3.26522.148'; assets = @('FSharp.Core.dll'); local = $true }
   foreach ($package in @($inputs.packages) + @($sdkCore)) {
     if ($package.local) {
-      $folder = Join-Path $Net11Root 'sdk/11.0.100-rc.2.26504.105/FSharp'
+      $folder = Join-Path $Net11Root 'sdk/11.0.100-rc.3.26522.148/FSharp'
     } else {
       $archive = Join-Path $scratch "$($package.id).$($package.version).nupkg"
       Invoke-WebRequest $package.url -OutFile $archive

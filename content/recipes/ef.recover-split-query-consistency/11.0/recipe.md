@@ -26,7 +26,7 @@ A single query removes this particular inter-command window but can increase row
 
 ## Evidence
 
-SDK10.0.402 / EF SQL Server10.0.13 and SDK11 RC2 / EF SQL Server11 RC2 compile. eng/Test-BrackenReads.ps1 -Record executes each in a separately owned disposable database on the approved SQL Server2025 route. It commits the separate writer before the child SELECT, observes EF11's actual exception and verifies complete fresh-context results 10/20/30 with one card each. race.evidence.json retains execution separately from compilation. RC evidence is not GA reconciliation; other providers and isolation levels remain untested.
+SDK10.0.403 / EF SQL Server10.0.13 and SDK11 RC3 / EF SQL Server11 RC2 compile. eng/Test-BrackenReads.ps1 -Record executes each in a separately owned disposable database on the approved SQL Server2025 route. It commits the separate writer before the child SELECT, observes EF11's actual exception and verifies complete fresh-context results 10/20/30 with one card each. race.evidence.json retains execution separately from compilation. RC evidence is not GA reconciliation; other providers and isolation levels remain untested.
 
 ## Complete project files
 

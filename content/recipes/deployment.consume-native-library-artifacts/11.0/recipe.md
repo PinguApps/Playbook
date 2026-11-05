@@ -10,7 +10,7 @@ the native filename.
 
 ## Older approach
 
-SDK 10.0.402, target net10.0, produces `TideWindow.so` on Linux with ordinary
+SDK 10.0.403, target net10.0, produces `TideWindow.so` on Linux with ordinary
 `TargetName`. Existing exact-name packaging can consume this output. Preserve
 that working route when retaining the old toolchain. Custom old builds can
 already have prefixed names; inspect their outputs before migrating.
@@ -73,7 +73,7 @@ Never unload a Native AOT library with `dlclose` or `FreeLibrary`. Executables a
 Windows libraries are outside this Unix default-prefix condition; those branches
 are source-reviewed, not executed by this Linux check. Self-contained native
 libraries still need compatible OS/system libraries. The sample uses C# 14/15,
-SDK 10.0.402/11 RC2 and explicit Linux x64 native packs; no optional provider,
+SDK 10.0.403/11 RC2 and explicit Linux x64 native packs; no optional provider,
 rendering mode or workload is involved. RC2 evidence does not establish GA.
 
 ## Evidence

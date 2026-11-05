@@ -25,7 +25,7 @@ EF11 throws by default when Migrate or MigrateAsync finds no migrations. The can
 
 ## Constraints
 
-Relational EF11 requires .NET11; paired EF10 targets .NET10. The canonical consumer uses C#15/14, matching SQLite/Design/Tools packages and no browser, renderer, workload, account or external database. Windows x64 is executed; other platforms and providers are not established by this SQLite check. Exact RC2 evidence is not GA evidence.
+Relational EF11 requires .NET11; paired EF10 targets .NET10. The canonical consumer uses C#15/14, matching SQLite/Design/Tools packages and no browser, renderer, workload, account or external database. Windows x64 is executed; other platforms and providers are not established by this SQLite check. Exact RC3 evidence is not GA evidence.
 
 ## Evidence
 

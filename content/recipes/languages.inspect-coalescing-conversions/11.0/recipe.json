@@ -115,7 +115,7 @@
   ],
   "evidence": [
     {
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "language": "14.0",
       "sample": "samples/net10.0/ReadingConversions/ReadingConversions.csproj",
       "scope": "Inspect the non-null operand conversion of a C# ?? or VB binary If when a compiler host needs language-specific classification beyond CommonConversion.",
@@ -123,7 +123,7 @@
       "kind": "compile-and-run"
     },
     {
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "language": "16.9",
       "sample": "samples/net10.0/ReadingConversionsVB/ReadingConversionsVB.vbproj",
       "scope": "Inspect the non-null operand conversion of a C# ?? or VB binary If when a compiler host needs language-specific classification beyond CommonConversion.",
@@ -131,7 +131,7 @@
       "kind": "compile-and-run"
     },
     {
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "language": "15.0",
       "sample": "samples/net11.0/ReadingConversions/ReadingConversions.csproj",
       "scope": "Inspect the non-null operand conversion of a C# ?? or VB binary If when a compiler host needs language-specific classification beyond CommonConversion.",
@@ -139,7 +139,7 @@
       "kind": "compile-and-run"
     },
     {
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "language": "16.9",
       "sample": "samples/net11.0/ReadingConversionsVB/ReadingConversionsVB.vbproj",
       "scope": "Inspect the non-null operand conversion of a C# ?? or VB binary If when a compiler host needs language-specific classification beyond CommonConversion.",

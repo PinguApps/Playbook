@@ -130,7 +130,7 @@ strings nor guarantees an asset exists.
 
 Only complete static ~/ literals expand; [AssetPath] requires a string Parameter. Ordinary string parameters, bare paths and unrelated attributes are not inferred.
 
-On the measured RC2 SDK, default source generation expands component parameters but leaves custom and built-in HTML ~/ paths literal. The executed HTML route uses documented UseRazorSourceGenerator=false. Retain explicit @Assets lookup if that route is unsuitable.
+On the measured RC3 SDK, default source generation expands component parameters but leaves custom and built-in HTML ~/ paths literal. The executed HTML route uses documented UseRazorSourceGenerator=false. Retain explicit @Assets lookup if that route is unsuitable.
 
 The public AssetPathAttributes convention class declares [AcceptsAssetPath("museum-image", "source")]. This annotates compiler input; it does not implement or register a browser custom element.
 
@@ -138,9 +138,9 @@ An unknown ~/ key lowers to Assets["key"]; the collection returns the unmapped k
 
 Verified static SSR and published fingerprinted URLs under /museum/. No interactive rendering, IDE/Hot Reload, arbitrary build host, runtime rewriting or older-target package route is claimed.
 
-The exact test pins are SDK 10.0.402 / framework and packages 10.0.13 / C# 14,
-and SDK 11.0.100-rc.2.26504.105 / framework and packages
-11.0.0-rc.2.26504.105 / C# 15. Runtime/framework/package/SDK requirements are
+The exact test pins are SDK 10.0.403 / framework and packages 10.0.14 / C# 14,
+and SDK 11.0.100-rc.3.26522.148 / framework and packages
+11.0.0-rc.3.26522.148 / C# 15. Runtime/framework/package/SDK requirements are
 separate from these measured baselines. No optional workload or native compilation
 is required. Public metadata is not an experimental designation; no experimental
 suppression is used. No net10-plus-new-package compatibility route is advertised.

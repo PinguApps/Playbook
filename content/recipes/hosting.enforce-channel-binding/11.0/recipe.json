@@ -29,13 +29,13 @@
           "runtime": {
             "version": "11.0",
             "match": "release-family",
-            "reason": "Actual .NET 11 RC2 execution, not GA verification.",
+            "reason": "Actual .NET 11 RC3 execution, not GA verification.",
             "name": ".NET"
           },
           "sdk": {
             "version": "11.0",
             "match": "release-family",
-            "reason": "Exact recorded pin 11.0.100-rc.2.26504.105; older sample 10.0.402.",
+            "reason": "Exact recorded pin 11.0.100-rc.3.26522.148; older sample 10.0.403.",
             "name": ".NET SDK"
           },
           "language": {
@@ -69,7 +69,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Actual .NET11 RC2 evidence; GA reconciliation remains open."
+            "Actual .NET11 RC3 evidence; GA reconciliation remains open."
           ]
         },
         "sharedAreas": [],
@@ -103,7 +103,7 @@
   "evidence": [
     {
       "target": "net10.0",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "kind": "compile-and-run",
       "language": "14.0",
       "sample": "samples/net10.0/HarbourRequests/HarbourRequests.csproj",
@@ -111,11 +111,11 @@
     },
     {
       "target": "net11.0",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "kind": "compile-and-run",
       "language": "15.0",
       "sample": "samples/net11.0/HarbourRequests/HarbourRequests.csproj",
-      "scope": "Real .NET11 RC2 HTTP.sys Legacy/Medium/Strict anonymous HTTPS exposure, fixed SNI empty/small/exact buffers and native invalid-property error87. No authenticated relay-rejection or absent-native-API OS execution claim."
+      "scope": "Real .NET11 RC3 HTTP.sys Legacy/Medium/Strict anonymous HTTPS exposure, fixed SNI empty/small/exact buffers and native invalid-property error87. No authenticated relay-rejection or absent-native-API OS execution claim."
     }
   ],
   "humanProof": {

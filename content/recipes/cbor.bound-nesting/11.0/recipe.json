@@ -69,7 +69,7 @@
             "Reference System.Formats.Cbor11. The verified exact pin is11.0.0-rc.2.26504.105; restore the reviewed package lock when reproducing."
           ],
           "constraints": [
-            "Previous SDK10.0.402/C#14/ref-runtime10.0.13; current SDK11.0.100-rc.2.26504.105/C#15/ref-runtime11RC2. Exact proof pins are separate from release-family requirements.",
+            "Previous SDK10.0.403/C#14/ref-runtime10.0.14; current SDK11.0.100-rc.3.26522.148/C#15/ref-runtime11RC3. Exact proof pins are separate from release-family requirements.",
             "No provider, native assets, workloads, rendering modes or experimental diagnostic opt-ins. Older comparisons remain valid and add no foundation; no additional older-target API route is advertised.",
             "Complete finite-buffer schema; one Int32 leaf in single-child arrays/maps. Strict conformance, one root, indefinite containers preserved. Depth does not bound payload bytes or string lengths.",
             "Explicit finite budget8. Zero forbids containers, -1 selects current runtime defaults64/1000; read and write failures differ. The older10.0.13 reader already has the64 backport.",
@@ -147,7 +147,7 @@
   "evidence": [
     {
       "scope": "Arrays/maps, definite/indefinite encoding, accepted depths0/1/7/8 and rejection9, separate failures, default64/1000, zero, sentinel-1 and below-1; actual old reader backport and complete writer1001.",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "target": "net10.0",
       "kind": "compile-and-run",
       "sample": "samples/net10.0/CalibrationGroups/CalibrationGroups.csproj",
@@ -155,7 +155,7 @@
     },
     {
       "scope": "Arrays/maps, definite/indefinite encoding, accepted depths0/1/7/8 and rejection9, separate failures, default64/1000, zero, sentinel-1 and below-1; actual old reader backport and complete writer1001.",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "target": "net11.0",
       "kind": "compile-and-run",
       "sample": "samples/net11.0/CalibrationGroups/CalibrationGroups.csproj",

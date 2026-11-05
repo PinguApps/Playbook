@@ -6,9 +6,9 @@ A fictional seed laboratory folds a batch of readings through a supplied callbac
 
 ## Older approach
 
-SDK10.0.402/F#10 with FSharp.Core10.1.402 has no `OptimizeClosureIfNotInlinedAttribute`. A valid inline fold can use `InlineIfLambda` alone. Keep that working approach; do not add an unknown attribute to the old Core or claim the old version cannot process batches.
+SDK10.0.403/F#10 with FSharp.Core10.1.402 has no `OptimizeClosureIfNotInlinedAttribute`. A valid inline fold can use `InlineIfLambda` alone. Keep that working approach; do not add an unknown attribute to the old Core or claim the old version cannot process batches.
 
-Create sibling `SeedFoldLibrary` and `SeedFold` directories. Save each source as `SeedFold.fs`; use the exact project filenames below because the consumer's project reference points at its sibling. Save `Directory.Packages.props` in each directory and pin `sdk.version:10.0.402`, `sdk.rollForward:disable` in each `global.json`. These actual older projects run on10.0.13. They explicitly disable the SDK's implicit Core reference so the package pin owns the bytes.
+Create sibling `SeedFoldLibrary` and `SeedFold` directories. Save each source as `SeedFold.fs`; use the exact project filenames below because the consumer's project reference points at its sibling. Save `Directory.Packages.props` in each directory and pin `sdk.version:10.0.403`, `sdk.rollForward:disable` in each `global.json`. These actual older projects run on10.0.13. They explicitly disable the SDK's implicit Core reference so the package pin owns the bytes.
 
 `SeedFoldLibrary/SeedFoldLibrary.fsproj` and its package file:
 
@@ -34,7 +34,7 @@ The consumer is a separate assembly. A literal lambda captures bias4; the non-in
 
 ## Newer approach
 
-Use separate sibling directories from the older comparison. Pin SDK11.0.100-rc.2.26504.105 and FSharp.Core11.0.101-rc2.26504.105 as shown; the measured runtime/reference closure is11 RC2. F# **11.0**, rather than `preview`, is the declaration gate. The attribute is public, sealed, parameter-only and has a parameterless constructor. It must accompany `InlineIfLambda` on a **separately curried parameter** of a suitable inline function or method. That parameter must have a curried F# function type of arity **2–5**; a tupled unary function is not an arity-two callback.
+Use separate sibling directories from the older comparison. Pin SDK11.0.100-rc.3.26522.148 and FSharp.Core11.0.101-rc2.26504.105 as shown; the measured runtime/reference closure is11 RC2. F# **11.0**, rather than `preview`, is the declaration gate. The attribute is public, sealed, parameter-only and has a parameterless constructor. It must accompany `InlineIfLambda` on a **separately curried parameter** of a suitable inline function or method. That parameter must have a curried F# function type of arity **2–5**; a tupled unary function is not an arity-two callback.
 
 `SeedFoldLibrary/SeedFoldLibrary.fsproj` and its package file:
 

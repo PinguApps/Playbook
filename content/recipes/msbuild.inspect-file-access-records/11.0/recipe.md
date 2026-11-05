@@ -24,7 +24,7 @@ A null enumeration pattern must remain absent, not be replaced by `*` or treated
 
 The pinned older source has an eleven-argument constructor: operation, requested access, process ID, access ID, correlation ID, error, desired access, requested flags/attributes, path, process arguments and augmented-access flag. The pinned current source **retains that constructor** and adds a thirteen-argument overload appending enumeration pattern and opened-file/directory attributes. The retained overload delegates with `null` and `0` for the new fields. It is wrong to describe it as removed or to infer rich observations from its defaults.
 
-Prefer decoding records delivered by the host. A hand-constructed record can test formatting or constructor defaults; it cannot prove instrumentation, event delivery or actual file access. Do not parse private MSBuild wire packets or claim cross-version serialization compatibility. Reconcile host and plugin binaries together. The source audit compares SDK **10.0.402** and **11.0.100-rc.2.26504.105**; assembly version `15.1.0.0` is not the MSBuild product version.
+Prefer decoding records delivered by the host. A hand-constructed record can test formatting or constructor defaults; it cannot prove instrumentation, event delivery or actual file access. Do not parse private MSBuild wire packets or claim cross-version serialization compatibility. Reconcile host and plugin binaries together. The source audit compares SDK **10.0.403** and **11.0.100-rc.3.26522.148**; assembly version `15.1.0.0` is not the MSBuild product version.
 
 ## Supported host boundary
 

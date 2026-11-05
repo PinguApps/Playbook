@@ -71,11 +71,11 @@ The native provider is a controlled failing fixture. It executes WPF's real COM 
 
 ## Constraints
 
-Windows desktop, STA execution, SDK10.0.402/C#14 and SDK11.0.100-rc.2.26504.105/C#15. No added NuGet package, service account or remote provider. The current edition targets .NET11; the older sample is comparison evidence, not a .NET10 foundation or backport. Framework-reference and runtime assets must match their declared targets. No experimental API opt-in is required by these compiled samples. RC2 execution does not establish GA verification.
+Windows desktop, STA execution, SDK10.0.403/C#14 and SDK11.0.100-rc.3.26522.148/C#15. No added NuGet package, service account or remote provider. The current edition targets .NET11; the older sample is comparison evidence, not a .NET10 foundation or backport. Framework-reference and runtime assets must match their declared targets. No experimental API opt-in is required by these compiled samples. RC3 execution does not establish GA verification.
 
 ## Evidence
 
-Both canonical projects compile and execute on Windows x64 with runtime10.0.13 or runtime11RC2. Saved verification-evidence.json records exact inputs and commands. See metadata for each sample's actual scope. No global Windows settings are changed. No external clipboard-owner failure, pixel-level rendering, High Contrast transition, Designer round trip or GA behavior is claimed. Existing Human and final-release gates remain open.
+Both canonical projects compile and execute on Windows x64 with runtime10.0.14 or runtime11RC3. Saved verification-evidence.json records exact inputs and commands. See metadata for each sample's actual scope. No global Windows settings are changed. No external clipboard-owner failure, pixel-level rendering, High Contrast transition, Designer round trip or GA behavior is claimed. Existing Human and final-release gates remain open.
 
 ## References
 

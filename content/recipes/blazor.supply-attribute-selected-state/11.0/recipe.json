@@ -79,7 +79,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Actual evidence: .NET 10.0.13 / SDK 10.0.402 and .NET 11.0.0-rc.2.26504.105 / SDK 11.0.100-rc.2.26504.105. GA reconciliation and comprehensive publication gates remain open.",
+            "Actual evidence: .NET 10.0.13 / SDK 10.0.403 and .NET 11.0.0-rc.2.26504.105 / SDK 11.0.100-rc.3.26522.148. GA reconciliation and comprehensive publication gates remain open.",
             "Custom supplier is public but accepts framework-facing ComponentState; analyzer silence does not promise compatibility."
           ]
         },
@@ -122,7 +122,7 @@
     {
       "sample": "samples/net10.0/ReedArchive/ReedArchive.csproj",
       "target": "net10.0",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "language": "14.0",
       "kind": "compile-and-run",
       "scope": "Real HtmlRenderer execution: attribute/named selection, independent DI scopes and rendered updates; current custom subscriptions dispose once on child removal and scoped teardown fallback."
@@ -130,7 +130,7 @@
     {
       "sample": "samples/net11.0/ReedArchive/ReedArchive.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "language": "15.0",
       "kind": "compile-and-run",
       "scope": "Real HtmlRenderer execution: attribute/named selection, independent DI scopes and rendered updates; current custom subscriptions dispose once on child removal and scoped teardown fallback."

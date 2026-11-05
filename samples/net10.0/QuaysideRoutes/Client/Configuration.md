@@ -1,7 +1,7 @@
 // snippet:n10-global-json
 {
   "sdk": {
-    "version": "10.0.402",
+    "version": "10.0.403",
     "rollForward": "disable",
     "allowPrerelease": true
   }
@@ -31,8 +31,8 @@
 <Project>
   <PropertyGroup><ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally><CentralPackageVersionOverrideEnabled>false</CentralPackageVersionOverrideEnabled></PropertyGroup>
   <ItemGroup>
-    <PackageVersion Include="Microsoft.AspNetCore.Components.WebAssembly" Version="[10.0.13]" />
-    <PackageVersion Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="[10.0.13]" />
+    <PackageVersion Include="Microsoft.AspNetCore.Components.WebAssembly" Version="[10.0.14]" />
+    <PackageVersion Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="[10.0.14]" />
     <PackageVersion Include="Yarp.ReverseProxy" Version="[2.3.0]" />
   </ItemGroup>
 </Project>

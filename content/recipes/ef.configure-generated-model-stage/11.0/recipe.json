@@ -98,7 +98,7 @@
             "RC generation failed; user authorized documentation-based delivery on 4 November 2026."
           ],
           "prerequisites": [
-            "Pinned SDK11 RC2/EF11 RC2; historical SDK10.0.402/EF10.0.13.",
+            "Pinned SDK11 RC3/EF11 RC2; historical SDK10.0.403/EF10.0.13.",
             "win-x64 RID for intended publication; NativeAOT additionally needs a platform compiler."
           ],
           "optIns": [
@@ -138,7 +138,7 @@
     {
       "language": "14.0",
       "kind": "compile",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "scope": "Ordinary source compilation with both generation stages explicitly disabled. No generated-artifact, build/publish generation, runtime or NativeAOT success claimed.",
       "sample": "samples/net10.0/FernGeneration/FernGeneration.csproj",
       "target": "net10.0"
@@ -146,7 +146,7 @@
     {
       "language": "15.0",
       "kind": "compile",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "scope": "Ordinary source compilation with both generation stages explicitly disabled. No generated-artifact, build/publish generation, runtime or NativeAOT success claimed.",
       "sample": "samples/net11.0/FernGeneration/FernGeneration.csproj",
       "target": "net11.0"

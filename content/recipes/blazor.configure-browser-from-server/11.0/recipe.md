@@ -15,9 +15,9 @@ particularly when the configuration includes functions. There is no .NET 10
 BrowserOptions API to substitute.
 
 Create sibling directories TideDesk and TideDesk.Client. In **both** directories,
-create global.json with SDK version `10.0.402` and rollForward `disable`:
-`{"sdk":{"version":"10.0.402","rollForward":"disable"}}`.
-These version-specific examples pin C# 14 and the actual 10.0.13 packages.
+create global.json with SDK version `10.0.403` and rollForward `disable`:
+`{"sdk":{"version":"10.0.403","rollForward":"disable"}}`.
+These version-specific examples pin C# 14 and the actual 10.0.14 packages.
 
 ### net10.0/TideDesk/TideDesk.csproj
 {{snippet:older-project}}
@@ -56,7 +56,7 @@ five attempts at 3000 ms to three at 1000 ms, while retaining the dialog ID and
 two-minute inactivity value. PreserveDom=true emits disableDomPreservation=false.
 
 Create the same two sibling directories. In **both**, use global.json
-`{"sdk":{"version":"11.0.100-rc.2.26504.105","rollForward":"disable"}}`.
+`{"sdk":{"version":"11.0.100-rc.3.26522.148","rollForward":"disable"}}`.
 The project files declare the namespace, language, nullability, implicit usings,
 package lock creation and browser asset composition. They do not require a
 repository build file, optional workload, external service or database provider.

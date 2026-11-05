@@ -111,7 +111,7 @@
       "target": "net10.0",
       "language": "10.0",
       "kind": "compile-and-run",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "scope": "Actual .NET 10 dependency restore and runner compilation; real dotnet fsi --exec execution records loaded FSharp.Core location, target attribute and hash, four gated explicit-cleanup lifetime/error cases, and rejection of direct asynchronous Using by the older FSI asset. No Native AOT or GA proof."
     },
     {
@@ -119,7 +119,7 @@
       "target": "net11.0",
       "language": "11.0",
       "kind": "compile-and-run",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "scope": "Actual .NET 11 dependency restore and runner compilation; real dotnet fsi --exec execution records loaded FSharp.Core identity, four gated ordinary-binding lifetime/error cases and the explicit cleanup alternative. Cleanup finishes exactly once; the measured RC2 binding loses pending cleanup failures while the explicit alternative propagates them. No Native AOT or GA proof."
     }
   ],

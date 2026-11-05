@@ -31,4 +31,4 @@ The validator applies to every name in this example. A validator owning one name
 
 ## Evidence
 
-Actual .NET 10/11 projects construct the Generic Host with real DI, await startup for crew 3, and require startup rejection for crew 9 against maximum 6. The canonical validator is the one those checks execute. No mocked container or generated-validator substitution is used. Exact SDK/shared-framework and input-hash records accompany the recipe. Windows x64 RC2 evidence is not GA or native/browser integration proof.
+Actual .NET 10/11 projects construct the Generic Host with real DI, await startup for crew 3, and require startup rejection for crew 9 against maximum 6. The canonical validator is the one those checks execute. No mocked container or generated-validator substitution is used. Exact SDK/shared-framework and input-hash records accompany the recipe. Windows x64 RC3 evidence is not GA or native/browser integration proof.

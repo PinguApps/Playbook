@@ -96,8 +96,8 @@ them or offer Mono saturation through the direct-cast implementation.
 
 ## Evidence
 
-Paired artifacts: SDK10.0.402, runtime/ref10.0.13 and C#14 versus
-SDK11.0.100-rc.2.26504.105, runtime/ref11.0.0-rc.2.26504.105 and C#15.
+Paired artifacts: SDK10.0.403, runtime/ref10.0.14 and C#14 versus
+SDK11.0.100-rc.3.26522.148, runtime/ref11.0.0-rc.3.26522.148 and C#15.
 These are exact reproduction baselines, separate from consumer .NET11 SDK/runtime
 release-family requirements. Saved compilation/execution evidence contains commands,
 inputs, measured OS/architecture and compiler/reference/runtime hashes. All five
@@ -105,7 +105,7 @@ destinations execute double/float plus representative Half values (including Hal
 own finite-range/precision limits), checked overflow, conversion APIs and real
 buffer validation. Legacy out-of-range outputs remain measured observations.
 
-RC2 evidence is not GA reconciliation. The previous consumer is a comparison,
+RC3 evidence is not GA reconciliation. The previous consumer is a comparison,
 not a new target10 catalogue foundation. Comprehensive coverage, actual-GA and
 existing Human gates remain open.
 

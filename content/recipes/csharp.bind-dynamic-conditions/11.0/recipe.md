@@ -12,13 +12,13 @@ The original policy below can be viewed through `ILoadingPolicy`. This older spe
 
 With SDK10.0.100/compiler5.0 and net10.0/ref10.0.0, both methods compile. Actual runtime10.0.0 execution throws `RuntimeBinderException` for both operators: the binder cannot apply them to `ILoadingPolicy` and `LoadingPolicy`. This is a failing older implementation, not working logic that an upgrade removed.
 
-SDK10.0.402/compiler5.9 and SDK11 RC2/compiler5.12 reject the same methods with these separate diagnostics:
+SDK10.0.403/compiler5.9 and SDK11 RC3/compiler5.12 reject the same methods with these separate diagnostics:
 
 `error CS7083: Expression must be implicitly convertible to Boolean or its type 'ILoadingPolicy' must not be an interface and must define operator 'false'.`
 
 `error CS7083: Expression must be implicitly convertible to Boolean or its type 'ILoadingPolicy' must not be an interface and must define operator 'true'.`
 
-The first applies to `&&`, the second to `||`. The compiler correction is already present in measured SDK10.0.402. It is not exclusive to C#15 or runtime11. The pinned source covers changes after10.0.100 through11.0.100; metadata `introducedIn:10.0` reflects measured release-family presence, not an exact first compiler build or the original introduction of dynamic syntax.
+The first applies to `&&`, the second to `||`. The compiler correction is already present in measured SDK10.0.403. It is not exclusive to C#15 or runtime11. The pinned source covers changes after10.0.100 through11.0.100; metadata `introducedIn:10.0` reflects measured release-family presence, not an exact first compiler build or the original introduction of dynamic syntax.
 
 ## Newer approach
 
@@ -46,4 +46,4 @@ The served route is .NET11/SDK11/C#15. The framework supplies the Microsoft.CSha
 
 ## Evidence
 
-`eng/Test-CompilerMigrations.ps1 -Record` uses actual SDK10.0.100/ref10.0.0/runtime10.0.0 to compile and execute both old binder failures. Actual SDK10.0.402/ref10.0.13 and SDK11.0.100-rc.2.26504.105/ref11 RC2 must emit exactly two CS7083 errors. Paired corrected projects run all16 route/operator/left/right combinations and check results, zero/one right invocations, concrete rejection and late-bound failure for an unknown policy. Saved records retain exact commands, hashes, compiler/reference/runtime identities and fresh inputs. The historical10.0.100 reproducer is not a recommended prerequisite. These actual RC2 checks are not GA evidence; comprehensive and GA reconciliation remain open.
+`eng/Test-CompilerMigrations.ps1 -Record` uses actual SDK10.0.100/ref10.0.0/runtime10.0.0 to compile and execute both old binder failures. Actual SDK10.0.403/ref10.0.14 and SDK11.0.100-rc.3.26522.148/ref11 RC3 must emit exactly two CS7083 errors. Paired corrected projects run all16 route/operator/left/right combinations and check results, zero/one right invocations, concrete rejection and late-bound failure for an unknown policy. Saved records retain exact commands, hashes, compiler/reference/runtime identities and fresh inputs. The historical10.0.100 reproducer is not a recommended prerequisite. These actual RC2 checks are not GA evidence; comprehensive and GA reconciliation remain open.

@@ -1,7 +1,7 @@
 [CmdletBinding()]
 param(
   [string]$BaseUri = 'http://127.0.0.1:5418',
-  [string]$Net11Dotnet = 'C:\Users\pingu\.dotnet-playbook-11\dotnet.exe',
+  [string]$Net11Dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source,
   [switch]$ProbeSharing,
   [string]$OutputPath = (Join-Path $PSScriptRoot '../artifacts/pin788/http.evidence.json')
 )
@@ -34,7 +34,7 @@ if ($ProbeSharing) {
   $files = @{
     'Directory.Build.props' = '<Project><PropertyGroup><Nullable>enable</Nullable><ImplicitUsings>enable</ImplicitUsings><TreatWarningsAsErrors>true</TreatWarningsAsErrors></PropertyGroup></Project>'
     'Directory.Packages.props' = '<Project><PropertyGroup><ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally></PropertyGroup></Project>'
-    'global.json' = '{"sdk":{"version":"11.0.100-rc.2.26504.105","rollForward":"disable"}}'
+    'global.json' = '{"sdk":{"version":"11.0.100-rc.3.26522.148","rollForward":"disable"}}'
     'Probe.csproj' = '<Project Sdk="Microsoft.NET.Sdk.Web"><PropertyGroup><TargetFramework>net11.0</TargetFramework><LangVersion>15.0</LangVersion></PropertyGroup></Project>'
     'Program.cs' = @'
 using Microsoft.AspNetCore.Components;

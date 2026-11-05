@@ -31,7 +31,7 @@ Here uploadUri and cancellationToken are supplied by the application. Use its re
 
 ## Constraints
 
-The receiver must decode the declared encoding and enforce limits on decompressed size. Compression does not encrypt data; consider length disclosure when secrets and attacker-controlled text share a compression context. This recipe covers desktop/server SocketsHttpHandler use, not a browser transport or rendering integration. Brotli/Zstandard wrappers are unsupported on browser/WASI; no browser/mobile route is claimed. The .NET 11 contracts have no experimental opt-in, but actual proof uses the pinned RC2 SDK/runtime, not GA reconciliation.
+The receiver must decode the declared encoding and enforce limits on decompressed size. Compression does not encrypt data; consider length disclosure when secrets and attacker-controlled text share a compression context. This recipe covers desktop/server SocketsHttpHandler use, not a browser transport or rendering integration. Brotli/Zstandard wrappers are unsupported on browser/WASI; no browser/mobile route is claimed. The .NET 11 contracts have no experimental opt-in, but actual proof uses the pinned RC3 SDK/runtime, not GA reconciliation.
 
 ## Evidence
 

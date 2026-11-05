@@ -20,7 +20,7 @@ Run the selected complete Web project with its matching SDK, `dotnet run -c Rele
 
 ## Constraints
 
-Interactive Server with prerender disabled is the executed mode. The notification/subscription technique also exists on .NET 10; the new edition explains the .NET 11 analyzer and refreshed-state context, not a newly invented subscription API. SDK 10.0.402/framework 10.0.13 and SDK 11.0.100-rc.2.26504.105/framework RC2 are measured pins. Implicit Internal.Assets packages are locked. No remote identity provider, cookie/JWT refresh, automatic SignalR-to-provider propagation, cross-tab revocation, protected-data authorization, concurrent loader, WASM/Auto/Hybrid, AOT or GA behaviour is proved. No experimental opt-in is required by the inspected notification API.
+Interactive Server with prerender disabled is the executed mode. The notification/subscription technique also exists on .NET 10; the new edition explains the .NET 11 analyzer and refreshed-state context, not a newly invented subscription API. SDK 10.0.403/framework 10.0.14 and SDK 11.0.100-rc.3.26522.148/framework RC2 are measured pins. Implicit Internal.Assets packages are locked. No remote identity provider, cookie/JWT refresh, automatic SignalR-to-provider propagation, cross-tab revocation, protected-data authorization, concurrent loader, WASM/Auto/Hybrid, AOT or GA behaviour is proved. No experimental opt-in is required by the inspected notification API.
 
 ## Older approach
 

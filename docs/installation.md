@@ -46,7 +46,7 @@ Commit `.config/dotnet-tools.json` when the team should share the version. Launc
 
 ## Build and inspect the current development package
 
-Requires PowerShell 7 and the repository-pinned SDK **10.0.402**. Node **22.19+** is needed only for the optional Inspector commands. No .NET 9/11 SDK or workloads are needed to build the host from saved evidence and inspect its guidance; full [sample verification](contributing.md) has additional SDK prerequisites.
+Requires PowerShell 7 and the repository-pinned SDK **10.0.403**. Node **22.19+** is needed only for the optional Inspector commands. No .NET 9/11 SDK or workloads are needed to build the host from saved evidence and inspect its guidance; full [sample verification](contributing.md) has additional SDK prerequisites.
 
 From a clean PowerShell 7 window, substitute your checkout in the first line:
 

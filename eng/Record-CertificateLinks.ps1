@@ -1,7 +1,7 @@
 [CmdletBinding()]
 param(
-  [string]$Net10Dotnet = 'C:/Program Files/dotnet/dotnet.exe',
-  [string]$Net11Dotnet = 'C:/Users/pingu/.dotnet-playbook-11/dotnet.exe',
+  [string]$Net10Dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source,
+  [string]$Net11Dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source,
   [ValidateSet('LaboratoryInspector','SurveyExport','RehearsalRoom')]
   [string[]]$SampleNames = @('LaboratoryInspector','SurveyExport','RehearsalRoom'),
   [switch]$VerifySources
@@ -30,8 +30,8 @@ try {
   }
   foreach ($variant in 'net10.0','net11.0') {
     $dotnet = if ($variant -eq 'net10.0') { $Net10Dotnet } else { $Net11Dotnet }
-    $sdk = if ($variant -eq 'net10.0') { '10.0.402' } else { '11.0.100-rc.2.26504.105' }
-    $ref = if ($variant -eq 'net10.0') { '10.0.13' } else { '11.0.0-rc.2.26504.105' }
+    $sdk = if ($variant -eq 'net10.0') { '10.0.403' } else { '11.0.100-rc.3.26522.148' }
+    $ref = if ($variant -eq 'net10.0') { '10.0.14' } else { '11.0.0-rc.3.26522.148' }
     foreach ($name in $SampleNames) {
       $sample = "samples/$variant/$name/$name.csproj"
       $kind = if ($name -eq 'RehearsalRoom') { 'compile' } else { 'compile-and-run' }
@@ -84,8 +84,8 @@ try {
       }
       [IO.File]::WriteAllText($recordPath, ($record | ConvertTo-Json -Depth 40).Replace("`r`n","`n") + "`n")
       if ($name -eq 'RehearsalRoom') {
-        $image = if ($variant -eq 'net10.0') { 'mcr.microsoft.com/dotnet/runtime@sha256:e454ed02b8c903dff0d7fd40a63451e55f16c186463d168a78e584738244f939' }
-          else { 'mcr.microsoft.com/dotnet/runtime@sha256:3b52667dbaff185a1ddd4cefb16d9517e6945f6e61257faa2e57e6040877d95b' }
+        $image = if ($variant -eq 'net10.0') { 'mcr.microsoft.com/dotnet/runtime@sha256:6b0cde57a2d55aa6ef5b9c9eafbc156e3c0e0b7c114134111103bc0a3e474517' }
+          else { 'mcr.microsoft.com/dotnet/runtime@sha256:811515cabb3edf04bbbef8da41adbd51beb7f973716046d80de77822d2c1dece' }
         $docker = 'C:/Program Files/Docker/Docker/resources/bin/docker.exe'
         $beforeInputs = Get-EvidenceInputs $root $sample
         $record.kind = 'execution'; $record.output = ''; $record.command = ''

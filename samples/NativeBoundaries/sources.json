@@ -124,9 +124,14 @@
   ],
   "runtimeArchives": [
     {
-      "url": "https://builds.dotnet.microsoft.com/dotnet/Runtime/11.0.0-rc.2.26504.105/dotnet-runtime-11.0.0-rc.2.26504.105-win-x86.zip",
-      "name": "win-x86-net11-rc2",
-      "sha256": "af8f4eac0ac98fe6b6e85a7baf276cd9654e5ea3d8014e7483e7bf95dca2b321"
+      "name": "win-x86-net10-10.0.14",
+      "sha256": "60e01691c26d737e7e41b8064bc5b34027abef1b6ea2616e8e80f2976709bfc0",
+      "url": "https://builds.dotnet.microsoft.com/dotnet/Runtime/10.0.14/dotnet-runtime-10.0.14-win-x86.zip"
+    },
+    {
+      "name": "win-x86-net11-rc3",
+      "sha256": "4cac3d6d1d50b8e21800345e6b0a471df4b677f79dbf6513bcc107db74bc1244",
+      "url": "https://builds.dotnet.microsoft.com/dotnet/Runtime/11.0.0-rc.3.26522.148/dotnet-runtime-11.0.0-rc.3.26522.148-win-x86.zip"
     }
   ]
 }

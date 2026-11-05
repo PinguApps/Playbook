@@ -47,7 +47,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Build the net11.0 consumer; measured SDK 11.0.100-rc.2.26504.105 is RC2 evidence, not GA proof."
+            "reason": "Build the net11.0 consumer; measured SDK 11.0.100-rc.3.26522.148 is RC2 evidence, not GA proof."
           },
           "language": {
             "name": "C#",
@@ -67,7 +67,7 @@
             }
           ],
           "packageAssets": [
-            "Independent locked EF10.0.13/net10.0/SDK10.0.402/C#14 and EF11.0.0-rc.2.26504.105/net11.0/SDK11.0.100-rc.2.26504.105/C#15 graphs. EF11 requires .NET11; no older-runtime EF11 route. Current proof uses RC2, not GA. No experimental attribute or opt-in is required on the exercised public contracts."
+            "Independent locked EF10.0.13/net10.0/SDK10.0.403/C#14 and EF11.0.0-rc.2.26504.105/net11.0/SDK11.0.100-rc.3.26522.148/C#15 graphs. EF11 requires .NET11; no older-runtime EF11 route. Current proof uses RC2, not GA. No experimental attribute or opt-in is required on the exercised public contracts."
           ],
           "providers": [
             "Windows x64 bundled SQLite 3.53.3/3.53.4"
@@ -83,7 +83,7 @@
             "Use DeclaringType and distinguish IEntityType from IComplexType. Resolve columns with StoreObjectIdentifier for the selected table or view. EF11 complex paths may occur in key/index property lists; preserve list order and walk structural declaring paths. The older comparison retains an explicit entity SiteCode for key/index membership while separately inspecting its nested Location.Code. These are different authored models; this example does not migrate existing data. SQLite executes nested filtering and a keyless view. Native JSON indexes, container mappings and arbitrary provider hooks remain outside this route."
           ],
           "prerequisites": [
-            "PowerShell7, SDK10.0.402 and SDK11.0.100-rc.2.26504.105. Restore both independent projects; run eng/Test-CurlewModels.ps1 -Record."
+            "PowerShell7, SDK10.0.403 and SDK11.0.100-rc.3.26522.148. Restore both independent projects; run eng/Test-CurlewModels.ps1 -Record."
           ],
           "optIns": [],
           "stabilityLimitations": [
@@ -111,7 +111,7 @@
     {
       "language": "14.0",
       "sample": "samples/net10.0/CurlewMappings/CurlewMappings.csproj",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "target": "net10.0",
       "kind": "compile",
       "scope": "Pinned real SQLite compilation and execution; no GA or other-platform claim."
@@ -119,7 +119,7 @@
     {
       "language": "14.0",
       "sample": "samples/net10.0/CurlewMappings/CurlewMappings.csproj",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "target": "net10.0",
       "kind": "execution",
       "record": "samples/net10.0/CurlewMappings/behavior.evidence.json",
@@ -128,7 +128,7 @@
     {
       "language": "15.0",
       "sample": "samples/net11.0/CurlewMappings/CurlewMappings.csproj",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "target": "net11.0",
       "kind": "compile",
       "scope": "Pinned real SQLite compilation and execution; no GA or other-platform claim."
@@ -136,7 +136,7 @@
     {
       "language": "15.0",
       "sample": "samples/net11.0/CurlewMappings/CurlewMappings.csproj",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "target": "net11.0",
       "kind": "execution",
       "record": "samples/net11.0/CurlewMappings/behavior.evidence.json",

@@ -58,7 +58,7 @@
           "workloads": [],
           "prerequisites": [
             "SDK console project with Nullable and ImplicitUsings enabled; complete canonical source includes imports and namespace.",
-            "No additional NuGet package. Exact proof: SDK11.0.100-rc.2.26504.105/runtime-ref11.0.0-rc.2.26504.105; previous SDK10.0.402/runtime-ref10.0.13."
+            "No additional NuGet package. Exact proof: SDK11.0.100-rc.3.26522.148/runtime-ref11.0.0-rc.3.26522.148; previous SDK10.0.403/runtime-ref10.0.14."
           ],
           "constraints": [
             "No older-target/newer-package route is advertised. Existing .NET10 comparison remains valid and adds no historical foundation.",
@@ -119,7 +119,7 @@
   "evidence": [
     {
       "scope": "Actual paired value-based type/payload, order, malformed/no-match and reference-null execution; current registration/global errors and generated candidates.",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "target": "net10.0",
       "kind": "compile-and-run",
       "sample": "samples/net10.0/TideOffsets/TideOffsets.csproj",
@@ -127,7 +127,7 @@
     },
     {
       "scope": "Actual paired value-based type/payload, order, malformed/no-match and reference-null execution; current registration/global errors and generated candidates.",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "target": "net11.0",
       "kind": "compile-and-run",
       "sample": "samples/net11.0/TideOffsets/TideOffsets.csproj",

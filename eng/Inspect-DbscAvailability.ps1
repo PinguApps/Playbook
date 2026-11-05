@@ -73,7 +73,7 @@ try {
       asset = $dll.FullName; symbols = $symbols
     }
   } finally { $zip.Dispose() }
-  $referenceVersion = '11.0.0-rc.2.26504.105'
+  $referenceVersion = '11.0.0-rc.3.26522.148'
   $reference = Get-Artifact "https://api.nuget.org/v3-flatcontainer/microsoft.aspnetcore.app.ref/$referenceVersion/microsoft.aspnetcore.app.ref.$referenceVersion.nupkg"
   $zip = [IO.Compression.ZipFile]::OpenRead($reference.path)
   try {

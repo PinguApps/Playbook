@@ -1,7 +1,7 @@
 [CmdletBinding()]
 param(
     [string]$Docker = 'C:/Program Files/Docker/Docker/resources/bin/docker.exe',
-    [string]$Image = 'mcr.microsoft.com/dotnet/sdk@sha256:bfabf51e74c5a7cf2fc4eac852145db86f4867d475257d809518d6a2b0fe71e1',
+    [string]$Image = 'mcr.microsoft.com/dotnet/sdk@sha256:9fc2f44fba54c579b9b650f6feea29beff050fb030d797eac697de85a94ad77f',
     [string]$Packages = (Join-Path $env:USERPROFILE '.nuget/packages')
 )
 
@@ -31,7 +31,7 @@ Set-Location "/work/samples/net11.0/$name"
 $native = (& /usr/bin/openssl version | Out-String).Trim()
 if ($native -notmatch '^OpenSSL 3\.5\.5 ') { throw "Unexpected OpenSSL: $native" }
 $sdk = (& /usr/share/dotnet/dotnet --version | Out-String).Trim()
-if ($sdk -cne '11.0.100-rc.2.26504.105') { throw "Unexpected SDK: $sdk" }
+if ($sdk -cne '11.0.100-rc.3.26522.148') { throw "Unexpected SDK: $sdk" }
 $sdkInfo = (& /usr/share/dotnet/dotnet --info | Out-String).Trim()
 $workloads = (& /usr/share/dotnet/dotnet workload list | Out-String).Trim()
 $output = (& /usr/share/dotnet/dotnet build "$name.csproj" --configuration Release -p:RestoreLockedMode=true -p:NuGetAudit=false | Out-String).Trim()
@@ -50,7 +50,7 @@ Write-Host $output
     if ((ConvertTo-Json $before -Compress) -cne (ConvertTo-Json $after -Compress)) { throw 'Crypto inputs changed during verification.' }
     $manifest = Get-Content (Join-Path $root "samples/net11.0/$name/verification.json") -Raw | ConvertFrom-Json
     $record = [ordered]@{
-        kind = 'compile-and-run'; sample = $sample; target = 'net11.0'; sdk = '11.0.100-rc.2.26504.105'; language = '15.0'
+        kind = 'compile-and-run'; sample = $sample; target = 'net11.0'; sdk = '11.0.100-rc.3.26522.148'; language = '15.0'
         command = "eng/Test-CryptoPlatforms.ps1 -Docker '$Docker' -Image '$Image'; container: /usr/share/dotnet/dotnet build $name.csproj --configuration Release -p:RestoreLockedMode=true -p:NuGetAudit=false; /usr/share/dotnet/dotnet ./bin/Release/net11.0/$name.dll"
         scope = 'Actual Linux x64/OpenSSL crypto operations in a network-disabled authoring container, built from unchanged inputs with locked packages. No mocks, Windows CMS, Apple or GA proof.'
         recordedAt = [DateTimeOffset]::UtcNow.ToString('O'); sourceCommit = (& 'C:/Program Files/Git/cmd/git.exe' -C $root rev-parse HEAD).Trim()

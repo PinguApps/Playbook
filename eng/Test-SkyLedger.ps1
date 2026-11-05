@@ -1,7 +1,7 @@
 [CmdletBinding()]
 param(
   [string]$Dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source,
-  [string]$Net11Dotnet = 'C:\Users\pingu\.dotnet-playbook-11\dotnet.exe',
+  [string]$Net11Dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source,
   [switch]$RecordEvidence
 )
 $ErrorActionPreference = 'Stop'
@@ -69,7 +69,7 @@ try {
       & $tool openapi2csclient "/Input:$document" "/Output:$consumer/Client.cs" /ClassName:SkyGenerated /Namespace:SkyConsumer /JsonLibrary:SystemTextJson /UseBaseUrl:false /OperationGenerationMode:SingleClientFromOperationId | Out-Host
       Copy-Item -LiteralPath (Join-Path $root 'samples/net11.0/SkyLedger/GeneratedConsumer.cs.txt') -Destination (Join-Path $consumer 'Program.cs')
       [IO.File]::WriteAllText((Join-Path $consumer 'Consumer.csproj'), '<Project Sdk="Microsoft.NET.Sdk"><PropertyGroup><OutputType>Exe</OutputType><TargetFramework>net10.0</TargetFramework><ImplicitUsings>enable</ImplicitUsings><Nullable>disable</Nullable><TreatWarningsAsErrors>true</TreatWarningsAsErrors></PropertyGroup></Project>')
-      [IO.File]::WriteAllText((Join-Path $consumer 'global.json'), '{"sdk":{"version":"10.0.402","rollForward":"disable"}}')
+      [IO.File]::WriteAllText((Join-Path $consumer 'global.json'), '{"sdk":{"version":"10.0.403","rollForward":"disable"}}')
       Push-Location $consumer
       try { $result = (& $Dotnet run -c Release -- $address | Out-String).Trim(); Write-Host $result }
       finally { Pop-Location }
@@ -81,7 +81,7 @@ try {
       if ($RecordEvidence) {
         $manifest = Get-Content -LiteralPath verification.json -Raw | ConvertFrom-Json
         $record = [ordered]@{
-          kind='execution'; sample=$sample; target="net$release.0"; sdk=if ($release -eq '10') { '10.0.402' } else { '11.0.100-rc.2.26504.105' }; language=if ($release -eq '10') { '14.0' } else { '15.0' }
+          kind='execution'; sample=$sample; target="net$release.0"; sdk=if ($release -eq '10') { '10.0.403' } else { '11.0.100-rc.3.26522.148' }; language=if ($release -eq '10') { '14.0' } else { '15.0' }
           command="eng/Test-SkyLedger.ps1 -Dotnet '$Dotnet' -Net11Dotnet '$Net11Dotnet' -RecordEvidence"
           scope='Real build-time documents in Development/Production; .NET 10 process environment versus .NET 11 OpenApiGenerationEnvironment; endpoint and transformer differences; NSwag 14.7.1 generated typed client from selected OpenAPI 3.0, independently compiled on .NET 10 and executed against this actual server. No SSE client-generator or OpenAPI 3.2 generator support claim.'
           recordedAt=[DateTimeOffset]::UtcNow.ToString('O'); sourceCommit=(& $git -C $root rev-parse HEAD).Trim(); sourceDirty=[bool](& $git -C $root status --porcelain -- samples eng/Test-SkyLedger.ps1)

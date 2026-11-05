@@ -46,7 +46,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Build against the .NET 11 reference assemblies; exact RC2 is the reproduction baseline."
+            "reason": "Build against the .NET 11 reference assemblies; exact RC3 is the reproduction baseline."
           },
           "language": {
             "name": "C#",
@@ -71,12 +71,12 @@
           ],
           "constraints": [
             "Actual Linux x64 OpenSSL execution in pinned Azure Linux containers; separate Windows compilation. Private offline test root only; no TLS/online-revocation/GA claim.",
-            "Previous comparison uses SDK10.0.402 / C#14 / runtime10.0.13; current uses SDK11.0.100-rc.2.26504.105 / C#15 / runtime11RC2. These are verification pins, not a universal support floor.",
+            "Previous comparison uses SDK10.0.403 / C#14 / runtime10.0.14; current uses SDK11.0.100-rc.3.26522.148 / C#15 / runtime11RC3. These are verification pins, not a universal support floor.",
             "No device, rendering mode, workload, public service or persistent environment changes. Preserve eight foundations and existing GA/Human/comprehensive gates."
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "RC2 evidence is not actual-GA proof. No selected API experimental opt-in is required."
+            "RC3 evidence is not actual-GA proof. No selected API experimental opt-in is required."
           ]
         },
         "sourceUrls": [
@@ -110,7 +110,7 @@
       "kind": "compile",
       "scope": "Actual Linux x64 OpenSSL execution in pinned Azure Linux containers; separate Windows compilation. Private offline test root only; no TLS/online-revocation/GA claim.",
       "sample": "samples/net10.0/ArchiveManifest/ArchiveManifest.csproj",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "language": "14.0",
       "target": "net10.0"
     },
@@ -119,7 +119,7 @@
       "record": "samples/net10.0/ArchiveManifest/linux.evidence.json",
       "scope": "Actual Linux x64 OpenSSL execution in pinned Azure Linux containers; separate Windows compilation. Private offline test root only; no TLS/online-revocation/GA claim.",
       "sample": "samples/net10.0/ArchiveManifest/ArchiveManifest.csproj",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "language": "14.0",
       "target": "net10.0"
     },
@@ -127,7 +127,7 @@
       "kind": "compile",
       "scope": "Actual Linux x64 OpenSSL execution in pinned Azure Linux containers; separate Windows compilation. Private offline test root only; no TLS/online-revocation/GA claim.",
       "sample": "samples/net11.0/ArchiveManifest/ArchiveManifest.csproj",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "language": "15.0",
       "target": "net11.0"
     },
@@ -136,7 +136,7 @@
       "record": "samples/net11.0/ArchiveManifest/linux.evidence.json",
       "scope": "Actual Linux x64 OpenSSL execution in pinned Azure Linux containers; separate Windows compilation. Private offline test root only; no TLS/online-revocation/GA claim.",
       "sample": "samples/net11.0/ArchiveManifest/ArchiveManifest.csproj",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "language": "15.0",
       "target": "net11.0"
     }

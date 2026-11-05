@@ -64,7 +64,7 @@ The inexpensive dependency inventory check runs on every PR. The real Renovate r
 
 The policy check also parses the publishing and validation YAML to check reusable-workflow permission contracts. The release-draft caller must grant `actions: read` through `publish.yml` to verification, even when publication is gated off: GitHub validates the composed workflow before evaluating job conditions. OIDC remains scoped to the publishing job and its reusable caller. See [PIN-1023 verification](https://github.com/PinguApps/Playbook/blob/e60419660a082da40dfc1bd8f0667401677c53f3/docs/verification/PIN-1023.md) for the reproduced failure and safe hosted validation.
 
-Run the same smoke locally with PowerShell 7 and SDK 10.0.402:
+Run the same smoke locally with PowerShell 7 and SDK 10.0.403:
 
 ```powershell
 Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-4d84c6cb'

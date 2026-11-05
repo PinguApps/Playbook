@@ -134,14 +134,16 @@ try {
   foreach ($case in @(
     @{ Path = 'samples/net10.0/RepositoryUtility/slots.cs'; From = 'TargetFramework=net10.0'; To = 'TargetFramework=net11.0'; Error = 'Stale compilation evidence' },
     @{ Path = 'samples/net10.0/RepositoryUtility/slots.cs'; From = 'slots={total}'; To = 'racks={total}'; Error = 'Stale compilation evidence' },
-    @{ Path = 'samples/net10.0/PropertyAssignment/global.json'; From = '10.0.402'; To = '10.0.403'; Error = 'Evidence baseline disagrees' },
+    @{ Path = 'samples/net10.0/PropertyAssignment/global.json'; From = '10.0.403'; To = '10.0.402'; Error = 'Evidence baseline disagrees' },
     @{ Path = 'samples/net10.0/PropertyAssignment/PropertyAssignment.csproj'; From = 'net10.0'; To = 'net11.0'; Error = 'Evidence baseline disagrees' },
     @{ Path = 'samples/Directory.Packages.props'; From = '</Project>'; To = '<ItemGroup><PackageVersion Include="Fixture.Dependency" Version="2.0.0" /></ItemGroup></Project>'; Error = 'Stale compilation evidence' },
     @{ Path = 'samples/net10.0/PropertyAssignment/verification.json'; From = '"nativeToolchains": []'; To = '"nativeToolchains": ["Fixture.Native/2.0"]'; Error = 'Stale compilation evidence' }
   )) {
     $fullPath = Join-Path $fixture $case.Path
     $before = Get-Content $fullPath -Raw
-    [IO.File]::WriteAllText($fullPath, $before.Replace($case.From, $case.To))
+    $changed = $before.Replace($case.From, $case.To)
+    if ($changed -ceq $before) { throw "Fixture mutation made no change: $($case.Path)" }
+    [IO.File]::WriteAllText($fullPath, $changed)
     $result = & $pwsh @buildArgs 2>&1 | Out-String
     [IO.File]::WriteAllText($fullPath, $before)
     if ($LASTEXITCODE -eq 0 -or $result -notlike "*$($case.Error)*") { throw "Changed input was accepted ($($case.Path)): $result" }

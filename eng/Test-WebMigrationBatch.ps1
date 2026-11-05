@@ -1,7 +1,7 @@
 [CmdletBinding()]
 param(
-  [string]$Dotnet = 'C:/Program Files/dotnet/dotnet.exe',
-  [string]$Net11Dotnet = 'C:/Users/pingu/.dotnet-playbook-11/dotnet.exe',
+  [string]$Dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source,
+  [string]$Net11Dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source,
   [string]$Gh = 'C:/Program Files/GitHub CLI/gh.exe',
   [string]$OutputDirectory = (Join-Path $PSScriptRoot '../artifacts/web-migrations'),
   [switch]$RecordEvidence
@@ -66,6 +66,14 @@ try {
       Push-Location $directory
       try {
         & $dotnetHost restore --locked-mode
+        if ($name -eq 'VolunteerAccess') {
+          # NuGet regeneration omits the comments used to embed this lock in the recipe.
+          $lockPath = Join-Path $directory 'packages.lock.json'
+          $lock = [IO.File]::ReadAllText($lockPath).Replace("`r`n", "`n").Trim()
+          if (-not $lock.StartsWith('// snippet:complete', [StringComparison]::Ordinal)) {
+            [IO.File]::WriteAllText($lockPath, "// snippet:complete`n$lock`n// endsnippet:complete`n")
+          }
+        }
         $properties = (& $dotnetHost msbuild -getProperty:NuGetPackageRoot,TargetFramework | ConvertFrom-Json).Properties
         # Preflight the actual restored graph and ZIPs before any sample executes
         # or Record-Evidence can write a new compilation record.
@@ -154,8 +162,8 @@ try {
             & $dotnetHost build -c Release --no-restore
           }
         }
-        $framework = if ($release -eq '10') { '10.0.13' } else { '11.0.0-rc.2.26504.105' }
-        $sdk = if ($release -eq '10') { '10.0.402' } else { '11.0.100-rc.2.26504.105' }
+        $framework = if ($release -eq '10') { '10.0.14' } else { '11.0.0-rc.3.26522.148' }
+        $sdk = if ($release -eq '10') { '10.0.403' } else { '11.0.100-rc.3.26522.148' }
         $installation = Split-Path $dotnetHost -Parent
         foreach ($assembly in 'Microsoft.AspNetCore.Server.Kestrel.Core.dll','Microsoft.AspNetCore.Http.Abstractions.dll') {
           $file = Join-Path $installation "packs/Microsoft.AspNetCore.App.Ref/$framework/ref/net$release.0/$assembly"

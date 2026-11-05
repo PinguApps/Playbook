@@ -14,7 +14,7 @@ an SDK 10/11 comparison, not a net10/net11 runtime comparison.
 
 ## Older approach
 
-SDK 10.0.402 on Linux evaluates `RunCommand` to `mono` for this Framework
+SDK 10.0.403 on Linux evaluates `RunCommand` to `mono` for this Framework
 executable and quotes the target assembly in `RunArguments` before appending
 `StartArguments`. With Mono installed, the retained default works. Keep it when
 using the older SDK; it does not imply Microsoft support for the runtime route.
@@ -61,7 +61,7 @@ desktop components and other applications need their own compatibility checks.
 The host needs Mono, not a .NET 11 runtime to execute this net472 importer. SDK 11
 is used to build and evaluate the new launch configuration. No package, provider,
 rendering mode, workload, experimental opt-in or public deployment is involved.
-No machine/user environment or PATH changes are required. SDK 11 RC2 establishes
+No machine/user environment or PATH changes are required. SDK 11 RC3 establishes
 the measured behavior only; final GA reconciliation remains separate.
 
 ## Evidence

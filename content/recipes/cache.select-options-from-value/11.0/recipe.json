@@ -44,7 +44,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Build against .NET 11 references; the exact RC2 SDK is a verification baseline."
+            "reason": "Build against .NET 11 references; the exact RC3 SDK is a verification baseline."
           },
           "language": {
             "name": "C#",
@@ -126,7 +126,7 @@
     {
       "sample": "samples/net10.0/CacheEntries/CacheEntries.csproj",
       "target": "net10.0",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "language": "14.0",
       "kind": "compile-and-run",
       "scope": "Real statistics/custom metric and value-derived HybridCache SetAsync/local expiry; no distributed backend."
@@ -134,7 +134,7 @@
     {
       "sample": "samples/net11.0/CacheEntries/CacheEntries.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "language": "15.0",
       "kind": "compile-and-run",
       "scope": "Real built-in cache statistics/four metrics and value-derived Hybrid local expiry; LocalSize remains a known requested-24/observed-12 RC gap."

@@ -54,19 +54,19 @@
           "packages": [
             {
               "name": "Microsoft.AspNetCore.Components.WebAssembly",
-              "version": "11.0.0-rc.2.26504.105",
+              "version": "11.0.0-rc.3.26522.148",
               "match": "exact",
               "reason": "Pinned browser assets and framework API baseline."
             },
             {
               "name": "Microsoft.AspNetCore.Components.WebAssembly.Server",
-              "version": "11.0.0-rc.2.26504.105",
+              "version": "11.0.0-rc.3.26522.148",
               "match": "exact",
               "reason": "Pinned prerendered host integration."
             },
             {
               "name": "Microsoft.Extensions.Localization",
-              "version": "10.0.13",
+              "version": "10.0.14",
               "match": "exact",
               "reason": "Client localizer implementation; actual RC2 resolved abstractions are recorded separately."
             }
@@ -155,7 +155,7 @@
       "language": "14.0",
       "sample": "samples/net10.0/CultureHarbour/Host/Host.csproj",
       "scope": "Actual matching SDK compilation only. Separate real HTTP/Chrome WASM records prove prerendered formatting/translation, initial en-US, aligned en-GB/fr-FR or explicit independent de-DE, actual satellite fetch-before-render and working event handler. Exact input/verifier/executed artifact hashes and capture provenance: docs/verification/browser-culture.md. No mocks/cross-compilation.",
-      "sdk": "10.0.402"
+      "sdk": "10.0.403"
     },
     {
       "target": "net10.0",
@@ -163,7 +163,7 @@
       "language": "14.0",
       "sample": "samples/net10.0/CultureHarbour/Client/Client.csproj",
       "scope": "Actual matching SDK compilation only. Separate real HTTP/Chrome WASM records prove prerendered formatting/translation, initial en-US, aligned en-GB/fr-FR or explicit independent de-DE, actual satellite fetch-before-render and working event handler. Exact input/verifier/executed artifact hashes and capture provenance: docs/verification/browser-culture.md. No mocks/cross-compilation.",
-      "sdk": "10.0.402"
+      "sdk": "10.0.403"
     },
     {
       "target": "net11.0",
@@ -171,7 +171,7 @@
       "language": "15.0",
       "sample": "samples/net11.0/CultureHarbour/Host/Host.csproj",
       "scope": "Actual matching SDK compilation only. Separate real HTTP/Chrome WASM records prove prerendered formatting/translation, initial en-US, aligned en-GB/fr-FR or explicit independent de-DE, actual satellite fetch-before-render and working event handler. Exact input/verifier/executed artifact hashes and capture provenance: docs/verification/browser-culture.md. No mocks/cross-compilation.",
-      "sdk": "11.0.100-rc.2.26504.105"
+      "sdk": "11.0.100-rc.3.26522.148"
     },
     {
       "target": "net11.0",
@@ -179,7 +179,7 @@
       "language": "15.0",
       "sample": "samples/net11.0/CultureHarbour/Client/Client.csproj",
       "scope": "Actual matching SDK compilation only. Separate real HTTP/Chrome WASM records prove prerendered formatting/translation, initial en-US, aligned en-GB/fr-FR or explicit independent de-DE, actual satellite fetch-before-render and working event handler. Exact input/verifier/executed artifact hashes and capture provenance: docs/verification/browser-culture.md. No mocks/cross-compilation.",
-      "sdk": "11.0.100-rc.2.26504.105"
+      "sdk": "11.0.100-rc.3.26522.148"
     }
   ],
   "snippets": {

@@ -13,9 +13,9 @@ adding a ninth historical foundation or advertising a down-level SDK11 route.
 
 | Layer | Older comparison | Current example |
 | --- | --- | --- |
-| SDK | 10.0.402 | 11.0.100-rc.2.26504.105 |
-| Target / reference and runtime assets | net10.0 / 10.0.13 | net11.0 / 11.0.0-rc.2.26504.105 |
-| Compiler / language | 5.9.0-1.26505.111 / C#14 | 5.12.0-1.26504.105 / C#15 |
+| SDK | 10.0.403 | 11.0.100-rc.3.26522.148 |
+| Target / reference and runtime assets | net10.0 / 10.0.14 | net11.0 / 11.0.0-rc.3.26522.148 |
+| Compiler / language | 5.9.0-1.26523.112 / C#14 | 5.12.0-1.26522.148 / C#15 |
 | Native compiler packages | Microsoft.DotNet.ILCompiler and runtime.win-x64.Microsoft.DotNet.ILCompiler 10.0.13 | Same package IDs, 11.0.0-rc.2.26504.105 |
 | Native linker / libraries | MSVC link 14.51.36260.0; MSVC 14.51.36231 library directory; Windows SDK 10.0.26100.0 x64 UM/UCRT | Same measured host toolchain |
 
@@ -31,7 +31,7 @@ and `-WindowsSdkLibRoot` to override the measured machine's default paths.
 ## Older approach
 
 Save this project as `samples/net10.0/EstuaryNative/EstuaryNative.csproj`, and the
-program below as `Program.cs` in that directory. Select SDK10.0.402 using
+program below as `Program.cs` in that directory. Select SDK10.0.403 using
 `global.json` with `rollForward: "disable"`.
 
 {{snippet:older}}
@@ -46,7 +46,7 @@ This is a sidecar used at execution time, not a generated assembly or embedded r
 ## Newer approach
 
 Save this current project at `samples/net11.0/EstuaryNative/EstuaryNative.csproj`.
-Keep the stated relative link to the older program. Select the exact RC2 SDK in
+Keep the stated relative link to the older program. Select the exact RC3 SDK in
 that directory's `global.json`, again with roll-forward disabled.
 
 {{snippet:newer}}

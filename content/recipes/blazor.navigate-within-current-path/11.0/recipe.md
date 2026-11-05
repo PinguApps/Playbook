@@ -49,9 +49,9 @@ boundary. Choose destinations from trusted application routes.
 
 Use Microsoft.NET.Sdk.Web with net11.0, LangVersion 15.0, Nullable enable and
 ImplicitUsings enable. The comparison uses net10.0/C# 14.0. The independently
-pinned SDKs are 11.0.100-rc.2.26504.105 and 10.0.402. No explicit NuGet reference
+pinned SDKs are 11.0.100-rc.3.26522.148 and 10.0.403. No explicit NuGet reference
 is needed for these framework APIs. Keep the SDK-provided browser assets aligned;
-the measured SDKs restore Internal.Assets 11.0.0-rc.2.26504.105 and 10.0.13.
+the measured SDKs restore Internal.Assets 11.0.0-rc.3.26522.148 and 10.0.14.
 No provider, native workload or service account is required.
 
 {{snippet:startup}}

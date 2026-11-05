@@ -58,7 +58,7 @@
           ],
           "constraints": [
             "Null elements are ignored; empty non-nullable value spans throw InvalidOperationException, while empty reference/nullable spans return null. No floating NaN or performance claim.",
-            "Previous SDK10.0.402/C#14/ref-runtime10.0.13; current SDK11.0.100-rc.2.26504.105/C#15/ref-runtime11RC2. Exact proof pins are separate from release-family prerequisites.",
+            "Previous SDK10.0.403/C#14/ref-runtime10.0.14; current SDK11.0.100-rc.3.26522.148/C#15/ref-runtime11RC3. Exact proof pins are separate from release-family prerequisites.",
             "No NuGet packages, package assets, native/UI dependencies, providers, workloads, rendering modes or experimental opt-ins. No additional older-target API route or .NET10 foundation."
           ],
           "optIns": [],
@@ -102,7 +102,7 @@
   "evidence": [
     {
       "scope": "Value/reference/nullable inputs, default and explicit comparers, ignored/all-null values, empty non-nullable exceptions and nullable/reference null results, generic application-owned static helpers.",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "target": "net10.0",
       "kind": "compile-and-run",
       "sample": "samples/net10.0/ObservatoryBatch/ObservatoryBatch.csproj",
@@ -110,7 +110,7 @@
     },
     {
       "scope": "Value/reference/nullable inputs, default and explicit comparers, ignored/all-null values, empty non-nullable exceptions and nullable/reference null results, generic static and extension overloads.",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "target": "net11.0",
       "kind": "compile-and-run",
       "sample": "samples/net11.0/ObservatoryBatch/ObservatoryBatch.csproj",

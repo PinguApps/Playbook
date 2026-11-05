@@ -1,8 +1,8 @@
 [CmdletBinding()]
 param(
   [string]$ResponsePath = (Join-Path $PSScriptRoot '../artifacts/pin1176/inspection/web.order-static-asset-routes.json'),
-  [string]$Dotnet = 'C:/Program Files/dotnet/dotnet.exe',
-  [string]$Net11Dotnet = 'C:/Users/pingu/.dotnet-playbook-11/dotnet.exe',
+  [string]$Dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source,
+  [string]$Net11Dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source,
   [string]$OutputDirectory = (Join-Path $PSScriptRoot '../artifacts/pin1176/consumer')
 )
 $ErrorActionPreference = 'Stop'

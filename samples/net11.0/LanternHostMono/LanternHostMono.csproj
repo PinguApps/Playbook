@@ -1,5 +1,5 @@
 <!-- snippet:host-project -->
 <Project Sdk="Microsoft.NET.Sdk.WebAssembly">
-  <PropertyGroup><TargetFramework>net11.0</TargetFramework><LangVersion>15.0</LangVersion><AllowUnsafeBlocks>true</AllowUnsafeBlocks><ImplicitUsings>enable</ImplicitUsings><Nullable>enable</Nullable><RuntimeIdentifier>browser-wasm</RuntimeIdentifier><RuntimeFrameworkVersion>11.0.0-rc.2.26504.105</RuntimeFrameworkVersion><UseMonoRuntime>true</UseMonoRuntime><RestorePackagesWithLockFile>true</RestorePackagesWithLockFile><PublishTrimmed>false</PublishTrimmed><EnableDiagnostics>true</EnableDiagnostics><EventSourceSupport>true</EventSourceSupport></PropertyGroup>
+  <PropertyGroup><TargetFramework>net11.0</TargetFramework><LangVersion>15.0</LangVersion><AllowUnsafeBlocks>true</AllowUnsafeBlocks><ImplicitUsings>enable</ImplicitUsings><Nullable>enable</Nullable><RuntimeIdentifier>browser-wasm</RuntimeIdentifier><RuntimeFrameworkVersion>11.0.0-rc.3.26522.148</RuntimeFrameworkVersion><UseMonoRuntime>true</UseMonoRuntime><RestorePackagesWithLockFile>true</RestorePackagesWithLockFile><PublishTrimmed>false</PublishTrimmed><EnableDiagnostics>true</EnableDiagnostics><EventSourceSupport>true</EventSourceSupport></PropertyGroup>
 </Project>
 <!-- endsnippet:host-project -->

@@ -17,7 +17,7 @@ Save this as `WildlifeTags.csproj` in an empty `library-10` directory:
 
 {{snippet:older-project}}
 
-SDK 10.0.402 accepts this Unicode ID without NU5052. Existing private/local
+SDK 10.0.403 accepts this Unicode ID without NU5052. Existing private/local
 consumption remains a valid older workflow; pack acceptance says nothing about
 whether a public feed accepts a new upload under that name.
 
@@ -31,7 +31,7 @@ Save this complete `TagRules.cs` in each library directory:
 
 {{snippet:library}}
 
-Use SDK **10.0.402 / 11.0.100-rc.2.26504.105**, respectively, with C# **14 / 15**.
+Use SDK **10.0.403 / 11.0.100-rc.3.26522.148**, respectively, with C# **14 / 15**.
 Save a `global.json` beside each project with `sdk.version` set to that exact
 SDK, `rollForward` set to `disable`, and `allowPrerelease` true only for RC2.
 Those are the verification pins, separate from the supported SDK-11 feature

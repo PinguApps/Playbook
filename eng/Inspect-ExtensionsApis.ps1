@@ -1,7 +1,7 @@
 [CmdletBinding()]
 param(
-  [string]$Net10Root = 'C:/Program Files/dotnet',
-  [string]$Net11Root = 'C:/Users/pingu/.dotnet-playbook-11',
+  [string]$Net10Root = (Split-Path (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source -Parent),
+  [string]$Net11Root = (Split-Path (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source -Parent),
   [string]$OutputPath = (Join-Path $PSScriptRoot '../artifacts/extensions.assets.json'),
   [string]$CompareWith,
   [string]$SourceManifest = (Join-Path $PSScriptRoot '../docs/planning/audits/extensions.sources.json'),
@@ -114,15 +114,15 @@ function Test-InScope([string]$Path, [string]$Name) { return $true }
 $temporary = Join-Path ([IO.Path]::GetTempPath()) "playbook-extensions-$([guid]::NewGuid().ToString('N'))"
 New-Item -ItemType Directory -Path $temporary | Out-Null
 try {
-  Add-Type -Path (Join-Path $Net10Root 'sdk/10.0.402/System.Reflection.MetadataLoadContext.dll')
+  Add-Type -Path (Join-Path $Net10Root 'sdk/10.0.403/System.Reflection.MetadataLoadContext.dll')
   $baselines = @(
-    @{ root = $Net10Root; sdk = '10.0.402'; version = '10.0.13'; target = 'net10.0' },
-    @{ root = $Net11Root; sdk = '11.0.100-rc.2.26504.105'; version = '11.0.0-rc.2.26504.105'; target = 'net11.0' }
+    @{ root = $Net10Root; sdk = '10.0.403'; version = '10.0.13'; runtime = '10.0.14'; target = 'net10.0' },
+    @{ root = $Net11Root; sdk = '11.0.100-rc.3.26522.148'; version = '11.0.0-rc.2.26504.105'; runtime = '11.0.0-rc.3.26522.148'; target = 'net11.0' }
   )
   $results = @()
   foreach ($baseline in $baselines) {
-    $core = Join-Path $baseline.root "packs/Microsoft.NETCore.App.Ref/$($baseline.version)/ref/$($baseline.target)"
-    $asp = Join-Path $baseline.root "packs/Microsoft.AspNetCore.App.Ref/$($baseline.version)/ref/$($baseline.target)"
+    $core = Join-Path $baseline.root "packs/Microsoft.NETCore.App.Ref/$($baseline.runtime)/ref/$($baseline.target)"
+    $asp = Join-Path $baseline.root "packs/Microsoft.AspNetCore.App.Ref/$($baseline.runtime)/ref/$($baseline.target)"
     if (-not (Test-Path -LiteralPath $core) -or -not (Test-Path -LiteralPath $asp)) { throw 'Missing pinned reference packs.' }
     $references = @(Get-ChildItem -LiteralPath $core,$asp -Filter '*.dll' | ForEach-Object FullName)
     $selected = @($references | Where-Object {
@@ -168,7 +168,7 @@ try {
         $package.tooling += [ordered]@{ path = [IO.Path]::GetRelativePath($directory, $tool.FullName).Replace('\', '/'); sha256 = Get-Hash $tool.FullName }
       }
     }
-    $results += [ordered]@{ sdk = $baseline.sdk; referencePack = $baseline.version; target = $baseline.target; metadataReaderSha256 = Get-Hash (Join-Path $baseline.root "sdk/$($baseline.sdk)/System.Reflection.MetadataLoadContext.dll"); framework = $framework; packages = $packages }
+    $results += [ordered]@{ sdk = $baseline.sdk; referencePack = $baseline.runtime; packageVersion = $baseline.version; target = $baseline.target; metadataReaderSha256 = Get-Hash (Join-Path $baseline.root "sdk/$($baseline.sdk)/System.Reflection.MetadataLoadContext.dll"); framework = $framework; packages = $packages }
   }
   $diffs = @()
   foreach ($name in Get-Ordinal @($results.framework.name | Select-Object -Unique)) {

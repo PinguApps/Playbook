@@ -24,7 +24,7 @@ XML references to that missing type do not make it callable. Registering
 
 The intended route needs Linux, OpenSSL and matching native runtime TLS support.
 It is experimental (`ASPNETCORE_DIRECTTLS_001`). No OpenSSL/runtime combination,
-dependency closure or native execution is established here. SDK 11 RC2 is an
+dependency closure or native execution is established here. SDK 11 RC3 is an
 intended future baseline; it does not make an RC1 package implement an RC2 API.
 Windows compilation would not establish Linux support. No .NET 10 backport,
 Windows transport or GA contract is claimed.

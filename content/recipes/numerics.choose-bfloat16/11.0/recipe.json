@@ -59,7 +59,7 @@
             "SDK console project with Nullable and ImplicitUsings enabled; put complete canonical helpers in separate .cs files with their imports."
           ],
           "constraints": [
-            "Previous SDK10.0.402/C#14/ref-runtime10.0.13; current SDK11.0.100-rc.2.26504.105/C#15/ref-runtime11RC2. Exact proof pins are separate from release-family requirements.",
+            "Previous SDK10.0.403/C#14/ref-runtime10.0.14; current SDK11.0.100-rc.3.26522.148/C#15/ref-runtime11RC3. Exact proof pins are separate from release-family requirements.",
             "No provider, native assets, workloads, rendering modes or experimental diagnostic opt-ins. Older comparisons remain valid and add no foundation; no additional older-target API route is advertised.",
             "BFloat16 has float-like exponent range but only 8 significant binary digits for normals. Choose data-specific error budgets and widen before accumulation when appropriate.",
             "Windows x64 RC2 execution; no JSON/bit-serialization, ML/GPU, universal accuracy or performance claim."
@@ -95,7 +95,7 @@
   "evidence": [
     {
       "scope": "Exact and nearest-even conversions; large/small magnitudes, signed zero/infinity/NaN, underflow/overflow, generic arithmetic and per-reading/mean error budgets.",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "target": "net10.0",
       "kind": "compile-and-run",
       "sample": "samples/net10.0/SensorArchive/SensorArchive.csproj",
@@ -103,7 +103,7 @@
     },
     {
       "scope": "Exact and nearest-even conversions; large/small magnitudes, signed zero/infinity/NaN, underflow/overflow, generic arithmetic and per-reading/mean error budgets.",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "target": "net11.0",
       "kind": "compile-and-run",
       "sample": "samples/net11.0/SensorArchive/SensorArchive.csproj",

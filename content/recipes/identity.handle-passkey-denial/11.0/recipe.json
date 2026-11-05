@@ -82,7 +82,7 @@
           ],
           "optIns": [],
           "packageAssets": [
-            "Matching Microsoft.AspNetCore.App framework/reference pack; SDK 11 Blazor Individual-auth template for PasskeyAuthenticators. No extra production NuGet package; RC2 SDK restores Microsoft.AspNetCore.App.Internal.Assets/11.0.0-rc.2.26504.105 for the sample."
+            "Matching Microsoft.AspNetCore.App framework/reference pack; SDK 11 Blazor Individual-auth template for PasskeyAuthenticators. No extra production NuGet package; RC3 SDK restores Microsoft.AspNetCore.App.Internal.Assets/11.0.0-rc.2.26504.105 for the sample."
           ],
           "frameworks": [
             "ASP.NET Core Identity",
@@ -148,7 +148,7 @@
       "sample": "samples/net10.0/BeaconKeys/BeaconKeys.csproj",
       "language": "14.0",
       "kind": "compile-and-run",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "target": "net10.0",
       "scope": "Actual matching-SDK build and .NET 10.0.13 execution: software-signed assertions through default real Identity, including the serviced policy checks, rendered denial UI, cookie checks and persisted owner/antiforgery-protected rename. No mocked Identity, physical authenticator, browser ceremony, database or GA claim."
     },
@@ -156,7 +156,7 @@
       "sample": "samples/net11.0/BeaconKeys/BeaconKeys.csproj",
       "language": "15.0",
       "kind": "compile-and-run",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "target": "net11.0",
       "scope": "Actual matching-SDK build and RC2 execution: real default Identity passkey checks with software-signed assertions, rendered denial UI, cookie checks, custom AAGUID naming and persisted owner/antiforgery-protected rename. Actual SDK template mappings checked separately by eng/Test-PasskeyTemplate.ps1. No physical authenticator, browser ceremony, attestation, database or GA claim."
     }

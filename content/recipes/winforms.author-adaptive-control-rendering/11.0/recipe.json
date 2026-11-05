@@ -36,7 +36,7 @@
           "sdk": {
             "version": "11.0",
             "match": "release-family",
-            "reason": "Exact recorded pin 11.0.100-rc.2.26504.105; older sample 10.0.402.",
+            "reason": "Exact recorded pin 11.0.100-rc.3.26522.148; older sample 10.0.403.",
             "name": ".NET SDK"
           },
           "language": {
@@ -104,7 +104,7 @@
       "kind": "compile-and-run",
       "target": "net10.0-windows",
       "sample": "samples/net10.0/FenStatus/FenStatus.csproj",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "language": "14.0"
     },
     {
@@ -112,11 +112,11 @@
       "kind": "compile-and-run",
       "target": "net11.0-windows",
       "sample": "samples/net11.0/FenStatus/FenStatus.csproj",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "language": "15.0"
     },
     {
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "language": "15.0",
       "kind": "execution",
       "scope": "PIN-897: owner-reported visual check and actual AccentColor/HighContrast notifications with Net11 -> Classic -> Net11, restoring High Contrast to its initial disabled state. No automated pixel, broad accessibility or GA verification.",
@@ -126,7 +126,7 @@
     }
   ],
   "humanProof": {
-    "scope": "PIN-897 owner check recorded 3 November 2026 in samples/net11.0/FenStatus/owner-settings.evidence.json. Pingu reported: \"It seemed to work to me.\"; the transcript confirms High Contrast enabled/disabled notifications and Net11 -> Classic -> Net11. Source/project/DLL identity matched the prepared sample. This bounded Windows RC2 result is not broad visual/accessibility or GA certification.",
+    "scope": "PIN-897 owner check refreshed for SDK/runtime RC3 on 5 November 2026 in samples/net11.0/FenStatus/owner-settings.evidence.json. Pingu confirmed readable system-colour text with the decorative accent hidden in high contrast. Actual log shows initial disabled -> enabled/Classic -> restored disabled/Net11. Owner-reported readability; no broad accessibility or GA claim.",
     "status": "verified"
   },
   "snippets": {

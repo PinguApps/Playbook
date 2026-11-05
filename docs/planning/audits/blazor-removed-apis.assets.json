@@ -1,54 +1,54 @@
 [
   {
-    "sdk": "10.0.402",
-    "version": "10.0.13",
+    "sdk": "10.0.403",
+    "version": "10.0.14",
     "target": "net10.0",
     "packages": [
       {
         "id": "microsoft.aspnetcore.components.webassembly",
-        "version": "10.0.13",
-        "url": "https://api.nuget.org/v3-flatcontainer/microsoft.aspnetcore.components.webassembly/10.0.13/microsoft.aspnetcore.components.webassembly.10.0.13.nupkg",
-        "sha256": "8090d3e8a25bc8d55e77b46405da333ec7a09b09724b1c6bae4d219843be7e43"
+        "version": "10.0.14",
+        "url": "https://api.nuget.org/v3-flatcontainer/microsoft.aspnetcore.components.webassembly/10.0.14/microsoft.aspnetcore.components.webassembly.10.0.14.nupkg",
+        "sha256": "8fa1d8e1edead0b3274e2b4455fac7363cf998730e221cf3db834b205faeeb54"
       },
       {
         "id": "microsoft.aspnetcore.components.webassembly.authentication",
-        "version": "10.0.13",
-        "url": "https://api.nuget.org/v3-flatcontainer/microsoft.aspnetcore.components.webassembly.authentication/10.0.13/microsoft.aspnetcore.components.webassembly.authentication.10.0.13.nupkg",
-        "sha256": "b280c0ba1f70d08a0deb2cbba4e9b19e1e08926c592f75e0e14ab03de8cafe2e"
+        "version": "10.0.14",
+        "url": "https://api.nuget.org/v3-flatcontainer/microsoft.aspnetcore.components.webassembly.authentication/10.0.14/microsoft.aspnetcore.components.webassembly.authentication.10.0.14.nupkg",
+        "sha256": "f67044ad96f82ffaa6b61373f924679597461fa9b002c4994966f5a411f0f92b"
       }
     ],
     "assemblies": [
       {
         "file": "Microsoft.AspNetCore.Components.Authorization.dll",
-        "sha256": "5cf8f4c69aad45420a62583b91357c670eddade328b1201350ab3eba556ab888"
+        "sha256": "ecfc06c1c2464b6551ccf27fb7de391788184187bb06b2e5c002649242271c28"
       },
       {
         "file": "Microsoft.AspNetCore.Components.dll",
-        "sha256": "504431adb6b8e3e95f22dc3a0fea2ac1d8660ac8e9e8963e9cbcb81cdd342843"
+        "sha256": "516735ae0c6df3cc3160a3f8dbdee8e5261437f0ef4dc8ea2d575fece89d9fc8"
       },
       {
         "file": "Microsoft.AspNetCore.Components.Endpoints.dll",
-        "sha256": "4c11ff0428ba00da685d0e34a1a89dc7d8f7fd21c85192fe8ba9d9584dcdd36f"
+        "sha256": "28c20d53c052c379c13cf58a81724b79551cf3ca4511eed86172eb2b7698b4a3"
       },
       {
         "file": "Microsoft.AspNetCore.Components.Forms.dll",
-        "sha256": "fe571ad6e58ccae5a7bd50dc699df1c5026e505703f2fb16778118670e116f4e"
+        "sha256": "07e2f6844577dcac4e61f123f8e44c6cec50632dab83246ed6ac1fbccac6af4a"
       },
       {
         "file": "Microsoft.AspNetCore.Components.Server.dll",
-        "sha256": "bcba1cc5c95d9d43443d2e7e8dc5d315909022e13e30e0d94d20f66554ca083a"
+        "sha256": "c295f2579af5a8de1e3f5783a7cb465e56e03c15d6240cf82a5a2c73f629fb4d"
       },
       {
         "file": "Microsoft.AspNetCore.Components.Web.dll",
-        "sha256": "b4ba68627cca6b53a416d49841277bd71964ee458281c344fa16a45cea920ef3"
+        "sha256": "eb702d4a76f6293c1cf1a527652a9e1f29e2b3863ce4142095431734440cba21"
       },
       {
         "file": "Microsoft.AspNetCore.Components.WebAssembly.Authentication.dll",
-        "sha256": "db910acd35b579c374052b973d088fb7a3dfada975188b8cebe21989cefbcf7b"
+        "sha256": "15a598264ddbff770d30ca57ff619790fa7e3385e1b5da4b3fc4084e7520dbb3"
       },
       {
         "file": "Microsoft.AspNetCore.Components.WebAssembly.dll",
-        "sha256": "17552fdc934eb0105e549a1a77d08b531f91d718cd29f8af18722cd4e0f9ad9e"
+        "sha256": "234e65155789df7fb06ce4de39eb7447fcf903f83c826a11abecc112543a4880"
       }
     ],
     "types": [
@@ -718,55 +718,55 @@
     ]
   },
   {
-    "sdk": "11.0.100-rc.2.26504.105",
-    "version": "11.0.0-rc.2.26504.105",
+    "sdk": "11.0.100-rc.3.26522.148",
+    "version": "11.0.0-rc.3.26522.148",
     "target": "net11.0",
     "packages": [
       {
         "id": "microsoft.aspnetcore.components.webassembly",
-        "version": "11.0.0-rc.2.26504.105",
-        "url": "https://api.nuget.org/v3-flatcontainer/microsoft.aspnetcore.components.webassembly/11.0.0-rc.2.26504.105/microsoft.aspnetcore.components.webassembly.11.0.0-rc.2.26504.105.nupkg",
-        "sha256": "0efce60bc57af2a3d29e53eba9920a84497106ff8f9e400bd44cdf6ebe5ea42e"
+        "version": "11.0.0-rc.3.26522.148",
+        "url": "https://api.nuget.org/v3-flatcontainer/microsoft.aspnetcore.components.webassembly/11.0.0-rc.3.26522.148/microsoft.aspnetcore.components.webassembly.11.0.0-rc.3.26522.148.nupkg",
+        "sha256": "296bd72f044ceb477d3aeedf9f4b8d10eff5c103c8596387a32810ef061b5098"
       },
       {
         "id": "microsoft.aspnetcore.components.webassembly.authentication",
-        "version": "11.0.0-rc.2.26504.105",
-        "url": "https://api.nuget.org/v3-flatcontainer/microsoft.aspnetcore.components.webassembly.authentication/11.0.0-rc.2.26504.105/microsoft.aspnetcore.components.webassembly.authentication.11.0.0-rc.2.26504.105.nupkg",
-        "sha256": "d09e728c50156f4f01033ccaf84cba0e6be5985d1b5d13eb5cbade69c2841964"
+        "version": "11.0.0-rc.3.26522.148",
+        "url": "https://api.nuget.org/v3-flatcontainer/microsoft.aspnetcore.components.webassembly.authentication/11.0.0-rc.3.26522.148/microsoft.aspnetcore.components.webassembly.authentication.11.0.0-rc.3.26522.148.nupkg",
+        "sha256": "8af7d0d979cca80dd4ac78b5569a37810482ba866895115c69499aa7f1ec4c09"
       }
     ],
     "assemblies": [
       {
         "file": "Microsoft.AspNetCore.Components.Authorization.dll",
-        "sha256": "50d67f3bc212dfecad90c7a476e6544a44ad28d9acbe4d203a60693f25a0c691"
+        "sha256": "b7ae5e34552a4a3888a30cfdcfc0a6ec33dc0b9efddf018572e94338e5fa00d9"
       },
       {
         "file": "Microsoft.AspNetCore.Components.dll",
-        "sha256": "87c09198417e8d5973933f05e2283b55e255e13ae4cd0f23ce9940d1018f0e59"
+        "sha256": "fa560a8c13ab5862d835700dc549f66e9ce41b3ebc526befa5ad7611b7718829"
       },
       {
         "file": "Microsoft.AspNetCore.Components.Endpoints.dll",
-        "sha256": "1b7f2369484619a5d985d572160cb88b2519a6f71f2e397e0b69154343ecb635"
+        "sha256": "a6d8ab255033c7feec329b5cda81632bca3eff11dfb987aa43988303f357654b"
       },
       {
         "file": "Microsoft.AspNetCore.Components.Forms.dll",
-        "sha256": "9c34bcc6c290db40162b6cc51b3c6a0e63a29185f08aaaf2f2ab3898c9f81c37"
+        "sha256": "f5c12f4481ff1e29fa0643283f182e2a169e034a26391c3a42efe5871c42dae9"
       },
       {
         "file": "Microsoft.AspNetCore.Components.Server.dll",
-        "sha256": "29fadc74c09d797157868d0f845ee5d9f62172060c447a3e38b58b6044a2ac25"
+        "sha256": "907c722fc1ddf141461f7e1f0caed84258c9ffa5a210e449d18332c2c902155e"
       },
       {
         "file": "Microsoft.AspNetCore.Components.Web.dll",
-        "sha256": "284b154448602c432a0bb9f900da9ed5c8b1fccd0b11ff90a893ed2d2479c4c1"
+        "sha256": "9bcddb6288ef9a1a3fffc23b73dd3afe6e7e700131cc8a7200e22c26b32296bc"
       },
       {
         "file": "Microsoft.AspNetCore.Components.WebAssembly.Authentication.dll",
-        "sha256": "74b6a9b824e4ded26daa67e975c4ff3ab356ca4323f25408686a7ddda9a019f9"
+        "sha256": "5854971255395d6b36fd3378ae90e867c8136842487780c128bfc71d4f8c2d20"
       },
       {
         "file": "Microsoft.AspNetCore.Components.WebAssembly.dll",
-        "sha256": "b245417f44d0e0c8b314876d4d4fb4b815079f100df36e235a4107a75eb9aaf0"
+        "sha256": "bd0053980e5d0d5fa28c99b23203efcfeab187afb60eaee5dc3c36ccc0b0c9a9"
       }
     ],
     "types": [

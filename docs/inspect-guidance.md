@@ -1,5 +1,33 @@
 # Inspect the guidance an agent receives
 
+## Current SDK baseline and PMC proof
+
+Active sample SDKs are 10.0.403 and 11.0.100-rc.3.26522.148. Package
+versions remain independently pinned; CanalDesign uses EF11 RC2. Pingu verified
+actual Visual Studio PMC migration creation, stale-build behavior and SQLite
+application on SDK11 RC3. Windows contrast-theme text remained readable; its
+red decorative accent is intentionally absent in high contrast.
+
+Build and inspect the real installed tool from an unrelated directory:
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('ef.reuse-current-build-in-pmc') `
+  -Query 'canal-design' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin957-rc3' -BuildAndPack `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory './artifacts/pin957-inspection'
+```
+
+Expect discovery ID/title/goal, complete Markdown and applicability for edition11,
+with the verified mixed SDK/EF baseline and the need to rebuild after source
+changes. Target10 returns `no_applicable_edition`. The harness installs a local
+package in a disposable feed/cache and calls the real stdio server with unusable
+proxies. This verifies embedded offline retrieval; it does not repeat Visual
+Studio PMC or establish OS-level network isolation. No package is published.
+
 ## Android Material customization and generated HybridWebView calls
 
 PIN-909/PIN-910 add the MarshEntry and MarshBridge comparisons. MarshEntry's
@@ -14,12 +42,12 @@ evidence, not a production toolchain recommendation.
 From an unrelated directory, build and inspect the actual installed package:
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-f70e78b9'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('maui.customize-material-handlers','maui.call-dotnet-from-hybrid-js-with-aot') `
   -Query 'marsh-survey' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
   -PackageVersion '0.0.0-pin909-910' -BuildAndPack `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory './artifacts/marsh/inspection'
 ```
@@ -35,7 +63,7 @@ neutral NativeAOT dispatch check.
 
 `playbook mcp` speaks protocol over stdin/stdout. Use MCP Inspector as a client; it initializes and closes each connection automatically. `eng/Inspect-Guidance.ps1` builds the real server, installs pinned Inspector 2.11.0 under ignored `artifacts/` if needed, calls both tools, and prints **ID/title/goal, full expanded Markdown and applicability**. Responses default to `artifacts/inspection/<id>.json`.
 
-Requires PowerShell 7, the repository's .NET SDK 10.0.402 and Node 22.19+. Setup may restore/download packages online; guidance itself is embedded and offline. The helper invokes the resolved executables by absolute path without changing PATH or global tools. It disables .NET first-run PATH integration. No native workloads or account are required for server inspection.
+Requires PowerShell 7, the repository's .NET SDK 10.0.403 and Node 22.19+. Setup may restore/download packages online; guidance itself is embedded and offline. The helper invokes the resolved executables by absolute path without changing PATH or global tools. It disables .NET first-run PATH integration. No native workloads or account are required for server inspection.
 
 ## Routed navigation and Android Shell migration
 
@@ -46,17 +74,17 @@ SDK11 MAUI SDK pack. Current native interaction, Android device and Apple checks
 remain explicitly not-tested under PIN-699. No new native matrix is introduced.
 
 From any directory, select this exact worktree, build/pack and inspect the actual
-installed tool. Requires PowerShell7, SDK10.0.402 and Node22.19+; setup restores
+installed tool. Requires PowerShell7, SDK10.0.403 and Node22.19+; setup restores
 packages. The existing harness uses an isolated feed/cache and unrelated working
 directory, and prints ID/title/goal, full expanded Markdown and applicability.
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-e464cf25'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('maui.navigate-with-path-parameters','maui.migrate-navigation-handlers') `
   -Query 'harbour-navigation' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
   -PackageVersion '0.0.0-pin905-906' -BuildAndPack `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory './artifacts/navigation/inspection'
 ```
@@ -76,25 +104,26 @@ PIN-881/PIN-882/PIN-883 add original CanalDesign comparisons. Both locked EF10
 and EF11 RC2 consumers compile and run. Real SQLite checks distinguish empty
 migration assemblies from externally owned schemas. Real dotnet-ef checks cover
 nested-directory defaults, config-relative projects and explicit context overrides.
-Actual Visual Studio PMC NoBuild execution remains pending H_PMC_PROOF / PIN-957;
-Pingu approved publishing this PR with that gap on 4 November 2026. Pending proof
-still blocks release-ready packaging; CLI execution does not substitute for PMC.
+Actual Visual Studio PMC NoBuild execution was performed by Pingu for PIN-957 on
+5 November 2026: VS18.11.0, PMC7.11.0.24, PowerShell5.1.26100.9711, SDK11 RC3
+with EF11 RC2. The linked PMC record covers generated migrations, stale/rebuilt
+model behavior and actual SQLite schema/history. This is not EF RC3 or GA proof.
 
-From any unrelated directory, in PowerShell7 with SDK10.0.402 and Node22.19+:
+From any unrelated directory, in PowerShell7 with SDK10.0.403 and Node22.19+:
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-e433106e'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('ef.handle-empty-migration-assembly','ef.configure-migration-commands','ef.reuse-current-build-in-pmc') `
   -Query 'canal-design' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
   -PackageVersion '0.0.0-pin881-883' -BuildAndPack `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory './artifacts/canal/inspection'
 ```
 
 Expect all three IDs/titles/goals, full expanded Markdown, applicability and
-edition11 with fresh compilation/runtime records and explicit pending PMC proof.
+edition11 with fresh compilation/runtime records and verified PMC NoBuild/stale-build proof on SDK11 RC3 with EF11 RC2.
 Target10 returns no_applicable_edition. The existing harness installs the exact
 local artifact in an isolated feed/cache and calls real stdio list/get from an
 unrelated directory with unusable proxies. This proves proxy independence, not
@@ -113,12 +142,12 @@ completion-only notifications in the reviewed implementation.
 From any directory, build/pack and inspect the actual installed tool:
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-16d251dd'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('maui.reapply-mutated-style-state','maui.handle-long-press') `
   -Query 'beaconboard' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
   -PackageVersion '0.0.0-pin903-904' -BuildAndPack `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory './artifacts/beacon/inspection'
 ```
@@ -136,18 +165,18 @@ The reload engine is preview. The .NET10 Windows example compiled; current nativ
 compilation, trimming and live reload remain explicit sample-specific exclusions
 under PIN-699. Retrieval does not prove native behavior.
 
-Run from any directory with PowerShell7, SDK10.0.402 and Node22.19+. The existing
+Run from any directory with PowerShell7, SDK10.0.403 and Node22.19+. The existing
 harness builds and packs, installs that exact artifact with an isolated local
 feed/cache, then calls real stdio list/get from an unrelated directory using
 unusable proxies. This proves proxy independence, not network isolation.
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-6b6058ce'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('maui.author-trim-safe-relative-bindings','maui.iterate-with-native-hot-reload') `
   -Query 'signaldeck' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
   -PackageVersion '0.0.0-pin901-902' -BuildAndPack `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory './artifacts/signaldeck/inspection'
 ```
@@ -171,16 +200,16 @@ deferred; pending proof still blocks broader release-ready packaging.
 From an unrelated directory, this selects the task worktree, builds and packs the
 ordinary tool, then installs that exact artifact into an isolated local feed/cache
 and calls real stdio list/get from another directory. Requires PowerShell7,
-SDK10.0.402 and Node22.19+. Setup may use network; retrieval uses unusable proxies,
+SDK10.0.403 and Node22.19+. Setup may use network; retrieval uses unusable proxies,
 which proves proxy independence rather than network isolation.
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-41a45a43'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('blazor.synchronize-agent-view-state','blazor.restore-agent-conversation','hosting.select-direct-tls') `
   -Query 'agent-state-guidance' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
   -PackageVersion '0.0.0-pin807-1170-1181' -BuildAndPack `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory './artifacts/agent-guidance/inspection'
 ```
@@ -203,16 +232,16 @@ detail, and release-ready packaging stays gated.
 From an unrelated directory, this selects the verified task worktree, builds and
 packs the ordinary tool, installs the exact artifact using an isolated local
 feed/cache, and calls real stdio list/get from another directory. Requires
-PowerShell 7, SDK10.0.402 and Node22.19+. Online setup is permitted; retrieval uses
+PowerShell 7, SDK10.0.403 and Node22.19+. Online setup is permitted; retrieval uses
 unusable proxies to establish proxy independence, not OS-level network isolation.
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-4f33aeba'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('sdk.select-affected-tests','msbuild.inspect-file-access-records') `
   -Query 'experimental-build-guidance' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
   -PackageVersion '0.0.0-pin1074-1123' -BuildAndPack `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory './artifacts/experimental-discovery/inspection'
 ```
@@ -233,11 +262,11 @@ provider before changing its ledger. Components.AI remains experimental througho
 AI.Abstractions loop because the checked Components.AI package has only net11.0.
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-4a223dd4'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH = '0'
 Push-Location -LiteralPath './samples/net11.0/HarbourDispatch'
 try {
-  & 'C:\Users\pingu\.dotnet-playbook-11\dotnet.exe' run -c Release -- --check
+  & 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' run -c Release -- --check
 } finally { Pop-Location }
 ```
 
@@ -256,12 +285,12 @@ checks the entire canonical body and rejects a .NET 10 target for these editions
 Unusable proxies establish proxy independence, not OS-level network isolation.
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-4a223dd4'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('blazor.render-agent-tools','blazor.approve-agent-action') `
   -Query 'harbour-dispatch' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
   -PackageVersion '0.0.0-pin805-806' -BuildAndPack `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory './artifacts/agent-api/inspection'
 ```
@@ -269,8 +298,8 @@ Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-4a223dd4'
 ## MAUI SourceGen and preview page logic
 
 QuayBoard compares .NET 10 XamlC/code-behind with SourceGen and preview page logic.
-The older Windows page compiled with SDK 10.0.402 and Controls 10.0.110.
-The current page is source-reviewed only: SDK 11 RC2 lacks Microsoft.Maui.Sdk
+The older Windows page compiled with SDK 10.0.403 and Controls 10.0.110.
+The current page is source-reviewed only: SDK 11 RC3 lacks Microsoft.Maui.Sdk
 locally and fails NETSDK1147. PIN-699 excludes its native compilation/execution.
 The actual Controls 11.0.0-rc.2.26505.5 Windows dependency group targets 20348.
 No native execution, performance, Android/Apple or GA proof is claimed.
@@ -281,9 +310,9 @@ isolated local feed/cache and calls real stdio from an unrelated directory.
 Setup can use network; retrieval uses unusable proxies, not OS network isolation.
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-46d2c603'
-& ./eng/Test-Smoke.ps1 -Dotnet 'C:\Program Files\dotnet\dotnet.exe' -PackageVersion '0.0.0-pin899-900'
-& ./eng/Inspect-BlazorMigrationGuidance.ps1 -RecipeId @('maui.choose-xaml-generation','maui.author-view-local-csharp-in-xaml') -Query 'quay-board' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' -PackageVersion '0.0.0-pin899-900' -Dotnet 'C:\Program Files\dotnet\dotnet.exe' -Node 'C:\Program Files\nodejs\node.exe' -OutputDirectory './artifacts/quay-inspection'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
+& ./eng/Test-Smoke.ps1 -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' -PackageVersion '0.0.0-pin899-900'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 -RecipeId @('maui.choose-xaml-generation','maui.author-view-local-csharp-in-xaml') -Query 'quay-board' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' -PackageVersion '0.0.0-pin899-900' -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' -Node 'C:\Program Files\nodejs\node.exe' -OutputDirectory './artifacts/quay-inspection'
 ```
 
 Expect the installed smoke, both discovery IDs/titles/goals, complete canonical
@@ -294,7 +323,7 @@ The older page is a comparison, not an additional .NET 10 foundation.
 ## Unix library filenames and explicit Mono launch
 
 The local authoring runner uses disposable Linux x64 Docker containers, Mono
-reference assemblies, Clang/linker/zlib and SDK10.0.402/11 RC2. It checks shared
+reference assemblies, Clang/linker/zlib and SDK10.0.403/11 RC2. It checks shared
 library default/opt-out names, symbols, C calls, packaging failures, legacy launch
 defaults and explicit quoted paths/arguments, working directory and exit7.
 It removes its container and preserves PATH. macOS execution is not-tested;
@@ -302,7 +331,7 @@ static libraries remain unsupported/unresolved. Mono launch remains unsupported
 by Microsoft. Network is needed for isolated setup; no public publication occurs.
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-7e5dd3a8'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Test-TideAndMono.ps1 -Record
 ```
 
@@ -312,12 +341,12 @@ unrelated directory. Expect IDs/titles/goals, complete canonical Markdown,
 target/edition11, applicability and current evidence; target10 has no edition.
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-7e5dd3a8'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('deployment.consume-native-library-artifacts','sdk.configure-legacy-mono-launch') `
   -Query 'tide-mono' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
   -PackageVersion '0.0.0-pin1065-1067' -BuildAndPack `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory './artifacts/tide-mono/inspection'
 ```
@@ -328,11 +357,11 @@ foundations, PIN-959 comprehensive gate and PIN-963 reconciliation stay separate
 ## Temporal bounds and server time reports
 
 Run the paired original consumers against the authorized isolated SQL2025 container.
-Requires existing SDK10.0.402 and SDK11 RC2, Docker Desktop and restored locked packages.
+Requires existing SDK10.0.403 and SDK11 RC3, Docker Desktop and restored locked packages.
 Each run creates/removes its own restricted database and stops the container.
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-7774070c'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Test-BeaconHistory.ps1 -Record
 ```
 
@@ -343,12 +372,12 @@ existing isolated-feed/cache installed stdio harness from an unrelated directory
 It prints ID/title/goal, full canonical Markdown, applicability and edition11.
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-7774070c'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('sql.expose-temporal-boundaries','sql.query-offset-and-date-parts') `
   -Query 'beacon-history' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
   -PackageVersion '0.0.0-pin859-860' -BuildAndPack `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory './artifacts/beacon-history/inspection'
 ```
@@ -358,13 +387,13 @@ The historical projects add no .NET10 foundations. PIN-959/PIN-965 remain separa
 
 ## SQL JSON presence and membership
 
-The original paired consumers need the existing SDK10.0.402 and SDK11 RC2,
+The original paired consumers need the existing SDK10.0.403 and SDK11 RC3,
 their locked EF/SqlClient packages, and the approved local Docker SQL2025 route.
 The runner creates and removes separate restricted databases; it stops the server
 afterward. It changes no PATH or persistent environment setting.
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-72623943'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Test-JsonDocuments.ps1 -Record
 ```
 
@@ -381,12 +410,12 @@ applicability and fresh sample evidence. Unusable proxies establish proxy
 independence, not OS network isolation.
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-72623943'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('sql.test-json-path','sql.query-json-membership') `
   -Query 'json-documents' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
   -PackageVersion '0.0.0-pin853-854' -BuildAndPack `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory './artifacts/json-documents/inspection'
 ```
@@ -397,15 +426,15 @@ Actual EF11 GA, other client platforms and older SQL engines remain unverified.
 
 ## Native export retention, Unix mutex scope and x86 heap limits
 
-Requires the existing SDK10.0.402/runtime10.0.13 and separate SDK11 RC2,
+Requires the existing SDK10.0.403/runtime10.0.14 and separate SDK11 RC3,
 PowerShell7, MSVC/linker and Windows SDK libraries, Windows x86 .NET10 runtime,
 Docker Linux and Node22.19+. The Windows runner downloads the exact portable
 RC2 x86 runtime under ignored artifacts when needed; the Unix runner downloads
-RC2/10.0.12 Linux runtimes and uses the existing SDK10.0.402 image. No host
+RC2/10.0.12 Linux runtimes and uses the existing SDK10.0.403 image. No host
 installation, PATH integration, production resource or recurring matrix is added.
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-8da66723'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Test-NativeBoundaries.ps1 -Record
 ```
 
@@ -422,12 +451,12 @@ target11/edition11, applicability and fresh evidence via real installed stdio.
 Unusable retrieval proxies demonstrate proxy independence, not OS network isolation.
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-8da66723'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('interop.retain-native-exports-with-types','threading.choose-unix-mutex-scope','runtime.bound-a-32-bit-gc-heap') `
   -Query 'native-boundaries' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
   -PackageVersion '0.0.0-pin1098-1109-1110' -BuildAndPack `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory './artifacts/native-boundaries/inspection'
 ```
@@ -438,7 +467,7 @@ PIN-959/PIN-962 and existing Human/actual-GA gates remain open.
 
 ## Native C layouts and browser float buffers
 
-Requires PowerShell7, the existing SDK10.0.402/runtime10.0.13 and separate
+Requires PowerShell7, the existing SDK10.0.403/runtime10.0.13 and separate
 SDK11.0.100-rc.2.26504.105/runtime11RC2, MSVC19.51.36260.0/link14.51.36260.0,
 Node24.21.0, Playwright and Chromium. The runner parameters select absolute
 tool paths without changing PATH. Matching Mono browser runtime/SDK assets are
@@ -446,7 +475,7 @@ restored; interpreted publish needs no installed wasm-tools workload, AOT or
 native relink. The C helper needs no Windows SDK headers or CRT libraries.
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-3bef17ae'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Test-InteropSoundings.ps1 -Record -VerifySources
 ```
 
@@ -464,12 +493,12 @@ and calls real installed stdio list/get from a temporary unrelated directory.
 Retrieval uses unusable proxies; that proves proxy independence, not OS network isolation.
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-3bef17ae'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('interop.match-native-c-layout','interop.exchange-float-buffers-with-javascript') `
   -Query 'interop-soundings' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
   -PackageVersion '0.0.0-pin1095-1097' -BuildAndPack `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory './artifacts/interop-soundings/inspection'
 ```
@@ -496,12 +525,12 @@ independence, not operating-system network isolation. The existing packed Reqnro
 SqlQueryGuidance scenario additionally runs with Docker `--network none`.
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-db5a9297'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('ef.select-record-at-extreme','sql.set-supported-compatibility') `
   -Query 'sql-query-guidance' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
   -PackageVersion '0.0.0-pin843-851' -BuildAndPack `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory './artifacts/sql-query-guidance/inspection'
 ```
@@ -513,7 +542,7 @@ fail. No extra .NET10 foundation or actual-GA/comprehensive readiness is claimed
 
 ## Custom validation metadata and trace randomness
 
-Requires PowerShell7, Node22.19+, SDK10.0.402/runtime10.0.13 and the separate
+Requires PowerShell7, Node22.19+, SDK10.0.403/runtime10.0.13 and the separate
 SDK11.0.100-rc.2.26504.105/runtime11RC2 installation. ReefMaintenance pins actual
 Validation/DI packages; ArchiveStages uses framework APIs. No web host, workload,
 device, collector, account or persistent environment change is required.
@@ -521,7 +550,7 @@ device, collector, account or persistent environment change is required.
 Refresh the four original consumers and verify immutable official source hashes:
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-0fc07321'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Test-ExtensionMetadata.ps1 -Record -VerifySources
 ```
 
@@ -540,12 +569,12 @@ directory. It prints discovery ID/title/goal, complete canonical Markdown,
 target11/edition11, applicability and fresh paired evidence:
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-0fc07321'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('validation.migrate-custom-metadata','tracing.preserve-randomness-metadata') `
   -Query 'extension-metadata' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
   -PackageVersion '0.0.0-pin1115-1117' -BuildAndPack `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory './artifacts/extension-metadata/inspection'
 ```
@@ -559,7 +588,7 @@ existing Human gates and PIN-959/PIN-962 remain unchanged/open.
 
 ## Dual-stack connections and endpoint buffers
 
-Requires PowerShell7, Node22.19+, SDK10.0.402/runtime10.0.13 and the separate
+Requires PowerShell7, Node22.19+, SDK10.0.403/runtime10.0.13 and the separate
 SDK11.0.100-rc.2.26504.105/runtime11RC2 installation. The samples have no package
 dependencies or workloads. RelayDial requires OS IPv4/IPv6, localhost resolving
 only to both loopback families and available ephemeral TCP ports; it owns all
@@ -569,7 +598,7 @@ global tools, PATH or persistent environment changes are required.
 Refresh the four sample records and verify nine immutable official sources:
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-ec011ee0'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Test-NetworkBuffers.ps1 -Record -VerifySources
 ```
 
@@ -593,12 +622,12 @@ restore online; unusable proxies during retrieval prove proxy independence, not
 OS-level network isolation.
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-ec011ee0'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('sockets.race-dual-stack-connections','networking.parse-endpoint-buffers') `
   -Query 'network-buffers' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
   -PackageVersion '0.0.0-pin1090-1091' -BuildAndPack `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory './artifacts/network-buffers/inspection'
 ```
@@ -610,7 +639,7 @@ unchanged/open. RC2 preparation is not final-GA verification.
 
 ## Registered certificate identifiers and typed DNS records
 
-Requires PowerShell 7, Node 22.19+, SDK10.0.402/runtime10.0.13 and the separate
+Requires PowerShell 7, Node 22.19+, SDK10.0.403/runtime10.0.13 and the separate
 SDK11.0.100-rc.2.26504.105/runtime11RC2 installation. The older DNS consumer pins
 DnsClient1.8.0 and executes its net8.0 asset; other consumers use framework APIs.
 Certificate proof needs the available Windows ECDSA P-256 provider. DNS proof
@@ -620,7 +649,7 @@ runtime images. No account, workload, public zone or system DNS edit is required
 Refresh affected sample/source evidence separately:
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-30a070b6'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Test-IdentityRecords.ps1 -Record -VerifySources
 ```
 
@@ -640,14 +669,14 @@ directory. Setup may restore online; unusable proxies during retrieval prove
 proxy independence, not OS network isolation.
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-30a070b6'
-& ./eng/Test-Smoke.ps1 -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
+& ./eng/Test-Smoke.ps1 -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -PackageVersion '0.0.0-pin1088-1089'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('certificates.encode-registered-identifiers','dns.inspect-typed-records') `
   -Query 'identity-records' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
   -PackageVersion '0.0.0-pin1088-1089' `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory './artifacts/identity-records/inspection'
 & ./eng/Test-IdentityRecordSnippets.ps1
@@ -680,18 +709,18 @@ canonical Markdown, target11/edition11, applicability and fresh paired evidence.
 Tested from an unrelated starting directory:
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-aa90caa3'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Test-ClassifierAuthentication.ps1
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('json.classify-payload-values','crypto.verify-message-authenticators') `
   -Query 'classifier-authentication' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
   -PackageVersion '0.0.0-pin1086-1087' -BuildAndPack `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory './artifacts/classifier-auth/inspection'
 ```
 
-Requires PowerShell7, Node22.19+, SDK10.0.402/ref-runtime10.0.13 and complete
+Requires PowerShell7, Node22.19+, SDK10.0.403/ref-runtime10.0.13 and complete
 SDK11.0.100-rc.2.26504.105/ref-runtime11RC2. No extra sample packages or workloads.
 Positive KMAC checks require a supported provider (measured Windows x64 CNG);
 the sample records native DLL versions/hashes. No account or external service is
@@ -720,18 +749,18 @@ target11/edition11, applicability and fresh paired evidence. Tested from an
 unrelated starting directory:
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-01d67885'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Test-TextBoundaries.ps1
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('io.cancel-text-output','text.convert-domain-labels','io.report-directory-failures') `
   -Query 'text-boundaries' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
   -PackageVersion '0.0.0-pin1081-1083' -BuildAndPack `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory './artifacts/text-boundaries/inspection'
 ```
 
-Requires PowerShell7, Node22.19+, SDK10.0.402/ref-runtime10.0.13 and complete
+Requires PowerShell7, Node22.19+, SDK10.0.403/ref-runtime10.0.13 and complete
 SDK11.0.100-rc.2.26504.105/ref-runtime11RC2. Samples execute on Windows x64;
 IDN explicitly uses non-invariant system ICU (measured 72.1.0.4), with the loaded
 DLL hash/data identity captured. No account, DNS/service, global tools or native
@@ -759,20 +788,20 @@ explicit target11/edition11, applicability and fresh evidence. Tested from an
 unrelated starting directory:
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-07530b3c'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Test-Smoke.ps1 -PackageVersion '0.0.0-pin741-758-1059' `
-  -Dotnet 'C:/Program Files/dotnet/dotnet.exe'
+  -Dotnet 'C:/Users/pingu/AppData/Local/dotnetup/dotnet/dotnet.exe'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('io.use-pipe-handles','io.migrate-mobile-locking',
     'runtime.link-native-wasm-code','crypto.bound-hkdf-inputs') `
   -Query 'native-boundaries' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
   -PackageVersion '0.0.0-pin741-758-1059' `
-  -Dotnet 'C:/Program Files/dotnet/dotnet.exe' `
+  -Dotnet 'C:/Users/pingu/AppData/Local/dotnetup/dotnet/dotnet.exe' `
   -Node 'C:/Program Files/nodejs/node.exe' `
   -OutputDirectory './artifacts/native-boundaries/inspection'
 ```
 
-Requires PowerShell7, Node22.19+ and SDK10.0.402. Setup can restore the tool and
+Requires PowerShell7, Node22.19+ and SDK10.0.403. Setup can restore the tool and
 Inspector2.11.0 online; installed calls use unusable proxies, establishing proxy
 independence rather than OS network isolation. Expect four entries and final
 exact-artifact PASS; target10 returns no_applicable_edition. Missing canonical
@@ -784,7 +813,7 @@ foundation is added; comprehensive and GA gates remain open.
 
 To refresh the affected sample evidence, run `& ./eng/Record-NativeBoundaries.ps1
 -VerifySources` after selecting this same worktree. That separate command needs
-the installed paired SDK10.0.402/runtime10.0.13 and SDK11RC2/runtime11RC2, plus
+the installed paired SDK10.0.403/runtime10.0.14 and SDK11RC3/runtime11RC3, plus
 the existing Docker runtime images. It runs actual Windows HKDF boundaries,
 Windows/Linux pipe contracts and portable journal checks, records exact native
 assets/input hashes, and retains unavailable-native source-review classifications.
@@ -800,18 +829,18 @@ paired evidence. Target10 returns `no_applicable_edition`; the older comparisons
 add no ninth foundation. Tested from an unrelated starting directory:
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-ffe3f7cb'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Test-IntegerFormats.ps1
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('numerics.choose-integer-division','numerics.measure-integer-magnitude','io.compute-format-checksums') `
   -Query '' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
   -PackageVersion '0.0.0-pin1076-1078' -BuildAndPack `
-  -Dotnet 'C:/Program Files/dotnet/dotnet.exe' `
+  -Dotnet 'C:/Users/pingu/AppData/Local/dotnetup/dotnet/dotnet.exe' `
   -Node 'C:/Program Files/nodejs/node.exe' `
   -OutputDirectory './artifacts/integer-formats/inspection'
 ```
 
-Requires PowerShell7, Node22.19+, SDK10.0.402 and complete
+Requires PowerShell7, Node22.19+, SDK10.0.403 and complete
 SDK11.0.100-rc.2.26504.105 with matching runtime/reference10.0.13/11RC2 for the
 paired checks. Locked Hashing packages are10.0.13/11RC2, lib/net10/lib/net11.
 Setup can restore packages/Inspector online; installed retrieval with unusable
@@ -838,19 +867,19 @@ actions and missing/stale locally required compilation remain gated.
 This block builds/packs the ordinary tool, installs that exact package using the
 existing isolated local feed/cache, and calls real stdio list/get from an unrelated
 directory. It prints each ID/title/goal, complete canonical Markdown, applicability
-and evidence. It needs PowerShell 7, SDK 10.0.402 and Node 22.19+; setup may restore
+and evidence. It needs PowerShell 7, SDK 10.0.403 and Node 22.19+; setup may restore
 packages and Inspector 2.11.0 online. It changes no global tool, PATH or native
 environment. The block was exercised from an unrelated starting directory.
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-3a9b9778'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('console.color-piped-output','process.capture-output',
     'process.control-lifetime','process.control-native-handles',
     'process.inspect-termination','process.prepare-before-start',
     'sdk.watch-app-hosts-and-devices','simd.select-supported-instructions') `
   -Query '' -TargetVersion '11.0' -PackageVersion '0.0.0-pin699' -BuildAndPack `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory './artifacts/native-testing/inspection'
 ```
@@ -870,7 +899,7 @@ unrelated temporary directory and prints ID/title/goal, complete canonical
 Markdown, applicability, target11/edition11 and fresh paired evidence. Target10
 returns `no_applicable_edition`; the older comparison adds no ninth foundation.
 
-Requires PowerShell7, Node22.19+, SDK10.0.402 and runtime10.0.13 for inspection.
+Requires PowerShell7, Node22.19+, SDK10.0.403 and runtime10.0.13 for inspection.
 Consumer recapture also requires SDK11.0.100-rc.2.26504.105/runtime11RC2 and
 Windows x64 native SQLite assets. Restoring dependencies and Inspector can use
 the network. Retrieval with unusable proxies proves proxy independence, not
@@ -878,13 +907,13 @@ OS-level network isolation. No account, external resource, global tool install
 or persistent environment change is required. Tested from an unrelated directory:
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-bf76c8b2'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Test-TrailCards.ps1
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId 'ef.replace-ordinal-json-ownership' `
   -Query '' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
   -PackageVersion '0.0.0-pin847' -BuildAndPack `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory ./artifacts/pin847/inspection
 ```
@@ -911,7 +940,7 @@ returns `no_applicable_edition`; the original older consumers remain comparisons
 preserving exactly eight foundations. The VB-native source also verifies VB
 comment-marker expansion and canonical identity.
 
-Prerequisites: PowerShell7, Node22.19+, SDK10.0.402. Recapturing consumer proof
+Prerequisites: PowerShell7, Node22.19+, SDK10.0.403. Recapturing consumer proof
 also needs complete SDK11.0.100-rc.2.26504.105 and runtime/reference10.0.13/11RC2.
 Roslyn5.12.0-1.26504.105 restores from Microsoft's public dotnet-tools feed;
 FSharp.Core pins are10.1.402/11.0.101-rc2.26504.105. Setup may restore online;
@@ -920,12 +949,12 @@ No global install, persistent environment change, provider or native workload.
 This literal block was tested from an unrelated starting directory:
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-8780a32c'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('languages.inspect-coalescing-conversions','languages.inspect-type-layout','fsharp.adapt-opaque-callbacks') `
   -Query '' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
   -PackageVersion '0.0.0-pin1035-1037' -BuildAndPack -CheckDemonstratedLanguages `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory ./artifacts/compiler-inspection/installed
 ```
@@ -952,20 +981,20 @@ Real stdio list/get displays both discovery IDs, titles and explanatory goals,
 complete canonical Markdown, target11/edition11, applicability and fresh evidence.
 Target10 returns `no_applicable_edition`; the comparisons add no ninth foundation.
 
-Use PowerShell7, Node22.19+, SDK10.0.402 and runtime10.0.13 for tool inspection.
+Use PowerShell7, Node22.19+, SDK10.0.403 and runtime10.0.13 for tool inspection.
 Sample recapture also needs complete SDK11.0.100-rc.2.26504.105/ref/runtime11RC2,
 Windows x64/NTFS and actual symlink permission. Source replay/setup can use the
 network; retrieval with unusable proxies establishes proxy independence, not
 OS-level network isolation. No account, global tool installation or PATH change.
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-40fcde33'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Record-WeatherMaintenance.ps1 -VerifySources
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('archive.handle-async-initialization','hosting.distinguish-invocation-paths') `
   -Query '' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
   -PackageVersion '0.0.0-pin1042-1043' -BuildAndPack `
-  -Dotnet 'C:/Program Files/dotnet/dotnet.exe' -Node 'C:/Program Files/nodejs/node.exe' `
+  -Dotnet 'C:/Users/pingu/AppData/Local/dotnetup/dotnet/dotnet.exe' -Node 'C:/Program Files/nodejs/node.exe' `
   -OutputDirectory ./artifacts/weather-maintenance/inspection
 ```
 
@@ -989,22 +1018,22 @@ target11/edition11, applicability and current evidence. Target10 returns
 `no_applicable_edition`: the .NET10 comparisons and SDK11/net10 rebuild experiment
 remain inside the target11 edition, preserving exactly eight foundations.
 
-Prerequisites: PowerShell7, Node22.19+, SDK10.0.402 and, for recapture, a complete
+Prerequisites: PowerShell7, Node22.19+, SDK10.0.403 and, for recapture, a complete
 SDK11.0.100-rc.2.26504.105 installation plus runtime/ref10.0.13 and11RC2. The source hash replay requires internet access; setup can
 restore online. Retrieval with unusable proxies proves proxy independence, not
 network isolation. No global tool install, PATH change, credential or provider.
 The literal block was tested from an unrelated starting directory:
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-6d85858c'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Record-BookingArchive.ps1 -VerifySources `
-  -Net10Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
-  -Net11Dotnet 'C:\Users\pingu\.dotnet-playbook-11\dotnet.exe'
+  -Net10Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
+  -Net11Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('globalization.validate-date-parsing-options','numerics.preserve-conversion-intent') `
   -Query '' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
   -PackageVersion '0.0.0-pin1045-1046' -BuildAndPack `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory ./artifacts/booking-archive/inspection
 ```
@@ -1040,19 +1069,19 @@ Run this block in **PowerShell 7 (`pwsh`)**. Windows PowerShell 5.1 changes nati
 argument/error handling and is outside this helper's prerequisites.
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-6b360ce7'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('csharp.preserve-span-storage','csharp.bind-dynamic-conditions') `
   -RemovedRecipeId @('csharp.resolve-readonly-metadata') -Query '' `
   -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
   -PackageVersion '0.0.0-pin1032-1034' -BuildAndPack `
-  -Dotnet 'C:/Program Files/dotnet/dotnet.exe' -Node 'C:/Program Files/nodejs/node.exe' `
+  -Dotnet 'C:/Users/pingu/AppData/Local/dotnetup/dotnet/dotnet.exe' -Node 'C:/Program Files/nodejs/node.exe' `
   -OutputDirectory ./artifacts/compiler-migrations/inspection
 ```
 
 Expect **Preserve span storage across nested scopes** and **Preserve dynamic
 logical operator binding** with their discovery descriptions and actual paired
-evidence. Setup requires PowerShell7, SDK10.0.402/runtime10.0.13 and Node22.19+;
+evidence. Setup requires PowerShell7, SDK10.0.403/runtime10.0.13 and Node22.19+;
 package/Inspector setup may restore online. Retrieval with unusable proxies proves
 proxy independence, not OS-level network isolation. The exact eight foundations
 and comprehensive/actual-GA/Human gates remain unchanged.
@@ -1079,7 +1108,7 @@ title, **goal**, complete canonical Markdown, target11/edition11, applicability 
 fresh evidence. Both target10 gets must return `no_applicable_edition`; the paired
 older workers add no ninth foundation.
 
-Setup requires PowerShell7, SDK10.0.402/runtime10.0.13, Node 22.19+ and online package
+Setup requires PowerShell7, SDK10.0.403/runtime10.0.13, Node 22.19+ and online package
 setup. For sample reproduction, also supply SDK11.0.100-rc.2.26504.105 and a working
 Linux amd64 Docker engine. Notation1.3.2/ORAS1.3.6 archives, exact Microsoft root
 certificates and image digests are checked by the authoring helpers. Signature
@@ -1089,7 +1118,7 @@ isolation. Worker runs use Docker `--network none`. No system trust store, produ
 registry or persistent environment setting is changed by the sample checks.
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-713eb23e'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 $previousCertificateSetup = $env:DOTNET_GENERATE_ASPNET_CERTIFICATE
 $env:DOTNET_GENERATE_ASPNET_CERTIFICATE = 'false'
 try {
@@ -1097,7 +1126,7 @@ try {
         -RecipeId @('containers.verify-base-image-signatures','containers.migrate-azurelinux-base-images','testing.migrate-collector-event-inputs') `
         -Query 'quay' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
         -PackageVersion '0.0.0-pin1137-1139' -BuildAndPack `
-        -Dotnet 'C:/Program Files/dotnet/dotnet.exe' -Node 'C:/Program Files/nodejs/node.exe' `
+        -Dotnet 'C:/Users/pingu/AppData/Local/dotnetup/dotnet/dotnet.exe' -Node 'C:/Program Files/nodejs/node.exe' `
         -OutputDirectory ./artifacts/quay-containers/inspection
 }
 finally { $env:DOTNET_GENERATE_ASPNET_CERTIFICATE = $previousCertificateSetup }
@@ -1133,12 +1162,12 @@ evidence. Every target10 get must return `no_applicable_edition`; the real older
 comparisons add no ninth foundation.
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-c5612d78'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('nuget.skip-disposable-restore-graph','sdk.publish-referenced-symbols','msbuild.inspect-import-tree') `
   -Query 'beacon-build' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
   -PackageVersion '0.0.0-pin1134-1136' -BuildAndPack `
-  -Dotnet 'C:/Program Files/dotnet/dotnet.exe' -Node 'C:/Program Files/nodejs/node.exe' `
+  -Dotnet 'C:/Users/pingu/AppData/Local/dotnetup/dotnet/dotnet.exe' -Node 'C:/Program Files/nodejs/node.exe' `
   -OutputDirectory ./artifacts/beacon/inspection
 ```
 
@@ -1153,7 +1182,7 @@ normal local repeat and missing-package failure; verifies plural versus ineffect
 singular symbol policy and own/reference/snupkg boundaries; and evaluates nested,
 conditional, SDK, unset/false, ordering and duplicate/parent import controls.
 
-Setup needs PowerShell7, SDK10.0.402/runtime/ref10.0.13, Node22.19+ and, to reproduce
+Setup needs PowerShell7, SDK10.0.403/runtime/ref10.0.13, Node22.19+ and, to reproduce
 samples, complete SDK11.0.100-rc.2.26504.105/runtime/ref11RC2. Tool/Inspector setup
 may restore online; sample dependencies are original and local-only. Retrieval
 with unusable proxies proves proxy independence, not network isolation. Actual
@@ -1168,7 +1197,7 @@ foundations and PIN-959/PIN-963/Human gates remain unchanged.
 
 These two 11.0 editions use the existing actual-package Inspector with an isolated
 local feed/cache and unrelated working directory. Requires PowerShell7,
-SDK10.0.402/runtime10.0.13, SDK11.0.100-rc.2.26504.105/runtime11 RC2 and Node22.19+.
+SDK10.0.403/runtime10.0.13, SDK11.0.100-rc.2.26504.105/runtime11 RC2 and Node22.19+.
 Sample restore and Inspector setup may use the network; retrieved guidance is
 embedded. No trust-store change, production identity provider or native workload.
 
@@ -1183,10 +1212,10 @@ quoting. The fixture retains `artifacts/web-retirement-<guid>` as disposable
 published-consumer output for inspection.
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-61e6bfa1'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Test-WebRetirement.ps1 -RecordEvidence
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 -BuildAndPack `
-  -Dotnet 'C:/Program Files/dotnet/dotnet.exe' `
+  -Dotnet 'C:/Users/pingu/AppData/Local/dotnetup/dotnet/dotnet.exe' `
   -PackageVersion '0.0.0-pin1185-1186' -Query 'web-retirement' `
   -RecipeId @('authentication.remove-token-binding-assumption','mvc.compile-fsharp-views') `
   -UnsupportedTargetVersion '10.0' -OutputDirectory ./artifacts/web-retirement/inspection
@@ -1225,19 +1254,19 @@ network isolation. No recurring native/client/OS matrix is added.
 The complete block was checked starting from an unrelated directory:
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-5b4d9f99'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Test-WebResourceRecipes.ps1 `
-  -Dotnet 'C:/Program Files/dotnet/dotnet.exe' `
-  -Net11Dotnet 'C:/Users/pingu/.dotnet-playbook-11/dotnet.exe' -RecordEvidence
+  -Dotnet 'C:/Users/pingu/AppData/Local/dotnetup/dotnet/dotnet.exe' `
+  -Net11Dotnet 'C:/Users/pingu/AppData/Local/dotnetup/dotnet/dotnet.exe' -RecordEvidence
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('hosting.configure-http3-budgets', 'json-patch.serialize-operation-intent', 'testing.configure-web-application-builder') `
   -Query 'web-resource-recipes' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
   -PackageVersion '0.0.0-pin1182-batch' -BuildAndPack `
-  -Dotnet 'C:/Program Files/dotnet/dotnet.exe' -Node 'C:/Program Files/nodejs/node.exe' `
+  -Dotnet 'C:/Users/pingu/AppData/Local/dotnetup/dotnet/dotnet.exe' -Node 'C:/Program Files/nodejs/node.exe' `
   -OutputDirectory ./artifacts/web-resources/inspection
 & ./eng/Test-WebResourceConsumers.ps1 `
-  -Dotnet 'C:/Program Files/dotnet/dotnet.exe' `
-  -Net11Dotnet 'C:/Users/pingu/.dotnet-playbook-11/dotnet.exe'
+  -Dotnet 'C:/Users/pingu/AppData/Local/dotnetup/dotnet/dotnet.exe' `
+  -Net11Dotnet 'C:/Users/pingu/AppData/Local/dotnetup/dotnet/dotnet.exe'
 ```
 
 Expect these discoveries and observations:
@@ -1285,15 +1314,15 @@ return no_applicable_edition; these comparisons add no historical foundations.
 Unusable proxies prove proxy independence, not OS-level network isolation.
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-3263bd3f'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH = '0'
-& 'C:/Program Files/dotnet/dotnet.exe' build PinguApps.Playbook.slnx -c Release -p:Version=0.0.0-pin1131-batch
-& 'C:/Program Files/dotnet/dotnet.exe' pack ./src/PinguApps.Playbook -c Release --no-build -p:PackageVersion=0.0.0-pin1131-batch --output ./artifacts
+& 'C:/Users/pingu/AppData/Local/dotnetup/dotnet/dotnet.exe' build PinguApps.Playbook.slnx -c Release -p:Version=0.0.0-pin1131-batch
+& 'C:/Users/pingu/AppData/Local/dotnetup/dotnet/dotnet.exe' pack ./src/PinguApps.Playbook -c Release --no-build -p:PackageVersion=0.0.0-pin1131-batch --output ./artifacts
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('sdk.check-sdk-servicing-status', 'sdk.choose-partial-readytorun-inputs', 'sdk.customize-native-tool-package-rids') `
   -Query 'skylark-build' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
   -PackageVersion '0.0.0-pin1131-batch' `
-  -Dotnet 'C:/Program Files/dotnet/dotnet.exe' -Node 'C:/Program Files/nodejs/node.exe' `
+  -Dotnet 'C:/Users/pingu/AppData/Local/dotnetup/dotnet/dotnet.exe' -Node 'C:/Program Files/nodejs/node.exe' `
   -OutputDirectory ./artifacts/skylark-build/inspection
 ```
 
@@ -1328,10 +1357,10 @@ target10 is a separately executed conditional public-package route. Unusable
 proxies qualify proxy independence, not network isolation.
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-d4b8d1f7'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Test-TernTesting.ps1 `
-  -Net10Dotnet 'C:/Program Files/dotnet/dotnet.exe' `
-  -Net11Dotnet 'C:/Users/pingu/.dotnet-playbook-11/dotnet.exe' -Record
+  -Net10Dotnet 'C:/Users/pingu/AppData/Local/dotnetup/dotnet/dotnet.exe' `
+  -Net11Dotnet 'C:/Users/pingu/AppData/Local/dotnetup/dotnet/dotnet.exe' -Record
 $recipes = @(
   'testing.migrate-vstest-session-host',
   'testing.migrate-assembly-resolution-context',
@@ -1340,12 +1369,12 @@ $recipes = @(
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId $recipes -Query 'tern-testing' -TargetVersion '11.0' `
   -PackageVersion '0.0.0-pin1128-vstest' -BuildAndPack `
-  -Dotnet 'C:/Program Files/dotnet/dotnet.exe' -Node 'C:/Program Files/nodejs/node.exe' `
+  -Dotnet 'C:/Users/pingu/AppData/Local/dotnetup/dotnet/dotnet.exe' -Node 'C:/Program Files/nodejs/node.exe' `
   -OutputDirectory ./artifacts/tern-testing/inspection11
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId $recipes -Query 'tern-testing' -TargetVersion '10.0' `
   -PackageVersion '0.0.0-pin1128-vstest' `
-  -Dotnet 'C:/Program Files/dotnet/dotnet.exe' -Node 'C:/Program Files/nodejs/node.exe' `
+  -Dotnet 'C:/Users/pingu/AppData/Local/dotnetup/dotnet/dotnet.exe' -Node 'C:/Program Files/nodejs/node.exe' `
   -OutputDirectory ./artifacts/tern-testing/inspection10
 ```
 
@@ -1368,9 +1397,9 @@ is made. PIN-959/PIN-963/Human gates and all eight foundations remain open.
 The following example was checked from an unrelated directory. Change `-RecipeId` and `-TargetVersion` for the affected guidance; both list and get receive the same explicit target.
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-4d84c6cb'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Inspect-Guidance.ps1 `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' `
   -TargetVersion '11.0' `
   -RecipeId 'blazor.configure-browser-from-server'
@@ -1381,7 +1410,7 @@ Expect `blazor.configure-browser-from-server`, its reusable title and goal, comp
 To inspect several changed recipes, pass an array to `-RecipeId`. Discovery follows all returned pages with unchanged filters before selecting those IDs. A missing ID, failed command or incomplete body fails the helper. The file output is the actual MCP response, including `result.structuredContent.recipe`; it can feed existing returned-body consumer checks:
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-4d84c6cb'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Test-TideDeskConsumer.ps1
 ```
 
@@ -1410,18 +1439,18 @@ This establishes proxy independence, not network isolation.
 ```powershell
 Set-Location -LiteralPath 'V:/_worktrees/Playbook/agent-pin-1178-04-103-move-customized-identity-ui-off-bootstrap-4'
 & ./eng/Test-WebMigrationBatch.ps1 `
-  -Dotnet 'C:/Program Files/dotnet/dotnet.exe' `
-  -Net11Dotnet 'C:/Users/pingu/.dotnet-playbook-11/dotnet.exe' `
+  -Dotnet 'C:/Users/pingu/AppData/Local/dotnetup/dotnet/dotnet.exe' `
+  -Net11Dotnet 'C:/Users/pingu/AppData/Local/dotnetup/dotnet/dotnet.exe' `
   -OutputDirectory ./artifacts/batch04/verified -RecordEvidence
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('identity.migrate-ui-framework-selection', 'routing.preserve-encoded-segment', 'grpc.replace-swagger-adapter') `
   -Query 'web-migration-batch' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
   -PackageVersion '0.0.0-pin1178-batch' -BuildAndPack `
-  -Dotnet 'C:/Program Files/dotnet/dotnet.exe' -Node 'C:/Program Files/nodejs/node.exe' `
+  -Dotnet 'C:/Users/pingu/AppData/Local/dotnetup/dotnet/dotnet.exe' -Node 'C:/Program Files/nodejs/node.exe' `
   -OutputDirectory ./artifacts/batch04/inspection
 & ./eng/Test-WebMigrationConsumers.ps1 `
-  -Dotnet 'C:/Program Files/dotnet/dotnet.exe' `
-  -Net11Dotnet 'C:/Users/pingu/.dotnet-playbook-11/dotnet.exe'
+  -Dotnet 'C:/Users/pingu/AppData/Local/dotnetup/dotnet/dotnet.exe' `
+  -Net11Dotnet 'C:/Users/pingu/AppData/Local/dotnetup/dotnet/dotnet.exe'
 ```
 
 Expect these discoveries:
@@ -1455,24 +1484,24 @@ existing isolated local feed/cache. Real installed stdio list/get execute from a
 unrelated directory with unusable proxies, displaying ID/title/goal, full canonical
 Markdown, target11/edition11, applicability and fresh paired sample evidence.
 The extra get checks target10's `no_applicable_edition` response. Inspection needs
-PowerShell7, SDK10.0.402 and Node22.19+. The reconstructed consumer also requires
+PowerShell7, SDK10.0.403 and Node22.19+. The reconstructed consumer also requires
 SDK11.0.100-rc.2.26504.105 and its matching runtime, a preview RC2 baseline, not GA.
 The block passes both installed SDK executables explicitly; adjust those arguments
 for another installation. Setup may restore online. Retrieval proves proxy
 independence, not network isolation. No global installation is required.
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\agent-pin-1176-04-101-give-a-generated-static-endpoint-deliberate-route'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId 'web.order-static-asset-routes' -Query 'static-assets' `
   -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
   -PackageVersion '0.0.0-pin1176' -BuildAndPack `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory ./artifacts/pin1176/inspection
 & ./eng/Test-AmberGalleryConsumer.ps1 `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
-  -Net11Dotnet 'C:\Users\pingu\.dotnet-playbook-11\dotnet.exe'
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
+  -Net11Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe'
 ```
 
 Expect `web.order-static-asset-routes`, title "Give a generated static endpoint
@@ -1499,16 +1528,16 @@ isolated local feed/cache. Real installed stdio list/get run from an unrelated
 directory with unusable proxies and display ID/title/goal, complete canonical
 Markdown, target11/edition11, applicability and fresh sample evidence. The extra
 get checks target10's explicit `no_applicable_edition` response. Setup requires
-PowerShell7, SDK10.0.402 and Node22.19+ and may restore online; retrieval proves
+PowerShell7, SDK10.0.403 and Node22.19+ and may restore online; retrieval proves
 proxy independence, not network isolation. No global installation is needed.
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\agent-pin-1174-04-099-generate-contracts-for-dynamically-named-api'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId 'openapi.discover-dynamic-documents' -Query 'dynamic-documents' `
   -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
   -PackageVersion '0.0.0-pin1174' -BuildAndPack `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory ./artifacts/pin1174/inspection
 ```
@@ -1527,10 +1556,10 @@ browser or actual-GA claim is made. PIN-959/PIN-963/PIN-964 and Human gates stay
 To refresh the bounded proof with both actual SDK/runtime/package sets:
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\agent-pin-1174-04-099-generate-contracts-for-dynamically-named-api'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Test-Planetarium.ps1 `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
-  -Net11Dotnet 'C:\Users\pingu\.dotnet-playbook-11\dotnet.exe' -RecordEvidence
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
+  -Net11Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' -RecordEvidence
 ```
 
 Expect real runtime and build-time PASS lines on both targets, plus expected
@@ -1544,16 +1573,16 @@ This block builds/packs the ordinary tool, installs that exact artifact through
 the existing isolated local feed/cache, then calls real installed stdio list/get
 from an unrelated directory. It displays ID/title/goal, complete canonical
 Markdown, target11/edition11, applicability and both managed plus actual native
-evidence. PowerShell7, SDK10.0.402 and Node22.19+ are required for inspection.
+evidence. PowerShell7, SDK10.0.403 and Node22.19+ are required for inspection.
 Setup may restore online; unusable proxies during retrieval establish proxy
 independence, not network isolation. The inspection itself needs no native tools.
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\agent-pin-1120-03-025-register-a-closed-set-of-build-extensions-in-an-aot'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId 'msbuild.register-aot-build-extensions' -Query 'native-build-extensions' `
   -TargetVersion '11.0' -PackageVersion '0.0.0-pin1120' -BuildAndPack `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory ./artifacts/pin1120/inspection
 ```
@@ -1571,10 +1600,10 @@ To refresh the actual paired/native proof with the exact prerequisites recorded
 in the recipe and sample pins:
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\agent-pin-1120-03-025-register-a-closed-set-of-build-extensions-in-an-aot'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Record-NorthQuayBuildHost.ps1 `
-  -Net10Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
-  -Net11Dotnet 'C:\Users\pingu\.dotnet-playbook-11\dotnet.exe'
+  -Net10Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
+  -Net11Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe'
 ```
 
 This first restores both locked package closures, then invokes the existing
@@ -1592,16 +1621,16 @@ This block builds/packs the ordinary tool, installs that exact artifact through
 an isolated local feed/cache, and calls real installed stdio list/get from an
 unrelated directory. It displays ID/title/goal, complete canonical Markdown,
 target11/edition11, applicability and both current museum host evidence records.
-PowerShell7, SDK10.0.402 and Node22.19+ are required for inspection. Setup may
+PowerShell7, SDK10.0.403 and Node22.19+ are required for inspection. Setup may
 restore online; retrieval with unusable proxies proves proxy independence, not
 network isolation. No global tool or PATH change is needed.
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\agent-pin-1119-03-024-evaluate-only-the-project-information-a-tool-needs'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId 'msbuild.evaluate-project-stages' -Query 'partial-evaluation' `
   -TargetVersion '11.0' -PackageVersion '0.0.0-pin1119' -BuildAndPack `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory ./artifacts/pin1119/inspection
 ```
@@ -1618,14 +1647,14 @@ Target10 remains unsupported for this new partial-evaluation recipe.
 To refresh the bounded managed host proof with both complete SDK/runtime installs:
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\agent-pin-1119-03-024-evaluate-only-the-project-information-a-tool-needs'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 $previousIntegration = $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH
 try {
   $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH = '0'
   & ./eng/Record-Evidence.ps1 -Sample 'samples/net10.0/MuseumInventory/MuseumInventory.csproj' `
-    -Dotnet 'C:\Program Files\dotnet\dotnet.exe'
+    -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe'
   & ./eng/Record-Evidence.ps1 -Sample 'samples/net11.0/MuseumInventory/MuseumInventory.csproj' `
-    -Dotnet 'C:\Users\pingu\.dotnet-playbook-11\dotnet.exe'
+    -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe'
 }
 finally { $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH = $previousIntegration }
 ```
@@ -1642,15 +1671,15 @@ This block builds/packs the ordinary artifact and uses the existing isolated
 local-only feed/cache Inspector harness. It invokes real installed stdio list/get
 from an unrelated directory, displaying ID/title/goal, full canonical Markdown,
 explicit target/edition, applicability and both fresh host evidence records.
-Setup requires PowerShell 7, SDK 10.0.402 and Node 22.19+; setup can restore online.
+Setup requires PowerShell 7, SDK 10.0.403 and Node 22.19+; setup can restore online.
 Retrieval uses unusable proxies, proving proxy independence, not network isolation.
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\agent-pin-1118-03-023-bind-typed-parameters-in-a-safe-custom-build-task'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId 'msbuild.bind-typed-task-inputs' -Query 'typed-task-inputs' `
   -TargetVersion '11.0' -PackageVersion '0.0.0-pin1118' -BuildAndPack `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory ./artifacts/pin1118/inspection
 ```
@@ -1669,14 +1698,14 @@ check executes that same older compatibility DLL. Neither command installs a
 global tool or changes PATH; SDK 11 and its matching runtime must already exist:
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\agent-pin-1118-03-023-bind-typed-parameters-in-a-safe-custom-build-task'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 $previousIntegration = $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH
 try {
   $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH = '0'
   & ./eng/Record-Evidence.ps1 -Sample 'samples/net10.0/ObservatoryTasks/ObservatoryTasks.csproj' `
-    -Dotnet 'C:\Program Files\dotnet\dotnet.exe'
+    -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe'
   & ./eng/Record-Evidence.ps1 -Sample 'samples/net11.0/ObservatoryTasks/ObservatoryTasks.csproj' `
-    -Dotnet 'C:\Users\pingu\.dotnet-playbook-11\dotnet.exe'
+    -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe'
 }
 finally { $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH = $previousIntegration }
 ```
@@ -1690,21 +1719,21 @@ This tested block builds/packs the ordinary tool, installs the exact package in
 an isolated local feed/cache, then calls installed stdio list/get from an
 unrelated directory. It prints ID/title/goal, complete canonical Markdown,
 explicit target/edition, applicability and all three current evidence records.
-PowerShell7, SDK 10.0.402 and Node22.19+ are required; setup may use the network.
+PowerShell7, SDK 10.0.403 and Node22.19+ are required; setup may use the network.
 Retrieval uses unusable proxies, proving proxy independence, not network isolation.
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\agent-pin-1073-03-021-read-vstest-messages-through-the-supported-typed'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId 'testing.migrate-vstest-message-readers' -Query 'vstest-messages' `
   -TargetVersion '11.0' -PackageVersion '0.0.0-pin1073' -BuildAndPack `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory ./artifacts/pin1073/inspection
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId 'testing.migrate-vstest-message-readers' -Query 'vstest-messages' `
   -TargetVersion '10.0' -PackageVersion '0.0.0-pin1073' `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory ./artifacts/pin1073/inspection10
 ```
@@ -1725,16 +1754,16 @@ This tested example selects the PIN-1190 worktree from an unrelated directory,
 builds/packs the ordinary tool and installs that exact package through an isolated
 local feed/cache. The helper calls actual installed stdio `list_recipes` and
 `get_recipe`, showing ID/title/goal, complete canonical Markdown, target/edition,
-applicability and fresh evidence. Setup requires PowerShell7, SDK10.0.402 and
+applicability and fresh evidence. Setup requires PowerShell7, SDK10.0.403 and
 Node22.19+ and may restore packages online. Retrieval with unusable proxies proves
 proxy independence, not network isolation. No global tool or PATH change is needed.
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\agent-pin-1190-05-049-replace-a-configured-database-provider-deliberately'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId 'ef.replace-context-provider' -Query 'provider-replacement' `
   -TargetVersion '11.0' -PackageVersion '0.0.0-pin1190' -BuildAndPack `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory ./artifacts/pin1190/inspection
 ```
@@ -1753,16 +1782,16 @@ This block builds/packs the ordinary tool and uses the existing isolated local-f
 Inspector harness. It changes to an unrelated temporary directory before calling
 the exact installed executable over stdio, and displays both recipes' ID, title,
 goal, complete Markdown, applicability and current compilation/execution evidence.
-Setup requires PowerShell 7, SDK 10.0.402 and Node 22.19+; Inspector 2.11.0 is
+Setup requires PowerShell 7, SDK 10.0.403 and Node 22.19+; Inspector 2.11.0 is
 installed locally when absent. Setup may use the network; retrieval uses unusable
 proxies, which demonstrates proxy independence rather than network isolation.
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-8fca8201'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('blazor.export-custom-client-validation-rules','blazor.declare-component-cache-safety') `
   -Query 'garden-library' -PackageVersion '0.0.0-garden-library' `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' -BuildAndPack `
   -OutputDirectory ./artifacts/garden-library/inspection
 ```
@@ -1781,16 +1810,16 @@ for inspection and restores process settings; it does not install a global tool.
 For JavaScript failure recovery and derived InputFile cleanup, this tested block
 builds/packs the ordinary tool, installs that exact package through the isolated
 local feed/cache, and calls real stdio list/get from an unrelated temporary
-directory. PowerShell 7, SDK 10.0.402 and Node 22.19+ are required for inspection;
+directory. PowerShell 7, SDK 10.0.403 and Node 22.19+ are required for inspection;
 setup may use the network. Retrieval uses unusable proxies, which proves proxy
 independence rather than network isolation.
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-e039c0ab'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('blazor.handle-js-invocation-failures','blazor.dispose-input-file-subclass-resources') `
   -Query 'owned-lifetimes' -PackageVersion '0.0.0-owned-lifetimes' `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' -BuildAndPack `
   -OutputDirectory ./artifacts/owned-lifetimes/inspection
 ```
@@ -1817,7 +1846,7 @@ retrieval uses unusable proxies, which establishes proxy independence rather
 than network isolation.
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-2784b7c8'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('signalr.refresh-live-credentials','blazor.react-to-refreshed-identity') `
   -Query '' -PackageVersion '0.0.0-live-tool-contracts' `
@@ -1833,24 +1862,24 @@ reconstructs the .NET and TypeScript consumers solely from these installed
 responses and executes their real hub and Interactive Server checks; supply
 absolute `-Playwright`, `-Chromium`, `-Dotnet` and `-Node` paths. This is bounded
 local execution, not Azure SignalR Service, production authentication or GA proof.
-The task-local SDK root above preserves the recorded 10.0.402/RC2 baselines
+The task-local SDK root above preserves the recorded 10.0.403/RC2 baselines
 after the machine's installation advanced to 10.0.403/RC3. An equivalent installed
 root containing those exact SDKs and runtimes can be supplied instead.
 
 ## Runtime overrides and SDK selection for tool execution
 
-From PowerShell 7 with SDK 10.0.402 and Node 22.19+, this builds/packs the
+From PowerShell 7 with SDK 10.0.403 and Node 22.19+, this builds/packs the
 ordinary tool, then reuses the isolated local-feed/cache harness to inspect that
 exact artifact over real stdio from an unrelated temporary directory. Inspector
 2.11.0 is installed locally if missing. Setup may restore packages online;
 retrieval uses unusable proxies (proxy independence, not network isolation).
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-72e14ee7'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('deployment.control-runtime-overrides','sdk.select-tool-execution-sdk') `
   -Query 'host-selection' -PackageVersion '0.0.0-host-selection' `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' -BuildAndPack `
   -OutputDirectory ./artifacts/host-selection/inspection
 ```
@@ -1859,7 +1888,7 @@ Expect both IDs/titles/goals, explicit edition
 11.0, complete expanded canonical Markdown, applicability and four current
 compilation/execution records per recipe. The second recipe correctly reports
 introduction 10.0: wrapper bypass was serviced into 10.0.302/10.0.400 and was
-executed here on 10.0.402 and RC2. This adds no target-10 foundation. The existing
+executed here on 10.0.403 and RC2. This adds no target-10 foundation. The existing
 helper's name is historical; its recipe-ID/query parameters accept both recipes.
 
 Actual behavior is separate from retrieval. `eng/Test-RuntimeOverrides.ps1`
@@ -1876,13 +1905,13 @@ only. Unix wrapper execution and actual .NET 11 GA reconciliation remain unverif
 This block builds/packs once, runs the existing installed MCP smoke scenario,
 then uses that same artifact through the existing local-feed/cache Inspector
 harness. It was checked starting from an unrelated directory. Requires PowerShell
-7, SDK 10.0.402 and Node 22.19+; the standalone consumer checks additionally need
+7, SDK 10.0.403 and Node 22.19+; the standalone consumer checks additionally need
 the declared .NET 10 and .NET 11 RC2 SDKs/packages. Setup may restore packages
 online. Retrieval uses unusable proxies, demonstrating proxy independence rather
 than network isolation. No external database or account is needed.
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-3101a2fc'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Test-Smoke.ps1 -PackageVersion '0.0.0-ef-models'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('ef.configure-nested-scalar','ef.configure-primitive-sequence') `
@@ -1904,18 +1933,18 @@ native platforms, production data conversion and actual GA remain unverified.
 
 ## Package identity migration and restore sources
 
-From PowerShell 7 with SDK 10.0.402 and Node 22.19+, this builds/packs the
+From PowerShell 7 with SDK 10.0.403 and Node 22.19+, this builds/packs the
 ordinary tool and reuses the isolated local-feed/cache Inspector harness to call
 that exact installed artifact from an unrelated temporary directory. Inspector
 2.11.0 is installed locally if absent. Setup may use the network; retrieval uses
 unusable proxies, demonstrating proxy independence rather than network isolation.
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-fa570270'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('nuget.migrate-package-identities','nuget.restore-from-declared-sources') `
   -Query 'nuget-migration' -PackageVersion '0.0.0-nuget-migration' `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' -BuildAndPack `
   -OutputDirectory ./artifacts/nuget-migration/inspection
 ```
@@ -1937,22 +1966,22 @@ This checked example starts from an unrelated directory, selects this worktree,
 builds/packs the ordinary tool and uses the existing isolated feed/cache harness.
 It displays ID/title/goal, complete canonical Markdown, applicability and current
 sample evidence through real installed stdio list/get. Requires PowerShell 7,
-SDK 10.0.402 and Node 22.19+; the separate EF1004 reproduction additionally needs
+SDK 10.0.403 and Node 22.19+; the separate EF1004 reproduction additionally needs
 SDK 11.0.100-rc.2.26504.105. Setup can restore online. Retrieval uses unusable
 proxies, demonstrating proxy independence rather than network isolation.
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-5b34b81d'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('ef.stream-query-without-reexecution','sqlite.bind-large-unsigned-value') `
   -Query 'data-adapters' -PackageVersion '0.0.0-data-adapters' -BuildAndPack `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory ./artifacts/data-adapters/inspection11
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId 'sqlite.bind-large-unsigned-value' -TargetVersion '10.0' `
   -Query 'data-adapters' -PackageVersion '0.0.0-data-adapters' `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory ./artifacts/data-adapters/inspection10
 ```
@@ -1971,22 +2000,22 @@ From an unrelated directory, this selects the exact PIN-1071 worktree, builds an
 packs the ordinary tool, installs that artifact in a fresh local-only feed/cache,
 then displays real stdio discovery ID/title/goal, full canonical Markdown,
 applicability, edition and fresh evidence for both advertised targets. Requires
-PowerShell 7, SDK 10.0.402 and Node; sample reproduction also needs SDK/runtime 11
+PowerShell 7, SDK 10.0.403 and Node; sample reproduction also needs SDK/runtime 11
 RC2 and the public package feeds. Retrieval uses unusable proxies, proving proxy
 independence rather than network isolation.
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\agent-pin-1071-03-019-retarget-an-embedded-template-engine-host'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId 'sdk.retarget-template-engine-hosts' -Query 'template-engine' `
   -PackageVersion '0.0.0-template-host' -BuildAndPack `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory ./artifacts/template-host/inspection11
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId 'sdk.retarget-template-engine-hosts' -Query 'template-engine' `
   -TargetVersion '10.0' -PackageVersion '0.0.0-template-host' `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory ./artifacts/template-host/inspection10
 ```
@@ -2004,22 +2033,22 @@ are author-maintained, outside automated root-package update permissions.
 
 This checked block starts from an unrelated directory, selects the assigned
 worktree, builds/packs the ordinary tool and reuses the existing isolated
-local-feed/cache harness. Setup needs PowerShell7, SDK10.0.402 and Node22.19+;
+local-feed/cache harness. Setup needs PowerShell7, SDK10.0.403 and Node22.19+;
 Inspector2.11.0 is installed locally if absent. Setup can restore online;
 retrieval uses unusable proxies (proxy independence, not network isolation).
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\agent-pin-863-05-021-keep-low-level-sqlite-access-on-a-supported-framework'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId 'sqlite.retain-supported-runtime' -TargetVersion '11.0' `
   -Query 'sqlite-runtime' -PackageVersion '0.0.0-sqlite-runtime' -BuildAndPack `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory ./artifacts/sqlite-runtime/inspection11
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId 'sqlite.retain-supported-runtime' -TargetVersion '10.0' `
   -Query 'sqlite-runtime' -PackageVersion '0.0.0-sqlite-runtime' `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory ./artifacts/sqlite-runtime/inspection10
 ```
@@ -2038,22 +2067,22 @@ the declared SDK10/SDK11 and Windows Framework runtime. Retrieval does not rerun
 This verified block selects the assigned worktree from an unrelated directory,
 builds/packs the ordinary tool, installs that exact package in an isolated local
 feed/cache and calls real stdio list/get. Setup requires PowerShell7,
-SDK10.0.402 and Node22.19+; the helper installs Inspector2.11.0 locally if absent.
+SDK10.0.403 and Node22.19+; the helper installs Inspector2.11.0 locally if absent.
 Restores/setup use public packages; retrieval uses unusable proxies (proxy
 independence, not network isolation).
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\agent-pin-1072-03-020-own-json-dependencies-in-test-projects-and-extensions'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId 'testing.declare-json-dependencies' -TargetVersion '11.0' `
   -Query 'json-dependencies' -PackageVersion '0.0.0-json-dependencies' -BuildAndPack `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory ./artifacts/json-dependencies/inspection11
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId 'testing.declare-json-dependencies' -TargetVersion '10.0' `
   -Query 'json-dependencies' -PackageVersion '0.0.0-json-dependencies' `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory ./artifacts/json-dependencies/inspection10
 ```
@@ -2073,16 +2102,16 @@ the existing sample dependency policy; no new automatic update permission is add
 
 This block was executed from an unrelated directory. It builds/packs the ordinary
 tool and reuses the isolated local-feed/cache harness for real installed stdio
-list/get. Requires PowerShell7, SDK10.0.402 and Node22.19+; Inspector2.11.0 is
+list/get. Requires PowerShell7, SDK10.0.403 and Node22.19+; Inspector2.11.0 is
 installed locally if absent. Setup may restore online. Retrieval uses unusable
 proxies, proving proxy independence rather than network isolation.
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\agent-pin-864-05-022-restore-native-sqlite-initialization-after-bundle'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId 'sqlite.replace-retired-native-bundle' -TargetVersion '11.0' `
   -Query 'sqlite-initialization' -PackageVersion '0.0.0-sqlite-initialization' -BuildAndPack `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory ./artifacts/sqlite-initialization/inspection
 ```
@@ -2092,7 +2121,7 @@ Windows system-engine applicability and three current sample evidence records.
 The older bundle comparison is not an additional .NET10 foundation or selectable
 current target route. `eng/Record-SqliteInitialization.ps1` separately recaptures
 actual Windows x64 native initialization, committed debit/reopen, password refusal
-and omitted-initialization failure using SDK10.0.402 and SDK11 RC2. That helper
+and omitted-initialization failure using SDK10.0.403 and SDK11 RC3. That helper
 records the loaded DLL/version/hash; retrieval does not execute SQL. Encryption,
 other platforms and actual GA remain unverified. No paid provider is selected.
 
@@ -2102,17 +2131,17 @@ This checked block starts from an unrelated directory, selects the PIN-1171
 worktree, builds/packs the ordinary tool and installs that exact artifact in the
 existing isolated local feed/cache. It calls real stdio list/get and displays the
 ID/title/goal, full canonical Markdown, explicit target/edition, applicability and
-fresh evidence. Setup requires PowerShell7, SDK10.0.402 and Node22.19+; paired
+fresh evidence. Setup requires PowerShell7, SDK10.0.403 and Node22.19+; paired
 sample reproduction also requires SDK11.0.100-rc.2.26504.105 at its declared path.
 Setup may restore online; retrieval uses unusable proxies, demonstrating proxy
 independence rather than network isolation. Inspector2.11.0 is installed locally.
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\agent-pin-1171-04-096-protect-data-directly-into-an-owned-buffer'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId 'security.protect-into-buffer' -TargetVersion '11.0' `
   -Query 'owned-buffer' -PackageVersion '0.0.0-museum-buffer' -BuildAndPack `
-  -Dotnet 'C:/Program Files/dotnet/dotnet.exe' `
+  -Dotnet 'C:/Users/pingu/AppData/Local/dotnetup/dotnet/dotnet.exe' `
   -Node 'C:/Program Files/nodejs/node.exe' `
   -OutputDirectory ./artifacts/museum-buffer/inspection
 ```
@@ -2131,16 +2160,16 @@ author-maintained under the existing dependency boundary.
 This block was checked starting from an unrelated directory. It selects the exact
 assigned worktree, builds/packs the ordinary tool, then uses the existing isolated
 local-feed/cache harness for real installed stdio list/get. Requires PowerShell7,
-SDK10.0.402 and Node22.19+; Inspector2.11.0 installs locally if absent. Setup may
+SDK10.0.403 and Node22.19+; Inspector2.11.0 installs locally if absent. Setup may
 restore online. Retrieval uses unusable proxies, proving proxy independence rather
 than network isolation. Separate sample execution also needs SDK/runtime11 RC2.
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\agent-pin-1210-05-069-filter-sqlite-rows-by-time-components'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId 'sqlite.query-time-components' -TargetVersion '11.0' `
   -Query 'time-components' -PackageVersion '0.0.0-sqlite-components' -BuildAndPack `
-  -Dotnet 'C:/Program Files/dotnet/dotnet.exe' `
+  -Dotnet 'C:/Users/pingu/AppData/Local/dotnetup/dotnet/dotnet.exe' `
   -Node 'C:/Program Files/nodejs/node.exe' `
   -OutputDirectory ./artifacts/sqlite-components/inspection
 ```
@@ -2160,17 +2189,17 @@ This checked block starts from an unrelated directory, selects the exact assigne
 worktree, builds/packs the ordinary tool and installs that artifact in the existing
 isolated local feed/cache. Real stdio list/get displays discovery ID/title/goal,
 full canonical Markdown, explicit edition/target, applicability and fresh evidence.
-Setup requires PowerShell7, SDK10.0.402 and Node22.19+; Inspector2.11.0 installs
+Setup requires PowerShell7, SDK10.0.403 and Node22.19+; Inspector2.11.0 installs
 locally when absent. Setup can restore online; retrieval uses unusable proxies
 (proxy independence, not network isolation). Browser/paired consumer reproduction
-additionally needs the declared SDK11 RC2 and Chrome; retrieval does not run them.
+additionally needs the declared SDK11 RC3 and Chrome; retrieval does not run them.
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\agent-pin-1172-04-097-supply-an-application-specific-cross-origin-verdict'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId 'web.supply-origin-protection-policy' -TargetVersion '11.0' `
   -Query 'seed-exchange' -PackageVersion '0.0.0-seed-exchange' -BuildAndPack `
-  -Dotnet 'C:/Program Files/dotnet/dotnet.exe' `
+  -Dotnet 'C:/Users/pingu/AppData/Local/dotnetup/dotnet/dotnet.exe' `
   -Node 'C:/Program Files/nodejs/node.exe' `
   -OutputDirectory ./artifacts/seed-exchange/inspection
 ```
@@ -2191,7 +2220,7 @@ remain author-maintained; no additional automatic dependency permission is grant
 ## Inspect a response directly
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-4d84c6cb'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 $response = Get-Content -LiteralPath './artifacts/inspection/blazor.configure-browser-from-server.json' -Raw | ConvertFrom-Json
 $recipe = $response.result.structuredContent.recipe
 $recipe.markdown
@@ -2218,16 +2247,16 @@ This tested block builds/packs the ordinary tool and installs that exact artifac
 through the existing isolated local-feed/cache harness. Real installed stdio
 list/get runs from an unrelated temporary directory and displays ID/title/goal,
 complete canonical Markdown, target/edition, applicability and both current
-compilation/execution records. Setup requires PowerShell7, SDK10.0.402 and
+compilation/execution records. Setup requires PowerShell7, SDK10.0.403 and
 Node22.19+ and can restore online. Retrieval uses unusable proxies: this proves
 proxy independence, not network isolation. No global tool or PATH change occurs.
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\agent-pin-1173-04-098-read-parsed-route-contracts-in-an-api-explorer'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId 'web.inspect-api-route-pattern' -Query 'route-pattern' `
   -TargetVersion '11.0' -PackageVersion '0.0.0-pin1173' -BuildAndPack `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory ./artifacts/pin1173/inspection
 ```
@@ -2251,22 +2280,22 @@ edition11, preserving exactly eight foundations. Retrieval uses unusable proxies
 proxy independence, not network isolation.
 
 The block was executed from an unrelated directory. Setup needs PowerShell7,
-SDK10.0.402 and Node22.19+; the final reconstruction also needs SDK11 RC2 and the
+SDK10.0.403 and Node22.19+; the final reconstruction also needs SDK11 RC3 and the
 matching restored locked packages. Online package setup precedes offline retrieval.
 No global tool, production account, messages or third-party provider is required.
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\agent-pin-1177-04-102-keep-registration-aligned-with-confirmation-policy'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId 'identity.confirm-before-registration-signin' -Query 'confirmation' `
   -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
   -PackageVersion '0.0.0-pin1177' -BuildAndPack `
-  -Dotnet 'C:/Program Files/dotnet/dotnet.exe' `
+  -Dotnet 'C:/Users/pingu/AppData/Local/dotnetup/dotnet/dotnet.exe' `
   -Node 'C:/Program Files/nodejs/node.exe' `
   -OutputDirectory ./artifacts/pin1177/inspection
 & ./eng/Test-AquariumVolunteersConsumer.ps1 `
-  -Dotnet 'C:/Program Files/dotnet/dotnet.exe' `
-  -Net11Dotnet 'C:/Users/pingu/.dotnet-playbook-11/dotnet.exe'
+  -Dotnet 'C:/Users/pingu/AppData/Local/dotnetup/dotnet/dotnet.exe' `
+  -Net11Dotnet 'C:/Users/pingu/AppData/Local/dotnetup/dotnet/dotnet.exe'
 ```
 
 Expect `identity.confirm-before-registration-signin`, title "Keep registration
@@ -2288,12 +2317,12 @@ From an unrelated directory, run the existing installed-package Inspector with t
 exact SDK10 executable (the SDK11 fixture is a separate authoring prerequisite):
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\agent-pin-1121-03-026-consume-structured-assembly-conflict-and-server'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId 'msbuild.inspect-structured-build-events' -Query 'structured assembly' `
   -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
   -PackageVersion '0.0.0-pin1121' -BuildAndPack `
-  -Dotnet 'C:/Program Files/dotnet/dotnet.exe' `
+  -Dotnet 'C:/Users/pingu/AppData/Local/dotnetup/dotnet/dotnet.exe' `
   -Node 'C:/Program Files/nodejs/node.exe' `
   -OutputDirectory ./artifacts/pin1121/inspection
 ```
@@ -2319,19 +2348,19 @@ stays in the target11 body and is not staging support.
 
 The block was executed from an unrelated directory. Refresh paired evidence with
 `eng/Record-FoundryStaging.ps1` on both complete pinned Windows x64 SDK/runtime/ref
-installations when sample inputs change. Inspection needs PowerShell7, SDK10.0.402
+installations when sample inputs change. Inspection needs PowerShell7, SDK10.0.403
 and Node22.19+. Setup may download tool/test dependencies;
 retrieval uses unusable proxies, establishing proxy independence, not network
 isolation. The evidence fixture uses only disposable literal127.0.0.1 HTTP and a
 generated noncredential marker. No public package upload or real API key is needed.
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\agent-pin-1124-03-029-upload-packages-to-a-v3-staging-endpoint'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId 'nuget.stage-package-uploads' -Query 'staging' `
   -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
   -PackageVersion '0.0.0-pin1124' -BuildAndPack `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory ./artifacts/pin1124/inspection
 ```
@@ -2365,24 +2394,24 @@ net10/net11 projects and sources from returned Markdown, supplies standard SDK,
 import and local-feed scaffolding, then runs actual same-process
 MSBuild/configuration and benign-child behaviour outside the checkout.
 
-Prerequisites: PowerShell7, Node22.19+, complete SDK10.0.402 and
+Prerequisites: PowerShell7, Node22.19+, complete SDK10.0.403 and
 SDK11.0.100-rc.2.26504.105 installations, runtime/ref10.0.13 and11RC2. Setup may
 restore online; installed retrieval with unusable proxies proves proxy
 independence, not network isolation. No global install, provider or real secret.
 From an unrelated directory this literal worktree block was tested:
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\agent-pin-1125-03-030-invalidate-custom-nuget-caches-between-reused-builds'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('nuget.reset-reused-host-state','nuget.inspect-analyzer-assets','nuget.own-plugin-launch-diagnostics') `
   -Query 'nuget' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
   -PackageVersion '0.0.0-pin1125-batch03' -BuildAndPack `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory ./artifacts/batch03/inspection
 & ./eng/Test-PackageWorkshopConsumer.ps1 `
-  -Net10Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
-  -Net11Dotnet 'C:\Users\pingu\.dotnet-playbook-11\dotnet.exe'
+  -Net10Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
+  -Net11Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe'
 ```
 
 Expect all three discovery entries, full sources/requirements and current
@@ -2401,18 +2430,18 @@ PIN-959 qualifying coverage/evidence, PIN-963 actual-GA and Human gates remain o
 
 ## Verify withdrawn compiler guidance
 
-Requires PowerShell 7, SDK 10.0.402 and Node 22.19+. This builds/packs the ordinary
+Requires PowerShell 7, SDK 10.0.403 and Node 22.19+. This builds/packs the ordinary
 tool and installs the exact artifact from an isolated local-only feed/cache.
 Setup can restore online. Installed stdio calls run from an unrelated temporary
 directory with unusable proxies (proxy independence, not network isolation).
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-5ba443cc'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId 'razor.replace-runtime-compilation-registration' `
   -RemovedRecipeId @('razor.migrate-generated-document-contracts','razor.copy-intermediate-nodes','razor.choose-task-generation-path') `
   -Query '' -TargetVersion '11.0' -PackageVersion '0.0.0-scope-removal' `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' -BuildAndPack `
   -OutputDirectory ./artifacts/scope-removal/inspection
 ```
@@ -2425,21 +2454,21 @@ changed retained content fails the check. No new compiler-consumer or GA claim f
 
 ## Registry challenges and native publish hooks
 
-Requires PowerShell7, SDK10.0.402 and Node22.19+. This builds/packs the ordinary
+Requires PowerShell7, SDK10.0.403 and Node22.19+. This builds/packs the ordinary
 tool, installs that exact artifact through a local-only feed and fresh cache,
 then exercises real stdio list/get from an unrelated temporary directory with
 unusable proxies. Setup can restore online; retrieval proves proxy independence,
 not network isolation. The block was tested from an unrelated starting directory.
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-d3fc93fb'
-& ./eng/Test-Smoke.ps1 -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
+& ./eng/Test-Smoke.ps1 -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -PackageVersion '0.0.0-pin1142-batch04'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('sdk.configure-redirected-output-encoding','containers.migrate-registry-auth-challenges','sdk.migrate-optimized-publish-hooks') `
   -Query 'estuary' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
   -PackageVersion '0.0.0-pin1142-batch04' `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory ./artifacts/estuary/inspection-final
 ```
@@ -2467,7 +2496,7 @@ route or newer-only reader API is claimed.
 
 ## Package streams and TAR hard-link policy
 
-Requires PowerShell 7, SDK 10.0.402 with runtime 10.0.13, SDK/runtime
+Requires PowerShell 7, SDK 10.0.403 with runtime 10.0.13, SDK/runtime
 11.0.100-rc.2.26504.105 / 11.0.0-rc.2.26504.105, Node 22.19+ and
 Windows NTFS for the real TAR identity proof. The exact packaging versions are
 locked in the samples; no Open XML SDK or separate TAR package is needed.
@@ -2479,12 +2508,12 @@ temporary directory with unusable proxies. This proves proxy independence, not
 network isolation. No public package publication or global tool install occurs.
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-d402c791'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('archive.adapt-package-part-streams','archive.choose-hard-link-policy') `
   -Query 'archive' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
   -PackageVersion '0.0.0-pin1040-1041' -BuildAndPack `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory ./artifacts/archive-policy/inspection
 ```
@@ -2498,7 +2527,7 @@ The script asserts canonical snippet identity and structured/text equality.
 Refresh changed consumer evidence on the declared Windows environment:
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-d402c791'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 $previousIntegration = $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH
 try {
   $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH = '0'
@@ -2510,8 +2539,8 @@ try {
     'samples/net11.0/ObservatoryTar/ObservatoryTar.csproj'
   )) {
     $runtime = if ($sample.StartsWith('samples/net11.0/')) {
-      'C:\Users\pingu\.dotnet-playbook-11\dotnet.exe'
-    } else { 'C:\Program Files\dotnet\dotnet.exe' }
+      'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe'
+    } else { 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' }
     & ./eng/Record-Evidence.ps1 -Sample $sample -Dotnet $runtime
   }
 }
@@ -2529,7 +2558,7 @@ remain open; no recurring platform matrix is added.
 
 ## Fractional rounding and small integer policies
 
-Requires PowerShell7, SDK10.0.402/runtime10.0.13, SDK11.0.100-rc.2.26504.105 /
+Requires PowerShell7, SDK10.0.403/runtime10.0.13, SDK11.0.100-rc.2.26504.105 /
 runtime11.0.0-rc.2.26504.105 and Node22.19+. The tensor samples lock matching
 System.Numerics.Tensors10.0.13/11RC2 with actual net10/net11 assets. Scalar rounding
 and small conversions need no package. No provider, workload, service or global
@@ -2543,12 +2572,12 @@ not network isolation. The output displays ID/title/goal, complete canonical Mar
 target11/edition11 applicability and fresh compilation/execution records.
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-9d85709e'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('numerics.choose-fractional-rounding','numerics.select-small-integer-conversion') `
   -Query 'numeric-policy' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
   -PackageVersion '0.0.0-pin1047-1048' -BuildAndPack `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory ./artifacts/numeric-policy/inspection
 ```
@@ -2568,7 +2597,7 @@ platform or actual-GA proof. PIN-959/PIN-962 and Human gates remain open.
 
 ## Historical dates and tensor ownership preparation
 
-Requires PowerShell7, Node22.19+, SDK10.0.402/runtime10.0.13 and
+Requires PowerShell7, Node22.19+, SDK10.0.403/runtime10.0.13 and
 SDK11.0.100-rc.2.26504.105/runtime11RC2, plus outbound HTTPS to
 raw.githubusercontent.com for the recorders' -VerifySources checks. The paired calendar consumers need
 no package or workload and require non-invariant globalization with usable ja-JP.
@@ -2585,17 +2614,17 @@ temporary directory. Setup may restore online. Retrieval with unusable proxies
 proves proxy independence, not network isolation.
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-34e74034'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Record-HistoryImport.ps1 -VerifySources
 & ./eng/Record-GridTransform.ps1 -VerifySources
-& ./eng/Test-Smoke.ps1 -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+& ./eng/Test-Smoke.ps1 -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -PackageVersion '0.0.0-pin1051-1052'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('globalization.validate-japanese-calendar-range','numerics.copy-tensor-views-safely') `
   -Query 'data-validation' `
   -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
   -PackageVersion '0.0.0-pin1051-1052' `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory ./artifacts/calendar-storage/inspection
 ```
@@ -2618,7 +2647,7 @@ comprehensive coverage or existing Human gates.
 
 ## Complex signal classification and tensor shape preparation
 
-Requires PowerShell7, SDK10.0.402/runtime10.0.13, SDK11.0.100-rc.2.26504.105 /
+Requires PowerShell7, SDK10.0.403/runtime10.0.13, SDK11.0.100-rc.2.26504.105 /
 runtime11.0.0-rc.2.26504.105 and Node22.19+. The signal samples use framework
 Complex. InstrumentBatch locks tensor10.0.13/11RC2 for previous execution/current
 compilation; the intended tensor route requires the final11 package with backport
@@ -2631,12 +2660,12 @@ Setup may restore online; unusable proxies during retrieval establish proxy
 independence, not network isolation.
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-ade7763e'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('numerics.handle-complex-special-values','numerics.align-tensor-shapes') `
   -Query 'numeric-shapes' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
   -PackageVersion '0.0.0-pin1049-1050' -BuildAndPack `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory ./artifacts/numeric-shapes/inspection
 ```
@@ -2662,7 +2691,7 @@ release-ready packaging, comprehensive, GA and existing Human gates stay open.
 Refresh affected tensor preparation evidence with:
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-ade7763e'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Record-InstrumentBatch.ps1 -VerifySources
 ```
 
@@ -2675,7 +2704,7 @@ explicit option also runs the large native proof, requiring Windows x64 and abou
 proof pending; do not clear it based on the smaller checks.
 # Calibration bounds and host failure boundaries
 
-Requires PowerShell7, Node22.19+, SDK10.0.402/runtime10.0.13 and
+Requires PowerShell7, Node22.19+, SDK10.0.403/runtime10.0.13 and
 SDK11.0.100-rc.2.26504.105/runtime11RC2. CalibrationImport locks tensors10.0.13 /
 11RC2; AquariumImport locks full Hosting10.0.13/11RC2 with its actual transitive
 closure. No provider, native library/workload, account or service is needed.
@@ -2687,14 +2716,14 @@ Setup may restore online. Unusable proxies during retrieval prove proxy independ
 not network isolation. No public publication or global installation occurs.
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-76b55631'
-& ./eng/Test-Smoke.ps1 -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
+& ./eng/Test-Smoke.ps1 -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -PackageVersion '0.0.0-pin1053-1054'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('numerics.validate-tensor-clamp-bounds','hosting.observe-background-failures') `
   -Query 'calibration-host' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
   -PackageVersion '0.0.0-pin1053-1054' `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory ./artifacts/calibration-host/inspection
 ```
@@ -2709,7 +2738,7 @@ consumer behavior. To refresh changed consumer inputs and the eight immutable
 source hashes on the declared environment:
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-76b55631'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Record-CalibrationHost.ps1 -VerifySources
 ```
 
@@ -2728,7 +2757,7 @@ PIN-959/PIN-962 and existing Human gates remain open; no recurring matrix is add
 
 ## File load, watch root and certificate issuer boundaries
 
-Requires PowerShell7, Node22.19+, SDK10.0.402/runtime10.0.13 and the separate
+Requires PowerShell7, Node22.19+, SDK10.0.403/runtime10.0.13 and the separate
 SDK11.0.100-rc.2.26504.105/runtime11RC2 installation. File-provider samples lock
 Configuration.Json/FileProviders.Physical10.0.13/11RC2 with actual net10/net11
 assets. Certificate consumers use framework X509 APIs and existing Linux Docker.
@@ -2742,14 +2771,14 @@ independence, not network isolation. The Linux behavior fixture separately uses
 network-none containers with loopback available.
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-15728aaa'
-& ./eng/Test-Smoke.ps1 -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
+& ./eng/Test-Smoke.ps1 -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -PackageVersion '0.0.0-pin1055-1056-1060'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('configuration.observe-file-load-failures','io.compose-file-watcher-roots','crypto.supply-chain-intermediates') `
   -Query 'file-chain' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
   -PackageVersion '0.0.0-pin1055-1056-1060' `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory ./artifacts/file-chain/inspection
 ```
@@ -2765,7 +2794,7 @@ Refresh changed sample inputs and eleven immutable source hashes on the declared
 Windows NTFS/Docker environment:
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-15728aaa'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Record-FileChain.ps1 -VerifySources
 ```
 
@@ -2795,7 +2824,7 @@ PIN-959/PIN-962 and existing Human gates stay open; no native CI matrix is added
 
 ## Certificate extension state, client TLS chains and file aliases
 
-Requires PowerShell7, Node22.19+, SDK10.0.402/runtime10.0.13 and the separate
+Requires PowerShell7, Node22.19+, SDK10.0.403/runtime10.0.13 and the separate
 SDK11.0.100-rc.2.26504.105/runtime11RC2 installation. All six consumers use framework
 APIs with no NuGet packages/workloads. Authoring uses Windows x64 local NTFS and
 the existing digest-pinned Linux x64 OpenSSL runtime containers.
@@ -2807,14 +2836,14 @@ restore online; retrieval with unusable proxies proves proxy independence rather
 than network isolation. The separate TLS fixtures use network-none containers.
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-1fc43630'
-& ./eng/Test-Smoke.ps1 -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
+& ./eng/Test-Smoke.ps1 -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -PackageVersion '0.0.0-pin1061-1063-1075'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('crypto.replace-encoded-extension-data','tls.supply-client-certificate-chain','io.create-hard-links') `
   -Query 'certificate-links' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
   -PackageVersion '0.0.0-pin1061-1063-1075' `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory ./artifacts/certificate-links/inspection
 ```
@@ -2830,7 +2859,7 @@ it does not rerun native consumer behavior.
 Refresh affected samples and fourteen immutable selected/supplemental source hashes:
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-1fc43630'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Record-CertificateLinks.ps1 -VerifySources
 ```
 
@@ -2864,7 +2893,7 @@ PIN-959/PIN-962, other delivery owners and existing Human gates remain open.
 
 ## Legacy signatures and RSA padding
 
-Requires PowerShell7, Node22.19+, SDK10.0.402/runtime10.0.13 and the separate
+Requires PowerShell7, Node22.19+, SDK10.0.403/runtime10.0.13 and the separate
 SDK11.0.100-rc.2.26504.105/runtime11RC2 installation. All four consumers use
 framework cryptography APIs without packages/workloads. Windows x64 CAPI provider24
 and disposable RSA2048 keys provide the real interoperability path. The public-only
@@ -2878,14 +2907,14 @@ prove proxy independence, not network isolation. No public/global installation,
 production container access, native installation or persistent setting change occurs.
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-dfde5574'
-& ./eng/Test-Smoke.ps1 -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
+& ./eng/Test-Smoke.ps1 -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -PackageVersion '0.0.0-pin1057-1062'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('crypto.migrate-dsa-signatures','crypto.make-rsa-padding-explicit') `
   -Query 'signature-padding' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
   -PackageVersion '0.0.0-pin1057-1062' `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory ./artifacts/signature-padding/inspection
 ```
@@ -2901,7 +2930,7 @@ provider behavior or establish the excluded macOS outcomes.
 Refresh affected exact inputs, compilation/execution and nine immutable sources:
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-dfde5574'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Record-SignaturePadding.ps1 -VerifySources
 ```
 
@@ -2931,7 +2960,7 @@ pinned shared SDKs. No package, native workload, provider or device is needed.
 Refresh affected sample records and verify the eleven selected immutable sources:
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a43ec602'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Test-ChannelExtrema.ps1 -Record -VerifySources
 ```
 
@@ -2947,14 +2976,14 @@ ordinary tool once and inspects that exact package through an isolated local-onl
 feed/cache and real installed stdio calls from a temporary unrelated directory.
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a43ec602'
-& ./eng/Test-Smoke.ps1 -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
+& ./eng/Test-Smoke.ps1 -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -PackageVersion '0.0.0-pin1079-1080'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('numerics.preserve-color-channels','collections.find-span-extrema') `
   -Query 'channel-extrema' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
   -PackageVersion '0.0.0-pin1079-1080' `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory ./artifacts/channel-extrema/inspection
 ```
@@ -2970,7 +2999,7 @@ PIN-959 comprehensive coverage, PIN-962 GA and existing Human gates remain open.
 
 ## Reduced-precision values and finite CBOR nesting
 
-Requires PowerShell7, Node22.19+, SDK10.0.402/runtime10.0.13 and the separate
+Requires PowerShell7, Node22.19+, SDK10.0.403/runtime10.0.13 and the separate
 SDK11.0.100-rc.2.26504.105/runtime11RC2 installation. SensorArchive uses framework
 APIs only. CalibrationGroups pins System.Formats.Cbor10.0.13/11RC2 with actual
 lib/net10.0/lib/net11.0 assets. No account, provider, workload or native setup.
@@ -2978,7 +3007,7 @@ lib/net10.0/lib/net11.0 assets. No account, provider, workload or native setup.
 Refresh affected samples through the existing evidence workflow:
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-65a77b17'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Test-PrecisionDepth.ps1 -Record -VerifySources
 ```
 
@@ -2999,14 +3028,14 @@ temporary directory. Setup may restore online. Unusable proxies during retrieval
 prove proxy independence, not network isolation.
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-65a77b17'
-& ./eng/Test-Smoke.ps1 -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
+& ./eng/Test-Smoke.ps1 -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -PackageVersion '0.0.0-pin1084-1085'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('numerics.choose-bfloat16','cbor.bound-nesting') `
   -Query 'precision-depth' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
   -PackageVersion '0.0.0-pin1084-1085' `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory ./artifacts/precision-depth/inspection
 ```
@@ -3022,7 +3051,7 @@ PIN-959/PIN-962 and existing Human gates remain open; no recurring matrix is add
 
 ## Atomic flags and typed function-pointer calls
 
-Requires PowerShell7, Node22.19+, SDK10.0.402/runtime10.0.13 and the separate
+Requires PowerShell7, Node22.19+, SDK10.0.403/runtime10.0.13 and the separate
 SDK11.0.100-rc.2.26504.105/runtime11RC2 installation. Both StationFlags and
 QuarryCalls use framework APIs only, with no packages/workloads. QuarryCalls
 requires Windows x64 CoreCLR dynamic code and the system MulDiv export; unsafe
@@ -3031,7 +3060,7 @@ C# is enabled. No native compiler, account or external service is needed.
 Refresh affected samples through the existing evidence workflow:
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-2f8c93ea'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Test-RuntimeCalls.ps1 -Record -VerifySources
 ```
 
@@ -3051,14 +3080,14 @@ Setup may restore online; unusable proxies during retrieval prove proxy independ
 not network isolation.
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-2f8c93ea'
-& ./eng/Test-Smoke.ps1 -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
+& ./eng/Test-Smoke.ps1 -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -PackageVersion '0.0.0-pin1094-1096'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('threading.update-enum-flags-atomically','reflection.emit-function-pointer-calls') `
   -Query 'runtime-calls' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
   -PackageVersion '0.0.0-pin1094-1096' `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory ./artifacts/runtime-calls/inspection
 ```
@@ -3076,14 +3105,14 @@ and existing Human gates remain open; no recurring native/client/OS matrix is ad
 
 ## AEAD key size and file content type mappings
 
-Requires PowerShell7, Node.js and the existing SDK10.0.402/runtime10.0.13 and
+Requires PowerShell7, Node.js and the existing SDK10.0.403/runtime10.0.13 and
 SDK11.0.100-rc.2.26504.105/runtime11RC2 installations. ParcelKeys requires actual
 AES-GCM and AES-CCM support; both execute on Windows x64 CNG. AttachmentLabels
 uses only framework tables. No new package dependency, workload, native compiler,
 production key or external service is required. Refresh affected evidence with:
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-f8944b87'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Test-AttachmentFacts.ps1 -Record -VerifySources
 ```
 
@@ -3101,14 +3130,14 @@ temporary directory with unusable proxies. This establishes proxy-independent
 offline retrieval, not network isolation.
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-f8944b87'
-& ./eng/Test-Smoke.ps1 -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
+& ./eng/Test-Smoke.ps1 -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -PackageVersion '0.0.0-pin1102-1105'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('crypto.inspect-aead-key-size','mime.map-file-and-content-types') `
   -Query 'attachment-facts' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
   -PackageVersion '0.0.0-pin1102-1105' `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory ./artifacts/attachment-facts/inspection
 ```
@@ -3124,7 +3153,7 @@ remain unchanged; no recurring native/client/OS matrix is added.
 
 ## SOCKS hostnames and Zstandard responses
 
-Requires PowerShell7, Node.js, SDK10.0.402/runtime10.0.13 and the separate
+Requires PowerShell7, Node.js, SDK10.0.403/runtime10.0.13 and the separate
 SDK11.0.100-rc.2.26504.105/runtime11RC2 installation. CairnRelay needs loopback
 TCP and a nonresolving relay.cairn.invalid name. CairnReports uses the runtime
 native codec on .NET11 and the explicitly pinned managed ZstdSharp.Port0.8.6
@@ -3133,7 +3162,7 @@ workload or external native zstd installation is needed. Restore may use network
 Refresh changed consumer evidence with:
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-4093839d'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Test-ProxyResponses.ps1 -Record -VerifySources
 ```
 
@@ -3155,14 +3184,14 @@ directory. Build/restore may use network. Unusable retrieval proxies demonstrate
 proxy-independent offline content, not network isolation.
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-4093839d'
-& ./eng/Test-Smoke.ps1 -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
+& ./eng/Test-Smoke.ps1 -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -PackageVersion '0.0.0-pin1104-1107'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('http.resolve-dns-through-socks-proxy','http.decode-zstandard-responses') `
   -Query 'proxy-responses' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
   -PackageVersion '0.0.0-pin1104-1107' `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory ./artifacts/proxy-responses/inspection
 ```
@@ -3177,7 +3206,7 @@ PIN-959/PIN-962 and existing Human gates remain intact; no recurring matrix adde
 
 ## Aligned memory and XML reference budgets
 
-Requires PowerShell7, Node.js, SDK10.0.402/runtime10.0.13 and the separate
+Requires PowerShell7, Node.js, SDK10.0.403/runtime10.0.13 and the separate
 SDK11.0.100-rc.2.26504.105/runtime11RC2 installation. TypeLedger requires Windows
 x64 CoreCLR dynamic code for RunAndCollect and unsafe pointer/span access.
 PermitManifest pins Xml10.0.13/Xml11RC2 with matching transitive Pkcs and Windows
@@ -3185,7 +3214,7 @@ CNG RSA. No account, workload, native compiler, production key or service is use
 Refresh affected consumer evidence and verify the immutable publisher sources:
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-e88a45eb'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Test-LifetimeSignatures.ps1 -Record -VerifySources
 ```
 
@@ -3205,14 +3234,14 @@ feed/cache, then real installed stdio list/get runs from an unrelated temporary
 directory. Unusable retrieval proxies prove proxy independence, not network isolation.
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-e88a45eb'
-& ./eng/Test-Smoke.ps1 -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
+& ./eng/Test-Smoke.ps1 -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -PackageVersion '0.0.0-pin1108-1111'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('interop.allocate-aligned-type-lifetime-memory','crypto.bound-xml-signature-references') `
   -Query 'lifetime-signatures' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
   -PackageVersion '0.0.0-pin1108-1111' `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory ./artifacts/lifetime-signatures/inspection
 ```
@@ -3227,7 +3256,7 @@ PIN-962 and other Human gates remain open; no recurring matrix or publication.
 
 ## Environment keys and empty services
 
-Requires PowerShell7, Node22.19+, SDK10.0.402/runtime10.0.13 and the separate
+Requires PowerShell7, Node22.19+, SDK10.0.403/runtime10.0.13 and the separate
 SDK11.0.100-rc.2.26504.105/runtime11RC2 installation. ObservatoryVariables uses
 Microsoft.AspNetCore.App on both targets; MuseumServices uses it only on .NET10,
 with the .NET11 abstraction in the base framework. No NuGet dependencies,
@@ -3236,7 +3265,7 @@ workloads, external provider, account or native toolchain is needed.
 Refresh changed evidence and verify eight immutable official sources:
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-fe1ad962'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Test-ExtensionContracts.ps1 -Record -VerifySources
 ```
 
@@ -3254,14 +3283,14 @@ feed/cache. Real installed stdio calls run from a temporary unrelated directory
 with unusable proxies, establishing proxy independence rather than network isolation.
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-fe1ad962'
-& ./eng/Test-Smoke.ps1 -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
+& ./eng/Test-Smoke.ps1 -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -PackageVersion '0.0.0-pin1112-1113'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('configuration.transform-environment-keys','di.supply-empty-services') `
   -Query 'extensions-contracts' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
   -PackageVersion '0.0.0-pin1112-1113' `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory ./artifacts/extensions-contracts/inspection
 ```
@@ -3276,7 +3305,7 @@ and existing Human gates remain open; no recurring native/client/OS matrix added
 
 ## Framework Extensions references and event provider identity
 
-Requires PowerShell7, Node22.19+, SDK10.0.402/runtime10.0.13 and the separate
+Requires PowerShell7, Node22.19+, SDK10.0.403/runtime10.0.13 and the separate
 SDK11.0.100-rc.2.26504.105/runtime11RC2 installation. CelestialSchedule pins nine
 Extensions10.0.13 packages on net10; net11 uses only the base framework. Supporting
 controls pin Physical11RC2 and Logging.Abstractions11RC3 without upgrading the
@@ -3287,7 +3316,7 @@ Recheck the affected consumers and three immutable publisher sources. Add `-Reco
 when changed inputs require fresh saved sample evidence:
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-bec213fd'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Test-ExtensionIdentity.ps1 -VerifySources
 ```
 
@@ -3307,14 +3336,14 @@ use network. Unusable retrieval proxies establish proxy independence, not networ
 isolation.
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-bec213fd'
-& ./eng/Test-Smoke.ps1 -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
+& ./eng/Test-Smoke.ps1 -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -PackageVersion '0.0.0-pin1114-1116'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('dependencies.use-framework-extensions','diagnostics.choose-event-provider-identity') `
   -Query 'extension-identity' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
   -PackageVersion '0.0.0-pin1114-1116' `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory ./artifacts/extension-identity/inspection
 ```
@@ -3329,14 +3358,14 @@ recurring native/client/OS matrix is added.
 
 ## Windows HTTP.sys requests and WSL trust guidance
 
-Requires the existing Windows host, SDK10.0.402/runtime10.0.13 and separate
+Requires the existing Windows host, SDK10.0.403/runtime10.0.13 and separate
 SDK11.0.100-rc.2.26504.105/runtime11 RC2. Owner setup uses the
 [controlled HTTPS runbook](windows-web-verification.md); preserve the dedicated
 resources until review completes, then have the owner clean only those resources.
 Refresh the paired canonical request records with:
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-312f5fa1'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Test-WindowsRequests.ps1 `
   -AccessDirectory 'C:\Users\pingu\AppData\Local\Temp\pb-web-pin818-831-1175' -Record
 ```
@@ -3355,12 +3384,12 @@ network; unusable proxies during retrieval prove proxy independence, not OS
 network isolation. Node22.19+ and the existing SDK10 installation are required.
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-312f5fa1'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('hosting.enforce-channel-binding','hosting.read-native-request-property','web.trust-wsl-development-certificate') `
   -Query 'windows-web' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
   -PackageVersion '0.0.0-pin818-831-1175' -BuildAndPack `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory './artifacts/windows-inspection'
 ```
@@ -3375,7 +3404,7 @@ related station names and matched/left-only/right-only reconciliation on the
 approved isolated SQL Server route. Refresh their exact compilation/execution
 records with `eng/Test-MarshSurvey.ps1 -Record`. The runner creates and removes
 unique restricted databases and stops the server. It requires the existing SDK
-10.0.402 and SDK11.0.100-rc.2.26504.105 installations and locked EF10/11 packages.
+10.0.403 and SDK11.0.100-rc.2.26504.105 installations and locked EF10/11 packages.
 This is SQL2025/Windows consumer and RC2 evidence, without a SQLite or GA promise.
 
 The following block is exercised from an unrelated starting directory. It builds
@@ -3385,12 +3414,12 @@ may restore online; unusable retrieval proxies prove proxy independence rather
 than operating-system network isolation.
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-453d1143'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('ef.compose-group-winner','ef.reconcile-unmatched-records') `
   -Query 'marsh-survey' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
   -PackageVersion '0.0.0-pin849-850' -BuildAndPack `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory './artifacts/marsh-survey/inspection'
 ```
@@ -3401,12 +3430,12 @@ return no_applicable_edition. No additional .NET10 foundation is introduced.
 
 ## Document indexes and vector reads
 
-The paired consumers need the existing .NET10 SDK10.0.402 and .NET11 RC2 SDK,
+The paired consumers need the existing .NET10 SDK10.0.403 and .NET11 RC2 SDK,
 locked EF/SqlClient packages, PowerShell7 and Docker Desktop Linux containers.
 This runner creates/removes isolated databases and stops the server afterward:
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-089cc025'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Test-DuneArchive.ps1 -Record
 ```
 
@@ -3423,12 +3452,12 @@ Setup restores packages online; retrieval uses unusable proxies, which establish
 proxy independence rather than operating-system network isolation.
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-089cc025'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('sql.index-json-path','sql.search-vector-index','sql.read-vector-explicitly') `
   -Query 'dune-archive' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
   -PackageVersion '0.0.0-pin855-856' -BuildAndPack `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory './artifacts/sql-indexes/inspection'
 ```
@@ -3438,7 +3467,7 @@ edition. Older samples remain comparisons rather than additional foundations.
 
 ## Ranked text and combined vector relevance
 
-Requires PowerShell7, the existing SDK10.0.402 and SDK11 RC2, locked EF/SqlClient
+Requires PowerShell7, the existing SDK10.0.403 and SDK11 RC3, locked EF/SqlClient
 packages and the approved local SQL2025 Docker route. The paired consumers create
 restricted disposable databases and remove them in finally, then stop the server.
 Full-text requires its installed component and English language support. The
@@ -3446,7 +3475,7 @@ combined exact-distance query uses experimental EF vector APIs (EF9105), without
 preview VECTOR_SEARCH/index syntax or a PREVIEW_FEATURES opt-in.
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-e1fdee5a'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Test-QuarrySearch.ps1 -Record
 ```
 
@@ -3461,12 +3490,12 @@ list/get. Output includes ID/title/goal, full Markdown, applicability and editio
 Unusable proxies establish proxy independence, not OS network isolation.
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-e1fdee5a'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('sql.manage-ranked-text-search','sql.combine-semantic-and-text-search') `
   -Query 'quarry-search' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
   -PackageVersion '0.0.0-pin857-858' -BuildAndPack `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory './artifacts/quarry-search/inspection'
 ```
@@ -3476,13 +3505,13 @@ no_applicable_edition. Previous samples are comparisons, not extra foundations.
 
 ## Ordered SQLite summaries and Cosmos embedded values
 
-Requires PowerShell7.3+, the existing SDK10.0.402/runtime10.0.13 and SDK11 RC2,
+Requires PowerShell7.3+, the existing SDK10.0.403/runtime10.0.14 and SDK11 RC3,
 locked EF10/11 packages and Docker Desktop Linux for the approved isolated Cosmos
 route. No Azure account or cloud credentials are needed. Refresh actual paired
 compilation and execution records with:
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a94f7d1b'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Test-EmbeddedValues.ps1 -Record
 ```
 
@@ -3499,12 +3528,12 @@ restore online; unusable proxies during retrieval prove proxy independence rathe
 than operating-system network isolation.
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a94f7d1b'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('sqlite.order-concatenated-values','cosmos.map-embedded-values') `
   -Query 'embedded-values' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
   -PackageVersion '0.0.0-pin861-865' -BuildAndPack `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory './artifacts/embedded-values/inspection'
 ```
@@ -3521,12 +3550,12 @@ Cosmos route. The samples use disposable marked databases and leave no cloud
 resources. Run from any directory:
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-22fc6aea'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Test-CosmosPolicies.ps1 -Record
 & ./eng/Inspect-Guidance.ps1 `
   -RecipeId @('cosmos.configure-index-policy','cosmos.choose-save-atomicity') `
   -TargetVersion '11.0' `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe'
 ```
 
@@ -3540,19 +3569,19 @@ CosmosPolicyGuidance scenario separately verifies offline feed/cache retrieval,
 complete canonical body, applicability, target edition and older-target refusal.
 ## Cosmos ingestion, session handoff and document ownership
 
-The paired ReefDocuments consumers require the existing SDK10.0.402 and SDK11 RC2,
+The paired ReefDocuments consumers require the existing SDK10.0.403 and SDK11 RC3,
 locked EF10/11 and Cosmos3.63.1 packages, PowerShell7 and the approved local Docker
 Cosmos route. They create/remove uniquely marked databases and stop the empty
 emulator. No Azure account, cloud credentials or production resources are used.
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-fb519fff'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Test-ReefDocuments.ps1 -Record
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('cosmos.carry-session-consistency','cosmos.enable-bulk-writes','cosmos.preserve-document-fields','cosmos.read-raw-document') `
   -Query 'reef-documents' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
   -PackageVersion '0.0.0-pin868-870' -BuildAndPack `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory './artifacts/reef-documents/inspection'
 ```
@@ -3574,7 +3603,7 @@ multi-region or GA claim is made. Existing Human/GA gates remain open.
 
 ## Desktop clipboard policy and appearance
 
-Requires PowerShell7.4+, the existing SDK10.0.402 and separate SDK11 RC2,
+Requires PowerShell7.4+, the existing SDK10.0.403 and separate SDK11 RC3,
 WindowsDesktop reference/runtime assets and Node22.19+. No workload installation,
 clipboard replacement, global settings change, service or account is needed.
 The paired samples self-close. Source-reviewed appearance restrictions are distinct
@@ -3584,15 +3613,15 @@ external clipboard-owner failures are not executed. No GA proof is claimed.
 Run from an unrelated starting directory:
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-97b1816d'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Test-DesktopPolicy.ps1 `
-  -Net10Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
-  -Net11Dotnet 'C:\Users\pingu\.dotnet-playbook-11\dotnet.exe'
+  -Net10Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
+  -Net11Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('wpf.restore-clipboard-error-handling','winforms.adopt-modern-rendering') `
   -Query 'desktop-policy' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
   -PackageVersion '0.0.0-pin890-891' -BuildAndPack `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory './artifacts/desktop-policy/inspection'
 ```
@@ -3607,12 +3636,12 @@ OS network isolation. Existing Human/GA gates remain open.
 
 ## Cosmos identity and absent projections
 
-Use the approved disposable local emulator with the existing SDK10.0.402 and
+Use the approved disposable local emulator with the existing SDK10.0.403 and
 SDK11 RC3 below. This checks real EF10/11 identity and projection behavior;
 RC evidence does not establish GA or Azure service parity.
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-47bb31a3'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 $metadata = Invoke-RestMethod 'https://builds.dotnet.microsoft.com/dotnet/release-metadata/11.0/releases.json'
 $asset = ($metadata.releases | Where-Object 'release-version' -eq '11.0.0-rc.3').sdk.files |
   Where-Object { $_.rid -eq 'win-x64' -and $_.url.EndsWith('.zip') }
@@ -3629,12 +3658,12 @@ Build and pack the real server, install through the existing isolated-feed/cache
 harness and retrieve full Markdown, applicability and target11/edition11 over stdio:
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-47bb31a3'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('cosmos.retain-document-key-identity','cosmos.handle-missing-projection') `
   -Query 'reef-identity' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
   -PackageVersion '0.0.0-pin871-872' -BuildAndPack `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory './artifacts/reef-identity/inspection'
 ```
@@ -3644,7 +3673,7 @@ edition; the older consumers remain comparisons rather than extra foundations.
 
 ## Observatory numeric results and Windows composite signatures
 
-Requires PowerShell7, SDK 10.0.402/runtime10.0.13, the separate SDK 11 RC2 installation,
+Requires PowerShell7, SDK 10.0.403/runtime10.0.14, SDK 11 RC3 installed alongside SDK 10 in the same dotnet host,
 Node.js and public access for exact RC1 runtime/source downloads. No host install
 or PATH integration occurs. The sample runner verifies source hashes, builds and
 runs both consumers, and records compiler/reference/runtime/native identity.
@@ -3652,13 +3681,13 @@ It tests one agreed 44/P256 composite set, actual older RSA success and current
 rejection, plus numerical drift and reversible disposable persistence.
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-d562a2f3'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Test-ObservatoryContracts.ps1
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('numerics.compare-ieee-decimal-results','crypto.select-supported-composite-signature') `
   -Query '' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
   -PackageVersion '0.0.0-pin1038-1058' -BuildAndPack `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory './artifacts/observatory/inspection'
 ```
@@ -3675,7 +3704,7 @@ are not claimed.
 
 Requires PowerShell7, Node24, the pinned .NET10/.NET11 SDK/runtime installations,
 the existing Docker Desktop Linux engine, and the authoring Chromium/Playwright
-paths declared in eng/Record-SupportPaths.ps1. The pinned local SDK10.0.402 Docker
+paths declared in eng/Record-SupportPaths.ps1. The pinned local SDK10.0.403 Docker
 image is required; the driver uses --pull never. Browser proof uses interpreted Mono;
 no wasm-tools installation or persistent environment change is required.
 
@@ -3683,13 +3712,13 @@ Refresh affected evidence, then inspect the ordinary installed artifact from any
 starting directory:
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-19bf5428'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Record-SupportPaths.ps1 -Record
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('networking.guard-change-monitoring','runtime.select-threading-path') `
   -Query 'support-paths' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
   -PackageVersion '0.0.0-pin1092-1093' -BuildAndPack `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory './artifacts/support-paths/inspection'
 ```
@@ -3709,16 +3738,16 @@ other-browser/platform or final-GA proof is claimed. PIN-959 and PIN-962 remain 
 
 ## Empty owned lists and numeric materialization
 
-From PowerShell7 with Docker Desktop running, SDK10.0.402 and the existing isolated SDK11 RC2 installation at `C:\Users\pingu\.dotnet-playbook-11\dotnet.exe`, run (or pass `-Net11Dotnet` with its actual absolute path):
+From PowerShell7 with Docker Desktop running, SDK10.0.403 and the existing isolated SDK11 RC3 installation at `C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe`, run (or pass `-Net11Dotnet` with its actual absolute path):
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-90e54020'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Test-ReefMaterialization.ps1 -Record
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('cosmos.treat-empty-owned-sequence','cosmos.preserve-rounding-intent') `
   -Query 'reef-materialization' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
   -PackageVersion '0.0.0-pin873-874' -BuildAndPack `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory './artifacts/reef-materialization/inspection'
 ```
@@ -3738,13 +3767,13 @@ network isolation. This is local emulator/RC2 evidence, not cloud or GA proof.
 ## Cosmos I/O, discriminator names and migration histories
 
 From PowerShell7 with the approved Docker Cosmos route and the existing SDK10
-and isolated SDK11 RC2 installations:
+and isolated SDK11 RC3 installations:
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-57fde2bf'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Test-HarbourQueries.ps1 -Record
 & ./eng/Test-BeaconMigrations.ps1 -Record
-& ./eng/Inspect-Guidance.ps1 -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+& ./eng/Inspect-Guidance.ps1 -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -RecipeId @('cosmos.use-async-io', 'cosmos.reference-model-discriminator', 'ef.resolve-migration-branch-divergence') `
   -TargetVersion '11.0'
 ```
@@ -3772,13 +3801,13 @@ Playwright/Chromium paths declared in eng/Test-LanternHosts.mjs. Run the followi
 from any directory; it was exercised from unrelated C:\.
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-32af0853'
-& ./eng/Test-Smoke.ps1 -Dotnet 'C:\Program Files\dotnet\dotnet.exe' -PackageVersion '0.0.0-pin1099-1100'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
+& ./eng/Test-Smoke.ps1 -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' -PackageVersion '0.0.0-pin1099-1100'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('interop.generate-com-properties','wasm.migrate-custom-runtime-hosts') `
   -Query 'host-contracts' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
   -PackageVersion '0.0.0-pin1099-1100' `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' -Node 'C:\Program Files\nodejs\node.exe' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory './artifacts/host-contracts/inspection'
 ```
 
@@ -3795,21 +3824,21 @@ PIN-959/PIN-962, Human gates and the eight .NET10 foundations remain unchanged.
 
 ## Windows Forms control rendering, startup and update scopes
 
-Use the existing Windows Desktop runtimes, SDK10.0.402 and the separate SDK11 RC2,
+Use the existing Windows Desktop runtimes, SDK10.0.403 and the separate SDK11 RC3,
 PowerShell7.4+ and Node.js. No settings changes or account setup are needed for
 the automatic samples. The settings check below is a separate owner action.
 From an unrelated directory, select this checkout explicitly:
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-9746a30f'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Test-FenDesktop.ps1 -Record `
-  -Net10Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
-  -Net11Dotnet 'C:\Users\pingu\.dotnet-playbook-11\dotnet.exe'
+  -Net10Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
+  -Net11Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('winforms.author-adaptive-control-rendering','winforms.control-initial-form-reveal','winforms.batch-control-mutations') `
   -Query 'fen-desktop' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
   -PackageVersion '0.0.0-pin892-894' -BuildAndPack `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory './artifacts/fen-desktop/inspection'
 ```
@@ -3834,19 +3863,19 @@ Refresh that bounded evidence after relevant sample or toolchain changes. Use th
 
 ## Combined migrations, offline removal and omitted constraints
 
-Use PowerShell7, existing SDK10.0.402 and isolated SDK11 RC2, Node.js and the
+Use PowerShell7, existing SDK10.0.403 and isolated SDK11 RC3, Node.js and the
 approved local SQL Server Docker route. The check creates and removes only unique
 owned databases. It does not publish a package or deploy a consumer. From an
 unrelated directory:
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-45a58fbe'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Test-QuarryMigrations.ps1 -Record
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('ef.scaffold-and-apply-migration','ef.remove-unapplied-migration-offline','ef.omit-database-foreign-key') `
   -Query 'quarry-migrations' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
   -PackageVersion '0.0.0-pin878-880' -BuildAndPack `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' -Node 'C:\Program Files\nodejs\node.exe' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory './artifacts/quarry-migrations/inspection'
 ```
 
@@ -3864,7 +3893,7 @@ proof; PIN-957/PIN-965 and existing Human gates remain open.
 ## Provider-backed keys and mobile HTTP sends
 
 Requires PowerShell 7, the existing pinned .NET10 SDK/runtime and isolated .NET11
-RC2 installation, Node24 and Docker Desktop's Linux engine with the SDK10.0.402
+RC2 installation, Node24 and Docker Desktop's Linux engine with the SDK10.0.403
 image pinned by eng/Test-ProviderRequests.ps1 already available locally. The runner
 fetches immutable official sources and the exact RC2 Linux runtime archive,
 verifying its pinned Microsoft SHA512 before extraction. It
@@ -3874,13 +3903,13 @@ No HSM/FIPS provider or native mobile toolchain is assumed.
 From any starting directory:
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-23c9a8a3'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Test-ProviderRequests.ps1 -Record
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('crypto.configure-provider-backed-keys','http.replace-mobile-synchronous-sends') `
   -Query 'provider-requests' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
   -PackageVersion '0.0.0-pin1101-1106' -BuildAndPack `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory './artifacts/provider-keys/inspection'
 ```
@@ -3903,7 +3932,7 @@ verification. PIN-959 and PIN-962 remain open; the eight .NET10 foundations stay
 ## Apple navigation and custom item handlers
 
 PIN-907 extends the existing navigation edition; PIN-908 adds item-handler
-migration. Requires PowerShell7.4+, SDK10.0.402 and Node22.19+. The existing
+migration. Requires PowerShell7.4+, SDK10.0.403 and Node22.19+. The existing
 isolated SDK11 root lacks the MAUI SDK pack; Apple requires unavailable Xcode.
 Older Windows compilation passes; all new native interactions remain not-tested
 under PIN-699. Source/artifact review is distinct from native execution.
@@ -3911,13 +3940,13 @@ under PIN-699. Source/artifact review is distinct from native execution.
 From any directory, build and inspect the exact installed package:
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-ef321365'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Test-JettyHandlers.ps1
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('maui.migrate-navigation-handlers','maui.migrate-custom-items-handlers') `
   -Query 'jetty-handlers' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
   -PackageVersion '0.0.0-pin907-908' -BuildAndPack `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory './artifacts/jetty-authoring/inspection'
 ```
@@ -3940,14 +3969,14 @@ script combines both models; deploy separate per-context scripts to separate dat
 From an unrelated directory in PowerShell7, with the pinned SDK and Node22.19+:
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-c6ed1780'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Test-FleetDesign.ps1
 & ./eng/Test-FleetTooling.ps1
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('ef.reference-design-services','ef.operate-across-contexts','ef.capture-clean-migration-script') `
   -Query 'fleet-tooling' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
   -PackageVersion '0.0.0-pin884-886' -BuildAndPack `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory './artifacts/fleet/inspection'
 ```
@@ -3969,23 +3998,23 @@ disables generation; failed RC2/RC3 generation is not GA or NativeAOT proof.
 Real SQL2025 checks reproduce split-query concurrency and whole-read recovery;
 real EF9/10 SQLite checks retain tenant filtering when history includes archived rows.
 
-From any directory, select this worktree. PowerShell7, SDK10.0.402 and Node22.19+
+From any directory, select this worktree. PowerShell7, SDK10.0.403 and Node22.19+
 are required. Setup restores/builds locally; no package is published.
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-7b8bbeba'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('ef.configure-generated-model-stage','ef.recover-split-query-consistency') `
   -Query '' -TargetVersion 11.0 -UnsupportedTargetVersion 10.0 `
   -PackageVersion 0.0.0-pin887-889 -BuildAndPack `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory ./artifacts/pin887-889/inspection11
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('ef.include-archived-with-tenant-filter') -RecipeEdition 10.0 `
   -Query moss-archive -TargetVersion 10.0 -UnsupportedTargetVersion 11.0 `
   -PackageVersion 0.0.0-pin887-889 `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory ./artifacts/pin887-889/inspection10
 ```
@@ -4006,16 +4035,16 @@ reuse with explicit application cleanup, and partial SELECT/scalar UPDATE omissi
 with re-enable/default/loaded controls. RC2 evidence does not establish GA or
 other providers/platforms, arbitrary request state or a vector fluent loader.
 
-From an unrelated directory, in PowerShell7 with SDK10.0.402 and Node22.19+:
+From an unrelated directory, in PowerShell7 with SDK10.0.403 and Node22.19+:
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-d3181f01'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Test-WrenTracking.ps1
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('ef.select-known-tracked-states','ef.reuse-pooled-factory-configuration','ef.preserve-unloaded-scalar-values') `
   -Query 'wren-tracking' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
   -PackageVersion '0.0.0-pin1189-1191-1192' -BuildAndPack `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory './artifacts/wren/inspection'
 ```
@@ -4030,20 +4059,20 @@ published. This establishes proxy independence, not OS network isolation.
 ## Transaction switches, collection SQL modes and parameterized raw SQL
 
 PIN-1193–1195 add original AlderQueries EF10/EF11 comparisons. Requires
-PowerShell7, pinned SDK10.0.402 and isolated SDK11 RC2, Node22.19+ and the approved
+PowerShell7, pinned SDK10.0.403 and isolated SDK11 RC3, Node22.19+ and the approved
 local SQL2025 Docker route. The runner creates/removes only unique owned databases,
 uses restricted child credentials and in-memory bundled SQLite, and does not
 publish packages or change persistent environment settings. From an unrelated directory:
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-49f4328d'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/SqlServer.ps1 -Action Start
 & ./eng/Test-AlderQueries.ps1 -Record
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('ef.replace-transaction-boolean','ef.migrate-collection-parameter-mode','ef.retain-parameterized-raw-sql') `
   -Query 'alder-queries' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
   -PackageVersion '0.0.0-pin1193-1195' -BuildAndPack `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory './artifacts/alder/inspection'
 ```
@@ -4073,12 +4102,12 @@ From an unrelated directory, select this exact worktree and inspect the ordinary
 packed/installed tool through real stdio. Nothing is published:
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-62cd123b'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('sql.migrate-azure-provider-configuration','cosmos.migrate-partition-metadata','cosmos.remove-write-content-option') `
   -Query 'estuary-providers' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
   -PackageVersion '0.0.0-pin1196-1198' -BuildAndPack `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory './artifacts/estuary/inspection'
 ```
@@ -4093,17 +4122,17 @@ comprehensive-readiness gates remain outstanding.
 ## Query roots, missing principals and constructor bindings
 
 From an unrelated directory, select this worktree and inspect the exact ordinary
-packed tool. Requires PowerShell7, SDK10.0.402 and Node22.19+. Setup restores
+packed tool. Requires PowerShell7, SDK10.0.403 and Node22.19+. Setup restores
 packages online; the isolated installed server returns bundled guidance offline.
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-235a1bb5'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Test-LarkContracts.ps1
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('ef.migrate-structural-materializer','ef.query-unconstrained-relationship','ef.migrate-constructor-binding') `
   -Query 'lark-contracts' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
   -PackageVersion '0.0.0-pin1202-1204' -BuildAndPack `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'V:\_worktrees\Playbook\t3-a392df65\artifacts\sdk-upgrade\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory './artifacts/lark/inspection'
 ```
@@ -4122,16 +4151,16 @@ missing principals; GetBindings does not accept an arbitrary constructor choice.
 ## Structural metadata, ignored types and file design commands
 
 From an unrelated directory, select this worktree. Requires PowerShell7,
-SDK10.0.402, isolated SDK11 RC2 and Node22.19+. Setup restores NuGet packages;
+SDK10.0.403, SDK11 RC3 in the same dotnet installation and Node22.19+. Setup restores NuGet packages;
 the tool then serves complete guidance offline. No package is published.
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-1b46e3e3'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('ef.inspect-structural-model-mappings','ef.migrate-type-ignore-convention','ef.target-file-based-app') `
   -Query 'curlew' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
   -PackageVersion '0.0.0-pin1205-1207' -BuildAndPack `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'V:\_worktrees\Playbook\t3-a392df65\artifacts\sdk-upgrade\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory './artifacts/curlew/inspection'
 ```
