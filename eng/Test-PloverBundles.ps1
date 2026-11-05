@@ -62,7 +62,8 @@ try {
                     $exit = $LASTEXITCODE
                 } finally { $PSNativeCommandUseErrorActionPreference = $preference }
                 $output | Set-Content "$lane/bundle.log"
-                if ($exit -ne 0 -and $release -eq '10' -and $central -and $output -match 'NU1008') {
+                $otherErrors = [regex]::Matches($output, '(?i)\berror\s+(?!NU1008\b)[A-Z]+\d+')
+                if ($exit -ne 0 -and $release -eq '10' -and $central -and $output -match 'NU1008' -and $otherErrors.Count -eq 0) {
                     Write-Host 'PASS reproduced EF10 inherited-CPM NU1008; applying isolated temporary-project workaround'
                     '<Project><PropertyGroup><ManagePackageVersionsCentrally>false</ManagePackageVersionsCentrally></PropertyGroup></Project>' | Set-Content "$lane/Directory.Packages.props"
                     & $dotnet $tool migrations bundle --force --output $bundle | Out-Host
@@ -73,9 +74,10 @@ try {
                 if ((Get-Content "$lane/central-evaluated.txt" -Raw).Trim() -ne $expectedCentral) { throw 'Unexpected temporary CPM selection.' }
                 $template = Get-Content "$lane/generated-bundle.csproj.txt" -Raw
                 if ($release -eq '11' -and $template -notmatch 'Condition=".*ManagePackageVersionsCentrally') { throw 'Missing conditional Design package selection.' }
-                $applied = & $bundle --connection "Data Source=$app/plover.db" | Out-String
+                $applied = & $bundle --connection "Data Source=$app/plover.db" 2>&1 | Out-String
                 $proof += $applied; Write-Host $applied
-                $applied = & $bundle --connection "Data Source=$app/plover.db" | Out-String
+                $applied = & $bundle --connection "Data Source=$app/plover.db" 2>&1 | Out-String
+                if ($applied -notmatch 'No migrations were applied') { throw "Repeat migration was not a no-op: $applied" }
                 $proof += $applied; Write-Host $applied
                 $persist = & $dotnet run --project PloverBundle.csproj -- --check | Out-String
                 if ($persist -notmatch "PASS migrated schema") { throw "Persistence check missing: $persist" }

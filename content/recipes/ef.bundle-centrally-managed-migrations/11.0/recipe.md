@@ -8,12 +8,14 @@ Build and execute a migration bundle with centrally managed application packages
 
 Real Windows x64 framework-dependent SQLite migration bundles; matching Design/tool versions, inherited CPM and non-CPM control. SDK10.0.403 / EF10.0.13 versus SDK11 RC3 / EF11 RC2. No self-contained, NativeAOT, multi-context, encrypted provider, other-platform or GA claim.
 
+The Design tooling graph includes System.Security.Cryptography.Pkcs. The sample deliberately pins its patched 10.0.13 version, following the existing tooling consumers; this is a dependency qualification pin, rather than an application cryptography API used by the example.
+
 ## Migration
 
 1. Keep application PackageReference entries versionless under CPM. Pin SQLite, Design and dotnet-ef to matching versions. Restore/build before EF metadata lookup.
-2. Generate and retain an Initial migration and snapshot. The full original Plover nesting model and generated migration are included below.
+2. Generate and retain an Initial migration and snapshot. The original Plover model and .NET10 generated migration are included below. Generate the .NET11 migration and snapshot with the matching current tool before building its bundle.
 3. Build with `dotnet <tool-path>/dotnet-ef.dll migrations bundle --output migrate.exe`. This is one selected context; wildcard context creation, self-contained and NativeAOT are outside this route.
-4. The generated temporary project uses explicit Design package versions. EF11 emits conditional Design references: versionless when CPM is inherited, explicitly versioned otherwise. The inherited central Design pin must match the tool. CPM remains enabled in your application. EF10 already works with an ordinary external temp directory; that valid route remains supported. If a temporary directory inherits CPM, EF10 reproduces NU1008. Isolate that temporary project's build properties and disable central management there, keeping the application's local CPM boundary intact.
+4. The generated temporary project must select the matching Design package. EF11 emits conditional Design references: versionless when CPM is inherited, explicitly versioned otherwise. The inherited central Design pin must match the tool. CPM remains enabled in your application. EF10 already works with an ordinary external temp directory; that valid route remains supported. If a temporary directory inherits CPM, EF10 reproduces NU1008. Isolate that temporary project's build properties and disable central management there, keeping the application's local CPM boundary intact.
 5. Run `./migrate.exe --connection 'Data Source=plover.db'` in a disposable working directory. Run it twice to check no pending migrations remain, then run the consumer with `--check` to insert and read PLO-7 from the migrated table. A framework-dependent bundle requires the matching runtime and the measured native SQLite assets.
 6. Run `eng/Test-PloverBundles.ps1` for isolated CPM/non-CPM copies, real generated-project capture, old NU1008 control, bundle execution and persistence. This recipe does not establish GA behavior or deploy to production.
 

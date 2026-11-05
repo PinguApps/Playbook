@@ -8,6 +8,8 @@ Keep tuple constructor keys usable in later grouping, filtering and joins; retai
 
 Actual SQLite execution: ValueTuple/Tuple grouped keys, ValueTuple joined key, one-element arity and nested Rest. EF10 rejects these shapes; anonymous grouped key works. Arbitrary record constructors, all tuple arities, other providers and GA are excluded.
 
+The shared PloverQueries consumer includes companion missing-projection controls. FinalProjection qualifies that companion recipe's deferred final behavior.
+
 ## Migration
 
 1. Keep EF10's anonymous key when comparing or retaining an older application. It executes the same grouped count of two without tuple-member translation.

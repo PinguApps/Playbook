@@ -83,6 +83,8 @@ Pingu authorized official-documentation guidance on 5 November 2026 despite miss
 
 ## Constraints
 
+Pending final qualification blocks release-ready packing. This delivery verifies ordinary development packing; PIN-959 and actual-GA reconciliation retain their own gates.
+
 No final-artifact support is inferred from RCs. Source audit baselines, the eight foundations and existing recipe identities remain unchanged.
 
 ## References
