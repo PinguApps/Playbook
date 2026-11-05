@@ -688,3 +688,18 @@
 /samples/net11.0/TernPatches/verification-evidence.json
 /samples/net10.0/TernPermits/verification-evidence.json
 /samples/net11.0/TernPermits/verification-evidence.json
+
+# Test-LarkContracts/Record-Evidence generated receipts. Review canonical sources,
+# locks, manifests, runner and recipe claims; ordinary build/pack checks freshness.
+/samples/net10.0/LarkBindings/verification-evidence.json
+/samples/net10.0/LarkBindings/behavior.evidence.json
+/samples/net10.0/LarkMaterializers/verification-evidence.json
+/samples/net10.0/LarkMaterializers/behavior.evidence.json
+/samples/net10.0/LarkRelationships/verification-evidence.json
+/samples/net10.0/LarkRelationships/behavior.evidence.json
+/samples/net11.0/LarkBindings/verification-evidence.json
+/samples/net11.0/LarkBindings/behavior.evidence.json
+/samples/net11.0/LarkMaterializers/verification-evidence.json
+/samples/net11.0/LarkMaterializers/behavior.evidence.json
+/samples/net11.0/LarkRelationships/verification-evidence.json
+/samples/net11.0/LarkRelationships/behavior.evidence.json

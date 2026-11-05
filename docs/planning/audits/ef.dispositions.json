@@ -102,16 +102,16 @@
     {
       "id": "constructor-binding",
       "pattern": "IConstructorBindingFactory::TryBindConstructor",
-      "disposition": "proposed",
-      "owner": "E16",
-      "reason": "Removed constructor binding hook needs an actual extension migrated to GetBindings."
+      "disposition": "delivered",
+      "owner": "PIN-1204",
+      "reason": "ef.migrate-constructor-binding/11.0: LarkBindings compiles callable EF10 TryBindConstructor and EF11 GetBindings, verifies scalar/service materialization and invalid bindings. GetBindings already exists in EF10 and selects a type binding, not an arbitrary ConstructorInfo replacement. Single-constructor consumer only; RC2 is not GA."
     },
     {
       "id": "materializer-contract",
       "pattern": "\\.(?:IEntityMaterializerSource|EntityMaterializerSourceParameters|IStructuralTypeMaterializerSource|StructuralTypeMaterializerSourceParameters)\\b|InjectEntityMaterializers|ParameterQueryRootExpression|CollectionResultExpression",
-      "disposition": "proposed",
-      "owner": "E14",
-      "reason": "Legacy entity-only materializer/query roots are replaced by structural contracts; provider extension consumer required."
+      "disposition": "grouped",
+      "owner": "PIN-1202",
+      "reason": "ef.migrate-structural-materializer/11.0: Pingu approved the callable parameter-root constructor comparison on 5 November 2026. LarkMaterializers compiles and executes structural-service consumption and entity/nested/null SQLite reads; root construction is a contract check. Legacy entity-only contracts and collection properties are already error-obsolete in EF10; no valid older example is claimed. Broader provider/InjectEntityMaterializers contracts are unverified."
     },
     {
       "id": "telemetry-history",
@@ -144,9 +144,9 @@
     {
       "id": "unconstrained-query",
       "pattern": "::.*(?:IsConstrained|Constrainedness)|ForeignKeyConstrainedness",
-      "disposition": "proposed",
-      "owner": "E15",
-      "reason": "Missing-principal join semantics differ from merely omitting a database migration constraint."
+      "disposition": "delivered",
+      "owner": "PIN-1203",
+      "reason": "ef.query-unconstrained-relationship/11.0: LarkRelationships executes actual SQL2025 required/omitted/unconstrained schema and navigation controls. EF11 left join retains orphan; omission alone remains inner. EF10 explicit left join remains valid; absent constraints and retained indexes verified. Application owns integrity; no Cosmos/general-provider or GA proof."
     },
     {
       "id": "foreign-keys",
