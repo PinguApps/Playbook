@@ -19,12 +19,12 @@ Windows x64 is the executed platform; other platforms need their own qualificati
 | --- | --- | --- |
 | SDK | 10.0.403 | 11.0.100-rc.3.26522.148 |
 | C# compiler / language setting | 5.9.0-1.26523.112 / 14.0 | 5.12.0-1.26522.148 / 15.0 |
-| Framework, reference pack and runtime | net10.0 / 10.0.13 | net11.0 / 11.0.0-rc.2.26504.105 |
+| Framework, reference pack and runtime | net10.0 / 10.0.14 | net11.0 / 11.0.0-rc.3.26522.148 |
 | Build task | No SDK vulnerability target/task | Inbox Microsoft.NET.Build.Tasks and SdkVulnerabilityCheck.targets |
 
 These exact test pins do not mean a future SDK is automatically qualified. The
 supported prerequisite is an SDK shipping the documented check; use the complete
-official distribution, not a copied task DLL. RC2 evidence is not GA proof.
+official distribution, not a copied task DLL. RC3 evidence is not GA proof.
 
 ## Older approach
 

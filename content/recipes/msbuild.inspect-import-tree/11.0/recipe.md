@@ -18,7 +18,7 @@ separate verification baselines, not mandatory patch upgrades for every consumer
 | --- | --- | --- |
 | SDK | 10.0.403 | 11.0.100-rc.3.26522.148 |
 | C# compiler / language setting | 5.9.0-1.26523.112 / 14.0 | 5.12.0-1.26522.148 / 15.0 |
-| Framework / ref / runtime | net10.0 / 10.0.13 | net11.0 / 11.0.0-rc.2.26504.105 |
+| Framework / ref / runtime | net10.0 / 10.0.14 | net11.0 / 11.0.0-rc.3.26522.148 |
 | Bundled NuGet | 7.9.0-rc.611 | 8.0.0-rc.605 |
 | MSBuild product | 18.9.15 | 18.12.0-1.26504.105 |
 

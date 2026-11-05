@@ -86,8 +86,8 @@ it when its owner ends. A GUID is a diagnostic identity, not authentication.
 ## Constraints and alternatives
 
 The application route needs .NET11 SDK/runtime framework contracts. Exact
-SDK11.0.100-rc.3.26522.148/runtime11.0.0-rc.2.26504.105 and C#15 identify measured
-evidence; the older real consumer uses SDK10.0.403/runtime10.0.13/C#14. These are
+SDK11.0.100-rc.3.26522.148/runtime11.0.0-rc.3.26522.148 and C#15 identify measured
+evidence; the older real consumer uses SDK10.0.403/runtime10.0.14/C#14. These are
 ordinary public APIs, not marked experimental in the audited artifacts; no preview
 syntax, package, workload, external provider, account, rendering mode or opt-in
 is needed. Trait pairs are application metadata; GetTrait alone does not prove

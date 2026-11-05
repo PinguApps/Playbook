@@ -134,7 +134,7 @@ directory before building so its own global.json controls SDK resolution.
 | Target | Example absolute SDK/runtime host |
 | --- | --- |
 | net10.0 | `C:/Program Files/dotnet/dotnet.exe` |
-| net11.0 | `C:/Users/pingu/.dotnet-playbook-11/dotnet.exe` |
+| net11.0 | `C:/Users/pingu/AppData/Local/dotnetup/dotnet/dotnet.exe` |
 
 Adjust installation paths for your machine; no PATH edit, global tool or public
 service is needed. Package restore is online preparation; supplied locks fix both

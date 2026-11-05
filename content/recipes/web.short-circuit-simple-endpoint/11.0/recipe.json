@@ -41,7 +41,7 @@
             "name": ".NET",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Actual net11.0 ASP.NET Core consumer; RC2 execution does not establish GA verification."
+            "reason": "Actual net11.0 ASP.NET Core consumer; RC3 execution does not establish GA verification."
           },
           "sdk": {
             "name": ".NET SDK",

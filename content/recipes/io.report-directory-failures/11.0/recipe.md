@@ -79,8 +79,8 @@ and known/unknown fallbacks. The current consumer separately checks two-string
 and three-argument constructors, null and empty paths and verbatim relative input.
 Only its newly created temporary tree is removed after validating the parent.
 
-Exact proof pins: SDK10.0.403/ref-runtime10.0.13 and
-SDK11.0.100-rc.3.26522.148/ref-runtime11.0.0-rc.2.26504.105. These are reproduction
+Exact proof pins: SDK10.0.403/ref-runtime10.0.14 and
+SDK11.0.100-rc.3.26522.148/ref-runtime11.0.0-rc.3.26522.148. These are reproduction
 artifacts, separate from release-family prerequisites. No resolved packages.
 Existing evidence records retain commands, inputs, compiler/CoreLib and original
 audit-matching references. Pinned official exception/Windows error mapping sources

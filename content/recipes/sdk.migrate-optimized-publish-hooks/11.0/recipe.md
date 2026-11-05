@@ -14,7 +14,7 @@ adding a ninth historical foundation or advertising a down-level SDK11 route.
 | Layer | Older comparison | Current example |
 | --- | --- | --- |
 | SDK | 10.0.403 | 11.0.100-rc.3.26522.148 |
-| Target / reference and runtime assets | net10.0 / 10.0.13 | net11.0 / 11.0.0-rc.2.26504.105 |
+| Target / reference and runtime assets | net10.0 / 10.0.14 | net11.0 / 11.0.0-rc.3.26522.148 |
 | Compiler / language | 5.9.0-1.26523.112 / C#14 | 5.12.0-1.26522.148 / C#15 |
 | Native compiler packages | Microsoft.DotNet.ILCompiler and runtime.win-x64.Microsoft.DotNet.ILCompiler 10.0.13 | Same package IDs, 11.0.0-rc.2.26504.105 |
 | Native linker / libraries | MSVC link 14.51.36260.0; MSVC 14.51.36231 library directory; Windows SDK 10.0.26100.0 x64 UM/UCRT | Same measured host toolchain |

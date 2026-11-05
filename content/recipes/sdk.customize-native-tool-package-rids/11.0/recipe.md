@@ -18,7 +18,7 @@ mode, workload, public feed publication or production resource is involved.
 | --- | --- | --- |
 | SDK / Roslyn | 10.0.403 / 5.9.0-1.26523.112 | 11.0.100-rc.3.26522.148 / 5.12.0-1.26522.148 |
 | Managed target/language | net10.0 / C#14.0 | net11.0 / C#15.0 |
-| Runtime/reference/ILCompiler | 10.0.13 | 11.0.0-rc.2.26504.105 |
+| Runtime/reference/ILCompiler | 10.0.14 | 11.0.0-rc.3.26522.148 |
 | Declared package RID | win-x64 | win-x64 |
 | Candidate defaults inspected separately | No new hook | win-x64; win-arm64 |
 | Delivered native RID | win-x64, explicit per-RID pack | win-x64, selected outer/inner pack |

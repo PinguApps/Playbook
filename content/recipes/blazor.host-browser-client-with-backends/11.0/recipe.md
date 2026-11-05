@@ -142,7 +142,7 @@ Newer Client/Berth.razor:
 
 ## Run and inspect
 
-Use PowerShell 7 and the actual pinned SDK at each sample root. Before every .NET child, set DOTNET_ADD_GLOBAL_TOOLS_TO_PATH=0; keep PATH unchanged. On the verified Windows host the SDK executables are C:\Program Files\dotnet\dotnet.exe (10.0.403/runtime 10.0.13) and C:\Users\pingu\.dotnet-playbook-11\dotnet.exe (11.0.100-rc.3.26522.148/runtime 11.0.0-rc.2.26504.105). Initial NuGet restore is online; installed guidance retrieval is offline. Neither build requires wasm-tools, native compilation, AOT, a container or an account.
+Use PowerShell 7 and the actual pinned SDK at each sample root. Before every .NET child, set DOTNET_ADD_GLOBAL_TOOLS_TO_PATH=0; keep PATH unchanged. On the verified Windows host the SDK executables are C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe (10.0.403/runtime 10.0.14) and C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe (11.0.100-rc.3.26522.148/runtime 11.0.0-rc.3.26522.148). Initial NuGet restore is online; installed guidance retrieval is offline. Neither build requires wasm-tools, native compilation, AOT, a container or an account.
 
 For the older sample, restore/build Host/QuaysideRoutes.Host.csproj and Backend/QuaysideRoutes.Backend.csproj with the SDK 10 executable using build -c Release. The host builds the referenced client. In a separate terminal at Backend, launch that executable with bin/Release/net10.0/QuaysideRoutes.Backend.dll --urls http://127.0.0.1:5913. At Host, set ASPNETCORE_ENVIRONMENT=Development and launch bin/Release/net10.0/QuaysideRoutes.Host.dll --urls http://localhost:5911. The development environment loads the actual client static-web-assets manifest. Each launch occupies its terminal; Ctrl+C stops that process.
 

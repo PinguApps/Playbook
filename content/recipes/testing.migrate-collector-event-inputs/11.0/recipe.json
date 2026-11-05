@@ -43,7 +43,7 @@
             "name": ".NET",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Actual current net11 consumer; runtime/ref11RC2 measured separately."
+            "reason": "Actual current net11 consumer; runtime/ref11RC3 measured separately."
           },
           "sdk": {
             "name": ".NET SDK",
@@ -91,7 +91,7 @@
           ],
           "renderingModes": [],
           "prerequisites": [
-            "PowerShell7; SDK10.0.403/runtime-ref10.0.13/C#14 and SDK11.0.100-rc.3.26522.148/runtime-ref11RC2/C#15 for paired qualification.",
+            "PowerShell7; SDK10.0.403/runtime-ref10.0.14/C#14 and SDK11.0.100-rc.3.26522.148/runtime-ref11RC3/C#15 for paired qualification.",
             "Public NuGet access to prepare actual locked dependencies; no credentials, service, native compiler or workload. Use isolated homes/caches and disable automatic PATH integration."
           ],
           "constraints": [

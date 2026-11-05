@@ -82,7 +82,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Stable migration goal prepared with SDK11.0.100-rc.3.26522.148/framework11.0.0-rc.2.26504.105. Actual-GA reconciliation, PIN-959/PIN-964 and unrelated Human gates remain open. No new experimental API opt-in."
+            "Stable migration goal prepared with SDK11.0.100-rc.3.26522.148/framework11.0.0-rc.3.26522.148. Actual-GA reconciliation, PIN-959/PIN-964 and unrelated Human gates remain open. No new experimental API opt-in."
           ]
         },
         "sourceUrls": [

@@ -13,7 +13,7 @@ example, not an implementation of VSTest's process transport or negotiation.
 
 The actual **TestHost 18.7.0** package supplies CommunicationUtilities and depends
 on matching ObjectModel **18.7.0** plus Newtonsoft.Json **13.0.3**. This valid older
-.NET 10 consumer uses SDK **10.0.403**, C# **14** and runtime **10.0.13**:
+.NET 10 consumer uses SDK **10.0.403**, C# **14** and runtime **10.0.14**:
 
 {{snippet:older-project}}
 
@@ -52,7 +52,7 @@ actual **lib/net8.0** compile and runtime assets:
 {{snippet:newer-packages}}
 
 The independently compiled and executed .NET 10 route uses the same current
-package pin, SDK 10.0.403/C# 14/runtime 10.0.13:
+package pin, SDK 10.0.403/C# 14/runtime 10.0.14:
 
 {{snippet:current10-project}}
 

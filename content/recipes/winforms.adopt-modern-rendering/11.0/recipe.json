@@ -69,7 +69,7 @@
             "Use an STA thread and the declared exact SDK; available Windows Desktop reference packs are required."
           ],
           "constraints": [
-            "RC2 evidence is not GA evidence. No global accessibility setting is changed."
+            "RC3 evidence is not GA evidence. No global accessibility setting is changed."
           ],
           "optIns": [
             "Enable visual styles, then select Net11 before creating windows."

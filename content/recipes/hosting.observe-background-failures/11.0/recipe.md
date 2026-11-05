@@ -111,8 +111,8 @@ describe the earlier API as incapable of throwing.
 Use the default Generic Host with Microsoft.Extensions.Hosting's actual net11
 package asset. Its dependency closure also uses framework-provided abstractions;
 exact resolved packages and assets are recorded separately. Reproduction uses
-SDK10.0.403 / C#14 / runtime-ref10.0.13 and SDK11.0.100-rc.3.26522.148 / C#15 /
-runtime-ref11RC2, with the package pins above. Consumer requirements are the stated
+SDK10.0.403 / C#14 / runtime-ref10.0.14 and SDK11.0.100-rc.3.26522.148 / C#15 /
+runtime-ref11RC3, with the package pins above. Consumer requirements are the stated
 release-family SDK/runtime and package contract, not a promise that every preview
 contains the same implementation.
 

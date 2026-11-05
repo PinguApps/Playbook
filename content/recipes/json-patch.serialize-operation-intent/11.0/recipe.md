@@ -14,8 +14,8 @@ examples run actual loopback HTTP PATCH requests through Kestrel, deserialize
 JsonPatchDocument<GardenRecord> and apply it to a fresh working copy. This is a
 real serializer/request pipeline, not reflection-only proof or a mocked patch.
 
-Exact reproduction: SDK10.0.403/framework10.0.13/C#14 with package10.0.13, versus
-SDK11.0.100-rc.3.26522.148/framework11.0.0-rc.2.26504.105/C#15 and the matching RC2
+Exact reproduction: SDK10.0.403/framework10.0.14/C#14 with package10.0.13, versus
+SDK11.0.100-rc.3.26522.148/framework11.0.0-rc.3.26522.148/C#15 and the matching RC2
 package. Use the matching framework/package family; these precise sample pins
 are evidence, not minimum supported servicing versions. Windows x64 is the
 executed managed lane. No package-native assets, workloads, browser rendering

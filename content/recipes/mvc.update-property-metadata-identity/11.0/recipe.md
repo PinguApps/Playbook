@@ -88,7 +88,7 @@ Use a separate directory for this target. Restore/build/run with the same comman
 - The modelType argument describes the metadata's model type. This sample uses the property's declared string type; advanced providers may intentionally use another type and must retain that policy.
 - Actual metadata, display label and accessors are exercised without rendering a form. No browser, validation integration, data provider, NativeAOT or trimming claim is made.
 - Use matching ASP.NET Core framework/reference packs. No extra package, workload, service account or database is required. SDK 10.0.403 / 11.0.100-rc.3.26522.148 and C# 14 / 15 are the actual sample pins, not minimum language-feature requirements.
-- Stable migration APIs; no experimental opt-in. The exact .NET 11 evidence is RC2. This recipe exposes target 11 only; the older sample is a fair previous-release comparison and not an additional .NET 10 foundation.
+- Stable migration APIs; no experimental opt-in. The exact .NET 11 evidence is RC3. This recipe exposes target 11 only; the older sample is a fair previous-release comparison and not an additional .NET 10 foundation.
 
 ## Evidence
 

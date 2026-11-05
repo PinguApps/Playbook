@@ -79,7 +79,7 @@
           "prerequisites": [
             "Use the .NET 11 Web SDK/runtime with C# 15.0 and the locked sample assets. No workload, external service or experimental opt-in.",
             "Authenticate before rendering. Keep fresh authorization and per-request content outside CacheView; vary every value that changes cached output.",
-            "Framework Components/Endpoints assemblies; SDK-aligned Internal.Assets 11.0.0-rc.2.26504.105; optional HybridCache 10.11.0 net10.0 asset is executed by this net11.0 server.",
+            "Framework Components/Endpoints assemblies; SDK-aligned Internal.Assets 11.0.0-rc.3.26522.148; optional HybridCache 10.11.0 net10.0 asset is executed by this net11.0 server.",
             "Default CacheView memory store, or HybridCache local memory without IDistributedCache; both executed.",
             "ASP.NET Core server; Windows x64 execution. Other OS and multi-node providers untested.",
             "Static SSR GET only. Interactive rendering and CacheView inside a streaming subtree bypass caching.",

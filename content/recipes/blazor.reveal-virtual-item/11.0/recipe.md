@@ -15,7 +15,7 @@ The newer implementation uses **net11.0**, the .NET 11 Web SDK and ASP.NET Core
 separate virtualization package, QuickGrid dependency, workload, database,
 external service or account. Matching SDK browser assets and `blazor.web.js`
 must be served. The actual baselines are SDK **11.0.100-rc.3.26522.148**, framework
-and Internal.Assets **11.0.0-rc.2.26504.105**, C# **15.0**. These are reproducible
+and Internal.Assets **11.0.0-rc.3.26522.148**, C# **15.0**. These are reproducible
 RC2 measurements, not GA execution. The APIs have no experimental annotation or
 required opt-in in these artifacts. C# 15-specific syntax is not required.
 
@@ -59,7 +59,7 @@ instead of reporting success from the scroll offset alone. This is useful
 existing code when its fixed-height assumptions hold.
 
 The older consumer uses **net10.0**, SDK **10.0.403**, ASP.NET Core/Internal.Assets
-**10.0.13** and C# **14.0**. It uses the same host registration, imports, layout
+**10.0.14** and C# **14.0**. It uses the same host registration, imports, layout
 and delayed provider shown below. Its module is `wwwroot/reveal.js`. It must run
 after interactive rendering, and its 60-second deadline is a sample policy,
 not a universal network timeout. Disposing its JS module releases the reference;

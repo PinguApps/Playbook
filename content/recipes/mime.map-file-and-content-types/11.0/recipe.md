@@ -83,8 +83,8 @@ No network or registry lookup occurs in these demonstrated framework table calls
 ## Evidence
 
 eng/Test-AttachmentFacts.ps1 -Record -VerifySources compiles and runs
-AttachmentLabels with SDK10.0.403/runtime10.0.13 and
-SDK11.0.100-rc.3.26522.148/runtime11.0.0-rc.2.26504.105. Both actual consumers use
+AttachmentLabels with SDK10.0.403/runtime10.0.14 and
+SDK11.0.100-rc.3.26522.148/runtime11.0.0-rc.3.26522.148. Both actual consumers use
 only framework dependencies, zero warnings/errors and no workloads. Saved records
 contain exact commands/input hashes, compiler/CoreLib identities and
 System.Runtime/System.Net.Mail references matched to the source audit.

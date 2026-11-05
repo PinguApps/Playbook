@@ -47,7 +47,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Build against the matching .NET11 reference/toolchain assets; exact RC2 is the reproduction baseline."
+            "reason": "Build against the matching .NET11 reference/toolchain assets; exact RC3 is the reproduction baseline."
           },
           "language": {
             "name": "C#",
@@ -74,7 +74,7 @@
             }
           ],
           "prerequisites": [
-            "Intended SDK11.0.100-rc.3.26522.148/runtime11.0.0-rc.2.26504.105, C#15 and Emscripten6.0.2; matching assets unavailable, not measured.",
+            "Intended SDK11.0.100-rc.3.26522.148/runtime11.0.0-rc.3.26522.148, C#15 and Emscripten6.0.2; matching assets unavailable, not measured.",
             "Qualify the actual CoreCLR relink targets/imports, native archive ABI and JS host before building; no automatic installation or PATH integration."
           ],
           "constraints": [

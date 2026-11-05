@@ -43,13 +43,13 @@
             "name": ".NET",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Current net11 consumer; actual RC2 is measured separately from final GA."
+            "reason": "Current net11 consumer; actual RC3 is measured separately from final GA."
           },
           "sdk": {
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Build current .NET11 references; exact RC2 is the reproduction baseline."
+            "reason": "Build current .NET11 references; exact RC3 is the reproduction baseline."
           },
           "language": {
             "name": "C#",
@@ -80,7 +80,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Stable APIs; actual .NET11 GA reconciliation remains open. RC2 evidence is not final-GA proof."
+            "Stable APIs; actual .NET11 GA reconciliation remains open. RC3 evidence is not final-GA proof."
           ]
         },
         "sourceUrls": [

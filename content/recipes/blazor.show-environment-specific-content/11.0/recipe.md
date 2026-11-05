@@ -8,7 +8,7 @@ Help people recognise a rehearsal system before they mistake its parcels for liv
 
 The .NET 10 application reads IHostEnvironment on the server and IWebAssemblyHostEnvironment in the browser, then passes the name into ordinary Razor conditionals. This remains a supported, useful approach. There is no EnvironmentView in the declared .NET 10 framework; this comparison does not invent a backport or install a newer component package on an older target.
 
-Create adjacent Host and Client directories. In each, save global.json selecting SDK 10.0.403 with rollForward disable and allowPrerelease false. Save the following Directory.Packages.props in BOTH directories, then Host/Host.csproj and Client/Client.csproj respectively. Runtime and packages are 10.0.13; language mode is C# 14. All effective project settings are supplied: no repository parent build/package imports are needed.
+Create adjacent Host and Client directories. In each, save global.json selecting SDK 10.0.403 with rollForward disable and allowPrerelease false. Save the following Directory.Packages.props in BOTH directories, then Host/Host.csproj and Client/Client.csproj respectively. Runtime and packages are 10.0.14; language mode is C# 14. All effective project settings are supplied: no repository parent build/package imports are needed.
 
 {{snippet:old-packages}}
 
@@ -32,7 +32,7 @@ Use the shared host/client startup, routing, document and JavaScript supplied un
 
 The .NET 11 component expresses the decision directly with EnvironmentView. It obtains IHostEnvironment from the renderer's service provider. WebApplication supplies it on the server; WebAssemblyHostBuilder registers the browser adapter. Do not manually inject a desktop test environment into the browser and treat that as client proof.
 
-Create another adjacent Host/Client pair. In BOTH directories save global.json selecting SDK 11.0.100-rc.3.26522.148 with rollForward disable and allowPrerelease true. Use runtime and packages 11.0.0-rc.2.26504.105, C# 15. Save Directory.Packages.props in BOTH directories, followed by Host/Host.csproj and Client/Client.csproj. These exact pins are the executed RC2 baseline, not evidence about future GA binaries. EnvironmentView is a stable API in that prerelease framework; no Experimental diagnostic or opt-in is declared on this API.
+Create another adjacent Host/Client pair. In BOTH directories save global.json selecting SDK 11.0.100-rc.3.26522.148 with rollForward disable and allowPrerelease true. Use runtime and packages 11.0.0-rc.3.26522.148, C# 15. Save Directory.Packages.props in BOTH directories, followed by Host/Host.csproj and Client/Client.csproj. These exact pins are the executed RC2 baseline, not evidence about future GA binaries. EnvironmentView is a stable API in that prerelease framework; no Experimental diagnostic or opt-in is declared on this API.
 
 {{snippet:new-packages}}
 

@@ -59,7 +59,7 @@
             "SDK console project with Nullable and ImplicitUsings enabled; put complete canonical helpers in separate .cs files with their imports."
           ],
           "constraints": [
-            "Previous SDK10.0.403/C#14/ref-runtime10.0.13; current SDK11.0.100-rc.3.26522.148/C#15/ref-runtime11RC2. Exact proof pins are separate from release-family requirements.",
+            "Previous SDK10.0.403/C#14/ref-runtime10.0.14; current SDK11.0.100-rc.3.26522.148/C#15/ref-runtime11RC3. Exact proof pins are separate from release-family requirements.",
             "No provider, native assets, workloads, rendering modes or experimental diagnostic opt-ins. Older comparisons remain valid and add no foundation; no additional older-target API route is advertised.",
             "BFloat16 has float-like exponent range but only 8 significant binary digits for normals. Choose data-specific error budgets and widen before accumulation when appropriate.",
             "Windows x64 RC2 execution; no JSON/bit-serialization, ML/GPU, universal accuracy or performance claim."

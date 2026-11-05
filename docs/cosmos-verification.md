@@ -38,9 +38,9 @@ required consumer or pinned indexing-policy baseline failure throws. Setup and c
 ten-minute operation timeout; investigate a timeout rather than assuming a pass.
 
 Override `-Docker` on either script or `-Net10Dotnet`/`-Net11Dotnet` on the provider
-check with existing absolute executable paths if installations differ. Defaults:
-Docker Desktop's CLI, `C:\Program Files\dotnet\dotnet.exe`, and
-`C:\Users\pingu\.dotnet-playbook-11\dotnet.exe`. SDKs/packages are manually pinned;
+check with existing absolute executable paths if installations differ. Defaults: Docker Desktop's CLI and the resolved `dotnet` host for both SDKs.
+That host must contain both pinned SDKs. On this authoring machine both are available at
+`C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe`. SDKs/packages are manually pinned;
 the temporary projects inherit no root build/package configuration. Docker is not
 an enabled Renovate manager; no automatic update permissions are added.
 

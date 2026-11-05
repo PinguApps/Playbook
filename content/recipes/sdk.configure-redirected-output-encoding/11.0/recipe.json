@@ -64,7 +64,7 @@
           ],
           "renderingModes": [],
           "prerequisites": [
-            "Complete measured SDK10.0.403/runtime10.0.13 and SDK11.0.100-rc.3.26522.148/runtime11RC2 installations; PowerShell7.",
+            "Complete measured SDK10.0.403/runtime10.0.14 and SDK11.0.100-rc.3.26522.148/runtime11RC3 installations; PowerShell7.",
             "Restore each pinned original project before the reader calls build --no-restore. No package, provider, workload or native compiler dependency for this route."
           ],
           "constraints": [

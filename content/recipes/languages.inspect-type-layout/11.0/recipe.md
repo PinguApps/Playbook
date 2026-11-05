@@ -8,7 +8,7 @@ Inspect the declared layout of fictional seed and sensor packets while analysing
 
 The actual Microsoft.CodeAnalysis5.9.0 closure has no `INamedTypeSymbol.TypeLayout`. For these three declarations, each of which has an explicit `StructLayoutAttribute`, a bounded public-attribute reader extracts the constructor's kind and named `Pack`/`Size`. Omitted named values remain zero. This is not a general decoder for metadata pseudo-custom attributes or compiler defaults when no source attribute is available.
 
-Create `PacketLayout.csproj`, `Directory.Packages.props`, `NuGet.Config` and `Packets.cs` in one directory. Pin SDK10.0.403 with `sdk.version` and `sdk.rollForward: disable` in `global.json`. The actual comparison uses runtime/reference10.0.13 and C#14.
+Create `PacketLayout.csproj`, `Directory.Packages.props`, `NuGet.Config` and `Packets.cs` in one directory. Pin SDK10.0.403 with `sdk.version` and `sdk.rollForward: disable` in `global.json`. The actual comparison uses runtime/reference10.0.14 and C#14.
 
 {{snippet:project-10-packetlayout}}
 

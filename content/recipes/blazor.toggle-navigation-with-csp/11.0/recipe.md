@@ -16,7 +16,7 @@ The current sample has no inline toggle and no matching hash or unsafe-hashes po
 
 ## Older approach: complete .NET 10 comparison
 
-Create a fresh `BrackenMenu10` directory and write every file below at its stated relative path. Parent build/package boundaries stop unrelated repository inheritance. Both projects pin SDK 10.0.403, net10.0 and C# 14. Packages are exactly 10.0.13; locks record the resolved dependency closure. No workload installation is required.
+Create a fresh `BrackenMenu10` directory and write every file below at its stated relative path. Parent build/package boundaries stop unrelated repository inheritance. Both projects pin SDK 10.0.403, net10.0 and C# 14. Packages are exactly 10.0.14; locks record the resolved dependency closure. No workload installation is required.
 
 The default old menu has an original handler scoped to its own containing menu. For the positive comparison start the host with `--AllowInlineMenu=true`; this allows only the matching SHA-256 handler hash `Q0PMW+uf6Mx6edY1pmu6zF3FR16ZFghnGK/H9yrsVQc=`. A different handler remains blocked. Start without that flag for the strict negative control: links still navigate, but the inline collapse is blocked. With the same strict header, append `?external=true` to use the valid module backport; its links retain the selection.
 
@@ -122,7 +122,7 @@ The default old menu has an original handler scoped to its own containing menu. 
 
 ## Newer approach: complete .NET 11 migration
 
-Create a separate `BrackenMenu11` directory. Write all the following files, rather than overlaying them on the old directory. This baseline uses SDK 11.0.100-rc.3.26522.148, matching runtime/browser assets and WebAssembly packages, net11.0 and C# 15. These are RC2 reproducibility pins, not GA proof or an experimental API opt-in. The migration itself needs no C# 15-only syntax.
+Create a separate `BrackenMenu11` directory. Write all the following files, rather than overlaying them on the old directory. This baseline uses SDK 11.0.100-rc.3.26522.148, matching runtime/browser assets and WebAssembly packages, net11.0 and C# 15. These are RC3 reproducibility pins, not GA proof or an experimental API opt-in. The migration itself needs no C# 15-only syntax.
 
 The custom element attaches a listener to its own menu when connected and removes that exact listener when disconnected. It ignores outside clicks and only clears a checked checkbox after a click inside the scroll area. Thus a second event cannot reopen a closed menu. Registration is guarded; enhanced updates can insert a new instance after a module has already loaded. No one-time query captures a stale menu node. The fictional implementation is independent of the migration guide's global listener.
 
@@ -247,7 +247,7 @@ Inspect the real enforcing Content-Security-Policy header and securitypolicyviol
 
 ## Evidence: source reconciliation and execution boundaries
 
-The accepted migration guide and the actual RC2 template are not byte-identical. The guide currently describes a global page handler; the pinned template wraps the menu in a custom element and adds/removes a scoped listener with its connection lifetime. The installed 11.0.0-rc.2.26504.105 template and pinned ASP.NET source commit 4a70870818bf5662f21b0c28f9a8c267dccb77f0 agree on that lifecycle capability. The actual .NET 10.0.13 template contains its older inline click handler and no collocated NavMenu module. The source location includes `BlazorWeb-CSharp/BlazorWebCSharp.1`; a different guessed directory is not evidence. Bracken's original markup, handler, module and trails are not copied guide examples.
+The accepted migration guide and the actual RC2 template are not byte-identical. The guide currently describes a global page handler; the pinned template wraps the menu in a custom element and adds/removes a scoped listener with its connection lifetime. The installed 11.0.0-rc.3.26522.148 template and pinned ASP.NET source commit 4a70870818bf5662f21b0c28f9a8c267dccb77f0 agree on that lifecycle capability. The actual .NET 10.0.14 template contains its older inline click handler and no collocated NavMenu module. The source location includes `BlazorWeb-CSharp/BlazorWebCSharp.1`; a different guessed directory is not evidence. Bracken's original markup, handler, module and trails are not copied guide examples.
 
 Four real pinned host/client projects compile. Separate local Chrome 155 execution checks actual app initialization, both module path shapes under a non-root base, real links/content, enhanced static updates, checked-menu behavior, connection cleanup and enforcing policy controls. The older matching-hash, strict-negative and module-backport cases remain distinct. No mocks, cross-compilation or source-only assertions replace browser execution. Source archive hashes and exact execution artifacts are recorded separately from compilation.
 

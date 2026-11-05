@@ -17,14 +17,14 @@ approach on both measured SDKs; no newer-only reader API is claimed.
 | --- | --- | --- |
 | SDK | 10.0.403 | 11.0.100-rc.3.26522.148 |
 | Compiler / language | 5.9.0-1.26523.112 / C#14 | 5.12.0-1.26522.148 / C#15 |
-| Target / reference and runtime | net10.0 / 10.0.13 | net11.0 / 11.0.0-rc.2.26504.105 |
+| Target / reference and runtime | net10.0 / 10.0.14 | net11.0 / 11.0.0-rc.3.26522.148 |
 | Reader | PowerShell7; .NET ProcessStartInfo and explicit decoder | Same existing reader APIs |
 
 The executed platform is Windows x64, with private CP1252 and CP65001 consoles,
 redirected stdout/stderr and en-US SDK UI language. Complete SDK/compiler/ref/runtime
 identities and hashes are recorded separately from prerequisites. No NuGet
 dependency, workload, provider, native compiler or rendering mode is required for
-this recipe. RC2 evidence is not GA qualification, and a new SDK or different
+this recipe. RC3 evidence is not GA qualification, and a new SDK or different
 console/language condition requires a fresh byte-level check.
 
 ## Older approach

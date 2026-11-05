@@ -16,7 +16,7 @@ you invoke: a tool manager or stale copied script can retain that older behavior
 
 Gullhaven museum checks that accession-card identifiers are unique. It builds a
 local-only package; no public or third-party package is executed. The SDK 10
-comparison pins SDK 10.0.403, C# 14 and runtime 10.0.13:
+comparison pins SDK 10.0.403, C# 14 and runtime 10.0.14:
 
 {{snippet:older-project}}
 
@@ -108,7 +108,7 @@ It executes both original net10 and net11 tool packages in separate caches.
 | SDK 10.0.403 | Runs the net10 package with SDK 10.0.403 | Runs with SDK 11 RC3 |
 | SDK 11 RC3 | Runs with SDK 11 RC3 | Runs with SDK 11 RC3 |
 
-SDK 11 runs the net10 package on runtime 10.0.13. SDK 10.0.403 **rejects this
+SDK 11 runs the net10 package on runtime 10.0.14. SDK 10.0.403 **rejects this
 net11-only package**, even with runtime 11 installed: its actual diagnostic is
 `Settings file 'DotnetToolSettings.xml' was not found in the package.` Select a
 compatible SDK/package asset pair as well as providing the tool runtime; an

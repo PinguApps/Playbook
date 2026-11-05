@@ -114,7 +114,7 @@ The property recipe provides the worked metadata and sample example below.
 Ordinary PRs build/pack the tool and run one installed MCP smoke scenario. With PowerShell 7 and .NET SDK 10.0.403:
 
 ```powershell
-Set-Location -LiteralPath 'V:/_worktrees/Playbook/t3-4d84c6cb'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Test-Smoke.ps1
 ```
 
@@ -125,7 +125,7 @@ Expect one passed scenario and a final `PASS` message. This checks installation,
 Build prerequisites: PowerShell 7, .NET SDK **10.0.403**, **9.0.319** and **11.0.100-rc.3.26522.148**. The .NET 9 SDK is needed only for the historical comparison, never for installing or running Playbook. The .NET 11 SDK verifies that target and the optional older-target route of the shared edition. No optional workloads are used.
 
 ```powershell
-Set-Location -LiteralPath 'V:/_worktrees/Playbook/t3-4d84c6cb'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 pwsh -NoProfile -File ./eng/Verify.ps1
 ```
 
@@ -146,7 +146,7 @@ With Docker available, run `pwsh -NoProfile -File ./eng/Test-Offline.ps1 -Runtim
 From the repository root after verification:
 
 ```powershell
-Set-Location -LiteralPath 'V:/_worktrees/Playbook/t3-4d84c6cb'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 # Use fresh directories; if these exist from an earlier run, choose new names.
 New-Item -ItemType Directory ./artifacts/manual-feed | Out-Null
 Copy-Item ./artifacts/PinguApps.Playbook.1.0.0-preview.1.nupkg ./artifacts/manual-feed/
@@ -258,12 +258,12 @@ Give each sample its own exact SDK pin in `global.json` and explicit target/lang
 - `workloads`: required `id/manifest-version` entries measured by `dotnet workload list`, not every installed workload.
 - `nativeToolchains`: required measured `name/version` entries. Keep the native version commands/results in a linked report; the helper checks the supplied declaration, not the tool's authenticity.
 
-Only when refreshing affected sample inputs, run from the repository root in PowerShell 7. These example capture commands use the normal .NET 10 executable and the separate .NET 9/11 installations on this authoring machine. Substitute your actual executables, or `dotnet` when the pins are available in one installation. Do not change persistent PATH or environment variables.
+Only when refreshing affected sample inputs, run from the repository root in PowerShell 7. These example capture commands use one absolute host containing both SDK 10 and SDK 11, plus the separate historical .NET 9 installation. Substitute your actual executables, or `dotnet` when the pins are available in one installation. Do not change persistent PATH or environment variables.
 
 ```powershell
-Set-Location -LiteralPath 'V:/_worktrees/Playbook/t3-4d84c6cb'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 $net9 = 'C:\Users\pingu\.dotnet-playbook-9\dotnet.exe'
-$net11 = 'C:\Users\pingu\.dotnet-playbook-11\dotnet.exe'
+$net11 = 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe'
 pwsh -NoProfile -File ./eng/Record-Evidence.ps1 -Sample samples/net9.0/PropertyAssignment/PropertyAssignment.csproj -Dotnet $net9
 pwsh -NoProfile -File ./eng/Record-Evidence.ps1 -Sample samples/net10.0/PropertyAssignment/PropertyAssignment.csproj
 pwsh -NoProfile -File ./eng/Record-Evidence.ps1 -Sample samples/net10.0/PropertyAssignmentSdk11/PropertyAssignment.csproj -Dotnet $net11 -RuntimeDotnet dotnet
@@ -308,7 +308,7 @@ Commit native authoring evidence for routine validation to consume without insta
 For packaging or content-pipeline changes, run the relevant content/evidence fixtures, Release build, pack rejection checks and installed stdio scenarios. Full release/manual validation remains `eng/Verify.ps1`; ordinary documentation edits do not require every sample or platform. For manual build/pack separation:
 
 ```powershell
-Set-Location -LiteralPath 'V:/_worktrees/Playbook/t3-4d84c6cb'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 pwsh -NoProfile -File ./eng/Test-Content.ps1
 pwsh -NoProfile -File ./eng/Test-Evidence.ps1
 dotnet build PinguApps.Playbook.slnx -c Release

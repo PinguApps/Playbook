@@ -266,7 +266,7 @@ Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH = '0'
 Push-Location -LiteralPath './samples/net11.0/HarbourDispatch'
 try {
-  & 'C:\Users\pingu\.dotnet-playbook-11\dotnet.exe' run -c Release -- --check
+  & 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' run -c Release -- --check
 } finally { Pop-Location }
 ```
 
@@ -1028,7 +1028,7 @@ The literal block was tested from an unrelated starting directory:
 Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Record-BookingArchive.ps1 -VerifySources `
   -Net10Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
-  -Net11Dotnet 'C:\Users\pingu\.dotnet-playbook-11\dotnet.exe'
+  -Net11Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('globalization.validate-date-parsing-options','numerics.preserve-conversion-intent') `
   -Query '' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
@@ -1257,7 +1257,7 @@ The complete block was checked starting from an unrelated directory:
 Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Test-WebResourceRecipes.ps1 `
   -Dotnet 'C:/Users/pingu/AppData/Local/dotnetup/dotnet/dotnet.exe' `
-  -Net11Dotnet 'C:/Users/pingu/.dotnet-playbook-11/dotnet.exe' -RecordEvidence
+  -Net11Dotnet 'C:/Users/pingu/AppData/Local/dotnetup/dotnet/dotnet.exe' -RecordEvidence
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('hosting.configure-http3-budgets', 'json-patch.serialize-operation-intent', 'testing.configure-web-application-builder') `
   -Query 'web-resource-recipes' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
@@ -1266,7 +1266,7 @@ Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
   -OutputDirectory ./artifacts/web-resources/inspection
 & ./eng/Test-WebResourceConsumers.ps1 `
   -Dotnet 'C:/Users/pingu/AppData/Local/dotnetup/dotnet/dotnet.exe' `
-  -Net11Dotnet 'C:/Users/pingu/.dotnet-playbook-11/dotnet.exe'
+  -Net11Dotnet 'C:/Users/pingu/AppData/Local/dotnetup/dotnet/dotnet.exe'
 ```
 
 Expect these discoveries and observations:
@@ -1360,7 +1360,7 @@ proxies qualify proxy independence, not network isolation.
 Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Test-TernTesting.ps1 `
   -Net10Dotnet 'C:/Users/pingu/AppData/Local/dotnetup/dotnet/dotnet.exe' `
-  -Net11Dotnet 'C:/Users/pingu/.dotnet-playbook-11/dotnet.exe' -Record
+  -Net11Dotnet 'C:/Users/pingu/AppData/Local/dotnetup/dotnet/dotnet.exe' -Record
 $recipes = @(
   'testing.migrate-vstest-session-host',
   'testing.migrate-assembly-resolution-context',
@@ -1440,7 +1440,7 @@ This establishes proxy independence, not network isolation.
 Set-Location -LiteralPath 'V:/_worktrees/Playbook/agent-pin-1178-04-103-move-customized-identity-ui-off-bootstrap-4'
 & ./eng/Test-WebMigrationBatch.ps1 `
   -Dotnet 'C:/Users/pingu/AppData/Local/dotnetup/dotnet/dotnet.exe' `
-  -Net11Dotnet 'C:/Users/pingu/.dotnet-playbook-11/dotnet.exe' `
+  -Net11Dotnet 'C:/Users/pingu/AppData/Local/dotnetup/dotnet/dotnet.exe' `
   -OutputDirectory ./artifacts/batch04/verified -RecordEvidence
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('identity.migrate-ui-framework-selection', 'routing.preserve-encoded-segment', 'grpc.replace-swagger-adapter') `
@@ -1450,7 +1450,7 @@ Set-Location -LiteralPath 'V:/_worktrees/Playbook/agent-pin-1178-04-103-move-cus
   -OutputDirectory ./artifacts/batch04/inspection
 & ./eng/Test-WebMigrationConsumers.ps1 `
   -Dotnet 'C:/Users/pingu/AppData/Local/dotnetup/dotnet/dotnet.exe' `
-  -Net11Dotnet 'C:/Users/pingu/.dotnet-playbook-11/dotnet.exe'
+  -Net11Dotnet 'C:/Users/pingu/AppData/Local/dotnetup/dotnet/dotnet.exe'
 ```
 
 Expect these discoveries:
@@ -1501,7 +1501,7 @@ Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
   -OutputDirectory ./artifacts/pin1176/inspection
 & ./eng/Test-AmberGalleryConsumer.ps1 `
   -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
-  -Net11Dotnet 'C:\Users\pingu\.dotnet-playbook-11\dotnet.exe'
+  -Net11Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe'
 ```
 
 Expect `web.order-static-asset-routes`, title "Give a generated static endpoint
@@ -1559,7 +1559,7 @@ To refresh the bounded proof with both actual SDK/runtime/package sets:
 Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Test-Planetarium.ps1 `
   -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
-  -Net11Dotnet 'C:\Users\pingu\.dotnet-playbook-11\dotnet.exe' -RecordEvidence
+  -Net11Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' -RecordEvidence
 ```
 
 Expect real runtime and build-time PASS lines on both targets, plus expected
@@ -1603,7 +1603,7 @@ in the recipe and sample pins:
 Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Record-NorthQuayBuildHost.ps1 `
   -Net10Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
-  -Net11Dotnet 'C:\Users\pingu\.dotnet-playbook-11\dotnet.exe'
+  -Net11Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe'
 ```
 
 This first restores both locked package closures, then invokes the existing
@@ -1654,7 +1654,7 @@ try {
   & ./eng/Record-Evidence.ps1 -Sample 'samples/net10.0/MuseumInventory/MuseumInventory.csproj' `
     -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe'
   & ./eng/Record-Evidence.ps1 -Sample 'samples/net11.0/MuseumInventory/MuseumInventory.csproj' `
-    -Dotnet 'C:\Users\pingu\.dotnet-playbook-11\dotnet.exe'
+    -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe'
 }
 finally { $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH = $previousIntegration }
 ```
@@ -1705,7 +1705,7 @@ try {
   & ./eng/Record-Evidence.ps1 -Sample 'samples/net10.0/ObservatoryTasks/ObservatoryTasks.csproj' `
     -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe'
   & ./eng/Record-Evidence.ps1 -Sample 'samples/net11.0/ObservatoryTasks/ObservatoryTasks.csproj' `
-    -Dotnet 'C:\Users\pingu\.dotnet-playbook-11\dotnet.exe'
+    -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe'
 }
 finally { $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH = $previousIntegration }
 ```
@@ -2295,7 +2295,7 @@ Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
   -OutputDirectory ./artifacts/pin1177/inspection
 & ./eng/Test-AquariumVolunteersConsumer.ps1 `
   -Dotnet 'C:/Users/pingu/AppData/Local/dotnetup/dotnet/dotnet.exe' `
-  -Net11Dotnet 'C:/Users/pingu/.dotnet-playbook-11/dotnet.exe'
+  -Net11Dotnet 'C:/Users/pingu/AppData/Local/dotnetup/dotnet/dotnet.exe'
 ```
 
 Expect `identity.confirm-before-registration-signin`, title "Keep registration
@@ -2411,7 +2411,7 @@ Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
   -OutputDirectory ./artifacts/batch03/inspection
 & ./eng/Test-PackageWorkshopConsumer.ps1 `
   -Net10Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
-  -Net11Dotnet 'C:\Users\pingu\.dotnet-playbook-11\dotnet.exe'
+  -Net11Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe'
 ```
 
 Expect all three discovery entries, full sources/requirements and current
@@ -2539,7 +2539,7 @@ try {
     'samples/net11.0/ObservatoryTar/ObservatoryTar.csproj'
   )) {
     $runtime = if ($sample.StartsWith('samples/net11.0/')) {
-      'C:\Users\pingu\.dotnet-playbook-11\dotnet.exe'
+      'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe'
     } else { 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' }
     & ./eng/Record-Evidence.ps1 -Sample $sample -Dotnet $runtime
   }
@@ -3616,7 +3616,7 @@ Run from an unrelated starting directory:
 Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Test-DesktopPolicy.ps1 `
   -Net10Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
-  -Net11Dotnet 'C:\Users\pingu\.dotnet-playbook-11\dotnet.exe'
+  -Net11Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('wpf.restore-clipboard-error-handling','winforms.adopt-modern-rendering') `
   -Query 'desktop-policy' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
@@ -3673,7 +3673,7 @@ edition; the older consumers remain comparisons rather than extra foundations.
 
 ## Observatory numeric results and Windows composite signatures
 
-Requires PowerShell7, SDK 10.0.403/runtime10.0.14, the separate SDK 11 RC3 installation,
+Requires PowerShell7, SDK 10.0.403/runtime10.0.14, SDK 11 RC3 installed alongside SDK 10 in the same dotnet host,
 Node.js and public access for exact RC1 runtime/source downloads. No host install
 or PATH integration occurs. The sample runner verifies source hashes, builds and
 runs both consumers, and records compiler/reference/runtime/native identity.
@@ -3833,7 +3833,7 @@ From an unrelated directory, select this checkout explicitly:
 Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Test-FenDesktop.ps1 -Record `
   -Net10Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
-  -Net11Dotnet 'C:\Users\pingu\.dotnet-playbook-11\dotnet.exe'
+  -Net11Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('winforms.author-adaptive-control-rendering','winforms.control-initial-form-reveal','winforms.batch-control-mutations') `
   -Query 'fen-desktop' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `

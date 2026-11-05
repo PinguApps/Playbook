@@ -17,7 +17,7 @@ BrowserOptions API to substitute.
 Create sibling directories TideDesk and TideDesk.Client. In **both** directories,
 create global.json with SDK version `10.0.403` and rollForward `disable`:
 `{"sdk":{"version":"10.0.403","rollForward":"disable"}}`.
-These version-specific examples pin C# 14 and the actual 10.0.13 packages.
+These version-specific examples pin C# 14 and the actual 10.0.14 packages.
 
 ### net10.0/TideDesk/TideDesk.csproj
 {{snippet:older-project}}

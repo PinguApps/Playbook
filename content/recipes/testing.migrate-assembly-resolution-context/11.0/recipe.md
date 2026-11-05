@@ -101,7 +101,7 @@ Use Rules.csproj in rules-source and Plugin.csproj in plugin-source:
 
 ## Constraints
 
-The measured comparison is SDK **10.0.403**, C# **14**, runtime **10.0.13**
+The measured comparison is SDK **10.0.403**, C# **14**, runtime **10.0.14**
 versus SDK **11.0.100-rc.3.26522.148**, C# **15**, runtime
 **11.0.0-rc.2.26504.105**, on Windows x64. Public platform packages are pinned
 independently: **18.7.0** and **18.11.0**, with NuGet-generated locks. Both CLI

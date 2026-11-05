@@ -79,12 +79,12 @@ arcs; do not validate OIDs by splitting them into fixed-width integers.
 The encoder uses shared framework APIs. The round-trip fixture additionally
 needs an available ECDSA P-256 certificate-signing provider; Windows x64 execution
 is measured. Other providers/platforms and network identity validation are not
-verified here. No UI/rendering integration is required. RC2 evidence is not GA
+verified here. No UI/rendering integration is required. RC3 evidence is not GA
 verification; PIN-962 retains that reconciliation and PIN-959 stays open.
 
 ## Evidence
 
-SDK 10.0.403/runtime 10.0.13 and SDK 11.0.100-rc.3.26522.148/runtime 11RC2 compile and
+SDK 10.0.403/runtime 10.0.14 and SDK 11.0.100-rc.3.26522.148/runtime 11RC3 compile and
 run the real consumers with no package dependencies and warnings as errors.
 Both export/reload certificates and assert the SAN OID 2.5.29.17, noncritical flag,
 primitive [2]/[8] tags, unchanged DNS label, three exact OIDs (including a very

@@ -28,7 +28,7 @@ Save the linked source as `samples/WeatherJson/WeatherChecks.cs`:
 {{snippet:checks}}
 
 The older consumer genuinely builds and executes this check on SDK **10.0.403**,
-C# **14**, runtime **10.0.13**. Its lock records Newtonsoft 13.0.3 as **Transitive**,
+C# **14**, runtime **10.0.14**. Its lock records Newtonsoft 13.0.3 as **Transitive**,
 selecting `lib/net6.0/Newtonsoft.Json.dll` for compile/runtime. This valid historical
 route is retained; relying on a platform's unrelated dependency is fragile.
 

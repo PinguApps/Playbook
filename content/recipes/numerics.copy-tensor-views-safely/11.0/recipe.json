@@ -141,7 +141,7 @@
   "evidence": [
     {
       "kind": "compile-and-run",
-      "scope": "Actual SDK10.0.403/runtime10.0.13/locked tensor10.0.13 net10 execution: original grid snapshots, independent output, both-input snapshots, intended logical values and Try capacity/shape false without writes. No new storage contract claimed.",
+      "scope": "Actual SDK10.0.403/runtime10.0.14/locked tensor10.0.13 net10 execution: original grid snapshots, independent output, both-input snapshots, intended logical values and Try capacity/shape false without writes. No new storage contract claimed.",
       "sample": "samples/net10.0/GridTransform/GridTransform.csproj",
       "sdk": "10.0.403",
       "language": "14.0",

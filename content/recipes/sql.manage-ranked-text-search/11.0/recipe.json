@@ -34,7 +34,7 @@
         ],
         "selectionNotes": [
           "Model SQL Server full-text catalogs and indexes, then retrieve relevance ranks with table-valued search functions.",
-          "Measured Windows x64 / SQL2025 CU10; EF11 RC2 evidence is not GA proof."
+          "Measured Windows x64 / SQL2025 CU10; EF11 RC3 evidence is not GA proof."
         ],
         "usage": "primary",
         "target": "11.0",

@@ -127,8 +127,8 @@ remains outside this recipe. No trimming/AOT or web integration is claimed.
 ## Evidence
 
 `eng/Test-ExtensionMetadata.ps1 -Record -VerifySources` builds/runs both original
-ReefMaintenance consumers on Windows x64 with SDK10.0.403/runtime10.0.13/C#14
-and SDK11.0.100-rc.3.26522.148/runtime11RC2/C#15. Locked dependencies, exact
+ReefMaintenance consumers on Windows x64 with SDK10.0.403/runtime10.0.14/C#14
+and SDK11.0.100-rc.3.26522.148/runtime11RC3/C#15. Locked dependencies, exact
 commands/input hashes, compiler/CoreLib, audit-matching Validation archive,
 assembly, shipped generator and selected compile/runtime assets are retained.
 Both projects are non-web console hosts; no persistent environment, production

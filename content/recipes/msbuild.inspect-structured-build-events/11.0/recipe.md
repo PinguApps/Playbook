@@ -14,7 +14,7 @@ This edition is qualified with **SDK 11.0.100-rc.3.26522.148**, bundled
 **MSBuild 18.12.0-1.26504.105**, **C# 15.0**, and runtime/reference pack
 **11.0.0-rc.2.26504.105** on **Windows x64**. It is preview evidence, not an
 actual-GA qualification. The older comparison uses **SDK 10.0.403**, MSBuild
-**18.9.15**, C# **14.0**, runtime/reference pack **10.0.13**. Both Framework
+**18.9.15**, C# **14.0**, runtime/reference pack **10.0.14**. Both Framework
 assemblies identify as `15.1.0.0`; that is not the MSBuild product build.
 
 Use a complete SDK and the matching `Microsoft.Build`, `Microsoft.Build.Framework`,

@@ -82,8 +82,8 @@
           ],
           "renderingModes": [],
           "prerequisites": [
-            "Complete SDK11.0.100-rc.3.26522.148/runtime+ref11RC2; rollForward=disable, allowPrerelease=true. Launch via the matching absolute dotnet executable.",
-            "SDK10.0.403/runtime+ref10.0.13 and C#14 reproduce the valid ordinary publication comparison. Exact file/product/hash pins and actual loaded identities are retained separately.",
+            "Complete SDK11.0.100-rc.3.26522.148/runtime+ref11RC3; rollForward=disable, allowPrerelease=true. Launch via the matching absolute dotnet executable.",
+            "SDK10.0.403/runtime+ref10.0.14 and C#14 reproduce the valid ordinary publication comparison. Exact file/product/hash pins and actual loaded identities are retained separately.",
             "Original SDK-packed library and portable-PDB snupkg; a compatible authorized provider or the disposable local protocol fixture. PowerShell7 for evidence; no account, real key, native compiler, workload, device or UI/rendering mode."
           ],
           "constraints": [

@@ -65,13 +65,13 @@
               "name": "Microsoft.AspNetCore.Components.WebAssembly",
               "version": "11.0",
               "match": "release-family",
-              "reason": "Use the actual matching lib/net11.0 assets; recorded comparison packages are 10.0.13 and current packages 11.0.0-rc.2.26504.105."
+              "reason": "Use the actual matching lib/net11.0 assets; recorded comparison packages are 10.0.14 and current packages 11.0.0-rc.3.26522.148."
             },
             {
               "name": "Microsoft.AspNetCore.Components.WebAssembly.Authentication",
               "version": "11.0",
               "match": "release-family",
-              "reason": "Use the actual matching lib/net11.0 assets; recorded comparison packages are 10.0.13 and current packages 11.0.0-rc.2.26504.105."
+              "reason": "Use the actual matching lib/net11.0 assets; recorded comparison packages are 10.0.14 and current packages 11.0.0-rc.3.26522.148."
             }
           ],
           "packageAssets": [
@@ -88,7 +88,7 @@
             "Standalone interactive WebAssembly, base /archive/; no SSR authentication equivalence"
           ],
           "prerequisites": [
-            "SDK 10.0.403 / framework-packages 10.0.13 / C# 14 comparison and SDK 11.0.100-rc.3.26522.148 / framework-packages 11.0.0-rc.2.26504.105 / C# 15 current test pins; pins are not universal exact prerequisites.",
+            "SDK 10.0.403 / framework-packages 10.0.14 / C# 14 comparison and SDK 11.0.100-rc.3.26522.148 / framework-packages 11.0.0-rc.3.26522.148 / C# 15 current test pins; pins are not universal exact prerequisites.",
             "Build the complete offline project and use the matching package/runtime assets."
           ],
           "constraints": [

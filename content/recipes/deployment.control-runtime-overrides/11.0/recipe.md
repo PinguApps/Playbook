@@ -15,7 +15,7 @@ stands in for the selected value.
 
 ## Older approach
 
-The .NET 10 comparison uses SDK 10.0.403, C# 14, hostfxr and runtime 10.0.13:
+The .NET 10 comparison uses SDK 10.0.403, C# 14, hostfxr and runtime 10.0.14:
 
 {{snippet:older-project}}
 
@@ -121,7 +121,7 @@ with no NuGet dependencies, provider, browser/rendering mode or native compiler.
 The example's C# modes are sample pins, not language requirements for host merging.
 Execution evidence is Windows x64, SDK 10.0.403 / 11 RC2, hostfxr/CoreCLR
 10.0.13 / 11.0.0-rc.2.26504.105. Other platforms need their own artifact check.
-No API here is experimental; RC2 evidence is not GA verification.
+No API here is experimental; RC3 evidence is not GA verification.
 
 ## Evidence
 

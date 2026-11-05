@@ -86,8 +86,8 @@ and other cultures/globalization configurations have not been executed here.
 ## Evidence
 
 The paired original HistoryImport consumers build and run using SDK10.0.403 /
-C#14 / runtime/ref10.0.13 and SDK11.0.100-rc.3.26522.148 / C#15 /
-runtime/ref11.0.0-rc.2.26504.105. They verify all four boundary records, actual
+C#14 / runtime/ref10.0.14 and SDK11.0.100-rc.3.26522.148 / C#15 /
+runtime/ref11.0.0-rc.3.26522.148. They verify all four boundary records, actual
 calendar operations/rejections, inclusive maximum, an older unsupported date,
 explicit routing and preservation of stored values. A separate real child with
 `DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1` must fail with

@@ -8,7 +8,7 @@ A fictional monitoring station accepts optional readings. Its compiler host need
 
 The actual Roslyn5.9.0 packages lack both language-specific `GetValueConversion` methods. `ICoalesceOperation.ValueConversion` remains a valid public `CommonConversion`: it reports numeric, reference and identity categories but does not expose VB's `IsWidening` or C#'s complete language-specific `Conversion` contract. Do not cast private operation implementations, reflect into compiler internals or pretend a common conversion contains every language-specific detail.
 
-Create separate `ReadingConversions` and `ReadingConversionsVB` directories. Save each block under the indicated filename. Each project is a complete console application. Use SDK10.0.403, actual runtime/reference10.0.13, C#14 and VB16.9. Pin the SDK in each project's `global.json` with `sdk.version` set to `10.0.403` and `sdk.rollForward` to `disable`. The C# host deliberately analyses both languages; the second executable is an actual VB caller.
+Create separate `ReadingConversions` and `ReadingConversionsVB` directories. Save each block under the indicated filename. Each project is a complete console application. Use SDK10.0.403, actual runtime/reference10.0.14, C#14 and VB16.9. Pin the SDK in each project's `global.json` with `sdk.version` set to `10.0.403` and `sdk.rollForward` to `disable`. The C# host deliberately analyses both languages; the second executable is an actual VB caller.
 
 `ReadingConversions/ReadingConversions.csproj`:
 

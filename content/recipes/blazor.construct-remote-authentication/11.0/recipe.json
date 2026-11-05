@@ -97,7 +97,7 @@
           "optIns": [],
           "stabilityLimitations": [
             "Stable supported replacements already available in .NET 10; current evidence is .NET 11 RC2, with GA reconciliation pending.",
-            "No older-target/newer-package route is advertised. The separate net10.0 consumer uses matching 10.0.13 packages; the eight foundations remain unchanged."
+            "No older-target/newer-package route is advertised. The separate net10.0 consumer uses matching 10.0.14 packages; the eight foundations remain unchanged."
           ]
         },
         "sourceUrls": [

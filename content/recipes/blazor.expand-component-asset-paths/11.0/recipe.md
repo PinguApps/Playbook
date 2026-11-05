@@ -138,9 +138,9 @@ An unknown ~/ key lowers to Assets["key"]; the collection returns the unmapped k
 
 Verified static SSR and published fingerprinted URLs under /museum/. No interactive rendering, IDE/Hot Reload, arbitrary build host, runtime rewriting or older-target package route is claimed.
 
-The exact test pins are SDK 10.0.403 / framework and packages 10.0.13 / C# 14,
+The exact test pins are SDK 10.0.403 / framework and packages 10.0.14 / C# 14,
 and SDK 11.0.100-rc.3.26522.148 / framework and packages
-11.0.0-rc.2.26504.105 / C# 15. Runtime/framework/package/SDK requirements are
+11.0.0-rc.3.26522.148 / C# 15. Runtime/framework/package/SDK requirements are
 separate from these measured baselines. No optional workload or native compilation
 is required. Public metadata is not an experimental designation; no experimental
 suppression is used. No net10-plus-new-package compatibility route is advertised.

@@ -102,7 +102,7 @@ Save the following files under the indicated names in a separate directory. Rest
 
 ## Constraints
 
-Application route: ASP.NET Core11 with its matching SDK; F#11 plus Razor's C# view compiler and matching FSharp.Core. No runtime-compilation package on the migrated side. Exact reproduction uses SDK10.0.403/framework10.0.13 versus SDK11.0.100-rc.3.26522.148/framework11.0.0-rc.2.26504.105. The source audit's Http.Features/MVC references and F# MVC template artifacts are reconciled separately from these runtime checks. Compiler, runtime, selected package assets, commands and input hashes are retained in the existing sample-evidence records.
+Application route: ASP.NET Core11 with its matching SDK; F#11 plus Razor's C# view compiler and matching FSharp.Core. No runtime-compilation package on the migrated side. Exact reproduction uses SDK10.0.403/framework10.0.14 versus SDK11.0.100-rc.3.26522.148/framework11.0.0-rc.3.26522.148. The source audit's Http.Features/MVC references and F# MVC template artifacts are reconciled separately from these runtime checks. Compiler, runtime, selected package assets, commands and input hashes are retained in the existing sample-evidence records.
 
 The old FSharp.Core10.1.402/RuntimeCompilation10.0.13 graph and current FSharp.Core11.0.101-rc2.26504.105 graph are exact test pins, not minimum supported versions. The current build emits and actually loads the separate .Views.dll from the default application load context. The fresh published consumer contains no source views or runtime compiler; a fresh disabled-compilation publish demonstrates the missing-view failure. Build-time compilation can also be configured on older targets; no untested older-target route is advertised here.
 

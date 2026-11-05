@@ -91,7 +91,7 @@ package backport or older-target use of the new delegate is established.
 
 `eng/Test-ExtensionContracts.ps1 -Record -VerifySources` builds and runs the actual
 ObservatoryVariables .NET10/.NET11 consumers. Exact pins are SDK10.0.403 and
-runtime10.0.13, and SDK11.0.100-rc.3.26522.148/runtime11.0.0-rc.2.26504.105.
+runtime10.0.14, and SDK11.0.100-rc.3.26522.148/runtime11.0.0-rc.3.26522.148.
 Both use framework references, empty locked package closures and no workloads,
 native tools, external providers, UI/rendering modes or experimental opt-ins.
 Application prerequisites are release-family SDK/runtime11, separate from those

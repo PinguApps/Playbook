@@ -56,8 +56,8 @@ digit budget; it does not count signs, separators, padding or other formatting.
 Primary route: net11.0/.NET 11 framework APIs and canonical C# 15 sample mode.
 No NuGet dependency, provider, workload, rendering mode, external service or
 experimental opt-in. Reproduction pins: SDK 11.0.100-rc.3.26522.148,
-reference/runtime 11.0.0-rc.2.26504.105; comparison SDK 10.0.403, C# 14,
-reference/runtime 10.0.13. Requirements are release-family prerequisites;
+reference/runtime 11.0.0-rc.3.26522.148; comparison SDK 10.0.403, C# 14,
+reference/runtime 10.0.14. Requirements are release-family prerequisites;
 the exact pins identify actual proof, not a requirement for that precise SDK.
 
 The executed generic types are Int128, UInt128 and int. Both 128-bit maxima have

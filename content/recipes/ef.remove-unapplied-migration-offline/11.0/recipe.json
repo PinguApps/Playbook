@@ -223,6 +223,6 @@
   },
   "humanProof": {
     "status": "not-required",
-    "scope": "Agent-executed dotnet-ef route only; Visual Studio PMC execution remains PIN-957. Exact RC2 evidence is not GA proof."
+    "scope": "Agent-executed dotnet-ef route only; Visual Studio PMC execution remains PIN-957. Exact RC3 evidence is not GA proof."
   }
 }

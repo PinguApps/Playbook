@@ -50,7 +50,7 @@ The same source also contains real compile-time conversions:
 
 {{snippet:constants}}
 
-Both net10 consumers use C# 14 and reference pack 10.0.13. SDK 10 embeds NominalReading 6.43 and NominalScale bits 4285D3EF79800021; SDK 11 RC3 embeds 6.429999999999999715782905696 and 4285D3EF79800020. Both assemblies then execute on the **actual .NET 10.0.13 runtime**, where the independent no-inline parsed-input conversion still yields 6.43 and bits 4285D3EF79800021. Reflection reads the embedded fields separately (`GetRawConstantValue` for double; the decimal constant attribute through field reflection). This is execution, not cross-compilation or an assumption that target framework determines constant folding. Building with a new SDK can change archived expectations without changing the target or deployed runtime.
+Both net10 consumers use C# 14 and reference pack 10.0.14. SDK 10 embeds NominalReading 6.43 and NominalScale bits 4285D3EF79800021; SDK 11 RC3 embeds 6.429999999999999715782905696 and 4285D3EF79800020. Both assemblies then execute on the **actual .NET 10.0.13 runtime**, where the independent no-inline parsed-input conversion still yields 6.43 and bits 4285D3EF79800021. Reflection reads the embedded fields separately (`GetRawConstantValue` for double; the decimal constant attribute through field reflection). This is execution, not cross-compilation or an assumption that target framework determines constant folding. Building with a new SDK can change archived expectations without changing the target or deployed runtime.
 
 ## Migration
 
@@ -70,7 +70,7 @@ The newer route uses framework-provided managed APIs on .NET 11; no additional p
 
 Real target executions assert the original decimal/BigInteger values plus all bounded archive, destination-width and rebuild checks above. This is not an exhaustive conversion audit, a Math.Round migration, a protocol bit-encoding implementation or an actual-GA claim.
 
-Canonical samples are samples/net10.0/NumericGuidance and samples/net11.0/NumericGuidance with shared NumericGuidanceChecks.cs. Saved evidence records compile-and-run with SDK 10.0.403 / C# 14 and SDK 11.0.100-rc.3.26522.148 / C# 15, on runtimes .NET 10.0.13 and .NET 11.0.0-rc.2.26504.105. Their exact inputs, commands and outputs accompany this recipe. RC2 evidence is not GA proof; no mocks, native devices, providers, AOT or general performance guarantees are claimed.
+Canonical samples are samples/net10.0/NumericGuidance and samples/net11.0/NumericGuidance with shared NumericGuidanceChecks.cs. Saved evidence records compile-and-run with SDK 10.0.403 / C# 14 and SDK 11.0.100-rc.3.26522.148 / C# 15, on runtimes .NET 10.0.14 and .NET 11.0.0-rc.3.26522.148. Their exact inputs, commands and outputs accompany this recipe. RC3 evidence is not GA proof; no mocks, native devices, providers, AOT or general performance guarantees are claimed.
 
 The added canonical ArchiveNumbers/ArchiveChecks files are compiled by net10.0/InstrumentArchive, net11.0/InstrumentArchive and net10.0-sdk11/InstrumentArchive. The recorder captures exact compiler and selected reference-pack hashes, actual runtime assembly hashes, commands, inputs and empty package closures; SDK11's net10 reference pack is actually resolved from its restored 10.0.13 targeting pack. Supported consumer release families are separate from those reproducibility pins. Comprehensive publication, actual-GA reconciliation and existing Human gates stay open.
 

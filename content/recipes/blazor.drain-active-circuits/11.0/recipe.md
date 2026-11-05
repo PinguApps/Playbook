@@ -10,7 +10,7 @@ This is Interactive Server guidance. .NET 11 adds Circuit.RequestCircuitPauseAsy
 
 .NET 10 has no AddAutoPause registration or Circuit.RequestCircuitPauseAsync. An application can still coordinate its supported Blazor.pauseCircuit/Blazor.resumeCircuit primitives from JavaScript. The original worksheet uses a small visibility timer and a server-to-browser bridge. This remains a valid application-owned policy; it does not reproduce all newer browser activity guards.
 
-Create TideCharts.csproj below. Enable Nullable and ImplicitUsings in its PropertyGroup (the repository supplies both through samples/Directory.Build.props). Restore/build with SDK 10.0.403 for the recorded baseline. The Web SDK supplies its matching Internal.Assets dependency; packages.lock.json records 10.0.13.
+Create TideCharts.csproj below. Enable Nullable and ImplicitUsings in its PropertyGroup (the repository supplies both through samples/Directory.Build.props). Restore/build with SDK 10.0.403 for the recorded baseline. The Web SDK supplies its matching Internal.Assets dependency; packages.lock.json records 10.0.14.
 
 {{snippet:project-10}}
 

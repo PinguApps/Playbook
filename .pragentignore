@@ -690,9 +690,9 @@
 /samples/net11.0/TernPermits/verification-evidence.json
 
 # SDK refresh: Record-Evidence and the specialized compile runners generate these
-# compilation receipts. Review canonical consumers, locks, verification manifests
-# and recorders; build/pack validates input freshness. Human and official-review
-# proof remains reviewable. No source, project configuration or lock is excluded.
+# receipts, including generated official-review receipts. Review canonical consumers,
+# locks, verification manifests and recorders; build/pack validates input freshness.
+# Named Human proof remains reviewable. No source, project configuration or lock is excluded.
 /samples/ArchiveTemplate/verification-evidence.json
 /samples/net10.0/ArchiveAccess/verification-evidence.json
 /samples/net10.0/ArchiveCards/verification-evidence.json

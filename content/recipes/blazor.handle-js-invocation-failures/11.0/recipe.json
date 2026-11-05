@@ -61,7 +61,7 @@
             "No timeout/cancellation, WebAssembly, Auto, Hybrid, general reconnection, trimming/AOT or actual-GA guarantee."
           ],
           "packageAssets": [
-            "Implicit SDK-aligned Microsoft.AspNetCore.App.Internal.Assets; measured lock pins 11.0.0-rc.2.26504.105. No additional PackageReference."
+            "Implicit SDK-aligned Microsoft.AspNetCore.App.Internal.Assets; measured lock pins 11.0.0-rc.3.26522.148. No additional PackageReference."
           ],
           "renderingModes": [
             "Blazor Interactive Server; sample disables prerender"

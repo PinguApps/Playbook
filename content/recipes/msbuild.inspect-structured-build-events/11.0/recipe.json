@@ -82,7 +82,7 @@
           "renderingModes": [],
           "prerequisites": [
             "Complete .NET11 RC3 SDK installation, rollForward=disable and allowPrerelease=true; original controlled strong-named assembly graph and trusted project inputs.",
-            "SDK10.0.403/runtime+ref10.0.13 and C#14 additionally reproduce the older fallback. Exact installed artifacts are recorded separately in the sample pin manifest.",
+            "SDK10.0.403/runtime+ref10.0.14 and C#14 additionally reproduce the older fallback. Exact installed artifacts are recorded separately in the sample pin manifest.",
             "PowerShell7 for sample evidence/installed inspection. No external provider, rendering mode, workload, optional native compiler or device is required."
           ],
           "constraints": [

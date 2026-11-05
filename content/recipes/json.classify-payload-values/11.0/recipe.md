@@ -78,8 +78,8 @@ bound input size separately. No streaming/allocation improvement is claimed.
 ## Constraints
 
 Primary route: .NET11 SDK/runtime, net11.0/C#15. Exact reproduction uses
-SDK11.0.100-rc.3.26522.148 with reference/runtime11.0.0-rc.2.26504.105. The older
-sample uses SDK10.0.403, net10.0/C#14 and reference/runtime10.0.13. These exact
+SDK11.0.100-rc.3.26522.148 with reference/runtime11.0.0-rc.3.26522.148. The older
+sample uses SDK10.0.403, net10.0/C#14 and reference/runtime10.0.14. These exact
 patches identify proof, separately from release-family prerequisites. Both use
 framework assets and SDK/reference-pack source generation, without extra packages.
 

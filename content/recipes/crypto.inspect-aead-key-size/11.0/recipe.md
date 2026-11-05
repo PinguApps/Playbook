@@ -79,8 +79,8 @@ does not establish final-GA verification.
 ## Evidence
 
 eng/Test-AttachmentFacts.ps1 -Record -VerifySources uses the existing sample
-evidence workflow. ParcelKeys builds and runs with SDK10.0.403/runtime10.0.13
-and SDK11.0.100-rc.3.26522.148/runtime11.0.0-rc.2.26504.105, zero warnings/errors
+evidence workflow. ParcelKeys builds and runs with SDK10.0.403/runtime10.0.14
+and SDK11.0.100-rc.3.26522.148/runtime11.0.0-rc.3.26522.148, zero warnings/errors
 and no package dependencies or workloads. Saved records capture input hashes,
 exact commands, compiler/CoreLib identity, loaded BCrypt/bcryptPrimitives versions
 and hashes, and audit-matching System.Runtime/System.Security.Cryptography

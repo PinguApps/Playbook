@@ -29,7 +29,7 @@
           "platforms": ["Browser"],
           "renderingModes": ["Interactive Server"],
           "prerequisites": [
-            "Use Microsoft.NET.Sdk.Web, net11.0, nullable and implicit usings. Virtualize is in Microsoft.AspNetCore.App; no separate virtualization package, provider, account or workload is required. The pinned SDK resolves Microsoft.AspNetCore.App.Internal.Assets 11.0.0-rc.2.26504.105.",
+            "Use Microsoft.NET.Sdk.Web, net11.0, nullable and implicit usings. Virtualize is in Microsoft.AspNetCore.App; no separate virtualization package, provider, account or workload is required. The pinned SDK resolves Microsoft.AspNetCore.App.Internal.Assets 11.0.0-rc.3.26522.148.",
             "Register Interactive Server, load matching blazor.web.js and allow the app's trusted boot script and local circuit connection. Put app styles in an allowed external stylesheet. The tested header enforces style-src 'self', style-src-elem 'self' and style-src-attr 'none'.",
             "Use a real scroll container, fixed-height rows and browser IntersectionObserver/MutationObserver/CSSOM support. Execute the policy controls and inspect actual visible distant IDs in the consumer browser."
           ],

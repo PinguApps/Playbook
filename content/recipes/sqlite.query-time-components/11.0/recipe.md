@@ -129,9 +129,9 @@ Use these files in another directory; do not mix the older/current projects.
 
 ## Constraints
 
-The actual artifacts are SDK10.0.403, reference/runtime10.0.13, C#14 and
+The actual artifacts are SDK10.0.403, reference/runtime10.0.14, C#14 and
 EF/Sqlite10.0.13 versus SDK11.0.100-rc.3.26522.148,
-reference/runtime11.0.0-rc.2.26504.105, C#15 and matching EF/Sqlite RC2 packages.
+reference/runtime11.0.0-rc.3.26522.148, C#15 and matching EF/Sqlite RC2 packages.
 These are verification pins, separate from the current route's .NET/SDK/EF11
 release-family prerequisites. No C#15-specific feature is needed. The API is not
 publisher-designated experimental and needs no suppression/opt-in. RC2 execution

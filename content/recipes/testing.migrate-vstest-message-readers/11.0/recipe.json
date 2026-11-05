@@ -46,7 +46,7 @@
             "name": ".NET",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Observed Windows x64 runtime 10.0.13 or runtime 11.0.0-rc.2.26504.105, separately from SDK/compiler selection."
+            "reason": "Observed Windows x64 runtime 10.0.14 or runtime 11.0.0-rc.3.26522.148, separately from SDK/compiler selection."
           },
           "sdk": {
             "name": ".NET SDK",
@@ -133,7 +133,7 @@
             "name": ".NET",
             "version": "10.0",
             "match": "release-family",
-            "reason": "Observed Windows x64 runtime 10.0.13 or runtime 11.0.0-rc.2.26504.105, separately from SDK/compiler selection."
+            "reason": "Observed Windows x64 runtime 10.0.14 or runtime 11.0.0-rc.3.26522.148, separately from SDK/compiler selection."
           },
           "sdk": {
             "name": ".NET SDK",

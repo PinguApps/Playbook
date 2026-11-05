@@ -68,8 +68,8 @@ root. Acceptance does not widen its coverage to sibling beds.
 ## Constraints
 
 Measured on Windows x64 NTFS. Both old and current constructors, actual files and
-matching tokens run in independently pinned consumers. SDK10.0.403/C#14/runtime10.0.13
-and SDK11.0.100-rc.3.26522.148/C#15/runtime11RC2 are verification baselines. Exact
+matching tokens run in independently pinned consumers. SDK10.0.403/C#14/runtime10.0.14
+and SDK11.0.100-rc.3.26522.148/C#15/runtime11RC3 are verification baselines. Exact
 package closures, net10/net11 assets and compiler/reference/runtime hashes are saved.
 Full Physical remains a package even though FileProviders abstractions joined the
 net11 framework. No newer-package-on-net10 route is claimed.

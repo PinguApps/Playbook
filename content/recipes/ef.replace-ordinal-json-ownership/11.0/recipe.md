@@ -36,9 +36,9 @@ Owned JSON collections without key; schema/data migration reviewed separately.
 This is a .NET 11 edition addressing the EF11 upgrade warning. The EF10 comparison
 does not add a ninth .NET10 foundation or offer EF11 on an older runtime.
 
-The actual previous consumer uses SDK10.0.403, runtime10.0.13, C#14 mode and
+The actual previous consumer uses SDK10.0.403, runtime10.0.14, C#14 mode and
 EF/SQLite10.0.13. The current consumer uses SDK11.0.100-rc.3.26522.148,
-runtime11RC2, C#15 mode and EF/SQLite11.0.0-rc.2.26504.105. Neither sample needs
+runtime11RC3, C#15 mode and EF/SQLite11.0.0-rc.2.26504.105. Neither sample needs
 new language syntax. Current EF/Relational assets target net11.0, while
 Microsoft.Data.Sqlite.Core has a net10.0 asset; that driver asset does not make
 EF11 compatible with net10.0. Lock files retain the actual resolved graphs.

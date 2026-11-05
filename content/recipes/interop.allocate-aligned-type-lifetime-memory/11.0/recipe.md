@@ -87,8 +87,8 @@ guarantee follows from one requested alignment.
 ## Evidence
 
 eng/Test-LifetimeSignatures.ps1 -Record -VerifySources builds and runs both
-TypeLedger consumers with SDK10.0.403/runtime10.0.13 and
-SDK11.0.100-rc.3.26522.148/runtime11.0.0-rc.2.26504.105. Saved records include
+TypeLedger consumers with SDK10.0.403/runtime10.0.14 and
+SDK11.0.100-rc.3.26522.148/runtime11.0.0-rc.3.26522.148. Saved records include
 commands, exact input hashes, dependencies, compiler/CoreLib/CoreCLR identities
 and System.Runtime references matched to the source audit. Source pins separately
 qualify the public contract and native loader allocation. Both build without

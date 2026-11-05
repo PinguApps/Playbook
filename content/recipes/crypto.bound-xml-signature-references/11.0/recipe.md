@@ -91,8 +91,8 @@ cannot express the required policy. Keep package/security maintenance deliberate
 ## Evidence
 
 eng/Test-LifetimeSignatures.ps1 -Record -VerifySources compiles/runs PermitManifest
-on SDK10.0.403/runtime10.0.13/Xml10.0.13 and
-SDK11.0.100-rc.3.26522.148/runtime11RC2/Xml11RC2. Locked dependency sets include
+on SDK10.0.403/runtime10.0.14/Xml10.0.13 and
+SDK11.0.100-rc.3.26522.148/runtime11RC3/Xml11RC2. Locked dependency sets include
 matching Pkcs. Recorded reference/package archive/selected/executed XML hashes
 match the runtime-security audit; compiler/CoreLib/CoreCLR and Windows crypto
 binary identities are retained separately from supported prerequisites.

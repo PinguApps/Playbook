@@ -42,7 +42,7 @@
             "match": "release-family",
             "version": "11.0",
             "name": ".NET",
-            "reason": "Actual host runtime, separate from the generated net10 application. Measured runtime10 is 10.0.13; runtime11 is RC2."
+            "reason": "Actual host runtime, separate from the generated net10 application. Measured runtime10 is 10.0.14; runtime11 is RC3."
           },
           "sdk": {
             "match": "release-family",
@@ -128,7 +128,7 @@
             "match": "release-family",
             "version": "10.0",
             "name": ".NET",
-            "reason": "Actual host runtime, separate from the generated net10 application. Measured runtime10 is 10.0.13; runtime11 is RC2."
+            "reason": "Actual host runtime, separate from the generated net10 application. Measured runtime10 is 10.0.14; runtime11 is RC3."
           },
           "sdk": {
             "match": "release-family",

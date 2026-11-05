@@ -55,7 +55,7 @@
           "packages": [
             {
               "name": "Microsoft.AspNetCore.Components.Server.AutoPause",
-              "version": "11.0.0-rc.2.26504.105",
+              "version": "11.0.0-rc.3.26522.148",
               "match": "exact",
               "reason": "Actual restored RC2 package supplying the initializer and AddAutoPause extension."
             }

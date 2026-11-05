@@ -80,7 +80,7 @@ finite limits, deliberately rejecting -1 instead of inheriting runtime defaults.
 Primary route: .NET11 SDK/runtime, net11.0/C#15, System.Formats.Cbor 11
 lib/net11.0. Exact proof uses SDK11.0.100-rc.3.26522.148 and package/runtime
 11.0.0-rc.2.26504.105. The valid older route uses SDK10.0.403, net10.0/C#14,
-runtime10.0.13 and package10.0.13 lib/net10.0. Exact SDK patches identify
+runtime10.0.14 and package10.0.13 lib/net10.0. Exact SDK patches identify
 reproduction; they are not universal consumer requirements.
 
 No cloud account, provider, native asset/toolchain, workload, rendering mode or
@@ -114,4 +114,4 @@ real stdio list/get from an unrelated directory, checking ID/title/goal, complet
 canonical Markdown, target11/edition11, applicability, fresh evidence and matching
 structured/text JSON offline. Target10 returns no_applicable_edition. Existing
 IDs, exactly eight foundations, PIN-959/PIN-962 and Human gates remain unchanged;
-RC2 execution does not establish final-GA evidence or publication readiness.
+RC3 execution does not establish final-GA evidence or publication readiness.

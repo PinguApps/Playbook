@@ -73,8 +73,8 @@ not a general transactional guarantee for arbitrary exceptions or custom numbers
 ## Constraints
 
 Primary applicability is .NET 11 with the exact tensor package above; use a .NET 11
-SDK/reference pack. Reproduction pins are SDK10.0.403 / C#14 / runtime-ref10.0.13
-and SDK11.0.100-rc.3.26522.148 / C#15 / runtime-ref11RC2. These exact artifacts
+SDK/reference pack. Reproduction pins are SDK10.0.403 / C#14 / runtime-ref10.0.14
+and SDK11.0.100-rc.3.26522.148 / C#15 / runtime-ref11RC3. These exact artifacts
 are test baselines, separate from release-family SDK/runtime requirements. No
 provider, native library/toolchain, workload, rendering mode, account or service
 is required. The selected TensorPrimitives type/methods have no Experimental

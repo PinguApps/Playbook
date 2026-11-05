@@ -79,8 +79,8 @@ its observed physical notification path must not be generalized to every custom 
 
 ## Constraints
 
-Measured on Windows x64 NTFS with actual JSON files, SDK10.0.403/C#14/runtime10.0.13
-and SDK11.0.100-rc.3.26522.148/C#15/runtime11RC2. The full packages/selected assets
+Measured on Windows x64 NTFS with actual JSON files, SDK10.0.403/C#14/runtime10.0.14
+and SDK11.0.100-rc.3.26522.148/C#15/runtime11RC3. The full packages/selected assets
 and compiler/reference/runtime hashes are recorded. FileExtensions and Json are
 not made available merely because some Extensions abstractions joined net11's
 shared framework. No newer-package/older-target route is taught.

@@ -8,11 +8,11 @@ Do not preload every page asset. A hint spends bandwidth and cache space before 
 
 ## Older approach
 
-Explicit hints are already valid on .NET 10. The pinned Microsoft change guide describes a .NET 11 change to implicit framework hints, but the actual serviced 10.0.13 SSRRenderModeBoundary also returns early for enhanced-navigation requests. Selected RC2 has that guard too. Do not infer an all-10-versus-11 request difference from the guide's introduction label. There is no unavailable older public API to invent: the comparison deliberately preserves the same supported HeadContent pattern.
+Explicit hints are already valid on .NET 10. The pinned Microsoft change guide describes a .NET 11 change to implicit framework hints, but the actual serviced 10.0.14 SSRRenderModeBoundary also returns early for enhanced-navigation requests. Selected RC2 has that guard too. Do not infer an all-10-versus-11 request difference from the guide's introduction label. There is no unavailable older public API to invent: the comparison deliberately preserves the same supported HeadContent pattern.
 
 Initial/full navigation retains the framework's separate preload behavior. Framework PR 63544 also changes DOM synchronization of preload links; neither source change guarantees one network request in every browser. Our static SSR sample observes custom needed resources, not WebAssembly boot-preload generation.
 
-Create an empty net10 directory, with no inherited repository build/package settings. Save global.json containing exactly `{"sdk":{"version":"10.0.403","rollForward":"disable","allowPrerelease":false}}`. SDK 10.0.403 uses ASP.NET/runtime assets 10.0.13 and C# 14. Save TernLedger.csproj:
+Create an empty net10 directory, with no inherited repository build/package settings. Save global.json containing exactly `{"sdk":{"version":"10.0.403","rollForward":"disable","allowPrerelease":false}}`. SDK 10.0.403 uses ASP.NET/runtime assets 10.0.14 and C# 14. Save TernLedger.csproj:
 
 {{snippet:project-10}}
 
@@ -22,7 +22,7 @@ Save Program.cs in both applications with these three imports before the program
 
 ## Newer approach
 
-Create a separate empty net11 directory. Save global.json containing exactly `{"sdk":{"version":"11.0.100-rc.3.26522.148","rollForward":"disable","allowPrerelease":true}}`. The actual newer framework/browser assets are 11.0.0-rc.2.26504.105, with C# 15. No external PackageReference, provider, native toolchain or optional workload is required. The SDK resolves its matching Microsoft.AspNetCore.App.Internal.Assets; standalone restore produces packages.lock.json. Repository captures use reviewed locked closure.
+Create a separate empty net11 directory. Save global.json containing exactly `{"sdk":{"version":"11.0.100-rc.3.26522.148","rollForward":"disable","allowPrerelease":true}}`. The actual newer framework/browser assets are 11.0.0-rc.3.26522.148, with C# 15. No external PackageReference, provider, native toolchain or optional workload is required. The SDK resolves its matching Microsoft.AspNetCore.App.Internal.Assets; standalone restore produces packages.lock.json. Repository captures use reviewed locked closure.
 
 Save TernLedger.csproj and Program.cs:
 
@@ -66,7 +66,7 @@ Save wwwroot/ledger-data.json:
 
 No stylesheet or other hidden application file is needed. Paths assume an origin-root application with base href="/"; adapt URLs and base together when hosting below a path. Do not substitute a URL that differs from the eventual consumer, or an as/credentials setting that prevents reuse.
 
-Use PowerShell, the matching installed SDK executable and a free loopback port. Set DOTNET_ADD_GLOBAL_TOOLS_TO_PATH=0, DOTNET_GENERATE_ASPNET_CERTIFICATE=false and DOTNET_SKIP_FIRST_TIME_EXPERIENCE=1 in each child environment. In net10 run `& 'C:\Program Files\dotnet\dotnet.exe' restore TernLedger.csproj`, then `& 'C:\Program Files\dotnet\dotnet.exe' build TernLedger.csproj -c Release --no-restore`, then `& 'C:\Program Files\dotnet\dotnet.exe' run --project TernLedger.csproj -c Release --no-build --no-restore --no-launch-profile --environment Development --urls http://localhost:5991`. In net11 use `C:\Users\pingu\.dotnet-playbook-11\dotnet.exe` and port 5992 with the same arguments. These are this author's absolute executables; use the actual installed paths on another machine without changing PATH. Restore needs the matching assets; installed Playbook retrieval itself is offline. Development enables build-output static web assets; a Production build-output launch without published assets is not this setup. Each server occupies its terminal; stop it with Ctrl+C.
+Use PowerShell, the matching installed SDK executable and a free loopback port. Set DOTNET_ADD_GLOBAL_TOOLS_TO_PATH=0, DOTNET_GENERATE_ASPNET_CERTIFICATE=false and DOTNET_SKIP_FIRST_TIME_EXPERIENCE=1 in each child environment. In net10 run `& 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' restore TernLedger.csproj`, then `& 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' build TernLedger.csproj -c Release --no-restore`, then `& 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' run --project TernLedger.csproj -c Release --no-build --no-restore --no-launch-profile --environment Development --urls http://localhost:5991`. In net11 use `C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe` and port 5992 with the same arguments. These are this author's absolute executables; use the actual installed paths on another machine without changing PATH. Restore needs the matching assets; installed Playbook retrieval itself is offline. Development enables build-output static web assets; a Production build-output launch without published assets is not this setup. Each server occupies its terminal; stop it with Ctrl+C.
 
 ## Migration
 

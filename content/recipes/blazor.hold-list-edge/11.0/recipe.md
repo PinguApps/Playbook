@@ -28,7 +28,7 @@ store durable edits outside the row when that is required.
 Use a separate folder for each target, outside any unrelated shared build files.
 The following setup is complete; no repository checkout is needed. Install the
 chosen SDK and its matching ASP.NET Core runtime/assets before working offline.
-Use SDK `10.0.403`, `net10.0`, C# `14.0` and framework/assets `10.0.13` for the
+Use SDK `10.0.403`, `net10.0`, C# `14.0` and framework/assets `10.0.14` for the
 older app; use SDK `11.0.100-rc.3.26522.148`, `net11.0`, C# `15.0` and its matching
 RC2 framework/assets for the newer app.
 
@@ -174,7 +174,7 @@ Actual pins are SDK `11.0.100-rc.3.26522.148` and matching ASP.NET Core referenc
 runtime and SDK `Microsoft.AspNetCore.App.Internal.Assets` browser assets. No
 separate Virtualize NuGet package, optional workload, database or service account
 is required. The previous comparison is net10.0/C# 14, SDK `10.0.403` and framework/
-Internal.Assets `10.0.13`. It is not a compatible older-target route for new APIs.
+Internal.Assets `10.0.14`. It is not a compatible older-target route for new APIs.
 
 RC2's actual list parameters carry no experimental attribute or required opt-in;
 no obsolete experimental suppression is taught. The cumulative release page's

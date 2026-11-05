@@ -10,7 +10,7 @@ WASM only here. These are stable diagnostic APIs in a prerelease framework: the 
 
 .NET 10 already provides public component metrics and tracing registration. Call the static methods on ComponentsMetricsServiceCollectionExtensions in Microsoft.AspNetCore.Components.Infrastructure; their IServiceCollection parameter is not an extension-method receiver. Explicitly preserve runtime metrics, EventSource and HTTP activity propagation through the public MSBuild properties. This is a valid supported approach, not a missing historical API or a hand-written substitute for framework instrumentation.
 
-Create an empty net10 application directory. Save LoomActivity.csproj and Directory.Packages.props below. These complete settings work without this repository's parent build/package files. Save global.json containing exactly `{"sdk":{"version":"10.0.403","rollForward":"disable","allowPrerelease":false}}`. The actual browser runtime/packages are 10.0.13 and the language mode is C# 14.
+Create an empty net10 application directory. Save LoomActivity.csproj and Directory.Packages.props below. These complete settings work without this repository's parent build/package files. Save global.json containing exactly `{"sdk":{"version":"10.0.403","rollForward":"disable","allowPrerelease":false}}`. The actual browser runtime/packages are 10.0.14 and the language mode is C# 14.
 
 {{snippet:project-10}}
 
@@ -22,7 +22,7 @@ Save Program.cs. Register framework instrumentation, then construct the provider
 
 ## Newer approach
 
-Create a separate net11 application directory. Save global.json containing exactly `{"sdk":{"version":"11.0.100-rc.3.26522.148","rollForward":"disable","allowPrerelease":true}}`. Save these project/package files. The actual framework/runtime/browser assets are 11.0.0-rc.2.26504.105; canonical language mode is C# 15, without requiring new language syntax.
+Create a separate net11 application directory. Save global.json containing exactly `{"sdk":{"version":"11.0.100-rc.3.26522.148","rollForward":"disable","allowPrerelease":true}}`. Save these project/package files. The actual framework/runtime/browser assets are 11.0.0-rc.3.26522.148; canonical language mode is C# 15, without requiring new language syntax.
 
 {{snippet:project-11}}
 
@@ -70,7 +70,7 @@ From the directory containing collector.yaml, use PowerShell and an absolute Doc
 
 Create receipts with `New-Item -ItemType Directory -Force receipts`. Start the collector with `& 'C:\Program Files\Docker\Docker\resources\bin\docker.exe' run -d --name loom-collector -p 127.0.0.1:5933:4318 --mount "type=bind,source=$((Resolve-Path collector.yaml).Path),target=/etc/otelcol-contrib/config.yaml,readonly" --mount "type=bind,source=$((Resolve-Path receipts).Path),target=/receipts" otel/opentelemetry-collector-contrib@sha256:4a951ff0a9772f4fa8e9c7a326434370301b98b2b813933468dcb54aa6a6b5e5`. Inspect it with `docker logs loom-collector`.
 
-In each application directory, use its matching SDK. Set DOTNET_ADD_GLOBAL_TOOLS_TO_PATH=0 in the child environment. Run `dotnet restore LoomActivity.csproj`, then `dotnet build LoomActivity.csproj -c Release --no-restore`, then `dotnet run --project LoomActivity.csproj -c Release --no-build --no-restore --no-launch-profile --urls http://localhost:5931` for net10 or port 5932 for net11. Use `C:\Program Files\dotnet\dotnet.exe` for .NET 10 and `C:\Users\pingu\.dotnet-playbook-11\dotnet.exe` for the recorded .NET 11 installation. Each server occupies a terminal. Restore obtains the matching SDK/runtime WASM packs; interpreted execution with WasmBuildNative=false needs no native/AOT workload. Repository lock files retain the exact dependency closure; standalone restore creates its own lock. The pinned RC2 DevServer emits its Gateway migration warning; this development server is not a production hosting recommendation.
+In each application directory, use its matching SDK. Set DOTNET_ADD_GLOBAL_TOOLS_TO_PATH=0 in the child environment. Run `dotnet restore LoomActivity.csproj`, then `dotnet build LoomActivity.csproj -c Release --no-restore`, then `dotnet run --project LoomActivity.csproj -c Release --no-build --no-restore --no-launch-profile --urls http://localhost:5931` for net10 or port 5932 for net11. Use `C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe` for .NET 10 and `C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe` for the recorded .NET 11 installation. Each server occupies a terminal. Restore obtains the matching SDK/runtime WASM packs; interpreted execution with WasmBuildNative=false needs no native/AOT workload. Repository lock files retain the exact dependency closure; standalone restore creates its own lock. The pinned RC2 DevServer emits its Gateway migration warning; this development server is not a production hosting recommendation.
 
 Open http://localhost:5931 and http://localhost:5932 in the real browser. Click **Schedule shuttle** once and expect **Scheduled: 1** and **Shuttles ready: 1**. Then select **Open dispatch route** and expect /dispatch with the count retained. Leave both pages alive for at least two export cycles, then inspect `docker logs loom-collector` and receipts/otlp.json. A healthy UI alone does not prove telemetry delivery.
 

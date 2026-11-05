@@ -152,7 +152,7 @@
   "evidence": [
     {
       "kind": "compile-and-run",
-      "scope": "Actual SDK10.0.403/runtime10.0.13 and locked tensor10.0.13 net10 execution of the original dense three-channel normalization policy; destination values and requested metadata retained. This does not establish the new shape contract.",
+      "scope": "Actual SDK10.0.403/runtime10.0.14 and locked tensor10.0.13 net10 execution of the original dense three-channel normalization policy; destination values and requested metadata retained. This does not establish the new shape contract.",
       "sample": "samples/net10.0/InstrumentBatch/InstrumentBatch.csproj",
       "sdk": "10.0.403",
       "language": "14.0",

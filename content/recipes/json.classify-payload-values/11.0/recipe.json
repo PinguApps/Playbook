@@ -58,7 +58,7 @@
           "workloads": [],
           "prerequisites": [
             "SDK console project with Nullable and ImplicitUsings enabled; complete canonical source includes imports and namespace.",
-            "No additional NuGet package. Exact proof: SDK11.0.100-rc.3.26522.148/runtime-ref11.0.0-rc.2.26504.105; previous SDK10.0.403/runtime-ref10.0.13."
+            "No additional NuGet package. Exact proof: SDK11.0.100-rc.3.26522.148/runtime-ref11.0.0-rc.3.26522.148; previous SDK10.0.403/runtime-ref10.0.14."
           ],
           "constraints": [
             "No older-target/newer-package route is advertised. Existing .NET10 comparison remains valid and adds no historical foundation.",

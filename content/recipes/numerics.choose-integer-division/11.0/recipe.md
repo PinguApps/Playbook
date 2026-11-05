@@ -69,7 +69,7 @@ Primary route: net11.0/.NET 11 framework APIs, canonical C# 15 sample mode and
 generic math. No package, provider, workload, rendering mode or experimental
 opt-in. Actual verification uses SDK 11.0.100-rc.3.26522.148 and reference/runtime
 11.0.0-rc.2.26504.105; previous consumer uses SDK 10.0.403, C# 14 and
-reference/runtime 10.0.13. These are reproduction pins, separate from the
+reference/runtime 10.0.14. These are reproduction pins, separate from the
 release-family prerequisites. No .NET 10 catalogue route or ninth foundation.
 
 The executed int zero-divisor case throws DivideByZeroException.

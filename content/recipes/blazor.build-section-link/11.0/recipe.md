@@ -47,7 +47,7 @@ Use Microsoft.NET.Sdk.Web, net11.0 and C# 15.0; the comparison uses net10.0 and
 C# 14.0. Enable nullable and implicit usings. Pin SDK 11.0.100-rc.3.26522.148 or
 10.0.403 independently for reproducing the samples. These APIs come from the
 ASP.NET Core shared/reference framework. The measured Web SDK supplies aligned
-Internal.Assets browser files 11.0.0-rc.2.26504.105 or 10.0.13; no additional API
+Internal.Assets browser files 11.0.0-rc.3.26522.148 or 10.0.14; no additional API
 package, provider, native workload or account is required.
 
 {{snippet:startup}}
@@ -80,7 +80,7 @@ targets in content that arrives later may need deliberate post-render scrolling;
 this recipe does not claim automatic discovery of delayed elements. No
 WebAssembly/Auto, accessibility focus behavior or reverse-proxy execution is
 established by the Interactive Server checks. No newer-package route on net10.0
-is claimed. The API is non-experimental; the exact .NET 11 evidence is RC2 and
+is claimed. The API is non-experimental; the exact .NET 11 evidence is RC3 and
 requires GA reconciliation later.
 
 ## Evidence

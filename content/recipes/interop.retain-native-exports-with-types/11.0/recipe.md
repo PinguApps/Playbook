@@ -78,7 +78,7 @@ called directly from managed code. Keep calling conventions consistent with the
 native declaration and avoid exceptions crossing the boundary. This arithmetic
 example has no managed references in its signature. No provider, rendering mode
 or optional workload is involved. AssociatedSourceType is not an ownership,
-security or per-instance-lifetime mechanism. Actual RC2 evidence is not GA proof.
+security or per-instance-lifetime mechanism. Actual RC3 evidence is not GA proof.
 
 ## Evidence
 

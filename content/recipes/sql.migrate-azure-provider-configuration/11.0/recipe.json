@@ -66,7 +66,7 @@
             }
           ],
           "packageAssets": [
-            "SDK10.0.403 / C#14 / EF10.0.13 versus SDK11.0.100-rc.3.26522.148 / C#15 / EF11.0.0-rc.2.26504.105. Both EF consumers select net10.0 versus net11.0 assets. No EF11 on an older runtime or extra .NET10 foundation is offered. RC2 evidence is not actual GA proof. No workload, rendering mode or experimental opt-in applies. SqlClient6.1.7 versus7.1.0, with Pkcs10.0.13; SQL2025 17.0.5035.5 compatibility170; SQL authentication is injected through the authorized local route."
+            "SDK10.0.403 / C#14 / EF10.0.13 versus SDK11.0.100-rc.3.26522.148 / C#15 / EF11.0.0-rc.2.26504.105. Both EF consumers select net10.0 versus net11.0 assets. No EF11 on an older runtime or extra .NET10 foundation is offered. RC3 evidence is not actual GA proof. No workload, rendering mode or experimental opt-in applies. SqlClient6.1.7 versus7.1.0, with Pkcs10.0.13; SQL2025 17.0.5035.5 compatibility170; SQL authentication is injected through the authorized local route."
           ],
           "providers": [
             "SQL2025 17.0.5035.5 compatibility170"
@@ -80,7 +80,7 @@
           ],
           "constraints": [
             "EF10 UseSqlServer(..., sql => sql.UseAzureSqlDefaults()) is replaced by UseAzureSql(connection). UseAzureSql already exists in EF10: adopt it before upgrading. EF11 removes the defaults helper. Both paths use six retries with a 30-second maximum delay. Preserve intentional retry and compatibility overrides; these defaults do not change the database compatibility level. Local SQL2025 compatibility170 round-trips are approved evidence for this bounded configuration migration. No Azure outage, retry scheduling, Entra authentication or cloud service parity is established.",
-            "SDK10.0.403 / C#14 / EF10.0.13 versus SDK11.0.100-rc.3.26522.148 / C#15 / EF11.0.0-rc.2.26504.105. Both EF consumers select net10.0 versus net11.0 assets. No EF11 on an older runtime or extra .NET10 foundation is offered. RC2 evidence is not actual GA proof. No workload, rendering mode or experimental opt-in applies. SqlClient6.1.7 versus7.1.0, with Pkcs10.0.13; SQL2025 17.0.5035.5 compatibility170; SQL authentication is injected through the authorized local route."
+            "SDK10.0.403 / C#14 / EF10.0.13 versus SDK11.0.100-rc.3.26522.148 / C#15 / EF11.0.0-rc.2.26504.105. Both EF consumers select net10.0 versus net11.0 assets. No EF11 on an older runtime or extra .NET10 foundation is offered. RC3 evidence is not actual GA proof. No workload, rendering mode or experimental opt-in applies. SqlClient6.1.7 versus7.1.0, with Pkcs10.0.13; SQL2025 17.0.5035.5 compatibility170; SQL authentication is injected through the authorized local route."
           ],
           "prerequisites": [
             "PowerShell7, both pinned SDKs, NuGet restore and running approved Docker routes. Run eng/Test-EstuaryProviders.ps1; unique databases are removed in finally. Copy the complete independent project for each release. Never print injected credentials."

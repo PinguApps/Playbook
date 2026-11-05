@@ -10,8 +10,8 @@ enforcement of a package author's rule.
 
 ## Requirements and artifacts
 
-Exact tested Windows x64 hosts are SDK10.0.403/runtime+ref10.0.13/C#14 and
-SDK11.0.100-rc.3.26522.148/runtime+ref11.0.0-rc.2.26504.105/C#15. Their actual
+Exact tested Windows x64 hosts are SDK10.0.403/runtime+ref10.0.14/C#14 and
+SDK11.0.100-rc.3.26522.148/runtime+ref11.0.0-rc.3.26522.148/C#15. Their actual
 NuGet SDK assemblies are7.9.0-rc.611 (net8.0) and8.0.0-rc.605 (net10.0).
 Those DLL TFMs do not determine the application target or Roslyn version.
 The actual Roslyn API versions are **5.9.0.0** and **5.12.0.0**, from each

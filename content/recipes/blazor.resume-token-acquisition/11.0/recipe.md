@@ -134,9 +134,9 @@ ReturnUrl is constructed from a fixed application-owned route and checked agains
 
 Redirect(Action<InteractiveRequestOptions>) requires actual options; do not use it for a no-options result. Existing exception signatures remain unchanged.
 
-The exact test pins are SDK 10.0.403 / framework and packages 10.0.13 / C# 14,
+The exact test pins are SDK 10.0.403 / framework and packages 10.0.14 / C# 14,
 and SDK 11.0.100-rc.3.26522.148 / framework and packages
-11.0.0-rc.2.26504.105 / C# 15. Runtime/framework/package/SDK requirements are
+11.0.0-rc.3.26522.148 / C# 15. Runtime/framework/package/SDK requirements are
 separate from these measured baselines. No optional workload or native compilation
 is required. Public metadata is not an experimental designation; no experimental
 suppression is used. No net10-plus-new-package compatibility route is advertised.

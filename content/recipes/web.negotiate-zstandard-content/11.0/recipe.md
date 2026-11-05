@@ -69,7 +69,7 @@ Save the newer files separately.
 
 ## Constraints and alternatives
 
-- Runtime/SDK/language: built-in Zstandard response/request support requires ASP.NET Core 11 and the .NET 11 codec. Exact tested baseline: SDK 11.0.100-rc.3.26522.148 / C# 15. Older comparison: SDK 10.0.403 / C# 14 / runtime 10.0.13. No .NET 10 Zstandard route is advertised.
+- Runtime/SDK/language: built-in Zstandard response/request support requires ASP.NET Core 11 and the .NET 11 codec. Exact tested baseline: SDK 11.0.100-rc.3.26522.148 / C# 15. Older comparison: SDK 10.0.403 / C# 14 / runtime 10.0.14. No .NET 10 Zstandard route is advertised.
 - Packages/assets: matching Microsoft.AspNetCore.App and Microsoft.NETCore.App shared-framework/runtime assets; no separate Zstandard NuGet package. Do not revive the removed preview codec package/namespace as an older-target route.
 - Platform/provider/rendering: actual Windows x64 Kestrel loopback HTTP with built-in codecs. Browser/WASI are unsupported by the built-in codec; no client UI or Blazor mode applies. No external provider, workload, account, custom dictionary or native installation is required.
 - `Accept-Encoding` does not declare upload compression. A response fallback does not authorize accepting another upload format. Gzip and Zstandard are distinct wire formats; do not relabel one as the other.

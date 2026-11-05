@@ -22,7 +22,7 @@
         "language": {"name": "C#", "version": "15.0", "match": "exact", "reason": "Canonical compiler mode; no C# 15-only syntax is needed."},
         "frameworks": ["Blazor"],
         "packages": [
-          {"name": "Microsoft.AspNetCore.Components.WebAssembly", "version": "11.0.0-rc.2.26504.105", "match": "exact", "reason": "Matching RC2 component/browser assets; DevServer at the same pin is local test serving only."},
+          {"name": "Microsoft.AspNetCore.Components.WebAssembly", "version": "11.0.0-rc.3.26522.148", "match": "exact", "reason": "Matching RC2 component/browser assets; DevServer at the same pin is local test serving only."},
           {"name": "OpenTelemetry.Exporter.OpenTelemetryProtocol", "version": "1.20.1", "match": "exact", "reason": "Actual browser-capable OTLP HTTP/protobuf exporter and SDK; net10.0 package assets used by both consumers."}
         ],
         "packageAssets": ["Matching WASM packs/JS; OTLP net10.0 assets"],

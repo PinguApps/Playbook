@@ -206,7 +206,7 @@ an attribute-owned key during migration; clear or migrate the old representation
 Session cookies follow normal consent/security settings. Do not make them
 essential just to hide missing state. Use HTTPS and the application's cookie
 policy in production. These stable contracts require no experimental opt-in;
-current RC2 evidence is not GA verification.
+current RC3 evidence is not GA verification.
 
 ## Evidence
 

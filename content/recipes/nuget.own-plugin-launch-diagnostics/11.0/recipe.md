@@ -9,8 +9,8 @@ replacement helper is introduced.
 
 ## Requirements and exact comparison
 
-The real comparison uses Windows x64 SDK10.0.403/runtime+ref10.0.13/C#14 and
-SDK11.0.100-rc.3.26522.148/runtime+ref11.0.0-rc.2.26504.105/C#15. These pins are
+The real comparison uses Windows x64 SDK10.0.403/runtime+ref10.0.14/C#14 and
+SDK11.0.100-rc.3.26522.148/runtime+ref11.0.0-rc.3.26522.148/C#15. These pins are
 tested artifacts, not a universal release-family compatibility promise. No
 provider installation, feed, account, real credential, native compiler, workload,
 device, UI/rendering mode or preview-language opt-in is required. Current SDK

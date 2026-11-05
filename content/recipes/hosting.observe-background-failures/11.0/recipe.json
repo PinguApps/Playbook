@@ -51,7 +51,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Build against the .NET 11 reference assemblies; exact RC2 is the reproduction baseline."
+            "reason": "Build against the .NET 11 reference assemblies; exact RC3 is the reproduction baseline."
           },
           "language": {
             "name": "C#",

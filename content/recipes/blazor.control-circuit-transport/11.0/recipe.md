@@ -12,7 +12,7 @@ ASP.NET Core 10 has `HttpConnectionDispatcherOptions`, but no `ServerComponentsE
 
 For a traditional Blazor Server host, `MapBlazorHub` already has a dispatcher-options overload. Do not add a second hub mapping beside the Web App's generated hub: duplicate routes can make endpoint selection ambiguous. That separate hosting shape is not the executed comparison here.
 
-Create an empty `LockhouseSessions` directory. Save the following as `LockhouseSessions.csproj`; it contains all project properties needed outside this repository. Pin `global.json` to `{"sdk":{"version":"10.0.403","rollForward":"disable"}}`. The Web SDK implicitly supplies Microsoft.AspNetCore.App and resolves Microsoft.AspNetCore.App.Internal.Assets **10.0.13**; the recorded restore lock file pins this SDK-resolved asset. No explicit NuGet package, provider or workload is required.
+Create an empty `LockhouseSessions` directory. Save the following as `LockhouseSessions.csproj`; it contains all project properties needed outside this repository. Pin `global.json` to `{"sdk":{"version":"10.0.403","rollForward":"disable"}}`. The Web SDK implicitly supplies Microsoft.AspNetCore.App and resolves Microsoft.AspNetCore.App.Internal.Assets **10.0.14**; the recorded restore lock file pins this SDK-resolved asset. No explicit NuGet package, provider or workload is required.
 
 {{snippet:project-10}}
 
@@ -22,7 +22,7 @@ Save this complete `Program.cs`. The unauthenticated `/sign-in` fixture issues a
 
 ## Newer approach — .NET 11 connection callback
 
-Create the same named project in a separate directory, using this project file and `global.json` set to `{"sdk":{"version":"11.0.100-rc.3.26522.148","rollForward":"disable"}}`. The recorded browser assets are **11.0.0-rc.2.26504.105**. Match the Web SDK, reference pack, ASP.NET Core runtime and `blazor.web.js`; do not copy the newer script into an older renderer. C# 15 is the canonical language mode, although the configuration needs no new language syntax. This is pinned RC2 evidence; GA and other browser/platform behaviour are not verified.
+Create the same named project in a separate directory, using this project file and `global.json` set to `{"sdk":{"version":"11.0.100-rc.3.26522.148","rollForward":"disable"}}`. The recorded browser assets are **11.0.0-rc.3.26522.148**. Match the Web SDK, reference pack, ASP.NET Core runtime and `blazor.web.js`; do not copy the newer script into an older renderer. C# 15 is the canonical language mode, although the configuration needs no new language syntax. This is pinned RC2 evidence; GA and other browser/platform behaviour are not verified.
 
 {{snippet:project-11}}
 

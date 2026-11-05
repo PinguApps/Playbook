@@ -95,8 +95,8 @@ This recipe adds no ninth .NET 10 foundation or unrelated request-compression ch
 ## Evidence
 
 eng/Test-ProxyResponses.ps1 -Record -VerifySources builds/runs real paired
-CairnReports consumers with SDK10.0.403/runtime10.0.13 and
-SDK11.0.100-rc.3.26522.148/runtime11.0.0-rc.2.26504.105, zero warnings/errors.
+CairnReports consumers with SDK10.0.403/runtime10.0.14 and
+SDK11.0.100-rc.3.26522.148/runtime11.0.0-rc.3.26522.148, zero warnings/errors.
 Framework/reference hashes match the runtime/security and data/I/O audits.
 The exact resolved ZstdSharp.Port archive, selected/executed lib/net9.0 assembly,
 compiler/CoreLib and loaded framework/native codec identities are recorded.
