@@ -4118,3 +4118,61 @@ edition. Local SQL2025 configuration/query proof excludes Azure service behaviou
 Cosmos proof is the approved legacy emulator, not cloud parity. Unusable retrieval
 proxies prove proxy independence rather than OS network isolation. GA and
 comprehensive-readiness gates remain outstanding.
+
+## Query roots, missing principals and constructor bindings
+
+From an unrelated directory, select this worktree and inspect the exact ordinary
+packed tool. Requires PowerShell7, SDK10.0.402 and Node22.19+. Setup restores
+packages online; the isolated installed server returns bundled guidance offline.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-235a1bb5'
+& ./eng/Test-LarkContracts.ps1
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('ef.migrate-structural-materializer','ef.query-unconstrained-relationship','ef.migrate-constructor-binding') `
+  -Query 'lark-contracts' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin1202-1204' -BuildAndPack `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory './artifacts/lark/inspection'
+```
+
+Expect ID/title/goal, complete expanded canonical Markdown, edition11,
+applicability and fresh evidence for all three recipes. Target10 has no applicable
+edition. The same isolated local feed/cache harness installs that exact package
+and calls real stdio list/get from outside the checkout with unusable proxies.
+This establishes offline content availability, not OS network isolation.
+SQLite and disposable SQL2025 execution are separate from MCP retrieval. Root
+construction is a contract check; no custom query-translator execution, GA,
+NativeAOT or other-provider/platform proof is claimed. Data owners must handle
+missing principals; GetBindings does not accept an arbitrary constructor choice.
+``Test-LarkContracts.ps1 -Record`` refreshes the committed sample receipts.
+
+## Structural metadata, ignored types and file design commands
+
+From an unrelated directory, select this worktree. Requires PowerShell7,
+SDK10.0.402, isolated SDK11 RC2 and Node22.19+. Setup restores NuGet packages;
+the tool then serves complete guidance offline. No package is published.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-1b46e3e3'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('ef.inspect-structural-model-mappings','ef.migrate-type-ignore-convention','ef.target-file-based-app') `
+  -Query 'curlew' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin1205-1207' -BuildAndPack `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory './artifacts/curlew/inspection'
+```
+
+Expect real SQLite metadata/lookup and callback controls, generated migrations,
+snapshot checks and persisted rows for conventional, file-target and mixed
+project/startup-file routes. The last command installs that exact ordinary artifact
+through an isolated local feed/cache, calls real stdio list/get outside the checkout,
+and displays ID/title/goal, full canonical Markdown, edition11, applicability and
+fresh evidence. Target10 has no applicable edition. Unusable retrieval proxies prove
+embedded offline guidance, not OS network isolation. No native JSON-index,
+file-to-file project reference, NativeAOT, other-platform or actual GA proof follows.
+The separate mixed startup route was approved by Pingu; PIN-959/PIN-965 remain open.
+
+Use eng/Test-CurlewModels.ps1 -Record and eng/Test-CurlewDesign.ps1 -Record to refresh the committed sample receipts after relevant input changes.

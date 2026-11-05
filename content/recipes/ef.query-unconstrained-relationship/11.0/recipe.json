@@ -1,0 +1,206 @@
+{
+  "id": "ef.query-unconstrained-relationship",
+  "edition": "11.0",
+  "title": "Retain dependent rows when their principal can be missing",
+  "goal": "Use unconstrained relationships when reads must retain orphaned dependents, and distinguish that query decision from migration-only constraint omission.",
+  "areas": [
+    "ef-core"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "lark-contracts",
+    "migration"
+  ],
+  "apis": [
+    "IsConstrained",
+    "ExcludeForeignKeyFromMigrations",
+    "DefaultIfEmpty"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/ef/core/modeling/relationships/foreign-and-principal-keys"
+        ],
+        "selectionNotes": [
+          "EF11 IsConstrained(false) omits the database foreign key and uses a LEFT JOIN for the required navigation. ExcludeForeignKeyFromMigrations only omits enforcement: the required navigation still uses INNER JOIN and drops an orphan. Both retain the model relationship and its index. The SQL2025 fixture inserts one matched and one orphan crate, then checks generated DDL, actual sys.foreign_keys/sys.indexes and executed results. The Required control deliberately removes its generated constraint solely to demonstrate the bad assumption. EF10 keeps a valid explicit GroupJoin/DefaultIfEmpty left join and explicitly omits the generated constraint; it cannot call IsConstrained. The schema script edit is bounded to this authored fixture, not a general migration rewriter. For production use reviewed migrations. No database referential-integrity guarantee remains: the application and data owner must handle absent principals and decide validation, repair and delete policy. Required CLR navigation annotations do not prevent null projections from an unconstrained join. SQL Server only; no Cosmos or other-provider parity."
+        ],
+        "usage": "primary",
+        "target": "11.0",
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "EF Core 11 requires .NET 11. No older-runtime EF11 route is offered."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build the net11.0 consumer; measured SDK 11.0.100-rc.2.26504.105 is RC2 evidence, not GA proof."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Declared current language mode; no C# 15-specific syntax is required by the example."
+          },
+          "frameworks": [
+            "Microsoft.NET.Sdk console consumer"
+          ],
+          "packages": [
+            {
+              "match": "release-family",
+              "name": "Microsoft.EntityFrameworkCore.SqlServer",
+              "reason": "Exact RC2 graph is locked in the canonical project.",
+              "version": "11.0"
+            }
+          ],
+          "packageAssets": [
+            "Independent locked EF10.0.13/net10.0/SDK10.0.402/C#14 and EF11.0.0-rc.2.26504.105/net11.0/SDK11.0.100-rc.2.26504.105/C#15 graphs. EF11 requires .NET11; no older-runtime EF11 route. Current proof uses RC2, not GA. No experimental attribute or opt-in is required on the exercised public contracts."
+          ],
+          "providers": [
+            "SQL Server 2025 via the isolated local route"
+          ],
+          "workloads": [],
+          "platforms": [
+            "Executed on Windows x64. SQL2025 runs in the existing Linux container. Other providers/platforms and NativeAOT are unverified."
+          ],
+          "renderingModes": [
+            "Not applicable: console/database extension."
+          ],
+          "constraints": [
+            "EF11 IsConstrained(false) omits the database foreign key and uses a LEFT JOIN for the required navigation. ExcludeForeignKeyFromMigrations only omits enforcement: the required navigation still uses INNER JOIN and drops an orphan. Both retain the model relationship and its index. The SQL2025 fixture inserts one matched and one orphan crate, then checks generated DDL, actual sys.foreign_keys/sys.indexes and executed results. The Required control deliberately removes its generated constraint solely to demonstrate the bad assumption. EF10 keeps a valid explicit GroupJoin/DefaultIfEmpty left join and explicitly omits the generated constraint; it cannot call IsConstrained. The schema script edit is bounded to this authored fixture, not a general migration rewriter. For production use reviewed migrations. No database referential-integrity guarantee remains: the application and data owner must handle absent principals and decide validation, repair and delete policy. Required CLR navigation annotations do not prevent null projections from an unconstrained join. SQL Server only; no Cosmos or other-provider parity."
+          ],
+          "prerequisites": [
+            "PowerShell7 and both pinned SDKs. Restore each complete project separately. Run eng/Test-LarkContracts.ps1 -Record. SQL checks require the approved isolated SqlServer.ps1 route; native SQLite runs on Windows x64."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Public extension contracts are upgrade-sensitive. Stable API shape measured on pinned RC2; reconcile actual GA separately."
+          ]
+        },
+        "conditional": false,
+        "evidenceSamples": [
+          "samples/net11.0/LarkRelationships/LarkRelationships.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Official EF guidance",
+      "url": "https://learn.microsoft.com/en-us/ef/core/modeling/relationships/foreign-and-principal-keys"
+    }
+  ],
+  "evidence": [
+    {
+      "language": "14.0",
+      "sample": "samples/net10.0/LarkRelationships/LarkRelationships.csproj",
+      "sdk": "10.0.402",
+      "target": "net10.0",
+      "kind": "compile",
+      "scope": "eng/Test-LarkContracts.ps1 -Record: pinned real compilation and provider checks. No GA, NativeAOT or other-platform claim."
+    },
+    {
+      "language": "14.0",
+      "sample": "samples/net10.0/LarkRelationships/LarkRelationships.csproj",
+      "sdk": "10.0.402",
+      "target": "net10.0",
+      "kind": "execution",
+      "record": "samples/net10.0/LarkRelationships/behavior.evidence.json",
+      "scope": "eng/Test-LarkContracts.ps1 -Record: pinned real compilation and provider checks. No GA, NativeAOT or other-platform claim."
+    },
+    {
+      "language": "15.0",
+      "sample": "samples/net11.0/LarkRelationships/LarkRelationships.csproj",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "target": "net11.0",
+      "kind": "compile",
+      "scope": "eng/Test-LarkContracts.ps1 -Record: pinned real compilation and provider checks. No GA, NativeAOT or other-platform claim."
+    },
+    {
+      "language": "15.0",
+      "sample": "samples/net11.0/LarkRelationships/LarkRelationships.csproj",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "target": "net11.0",
+      "kind": "execution",
+      "record": "samples/net11.0/LarkRelationships/behavior.evidence.json",
+      "scope": "eng/Test-LarkContracts.ps1 -Record: pinned real compilation and provider checks. No GA, NativeAOT or other-platform claim."
+    }
+  ],
+  "snippets": {
+    "n11-directory-packages-props": {
+      "region": "complete",
+      "language": "xml",
+      "path": "samples/net11.0/LarkRelationships/Directory.Packages.props"
+    },
+    "n10-program-cs": {
+      "region": "complete",
+      "language": "csharp",
+      "path": "samples/net10.0/LarkRelationships/Program.cs"
+    },
+    "n11-program-cs": {
+      "region": "complete",
+      "language": "csharp",
+      "path": "samples/net11.0/LarkRelationships/Program.cs"
+    },
+    "n10-larkrelationships-csproj": {
+      "region": "complete",
+      "language": "xml",
+      "path": "samples/net10.0/LarkRelationships/LarkRelationships.csproj"
+    },
+    "n10-directory-build-targets": {
+      "region": "complete",
+      "language": "xml",
+      "path": "samples/net10.0/LarkRelationships/Directory.Build.targets"
+    },
+    "n10-directory-build-props": {
+      "region": "complete",
+      "language": "xml",
+      "path": "samples/net10.0/LarkRelationships/Directory.Build.props"
+    },
+    "n11-directory-build-targets": {
+      "region": "complete",
+      "language": "xml",
+      "path": "samples/net11.0/LarkRelationships/Directory.Build.targets"
+    },
+    "n10-global-json": {
+      "region": "complete",
+      "language": "json",
+      "path": "samples/net10.0/LarkRelationships/global.json"
+    },
+    "n10-directory-packages-props": {
+      "region": "complete",
+      "language": "xml",
+      "path": "samples/net10.0/LarkRelationships/Directory.Packages.props"
+    },
+    "n11-directory-build-props": {
+      "region": "complete",
+      "language": "xml",
+      "path": "samples/net11.0/LarkRelationships/Directory.Build.props"
+    },
+    "n11-global-json": {
+      "region": "complete",
+      "language": "json",
+      "path": "samples/net11.0/LarkRelationships/global.json"
+    },
+    "n11-larkrelationships-csproj": {
+      "region": "complete",
+      "language": "xml",
+      "path": "samples/net11.0/LarkRelationships/LarkRelationships.csproj"
+    }
+  },
+  "humanProof": {
+    "scope": "eng/Test-LarkContracts.ps1 -Record: pinned real compilation and provider checks. No GA, NativeAOT or other-platform claim.",
+    "status": "not-required"
+  }
+}

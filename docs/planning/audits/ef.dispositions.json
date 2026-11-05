@@ -102,16 +102,16 @@
     {
       "id": "constructor-binding",
       "pattern": "IConstructorBindingFactory::TryBindConstructor",
-      "disposition": "proposed",
-      "owner": "E16",
-      "reason": "Removed constructor binding hook needs an actual extension migrated to GetBindings."
+      "disposition": "delivered",
+      "owner": "PIN-1204",
+      "reason": "ef.migrate-constructor-binding/11.0: LarkBindings compiles callable EF10 TryBindConstructor and EF11 GetBindings, verifies scalar/service materialization and invalid bindings. GetBindings already exists in EF10 and selects a type binding, not an arbitrary ConstructorInfo replacement. Single-constructor consumer only; RC2 is not GA."
     },
     {
       "id": "materializer-contract",
       "pattern": "\\.(?:IEntityMaterializerSource|EntityMaterializerSourceParameters|IStructuralTypeMaterializerSource|StructuralTypeMaterializerSourceParameters)\\b|InjectEntityMaterializers|ParameterQueryRootExpression|CollectionResultExpression",
-      "disposition": "proposed",
-      "owner": "E14",
-      "reason": "Legacy entity-only materializer/query roots are replaced by structural contracts; provider extension consumer required."
+      "disposition": "grouped",
+      "owner": "PIN-1202",
+      "reason": "ef.migrate-structural-materializer/11.0: Pingu approved the callable parameter-root constructor comparison on 5 November 2026. LarkMaterializers compiles and executes structural-service consumption and entity/nested/null SQLite reads; root construction is a contract check. Legacy entity-only contracts and collection properties are already error-obsolete in EF10; no valid older example is claimed. Broader provider/InjectEntityMaterializers contracts are unverified."
     },
     {
       "id": "telemetry-history",
@@ -144,9 +144,9 @@
     {
       "id": "unconstrained-query",
       "pattern": "::.*(?:IsConstrained|Constrainedness)|ForeignKeyConstrainedness",
-      "disposition": "proposed",
-      "owner": "E15",
-      "reason": "Missing-principal join semantics differ from merely omitting a database migration constraint."
+      "disposition": "delivered",
+      "owner": "PIN-1203",
+      "reason": "ef.query-unconstrained-relationship/11.0: LarkRelationships executes actual SQL2025 required/omitted/unconstrained schema and navigation controls. EF11 left join retains orphan; omission alone remains inner. EF10 explicit left join remains valid; absent constraints and retained indexes verified. Application owns integrity; no Cosmos/general-provider or GA proof."
     },
     {
       "id": "foreign-keys",
@@ -314,16 +314,16 @@
     {
       "id": "metadata-traversal",
       "pattern": "::(?:get_)?DeclaringEntityType|::(?:GetColumnBaseName|GetDefaultColumnBaseName|GetContainerColumnTypeMapping|SetContainerColumnTypeMapping|GetContainerColumnTypeMappingConfigurationSource|GetDefaultColumnMappings|GetTableColumnMappings|GetViewColumnMappings|GetMappedStoreObjects)\\b|\\.(?:I(?:ReadOnly|Mutable|Convention)?Index|RuntimeIndex|KeyComplexPropertyConvention|RelationalJsonIndex)(?:::|\\b)",
-      "disposition": "proposed",
-      "owner": "E17",
-      "reason": "Explicit model inspection must distinguish entity/complex declaring types and relational store mappings."
+      "disposition": "delivered",
+      "owner": "PIN-1205",
+      "reason": "ef.inspect-structural-model-mappings/11.0: CurlewMappings independently runs EF10/11 SQLite entity/complex/table/view inspectors, ordered scalar-path keys/indexes, store columns/type mappings and fresh lookups. Whole-complex SQLite indexing is rejected. No native JSON-index or general provider-hook migration claim."
     },
     {
       "id": "type-ignore-conventions",
       "pattern": "IEntityTypeIgnoredConvention|ITypeIgnoredConvention|AnnotatableBuilder.*::RemoveAnnotation",
-      "disposition": "proposed",
-      "owner": "E18",
-      "reason": "Custom conventions migrate ignored-type callbacks and removed annotation removal hook."
+      "disposition": "delivered",
+      "owner": "PIN-1206",
+      "reason": "ef.migrate-type-ignore-convention/11.0: CurlewConventions registers actual old/replacement callbacks, verifies the obsolete EF10 callback is not dispatched, and executes replacement callback, model/schema/persistence and ordering controls on EF10/11. Annotation removal is not used by this observer; no mutable/builder annotation-removal equivalence is claimed."
     },
     {
       "id": "snapshot-warning",
