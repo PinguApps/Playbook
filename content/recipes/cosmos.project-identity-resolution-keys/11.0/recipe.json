@@ -1,0 +1,180 @@
+{
+  "id": "cosmos.project-identity-resolution-keys",
+  "edition": "11.0",
+  "title": "Keep keys in Cosmos identity-resolution projections",
+  "goal": "Keep keys in Cosmos identity-resolution projections when upgrading database tooling or query code; compare a working older route and verify the actual result.",
+  "areas": [
+    "cosmos"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "avocet-guidance"
+  ],
+  "apis": [
+    "AsNoTrackingWithIdentityResolution"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew",
+          "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/breaking-changes"
+        ],
+        "selectionNotes": [
+          "Measured RC tooling/provider behavior; no GA or other-platform claim."
+        ],
+        "usage": "primary",
+        "target": "11.0",
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "EF Core 11 requires .NET 11. No older-runtime EF11 route is offered."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Measured SDK11 RC3 consumer; not GA evidence."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Declared current C#15 mode; no preview language opt-in."
+          },
+          "frameworks": [
+            "Microsoft.NET.Sdk console consumer"
+          ],
+          "packages": [
+            {
+              "version": "11.0",
+              "match": "release-family",
+              "name": "Microsoft.EntityFrameworkCore.Cosmos",
+              "reason": "Exact independently locked RC dependency graphs."
+            }
+          ],
+          "packageAssets": [
+            "Independently locked EF10.0.13/net10.0 and EF11 RC/net11.0 graphs. SDK10.0.403 and SDK11 RC3; SQLite tooling uses EF11 RC2, Cosmos EF11 RC3. No EF11-on-net10 claim."
+          ],
+          "providers": [
+            "Approved isolated legacy Cosmos emulator, gateway mode."
+          ],
+          "workloads": [],
+          "platforms": [
+            "Executed Windows x64 only; other platforms and GA unverified."
+          ],
+          "renderingModes": [
+            "Not applicable: console/database extension."
+          ],
+          "constraints": [
+            "Follow numbered migration steps and scoped controls; real execution is distinct from compilation."
+          ],
+          "prerequisites": [
+            "Pinned SDKs and actual restored locks; PowerShell7.3+. Approved disposable database route. No persistent environment changes."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "RC evidence; actual GA reconciliation remains separate."
+          ]
+        },
+        "conditional": false,
+        "evidenceSamples": [
+          "samples/net11.0/AvocetIdentity/AvocetIdentity.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Official EF11 changes",
+      "url": "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew"
+    },
+    {
+      "title": "Official EF11 migration constraints",
+      "url": "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/breaking-changes"
+    }
+  ],
+  "evidence": [
+    {
+      "language": "14.0",
+      "target": "net10.0",
+      "sdk": "10.0.403",
+      "kind": "compile-and-run",
+      "sample": "samples/net10.0/AvocetIdentity/AvocetIdentity.csproj",
+      "scope": "Actual compilation and isolated Cosmos execution, direct stored-document reads, omitted-key rejection and duplicate identity controls."
+    },
+    {
+      "language": "15.0",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.3.26522.148",
+      "kind": "compile-and-run",
+      "sample": "samples/net11.0/AvocetIdentity/AvocetIdentity.csproj",
+      "scope": "Actual compilation and isolated Cosmos execution, direct stored-document reads, omitted-key rejection and duplicate identity controls."
+    }
+  ],
+  "snippets": {
+    "n11-samples-net11-0-avocetidentity-directory-build-targets": {
+      "region": "complete",
+      "language": "xml",
+      "path": "samples/net11.0/AvocetIdentity/Directory.Build.targets"
+    },
+    "n10-samples-net10-0-avocetidentity-directory-build-targets": {
+      "region": "complete",
+      "language": "xml",
+      "path": "samples/net10.0/AvocetIdentity/Directory.Build.targets"
+    },
+    "n10-samples-net10-0-avocetidentity-program-cs": {
+      "region": "complete",
+      "language": "csharp",
+      "path": "samples/net10.0/AvocetIdentity/Program.cs"
+    },
+    "n11-samples-net11-0-avocetidentity-directory-packages-props": {
+      "region": "complete",
+      "language": "xml",
+      "path": "samples/net11.0/AvocetIdentity/Directory.Packages.props"
+    },
+    "n11-samples-net11-0-avocetidentity-directory-build-props": {
+      "region": "complete",
+      "language": "xml",
+      "path": "samples/net11.0/AvocetIdentity/Directory.Build.props"
+    },
+    "n10-samples-net10-0-avocetidentity-avocetidentity-csproj": {
+      "region": "complete",
+      "language": "xml",
+      "path": "samples/net10.0/AvocetIdentity/AvocetIdentity.csproj"
+    },
+    "n11-samples-net11-0-avocetidentity-avocetidentity-csproj": {
+      "region": "complete",
+      "language": "xml",
+      "path": "samples/net11.0/AvocetIdentity/AvocetIdentity.csproj"
+    },
+    "n11-samples-net11-0-avocetidentity-program-cs": {
+      "region": "complete",
+      "language": "csharp",
+      "path": "samples/net11.0/AvocetIdentity/Program.cs"
+    },
+    "n10-samples-net10-0-avocetidentity-directory-packages-props": {
+      "region": "complete",
+      "language": "xml",
+      "path": "samples/net10.0/AvocetIdentity/Directory.Packages.props"
+    },
+    "n10-samples-net10-0-avocetidentity-directory-build-props": {
+      "region": "complete",
+      "language": "xml",
+      "path": "samples/net10.0/AvocetIdentity/Directory.Build.props"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Disposable agent-executable database consumers."
+  }
+}
