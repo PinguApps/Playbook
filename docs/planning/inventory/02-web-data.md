@@ -491,8 +491,8 @@ PIN-959/PIN-965 and unrelated Human gates remain open.
 
 ## Structural inspection, ignored types and file tooling — PIN-1205–1207
 
-E17/E18/E19 have original Curlew comparisons on SDK10.0.402/EF10.0.13 and
-SDK11.0.100-rc.2.26504.105/EF11.0.0-rc.2.26504.105. Separate locks preserve
+E17/E18/E19 have original Curlew comparisons on SDK10.0.403/EF10.0.13 and
+SDK11.0.100-rc.3.26522.148/EF11.0.0-rc.2.26504.105. Separate locks preserve
 actual package graphs. SQLite3.53.3/3.53.4 execute real schema and persistence.
 
 `ef.inspect-structural-model-mappings/11.0` distinguishes entity and complex

@@ -123,7 +123,7 @@ Use the standalone file route or the separate mixed model/startup route. Each fo
 
 ## Constraints
 
-EF10.0.13/SDK10.0.402/C#14/net10 versus EF11 RC2/SDK11 RC2/C#15/net11. EF11 has no older-runtime route. Matching Design and tool packages are required separately. Bundled SQLite3.53.3/3.53.4 executed on Windows x64. No workload, rendering mode or experimental opt-in applies. This reflection-based design-time route disables NativeAOT; production trimming/AOT is outside scope.
+EF10.0.13/SDK10.0.403/C#14/net10 versus EF11 RC2/SDK11 RC3/C#15/net11. EF11 has no older-runtime route. Matching Design and tool packages are required separately. Bundled SQLite3.53.3/3.53.4 executed on Windows x64. No workload, rendering mode or experimental opt-in applies. This reflection-based design-time route disables NativeAOT; production trimming/AOT is outside scope.
 
 ## Evidence
 

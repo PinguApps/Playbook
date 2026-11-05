@@ -4122,17 +4122,17 @@ comprehensive-readiness gates remain outstanding.
 ## Query roots, missing principals and constructor bindings
 
 From an unrelated directory, select this worktree and inspect the exact ordinary
-packed tool. Requires PowerShell7, SDK10.0.402 and Node22.19+. Setup restores
+packed tool. Requires PowerShell7, SDK10.0.403 and Node22.19+. Setup restores
 packages online; the isolated installed server returns bundled guidance offline.
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-235a1bb5'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Test-LarkContracts.ps1
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('ef.migrate-structural-materializer','ef.query-unconstrained-relationship','ef.migrate-constructor-binding') `
   -Query 'lark-contracts' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
   -PackageVersion '0.0.0-pin1202-1204' -BuildAndPack `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'V:\_worktrees\Playbook\t3-a392df65\artifacts\sdk-upgrade\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory './artifacts/lark/inspection'
 ```
@@ -4151,16 +4151,16 @@ missing principals; GetBindings does not accept an arbitrary constructor choice.
 ## Structural metadata, ignored types and file design commands
 
 From an unrelated directory, select this worktree. Requires PowerShell7,
-SDK10.0.402, isolated SDK11 RC2 and Node22.19+. Setup restores NuGet packages;
+SDK10.0.403, SDK11 RC3 in the same dotnet installation and Node22.19+. Setup restores NuGet packages;
 the tool then serves complete guidance offline. No package is published.
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-1b46e3e3'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('ef.inspect-structural-model-mappings','ef.migrate-type-ignore-convention','ef.target-file-based-app') `
   -Query 'curlew' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
   -PackageVersion '0.0.0-pin1205-1207' -BuildAndPack `
-  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Dotnet 'V:\_worktrees\Playbook\t3-a392df65\artifacts\sdk-upgrade\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory './artifacts/curlew/inspection'
 ```
