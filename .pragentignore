@@ -679,3 +679,12 @@
 /samples/net10.0/EstuaryParcels/behavior.evidence.json
 /samples/net11.0/EstuaryParcels/verification-evidence.json
 /samples/net11.0/EstuaryParcels/behavior.evidence.json
+# Test-TernExtensions/Record-Evidence generated compilation/SDK receipts.
+# Review canonical consumers, locks, manifests, runner and behavior receipts;
+# ordinary build/pack validates exact input freshness.
+/samples/net10.0/TernGauges/verification-evidence.json
+/samples/net11.0/TernGauges/verification-evidence.json
+/samples/net10.0/TernPatches/verification-evidence.json
+/samples/net11.0/TernPatches/verification-evidence.json
+/samples/net10.0/TernPermits/verification-evidence.json
+/samples/net11.0/TernPermits/verification-evidence.json
