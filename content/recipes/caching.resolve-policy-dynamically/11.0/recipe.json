@@ -43,13 +43,13 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Build the net11.0 application with an SDK supporting that target; sample pin is 11.0.100-rc.2.26504.105."
+            "reason": "Build the net11.0 application with an SDK supporting that target; sample pin is 11.0.100-rc.3.26522.148."
           },
           "language": {
             "name": "C#",
             "version": "15.0",
             "match": "exact",
-            "reason": "Declared canonical sample mode; older comparison uses C# 14 with SDK 10.0.402."
+            "reason": "Declared canonical sample mode; older comparison uses C# 14 with SDK 10.0.403."
           },
           "frameworks": [
             "ASP.NET Core on Kestrel"
@@ -117,7 +117,7 @@
       "kind": "compile-and-run",
       "sample": "samples/net10.0/StationCache/StationCache.csproj",
       "target": "net10.0",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "language": "14.0",
       "scope": "Actual Windows x64 .NET 10.0.13 compilation and execution: 11 loopback HTTP requests, 7 handler executions, tenant isolation, cache hits, disable/re-enable, revision invalidation and unknown-station bypass through a registered custom IOutputCachePolicy. One rule read per request."
     },
@@ -125,7 +125,7 @@
       "kind": "compile-and-run",
       "sample": "samples/net11.0/StationCache/StationCache.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "language": "15.0",
       "scope": "Actual Windows x64 .NET 11 RC2 compilation and execution: 11 loopback HTTP requests, 7 handler executions, tenant isolation, cache hits, disable/re-enable, revision invalidation and unknown-station bypass through IOutputCachePolicyProvider. One rule read per request despite multiple named-policy stages."
     }

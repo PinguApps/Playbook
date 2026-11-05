@@ -155,7 +155,7 @@ try {
           }
         }
         $framework = if ($release -eq '10') { '10.0.13' } else { '11.0.0-rc.2.26504.105' }
-        $sdk = if ($release -eq '10') { '10.0.402' } else { '11.0.100-rc.2.26504.105' }
+        $sdk = if ($release -eq '10') { '10.0.403' } else { '11.0.100-rc.3.26522.148' }
         $installation = Split-Path $dotnetHost -Parent
         foreach ($assembly in 'Microsoft.AspNetCore.Server.Kestrel.Core.dll','Microsoft.AspNetCore.Http.Abstractions.dll') {
           $file = Join-Path $installation "packs/Microsoft.AspNetCore.App.Ref/$framework/ref/net$release.0/$assembly"

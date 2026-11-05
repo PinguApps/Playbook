@@ -112,7 +112,7 @@
       "target": "net10.0",
       "language": "14.0",
       "kind": "compile-and-run",
-      "sdk": "10.0.402"
+      "sdk": "10.0.403"
     },
     {
       "scope": "Real same-user exclusion, cross-user isolation/global opt-in and unknown-UID failure/remedy on 10.0.13 and RC2; real 10.0.12 historical control.",
@@ -120,7 +120,7 @@
       "target": "net11.0",
       "language": "15.0",
       "kind": "compile-and-run",
-      "sdk": "11.0.100-rc.2.26504.105"
+      "sdk": "11.0.100-rc.3.26522.148"
     }
   ],
   "humanProof": {

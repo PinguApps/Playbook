@@ -67,7 +67,7 @@
           ],
           "renderingModes": [],
           "prerequisites": [
-            "Complete SDK10.0.402/ref10.0.13/C#14 and SDK11.0.100-rc.2.26504.105/ref11 RC2/C#15 for paired sample reproduction.",
+            "Complete SDK10.0.403/ref10.0.13/C#14 and SDK11.0.100-rc.3.26522.148/ref11 RC2/C#15 for paired sample reproduction.",
             "Public MCR access for image acquisition; a working Linux amd64 Docker engine. Installed guidance is embedded offline.",
             "Selected Azure Linux3/4 runtime images must provide glibc, zlib libz.so.1 and ICU; InvariantGlobalization=false. No native compiler."
           ],
@@ -114,7 +114,7 @@
       "kind": "compile-and-run",
       "sample": "samples/net10.0/QuayWorker/QuayWorker.csproj",
       "target": "net10.0",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "language": "14.0",
       "scope": "Actual paired worker compilation and pinned Linux runtime execution; OS/native/globalization/missing-library failure. No AOT, other architecture, performance or GA claim."
     },
@@ -122,7 +122,7 @@
       "kind": "compile-and-run",
       "sample": "samples/net11.0/QuayWorker/QuayWorker.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "language": "15.0",
       "scope": "Actual paired worker compilation and pinned Linux runtime execution; OS/native/globalization/missing-library failure. No AOT, other architecture, performance or GA claim."
     }

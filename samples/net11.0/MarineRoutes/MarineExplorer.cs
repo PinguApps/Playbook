@@ -66,8 +66,8 @@ internal static class ArtifactIdentity
 {
     public static void Verify()
     {
-        const string sdk = "11.0.100-rc.2.26504.105";
-        const string framework = "11.0.0-rc.2.26504.105";
+        const string sdk = "11.0.100-rc.3.26522.148";
+        const string framework = "11.0.0-rc.3.26522.148";
         var asp = typeof(ApiDescription).Assembly;
         var runtimeRoot = Directory.GetParent(Path.GetDirectoryName(asp.Location)!)!.Parent!.Parent!.FullName;
         foreach (var assembly in new[] { typeof(object).Assembly, asp, typeof(IApiDescriptionGroupCollectionProvider).Assembly, typeof(RoutePattern).Assembly })

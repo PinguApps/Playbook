@@ -110,7 +110,7 @@
     {
       "sample": "samples/net10.0/FSharpFlags/FSharpFlags.fsproj",
       "target": "net10.0",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "language": "10.0",
       "kind": "compile-and-run",
       "scope": "Actual FSharpFlags compilation and managed execution including flags assertions; separate compiler/external-consumer probes in eng/Test-FSharpBoundaries.ps1. No mocks, cross-compilation, native/AOT deployment or GA execution claimed."
@@ -118,7 +118,7 @@
     {
       "sample": "samples/net11.0/FSharpFlags/FSharpFlags.fsproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "language": "11.0",
       "kind": "compile-and-run",
       "scope": "Actual FSharpFlags compilation and managed execution including flags assertions; separate compiler/external-consumer probes in eng/Test-FSharpBoundaries.ps1. No mocks, cross-compilation, native/AOT deployment or GA execution claimed."

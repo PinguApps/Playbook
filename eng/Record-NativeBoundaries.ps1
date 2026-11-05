@@ -125,7 +125,7 @@ try {
   try { $evaluation = (& $Net11Dotnet msbuild ShoreCalibration.csproj -getProperty:TargetFramework,UseMonoRuntime,RuntimeIdentifier,_WebAssemblyTargetsFile,WasmBuildNative | Out-String).Trim() }
   finally { Pop-Location }
   $record = [ordered]@{
-    kind='official-review'; sample=$sample; target='net11.0'; sdk='11.0.100-rc.2.26504.105'; language='15.0'
+    kind='official-review'; sample=$sample; target='net11.0'; sdk='11.0.100-rc.3.26522.148'; language='15.0'
     command='Review pinned native-boundaries.sources.json CoreCLR relink target, SDK selection, Emscripten6.0.2 requirements and exact canonical C/C#/project/JS inputs; evaluate project properties only'
     scope='Intended SDK/C# pins; official source review plus property evaluation only, no build/native compilation/relink/browser execution. Matching CoreCLR browser runtime/WebAssembly/Emscripten6.0.2 packs are unavailable locally and in the existing Docker authoring image; Mono workload labels and older3.1.56 assets do not qualify. PIN-699 sample-specific not-tested exclusion.'
     recordedAt=[DateTimeOffset]::UtcNow.ToString('O'); sourceCommit=(& 'C:/Program Files/Git/cmd/git.exe' -C $root rev-parse HEAD).Trim(); sourceDirty=$true

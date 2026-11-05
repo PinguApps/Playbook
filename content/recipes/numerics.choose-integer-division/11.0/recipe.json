@@ -60,7 +60,7 @@
           ],
           "constraints": [
             "Signed coordinate helper only; raw unsigned evidence is limited to uint truncation. Custom integer semantics and unsigned adjusted remainders are not claimed.",
-            "Previous SDK10.0.402/C#14/ref-runtime10.0.13; current SDK11.0.100-rc.2.26504.105/C#15/ref-runtime11RC2. Exact proof pins are separate from supported prerequisites.",
+            "Previous SDK10.0.403/C#14/ref-runtime10.0.13; current SDK11.0.100-rc.3.26522.148/C#15/ref-runtime11RC2. Exact proof pins are separate from supported prerequisites.",
             "Preserve the exact eight .NET10 foundations and existing recipe identities; comprehensive/actual-GA and existing Human gates remain open."
           ],
           "optIns": [],
@@ -115,7 +115,7 @@
   "evidence": [
     {
       "scope": "Five signed modes for int/long/Int128/BigInteger, sign and exact cases, widened identity, zero/overflow/invalid modes; raw current generic operations and uint truncation.",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "target": "net10.0",
       "kind": "compile-and-run",
       "sample": "samples/net10.0/CoordinateTiles/CoordinateTiles.csproj",
@@ -123,7 +123,7 @@
     },
     {
       "scope": "Five signed modes for int/long/Int128/BigInteger, sign and exact cases, widened identity, zero/overflow/invalid modes; raw current generic operations and uint truncation.",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "target": "net11.0",
       "kind": "compile-and-run",
       "sample": "samples/net11.0/CoordinateTiles/CoordinateTiles.csproj",

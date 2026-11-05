@@ -66,7 +66,7 @@
           ],
           "renderingModes": [],
           "prerequisites": [
-            "Complete SDK11 and matching native package closure. Measured SDK10.0.402 versus SDK11.0.100-rc.2.26504.105.",
+            "Complete SDK11 and matching native package closure. Measured SDK10.0.403 versus SDK11.0.100-rc.3.26522.148.",
             "MSVC link14.51.36260.0, MSVC14.51.36231 x64 libs and Windows SDK10.0.26100.0 UM/UCRT libraries; absolute paths avoid PATH changes."
           ],
           "constraints": [
@@ -105,7 +105,7 @@
   ],
   "evidence": [
     {
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "target": "net10.0",
       "sample": "samples/net10.0/EstuaryNative/EstuaryNative.csproj",
       "scope": "Real Windows x64 ILC/link/PE/native execution and matched binlog replay; default/false/true legacy versus migrated publish hooks, NoBuild refresh/repeat and missing/wrong sidecar failures.",
@@ -113,7 +113,7 @@
       "language": "14.0"
     },
     {
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "target": "net11.0",
       "sample": "samples/net11.0/EstuaryNative/EstuaryNative.csproj",
       "scope": "Real Windows x64 ILC/link/PE/native execution and matched binlog replay; default/false/true legacy versus migrated publish hooks, NoBuild refresh/repeat and missing/wrong sidecar failures.",

@@ -94,7 +94,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Stable migration goal prepared with SDK11.0.100-rc.2.26504.105/framework11.0.0-rc.2.26504.105. Actual-GA reconciliation, PIN-959/PIN-964 and unrelated Human gates remain open. No new experimental API opt-in."
+            "Stable migration goal prepared with SDK11.0.100-rc.3.26522.148/framework11.0.0-rc.2.26504.105. Actual-GA reconciliation, PIN-959/PIN-964 and unrelated Human gates remain open. No new experimental API opt-in."
           ]
         },
         "sourceUrls": [
@@ -131,18 +131,18 @@
     {
       "sample": "samples/net10.0/StarSurvey/StarSurvey.fsproj",
       "target": "net10.0",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "language": "10.0",
       "kind": "compile-and-run",
-      "scope": "Actual F#10/SDK10.0.402 with FSharp.Core10.1.402 and RuntimeCompilation10.0.13 locked compiler closure; real MVC view rendering and HTML encoding from source. Audited template/reference and actual compiler/runtime assets. Not a source-free published baseline."
+      "scope": "Actual F#10/SDK10.0.403 with FSharp.Core10.1.402 and RuntimeCompilation10.0.13 locked compiler closure; real MVC view rendering and HTML encoding from source. Audited template/reference and actual compiler/runtime assets. Not a source-free published baseline."
     },
     {
       "sample": "samples/net11.0/StarSurvey/StarSurvey.fsproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "language": "11.0",
       "kind": "compile-and-run",
-      "scope": "Actual F#11/SDK11 RC2 and FSharp.Core11.0.101-rc2.26504.105; build-time render plus clean source-free/package-free publish rendering and HTML encoding, .Views.dll identity/same-owner load context and a fresh build-success/missing-view500 control. Exact commands/asset hashes retained; no actual-GA or arbitrary load-context/trimming claim."
+      "scope": "Actual F#11/SDK11 RC3 and FSharp.Core11.0.101-rc2.26504.105; build-time render plus clean source-free/package-free publish rendering and HTML encoding, .Views.dll identity/same-owner load context and a fresh build-success/missing-view500 control. Exact commands/asset hashes retained; no actual-GA or arbitrary load-context/trimming claim."
     }
   ],
   "snippets": {

@@ -53,7 +53,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Build the net11.0 consumer; measured SDK 11.0.100-rc.2.26504.105 is RC2 evidence, not GA proof."
+            "reason": "Build the net11.0 consumer; measured SDK 11.0.100-rc.3.26522.148 is RC2 evidence, not GA proof."
           },
           "language": {
             "name": "C#",
@@ -74,7 +74,7 @@
           ],
           "packageAssets": [
             "EF Core and Relational lib/net11.0; Microsoft.Data.Sqlite.Core lib/net10.0; actual resolved graph and content hashes pinned in packages.lock.json",
-            "Previous consumer: EF/SQLite 10.0.13 on net10.0, SDK 10.0.402, C# 14.0; current consumer: EF/SQLite 11.0.0-rc.2.26504.105 on net11.0, SDK 11.0.100-rc.2.26504.105, C# 15.0"
+            "Previous consumer: EF/SQLite 10.0.13 on net10.0, SDK 10.0.403, C# 14.0; current consumer: EF/SQLite 11.0.0-rc.2.26504.105 on net11.0, SDK 11.0.100-rc.3.26522.148, C# 15.0"
           ],
           "providers": [
             "Microsoft.EntityFrameworkCore.Sqlite; actual disposable file shared between the EF10 and EF11 consumers, not EF InMemory or mocked SQL",
@@ -132,7 +132,7 @@
       "sample": "samples/net10.0/TrailCards/TrailCards.csproj",
       "target": "net10.0",
       "kind": "compile-and-run",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "scope": "Actual owned shadow-key model, SQLite array storage without JSON identity, ordered duplicate/empty values and original data creation for the EF11 migration check."
     },
     {
@@ -140,7 +140,7 @@
       "sample": "samples/net11.0/TrailCards/TrailCards.csproj",
       "target": "net11.0",
       "kind": "compile-and-run",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "scope": "Actual EF10 SQLite file consumed by EF11 complex collection; old mapping diagnostic, complex metadata, no pre-edit rewrite, duplicate/order/empty preservation, remove/edit/append with fresh reload, existing schema retained and different generated NOT NULL DDL. Not a production migration."
     }
   ],

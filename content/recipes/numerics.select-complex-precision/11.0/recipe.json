@@ -111,7 +111,7 @@
     {
       "sample": "samples/net10.0/NumericGuidance/NumericGuidance.csproj",
       "target": "net10.0",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "language": "14.0",
       "kind": "compile-and-run",
       "scope": "Both real targets rotate (4,-3) to (3,4); the newer target executes float and Decimal64 components. The nongeneric zero-divisor check records the distinct runtime special-value results. Actual managed execution; no mocks, cross-compilation or GA verification."
@@ -119,7 +119,7 @@
     {
       "sample": "samples/net11.0/NumericGuidance/NumericGuidance.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "language": "15.0",
       "kind": "compile-and-run",
       "scope": "Both real targets rotate (4,-3) to (3,4); the newer target executes float and Decimal64 components. The nongeneric zero-divisor check records the distinct runtime special-value results. Actual managed execution; no mocks, cross-compilation or GA verification."

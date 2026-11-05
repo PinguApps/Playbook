@@ -142,7 +142,7 @@
     {
       "sample": "samples/net10.0/NavigationAtlas/NavigationAtlas.csproj",
       "target": "net10.0",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "language": "14.0",
       "kind": "compile",
       "scope": "Actual target-specific Web SDK project compilation. Separate real loopback HTTP/Chromium reports verify non-root nested declarative/imperative navigation, generated base markup and fragment following. No mocks, cross-compilation or GA execution claimed."
@@ -150,7 +150,7 @@
     {
       "sample": "samples/net11.0/NavigationAtlas/NavigationAtlas.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "language": "15.0",
       "kind": "compile",
       "scope": "Actual target-specific Web SDK project compilation. Separate real loopback HTTP/Chromium reports verify non-root nested declarative/imperative navigation, generated base markup and fragment following. No mocks, cross-compilation or GA execution claimed."

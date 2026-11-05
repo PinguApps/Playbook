@@ -128,10 +128,10 @@ function Get-XmlSurface([string]$Path) {
   }))
 }
 
-Add-Type -Path (Join-Path $Net10Root 'sdk/10.0.402/System.Reflection.MetadataLoadContext.dll')
+Add-Type -Path (Join-Path $Net10Root 'sdk/10.0.403/System.Reflection.MetadataLoadContext.dll')
 $baselines = @(
-  @{ root = $Net10Root; sdk = '10.0.402'; runtime = '10.0.13'; target = 'net10.0' },
-  @{ root = $Net11Root; sdk = '11.0.100-rc.2.26504.105'; runtime = '11.0.0-rc.2.26504.105'; target = 'net11.0' }
+  @{ root = $Net10Root; sdk = '10.0.403'; runtime = '10.0.13'; target = 'net10.0' },
+  @{ root = $Net11Root; sdk = '11.0.100-rc.3.26522.148'; runtime = '11.0.0-rc.2.26504.105'; target = 'net11.0' }
 )
 $results = @()
 foreach ($baseline in $baselines) {

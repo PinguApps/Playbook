@@ -40,7 +40,7 @@ try {
   }
   foreach ($major in 10,11) {
     $directory = Join-Path $fixture "samples/net$major.0/GannetWorkshop"
-    $version = if ($major -eq 10) { '10.0.402' } else { '11.0.100-rc.2.26504.105' }
+    $version = if ($major -eq 10) { '10.0.403' } else { '11.0.100-rc.3.26522.148' }
     [IO.File]::WriteAllText((Join-Path $directory 'global.json'), (@{sdk=@{version=$version;rollForward='disable';allowPrerelease=($major -eq 11)}} | ConvertTo-Json))
     $props = if ($major -eq 11) { 'Shared/Directory.Build.props' } else { '../../net11.0/GannetWorkshop/Shared/Directory.Build.props' }
     [IO.File]::WriteAllText((Join-Path $directory 'Directory.Build.props'), '<Project><Import Project="' + $props + '" /></Project>')

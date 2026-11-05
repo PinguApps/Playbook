@@ -4,9 +4,9 @@ using System.Runtime.Loader;
 using Depot.Events;
 
 #if NET11_0
-const string sdk = "11.0.100-rc.2.26504.105";
+const string sdk = "11.0.100-rc.3.26522.148";
 #else
-const string sdk = "10.0.402";
+const string sdk = "10.0.403";
 #endif
 string sdkRoot = Path.Combine(Path.GetDirectoryName(Environment.ProcessPath)!, "sdk", sdk);
 // This reader is bound to a complete, hash-checked SDK, not a redistributable MSBuild host.

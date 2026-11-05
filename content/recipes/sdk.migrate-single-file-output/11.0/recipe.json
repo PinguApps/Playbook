@@ -117,7 +117,7 @@
       "kind": "compile-and-run",
       "sample": "samples/net10.0/DeliveryTool/DeliveryTool.csproj",
       "target": "net10.0",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "language": "14.0",
       "scope": "Actual declared build; only compile-and-run entries execute the managed assembly. Separate execution records contain runner, install and publish behavior. Windows x64, not GA or native-platform proof."
     },
@@ -126,7 +126,7 @@
       "sample": "samples/net10.0/DeliveryTool/DeliveryTool.csproj",
       "record": "samples/net10.0/DeliveryTool/commands.evidence.json",
       "target": "net10.0",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "language": "14.0",
       "scope": "Real bounded SDK commands and artifacts on Windows x64; no mocks, container deployment, mobile or GA claim."
     },
@@ -134,7 +134,7 @@
       "kind": "compile-and-run",
       "sample": "samples/net11.0/DeliveryTool/DeliveryTool.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "language": "15.0",
       "scope": "Actual declared build; only compile-and-run entries execute the managed assembly. Separate execution records contain runner, install and publish behavior. Windows x64, not GA or native-platform proof."
     },
@@ -143,7 +143,7 @@
       "sample": "samples/net11.0/DeliveryTool/DeliveryTool.csproj",
       "record": "samples/net11.0/DeliveryTool/commands.evidence.json",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "language": "15.0",
       "scope": "Real bounded SDK commands and artifacts on Windows x64; no mocks, container deployment, mobile or GA claim."
     }

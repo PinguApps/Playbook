@@ -115,7 +115,7 @@
       "language": "14.0",
       "scope": "Canonical source compilation against its declared locked EF/SDK baseline; execution is recorded separately.",
       "sample": "samples/net10.0/BrackenReads/BrackenReads.csproj",
-      "sdk": "10.0.402"
+      "sdk": "10.0.403"
     },
     {
       "target": "net11.0",
@@ -123,7 +123,7 @@
       "language": "15.0",
       "scope": "Canonical source compilation against its declared locked EF/SDK baseline; execution is recorded separately.",
       "sample": "samples/net11.0/BrackenReads/BrackenReads.csproj",
-      "sdk": "11.0.100-rc.2.26504.105"
+      "sdk": "11.0.100-rc.3.26522.148"
     },
     {
       "target": "net10.0",
@@ -131,7 +131,7 @@
       "language": "14.0",
       "scope": "Real SQL2025 concurrent insert between split commands; EF10 completed with original roots; fresh-context whole-read retry returned 10/20/30 with one card each. No isolation, other-provider or GA proof.",
       "sample": "samples/net10.0/BrackenReads/BrackenReads.csproj",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "record": "samples/net10.0/BrackenReads/race.evidence.json"
     },
     {
@@ -140,7 +140,7 @@
       "language": "15.0",
       "scope": "Real SQL2025 concurrent insert caused DbQueryConcurrencyException; failed context discarded; one whole-read retry in a fresh context returned 10/20/30 with one card each. No isolation, other-provider or GA proof.",
       "sample": "samples/net11.0/BrackenReads/BrackenReads.csproj",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "record": "samples/net11.0/BrackenReads/race.evidence.json"
     }
   ],

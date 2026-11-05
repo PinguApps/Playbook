@@ -37,7 +37,7 @@
           "sdk": {
             "version": "11.0",
             "match": "release-family",
-            "reason": "Compatible .NET 11 SDK and the selected native workload are required; sample pins SDK11 RC2.",
+            "reason": "Compatible .NET 11 SDK and the selected native workload are required; sample pins SDK11 RC3.",
             "name": ".NET SDK"
           },
           "language": {
@@ -152,7 +152,7 @@
       "sample": "samples/net10.0/BeaconBoard/BeaconBoard.csproj",
       "kind": "compile",
       "target": "net10.0-windows10.0.19041.0",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "language": "14.0",
       "scope": "Actual Release Windows compilation; no UI interaction."
     },
@@ -160,7 +160,7 @@
       "sample": "samples/net11.0/BeaconBoard/BeaconBoard.csproj",
       "kind": "official-review",
       "target": "net11.0-windows10.0.20348.0",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "language": "15.0",
       "scope": "Pinned source/artifact review only; native toolchain unavailable. No compilation or execution."
     },
@@ -168,7 +168,7 @@
       "sample": "samples/net11.0/BeaconBoardiOS/BeaconBoardiOS.csproj",
       "kind": "official-review",
       "target": "net11.0-ios27.0",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "language": "15.0",
       "scope": "Pinned source/artifact review only; native toolchain unavailable. No compilation or execution."
     }

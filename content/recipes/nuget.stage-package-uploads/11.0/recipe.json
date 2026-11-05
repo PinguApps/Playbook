@@ -57,7 +57,7 @@
           },
           "sdk": {
             "name": ".NET SDK",
-            "version": "11.0.100-rc.2.26504.105",
+            "version": "11.0.100-rc.3.26522.148",
             "match": "exact",
             "reason": "Complete SDK supplies audited NuGet8.0.0-rc.605 public API and compatible closure, compiler/ref/runtime/native-host pins."
           },
@@ -82,8 +82,8 @@
           ],
           "renderingModes": [],
           "prerequisites": [
-            "Complete SDK11.0.100-rc.2.26504.105/runtime+ref11RC2; rollForward=disable, allowPrerelease=true. Launch via the matching absolute dotnet executable.",
-            "SDK10.0.402/runtime+ref10.0.13 and C#14 reproduce the valid ordinary publication comparison. Exact file/product/hash pins and actual loaded identities are retained separately.",
+            "Complete SDK11.0.100-rc.3.26522.148/runtime+ref11RC2; rollForward=disable, allowPrerelease=true. Launch via the matching absolute dotnet executable.",
+            "SDK10.0.403/runtime+ref10.0.13 and C#14 reproduce the valid ordinary publication comparison. Exact file/product/hash pins and actual loaded identities are retained separately.",
             "Original SDK-packed library and portable-PDB snupkg; a compatible authorized provider or the disposable local protocol fixture. PowerShell7 for evidence; no account, real key, native compiler, workload, device or UI/rendering mode."
           ],
           "constraints": [
@@ -136,7 +136,7 @@
     {
       "scope": "Actual audited SDK NuGet7.9 closure, real original SDK pack/PDB contents and PackagePublish/2.0.0 network discovery/PUT multipart bytes/key/HTTP400. Staging type absent; no equivalent grouping/staging claim.",
       "language": "14.0",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "target": "net10.0",
       "sample": "samples/net10.0/FoundryPublisher/FoundryPublisher.csproj",
       "kind": "compile-and-run"
@@ -144,7 +144,7 @@
     {
       "scope": "Actual audited SDK NuGet8 closure and original nupkg/snupkg; real service-index discovery and exact endpoint/PUT/chunked multipart bytes/routes/filenames/content types; group present/null/empty, key present/absent, 201, HTTP400, distinct absent/unsupported resource, HTTP refusal, loopback/default origin guards, URI-only host/port/scheme controls, real malformed header/chunk/length cleanup, received cancellation/request-timeout. Local protocol conformance, no hosted interoperability/TLS/GA proof.",
       "language": "15.0",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "target": "net11.0",
       "sample": "samples/net11.0/FoundryPublisher/FoundryPublisher.csproj",
       "kind": "compile-and-run"

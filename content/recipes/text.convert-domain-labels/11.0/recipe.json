@@ -62,7 +62,7 @@
           "constraints": [
             "Windows x64, non-invariant system ICU (measured72.1.0.4); configure System.Globalization.Invariant=false and System.Globalization.UseNls=false. NLS/invariant/other-platform or other-data execution is unverified.",
             "Non-overlapping spans; false/zero for insufficient capacity, ArgumentException for invalid input. Ignore destination on failure. IDNA conversion is not domain authorization or spoofing prevention; AllowUnassigned=true does not guarantee acceptance.",
-            "Previous proof SDK10.0.402/C#14/ref-runtime10.0.13; current SDK11.0.100-rc.2.26504.105/C#15/ref-runtime11RC2. Exact proof pins are distinct from supported release-family prerequisites.",
+            "Previous proof SDK10.0.403/C#14/ref-runtime10.0.13; current SDK11.0.100-rc.3.26522.148/C#15/ref-runtime11RC2. Exact proof pins are distinct from supported release-family prerequisites.",
             "No NuGet packages/assets, providers, workloads, rendering modes or experimental opt-ins; no additional .NET10 foundation or optional older-target API route."
           ],
           "optIns": [],
@@ -121,7 +121,7 @@
   "evidence": [
     {
       "scope": "Real Windows system ICU Unicode/ASCII round trips, exact/short/empty destinations, malformed/disallowed labels, strict/relaxed STD3 and both AllowUnassigned choices; current span overlap rejection.",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "target": "net10.0",
       "kind": "compile-and-run",
       "sample": "samples/net10.0/OrchardRoutes/OrchardRoutes.csproj",
@@ -129,7 +129,7 @@
     },
     {
       "scope": "Real Windows system ICU Unicode/ASCII round trips, exact/short/empty destinations, malformed/disallowed labels, strict/relaxed STD3 and both AllowUnassigned choices; current span overlap rejection.",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "target": "net11.0",
       "kind": "compile-and-run",
       "sample": "samples/net11.0/OrchardRoutes/OrchardRoutes.csproj",

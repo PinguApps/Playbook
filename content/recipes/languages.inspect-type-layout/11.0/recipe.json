@@ -108,7 +108,7 @@
   ],
   "evidence": [
     {
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "language": "14.0",
       "sample": "samples/net10.0/PacketLayout/PacketLayout.csproj",
       "scope": "Read declared layout kind, packing and size from a compiler symbol when inspecting packet declarations without private symbol casts or runtime-layout assumptions.",
@@ -116,7 +116,7 @@
       "kind": "compile-and-run"
     },
     {
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "language": "15.0",
       "sample": "samples/net11.0/PacketLayout/PacketLayout.csproj",
       "scope": "Read declared layout kind, packing and size from a compiler symbol when inspecting packet declarations without private symbol casts or runtime-layout assumptions.",

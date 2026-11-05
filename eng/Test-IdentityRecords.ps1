@@ -35,7 +35,7 @@ try {
   foreach ($variant in 'net10.0','net11.0') {
     $dotnet = if ($variant -eq 'net10.0') { $Net10Dotnet } else { $Net11Dotnet }
     $baseline = @($audit.baselines | Where-Object target -CEQ $variant)[0]
-    $sdk = if ($variant -eq 'net10.0') { '10.0.402' } else { '11.0.100-rc.2.26504.105' }
+    $sdk = if ($variant -eq 'net10.0') { '10.0.403' } else { '11.0.100-rc.3.26522.148' }
     foreach ($name in $SampleNames) {
       $sample = "samples/$variant/$name/$name.csproj"
       $project = Join-Path $root $sample

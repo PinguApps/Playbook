@@ -79,7 +79,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Verified with SDK 11.0.100-rc.2.26504.105; RC2 execution is not GA verification."
+            "Verified with SDK 11.0.100-rc.3.26522.148; RC2 execution is not GA verification."
           ]
         },
         "sourceUrls": [
@@ -116,7 +116,7 @@
     {
       "sample": "samples/net10.0/Archives/Archives.csproj",
       "target": "net10.0",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "language": "14.0",
       "kind": "compile-and-run",
       "scope": "Actual .NET 10 Windows compilation/execution: plain ZIP access/replacement, stored-CRC and TAR-header corruption acceptance baseline, four TAR formats and raw sparse body. Encryption is explicitly unavailable and its stub is tested. No mocks, cross-compilation or GA proof."
@@ -124,7 +124,7 @@
     {
       "sample": "samples/net11.0/Archives/Archives.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "language": "15.0",
       "kind": "compile-and-run",
       "scope": "All four algorithms restored the original payload; wrong and missing passwords failed. Actual asynchronous AES-256 directory creation/extraction, overwrite refusal and cancelled extraction were executed. Actual Windows compilation/execution; no mocks, cross-compilation or GA proof."

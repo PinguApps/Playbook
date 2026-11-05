@@ -209,7 +209,7 @@
     {
       "target": "net10.0",
       "kind": "compile-and-run",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "sample": "samples/net10.0/ReedStation/ReedStation.csproj",
       "scope": "Actual pinned desktop compilation and execution: threading capability, deterministic score48 and caller pre-cancellation.",
       "language": "14.0"
@@ -218,7 +218,7 @@
       "kind": "execution",
       "target": "net10.0",
       "scope": "Real paired Windows/Linux threaded and Mono Chromium sequential execution: identical score48 and pre-cancellation; no scheduling in the false branch. No speedup, worker-count, in-flight browser cancellation, WASI or GA claim.",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "sample": "samples/net10.0/ReedStation/ReedStation.csproj",
       "record": "samples/net10.0/ReedStation/behavior.evidence.json",
       "language": "14.0"
@@ -226,7 +226,7 @@
     {
       "target": "net10.0",
       "kind": "compile",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "sample": "samples/net10.0/ReedStationBrowser/ReedStationBrowser.csproj",
       "scope": "Actual pinned Mono browser compilation; capability selection and sequential result/cancellation execute in the separate behavior receipt.",
       "language": "14.0"
@@ -235,7 +235,7 @@
       "kind": "execution",
       "target": "net10.0",
       "scope": "Real paired Windows/Linux threaded and Mono Chromium sequential execution: identical score48 and pre-cancellation; no scheduling in the false branch. No speedup, worker-count, in-flight browser cancellation, WASI or GA claim.",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "sample": "samples/net10.0/ReedStationBrowser/ReedStationBrowser.csproj",
       "record": "samples/net10.0/ReedStationBrowser/behavior.evidence.json",
       "language": "14.0"
@@ -243,7 +243,7 @@
     {
       "target": "net11.0",
       "kind": "compile-and-run",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "sample": "samples/net11.0/ReedStation/ReedStation.csproj",
       "scope": "Actual pinned desktop compilation and execution: threading capability, deterministic score48 and caller pre-cancellation.",
       "language": "15.0"
@@ -252,7 +252,7 @@
       "kind": "execution",
       "target": "net11.0",
       "scope": "Real paired Windows/Linux threaded and Mono Chromium sequential execution: identical score48 and pre-cancellation; no scheduling in the false branch. No speedup, worker-count, in-flight browser cancellation, WASI or GA claim.",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "sample": "samples/net11.0/ReedStation/ReedStation.csproj",
       "record": "samples/net11.0/ReedStation/behavior.evidence.json",
       "language": "15.0"
@@ -260,7 +260,7 @@
     {
       "target": "net11.0",
       "kind": "compile",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "sample": "samples/net11.0/ReedStationBrowser/ReedStationBrowser.csproj",
       "scope": "Actual pinned Mono browser compilation; capability selection and sequential result/cancellation execute in the separate behavior receipt.",
       "language": "15.0"
@@ -269,7 +269,7 @@
       "kind": "execution",
       "target": "net11.0",
       "scope": "Real paired Windows/Linux threaded and Mono Chromium sequential execution: identical score48 and pre-cancellation; no scheduling in the false branch. No speedup, worker-count, in-flight browser cancellation, WASI or GA claim.",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "sample": "samples/net11.0/ReedStationBrowser/ReedStationBrowser.csproj",
       "record": "samples/net11.0/ReedStationBrowser/behavior.evidence.json",
       "language": "15.0"

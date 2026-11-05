@@ -156,7 +156,7 @@ try
             throw new InvalidOperationException($"Expected refusal before credentials/token/push: {test.Name}: {result.Output}");
         Console.WriteLine($"PASS net{major} {test.Name}; exit={result.Exit}; tokenRequests={tokens - tokensBefore}; manifestWrites={writes - writesBefore}");
     }
-    string sdk = major == "10" ? "10.0.402" : "11.0.100-rc.2.26504.105";
+    string sdk = major == "10" ? "10.0.403" : "11.0.100-rc.3.26522.148";
     string runtime = major == "10" ? "10.0.13" : "11.0.0-rc.2.26504.105";
     foreach (string relative in new[] { $"sdk/{sdk}/dotnet.dll", $"sdk/{sdk}/MSBuild.dll",
         $"sdk/{sdk}/Containers/tasks/net{major}.0/Microsoft.NET.Build.Containers.dll", $"sdk/{sdk}/Roslyn/bincore/csc.dll",

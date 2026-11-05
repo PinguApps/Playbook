@@ -152,17 +152,17 @@
   "evidence": [
     {
       "kind": "compile-and-run",
-      "scope": "Actual SDK10.0.402/runtime10.0.13 and locked tensor10.0.13 net10 execution of the original dense three-channel normalization policy; destination values and requested metadata retained. This does not establish the new shape contract.",
+      "scope": "Actual SDK10.0.403/runtime10.0.13 and locked tensor10.0.13 net10 execution of the original dense three-channel normalization policy; destination values and requested metadata retained. This does not establish the new shape contract.",
       "sample": "samples/net10.0/InstrumentBatch/InstrumentBatch.csproj",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "language": "14.0",
       "target": "net10.0"
     },
     {
       "kind": "compile",
-      "scope": "Actual SDK11 RC2 and locked tensor11 RC2 net11 compilation of the full-release policy and shape/view/Any/native-width checks. The package lacks the release/11.0 shape backport; no successful new behavior or large/native/final-artifact execution is claimed. Final proof remains pending under PIN-962.",
+      "scope": "Actual SDK11 RC3 and locked tensor11 RC2 net11 compilation of the full-release policy and shape/view/Any/native-width checks. The package lacks the release/11.0 shape backport; no successful new behavior or large/native/final-artifact execution is claimed. Final proof remains pending under PIN-962.",
       "sample": "samples/net11.0/InstrumentBatch/InstrumentBatch.csproj",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "language": "15.0",
       "target": "net11.0"
     }

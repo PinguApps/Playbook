@@ -122,7 +122,7 @@
       "kind": "compile-and-run",
       "sample": "samples/net10.0/StationFlags/StationFlags.csproj",
       "target": "net10.0",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "language": "14.0",
       "scope": "Actual Windows x64 int-backed CAS loop contention/prior values/unrelated-bit preservation. No old generic And/Or route or multi-field transaction."
     },
@@ -130,7 +130,7 @@
       "kind": "compile-and-run",
       "sample": "samples/net11.0/StationFlags/StationFlags.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "language": "15.0",
       "scope": "Actual Windows x64 paired enum/CAS contention, prior-value chains and unrelated-bit preservation; current supported integer/enum sizes, high bits and unsupported-type rejection. No multi-field transaction, performance or GA claim."
     }

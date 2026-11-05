@@ -48,7 +48,7 @@
             "match": "release-family",
             "version": "11.0",
             "name": ".NET SDK",
-            "reason": "Build the host target; exact evidence uses SDK10 10.0.402 or SDK11 11.0.100-rc.2.26504.105."
+            "reason": "Build the host target; exact evidence uses SDK10 10.0.403 or SDK11 11.0.100-rc.3.26522.148."
           },
           "language": {
             "match": "exact",
@@ -62,20 +62,20 @@
           "packages": [
             {
               "match": "exact",
-              "version": "11.0.100-rc.2.26504.105",
+              "version": "11.0.100-rc.3.26522.148",
               "name": "Microsoft.TemplateEngine.Edge",
               "reason": "Actual inspected, restored and executed RC2 artifact, not an SDK-root assembly."
             },
             {
               "match": "exact",
-              "version": "11.0.100-rc.2.26504.105",
+              "version": "11.0.100-rc.3.26522.148",
               "name": "Microsoft.TemplateEngine.Orchestrator.RunnableProjects",
               "reason": "Actual generator component set used to instantiate the original embedded template."
             }
           ],
           "packageAssets": [
-            "TemplateEngine 11.0.100-rc.2.26504.105 lib/net11.0 selected independently for this route; NuGet 8.0.0-rc.605 uses lib/net10.0.",
-            "Historical 10.0.402 netstandard library selects lib/netstandard2.0; its actual net10 runner selects lib/net10.0. Full locks and evidence record every transitive package and hash."
+            "TemplateEngine 11.0.100-rc.3.26522.148 lib/net11.0 selected independently for this route; NuGet 8.0.0-rc.605 uses lib/net10.0.",
+            "Historical 10.0.403 netstandard library selects lib/netstandard2.0; its actual net10 runner selects lib/net10.0. Full locks and evidence record every transitive package and hash."
           ],
           "workloads": [],
           "providers": [
@@ -134,7 +134,7 @@
             "match": "release-family",
             "version": "10.0",
             "name": ".NET SDK",
-            "reason": "Build the host target; exact evidence uses SDK10 10.0.402 or SDK11 11.0.100-rc.2.26504.105."
+            "reason": "Build the host target; exact evidence uses SDK10 10.0.403 or SDK11 11.0.100-rc.3.26522.148."
           },
           "language": {
             "match": "exact",
@@ -148,20 +148,20 @@
           "packages": [
             {
               "match": "exact",
-              "version": "11.0.100-rc.2.26504.105",
+              "version": "11.0.100-rc.3.26522.148",
               "name": "Microsoft.TemplateEngine.Edge",
               "reason": "Actual inspected, restored and executed RC2 artifact, not an SDK-root assembly."
             },
             {
               "match": "exact",
-              "version": "11.0.100-rc.2.26504.105",
+              "version": "11.0.100-rc.3.26522.148",
               "name": "Microsoft.TemplateEngine.Orchestrator.RunnableProjects",
               "reason": "Actual generator component set used to instantiate the original embedded template."
             }
           ],
           "packageAssets": [
-            "TemplateEngine 11.0.100-rc.2.26504.105 lib/net10.0 selected independently for this route; NuGet 8.0.0-rc.605 uses lib/net10.0.",
-            "Historical 10.0.402 netstandard library selects lib/netstandard2.0; its actual net10 runner selects lib/net10.0. Full locks and evidence record every transitive package and hash."
+            "TemplateEngine 11.0.100-rc.3.26522.148 lib/net10.0 selected independently for this route; NuGet 8.0.0-rc.605 uses lib/net10.0.",
+            "Historical 10.0.403 netstandard library selects lib/netstandard2.0; its actual net10 runner selects lib/net10.0. Full locks and evidence record every transitive package and hash."
           ],
           "workloads": [],
           "providers": [
@@ -232,7 +232,7 @@
     {
       "sample": "samples/ArchiveTemplate/ArchiveTemplateLegacy.csproj",
       "target": "netstandard2.0",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "language": "14.0",
       "kind": "compile",
       "scope": "Actual historical netstandard host compilation plus sixteen audited ZIPs, eight old direct builds/eight strict RC2 NU1202 restores and default NU1701 fallback control."
@@ -240,7 +240,7 @@
     {
       "sample": "samples/net10.0/ArchiveTemplateRunner/ArchiveTemplateRunner.csproj",
       "target": "net10.0",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "language": "14.0",
       "kind": "compile-and-run",
       "scope": "Actual netstandard library consumed by a net10 runner, template instantiation, generated net10 application compiled/executed; runner assets independently select net10."
@@ -248,7 +248,7 @@
     {
       "sample": "samples/net10.0/ArchiveTemplateHost/ArchiveTemplateHost.csproj",
       "target": "net10.0",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "language": "14.0",
       "kind": "compile-and-run",
       "scope": "Real ordinary net10 host restores/builds/runs RC2 packages with the actual closure; instantiated net10 application also builds/runs with SDK/runtime10."
@@ -256,7 +256,7 @@
     {
       "sample": "samples/net11.0/ArchiveTemplateHost/ArchiveTemplateHost.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "language": "15.0",
       "kind": "compile-and-run",
       "scope": "Independent actual net11 host and RC2 closure instantiate the same net10 template; generated application builds/runs with SDK/runtime10."

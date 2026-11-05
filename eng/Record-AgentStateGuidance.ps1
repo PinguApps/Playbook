@@ -43,7 +43,7 @@ try {
           if ($exit -eq 0 -or $result -notmatch "CS0246.*DirectTlsEndpoint") { throw "Expected unavailable documented endpoint API, received: $result" }
           if (($before | ConvertTo-Json -Compress) -cne ((Get-EvidenceInputs $root $sample) | ConvertTo-Json -Compress)) { throw 'Inputs changed during availability check' }
           $record = [ordered]@{
-            kind='official-review'; sample=$sample; target='net11.0'; sdk='11.0.100-rc.2.26504.105'; language='15.0'
+            kind='official-review'; sample=$sample; target='net11.0'; sdk='11.0.100-rc.3.26522.148'; language='15.0'
             command="$dotnet restore $name.csproj --force-evaluate; $dotnet build $name.csproj -c Release --no-restore (expected CS0246); review pinned DirectTls documentation and exact package metadata"
             scope='Documentation-based current example; compilation attempted and blocked by absent DirectTlsEndpoint in pinned RC1. Not a successful compilation or native Linux execution record.'
             recordedAt=[DateTimeOffset]::UtcNow.ToString('O'); sourceCommit=(& 'C:/Program Files/Git/cmd/git.exe' -C $root rev-parse HEAD).Trim(); sourceDirty=$true

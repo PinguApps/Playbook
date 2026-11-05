@@ -107,7 +107,7 @@
   ],
   "evidence": [
     {
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "scope": "Real cleartext HTTP/2 peer with delayed SETTINGS: two initial HEADERS, peer limit three respected, six completions; older gate stays two; RC2 rejects zero.",
       "sample": "samples/net10.0/HttpCapacity/HttpCapacity.csproj",
       "target": "net10.0",
@@ -115,7 +115,7 @@
       "language": "14.0"
     },
     {
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "scope": "Real cleartext HTTP/2 peer with delayed SETTINGS: two initial HEADERS, peer limit three respected, six completions; older gate stays two; RC2 rejects zero.",
       "sample": "samples/net11.0/HttpCapacity/HttpCapacity.csproj",
       "target": "net11.0",

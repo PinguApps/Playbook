@@ -12,10 +12,10 @@ $artifacts = Join-Path $root 'artifacts'
 $suite = Join-Path $root 'tests/PinguApps.Playbook.Tests/bin/Release/net10.0'
 if (-not $Image) {
   $Image = if ($RuntimeMajor -eq 10) {
-    'mcr.microsoft.com/dotnet/sdk@sha256:e70cdb7f80b0348f5cb85f19a8f670fca061f033d57eed12fa003d58b0e06317'
+    'mcr.microsoft.com/dotnet/sdk@sha256:de4fe90a98845d75910b9769662465c84de1a934665c431279d1382b2bddc02b'
   }
   else {
-    'mcr.microsoft.com/dotnet/sdk@sha256:bfabf51e74c5a7cf2fc4eac852145db86f4867d475257d809518d6a2b0fe71e1'
+    'mcr.microsoft.com/dotnet/sdk@sha256:3a9175b6c54b2f076817af1360f691c9994447b192faa48a1a1f112a516844c7'
   }
 }
 $results = Join-Path $artifacts "TestResults/linux-$RuntimeMajor"

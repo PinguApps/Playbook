@@ -46,7 +46,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Actual pin 11.0.100-rc.2.26504.105; SDK CLI/template behavior is verified independently of target selection."
+            "reason": "Actual pin 11.0.100-rc.3.26522.148; SDK CLI/template behavior is verified independently of target selection."
           },
           "language": {
             "name": "C#",
@@ -123,7 +123,7 @@
       "kind": "compile",
       "sample": "samples/net10.0/QuayTokens/QuayTokens.csproj",
       "target": "net10.0",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "language": "14.0",
       "scope": "Actual canonical sample compilation only. eng/Test-WebTooling.ps1 separately executes the matching selector and signed/absent/invalid-token requests in an isolated user-secrets home. No mocks, AOT or publication."
     },
@@ -131,7 +131,7 @@
       "kind": "compile",
       "sample": "samples/net11.0/QuayTokens/quay.cs",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "language": "15.0",
       "scope": "Actual canonical sample compilation only. eng/Test-WebTooling.ps1 separately executes the matching selector and signed/absent/invalid-token requests in an isolated user-secrets home. No mocks, AOT or publication."
     }

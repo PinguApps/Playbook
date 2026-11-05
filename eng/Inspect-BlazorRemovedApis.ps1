@@ -11,8 +11,8 @@ param(
 $ErrorActionPreference = 'Stop'
 $PSNativeCommandUseErrorActionPreference = $true
 $versions = @(
-  @{ Dotnet = $Net10Dotnet; Sdk = '10.0.402'; Version = '10.0.13'; Target = 'net10.0' },
-  @{ Dotnet = $Net11Dotnet; Sdk = '11.0.100-rc.2.26504.105'; Version = '11.0.0-rc.2.26504.105'; Target = 'net11.0' }
+  @{ Dotnet = $Net10Dotnet; Sdk = '10.0.403'; Version = '10.0.13'; Target = 'net10.0' },
+  @{ Dotnet = $Net11Dotnet; Sdk = '11.0.100-rc.3.26522.148'; Version = '11.0.0-rc.2.26504.105'; Target = 'net11.0' }
 )
 $selectors = [ordered]@{
   'Microsoft.AspNetCore.Components.Routing.Router' = '^(get|set)_PreferExactMatches$'

@@ -129,7 +129,7 @@
       "language": "14.0",
       "scope": "Actual matching SDK compilation and Kestrel HTTP execution: handler and DI counters, missing/opaque Origin, token pairs, CORS policies and JSON separation. Browser-controlled Origin/Fetch Metadata proof is separately retained in docs/verification/streaming-and-form-protection.md. No older-target API backport, native/deployment or actual-GA claim.",
       "target": "net10.0",
-      "sdk": "10.0.402"
+      "sdk": "10.0.403"
     },
     {
       "sample": "samples/net11.0/SeedExchange/SeedExchange.csproj",
@@ -137,7 +137,7 @@
       "language": "15.0",
       "scope": "Actual matching SDK compilation and Kestrel HTTP execution: handler and DI counters, missing/opaque Origin, token pairs, CORS policies and JSON separation. Browser-controlled Origin/Fetch Metadata proof is separately retained in docs/verification/streaming-and-form-protection.md. No older-target API backport, native/deployment or actual-GA claim.",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.2.26504.105"
+      "sdk": "11.0.100-rc.3.26522.148"
     }
   ],
   "snippets": {

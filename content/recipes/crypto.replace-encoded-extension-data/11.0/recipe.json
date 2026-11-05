@@ -69,7 +69,7 @@
           ],
           "constraints": [
             "Measured Windows x64 CoreCLR; one Basic Constraints extension type, no network/native fixture. Other derived types and final GA are not verified.",
-            "Previous comparison: SDK10.0.402/C#14/runtime10.0.13. Current: SDK11.0.100-rc.2.26504.105/C#15/runtime11RC2. These are measured verification pins, separate from supported release-family prerequisites.",
+            "Previous comparison: SDK10.0.403/C#14/runtime10.0.13. Current: SDK11.0.100-rc.3.26522.148/C#15/runtime11RC2. These are measured verification pins, separate from supported release-family prerequisites.",
             "Framework APIs only: no NuGet dependency, workload, rendering mode, experimental opt-in, public service or production resource. Preserve eight foundations, other recipe identities and existing comprehensive/GA/Human gates."
           ],
           "optIns": [],
@@ -123,7 +123,7 @@
       "kind": "compile-and-run",
       "scope": "Measured Windows x64 CoreCLR; one Basic Constraints extension type, no network/native fixture. Other derived types and final GA are not verified.",
       "sample": "samples/net10.0/LaboratoryInspector/LaboratoryInspector.csproj",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "language": "14.0",
       "target": "net10.0"
     },
@@ -131,7 +131,7 @@
       "kind": "compile-and-run",
       "scope": "Measured Windows x64 CoreCLR; one Basic Constraints extension type, no network/native fixture. Other derived types and final GA are not verified.",
       "sample": "samples/net11.0/LaboratoryInspector/LaboratoryInspector.csproj",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "language": "15.0",
       "target": "net11.0"
     }

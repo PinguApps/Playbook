@@ -106,7 +106,7 @@ try {
       Write-EstuaryFile (Join-Path $source 'verification-evidence.json') (($recordValue|ConvertTo-Json -Depth 30)+"`n")
     }
   }
-  Save-EstuaryEvidence 'samples/EstuarySdk/RegistryFixture/RegistryFixture.csproj' '10.0.402' '14.0' 'net10.0' 'Actual Windows SDK10 helper compilation and real helper execution on the two pinned Linux container runtimes, orchestrating TLS and insecure-local challenges, original worker publication and SDK11 refusal controls. Fixture Major/prerelease roll-forward is explicit.' $helperInfo 'eng/Test-EstuaryRegistry.ps1 -Record' -ExpectedInputs $helperInputs
+  Save-EstuaryEvidence 'samples/EstuarySdk/RegistryFixture/RegistryFixture.csproj' '10.0.403' '14.0' 'net10.0' 'Actual Windows SDK10 helper compilation and real helper execution on the two pinned Linux container runtimes, orchestrating TLS and insecure-local challenges, original worker publication and SDK11 refusal controls. Fixture Major/prerelease roll-forward is explicit.' $helperInfo 'eng/Test-EstuaryRegistry.ps1 -Record' -ExpectedInputs $helperInputs
   Write-Host 'PASS: paired SDK registry realm and actual published image execution'
 } finally {
   foreach($name in $owned){$null=Invoke-RegistryDocker @('rm','--force',$name)}

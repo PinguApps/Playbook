@@ -109,7 +109,7 @@
     {
       "sample": "samples/net10.0/ConfigurationLifecycle/ConfigurationLifecycle.csproj",
       "target": "net10.0",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "language": "14.0",
       "kind": "compile-and-run",
       "scope": "Real selective input binding and application-owned serialized reload worker; success, coalescing and caught failure."
@@ -117,7 +117,7 @@
     {
       "sample": "samples/net11.0/ConfigurationLifecycle/ConfigurationLifecycle.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "language": "15.0",
       "kind": "compile-and-run",
       "scope": "Real ignored property and serialized Func<Task> callbacks, coalescing, caught async failure, synchronous propagation and completion after disposal."

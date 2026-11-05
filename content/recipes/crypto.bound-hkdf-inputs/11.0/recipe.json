@@ -65,7 +65,7 @@
           "renderingModes": [],
           "workloads": [],
           "prerequisites": [
-            "Previous comparison SDK10.0.402/C#14/runtime-reference10.0.13; current SDK11.0.100-rc.2.26504.105/C#15/runtime-reference11RC2. Evidence values describe actual observations except explicitly intended source-only pins."
+            "Previous comparison SDK10.0.403/C#14/runtime-reference10.0.13; current SDK11.0.100-rc.3.26522.148/C#15/runtime-reference11RC2. Evidence values describe actual observations except explicitly intended source-only pins."
           ],
           "constraints": [
             "Executed Windows x64 build26200, bcrypt10.0.26100.1, SHA-256 only: raw and canonical IKM/PRK 2048/2049, independent HMAC outputs, RFC5869 vector and preserved inputs; no all-hash/all-Windows or final-GA claim.",
@@ -107,7 +107,7 @@
       "kind": "compile-and-run",
       "sample": "samples/net10.0/TelemetryKeys/TelemetryKeys.csproj",
       "target": "net10.0",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "language": "14.0",
       "scope": "Executed Windows x64 build26200, bcrypt10.0.26100.1, SHA-256 only: raw and canonical IKM/PRK 2048/2049, independent HMAC outputs, RFC5869 vector and preserved inputs; no all-hash/all-Windows or final-GA claim."
     },
@@ -115,7 +115,7 @@
       "kind": "compile-and-run",
       "sample": "samples/net11.0/TelemetryKeys/TelemetryKeys.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "language": "15.0",
       "scope": "Executed Windows x64 build26200, bcrypt10.0.26100.1, SHA-256 only: raw and canonical IKM/PRK 2048/2049, independent HMAC outputs, RFC5869 vector and preserved inputs; no all-hash/all-Windows or final-GA claim."
     }

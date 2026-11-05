@@ -134,7 +134,7 @@ try {
   foreach ($case in @(
     @{ Path = 'samples/net10.0/RepositoryUtility/slots.cs'; From = 'TargetFramework=net10.0'; To = 'TargetFramework=net11.0'; Error = 'Stale compilation evidence' },
     @{ Path = 'samples/net10.0/RepositoryUtility/slots.cs'; From = 'slots={total}'; To = 'racks={total}'; Error = 'Stale compilation evidence' },
-    @{ Path = 'samples/net10.0/PropertyAssignment/global.json'; From = '10.0.402'; To = '10.0.403'; Error = 'Evidence baseline disagrees' },
+    @{ Path = 'samples/net10.0/PropertyAssignment/global.json'; From = '10.0.403'; To = '10.0.403'; Error = 'Evidence baseline disagrees' },
     @{ Path = 'samples/net10.0/PropertyAssignment/PropertyAssignment.csproj'; From = 'net10.0'; To = 'net11.0'; Error = 'Evidence baseline disagrees' },
     @{ Path = 'samples/Directory.Packages.props'; From = '</Project>'; To = '<ItemGroup><PackageVersion Include="Fixture.Dependency" Version="2.0.0" /></ItemGroup></Project>'; Error = 'Stale compilation evidence' },
     @{ Path = 'samples/net10.0/PropertyAssignment/verification.json'; From = '"nativeToolchains": []'; To = '"nativeToolchains": ["Fixture.Native/2.0"]'; Error = 'Stale compilation evidence' }

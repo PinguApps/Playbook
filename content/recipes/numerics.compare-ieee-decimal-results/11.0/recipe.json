@@ -149,7 +149,7 @@
   "evidence": [
     {
       "language": "14.0",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "scope": "Actual .NET10 Math/double bounded leading-term comparison, unacceptable drift and nonfinite rejection, overflow fail-closed regression and shared reversible versioned proposal checks. Different representation from IEEE decimal; no decimal emulation or GA claim.",
       "kind": "compile-and-run",
       "sample": "samples/net10.0/ObservatoryResults/ObservatoryResults.csproj",
@@ -157,7 +157,7 @@
     },
     {
       "language": "15.0",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "scope": "Actual .NET11RC2 cancellation-sensitive independent bound, alternate decimal input representations, Decimal32/64 ordinary controls, explicit-base Log, signed zero/nonfinite policy, stale-RC1 rejection, overflow fail-closed regression and reversible versioned proposal checks. Actual RC1 execution compares the same compiled consumer using the pinned RC1 runtime; no RC1 compilation or GA claim.",
       "kind": "compile-and-run",
       "sample": "samples/net11.0/ObservatoryResults/ObservatoryResults.csproj",

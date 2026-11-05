@@ -11,7 +11,7 @@ $work = Join-Path $root ('artifacts/passkey-template-' + [guid]::NewGuid().ToStr
 New-Item -ItemType Directory -Path $work | Out-Null
 try {
   $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH = '0'
-  $sdk = '11.0.100-rc.2.26504.105'
+  $sdk = '11.0.100-rc.3.26522.148'
   $runtime = '11.0.0-rc.2.26504.105'
   $inventory = & $Dotnet --list-sdks
   $line = @($inventory | Where-Object { $_ -match ('^' + [regex]::Escape($sdk) + ' \[') })

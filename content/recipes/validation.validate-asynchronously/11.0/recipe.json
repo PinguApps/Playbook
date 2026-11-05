@@ -116,7 +116,7 @@
     {
       "sample": "samples/net10.0/ValidationRules/ValidationRules.csproj",
       "target": "net10.0",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "language": "14.0",
       "kind": "compile-and-run",
       "scope": "Actual previous-release comparison: Actual awaited acceptance/rejection, synchronous Required, propagated rule failure/cancellation and culture flow."
@@ -124,7 +124,7 @@
     {
       "sample": "samples/net11.0/ValidationRules/ValidationRules.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "language": "15.0",
       "kind": "compile-and-run",
       "scope": "Actual awaited acceptance/rejection, synchronous Required, propagated rule failure/cancellation and culture flow; six async Validator families and IAsyncValidatableObject in RC2."

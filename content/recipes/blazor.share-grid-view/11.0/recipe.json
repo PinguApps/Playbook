@@ -76,7 +76,7 @@
             "Static SSR; interactive"
           ],
           "prerequisites": [
-            "Use net11.0, matching ASP.NET Core 11 runtime/reference/browser assets, Microsoft.NET.Sdk.Web, and a compatible Microsoft.AspNetCore.Components.QuickGrid 11 package. Canonical pins: SDK 11.0.100-rc.2.26504.105; QuickGrid/Internal.Assets 11.0.0-rc.2.26504.105; C# 15.0.",
+            "Use net11.0, matching ASP.NET Core 11 runtime/reference/browser assets, Microsoft.NET.Sdk.Web, and a compatible Microsoft.AspNetCore.Components.QuickGrid 11 package. Canonical pins: SDK 11.0.100-rc.3.26522.148; QuickGrid/Internal.Assets 11.0.0-rc.2.26504.105; C# 15.0.",
             "No optional workloads, external provider, database, native SDK or account. Items is an in-memory IQueryable in this example. Enable Interactive Server only for /interactive; /static works without a circuit.",
             "The QuickGrid package must supply lib/net11.0/Microsoft.AspNetCore.Components.QuickGrid.dll and its static web assets; Web SDK Internal.Assets supplies the matching framework browser runtime."
           ],
@@ -129,7 +129,7 @@
     {
       "sample": "samples/net10.0/WorkshopViews/WorkshopViews.csproj",
       "target": "net10.0",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "kind": "compile",
       "scope": "Actual declared Web SDK and QuickGrid consumer compilation. Separate real HTTP and Chromium evidence covers two-grid bookmarks, independent paging/sorting, stable keys across visible heading changes, query retention, history and disabled anchor markup/CSS.",
       "language": "14.0"
@@ -137,7 +137,7 @@
     {
       "sample": "samples/net11.0/WorkshopViews/WorkshopViews.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "kind": "compile",
       "scope": "Actual declared Web SDK and QuickGrid consumer compilation. Separate real HTTP and Chromium evidence covers two-grid bookmarks, independent paging/sorting, stable keys across visible heading changes, query retention, history and disabled anchor markup/CSS.",
       "language": "15.0"

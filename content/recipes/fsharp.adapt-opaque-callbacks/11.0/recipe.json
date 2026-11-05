@@ -112,7 +112,7 @@
   ],
   "evidence": [
     {
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "language": "10.0",
       "sample": "samples/net10.0/SeedFold/SeedFold.fsproj",
       "scope": "Adapt a supplied curried callback once before an inline batch loop when it is not a known lambda, preserving results, effects and exception propagation.",
@@ -120,7 +120,7 @@
       "kind": "compile-and-run"
     },
     {
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "language": "10.0",
       "sample": "samples/net10.0/SeedFoldLibrary/SeedFoldLibrary.fsproj",
       "scope": "Adapt a supplied curried callback once before an inline batch loop when it is not a known lambda, preserving results, effects and exception propagation.",
@@ -128,7 +128,7 @@
       "kind": "compile"
     },
     {
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "language": "11.0",
       "sample": "samples/net11.0/SeedFold/SeedFold.fsproj",
       "scope": "Adapt a supplied curried callback once before an inline batch loop when it is not a known lambda, preserving results, effects and exception propagation.",
@@ -136,7 +136,7 @@
       "kind": "compile-and-run"
     },
     {
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "language": "11.0",
       "sample": "samples/net11.0/SeedFoldLibrary/SeedFoldLibrary.fsproj",
       "scope": "Adapt a supplied curried callback once before an inline batch loop when it is not a known lambda, preserving results, effects and exception propagation.",
@@ -144,7 +144,7 @@
       "kind": "compile"
     },
     {
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "language": "11.0",
       "sample": "samples/net11.0/SeedFold/SeedFold.fsproj",
       "scope": "Actual optimized IL: one Adapt before the opaque loop, no InvokeFast there, repeated InvokeFast in the control, no Adapt for literal; FS3350/FS3916 and newer compiler F#8-mode imported metadata execution.",

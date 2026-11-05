@@ -153,7 +153,7 @@
     {
       "sample": "samples/net10.0/CanalPermits/CanalPermits.csproj",
       "target": "net10.0",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "language": "14.0",
       "kind": "compile-and-run",
       "scope": "Actual Windows x64 native system SQLite initialization, parameterized permit debit, committed transaction, file reopen, refusal of a password, loaded native path/version/SHA256 and cleanup. No mocks or cross-compilation."
@@ -161,7 +161,7 @@
     {
       "sample": "samples/net11.0/CanalPermits/CanalPermits.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "language": "15.0",
       "kind": "compile-and-run",
       "scope": "Actual Windows x64 native system SQLite initialization, parameterized permit debit, committed transaction, file reopen, refusal of a password, loaded native path/version/SHA256 and cleanup. No mocks or cross-compilation."
@@ -169,7 +169,7 @@
     {
       "sample": "samples/net11.0/CanalPermits/CanalPermits.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "language": "15.0",
       "kind": "execution",
       "scope": "Fresh-process real Core11/provider3 consumer with initialization omitted fails with SQLitePCLRaw SetProvider diagnostic. Exact compiled consumer; not a mock.",

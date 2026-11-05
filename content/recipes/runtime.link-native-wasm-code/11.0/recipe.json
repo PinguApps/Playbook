@@ -74,7 +74,7 @@
             }
           ],
           "prerequisites": [
-            "Intended SDK11.0.100-rc.2.26504.105/runtime11.0.0-rc.2.26504.105, C#15 and Emscripten6.0.2; matching assets unavailable, not measured.",
+            "Intended SDK11.0.100-rc.3.26522.148/runtime11.0.0-rc.2.26504.105, C#15 and Emscripten6.0.2; matching assets unavailable, not measured.",
             "Qualify the actual CoreCLR relink targets/imports, native archive ABI and JS host before building; no automatic installation or PATH integration."
           ],
           "constraints": [
@@ -131,7 +131,7 @@
       "kind": "compile-and-run",
       "sample": "samples/net10.0/ShoreCalibration/ShoreCalibration.csproj",
       "target": "net10.0",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "language": "14.0",
       "scope": "Actual Windows managed arithmetic comparison only; no native/WASM claim."
     },
@@ -139,7 +139,7 @@
       "kind": "official-review",
       "sample": "samples/net11.0/ShoreCalibration/ShoreCalibration.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "language": "15.0",
       "scope": "Experimental CoreCLR browser-wasm route: exact .NET11RC2 official SDK/relink sources reviewed, Emscripten6.0.2 intended. Current native compilation/relink/browser invocation not-tested: matching packs/toolchain unavailable; existing Mono labels/assets are insufficient."
     }

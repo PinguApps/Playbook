@@ -110,7 +110,7 @@
     {
       "scope": "Actual in-memory native SQLite, deterministic two-group summaries including tied positions; EF11 generated SQL contains ordered group_concat. EF10 materializes rows before local grouping. Windows x64 only; no GA claim.",
       "language": "14.0",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "kind": "compile-and-run",
       "sample": "samples/net10.0/HarbourLabels/HarbourLabels.csproj",
       "target": "net10.0"
@@ -118,7 +118,7 @@
     {
       "scope": "Actual in-memory native SQLite, deterministic two-group summaries including tied positions; EF11 generated SQL contains ordered group_concat. EF10 materializes rows before local grouping. Windows x64 only; no GA claim.",
       "language": "15.0",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "kind": "compile-and-run",
       "sample": "samples/net11.0/HarbourLabels/HarbourLabels.csproj",
       "target": "net11.0"

@@ -50,7 +50,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Build the net11.0 consumer; measured SDK 11.0.100-rc.2.26504.105 is RC2 evidence, not GA proof."
+            "reason": "Build the net11.0 consumer; measured SDK 11.0.100-rc.3.26522.148 is RC2 evidence, not GA proof."
           },
           "language": {
             "name": "C#",
@@ -76,7 +76,7 @@
             }
           ],
           "packageAssets": [
-            "Exact independently locked SQL Server/SQLite graphs; Current supported route: .NET/SDK11, C#15 and matching EF11 packages. Measured SDK11.0.100-rc.2.26504.105, EF11.0.0-rc.2.26504.105 versus SDK10.0.402, C#14, runtime10.0.13 and EF10.0.13. Stable API shapes on RC2 are not GA proof. EF11/Core/Relational select net11.0; direct Sqlite11 selects net10.0. EF10 selects net10.0 and direct Sqlite10 net8.0. SQL Server provider uses SqlClient6.1.7 versus7.1.0; locked graphs pin Pkcs10.0.13. Windows x64 native SQLite3.53.3/SQLitePCLRaw2.1.13 versus3.53.4/3.0.5. Both native hashes/source IDs are recorded. No older-runtime EF11 route, new .NET10 foundation, encryption, other OS/provider, Cosmos transaction or GA claim. No workload, rendering mode or experimental opt-in applies."
+            "Exact independently locked SQL Server/SQLite graphs; Current supported route: .NET/SDK11, C#15 and matching EF11 packages. Measured SDK11.0.100-rc.3.26522.148, EF11.0.0-rc.2.26504.105 versus SDK10.0.403, C#14, runtime10.0.13 and EF10.0.13. Stable API shapes on RC2 are not GA proof. EF11/Core/Relational select net11.0; direct Sqlite11 selects net10.0. EF10 selects net10.0 and direct Sqlite10 net8.0. SQL Server provider uses SqlClient6.1.7 versus7.1.0; locked graphs pin Pkcs10.0.13. Windows x64 native SQLite3.53.3/SQLitePCLRaw2.1.13 versus3.53.4/3.0.5. Both native hashes/source IDs are recorded. No older-runtime EF11 route, new .NET10 foundation, encryption, other OS/provider, Cosmos transaction or GA claim. No workload, rendering mode or experimental opt-in applies."
           ],
           "providers": [
             "Isolated SQL Server2025 17.0.5035.5, compatibility170; Windows x64 bundled SQLite3.53.3/3.53.4"
@@ -90,7 +90,7 @@
           ],
           "constraints": [
             "EF10 TranslateParameterizedCollectionsToConstants maps to UseParameterizedCollectionMode(Constant); TranslateParameterizedCollectionsToParameters maps to Parameter. MultipleParameters is a distinct mode and already exists in EF10. EF11 removes the two helpers. SQL Server executes seeded Contains queries, constants and EF.Parameter overrides with identical IDs. Constant produces IN (1, 3), Parameter uses OPENJSON and one JSON parameter, MultipleParameters uses scalar parameters. OPENJSON requires SQL compatibility130+. Measured SQL2025 uses compatibility170. Each mode uses a separate internal service provider to avoid reusing a previously compiled query shape across option changes in the same process. This isolated comparison proves those configurations; dynamically changing mode on shared cached services is not established. Query-level EF.Constant/EF.Parameter overrides are checked. Parameter padding, query plans, speed and arbitrary providers are not promised.",
-            "Current supported route: .NET/SDK11, C#15 and matching EF11 packages. Measured SDK11.0.100-rc.2.26504.105, EF11.0.0-rc.2.26504.105 versus SDK10.0.402, C#14, runtime10.0.13 and EF10.0.13. Stable API shapes on RC2 are not GA proof. EF11/Core/Relational select net11.0; direct Sqlite11 selects net10.0. EF10 selects net10.0 and direct Sqlite10 net8.0. SQL Server provider uses SqlClient6.1.7 versus7.1.0; locked graphs pin Pkcs10.0.13. Windows x64 native SQLite3.53.3/SQLitePCLRaw2.1.13 versus3.53.4/3.0.5. Both native hashes/source IDs are recorded. No older-runtime EF11 route, new .NET10 foundation, encryption, other OS/provider, Cosmos transaction or GA claim. No workload, rendering mode or experimental opt-in applies."
+            "Current supported route: .NET/SDK11, C#15 and matching EF11 packages. Measured SDK11.0.100-rc.3.26522.148, EF11.0.0-rc.2.26504.105 versus SDK10.0.403, C#14, runtime10.0.13 and EF10.0.13. Stable API shapes on RC2 are not GA proof. EF11/Core/Relational select net11.0; direct Sqlite11 selects net10.0. EF10 selects net10.0 and direct Sqlite10 net8.0. SQL Server provider uses SqlClient6.1.7 versus7.1.0; locked graphs pin Pkcs10.0.13. Windows x64 native SQLite3.53.3/SQLitePCLRaw2.1.13 versus3.53.4/3.0.5. Both native hashes/source IDs are recorded. No older-runtime EF11 route, new .NET10 foundation, encryption, other OS/provider, Cosmos transaction or GA claim. No workload, rendering mode or experimental opt-in applies."
           ],
           "prerequisites": [
             "PowerShell7, both pinned SDKs, running approved local SQL2025 Docker route and NuGet restore. Use eng/Test-AlderQueries.ps1; it injects credentials only in the child environment. Never print credentials. Copy the complete independent projects. Restore before offline execution."
@@ -127,7 +127,7 @@
       "sample": "samples/net10.0/AlderQueries/AlderQueries.csproj",
       "kind": "compile",
       "scope": "Run eng/Test-AlderQueries.ps1 -Record with the approved SQL2025 Docker route. It compiles both independent locked graphs, records fresh input hashes/dependencies/SDK/runtime, creates unique restricted databases, runs real SQL and native SQLite checks, and removes owned databases/logins in finally. behavior.evidence.json retains SQL, parameter values, runtime checks and compile-only diagnostics. verification-evidence.json retains compilation. Never execute DiagnosticProbe: it deliberately contains insecure compiler controls. Actual installed offline stdio inspection separately verifies discovery, full canonical body, target11/edition11, applicability and evidence. Unusable retrieval proxies prove proxy independence, not OS network isolation. PIN-959/PIN-965 and existing Human gates remain open.",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "target": "net10.0"
     },
     {
@@ -135,7 +135,7 @@
       "sample": "samples/net11.0/AlderQueries/AlderQueries.csproj",
       "kind": "compile",
       "scope": "Run eng/Test-AlderQueries.ps1 -Record with the approved SQL2025 Docker route. It compiles both independent locked graphs, records fresh input hashes/dependencies/SDK/runtime, creates unique restricted databases, runs real SQL and native SQLite checks, and removes owned databases/logins in finally. behavior.evidence.json retains SQL, parameter values, runtime checks and compile-only diagnostics. verification-evidence.json retains compilation. Never execute DiagnosticProbe: it deliberately contains insecure compiler controls. Actual installed offline stdio inspection separately verifies discovery, full canonical body, target11/edition11, applicability and evidence. Unusable retrieval proxies prove proxy independence, not OS network isolation. PIN-959/PIN-965 and existing Human gates remain open.",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "target": "net11.0"
     },
     {
@@ -143,7 +143,7 @@
       "sample": "samples/net10.0/AlderQueries/AlderQueries.csproj",
       "kind": "execution",
       "scope": "Run eng/Test-AlderQueries.ps1 -Record with the approved SQL2025 Docker route. It compiles both independent locked graphs, records fresh input hashes/dependencies/SDK/runtime, creates unique restricted databases, runs real SQL and native SQLite checks, and removes owned databases/logins in finally. behavior.evidence.json retains SQL, parameter values, runtime checks and compile-only diagnostics. verification-evidence.json retains compilation. Never execute DiagnosticProbe: it deliberately contains insecure compiler controls. Actual installed offline stdio inspection separately verifies discovery, full canonical body, target11/edition11, applicability and evidence. Unusable retrieval proxies prove proxy independence, not OS network isolation. PIN-959/PIN-965 and existing Human gates remain open.",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "target": "net10.0",
       "record": "samples/net10.0/AlderQueries/behavior.evidence.json"
     },
@@ -152,7 +152,7 @@
       "sample": "samples/net11.0/AlderQueries/AlderQueries.csproj",
       "kind": "execution",
       "scope": "Run eng/Test-AlderQueries.ps1 -Record with the approved SQL2025 Docker route. It compiles both independent locked graphs, records fresh input hashes/dependencies/SDK/runtime, creates unique restricted databases, runs real SQL and native SQLite checks, and removes owned databases/logins in finally. behavior.evidence.json retains SQL, parameter values, runtime checks and compile-only diagnostics. verification-evidence.json retains compilation. Never execute DiagnosticProbe: it deliberately contains insecure compiler controls. Actual installed offline stdio inspection separately verifies discovery, full canonical body, target11/edition11, applicability and evidence. Unusable retrieval proxies prove proxy independence, not OS network isolation. PIN-959/PIN-965 and existing Human gates remain open.",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "target": "net11.0",
       "record": "samples/net11.0/AlderQueries/behavior.evidence.json"
     }

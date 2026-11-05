@@ -26,7 +26,7 @@ try {
     Write-Host 'Pack --no-build rejected incomplete content.'
     $narrative | Set-Content (Join-Path $edition 'recipe.md') -NoNewline
     $recipe = ConvertFrom-Json $original -AsHashtable
-    $recipe.applicability.routes[0].requirements.sdk = '10.0.402 (verification baseline)'
+    $recipe.applicability.routes[0].requirements.sdk = '10.0.403 (verification baseline)'
     $recipe | ConvertTo-Json -Depth 30 | Set-Content (Join-Path $edition 'recipe.json')
     $result = & $Dotnet @packArgs 2>&1 | Out-String
     if ($LASTEXITCODE -eq 0 -or $result -notlike '*Invalid recipe metadata*') { throw "Pack accepted an ambiguous requirement: $result" }
@@ -58,8 +58,8 @@ try {
     @{ Name = 'missing selection declaration'; Change = { $recipe.applicability.routes[0].Remove('selectionNotes') }; Error = 'Invalid recipe metadata' },
     @{ Name = 'missing source reference'; Change = { $recipe.applicability.routes[0].sourceUrls = @('https://example.invalid/missing') }; Error = 'Route source' },
     @{ Name = 'missing experimental disclosure'; Change = { $recipe.stability = 'experimental' }; Error = 'Experimental routes require' },
-    @{ Name = 'prose baseline as requirement'; Change = { $recipe.applicability.routes[0].requirements.sdk = '10.0.402 (verification baseline)' }; Error = 'Invalid recipe metadata' },
-    @{ Name = 'test pin as release family'; Change = { $recipe.applicability.routes[0].requirements.sdk.version = '10.0.402' }; Error = 'Release-family requirements use major.minor only' },
+    @{ Name = 'prose baseline as requirement'; Change = { $recipe.applicability.routes[0].requirements.sdk = '10.0.403 (verification baseline)' }; Error = 'Invalid recipe metadata' },
+    @{ Name = 'test pin as release family'; Change = { $recipe.applicability.routes[0].requirements.sdk.version = '10.0.403' }; Error = 'Release-family requirements use major.minor only' },
     @{ Name = 'unsupported exact SDK'; Change = { $recipe.applicability.routes[0].requirements.sdk.match = 'exact'; $recipe.applicability.routes[0].requirements.sdk.version = '10.0.100' }; Error = 'Route sdk requirement contradicts' },
     @{ Name = 'source falsely labelled neutral'; Change = { $recipe.languageNeutral = $true; $recipe.exampleLanguages = @(); $recipe.applicability.routes[0].neutralLanguages = @('fsharp') }; Error = 'Language-neutral recipes require configuration snippets' },
     @{ Name = 'neutral languages on programming recipe'; Change = { $recipe.applicability.routes[0].neutralLanguages = @('fsharp') }; Error = 'Only language-neutral recipes require explicit neutralLanguages' },

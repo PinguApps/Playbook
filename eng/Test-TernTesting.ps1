@@ -57,9 +57,9 @@ function Write-Lf([string]$Path,[string]$Content) { [IO.File]::WriteAllText($Pat
 
 try {
   $cases = @(
-    @{Path='TernTesting';Target='net10.0';Sdk='10.0.402';Language='14.0';Version='18.7.0';Dotnet=$Net10Dotnet},
-    @{Path='net10.0/TernHost';Target='net10.0';Sdk='10.0.402';Language='14.0';Version='18.11.0';Dotnet=$Net10Dotnet},
-    @{Path='net11.0/TernHost';Target='net11.0';Sdk='11.0.100-rc.2.26504.105';Language='15.0';Version='18.11.0';Dotnet=$Net11Dotnet}
+    @{Path='TernTesting';Target='net10.0';Sdk='10.0.403';Language='14.0';Version='18.7.0';Dotnet=$Net10Dotnet},
+    @{Path='net10.0/TernHost';Target='net10.0';Sdk='10.0.403';Language='14.0';Version='18.11.0';Dotnet=$Net10Dotnet},
+    @{Path='net11.0/TernHost';Target='net11.0';Sdk='11.0.100-rc.3.26522.148';Language='15.0';Version='18.11.0';Dotnet=$Net11Dotnet}
   )
   foreach ($case in $cases) {
     $directory = Join-Path $root "samples/$($case.Path)"

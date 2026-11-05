@@ -52,7 +52,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Actual sample SDK 10.0.402 and SDK 11.0.100-rc.2.26504.105; compiler versions recorded by executing their real csc.dll."
+            "reason": "Actual sample SDK 10.0.403 and SDK 11.0.100-rc.3.26522.148; compiler versions recorded by executing their real csc.dll."
           },
           "language": {
             "name": "C#",
@@ -139,7 +139,7 @@
             "name": ".NET SDK",
             "version": "10.0",
             "match": "release-family",
-            "reason": "Actual sample SDK 10.0.402 and SDK 11.0.100-rc.2.26504.105; compiler versions recorded by executing their real csc.dll."
+            "reason": "Actual sample SDK 10.0.403 and SDK 11.0.100-rc.3.26522.148; compiler versions recorded by executing their real csc.dll."
           },
           "language": {
             "name": "C#",
@@ -234,7 +234,7 @@
     {
       "kind": "compile-and-run",
       "sample": "samples/LaboratoryMessages/LaboratoryBridge.csproj",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "scope": "Actual audited 18.7/18.11 advanced-host closures, independent framework-dependent deployments, typed laboratory platform graphs, protocol 1/2 foreign wires, null/malformed/header/version failures, every removed public symbol, retained serializer operations and a real old-binary/new-platform ABI control. Concrete statistics limitation retained.",
       "target": "net10.0",
       "language": "14.0"
@@ -242,7 +242,7 @@
     {
       "kind": "compile-and-run",
       "sample": "samples/net10.0/LaboratoryBridge/LaboratoryBridge.csproj",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "scope": "Actual audited 18.7/18.11 advanced-host closures, independent framework-dependent deployments, typed laboratory platform graphs, protocol 1/2 foreign wires, null/malformed/header/version failures, every removed public symbol, retained serializer operations and a real old-binary/new-platform ABI control. Concrete statistics limitation retained.",
       "target": "net10.0",
       "language": "14.0"
@@ -250,7 +250,7 @@
     {
       "kind": "compile-and-run",
       "sample": "samples/net11.0/LaboratoryBridge/LaboratoryBridge.csproj",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "scope": "Actual audited 18.7/18.11 advanced-host closures, independent framework-dependent deployments, typed laboratory platform graphs, protocol 1/2 foreign wires, null/malformed/header/version failures, every removed public symbol, retained serializer operations and a real old-binary/new-platform ABI control. Concrete statistics limitation retained.",
       "target": "net11.0",
       "language": "15.0"

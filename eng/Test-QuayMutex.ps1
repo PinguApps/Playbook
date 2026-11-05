@@ -18,9 +18,9 @@ try {
   $log.Add("RUNTIME_ARCHIVE=$version;sha256=$((Get-FileHash $file).Hash)")
  }
  try {
-  $image=(Invoke-Estuary $Docker $root @('image','inspect','mcr.microsoft.com/dotnet/sdk:10.0.402','--format','{{.Id}}')).Trim()
+  $image=(Invoke-Estuary $Docker $root @('image','inspect','mcr.microsoft.com/dotnet/sdk:10.0.403','--format','{{.Id}}')).Trim()
  } catch {
-  throw "Required local Docker image mcr.microsoft.com/dotnet/sdk:10.0.402 is unavailable. Fetch it first with '$Docker' pull mcr.microsoft.com/dotnet/sdk:10.0.402. $($_.Exception.Message)"
+  throw "Required local Docker image mcr.microsoft.com/dotnet/sdk:10.0.403 is unavailable. Fetch it first with '$Docker' pull mcr.microsoft.com/dotnet/sdk:10.0.403. $($_.Exception.Message)"
  }
  $log.Add("DOCKER_IMAGE=$image")
  $null=Invoke-Estuary $Docker $root @('run','--detach','--name',$container,'--network','none','--mount',"type=bind,source=$root,target=/src,readonly",'--mount',"type=bind,source=$scratch,target=/proof,readonly",$image,'sleep','600')
@@ -29,7 +29,7 @@ try {
  $null=Invoke-Estuary $Docker $root @('exec',$container,'sh','-ec',$setup)
  foreach($major in '10','11'){
   $dotnet=if($major -eq '10'){$Net10Dotnet}else{$Net11Dotnet}
-  $sdk=if($major -eq '10'){'10.0.402'}else{'11.0.100-rc.2.26504.105'}
+  $sdk=if($major -eq '10'){'10.0.403'}else{'11.0.100-rc.3.26522.148'}
   $lang=if($major -eq '10'){'14.0'}else{'15.0'}
   $sample="samples/net$major.0/QuayMutex/QuayMutex.csproj"
   $directory=Split-Path (Join-Path $root $sample)

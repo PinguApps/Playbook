@@ -141,17 +141,17 @@
   "evidence": [
     {
       "kind": "compile-and-run",
-      "scope": "Actual SDK10.0.402/runtime10.0.13/locked tensor10.0.13 net10 execution: original grid snapshots, independent output, both-input snapshots, intended logical values and Try capacity/shape false without writes. No new storage contract claimed.",
+      "scope": "Actual SDK10.0.403/runtime10.0.13/locked tensor10.0.13 net10 execution: original grid snapshots, independent output, both-input snapshots, intended logical values and Try capacity/shape false without writes. No new storage contract claimed.",
       "sample": "samples/net10.0/GridTransform/GridTransform.csproj",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "language": "14.0",
       "target": "net10.0"
     },
     {
       "kind": "compile",
-      "scope": "Actual SDK11 RC2/locked tensor11RC2 net11 compilation of complete expected-release storage checks, plus bounded --policy-only execution of ownership and Try false controls. No successful current layout rejection, permitted-overlap or Array/covariance execution; final proof pending under PIN-962.",
+      "scope": "Actual SDK11 RC3/locked tensor11RC2 net11 compilation of complete expected-release storage checks, plus bounded --policy-only execution of ownership and Try false controls. No successful current layout rejection, permitted-overlap or Array/covariance execution; final proof pending under PIN-962.",
       "sample": "samples/net11.0/GridTransform/GridTransform.csproj",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "language": "15.0",
       "target": "net11.0"
     }

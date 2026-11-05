@@ -50,7 +50,7 @@ try {
   $observations | Select-Object -Last 3 | Write-Host
 
   # Direct compiler probes use actual Core and reference assemblies, not generated shims.
-  $sdkRoot = Join-Path (Split-Path $Net11Dotnet) 'sdk/11.0.100-rc.2.26504.105'
+  $sdkRoot = Join-Path (Split-Path $Net11Dotnet) 'sdk/11.0.100-rc.3.26522.148'
   $refs = @(Get-ChildItem (Join-Path (Split-Path $Net11Dotnet) 'packs/Microsoft.NETCore.App.Ref/11.0.0-rc.2.26504.105/ref/net11.0') -Filter '*.dll' | ForEach-Object { '-r:' + $_.FullName })
   $core = Join-Path $root 'samples/net11.0/SeedFold/bin/Release/net11.0/FSharp.Core.dll'
   $baseArgs = @((Join-Path $sdkRoot 'FSharp/fsc.dll'), '--target:library', '--targetprofile:netcore', '--noframework', '--simpleresolution', '--optimize+', "-r:$core") + $refs
@@ -74,7 +74,7 @@ try {
   # The two new Roslyn surfaces are unavailable in the actual older package set.
   $oldRoot = Split-Path $Net10Dotnet
   $oldRefs = @(Get-ChildItem (Join-Path $oldRoot 'packs/Microsoft.NETCore.App.Ref/10.0.13/ref/net10.0') -Filter '*.dll' | ForEach-Object { '-r:' + $_.FullName })
-  $oldCompiler = Join-Path $oldRoot 'sdk/10.0.402/Roslyn/bincore/csc.dll'
+  $oldCompiler = Join-Path $oldRoot 'sdk/10.0.403/Roslyn/bincore/csc.dll'
   $oldAssets = Join-Path $root 'samples/net10.0/ReadingConversions/bin/Release/net10.0'
   $roslynRefs = @('Microsoft.CodeAnalysis','Microsoft.CodeAnalysis.CSharp','Microsoft.CodeAnalysis.VisualBasic') | ForEach-Object { '-r:' + (Join-Path $oldAssets "$_.dll") }
   $missing = Join-Path $output 'Unavailable.cs'
@@ -90,7 +90,7 @@ try {
 
   foreach ($release in 10,11) {
     $exe = if ($release -eq 10) { $Net10Dotnet } else { $Net11Dotnet }
-    $version = if ($release -eq 10) { '10.0.402' } else { '11.0.100-rc.2.26504.105' }
+    $version = if ($release -eq 10) { '10.0.403' } else { '11.0.100-rc.3.26522.148' }
     $runtime = if ($release -eq 10) { '10.0.13' } else { '11.0.0-rc.2.26504.105' }
     $hostRoot = Split-Path $exe
     foreach ($file in @(

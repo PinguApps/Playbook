@@ -132,7 +132,7 @@
       "kind": "compile-and-run",
       "scope": "Paired real processes: 35 lifecycle children plus canonical demo per release. Run/RunAsync, explicit start/stop, timed stop and sync/async shutdown waits; signalled single/multiple/shutdown failures with original identities, logs and exit policy, normal cancellation, Ignore nonshutdown, startup failure, disposal and child reaping. Windows x64 CoreCLR JIT; no browser/custom-host/uncaught numeric-exit/older-target-newer-package/GA proof.",
       "sample": "samples/net10.0/AquariumImport/AquariumImport.csproj",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "language": "14.0",
       "target": "net10.0"
     },
@@ -140,7 +140,7 @@
       "kind": "compile-and-run",
       "scope": "Paired real processes: 35 lifecycle children plus canonical demo per release. Run/RunAsync, explicit start/stop, timed stop and sync/async shutdown waits; signalled single/multiple/shutdown failures with original identities, logs and exit policy, normal cancellation, Ignore nonshutdown, startup failure, disposal and child reaping. Windows x64 CoreCLR JIT; no browser/custom-host/uncaught numeric-exit/older-target-newer-package/GA proof.",
       "sample": "samples/net11.0/AquariumImport/AquariumImport.csproj",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "language": "15.0",
       "target": "net11.0"
     }

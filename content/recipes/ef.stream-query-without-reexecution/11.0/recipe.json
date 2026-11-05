@@ -140,7 +140,7 @@
       "target": "net10.0",
       "language": "14.0",
       "kind": "compile-and-run",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "scope": "Actual EF10 query: ToAsyncEnumerable synchronous commands versus existing AsAsyncEnumerable asynchronous commands; deferred/repeated execution, real reader disposal on break/consumer exception, pre-cancellation."
     },
     {
@@ -148,7 +148,7 @@
       "target": "net11.0",
       "language": "15.0",
       "kind": "compile-and-run",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "scope": "Actual EF11 query: AsAsyncEnumerable and the pinned runtime11 ToAsyncEnumerable fast path issue asynchronous commands; deferred/repeated execution, real reader disposal on break/consumer exception, pre-cancellation. EF1004 red/green reproduction is separate in eng/Test-EfQueryAdapter.ps1."
     }
   ],

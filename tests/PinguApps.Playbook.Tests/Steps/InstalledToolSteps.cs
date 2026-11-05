@@ -2905,7 +2905,7 @@ public sealed class InstalledToolSteps : IDisposable
                 Assert.Equal("10.0", alternative.GetProperty("requirements").GetProperty("runtime").GetProperty("version").GetString());
                 Assert.DoesNotContain("11", requirements.GetRawText(), StringComparison.Ordinal);
                 JsonElement baseline = Assert.Single(recipe.GetProperty("evidence").EnumerateArray(), item => item.GetProperty("sample").GetString()!.Contains("Sdk11", StringComparison.Ordinal));
-                Assert.Equal("11.0.100-rc.2.26504.105", baseline.GetProperty("sdk").GetString());
+                Assert.Equal("11.0.100-rc.3.26522.148", baseline.GetProperty("sdk").GetString());
                 Assert.Equal("net10.0", baseline.GetProperty("target").GetString());
                 Assert.Contains("Runtime: .NET 10.", baseline.GetProperty("output").GetString(), StringComparison.Ordinal);
             }
@@ -3153,7 +3153,7 @@ public sealed class InstalledToolSteps : IDisposable
         Assert.NotEmpty(combined.GetProperty("recipes")[3].GetProperty("applicability").GetProperty("routes")[0].GetProperty("requirements").GetProperty("optIns").EnumerateArray());
         JsonElement pinned = combined.GetProperty("recipes")[3].GetProperty("applicability").GetProperty("routes")[0].GetProperty("requirements");
         Assert.Equal("exact", pinned.GetProperty("sdk").GetProperty("match").GetString());
-        Assert.Equal("11.0.100-rc.2.26504.105", pinned.GetProperty("sdk").GetProperty("version").GetString());
+        Assert.Equal("11.0.100-rc.3.26522.148", pinned.GetProperty("sdk").GetProperty("version").GetString());
         Assert.Equal("1.2.3", Assert.Single(pinned.GetProperty("packages").EnumerateArray()).GetProperty("version").GetString());
         Assert.Equal("exact", pinned.GetProperty("packages")[0].GetProperty("match").GetString());
         Assert.Equal("1.0.0", Assert.Single(pinned.GetProperty("workloads").EnumerateArray()).GetProperty("version").GetString());

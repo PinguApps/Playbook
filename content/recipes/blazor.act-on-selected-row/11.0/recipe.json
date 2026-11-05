@@ -115,7 +115,7 @@
       "language": "14.0",
       "kind": "compile",
       "scope": "Actual pinned Web SDK consumer. Separate real browser execution checks correct selected item, keyboard button, callback count and static SSR exclusion; no mocks.",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "sample": "samples/net10.0/MuseumRows/MuseumRows.csproj",
       "target": "net10.0"
     },
@@ -123,7 +123,7 @@
       "language": "15.0",
       "kind": "compile",
       "scope": "Actual pinned Web SDK consumer. Separate real browser execution checks correct selected item, keyboard button, callback count and static SSR exclusion; no mocks.",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "sample": "samples/net11.0/MuseumRows/MuseumRows.csproj",
       "target": "net11.0"
     }

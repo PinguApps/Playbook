@@ -133,7 +133,7 @@
     {
       "sample": "samples/net10.0/VisitBookings/VisitBookings.csproj",
       "target": "net10.0",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "language": "14.0",
       "kind": "compile",
       "scope": "Actual Web SDK project compilation. Separate real loopback HTTP and Chromium Interactive Server reports verify awaiting, field cancellation and en-GB/fr-FR localized formatting; compilation alone does not establish those runtime claims."
@@ -141,7 +141,7 @@
     {
       "sample": "samples/net11.0/VisitBookings/VisitBookings.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "language": "15.0",
       "kind": "compile",
       "scope": "Actual Web SDK project compilation. Separate real loopback HTTP and Chromium Interactive Server reports verify awaiting, field cancellation and en-GB/fr-FR localized formatting; compilation alone does not establish those runtime claims."

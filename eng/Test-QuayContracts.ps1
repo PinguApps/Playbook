@@ -16,7 +16,7 @@ try {
     if ($Record) {
         $sample = 'samples/net11.0/QuayCSharp/QuayCSharp.csproj'
         $receipt = [ordered]@{
-            kind='official-review'; sample=$sample; target='net11.0-windows10.0.20348.0'; sdk='11.0.100-rc.2.26504.105'; language='15.0'
+            kind='official-review'; sample=$sample; target='net11.0-windows10.0.20348.0'; sdk='11.0.100-rc.3.26522.148'; language='15.0'
             command='eng/Test-QuayContracts.ps1 -Record'
             scope='Pinned official source and artifact review. Actual native build failed NETSDK1147 before compilation; not-tested under PIN-699.'
             recordedAt=[DateTimeOffset]::UtcNow.ToString('O'); sourceCommit=(& 'C:/Program Files/Git/cmd/git.exe' -C $root rev-parse HEAD).Trim()

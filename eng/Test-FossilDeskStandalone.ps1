@@ -26,7 +26,7 @@ foreach($f in @('wwwroot/index.html','wwwroot/fossil-observe.js')){
  Copy-Item (Join-Path $standalone "net11.0/FossilDesk/$f") (Join-Path $standalone "net10.0/FossilDesk/$f")
 }
 Copy-Item (Join-Path $standalone 'net11.0/FossilDesk/Directory.Packages.props') (Join-Path $standalone 'net11.0/FossilWorker/Directory.Packages.props')
-foreach($case in @(@('net10.0/FossilDesk','10.0.402'),@('net11.0/FossilDesk','11.0.100-rc.2.26504.105'),@('net11.0/FossilWorker','11.0.100-rc.2.26504.105'))){
+foreach($case in @(@('net10.0/FossilDesk','10.0.403'),@('net11.0/FossilDesk','11.0.100-rc.3.26522.148'),@('net11.0/FossilWorker','11.0.100-rc.3.26522.148'))){
  if(-not $body.Contains($case[1])){throw 'SDK missing from served instructions'}
  [IO.File]::WriteAllText((Join-Path $standalone "$($case[0])/global.json"),(@{sdk=@{version=$case[1];rollForward='disable';allowPrerelease=$case[0].StartsWith('net11')}}|ConvertTo-Json)+"`n")
 }

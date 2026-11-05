@@ -68,7 +68,7 @@
           ],
           "constraints": [
             "These structural values do not convert colour spaces, normalize, clamp, blend or validate component ranges; uint helpers apply to byte components only.",
-            "Previous SDK10.0.402/C#14/ref-runtime10.0.13; current SDK11.0.100-rc.2.26504.105/C#15/ref-runtime11RC2. Exact proof pins are separate from release-family prerequisites.",
+            "Previous SDK10.0.403/C#14/ref-runtime10.0.13; current SDK11.0.100-rc.3.26522.148/C#15/ref-runtime11RC2. Exact proof pins are separate from release-family prerequisites.",
             "No NuGet packages, package assets, native/UI dependencies, providers, workloads, rendering modes or experimental opt-ins. No additional older-target API route or .NET10 foundation."
           ],
           "optIns": [],
@@ -127,7 +127,7 @@
   "evidence": [
     {
       "scope": "Distinct byte/float components, RGBA/ARGB reorder, four packed-endian round trips, short/exact/long construction and copy, component equality and equal hashes.",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "target": "net10.0",
       "kind": "compile-and-run",
       "sample": "samples/net10.0/SignalLegend/SignalLegend.csproj",
@@ -135,7 +135,7 @@
     },
     {
       "scope": "Distinct byte/float components, RGBA/ARGB reorder, four packed-endian round trips, short/exact/long construction and copy, component equality and equal hashes.",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "target": "net11.0",
       "kind": "compile-and-run",
       "sample": "samples/net11.0/SignalLegend/SignalLegend.csproj",

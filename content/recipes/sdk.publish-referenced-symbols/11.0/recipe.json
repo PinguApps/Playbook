@@ -73,7 +73,7 @@
           ],
           "renderingModes": [],
           "prerequisites": [
-            "Complete SDK/runtime/ref installations. Tested SDK10.0.402, runtime/ref10.0.13, C#14; SDK11.0.100-rc.2.26504.105, runtime/ref11RC2, C#15.",
+            "Complete SDK/runtime/ref installations. Tested SDK10.0.403, runtime/ref10.0.13, C#14; SDK11.0.100-rc.3.26522.148, runtime/ref11RC2, C#15.",
             "PowerShell7 for the reproducible checks. Original local package setup uses no remote source; installed guidance is embedded offline."
           ],
           "constraints": [
@@ -119,7 +119,7 @@
       "kind": "compile-and-run",
       "sample": "samples/net10.0/BeaconBuild/BeaconBuild.csproj",
       "target": "net10.0",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "language": "14.0",
       "scope": "Actual true/false/default/incorrect-singular publishes, DLL and portable PDB byte checks, application-versus-reference symbol control, snupkg boundary and execution of every published app. Windows x64 framework-dependent folders only."
     },
@@ -127,7 +127,7 @@
       "kind": "compile-and-run",
       "sample": "samples/net11.0/BeaconBuild/BeaconBuild.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "language": "15.0",
       "scope": "Actual true/false/default/incorrect-singular publishes, DLL and portable PDB byte checks, application-versus-reference symbol control, snupkg boundary and execution of every published app. Windows x64 framework-dependent folders only."
     }

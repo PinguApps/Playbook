@@ -88,7 +88,7 @@
             "Standalone interactive WebAssembly, base /archive/; no SSR authentication equivalence"
           ],
           "prerequisites": [
-            "SDK 10.0.402 / framework-packages 10.0.13 / C# 14 comparison and SDK 11.0.100-rc.2.26504.105 / framework-packages 11.0.0-rc.2.26504.105 / C# 15 current test pins; pins are not universal exact prerequisites.",
+            "SDK 10.0.403 / framework-packages 10.0.13 / C# 14 comparison and SDK 11.0.100-rc.3.26522.148 / framework-packages 11.0.0-rc.2.26504.105 / C# 15 current test pins; pins are not universal exact prerequisites.",
             "Build the complete offline project and use the matching package/runtime assets."
           ],
           "constraints": [
@@ -149,7 +149,7 @@
     {
       "sample": "samples/net10.0/HydrophoneArchive/HydrophoneArchive.csproj",
       "target": "net10.0",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "language": "14.0",
       "kind": "compile",
       "scope": "Actual matching target, SDK and locked dependencies."
@@ -157,7 +157,7 @@
     {
       "sample": "samples/net10.0/HydrophoneArchive/HydrophoneArchive.csproj",
       "target": "net10.0",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "language": "14.0",
       "kind": "execution",
       "scope": "Real browser success, RequiresRedirect and exception history-state branches; controlled token-provider boundary, no issuance.",
@@ -166,7 +166,7 @@
     {
       "sample": "samples/net11.0/HydrophoneArchive/HydrophoneArchive.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "language": "15.0",
       "kind": "compile",
       "scope": "Actual matching target, SDK and locked dependencies."
@@ -174,7 +174,7 @@
     {
       "sample": "samples/net11.0/HydrophoneArchive/HydrophoneArchive.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "language": "15.0",
       "kind": "execution",
       "scope": "Real browser success, RequiresRedirect and exception history-state branches; controlled token-provider boundary, no issuance.",

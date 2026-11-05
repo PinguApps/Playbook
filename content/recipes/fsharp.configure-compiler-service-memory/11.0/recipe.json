@@ -203,7 +203,7 @@
       "scope": "Actual restored dependencies, compilation and managed execution on Windows x64. Focused emitted-code/lifetime/compiler/host checks are documented in docs/verification/runtime-async.md; no mocks, cross-compilation, native/AOT, debugger integration or GA proof.",
       "kind": "compile-and-run",
       "language": "10.0",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "sample": "samples/net10.0/FSharpCompilerHost/FSharpCompilerHost.fsproj",
       "target": "net10.0"
     },
@@ -211,7 +211,7 @@
       "scope": "Actual restored dependencies, compilation and managed execution on Windows x64. Focused emitted-code/lifetime/compiler/host checks are documented in docs/verification/runtime-async.md; no mocks, cross-compilation, native/AOT, debugger integration or GA proof.",
       "kind": "compile-and-run",
       "language": "11.0",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "sample": "samples/net11.0/FSharpCompilerHost/FSharpCompilerHost.fsproj",
       "target": "net11.0"
     },
@@ -219,7 +219,7 @@
       "scope": "Actual new FCS/Core pair restored, locked, built and executed on .NET 10 with default/disabled sharing, reference replacement and isolated diagnostics.",
       "kind": "compile-and-run",
       "language": "10.0",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "sample": "samples/net10.0/FSharpCompilerHostCurrent/FSharpCompilerHostCurrent.fsproj",
       "target": "net10.0"
     }

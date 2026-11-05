@@ -111,7 +111,7 @@ The property recipe provides the worked metadata and sample example below.
 
 ## Quick pull request check
 
-Ordinary PRs build/pack the tool and run one installed MCP smoke scenario. With PowerShell 7 and .NET SDK 10.0.402:
+Ordinary PRs build/pack the tool and run one installed MCP smoke scenario. With PowerShell 7 and .NET SDK 10.0.403:
 
 ```powershell
 Set-Location -LiteralPath 'V:/_worktrees/Playbook/t3-4d84c6cb'
@@ -122,7 +122,7 @@ Expect one passed scenario and a final `PASS` message. This checks installation,
 
 ## Full verification
 
-Build prerequisites: PowerShell 7, .NET SDK **10.0.402**, **9.0.319** and **11.0.100-rc.2.26504.105**. The .NET 9 SDK is needed only for the historical comparison, never for installing or running Playbook. The .NET 11 SDK verifies that target and the optional older-target route of the shared edition. No optional workloads are used.
+Build prerequisites: PowerShell 7, .NET SDK **10.0.403**, **9.0.319** and **11.0.100-rc.3.26522.148**. The .NET 9 SDK is needed only for the historical comparison, never for installing or running Playbook. The .NET 11 SDK verifies that target and the optional older-target route of the shared edition. No optional workloads are used.
 
 ```powershell
 Set-Location -LiteralPath 'V:/_worktrees/Playbook/t3-4d84c6cb'
@@ -220,7 +220,7 @@ Author each route's application conditions inside `requirements`, following [the
 
 List the normal route first with `usage: primary`; label another choice `optional-alternative`. Requirements on alternatives are not cumulative. Keep `conditional` for release-routing conditions. Link each route through `evidenceSamples` and declared `sourceUrls`; preserve exact sample pins and complete saved evidence using the existing [freshness workflow](#capture-and-refresh-sample-evidence). Generation labels those records `verification-baseline` without changing their identity or hashes. Exact measured runtime output, SDK/language, resolved dependencies, workloads/native versions and commands describe tests, not consumer upgrades. Keep RC-only/GA-pending limitations explicit even for stable syntax.
 
-The property recipe's normal route needs .NET 10 / C# 14, not SDK 10.0.402 specifically. Its optional .NET 11 SDK route retains `net10.0` and C# 14. Both choices have distinct evidence links. The schema and real build/pack gates reject old prose requirements, malformed family pins and contradictory SDK/language baselines; author review must still establish supported compatibility. See the [historical requirements inspection](https://github.com/PinguApps/Playbook/blob/e60419660a082da40dfc1bd8f0667401677c53f3/docs/verification/PIN-972.md).
+The property recipe's normal route needs .NET 10 / C# 14, not SDK 10.0.403 specifically. Its optional .NET 11 SDK route retains `net10.0` and C# 14. Both choices have distinct evidence links. The schema and real build/pack gates reject old prose requirements, malformed family pins and contradictory SDK/language baselines; author review must still establish supported compatibility. See the [historical requirements inspection](https://github.com/PinguApps/Playbook/blob/e60419660a082da40dfc1bd8f0667401677c53f3/docs/verification/PIN-972.md).
 
 Use the canonical Draft-07 dialect identifier `http://json-schema.org/draft-07/schema#` in the local schemas. PowerShell 7.6.7 resolves that registered identifier without external fetching; the HTTPS spelling is not treated as the same identifier. Do not enable schema downloading for offline validation. See [the reproduced build fix](https://github.com/PinguApps/Playbook/blob/e60419660a082da40dfc1bd8f0667401677c53f3/docs/verification/PIN-974.md#powershell-767-validation-correction).
 

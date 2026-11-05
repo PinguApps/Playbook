@@ -114,7 +114,7 @@
       "language": "14.0",
       "sample": "samples/net10.0/SdkWorkflows/SdkWorkflows.csproj",
       "kind": "compile-and-run",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "target": "net10.0"
     },
     {
@@ -122,7 +122,7 @@
       "language": "15.0",
       "sample": "samples/net11.0/SdkWorkflows/SdkWorkflows.csproj",
       "kind": "compile-and-run",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "target": "net11.0"
     },
     {
@@ -130,7 +130,7 @@
       "language": "14.0",
       "sample": "samples/net10.0/SdkWorkflows/SdkWorkflows.csproj",
       "kind": "execution",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "record": "samples/net10.0/SdkWorkflows/commands.evidence.json",
       "target": "net10.0"
     },
@@ -139,7 +139,7 @@
       "language": "15.0",
       "sample": "samples/net11.0/SdkWorkflows/SdkWorkflows.csproj",
       "kind": "execution",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "record": "samples/net11.0/SdkWorkflows/commands.evidence.json",
       "target": "net11.0"
     }

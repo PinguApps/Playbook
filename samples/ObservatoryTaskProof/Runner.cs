@@ -7,10 +7,10 @@ using System.Xml.Linq;
 // Real MSBuild subprocess proof; no synthetic binding or CreateWithProjectDirectoryAndEnvironment.
 string dotnet = Environment.ProcessPath!;
 #if NET11_0
-const string sdk = "11.0.100-rc.2.26504.105";
+const string sdk = "11.0.100-rc.3.26522.148";
 bool typed = true;
 #else
-const string sdk = "10.0.402";
+const string sdk = "10.0.403";
 bool typed = false;
 #endif
 string assembly = Assembly.GetExecutingAssembly().Location;

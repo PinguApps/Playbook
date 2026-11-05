@@ -62,7 +62,7 @@
           "workloads": [],
           "prerequisites": [
             "SDK console project with Nullable and ImplicitUsings enabled; complete canonical source includes imports and namespace.",
-            "No additional NuGet package. Exact proof: SDK11.0.100-rc.2.26504.105/runtime-ref11.0.0-rc.2.26504.105; previous SDK10.0.402/runtime-ref10.0.13."
+            "No additional NuGet package. Exact proof: SDK11.0.100-rc.3.26522.148/runtime-ref11.0.0-rc.2.26504.105; previous SDK10.0.403/runtime-ref10.0.13."
           ],
           "constraints": [
             "No older-target/newer-package route is advertised. Existing .NET10 comparison remains valid and adds no historical foundation.",
@@ -143,7 +143,7 @@
   "evidence": [
     {
       "scope": "Actual paired HMAC/KMAC known answers, wrong key/data/customization, protocol lengths, stream cancellation after prefix, and incremental preserve/reset on success and mismatch. Windows CNG native identity recorded.",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "target": "net10.0",
       "kind": "compile-and-run",
       "sample": "samples/net10.0/HarbourPackets/HarbourPackets.csproj",
@@ -151,7 +151,7 @@
     },
     {
       "scope": "Actual paired HMAC/KMAC known answers, wrong key/data/customization, protocol lengths, stream cancellation after prefix, and incremental preserve/reset on success and mismatch. Windows CNG native identity recorded.",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "target": "net11.0",
       "kind": "compile-and-run",
       "sample": "samples/net11.0/HarbourPackets/HarbourPackets.csproj",

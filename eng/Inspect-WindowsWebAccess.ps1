@@ -51,7 +51,7 @@ try {
             'Directory.Build.targets' = '<Project />'
             'Directory.Packages.props' = '<Project />'
             'NuGet.Config' = '<configuration><packageSources><clear /></packageSources></configuration>'
-            'global.json' = '{"sdk":{"version":"10.0.402","rollForward":"disable"}}'
+            'global.json' = '{"sdk":{"version":"10.0.403","rollForward":"disable"}}'
             'Access.csproj' = '<Project Sdk="Microsoft.NET.Sdk.Web"><PropertyGroup><TargetFramework>net10.0</TargetFramework><LangVersion>14.0</LangVersion><ImplicitUsings>enable</ImplicitUsings><Nullable>enable</Nullable><TreatWarningsAsErrors>true</TreatWarningsAsErrors></PropertyGroup></Project>'
             'Program.cs' = @'
 using System.Runtime.InteropServices;
@@ -88,7 +88,7 @@ finally { await app.StopAsync(CancellationToken.None); }
             [IO.File]::WriteAllText((Join-Path $work $file.Key), $file.Value.Replace("`r`n", "`n") + "`n")
         }
         $sdk = Invoke-ProbeProcess @('--version')
-        if ($sdk -ne '10.0.402') { throw "Unexpected SDK: $sdk" }
+        if ($sdk -ne '10.0.403') { throw "Unexpected SDK: $sdk" }
         Invoke-ProbeProcess @('build', 'Access.csproj', '-c', 'Release') |
             Set-Content -LiteralPath (Join-Path $work 'build.log')
         $manifest = [ordered]@{

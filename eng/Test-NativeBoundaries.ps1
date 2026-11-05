@@ -44,7 +44,7 @@ try {
   foreach($major in '10','11'){
    $dotnet=if($major -eq '10'){$Net10Dotnet}else{$Net11Dotnet}
    $x86=if($major -eq '10'){$X86Net10}else{$X86Net11}
-   $sdk=if($major -eq '10'){'10.0.402'}else{'11.0.100-rc.2.26504.105'}
+   $sdk=if($major -eq '10'){'10.0.403'}else{'11.0.100-rc.3.26522.148'}
    $lang=if($major -eq '10'){'14.0'}else{'15.0'}
    $audit=Get-Content (Join-Path $root 'docs/planning/audits/runtime-security.assets.json') -Raw|ConvertFrom-Json
    $baseline=@($audit.baselines|Where-Object target -CEQ "net$major.0")[0]

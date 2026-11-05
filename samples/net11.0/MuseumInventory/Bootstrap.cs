@@ -3,9 +3,9 @@ using System.Runtime.CompilerServices;
 using Microsoft.Build.Locator;
 
 #if NET11_0
-const string sdkVersion = "11.0.100-rc.2.26504.105";
+const string sdkVersion = "11.0.100-rc.3.26522.148";
 #else
-const string sdkVersion = "10.0.402";
+const string sdkVersion = "10.0.403";
 #endif
 string dotnet = Environment.ProcessPath!;
 string sdkDirectory = Path.Combine(Path.GetDirectoryName(dotnet)!, "sdk", sdkVersion);

@@ -110,7 +110,7 @@
     {
       "sample": "samples/net10.0/NumericGuidance/NumericGuidance.csproj",
       "target": "net10.0",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "language": "14.0",
       "kind": "compile-and-run",
       "scope": "Both targets execute 4,096 simulation iterations, equal/reversed-bound checks and the real cryptographic bounded alternative. RC2 additionally exercises byte and full-width signed Int128 bounds, Half/BFloat16 fractions, double, zero/negative maxima and nonnegative parameterless integers. Actual managed execution; no mocks, cross-compilation or GA verification."
@@ -118,7 +118,7 @@
     {
       "sample": "samples/net11.0/NumericGuidance/NumericGuidance.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "language": "15.0",
       "kind": "compile-and-run",
       "scope": "Both targets execute 4,096 simulation iterations, equal/reversed-bound checks and the real cryptographic bounded alternative. RC2 additionally exercises byte and full-width signed Int128 bounds, Half/BFloat16 fractions, double, zero/negative maxima and nonnegative parameterless integers. Actual managed execution; no mocks, cross-compilation or GA verification."

@@ -46,7 +46,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Sample pin 11.0.100-rc.2.26504.105; restore/build net11.0 assets."
+            "reason": "Sample pin 11.0.100-rc.3.26522.148; restore/build net11.0 assets."
           },
           "language": {
             "name": "C#",
@@ -146,7 +146,7 @@
       "kind": "compile-and-run",
       "sample": "samples/net10.0/PlanetariumContracts/PlanetariumContracts.csproj",
       "target": "net10.0",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "language": "14.0",
       "scope": "Actual compilation and real provider/HTTP execution: audience-specific 3.0 options, transformed titles, distinct paths, missing/unknown names and case-insensitive HTTP lookup; API absence on .NET 10."
     },
@@ -154,7 +154,7 @@
       "kind": "execution",
       "sample": "samples/net10.0/PlanetariumContracts/PlanetariumContracts.csproj",
       "target": "net10.0",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "language": "14.0",
       "scope": "Actual GetDocument public/staff build outputs and missing-name output; locked net10.0 closure and explicit registrations. Canonical Generate.ps1 with a supplied absolute SDK host succeeds for normal/missing on this target.",
       "record": "samples/net10.0/PlanetariumContracts/contracts.evidence.json"
@@ -163,7 +163,7 @@
       "kind": "compile-and-run",
       "sample": "samples/net11.0/PlanetariumContracts/PlanetariumContracts.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "language": "15.0",
       "scope": "Actual compilation and real provider/HTTP execution: audience-specific 3.0 options, transformed titles, distinct paths, missing/unknown names and case-insensitive HTTP lookup; API absence on .NET 10."
     },
@@ -171,7 +171,7 @@
       "kind": "execution",
       "sample": "samples/net11.0/PlanetariumContracts/PlanetariumContracts.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "language": "15.0",
       "scope": "Actual GetDocument outputs for dynamic public/staff names, exact duplicates and explicit plus additional names; missing/empty and null-name controls; runtime ordinal name comparison; locked net11.0 closure. Canonical Generate.ps1 with a supplied absolute SDK host succeeds for normal/missing on this target and explicit on .NET 11.",
       "record": "samples/net11.0/PlanetariumContracts/contracts.evidence.json"

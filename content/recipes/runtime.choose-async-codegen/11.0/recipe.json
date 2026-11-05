@@ -106,7 +106,7 @@
       "scope": "Actual restored dependencies, compilation and managed execution on Windows x64. Focused emitted-code/lifetime/compiler/host checks are documented in docs/verification/runtime-async.md; no mocks, cross-compilation, native/AOT, debugger integration or GA proof.",
       "kind": "compile-and-run",
       "language": "14.0",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "sample": "samples/net10.0/RuntimeAsync/RuntimeAsync.csproj",
       "target": "net10.0"
     },
@@ -114,7 +114,7 @@
       "scope": "Actual restored dependencies, compilation and managed execution on Windows x64. Focused emitted-code/lifetime/compiler/host checks are documented in docs/verification/runtime-async.md; no mocks, cross-compilation, native/AOT, debugger integration or GA proof.",
       "kind": "compile-and-run",
       "language": "15.0",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "sample": "samples/net11.0/RuntimeAsync/RuntimeAsync.csproj",
       "target": "net11.0"
     }

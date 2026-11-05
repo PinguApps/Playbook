@@ -9,10 +9,10 @@ internal static class ArtifactIdentity
 {
     public static void Verify()
     {
-        const string sdk = "11.0.100-rc.2.26504.105";
-        const string framework = "11.0.0-rc.2.26504.105";
+        const string sdk = "11.0.100-rc.3.26522.148";
+        const string framework = "11.0.0-rc.3.26522.148";
         const string target = "net11.0";
-        const string auditedReference = "45474da98fbd627eaaa354b75b7ab8ebd63112f4d2400d6c0c6f6035c9d177ba";
+        const string auditedReference = "054e2ef856a185c1317685f8e5dc7166d5f1bade6129920750b9602522746b1e";
         var assembly = typeof(StaticAssetDescriptor).Assembly;
         var installation = Directory.GetParent(Path.GetDirectoryName(assembly.Location)!)!.Parent!.Parent!.FullName;
         foreach (var loaded in new[] { typeof(object).Assembly, assembly })
@@ -23,8 +23,8 @@ internal static class ArtifactIdentity
             Console.WriteLine($"LOADED {loaded.Location} | {version} | {Hash(loaded.Location)}");
         }
         var reference = Path.Combine(installation, "packs", "Microsoft.AspNetCore.App.Ref", framework, "ref", target, "Microsoft.AspNetCore.StaticAssets.dll");
-        if (Hash(reference) != auditedReference) throw new InvalidOperationException("StaticAssets differs from PIN-709 audit");
-        Console.WriteLine($"AUDIT-MATCH {reference} | {auditedReference}");
+        if (Hash(reference) != auditedReference) throw new InvalidOperationException("StaticAssets differs from the migrated SDK reference baseline");
+        Console.WriteLine($"SDK-BASELINE-MATCH {reference} | {auditedReference}");
         foreach (var relative in new[]
         {
             "Roslyn/bincore/csc.dll",

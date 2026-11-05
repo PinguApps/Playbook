@@ -33,7 +33,7 @@ try {
  }
  foreach($v in 10,11) {
   $exe=if($v -eq 10){$Net10Dotnet}else{$Net11Dotnet}
-  $sdk=if($v -eq 10){'10.0.402'}else{'11.0.100-rc.2.26504.105'}
+  $sdk=if($v -eq 10){'10.0.403'}else{'11.0.100-rc.3.26522.148'}
   $runtime=if($v -eq 10){'10.0.13'}else{'11.0.0-rc.2.26504.105'}
   foreach($name in 'ObservatoryResults','ObservatoryBulletins') {
    $sample="samples/net$v.0/$name/$name.csproj"

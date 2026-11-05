@@ -56,7 +56,7 @@
           },
           "sdk": {
             "name": ".NET SDK",
-            "version": "11.0.100-rc.2.26504.105",
+            "version": "11.0.100-rc.3.26522.148",
             "match": "exact",
             "reason": "Exact qualified RC2 compiler/native publish and complete SDK toolset context; global.json rollForward=disable."
           },
@@ -133,7 +133,7 @@
           "packageAssets": [
             "Current public MSBuild packages18.11.0 net11.0, product18.11.0-1.26512.6 at source1b17a019; not bundled18.12.0-1.26504.105. Native pack/ILCompiler/ILLink11RC2 are SDK-selected and locked.",
             "Import the actual Framework buildTransitive/net10.0 target because the current-TFM placeholder can hide defaults. No copied SDK internals.",
-            "Older managed SDK10.0.402 MSBuild18.9.15 loads the complete installed closure through locked Locator1.11.2 net8.0; no older native or static-registration route."
+            "Older managed SDK10.0.403 MSBuild18.9.15 loads the complete installed closure through locked Locator1.11.2 net8.0; no older native or static-registration route."
           ],
           "providers": [],
           "platforms": [
@@ -141,7 +141,7 @@
           ],
           "renderingModes": [],
           "prerequisites": [
-            "Complete official SDK10.0.402/runtime10.0.13 and SDK11RC2/runtime-reference11RC2 for the paired managed proof; official NuGet packages and locked restore.",
+            "Complete official SDK10.0.403/runtime10.0.13 and SDK11RC2/runtime-reference11RC2 for the paired managed proof; official NuGet packages and locked restore.",
             "Supported Windows NativeAOT prerequisite is Visual Studio2022 or later with Desktop development with C++ and Windows SDK components. The listed exact VS18 toolchain was measured and used.",
             "Set QUAY_MSBUILD_SDK to the matching complete SDK directory. Startup selects process-only MSBUILD_EXE_PATH; use fresh disposable processes and trusted fixed project/import files.",
             "PowerShell7 for evidence/inspection; SDK10 and Node22.19+ for installed tool inspection. Native build uses absolute executables and child-only INCLUDE/LIB without PATH or persistent setting edits."
@@ -237,7 +237,7 @@
       "kind": "compile-and-run",
       "sample": "samples/net10.0/NorthQuayBuildHost/NorthQuayBuildHost.csproj",
       "target": "net10.0",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "language": "14.0",
       "scope": "Actual SDK10 managed host/Locator1.11.2 and complete installed closure; local SDK resolution, reflective UsingTask execution, input/output/logger, missing assembly failure and absent static APIs. Exact audited compiler/reference/runtime/MSBuild identities checked."
     },
@@ -245,7 +245,7 @@
       "kind": "compile-and-run",
       "sample": "samples/net11.0/NorthQuayBuildHost/NorthQuayBuildHost.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "language": "15.0",
       "scope": "Actual independently acquired public MSBuild18.11.0 locked closure; managed host runs registered resolver/task/logger and verifies string binding, output target receipt and missing-task MSB4283. Public BuildManager IL2026 retained, no analyzer-clean claim."
     },
@@ -253,7 +253,7 @@
       "kind": "execution",
       "sample": "samples/net11.0/NorthQuayBuildHost/NorthQuayBuildHost.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "language": "15.0",
       "record": "samples/net11.0/NorthQuayBuildHost/native.evidence.json",
       "scope": "Actual Windows x64 ILC/platform-linker native publish and native PE execution from unrelated directory; no CLR directory, receipt success, evaluation-only, missing-task MSB4283 and missing-resolver MSB4282. Packaged feature settings checked in real ILC response; exact toolchain/assembly/library hashes and retained IL2026. No suppression-based success, arbitrary extension, other platform or actual-GA claim."

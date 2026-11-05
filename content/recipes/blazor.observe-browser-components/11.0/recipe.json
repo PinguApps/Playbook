@@ -18,7 +18,7 @@
       "selectionNotes": ["WASM; enable diagnostics/export. Local receipt file exporter is alpha."],
       "requirements": {
         "runtime": {"name": ".NET", "version": "11.0", "match": "release-family", "reason": "Automatic WASM component diagnostics registration; the recorded runtime is RC2."},
-        "sdk": {"name": ".NET SDK", "version": "11.0", "match": "release-family", "reason": "Matching WASM SDK/runtime assets; actual SDK 11.0.100-rc.2.26504.105."},
+        "sdk": {"name": ".NET SDK", "version": "11.0", "match": "release-family", "reason": "Matching WASM SDK/runtime assets; actual SDK 11.0.100-rc.3.26522.148."},
         "language": {"name": "C#", "version": "15.0", "match": "exact", "reason": "Canonical compiler mode; no C# 15-only syntax is needed."},
         "frameworks": ["Blazor"],
         "packages": [
@@ -64,8 +64,8 @@
     {"title": "Pinned alpha collector file exporter and JSON format", "url": "https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/v0.138.0/exporter/fileexporter/README.md"}
   ],
   "evidence": [
-    {"target": "net10.0", "kind": "compile", "language": "14.0", "sample": "samples/net10.0/LoomActivity/LoomActivity.csproj", "sdk": "10.0.402", "scope": "Actual pinned SDK compilation. Separate real Chrome WASM/official loopback collector execution receives five framework instruments and navigation/event spans; child-work parent and route-link IDs correlate. Exact artifacts, payloads and source provenance: docs/verification/browser-telemetry.md. No mocks, cross-compilation or GA claim."},
-    {"target": "net11.0", "kind": "compile", "language": "15.0", "sample": "samples/net11.0/LoomActivity/LoomActivity.csproj", "sdk": "11.0.100-rc.2.26504.105", "scope": "Actual pinned SDK compilation. Separate real Chrome WASM/official loopback collector execution receives five framework instruments and navigation/event spans; child-work parent and route-link IDs correlate. Exact artifacts, payloads and source provenance: docs/verification/browser-telemetry.md. No mocks, cross-compilation or GA claim."}
+    {"target": "net10.0", "kind": "compile", "language": "14.0", "sample": "samples/net10.0/LoomActivity/LoomActivity.csproj", "sdk": "10.0.403", "scope": "Actual pinned SDK compilation. Separate real Chrome WASM/official loopback collector execution receives five framework instruments and navigation/event spans; child-work parent and route-link IDs correlate. Exact artifacts, payloads and source provenance: docs/verification/browser-telemetry.md. No mocks, cross-compilation or GA claim."},
+    {"target": "net11.0", "kind": "compile", "language": "15.0", "sample": "samples/net11.0/LoomActivity/LoomActivity.csproj", "sdk": "11.0.100-rc.3.26522.148", "scope": "Actual pinned SDK compilation. Separate real Chrome WASM/official loopback collector execution receives five framework instruments and navigation/event spans; child-work parent and route-link IDs correlate. Exact artifacts, payloads and source provenance: docs/verification/browser-telemetry.md. No mocks, cross-compilation or GA claim."}
   ],
   "snippets": {
     "project-10": {"path": "samples/net10.0/LoomActivity/LoomActivity.csproj", "region": "project", "language": "xml"},

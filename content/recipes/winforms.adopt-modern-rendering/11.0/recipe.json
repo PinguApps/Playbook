@@ -39,7 +39,7 @@
           "sdk": {
             "version": "11.0",
             "match": "release-family",
-            "reason": "Exact recorded pin 11.0.100-rc.2.26504.105; older sample 10.0.402.",
+            "reason": "Exact recorded pin 11.0.100-rc.3.26522.148; older sample 10.0.403.",
             "name": ".NET SDK"
           },
           "language": {
@@ -110,7 +110,7 @@
     {
       "sample": "samples/net10.0/BrackenSettings/BrackenSettings.csproj",
       "target": "net10.0-windows",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "language": "14.0",
       "scope": "Real .NET10 shown settings screen, state retention and self-close only. No modern-renderer assertions or visual/accessibility judgment.",
       "kind": "compile-and-run"
@@ -118,7 +118,7 @@
     {
       "sample": "samples/net11.0/BrackenSettings/BrackenSettings.csproj",
       "target": "net11.0-windows",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "language": "15.0",
       "scope": "Real .NET11 RC2 shown settings screen, state retention and self-close; inherited requested mode, explicit classic child override and PropertyGrid fallback. No visual/accessibility judgment.",
       "kind": "compile-and-run"

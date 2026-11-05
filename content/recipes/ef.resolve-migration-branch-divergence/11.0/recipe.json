@@ -46,7 +46,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Exact current-release proof uses SDK11 RC2, not GA."
+            "reason": "Exact current-release proof uses SDK11 RC3, not GA."
           },
           "language": {
             "name": "C#",
@@ -116,7 +116,7 @@
     {
       "sample": "samples/net10.0/BeaconMigrations/BeaconMigrations.csproj",
       "target": "net10.0",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "language": "14.0",
       "kind": "compile",
       "scope": "Actual canonical authoring project compilation; separate scaffolding execution record."
@@ -124,7 +124,7 @@
     {
       "sample": "samples/net10.0/BeaconMigrations/BeaconMigrations.csproj",
       "target": "net10.0",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "language": "14.0",
       "kind": "execution",
       "scope": "Actual competing scaffolds, snapshot latest IDs, re-scaffolding, no pending changes and SQLite application.",
@@ -133,7 +133,7 @@
     {
       "sample": "samples/net11.0/BeaconMigrations/BeaconMigrations.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "language": "15.0",
       "kind": "compile",
       "scope": "Actual canonical authoring project compilation; separate scaffolding execution record."
@@ -141,7 +141,7 @@
     {
       "sample": "samples/net11.0/BeaconMigrations/BeaconMigrations.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "language": "15.0",
       "kind": "execution",
       "scope": "Actual competing scaffolds, snapshot latest IDs, re-scaffolding, no pending changes and SQLite application.",

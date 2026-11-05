@@ -82,7 +82,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Exact reproduction uses SDK10.0.402 / framework10.0.13 / C#14 versus SDK11.0.100-rc.2.26504.105 / framework11.0.0-rc.2.26504.105 / C#15. These are tested pins, not minimum supported versions. RC2 is not actual-GA proof. The exact eight approved .NET10 foundations, stable identities, PIN-959/PIN-963/PIN-964 and unrelated Human gates remain unchanged."
+            "Exact reproduction uses SDK10.0.403 / framework10.0.13 / C#14 versus SDK11.0.100-rc.3.26522.148 / framework11.0.0-rc.2.26504.105 / C#15. These are tested pins, not minimum supported versions. RC2 is not actual-GA proof. The exact eight approved .NET10 foundations, stable identities, PIN-959/PIN-963/PIN-964 and unrelated Human gates remain unchanged."
           ]
         },
         "sourceUrls": [
@@ -109,7 +109,7 @@
   "evidence": [
     {
       "scope": "Actual raw TCP/Kestrel consumers execute nine paired targets in each of raw/preserve/decode modes per runtime, plus malformed request-line controls. They record RawTarget/Path/middleware/endpoint/handler/route values. Old encoded absolute targets split; the bounded older restoration works; current pairs retain the encoded segment without it. Ordinary slash, bad/incomplete escapes, double encoding and CRLF show the measured overlap. Encoded NUL is400 origin-form on both,200 absolute-form on10 and400 absolute-form on11; accepted CRLF is not asserted safe. Literal-space request lines return400. No mock context or proxy proof is substituted.",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "sample": "samples/net10.0/BirdRoutes/BirdRoutes.csproj",
       "kind": "compile-and-run",
       "language": "14.0",
@@ -118,7 +118,7 @@
     {
       "scope": "Actual selected managed/native/tool/package/compiler/reference qualification and published behavior where applicable; no mock, cross-compilation or source review substitutes for execution.",
       "record": "samples/net10.0/BirdRoutes/artifacts.evidence.json",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "sample": "samples/net10.0/BirdRoutes/BirdRoutes.csproj",
       "kind": "execution",
       "language": "14.0",
@@ -126,7 +126,7 @@
     },
     {
       "scope": "Actual raw TCP/Kestrel consumers execute nine paired targets in each of raw/preserve/decode modes per runtime, plus malformed request-line controls. They record RawTarget/Path/middleware/endpoint/handler/route values. Old encoded absolute targets split; the bounded older restoration works; current pairs retain the encoded segment without it. Ordinary slash, bad/incomplete escapes, double encoding and CRLF show the measured overlap. Encoded NUL is400 origin-form on both,200 absolute-form on10 and400 absolute-form on11; accepted CRLF is not asserted safe. Literal-space request lines return400. No mock context or proxy proof is substituted.",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "sample": "samples/net11.0/BirdRoutes/BirdRoutes.csproj",
       "kind": "compile-and-run",
       "language": "15.0",
@@ -135,7 +135,7 @@
     {
       "scope": "Actual selected managed/native/tool/package/compiler/reference qualification and published behavior where applicable; no mock, cross-compilation or source review substitutes for execution.",
       "record": "samples/net11.0/BirdRoutes/artifacts.evidence.json",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "sample": "samples/net11.0/BirdRoutes/BirdRoutes.csproj",
       "kind": "execution",
       "language": "15.0",

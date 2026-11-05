@@ -26,11 +26,11 @@ try {
     }
   }
   $matrix = @(
-    @{ variant='net10.0'; name='BookingImport'; dotnet=$Net10Dotnet; runtime=$Net10Dotnet; sdk='10.0.402'; ref='10.0.13'; tfm='net10.0' },
-    @{ variant='net11.0'; name='BookingImport'; dotnet=$Net11Dotnet; runtime=$Net11Dotnet; sdk='11.0.100-rc.2.26504.105'; ref='11.0.0-rc.2.26504.105'; tfm='net11.0' },
-    @{ variant='net10.0'; name='InstrumentArchive'; dotnet=$Net10Dotnet; runtime=$Net10Dotnet; sdk='10.0.402'; ref='10.0.13'; tfm='net10.0' },
-    @{ variant='net11.0'; name='InstrumentArchive'; dotnet=$Net11Dotnet; runtime=$Net11Dotnet; sdk='11.0.100-rc.2.26504.105'; ref='11.0.0-rc.2.26504.105'; tfm='net11.0' },
-    @{ variant='net10.0-sdk11'; name='InstrumentArchive'; dotnet=$Net11Dotnet; runtime=$Net10Dotnet; sdk='11.0.100-rc.2.26504.105'; ref='10.0.13'; tfm='net10.0' }
+    @{ variant='net10.0'; name='BookingImport'; dotnet=$Net10Dotnet; runtime=$Net10Dotnet; sdk='10.0.403'; ref='10.0.13'; tfm='net10.0' },
+    @{ variant='net11.0'; name='BookingImport'; dotnet=$Net11Dotnet; runtime=$Net11Dotnet; sdk='11.0.100-rc.3.26522.148'; ref='11.0.0-rc.2.26504.105'; tfm='net11.0' },
+    @{ variant='net10.0'; name='InstrumentArchive'; dotnet=$Net10Dotnet; runtime=$Net10Dotnet; sdk='10.0.403'; ref='10.0.13'; tfm='net10.0' },
+    @{ variant='net11.0'; name='InstrumentArchive'; dotnet=$Net11Dotnet; runtime=$Net11Dotnet; sdk='11.0.100-rc.3.26522.148'; ref='11.0.0-rc.2.26504.105'; tfm='net11.0' },
+    @{ variant='net10.0-sdk11'; name='InstrumentArchive'; dotnet=$Net11Dotnet; runtime=$Net10Dotnet; sdk='11.0.100-rc.3.26522.148'; ref='10.0.13'; tfm='net10.0' }
   )
   foreach ($entry in $matrix) {
     $sample = "samples/$($entry.variant)/$($entry.name)/$($entry.name).csproj"

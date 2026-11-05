@@ -121,8 +121,8 @@ try {
   $env:DOTNET_CLI_HOME = Join-Path $work 'home'
   $report = [ordered]@{ recordedAt = [DateTimeOffset]::UtcNow.ToString('O'); kind = 'authoring-preflight'; hosts = @() }
   foreach ($baseline in @(
-    @{ dotnet = $Net10Dotnet; sdk = '10.0.402'; target = 'net10.0' },
-    @{ dotnet = $Net11Dotnet; sdk = '11.0.100-rc.2.26504.105'; target = 'net11.0' }
+    @{ dotnet = $Net10Dotnet; sdk = '10.0.403'; target = 'net10.0' },
+    @{ dotnet = $Net11Dotnet; sdk = '11.0.100-rc.3.26522.148'; target = 'net11.0' }
   )) {
     $dotnet = (Resolve-Path -LiteralPath $baseline.dotnet).Path
     $directory = Join-Path $work $baseline.target

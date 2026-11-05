@@ -112,7 +112,7 @@
     {
       "sample": "samples/net10.0/VectorLanes/VectorLanes.csproj",
       "target": "net10.0",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "language": "14.0",
       "kind": "compile-and-run",
       "scope": "Both actual target builds execute exact zip/unzip order, all concat halves, reverse and patterned lanes. Supplementary forced-disabled execution verifies the software route. No Arm/AVX-512 native or GA verification."
@@ -120,7 +120,7 @@
     {
       "sample": "samples/net11.0/VectorLanes/VectorLanes.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "language": "15.0",
       "kind": "compile-and-run",
       "scope": "Both actual target builds execute exact zip/unzip order, all concat halves, reverse and patterned lanes. Supplementary forced-disabled execution verifies the software route. No Arm/AVX-512 native or GA verification."

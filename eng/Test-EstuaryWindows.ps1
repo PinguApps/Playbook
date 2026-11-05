@@ -25,7 +25,7 @@ try {
   }
   foreach($major in '10','11') {
     $dotnet=if($major -eq '10'){$Net10Dotnet}else{$Net11Dotnet}
-    $sdk=if($major -eq '10'){'10.0.402'}else{'11.0.100-rc.2.26504.105'}
+    $sdk=if($major -eq '10'){'10.0.403'}else{'11.0.100-rc.3.26522.148'}
     $language=if($major -eq '10'){'14.0'}else{'15.0'}
     foreach($pin in (Get-Content (Join-Path $root 'samples/EstuarySdk/artifacts.json') -Raw|ConvertFrom-Json).artifacts|Where-Object sdk -CEQ $sdk){
       $file=Join-Path (Split-Path $dotnet) $pin.path

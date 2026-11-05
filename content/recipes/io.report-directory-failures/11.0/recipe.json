@@ -63,7 +63,7 @@
           "constraints": [
             "Windows x64 filesystem execution only; property can contain the attempted file rather than the first missing ancestor. Other operations/platforms and exception taxonomy are unverified.",
             "Null property needs retained input/unknown fallback. Explicit constructor paths are unvalidated and unnormalized; redact private paths including ToString. No formatter serialization, access-control or filesystem-identity claim.",
-            "Previous proof SDK10.0.402/C#14/ref-runtime10.0.13; current SDK11.0.100-rc.2.26504.105/C#15/ref-runtime11RC2. Exact proof pins are distinct from supported release-family prerequisites.",
+            "Previous proof SDK10.0.403/C#14/ref-runtime10.0.13; current SDK11.0.100-rc.3.26522.148/C#15/ref-runtime11RC2. Exact proof pins are distinct from supported release-family prerequisites.",
             "No NuGet packages/assets, providers, workloads, rendering modes or experimental opt-ins; no additional .NET10 foundation or optional older-target API route."
           ],
           "optIns": [],
@@ -112,7 +112,7 @@
   "evidence": [
     {
       "scope": "Actual missing-parent read, enumerate and delete under two UI cultures, successful import, normalized retained input, unknown fallback and inner retention; current explicit/null/empty/relative constructor values.",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "target": "net10.0",
       "kind": "compile-and-run",
       "sample": "samples/net10.0/SeedImports/SeedImports.csproj",
@@ -120,7 +120,7 @@
     },
     {
       "scope": "Actual missing-parent read, enumerate and delete under two UI cultures, successful import, normalized retained input, unknown fallback and inner retention; current explicit/null/empty/relative constructor values.",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "target": "net11.0",
       "kind": "compile-and-run",
       "sample": "samples/net11.0/SeedImports/SeedImports.csproj",

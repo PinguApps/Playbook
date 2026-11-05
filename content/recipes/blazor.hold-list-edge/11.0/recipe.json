@@ -56,8 +56,8 @@
     {"title": "RC2 end-anchoring fix and QuickGrid stability reconciliation", "url": "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc2/aspnetcore.md"}
   ],
   "evidence": [
-    {"sample": "samples/net10.0/OrchardJournal/OrchardJournal.csproj", "target": "net10.0", "sdk": "10.0.402", "language": "14.0", "kind": "compile", "scope": "Actual bounded nonvirtualized Web SDK comparison. Separate real rendered Chrome checks exercise prepend/append/expansion and retained keyed row state; no mocked observers."},
-    {"sample": "samples/net11.0/OrchardJournal/OrchardJournal.csproj", "target": "net11.0", "sdk": "11.0.100-rc.2.26504.105", "language": "15.0", "kind": "compile", "scope": "Actual RC2 Web SDK consumer. Separate real rendered Chrome checks exercise anchoring, fresh provider identity, variable heights and explicit overscan; no cross-compilation or mocked observers."}
+    {"sample": "samples/net10.0/OrchardJournal/OrchardJournal.csproj", "target": "net10.0", "sdk": "10.0.403", "language": "14.0", "kind": "compile", "scope": "Actual bounded nonvirtualized Web SDK comparison. Separate real rendered Chrome checks exercise prepend/append/expansion and retained keyed row state; no mocked observers."},
+    {"sample": "samples/net11.0/OrchardJournal/OrchardJournal.csproj", "target": "net11.0", "sdk": "11.0.100-rc.3.26522.148", "language": "15.0", "kind": "compile", "scope": "Actual RC2 Web SDK consumer. Separate real rendered Chrome checks exercise anchoring, fresh provider identity, variable heights and explicit overscan; no cross-compilation or mocked observers."}
   ],
   "snippets": {
     "older": {"path": "samples/net10.0/OrchardJournal/Journal.razor", "region": "journal", "language": "razor"},

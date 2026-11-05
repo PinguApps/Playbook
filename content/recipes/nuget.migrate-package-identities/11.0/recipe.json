@@ -31,7 +31,7 @@
         "conditional": false,
         "usage": "primary",
         "selectionNotes": [
-          "Target-11 edition with actual SDK 10.0.402 and 11 RC2 comparison; the exact eight .NET 10 foundations are unchanged."
+          "Target-11 edition with actual SDK 10.0.403 and 11 RC2 comparison; the exact eight .NET 10 foundations are unchanged."
         ],
         "sharedAreas": [],
         "requirements": {
@@ -45,7 +45,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "SDK 11 implements the new NuGet behavior; exact verification uses RC2, compared with SDK 10.0.402."
+            "reason": "SDK 11 implements the new NuGet behavior; exact verification uses RC2, compared with SDK 10.0.403."
           },
           "language": {
             "name": "C#",
@@ -76,7 +76,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Not an experimental API; actual SDK 11 RC2 evidence is not final GA verification. PIN-959/PIN-963 remain open."
+            "Not an experimental API; actual SDK 11 RC3 evidence is not final GA verification. PIN-959/PIN-963 remain open."
           ]
         },
         "sourceUrls": [
@@ -101,7 +101,7 @@
   ],
   "evidence": [
     {
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "scope": "Actual original library compilation with no external dependency. Consumer behavior is recorded separately.",
       "sample": "samples/net10.0/WildlifeTags/WildlifeTags.csproj",
       "kind": "compile",
@@ -109,7 +109,7 @@
       "language": "14.0"
     },
     {
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "scope": "Actual SDK 10/11 pack, Unicode NU5052 and analysis-level/warnings-as-errors controls; ASCII underscore acceptance, legacy repeated/mixed punctuation failures, archive identity/assets and compiled/executed direct plus repacked transitive consumers.",
       "sample": "samples/net10.0/WildlifeTags/WildlifeTags.csproj",
       "kind": "execution",
@@ -118,7 +118,7 @@
       "language": "14.0"
     },
     {
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "scope": "Actual original library compilation with no external dependency. Consumer behavior is recorded separately.",
       "sample": "samples/net11.0/WildlifeTags/WildlifeTags.csproj",
       "kind": "compile",
@@ -126,7 +126,7 @@
       "language": "15.0"
     },
     {
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "scope": "Actual SDK 10/11 pack, Unicode NU5052 and analysis-level/warnings-as-errors controls; ASCII underscore acceptance, legacy repeated/mixed punctuation failures, archive identity/assets and compiled/executed direct plus repacked transitive consumers.",
       "sample": "samples/net11.0/WildlifeTags/WildlifeTags.csproj",
       "kind": "execution",
