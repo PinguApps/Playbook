@@ -5,3 +5,6 @@ TestResults/
 .vs/
 .scratch/
 samples/WetlandIdentity/node_modules/
+
+# Disposable Avocet SQLite execution data.
+/samples/net*/Avocet*/avocet.db
