@@ -4176,3 +4176,26 @@ file-to-file project reference, NativeAOT, other-platform or actual GA proof fol
 The separate mixed startup route was approved by Pingu; PIN-959/PIN-965 remain open.
 
 Use eng/Test-CurlewModels.ps1 -Record and eng/Test-CurlewDesign.ps1 -Record to refresh the committed sample receipts after relevant input changes.
+
+## Collection predicates, numeric parsing and Half
+
+Build/pack and inspect the exact installed artifact. Setup restores packages and
+installs pinned Inspector locally. Retrieval uses an isolated feed/cache, an
+unrelated directory and unusable proxies; it is proxy-independent, not OS network
+isolation. Expect all three IDs/titles/goals, full canonical Markdown,
+applicability and fresh evidence at target/edition11. Target10 has no edition.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-8bad76cb'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('ef.translate-collection-existence','sql.translate-numeric-text-parse','sqlite.persist-half-values') `
+  -Query 'osprey-readings' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin1208-1209-1211' -BuildAndPack `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory './artifacts/osprey/inspection'
+```
+
+Run `eng/Test-OspreyReadings.ps1 -Record` for real isolated SQL2025 and Windows
+x64 SQLite execution. Exact RC package evidence is not actual GA, other-platform,
+JSON Half mapping or a performance claim. No public package is published.

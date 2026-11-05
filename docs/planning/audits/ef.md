@@ -995,3 +995,27 @@ No unsupported file-to-file project-reference route is taught.
 Compilation/runtime receipts and installed offline guidance are separate evidence.
 No additional .NET10 foundation, recurring native matrix or GA claim is added.
 PIN-959 comprehensive readiness, PIN-965 actual GA and existing Human gates remain.
+
+## Collection predicates, numeric parsing and Half — PIN-1208/1209/1211
+
+Original OspreyReadings comparisons deliver E20/E21/E23 as
+`ef.translate-collection-existence/11.0`, `sql.translate-numeric-text-parse/11.0`
+and `sqlite.persist-half-values/11.0`. Independently locked EF10.0.13 and EF11
+RC2 run under current SDK10.0.403 and SDK11 RC3, deliberately distinct from the
+original audit SDK pins. The existing patched Pkcs10.0.13 pin is reused.
+
+Actual SQLite3.53.3/3.53.4 and isolated SQL2025 queries verify populated/empty/null
+collections and executed EXISTS/length commands. EF10 rejects direct Exists and
+binary Any before SQL; list Any and fixed SQL length remain working alternatives.
+EF10 also rewrites binary Length > 0 to unsupported Any. No blanket client-side
+predicate evaluation claim is made. SQL Parse verifies seven single-string numeric
+overloads, int filtering, nullable projection, conversion/overflow failures and a
+CLR culture control. SQL decimal(18,2) is not CLR decimal parsing semantics.
+
+Half direct/EF nullable finite values round-trip using REAL storage. EF10 retains
+explicit double conversion and an expression converter; EF11 maps Half directly.
+Extrema/subnormal/rounded 1.1/null and out-of-range reads bound the precision claim.
+JSON Half mapping, nonfinite payloads, other platforms and GA remain unverified.
+No ninth foundation is added. PIN-959's qualifying coverage and PIN-965's actual
+GA reconciliation are not established by this delivery; existing terminal tracker
+states and Human gates are preserved.
