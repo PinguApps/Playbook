@@ -81,23 +81,23 @@
     {
       "id": "generic-mapping",
       "pattern": "\\.(?:CoreTypeMapping|RelationalTypeMapping|JsonTypeMapping|StructuralJsonTypeMapping|ValueComparer)(?:`\\d+)?(?:::|\\b)|\\.ValueConversion\\.|ITypeMappingSource::FindMapping",
-      "disposition": "proposed",
-      "owner": "E11",
-      "reason": "Generic mappings/default comparers and obsolete mapping contracts require an actual custom mapping consumer."
+      "disposition": "grouped",
+      "owner": "PIN-1199",
+      "reason": "ef.migrate-generic-type-mapping/11.0: public scalar mapping plugin with EF10/11 SQL round-trip, query, mutation/equality/null and clone controls. Explicit comparer remains required for mutable Reading; structural JSON mapping and all residual mapping/converter contracts are not claimed executed. NativeAOT and actual GA remain separate."
     },
     {
       "id": "structured-json-path",
       "pattern": "\\.(?:JsonPath|JsonPathSegment|StructuredJsonPath|StructuredJsonPathSegment)(?:::|\\b)|ColumnModification.*JsonPath|IColumnModification::get_JsonPath|ColumnModificationParameters::",
-      "disposition": "proposed",
-      "owner": "E12",
-      "reason": "Structured JSON update paths replace string/null checks in custom SQL generation."
+      "disposition": "delivered",
+      "owner": "PIN-1200",
+      "reason": "ef.migrate-structured-json-update-path/11.0: bounded public UpdateSqlGenerator hook consumes actual ColumnModificationParameters/IColumnModification and executes SQL2025 root/nested/array/dotted-name updates with sibling controls. Not a SQL provider service replacement or arbitrary JSON escape guarantee."
     },
     {
       "id": "value-generator-contract",
       "pattern": "\\.ValueGeneration\\.",
-      "disposition": "proposed",
-      "owner": "E13",
-      "reason": "Removed selector/Create and constructor binding hooks require bounded custom value generation migration."
+      "disposition": "grouped",
+      "owner": "PIN-1201",
+      "reason": "ef.migrate-generator-selection/11.0: registered TryCreate selector on EF10/11 with SQLite persistence/fresh reads, legacy Select failure and current TrySelect false/null. Try APIs already run in EF10. Residual value-generator constructor binding contracts are not claimed covered."
     },
     {
       "id": "constructor-binding",
