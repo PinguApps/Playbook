@@ -1,0 +1,217 @@
+{
+  "id": "sql.translate-numeric-text-parse",
+  "edition": "11.0",
+  "title": "Parse stored numeric text inside a SQL query",
+  "goal": "Parse numeric text in SQL Server filters with EF11 single-string Parse translations, choosing deliberate SQL conversion and failure semantics.",
+  "areas": [
+    "ef-core"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "osprey-readings",
+    "query-storage"
+  ],
+  "apis": [
+    "Int32.Parse",
+    "Byte.Parse",
+    "Int16.Parse",
+    "Int64.Parse",
+    "Decimal.Parse",
+    "Single.Parse",
+    "Double.Parse"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew",
+          "https://github.com/dotnet/core/blob/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/preview7/efcore.md"
+        ],
+        "selectionNotes": [
+          "Osprey survey imports store numeric text. EF11 translates the single-string byte, short, int, long, decimal, float and double Parse calls to tinyint, smallint, int, bigint, decimal(18,2), real and float CAST expressions. The executed filter returns only reading 1. Invalid text, int overflow and comma-decimal text fail at SQL Server with conversion errors; no TryParse guarantee is implied. A nullable result projection propagates SQL NULL. CLR Parse(null) instead throws; culture-sensitive CLR parsing is not the SQL grammar. The French CLR control accepts 1,5 as 1.5 while the integer SQL cast rejects it. Decimal CAST has fixed scale and can round differently from CLR decimal.Parse. No culture/provider overload or arbitrary .NET numeric format is promised. EF10 rejects Parse in a predicate; its fixed SQL TRY_CAST alternative treats failed conversions as NULL and excludes them. TRY_CAST deliberately has different error semantics from CAST. A WHERE guard is not a guarantee of SQL expression evaluation order. Clean input before conversion or use a deliberate TRY_CAST policy."
+        ],
+        "usage": "primary",
+        "target": "11.0",
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "EF Core 11 requires .NET 11. No older-runtime EF11 route is offered."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Current SDK11 RC3 compiles the locked EF11 RC2 graph; not GA evidence."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Declared current language mode; no C# 15-specific syntax is required by the example."
+          },
+          "frameworks": [
+            "Microsoft.NET.Sdk console consumer"
+          ],
+          "packages": [
+            {
+              "reason": "Exact tested RC2 graph is locked.",
+              "match": "release-family",
+              "version": "11.0",
+              "name": "Microsoft.EntityFrameworkCore.Sqlite"
+            },
+            {
+              "reason": "Matching SQL provider for the combined executable comparison.",
+              "match": "release-family",
+              "version": "11.0",
+              "name": "Microsoft.EntityFrameworkCore.SqlServer"
+            }
+          ],
+          "packageAssets": [
+            "EF10.0.13 net10.0 versus EF11 RC2 net11.0; Data.Sqlite.Core10 lib/net8.0 versus 11 lib/net10.0. SDK10.0.403/C#14 and SDK11.0.100-rc.3.26522.148/C#15 differ from the original SDK10.0.402/11 RC2 source audit. System.Security.Cryptography.Pkcs10.0.13 is explicitly pinned as in existing SQL consumers."
+          ],
+          "providers": [
+            "Actual Windows x64 bundled SQLite3.53.3/3.53.4 and isolated local SQL Server2025 Developer; no EF InMemory or mocks."
+          ],
+          "workloads": [],
+          "platforms": [
+            "Executed Windows x64 only. Other native platforms, providers, NativeAOT and actual GA remain unverified."
+          ],
+          "renderingModes": [
+            "Not applicable: console/database extension."
+          ],
+          "constraints": [
+            "Osprey survey imports store numeric text. EF11 translates the single-string byte, short, int, long, decimal, float and double Parse calls to tinyint, smallint, int, bigint, decimal(18,2), real and float CAST expressions. The executed filter returns only reading 1. Invalid text, int overflow and comma-decimal text fail at SQL Server with conversion errors; no TryParse guarantee is implied. A nullable result projection propagates SQL NULL. CLR Parse(null) instead throws; culture-sensitive CLR parsing is not the SQL grammar. The French CLR control accepts 1,5 as 1.5 while the integer SQL cast rejects it. Decimal CAST has fixed scale and can round differently from CLR decimal.Parse. No culture/provider overload or arbitrary .NET numeric format is promised. EF10 rejects Parse in a predicate; its fixed SQL TRY_CAST alternative treats failed conversions as NULL and excludes them. TRY_CAST deliberately has different error semantics from CAST. A WHERE guard is not a guarantee of SQL expression evaluation order. Clean input before conversion or use a deliberate TRY_CAST policy."
+          ],
+          "prerequisites": [
+            "Restore each locked graph with its pinned SDK before offline use. Run eng/Test-OspreyReadings.ps1 through the approved local SQL Server route; it creates and removes disposable databases. No production connection strings."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "No experimental suppression required. RC package execution is not GA reconciliation; PIN-965 remains separate."
+          ]
+        },
+        "conditional": false,
+        "evidenceSamples": [
+          "samples/net11.0/OspreyReadings/OspreyReadings.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Official EF11 features",
+      "url": "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew"
+    },
+    {
+      "title": "Source audit and artifact qualification",
+      "url": "https://github.com/PinguApps/Playbook/blob/a7fd46cd658708c25a7e0d032735760c3fe6d63f/docs/planning/audits/ef.md"
+    },
+    {
+      "title": "Pinned official EF11 feature introduction",
+      "url": "https://github.com/dotnet/core/blob/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/preview7/efcore.md"
+    }
+  ],
+  "evidence": [
+    {
+      "scope": "Osprey survey imports store numeric text. EF11 translates the single-string byte, short, int, long, decimal, float and double Parse calls to tinyint, smallint, int, bigint, decimal(18,2), real and float CAST expressions. The executed filter returns only reading 1. Invalid text, int overflow and comma-decimal text fail at SQL Server with conversion errors; no TryParse guarantee is implied. A nullable result projection propagates SQL NULL. CLR Parse(null) instead throws; culture-sensitive CLR parsing is not the SQL grammar. The French CLR control accepts 1,5 as 1.5 while the integer SQL cast rejects it. Decimal CAST has fixed scale and can round differently from CLR decimal.Parse. No culture/provider overload or arbitrary .NET numeric format is promised. EF10 rejects Parse in a predicate; its fixed SQL TRY_CAST alternative treats failed conversions as NULL and excludes them. TRY_CAST deliberately has different error semantics from CAST. A WHERE guard is not a guarantee of SQL expression evaluation order. Clean input before conversion or use a deliberate TRY_CAST policy.",
+      "target": "net10.0",
+      "language": "14.0",
+      "sdk": "10.0.403",
+      "kind": "compile-and-run",
+      "sample": "samples/net10.0/OspreyReadings/OspreyReadings.csproj"
+    },
+    {
+      "scope": "Osprey survey imports store numeric text. EF11 translates the single-string byte, short, int, long, decimal, float and double Parse calls to tinyint, smallint, int, bigint, decimal(18,2), real and float CAST expressions. The executed filter returns only reading 1. Invalid text, int overflow and comma-decimal text fail at SQL Server with conversion errors; no TryParse guarantee is implied. A nullable result projection propagates SQL NULL. CLR Parse(null) instead throws; culture-sensitive CLR parsing is not the SQL grammar. The French CLR control accepts 1,5 as 1.5 while the integer SQL cast rejects it. Decimal CAST has fixed scale and can round differently from CLR decimal.Parse. No culture/provider overload or arbitrary .NET numeric format is promised. EF10 rejects Parse in a predicate; its fixed SQL TRY_CAST alternative treats failed conversions as NULL and excludes them. TRY_CAST deliberately has different error semantics from CAST. A WHERE guard is not a guarantee of SQL expression evaluation order. Clean input before conversion or use a deliberate TRY_CAST policy.",
+      "target": "net11.0",
+      "language": "15.0",
+      "sdk": "11.0.100-rc.3.26522.148",
+      "kind": "compile-and-run",
+      "sample": "samples/net11.0/OspreyReadings/OspreyReadings.csproj"
+    }
+  ],
+  "snippets": {
+    "n10-directory-packages-props": {
+      "region": "complete",
+      "language": "xml",
+      "path": "samples/net10.0/OspreyReadings/Directory.Packages.props"
+    },
+    "n10-program-cs": {
+      "region": "complete",
+      "language": "csharp",
+      "path": "samples/net10.0/OspreyReadings/Program.cs"
+    },
+    "n11-program-cs": {
+      "region": "complete",
+      "language": "csharp",
+      "path": "samples/net11.0/OspreyReadings/Program.cs"
+    },
+    "n11-halfstorage-cs": {
+      "region": "complete",
+      "language": "csharp",
+      "path": "samples/net11.0/OspreyReadings/HalfStorage.cs"
+    },
+    "n10-directory-build-props": {
+      "region": "complete",
+      "language": "xml",
+      "path": "samples/net10.0/OspreyReadings/Directory.Build.props"
+    },
+    "n11-ospreyreadings-csproj": {
+      "region": "complete",
+      "language": "xml",
+      "path": "samples/net11.0/OspreyReadings/OspreyReadings.csproj"
+    },
+    "n11-directory-build-props": {
+      "region": "complete",
+      "language": "xml",
+      "path": "samples/net11.0/OspreyReadings/Directory.Build.props"
+    },
+    "n10-directory-build-targets": {
+      "region": "complete",
+      "language": "xml",
+      "path": "samples/net10.0/OspreyReadings/Directory.Build.targets"
+    },
+    "n10-halfstorage-cs": {
+      "region": "complete",
+      "language": "csharp",
+      "path": "samples/net10.0/OspreyReadings/HalfStorage.cs"
+    },
+    "n11-global-json": {
+      "region": "complete",
+      "language": "json",
+      "path": "samples/net11.0/OspreyReadings/global.json"
+    },
+    "n10-ospreyreadings-csproj": {
+      "region": "complete",
+      "language": "xml",
+      "path": "samples/net10.0/OspreyReadings/OspreyReadings.csproj"
+    },
+    "n10-global-json": {
+      "region": "complete",
+      "language": "json",
+      "path": "samples/net10.0/OspreyReadings/global.json"
+    },
+    "n11-directory-build-targets": {
+      "region": "complete",
+      "language": "xml",
+      "path": "samples/net11.0/OspreyReadings/Directory.Build.targets"
+    },
+    "n11-directory-packages-props": {
+      "region": "complete",
+      "language": "xml",
+      "path": "samples/net11.0/OspreyReadings/Directory.Packages.props"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Agent-executable isolated SQLite/SQL checks; no Human proof required."
+  }
+}
