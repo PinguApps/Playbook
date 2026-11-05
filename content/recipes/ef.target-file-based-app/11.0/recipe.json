@@ -1,0 +1,289 @@
+{
+  "id": "ef.target-file-based-app",
+  "edition": "11.0",
+  "title": "Run database design commands for a file app",
+  "goal": "Target an EF file-based app for migrations, or use a file app as the startup host for a conventional model project, and verify generated schema and persisted rows.",
+  "areas": [
+    "ef-core"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "curlew-design",
+    "migrations",
+    "file-based-app"
+  ],
+  "apis": [
+    "dotnet ef --file",
+    "dotnet ef --startup-file"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew"
+        ],
+        "selectionNotes": [
+          "EF11 tools accept --file for the target app and --startup-file for the startup host. EF10 uses an ordinary project as the tested alternative; no EF10 file-target option is claimed. The separate startup-file route deliberately targets a conventional model library through a project reference. Pingu approved this mixed route on 5 November 2026: the pinned SDK rejects #:project Marsh.cs with MSB4025. No file-to-file project reference is advertised. Disable PublishAot for this reflection-based EF design-time route. Explicitly include generated Migrations/**/*.cs in the file target and pass --output-dir Migrations plus an unambiguous namespace. Restore/build both target and startup before tooling metadata lookup. File and project selectors for the same role are mutually exclusive."
+        ],
+        "usage": "primary",
+        "target": "11.0",
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "EF Core 11 requires .NET 11. No older-runtime EF11 route is offered."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build the net11.0 consumer; measured SDK 11.0.100-rc.2.26504.105 is RC2 evidence, not GA proof."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Declared current language mode; no C# 15-specific syntax is required by the example."
+          },
+          "frameworks": [
+            "Microsoft.NET.Sdk console consumer"
+          ],
+          "packages": [
+            {
+              "match": "release-family",
+              "name": "Microsoft.EntityFrameworkCore.Sqlite",
+              "reason": "Exact RC2 graph is locked in the canonical project.",
+              "version": "11.0"
+            },
+            {
+              "version": "11.0",
+              "name": "Microsoft.EntityFrameworkCore.Design",
+              "reason": "The startup graph directly references the matching design-time package.",
+              "match": "release-family"
+            }
+          ],
+          "packageAssets": [
+            "Independent locked EF10.0.13/net10.0/SDK10.0.402/C#14 and EF11.0.0-rc.2.26504.105/net11.0/SDK11.0.100-rc.2.26504.105/C#15 graphs. EF11 requires .NET11; no older-runtime EF11 route. Current proof uses RC2, not GA. No experimental attribute or opt-in is required on the exercised public contracts."
+          ],
+          "providers": [
+            "Windows x64 bundled SQLite 3.53.3/3.53.4"
+          ],
+          "workloads": [],
+          "platforms": [
+            "Executed Windows x64 with bundled SQLite; other platforms and NativeAOT unverified."
+          ],
+          "renderingModes": [
+            "Not applicable: console/database extension."
+          ],
+          "constraints": [
+            "EF11 tools accept --file for the target app and --startup-file for the startup host. EF10 uses an ordinary project as the tested alternative; no EF10 file-target option is claimed. The separate startup-file route deliberately targets a conventional model library through a project reference. Pingu approved this mixed route on 5 November 2026: the pinned SDK rejects #:project Marsh.cs with MSB4025. No file-to-file project reference is advertised. Disable PublishAot for this reflection-based EF design-time route. Explicitly include generated Migrations/**/*.cs in the file target and pass --output-dir Migrations plus an unambiguous namespace. Restore/build both target and startup before tooling metadata lookup. File and project selectors for the same role are mutually exclusive."
+          ],
+          "prerequisites": [
+            "PowerShell7, SDK10.0.402, SDK11.0.100-rc.2.26504.105 and matching dotnet-ef/Design/SQLite 10.0.13 or 11.0.0-rc.2.26504.105. Run eng/Test-CurlewDesign.ps1 -Record. Tool setup can download NuGet packages; local SQLite requires no account."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Public extension contracts are upgrade-sensitive. Stable API shape measured on pinned RC2; reconcile actual GA separately."
+          ]
+        },
+        "conditional": false,
+        "evidenceSamples": [
+          "samples/net11.0/CurlewFile/Marsh.cs",
+          "samples/net11.0/CurlewStartup/Startup.cs",
+          "samples/net11.0/CurlewFileModel/CurlewFileModel.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew",
+      "title": "Official EF11 tooling guidance"
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "compile",
+      "language": "14.0",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "scope": "Independent pinned build; not GA or NativeAOT evidence.",
+      "sample": "samples/net10.0/CurlewDesign/CurlewDesign.csproj"
+    },
+    {
+      "language": "14.0",
+      "scope": "Real migration generation/list/script/update and SQLite persisted row; current routes include the mixed startup-file route approved by Pingu.",
+      "sample": "samples/net10.0/CurlewDesign/CurlewDesign.csproj",
+      "sdk": "10.0.402",
+      "target": "net10.0",
+      "record": "samples/net10.0/CurlewDesign/behavior.evidence.json",
+      "kind": "execution"
+    },
+    {
+      "kind": "compile",
+      "language": "15.0",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "scope": "Independent pinned build; not GA or NativeAOT evidence.",
+      "sample": "samples/net11.0/CurlewFile/Marsh.cs"
+    },
+    {
+      "language": "15.0",
+      "scope": "Real migration generation/list/script/update and SQLite persisted row; current routes include the mixed startup-file route approved by Pingu.",
+      "sample": "samples/net11.0/CurlewFile/Marsh.cs",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "target": "net11.0",
+      "record": "samples/net11.0/CurlewFile/behavior.evidence.json",
+      "kind": "execution"
+    },
+    {
+      "kind": "compile",
+      "language": "15.0",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "scope": "Independent pinned build; not GA or NativeAOT evidence.",
+      "sample": "samples/net11.0/CurlewFileModel/CurlewFileModel.csproj"
+    },
+    {
+      "kind": "compile",
+      "language": "15.0",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "scope": "Independent pinned build; not GA or NativeAOT evidence.",
+      "sample": "samples/net11.0/CurlewStartup/Startup.cs"
+    },
+    {
+      "language": "15.0",
+      "scope": "Real migration generation/list/script/update and SQLite persisted row; current routes include the mixed startup-file route approved by Pingu.",
+      "sample": "samples/net11.0/CurlewStartup/Startup.cs",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "target": "net11.0",
+      "record": "samples/net11.0/CurlewStartup/behavior.evidence.json",
+      "kind": "execution"
+    }
+  ],
+  "snippets": {
+    "n11-curlewfilemodel-directory-packages-props": {
+      "path": "samples/net11.0/CurlewFileModel/Directory.Packages.props",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n11-curlewstartup-directory-packages-props": {
+      "path": "samples/net11.0/CurlewStartup/Directory.Packages.props",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n11-curlewstartup-directory-build-props": {
+      "path": "samples/net11.0/CurlewStartup/Directory.Build.props",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n11-curlewfilemodel-directory-build-targets": {
+      "path": "samples/net11.0/CurlewFileModel/Directory.Build.targets",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n10-curlewdesign-program-cs": {
+      "path": "samples/net10.0/CurlewDesign/Program.cs",
+      "language": "csharp",
+      "region": "complete"
+    },
+    "n11-curlewfilemodel-model-cs": {
+      "path": "samples/net11.0/CurlewFileModel/Model.cs",
+      "language": "csharp",
+      "region": "complete"
+    },
+    "n11-curlewstartup-global-json": {
+      "path": "samples/net11.0/CurlewStartup/global.json",
+      "language": "json",
+      "region": "complete"
+    },
+    "n10-curlewdesign-directory-packages-props": {
+      "path": "samples/net10.0/CurlewDesign/Directory.Packages.props",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n10-curlewdesign-directory-build-targets": {
+      "path": "samples/net10.0/CurlewDesign/Directory.Build.targets",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n11-curlewfile-directory-build-targets": {
+      "path": "samples/net11.0/CurlewFile/Directory.Build.targets",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n10-curlewdesign-directory-build-props": {
+      "path": "samples/net10.0/CurlewDesign/Directory.Build.props",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n11-curlewfilemodel-global-json": {
+      "path": "samples/net11.0/CurlewFileModel/global.json",
+      "language": "json",
+      "region": "complete"
+    },
+    "n11-curlewfilemodel-curlewfilemodel-csproj": {
+      "path": "samples/net11.0/CurlewFileModel/CurlewFileModel.csproj",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n11-curlewfile-directory-packages-props": {
+      "path": "samples/net11.0/CurlewFile/Directory.Packages.props",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n11-curlewstartup-directory-build-targets": {
+      "path": "samples/net11.0/CurlewStartup/Directory.Build.targets",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n11-curlewfile-global-json": {
+      "path": "samples/net11.0/CurlewFile/global.json",
+      "language": "json",
+      "region": "complete"
+    },
+    "n11-curlewfile-marsh-cs": {
+      "path": "samples/net11.0/CurlewFile/Marsh.cs",
+      "language": "csharp",
+      "region": "complete"
+    },
+    "n10-curlewdesign-curlewdesign-csproj": {
+      "path": "samples/net10.0/CurlewDesign/CurlewDesign.csproj",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n11-curlewfile-directory-build-props": {
+      "path": "samples/net11.0/CurlewFile/Directory.Build.props",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n11-curlewstartup-startup-cs": {
+      "path": "samples/net11.0/CurlewStartup/Startup.cs",
+      "language": "csharp",
+      "region": "complete"
+    },
+    "n11-curlewfilemodel-directory-build-props": {
+      "path": "samples/net11.0/CurlewFileModel/Directory.Build.props",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n10-curlewdesign-global-json": {
+      "path": "samples/net10.0/CurlewDesign/global.json",
+      "language": "json",
+      "region": "complete"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Local disposable SQLite and CLI checks are agent executable."
+  }
+}
