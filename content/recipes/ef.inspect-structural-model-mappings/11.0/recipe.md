@@ -68,9 +68,13 @@ Use DeclaringType and distinguish IEntityType from IComplexType. Resolve columns
 
 {{snippet:n11-program-cs}}
 
+Migration call map: replace DeclaringEntityType assumptions with DeclaringType plus an entity/complex test; replace GetColumnBaseName/GetDefaultColumnBaseName with the store-aware column-name APIs; read container column mappings from IColumnBase.StoreTypeMapping. Do not carry removed metadata setters into a read-only inspector. Key/index lists may contain property bases; distinguish scalar and complex properties before resolving their store mappings.
+
 ## Constraints
 
 Windows x64 console/SQLite execution only; no rendering mode, NativeAOT or native JSON-index route. Public extension contracts remain upgrade-sensitive.
+
+SQLite rejects indexing the whole non-JSON complex property in the executed negative control. The current route indexes Location.Code plus Sequence and verifies their ordered property list; the alternate key uses Location.Code plus Id. GetTableColumnMappings and GetViewColumnMappings verify real store mappings. No native JSON/container-index route is advertised.
 
 ## Evidence
 
@@ -78,10 +82,5 @@ Independent SDK10.0.402 / C#14 / EF10.0.13 and SDK11 RC2 / C#15 / EF11 RC2 graph
 
 ## References
 
-[Official conventions](https://learn.microsoft.com/en-us/ef/core/modeling/bulk-configuration#conventions)
-
-
-
-SQLite rejects indexing the whole non-JSON complex property in the executed negative control. The current route indexes Location.Code plus Sequence and verifies their ordered property list; the alternate key uses Location.Code plus Id. GetTableColumnMappings and GetViewColumnMappings verify real store mappings. No native JSON/container-index route is advertised.
-
-Migration call map: replace DeclaringEntityType assumptions with DeclaringType plus an entity/complex test; replace GetColumnBaseName/GetDefaultColumnBaseName with the store-aware column-name APIs; read container column mappings from IColumnBase.StoreTypeMapping. Do not carry removed metadata setters into a read-only inspector. Key/index lists may contain property bases; distinguish scalar and complex properties before resolving their store mappings.
+- [EF relational metadata API](https://learn.microsoft.com/en-us/dotnet/api/microsoft.entityframeworkcore.relationalpropertyextensions)
+- [EF11 model changes](https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew)

@@ -12,7 +12,7 @@ EF11 tools accept --file for the target app and --startup-file for the startup h
 
 1. Retain the working EF10 project route. Restore each pinned graph separately.
 2. For a single file target, retain the package/property directives and migration include below. Use matching dotnet-ef and Design versions.
-3. Build the file app before invoking migrations add Initial --file Marsh.cs --namespace CurlewMigrations --output-dir Migrations. Include those generated files on subsequent builds.
+3. Build the file app before invoking migrations add Initial --file Marsh.cs --namespace CurlewMigrations --output-dir Migrations. Include those generated files on subsequent builds. With --namespace CurlewMigrations, this pinned tool writes MarshModelSnapshot.cs under CurlewMigrations while the migration files go under Migrations; retain both canonical include directives.
 4. Run migrations list, migrations script and database update with the same selection. Execute the app with --check to verify actual writes to the generated table.
 5. For the separate startup role, build the model library and Startup.cs, then select --project ../CurlewFileModel --startup-file Startup.cs. Repeat all migration and persistence checks; this is a separate database.
 6. Run eng/Test-CurlewDesign.ps1 -Record for isolated copies and exclusive-selector failure controls. Repeat on actual GA artifacts before claiming GA verification.

@@ -19,6 +19,7 @@ using var command = connection.CreateCommand();
 command.CommandText = "SELECT count(*) FROM sqlite_master WHERE type='table' AND name='DraftNest'";
 if (Convert.ToInt32(command.ExecuteScalar()) != 0) throw new Exception("Ignored table persisted.");
 #if LEGACY_CALLBACK
+Console.WriteLine("CONTROL LEGACY_CALLBACK: obsolete interface compiled and executed");
 var expectedCallback = false;
 #else
 var expectedCallback = true;

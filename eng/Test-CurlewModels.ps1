@@ -30,7 +30,12 @@ try {
             }
             if ($name -eq "CurlewConventions" -and $release -eq "10") {
                 Push-Location $directory
-                try { $output += & $dotnet run -c Release -p:DefineConstants=LEGACY_CALLBACK | Out-String } finally { Pop-Location }
+                try {
+                    & $dotnet build -c Release -t:Rebuild -p:RestoreLockedMode=true -p:DefineConstants=LEGACY_CALLBACK
+                    $legacy = & $dotnet "$directory/bin/Release/net$release.0/$name.dll" | Out-String
+                    if ($legacy -notmatch 'CONTROL LEGACY_CALLBACK') { throw 'Legacy variant did not execute.' }
+                    $output += $legacy
+                } finally { Pop-Location }
             }
             Write-Host $output
             if ($output -notmatch 'PASS ') { throw 'Missing execution proof.' }

@@ -18,7 +18,7 @@ if (db.Set<Nest>().AsNoTracking().Single().Id != 1) throw new Exception("Persist
 using var command = connection.CreateCommand();
 command.CommandText = "SELECT count(*) FROM sqlite_master WHERE type='table' AND name='DraftNest'";
 if (Convert.ToInt32(command.ExecuteScalar()) != 0) throw new Exception("Ignored table persisted.");
-var expectedCallback = !IgnoreDraft.IgnoreAfterAdding || true;
+var expectedCallback = true;
 if (IgnoreDraft.Seen != expectedCallback) throw new Exception("Unexpected convention ordering behavior.");
 Console.WriteLine("PASS ignored callback, included/ignored model and SQLite schema/persistence");
 

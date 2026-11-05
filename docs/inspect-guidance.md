@@ -4145,3 +4145,5 @@ fresh evidence. Target10 has no applicable edition. Unusable retrieval proxies p
 embedded offline guidance, not OS network isolation. No native JSON-index,
 file-to-file project reference, NativeAOT, other-platform or actual GA proof follows.
 The separate mixed startup route was approved by Pingu; PIN-959/PIN-965 remain open.
+
+Use eng/Test-CurlewModels.ps1 -Record and eng/Test-CurlewDesign.ps1 -Record to refresh the committed sample receipts after relevant input changes.

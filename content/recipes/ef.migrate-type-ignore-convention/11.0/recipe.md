@@ -10,9 +10,9 @@ The legacy IEntityTypeIgnoredConvention is already obsolete on EF10 and its regi
 
 ## Migration
 
-1. Inventory your model and provider-specific consumers before changing metadata calls.
+1. Identify registrations implementing IEntityTypeIgnoredConvention; the pinned EF10 callback is already obsolete and is not dispatched by this measured graph.
 2. Pin and restore each complete comparison independently; EF11 requires .NET11.
-3. Apply the distinction above and preserve model/property ordering.
+3. Implement ITypeIgnoredConvention.ProcessTypeIgnored and register the replacement through ConfigureConventions. Keep ModelBuilder.Ignore responsible for exclusion. Use HasNoAnnotation only when an existing convention actually removes annotations; this observer has no such call.
 4. Run eng/Test-CurlewModels.ps1, including the convention ordering controls. Inspect actual schema and fresh-context results.
 5. Repeat affected checks on your provider and GA artifacts.
 
