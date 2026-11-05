@@ -5,7 +5,9 @@
     "eng/Evidence.ps1",
     "eng/Test-WebMigrationBatch.ps1",
     "docs/planning/audits/web.assets.json",
-    "docs/planning/audits/web.sources.json"
+    "docs/planning/audits/web.sources.json",
+    "eng/Record-VolunteerAccess.ps1",
+    "eng/Test-VolunteerAccess.mjs"
   ],
   "dependencies": [
     "Microsoft.AspNetCore.Identity.EntityFrameworkCore/10.0.13",

@@ -6,8 +6,8 @@
   "language": "14.0",
   "command": "eng/Test-CanalDesign.ps1 -Record; dotnet-ef 10.0.13 dbcontext info from commands/deep with default and overridden context",
   "scope": "Real CLI directory lookup, config-relative project/startup paths and context override; EF10 uses explicit options. No PMC, cross-platform or GA execution.",
-  "recordedAt": "2026-11-05T01:49:55.3342730+00:00",
-  "sourceCommit": "80c3ad98dd134417987ba0124d2f020070483464",
+  "recordedAt": "2026-11-05T02:57:45.8823841+00:00",
+  "sourceCommit": "67a1e34b8a7bf7a60b649242c86e9c443ad0e625",
   "sourceDirty": true,
   "inputs": {
     ".editorconfig": "c99359640a7ebc05cb7e8246fa002e9cd12b3b10bc7773f1af574391e8e94664",
@@ -21,7 +21,7 @@
     "samples/net10.0/CanalDesign/Directory.Build.targets": "347e2e29465c6a37869dd07b0b401c55743b8571fb513a4e42b6ee8facc06ca4",
     "samples/net10.0/CanalDesign/Directory.Packages.props": "347e2e29465c6a37869dd07b0b401c55743b8571fb513a4e42b6ee8facc06ca4",
     "samples/net10.0/CanalDesign/global.json": "1d8bd0af98bca7dcc55c26832b8289fb3b4f9ecc21ef7d647e5846825bf0ad3a",
-    "samples/net10.0/CanalDesign/packages.lock.json": "9415f465fa54398510031e055cc4248a5e6e90d924cc71cf65cd662815f9aa49",
+    "samples/net10.0/CanalDesign/packages.lock.json": "fada10ed51801b967520ea9c15fe3e26b7deacf46164a94640319eb0dc623ff3",
     "samples/net10.0/CanalDesign/Pmc.ps1": "b60ed311f3b911ce93223a811735994d75c8ba8f5c13c3f712319e62dadaf2f7",
     "samples/net10.0/CanalDesign/Program.cs": "9e540c788b3a3e55ba0c11e0d558320703b3a0f631ef5e51378053feb6d060a2",
     "samples/net10.0/CanalDesign/verification.json": "46557344228b436c3333a2fa854aee81d02fd7c625b71bc650cb6520edc4d2b1"

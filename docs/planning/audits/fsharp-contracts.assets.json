@@ -121,9 +121,9 @@
   },
   {
     "package": "FSharp.Core",
-    "version": "SDK-11.0.100-rc.2.26504.105",
+    "version": "SDK-11.0.100-rc.3.26522.148",
     "asset": "FSharp.Core.dll",
-    "sha256": "cc9140abff3283005b2418dd270c6a097e70abcb90c22af3473fafac0d2687ca",
+    "sha256": "063c60b0bf5578c645e5e86cf24043f2179aa5d2744bb54c73b220b7e3c182a9",
     "assemblyVersion": "11.0.0.0",
     "targetFramework": ".NETCoreApp,Version=v10.0",
     "declarations": [

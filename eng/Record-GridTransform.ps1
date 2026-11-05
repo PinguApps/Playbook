@@ -78,7 +78,7 @@ try {
       Write-Host $policyOutput
       $record.command += "; $dotnet $assembly --policy-only"
       $record.output += "`n$policyOutput"
-      $record.scope = 'Actual SDK11 RC2 compilation with locked Tensor11 RC2 net11 assets; supplementary execution covers only ownership policies and Try capacity/shape false controls. The package lacks release/11.0 storage backport behavior. Successful current rejection/permitted-overlap/constructor execution and final SDK/package proof remain pending under PIN-962, following Pingu-approved full-release preparation.'
+      $record.scope = 'Actual SDK11 RC3 compilation with locked Tensor11 RC2 net11 assets; supplementary execution covers only ownership policies and Try capacity/shape false controls. The package lacks release/11.0 storage backport behavior. Successful current rejection/permitted-overlap/constructor execution and final SDK/package proof remain pending under PIN-962, following Pingu-approved full-release preparation.'
     }
     [IO.File]::WriteAllText($recordPath, ($record | ConvertTo-Json -Depth 40).Replace("`r`n","`n") + "`n")
   }

@@ -6,14 +6,14 @@
   "language": "15.0",
   "command": "V:\\_worktrees\\Playbook\\t3-a392df65\\artifacts\\sdk-upgrade\\dotnet\\dotnet.exe restore HarbourTls.csproj --force-evaluate; V:\\_worktrees\\Playbook\\t3-a392df65\\artifacts\\sdk-upgrade\\dotnet\\dotnet.exe build HarbourTls.csproj -c Release --no-restore (expected CS0246); review pinned DirectTls documentation and exact package metadata",
   "scope": "Documentation-based current example; compilation attempted and blocked by absent DirectTlsEndpoint in pinned RC1. Not a successful compilation or native Linux execution record.",
-  "recordedAt": "2026-11-05T02:40:04.0696572+00:00",
-  "sourceCommit": "2e41d5f1d326777a8860b535198adfafcb00ac38",
+  "recordedAt": "2026-11-05T03:45:26.6749440+00:00",
+  "sourceCommit": "67a1e34b8a7bf7a60b649242c86e9c443ad0e625",
   "sourceDirty": true,
   "inputs": {
     ".editorconfig": "c99359640a7ebc05cb7e8246fa002e9cd12b3b10bc7773f1af574391e8e94664",
     "docs/planning/audits/agent-state.sources.json": "5646ca592025b7a94a83e75f78233bb846bbb87615807119779d9062510f031b",
     "eng/Evidence.ps1": "b3dbd6b3788e31aefe1533ef89fed66625f2a637993f9291e8d1d4fc8a2ba849",
-    "eng/Record-AgentStateGuidance.ps1": "641e427ed6435931f96cadbb8d62c4896505ce4c7edfb96657f8f1afe959b80b",
+    "eng/Record-AgentStateGuidance.ps1": "4fea61d234edf82c1c4d6c5c2965963bea343b6ccb50a13cc4cb643c8ef25d7a",
     "eng/Record-Evidence.ps1": "653a32b1ebe5be60a5489afd9a7a963dbbabf5c2ecfd47fe480974fd5d939498",
     "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
     "samples/net11.0/HarbourTls/Directory.Build.props": "347e2e29465c6a37869dd07b0b401c55743b8571fb513a4e42b6ee8facc06ca4",
@@ -31,7 +31,7 @@
   "workloads": [],
   "nativeToolchains": [],
   "host": "Microsoft Windows 10.0.26200",
-  "sdkInfo": "Intended SDK11 RC2; actual command failed at missing documented package API.",
+  "sdkInfo": "Intended SDK11 RC3; actual command failed at missing documented package API.",
   "workloadInfo": "No workloads or native OpenSSL runtime qualified",
-  "output": "V:\\_worktrees\\Playbook\\t3-a392df65\\artifacts\\sdk-upgrade\\dotnet\\sdk\\11.0.100-rc.3.26522.148\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.RuntimeIdentifierInference.targets(385,5): message NETSDK1057: You are using a preview version of .NET. See: https://aka.ms/dotnet-support-policy [V:\\_worktrees\\Playbook\\t3-a392df65\\samples\\net11.0\\HarbourTls\\HarbourTls.csproj]\r\nV:\\_worktrees\\Playbook\\t3-a392df65\\samples\\net11.0\\HarbourTls\\Program.cs(17,22): error CS0246: The type or namespace name 'DirectTlsEndpoint' could not be found (are you missing a using directive or an assembly reference?) [V:\\_worktrees\\Playbook\\t3-a392df65\\samples\\net11.0\\HarbourTls\\HarbourTls.csproj]\r\n\r\nBuild FAILED.\r\n\r\nV:\\_worktrees\\Playbook\\t3-a392df65\\samples\\net11.0\\HarbourTls\\Program.cs(17,22): error CS0246: The type or namespace name 'DirectTlsEndpoint' could not be found (are you missing a using directive or an assembly reference?) [V:\\_worktrees\\Playbook\\t3-a392df65\\samples\\net11.0\\HarbourTls\\HarbourTls.csproj]\r\n    0 Warning(s)\r\n    1 Error(s)\r\n\r\nTime Elapsed 00:00:00.34"
+  "output": "V:\\_worktrees\\Playbook\\t3-a392df65\\artifacts\\sdk-upgrade\\dotnet\\sdk\\11.0.100-rc.3.26522.148\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.RuntimeIdentifierInference.targets(385,5): message NETSDK1057: You are using a preview version of .NET. See: https://aka.ms/dotnet-support-policy [V:\\_worktrees\\Playbook\\t3-a392df65\\samples\\net11.0\\HarbourTls\\HarbourTls.csproj]\r\nV:\\_worktrees\\Playbook\\t3-a392df65\\samples\\net11.0\\HarbourTls\\Program.cs(17,22): error CS0246: The type or namespace name 'DirectTlsEndpoint' could not be found (are you missing a using directive or an assembly reference?) [V:\\_worktrees\\Playbook\\t3-a392df65\\samples\\net11.0\\HarbourTls\\HarbourTls.csproj]\r\n\r\nBuild FAILED.\r\n\r\nV:\\_worktrees\\Playbook\\t3-a392df65\\samples\\net11.0\\HarbourTls\\Program.cs(17,22): error CS0246: The type or namespace name 'DirectTlsEndpoint' could not be found (are you missing a using directive or an assembly reference?) [V:\\_worktrees\\Playbook\\t3-a392df65\\samples\\net11.0\\HarbourTls\\HarbourTls.csproj]\r\n    0 Warning(s)\r\n    1 Error(s)\r\n\r\nTime Elapsed 00:00:00.25"
 }

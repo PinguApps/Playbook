@@ -76,7 +76,7 @@
             "true maps to OaepSHA1; false maps to Pkcs1. Compatibility only, neither is a new-protocol recommendation.",
             "Same CAPI provider rejects OAEP-SHA256. Stronger-provider/algorithm/key migration requires separate peer agreement and positive proof, outside this slice.",
             "No fallback after decrypt failure; production key containers/HSMs and authenticated-encryption redesign are outside this guide.",
-            "Framework APIs only; no NuGet packages, workloads, rendering mode or experimental opt-ins. Previous SDK10.0.403/runtime10.0.13 and current SDK11RC2/runtime11RC2 are verification pins, not supported consumer minimums."
+            "Framework APIs only; no NuGet packages, workloads, rendering mode or experimental opt-ins. Previous SDK10.0.403/runtime10.0.14 and current SDK11RC3/runtime11RC3 are verification pins, not supported consumer minimums."
           ],
           "optIns": [],
           "stabilityLimitations": [

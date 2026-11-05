@@ -63,7 +63,7 @@ try {
     $asset = Join-Path $root "samples/$variant/InstrumentBatch/bin/Release/$variant/System.Numerics.Tensors.dll"
     $record.output += "`nPACKAGE ASSET lib/$variant/System.Numerics.Tensors.dll sha256=$((Get-FileHash -LiteralPath $asset -Algorithm SHA256).Hash.ToLowerInvariant())"
     if ($variant -eq 'net11.0' -and -not $RunReleaseChecks) {
-      $record.scope = 'Actual SDK11 RC2 compilation with locked Tensor11 RC2 net11 assets only. This package lacks the documented release/11.0 shape backport. No successful current shape/empty/Any/view/native-width execution or final SDK/package proof; PIN-962 must refresh after GA.'
+      $record.scope = 'Actual SDK11 RC3 compilation with locked Tensor11 RC2 net11 assets only. This package lacks the documented release/11.0 shape backport. No successful current shape/empty/Any/view/native-width execution or final SDK/package proof; PIN-962 must refresh after GA.'
     }
     [IO.File]::WriteAllText($recordPath, ($record | ConvertTo-Json -Depth 40).Replace("`r`n","`n") + "`n")
   }

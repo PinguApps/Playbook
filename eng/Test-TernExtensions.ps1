@@ -1,8 +1,8 @@
 #Requires -Version 7.3
 [CmdletBinding()]
 param([switch]$Record,
-    [string]$Dotnet10 = 'C:\Program Files\dotnet\dotnet.exe',
-    [string]$Dotnet11 = 'C:\Users\pingu\.dotnet-playbook-11\dotnet.exe')
+    [string]$Dotnet10 = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source,
+    [string]$Dotnet11 = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source)
 $ErrorActionPreference = 'Stop'
 $PSNativeCommandUseErrorActionPreference = $true
 $root = Split-Path $PSScriptRoot -Parent

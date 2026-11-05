@@ -48,7 +48,7 @@ try {
             scope='Documentation-based current example; compilation attempted and blocked by absent DirectTlsEndpoint in pinned RC1. Not a successful compilation or native Linux execution record.'
             recordedAt=[DateTimeOffset]::UtcNow.ToString('O'); sourceCommit=(& 'C:/Program Files/Git/cmd/git.exe' -C $root rev-parse HEAD).Trim(); sourceDirty=$true
             inputs=$before; dependencies=@($manifest.dependencies); workloads=@(); nativeToolchains=@()
-            host=[Runtime.InteropServices.RuntimeInformation]::OSDescription; sdkInfo='Intended SDK11 RC2; actual command failed at missing documented package API.'
+            host=[Runtime.InteropServices.RuntimeInformation]::OSDescription; sdkInfo='Intended SDK11 RC3; actual command failed at missing documented package API.'
             workloadInfo='No workloads or native OpenSSL runtime qualified'; output=$result.Trim()
           }
           [IO.File]::WriteAllText((Join-Path $directory 'source-review.evidence.json'), ($record | ConvertTo-Json -Depth 30).Replace("`r`n","`n") + "`n")

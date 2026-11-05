@@ -46,7 +46,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Build the net11.0 consumer; measured SDK 11.0.100-rc.2.26504.105 is RC2 evidence, not GA proof."
+            "reason": "Build the net11.0 consumer; measured SDK 11.0.100-rc.3.26522.148 is RC2 evidence, not GA proof."
           },
           "language": {
             "name": "C#",
@@ -66,7 +66,7 @@
             }
           ],
           "packageAssets": [
-            "EF10.0.13/net10.0 versus EF11.0.0-rc.2.26504.105/net11.0. SDK10.0.402/C#14 versus SDK11.0.100-rc.2.26504.105/C#15. SQL graphs pin Pkcs10.0.13 and SqlClient6.1.7/7.1.0. SQLite uses the locked platform bundle; actual native DLL hashes are in execution records. EF11 requires .NET11; no older-runtime route is offered. No workload or rendering mode applies. No experimental opt-in or NativeAOT claim. RC2 proof is not actual GA reconciliation."
+            "EF10.0.13/net10.0 versus EF11.0.0-rc.2.26504.105/net11.0. SDK10.0.403/C#14 versus SDK11.0.100-rc.3.26522.148/C#15. SQL graphs pin Pkcs10.0.13 and SqlClient6.1.7/7.1.0. SQLite uses the locked platform bundle; actual native DLL hashes are in execution records. EF11 requires .NET11; no older-runtime route is offered. No workload or rendering mode applies. No experimental opt-in or NativeAOT claim. RC2 proof is not actual GA reconciliation."
           ],
           "providers": [
             "SQL Server2025 17.0.5035.5 compatibility170; approved isolated Docker route"
@@ -82,7 +82,7 @@
             "Use the public relational mapping plugin boundary. EF11 adds generic mapping bases whose default comparer creation can use the closed CLR type; the non-generic EF10 base remains the comparison. A mutable Reading still needs an explicit snapshot and value equality comparer: generic defaults cannot infer application semantics. The mapping converts Reading to int and preserves that converter and comparer through Clone. CoreTypeMapping.Clone parameters move from in to by-value in the pinned contracts; the relational Clone override shown takes RelationalTypeMappingParameters by value in both. JSON structural type mapping describes object/collection structure; it is not the scalar mapping used here. No JSON graph or NativeAOT compatibility follows from this sample."
           ],
           "prerequisites": [
-            "PowerShell7, pinned SDK10.0.402 and SDK11 RC2, restored locked graphs. SQL samples use the approved isolated SqlServer.ps1 route. Run eng/Test-TernExtensions.ps1 -Record."
+            "PowerShell7, pinned SDK10.0.403 and SDK11 RC3, restored locked graphs. SQL samples use the approved isolated SqlServer.ps1 route. Run eng/Test-TernExtensions.ps1 -Record."
           ],
           "optIns": [],
           "stabilityLimitations": [
@@ -106,7 +106,7 @@
     {
       "language": "14.0",
       "sample": "samples/net10.0/TernGauges/TernGauges.csproj",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "target": "net10.0",
       "kind": "compile",
       "scope": "eng/Test-TernExtensions.ps1 -Record: real compilation and bounded provider execution with cleanup. No GA/NativeAOT/other-platform guarantee."
@@ -114,7 +114,7 @@
     {
       "language": "14.0",
       "sample": "samples/net10.0/TernGauges/TernGauges.csproj",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "target": "net10.0",
       "kind": "execution",
       "record": "samples/net10.0/TernGauges/behavior.evidence.json",
@@ -123,7 +123,7 @@
     {
       "language": "15.0",
       "sample": "samples/net11.0/TernGauges/TernGauges.csproj",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "target": "net11.0",
       "kind": "compile",
       "scope": "eng/Test-TernExtensions.ps1 -Record: real compilation and bounded provider execution with cleanup. No GA/NativeAOT/other-platform guarantee."
@@ -131,7 +131,7 @@
     {
       "language": "15.0",
       "sample": "samples/net11.0/TernGauges/TernGauges.csproj",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "target": "net11.0",
       "kind": "execution",
       "record": "samples/net11.0/TernGauges/behavior.evidence.json",

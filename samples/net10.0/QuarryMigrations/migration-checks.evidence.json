@@ -6,8 +6,8 @@
   "language": "14.0",
   "command": "eng/Test-QuarryMigrations.ps1 -Record; actual dotnet-ef 10.0.13 CLI, isolated SQL2025 database and compiled inspection consumer",
   "scope": "EF10 actual two-step scaffold/apply, manual removal of known-unpublished first migration files, applied SQL history/schema, retained model/index, excluded database FK and accepted orphan insert. No EF11, PMC or GA execution in this record.",
-  "recordedAt": "2026-11-05T02:00:12.4337983+00:00",
-  "sourceCommit": "80c3ad98dd134417987ba0124d2f020070483464",
+  "recordedAt": "2026-11-05T02:58:35.4230516+00:00",
+  "sourceCommit": "67a1e34b8a7bf7a60b649242c86e9c443ad0e625",
   "sourceDirty": true,
   "inputs": {
     ".editorconfig": "c99359640a7ebc05cb7e8246fa002e9cd12b3b10bc7773f1af574391e8e94664",
@@ -20,7 +20,7 @@
     "samples/net10.0/QuarryMigrations/Directory.Build.targets": "347e2e29465c6a37869dd07b0b401c55743b8571fb513a4e42b6ee8facc06ca4",
     "samples/net10.0/QuarryMigrations/Directory.Packages.props": "347e2e29465c6a37869dd07b0b401c55743b8571fb513a4e42b6ee8facc06ca4",
     "samples/net10.0/QuarryMigrations/global.json": "1d8bd0af98bca7dcc55c26832b8289fb3b4f9ecc21ef7d647e5846825bf0ad3a",
-    "samples/net10.0/QuarryMigrations/packages.lock.json": "1ddd5672e3c99c9f7fcccd8005c5e43b5f5ed25f5eb4ba7631f44133d1f1357d",
+    "samples/net10.0/QuarryMigrations/packages.lock.json": "faa2a4d205b17ca555430d01f3d59dae96273d38d1423e3f467e068acb78e6ca",
     "samples/net10.0/QuarryMigrations/Program.cs": "60fea3b66338f0772a02de7f69e8bd5b87fcbd1b4d100eb79b9f6f9b9ef7b6b6",
     "samples/net10.0/QuarryMigrations/QuarryMigrations.csproj": "0281fd74365366982254d13494e559d1bc1839c3d3be26f9b7c5c630fc53c043",
     "samples/net10.0/QuarryMigrations/verification.json": "0f7242757db0e9ea7fc8b903ea8dd78fe5060b5cb2e7063ecafd45aebdc72f46"

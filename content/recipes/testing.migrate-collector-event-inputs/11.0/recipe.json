@@ -49,7 +49,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Exact current SDK11RC2/compiler/reference inputs are pinned, distinct from stable VSTest package versions."
+            "reason": "Exact current SDK11RC3/compiler/reference inputs are pinned, distinct from stable VSTest package versions."
           },
           "language": {
             "name": "C#",

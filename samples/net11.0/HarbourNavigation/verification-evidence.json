@@ -6,8 +6,8 @@
   "language": "15.0",
   "command": "eng/Test-HarbourNavigation.ps1 -Record",
   "scope": "Pinned official source and actual Controls.Core RC2 artifact review; not compilation or native execution.",
-  "recordedAt": "2026-11-05T02:12:49.1399083+00:00",
-  "sourceCommit": "2e41d5f1d326777a8860b535198adfafcb00ac38",
+  "recordedAt": "2026-11-05T03:45:21.1831827+00:00",
+  "sourceCommit": "67a1e34b8a7bf7a60b649242c86e9c443ad0e625",
   "sourceDirty": true,
   "inputs": {
     "docs/planning/audits/mobile-baselines.sources.json": "5f78b99d3d2c7f01f384499246584b5a376acaa656cfde357520da85b13f663d",
@@ -29,7 +29,7 @@
   "workloads": [],
   "nativeToolchains": [],
   "host": "Microsoft Windows 10.0.26200",
-  "sdkInfo": "Intended SDK11 RC2 pin; Windows build attempted and failed NETSDK1147 because Microsoft.Maui.Sdk is absent.",
-  "workloadInfo": "SDK11 native MAUI SDK pack unavailable. No workload installed by this check.",
+  "sdkInfo": "Intended SDK11 RC3 pin; source/package review only, not a compiler or workload observation.",
+  "workloadInfo": "No workload query or installation in this source/package check.",
   "output": "Official source hashes and Controls.Core package hash/member/Android37 asset checks passed. Android/Windows native behavior not executed."
 }

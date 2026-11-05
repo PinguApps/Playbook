@@ -6,8 +6,8 @@
   "language": "15.0",
   "command": "eng/Test-FleetTooling.ps1 -Record",
   "scope": "PASS EF11 script/update/drop and clean stdout/stderr; wildcard list RC2 failure reproduced.",
-  "recordedAt": "2026-11-05T01:59:24.4786601+00:00",
-  "sourceCommit": "80c3ad98dd134417987ba0124d2f020070483464",
+  "recordedAt": "2026-11-05T02:57:23.8668388+00:00",
+  "sourceCommit": "67a1e34b8a7bf7a60b649242c86e9c443ad0e625",
   "sourceDirty": true,
   "inputs": {
     ".editorconfig": "c99359640a7ebc05cb7e8246fa002e9cd12b3b10bc7773f1af574391e8e94664",
@@ -28,7 +28,7 @@
     "samples/net11.0/FleetTooling/Migrations/Berth/20261104182923_InitialBerth.cs": "b71792d7e91c91adf757ee1ba5cc1e08ba6d452099bea77c17209b3d6b09e457",
     "samples/net11.0/FleetTooling/Migrations/Berth/20261104182923_InitialBerth.Designer.cs": "161ecfa9b0bfb7f61fb4894693f6a0ca137e0bb93f34f281d6864bd61ecc52d6",
     "samples/net11.0/FleetTooling/Migrations/Berth/BerthContextModelSnapshot.cs": "f4a02c0411bfa89c9d93ce67daa8b755484dc451c3df75960970c76760d80b17",
-    "samples/net11.0/FleetTooling/packages.lock.json": "dde57200f7e278bfb2bc87c05da876a9e0046e745d85b034a0ed161f3ac986b1",
+    "samples/net11.0/FleetTooling/packages.lock.json": "964addacc4b5e29f63de8cd5f8e8d41a01e764a1c2a8db863dd195e1c6ba64f7",
     "samples/net11.0/FleetTooling/Program.cs": "e138ac6e295903888be76b1ce742e83b65665fd145d702bd6c26e92d97eb03a5",
     "samples/net11.0/FleetTooling/verification.json": "ef724a340808e256134caa5d517635e0198d07eb475e49663713d563d1b2498d"
   },

@@ -126,7 +126,7 @@
       "target": "net11.0",
       "sdk": "11.0.100-rc.3.26522.148",
       "language": "15.0",
-      "scope": "Real SDK10.0.100/compiler5.0/ref10.0.0 baseline versus SDK10.0.403/compiler5.9/ref10.0.13 and SDK11RC2/compiler5.12/ref11RC2: Span/ReadOnlySpan acceptance then CS8352; interface &&/|| runtime binder failures then separate CS7083 errors. Exact compiler/reference/CoreCLR hashes, commands and real corrected executions retained; no synthetic references or GA claim."
+      "scope": "Real SDK10.0.100/compiler5.0/ref10.0.0 baseline versus SDK10.0.403/compiler5.9/ref10.0.14 and SDK11RC3/compiler5.12/ref11RC3: Span/ReadOnlySpan acceptance then CS8352; interface &&/|| runtime binder failures then separate CS7083 errors. Exact compiler/reference/CoreCLR hashes, commands and real corrected executions retained; no synthetic references or GA claim."
     }
   ],
   "humanProof": {

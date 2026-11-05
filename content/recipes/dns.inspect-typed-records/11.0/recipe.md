@@ -111,7 +111,7 @@ exist in the reviewed RC2 contract; GA reconciliation remains PIN-962's work.
 
 ## Evidence
 
-SDK 10.0.403/runtime 10.0.13 with DnsClient 1.8.0 and SDK 11RC2/runtime 11RC2 with
+SDK 10.0.403/runtime 10.0.14 with DnsClient 1.8.0 and SDK 11RC3/runtime 11RC3 with
 framework-only APIs compile and execute against actual authoritative loopback UDP
 fixtures. They verify two A addresses (TTL 91), two AAAA addresses (TTL 118),
 MX exchange/preference 17 (TTL 105), two separate TXT strings (TTL 106),

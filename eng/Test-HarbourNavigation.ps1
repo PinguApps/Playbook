@@ -54,8 +54,8 @@ try {
                 recordedAt=[DateTimeOffset]::UtcNow.ToString('O'); sourceCommit=(& 'C:/Program Files/Git/cmd/git.exe' -C $root rev-parse HEAD).Trim(); sourceDirty=$sourceDirty
                 inputs=(Get-EvidenceInputs $root $sample); dependencies=@(); workloads=@(); nativeToolchains=@()
                 host=[Runtime.InteropServices.RuntimeInformation]::OSDescription
-                sdkInfo='Intended SDK11 RC2 pin; Windows build attempted and failed NETSDK1147 because Microsoft.Maui.Sdk is absent.'
-                workloadInfo='SDK11 native MAUI SDK pack unavailable. No workload installed by this check.'
+                sdkInfo='Intended SDK11 RC3 pin; source/package review only, not a compiler or workload observation.'
+                workloadInfo='No workload query or installation in this source/package check.'
                 output='Official source hashes and Controls.Core package hash/member/Android37 asset checks passed. Android/Windows native behavior not executed.'
             }
             [IO.File]::WriteAllText((Join-Path $directory 'verification-evidence.json'),(ConvertTo-Json $receipt -Depth 30).Replace("`r`n","`n")+"`n")

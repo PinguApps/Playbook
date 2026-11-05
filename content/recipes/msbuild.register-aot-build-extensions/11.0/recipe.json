@@ -141,7 +141,7 @@
           ],
           "renderingModes": [],
           "prerequisites": [
-            "Complete official SDK10.0.403/runtime10.0.13 and SDK11RC2/runtime-reference11RC2 for the paired managed proof; official NuGet packages and locked restore.",
+            "Complete official SDK10.0.403/runtime10.0.14 and SDK11RC3/runtime-reference11RC3 for the paired managed proof; official NuGet packages and locked restore.",
             "Supported Windows NativeAOT prerequisite is Visual Studio2022 or later with Desktop development with C++ and Windows SDK components. The listed exact VS18 toolchain was measured and used.",
             "Set QUAY_MSBUILD_SDK to the matching complete SDK directory. Startup selects process-only MSBUILD_EXE_PATH; use fresh disposable processes and trusted fixed project/import files.",
             "PowerShell7 for evidence/inspection; SDK10 and Node22.19+ for installed tool inspection. Native build uses absolute executables and child-only INCLUDE/LIB without PATH or persistent setting edits."

@@ -6,8 +6,8 @@
   "language": "14.0",
   "command": "eng/Test-FleetTooling.ps1 -Record",
   "scope": "PASS EF10 explicit lists and scripts; canonical output-file capture executes.",
-  "recordedAt": "2026-11-05T01:58:33.4851904+00:00",
-  "sourceCommit": "80c3ad98dd134417987ba0124d2f020070483464",
+  "recordedAt": "2026-11-05T02:56:55.3108153+00:00",
+  "sourceCommit": "67a1e34b8a7bf7a60b649242c86e9c443ad0e625",
   "sourceDirty": true,
   "inputs": {
     ".editorconfig": "c99359640a7ebc05cb7e8246fa002e9cd12b3b10bc7773f1af574391e8e94664",
@@ -28,7 +28,7 @@
     "samples/net10.0/FleetTooling/Migrations/Berth/20261104182857_InitialBerth.cs": "994056c830206d0ee2651ef2f455c771186c10d5a29ab437becae48ffa6f514a",
     "samples/net10.0/FleetTooling/Migrations/Berth/20261104182857_InitialBerth.Designer.cs": "0a608c06bd0ff5cae09ab93fa2119077c53dc091e825d54e50da732cd85f811d",
     "samples/net10.0/FleetTooling/Migrations/Berth/BerthContextModelSnapshot.cs": "a55e83de9efa62bf3356785d9e12634c12870d780270ea6f47eda239d0b40824",
-    "samples/net10.0/FleetTooling/packages.lock.json": "9415f465fa54398510031e055cc4248a5e6e90d924cc71cf65cd662815f9aa49",
+    "samples/net10.0/FleetTooling/packages.lock.json": "fada10ed51801b967520ea9c15fe3e26b7deacf46164a94640319eb0dc623ff3",
     "samples/net10.0/FleetTooling/Program.cs": "e138ac6e295903888be76b1ce742e83b65665fd145d702bd6c26e92d97eb03a5",
     "samples/net10.0/FleetTooling/verification.json": "b0187666ac6c08645d0ac0ff693da3dafb2e4f4f549fd648995a9f0a4c795b9d"
   },

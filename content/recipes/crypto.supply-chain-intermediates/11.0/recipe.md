@@ -73,7 +73,7 @@ package, workload, rendering mode or experimental opt-in is needed. The native
 provider here is Linux/OpenSSL. Exact Azure Linux3/.NET10.0.13 and Azure Linux4
 beta/.NET11RC2 images are digest-pinned by the recorder. Loaded OpenSSL version,
 native library hash, OS/architecture, runtime and commands are captured. Separate
-Windows SDK10.0.403/C#14 and SDK11RC2/C#15 consumers compile the actual reference
+Windows SDK10.0.403/C#14 and SDK11RC3/C#15 consumers compile the actual reference
 sets; compilation itself does not prove Linux behavior.
 
 Only this bounded Linux chain is measured. Windows/macOS/other OpenSSL versions,

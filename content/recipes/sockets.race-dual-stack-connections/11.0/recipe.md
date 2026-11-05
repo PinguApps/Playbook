@@ -54,7 +54,7 @@ bound the whole operation. Retain the using scope for the socket's entire use.
 
 1. Target net11.0 using a .NET 11 SDK/runtime. The canonical project declares
    C# 15.0; no preview language switch or experimental diagnostic suppression is
-   needed for this reviewed API. Exact SDK11RC2/runtime11RC2 versions below are
+   needed for this reviewed API. Exact SDK11RC3/runtime11RC3 versions below are
    verification pins, separate from the recipe's release-family requirements.
 2. Choose Default to retain the runtime's default sequential-address policy in
    the reviewed RC2 implementation, or Parallel to race IPv4 and IPv6 attempts.

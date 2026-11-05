@@ -78,7 +78,7 @@
           "constraints": [
             "No DSA-to-ECDSA key/signature conversion. UnsupportedLegacy never means authenticated; no fallback or relabelling of archived data.",
             "Certificate trust/revocation/provisioning and production keys are outside this contract. DSA certificate failures on macOS are source-reviewed, not executed.",
-            "Framework APIs only; no NuGet packages, workloads, rendering mode or experimental opt-ins. Previous SDK10.0.403/runtime10.0.13 and current SDK11RC2/runtime11RC2 are verification pins, not supported consumer minimums."
+            "Framework APIs only; no NuGet packages, workloads, rendering mode or experimental opt-ins. Previous SDK10.0.403/runtime10.0.14 and current SDK11RC3/runtime11RC3 are verification pins, not supported consumer minimums."
           ],
           "optIns": [],
           "stabilityLimitations": [
