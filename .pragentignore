@@ -703,3 +703,13 @@
 /samples/net11.0/LarkMaterializers/behavior.evidence.json
 /samples/net11.0/LarkRelationships/verification-evidence.json
 /samples/net11.0/LarkRelationships/behavior.evidence.json
+
+# Record-Evidence/Test-CurlewModels generated receipts; canonical source, locks, manifests and checks remain reviewed.
+/samples/net10.0/CurlewMappings/verification-evidence.json
+/samples/net10.0/CurlewMappings/behavior.evidence.json
+/samples/net10.0/CurlewConventions/verification-evidence.json
+/samples/net10.0/CurlewConventions/behavior.evidence.json
+/samples/net11.0/CurlewMappings/verification-evidence.json
+/samples/net11.0/CurlewMappings/behavior.evidence.json
+/samples/net11.0/CurlewConventions/verification-evidence.json
+/samples/net11.0/CurlewConventions/behavior.evidence.json

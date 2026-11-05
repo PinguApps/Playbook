@@ -1,0 +1,207 @@
+{
+  "id": "ef.inspect-structural-model-mappings",
+  "edition": "11.0",
+  "title": "Inspect columns across entity and complex paths",
+  "goal": "Inspect relational model metadata after upgrading EF and resolve entity, nested complex, table and view columns without assuming every property belongs to an entity.",
+  "areas": [
+    "ef-core"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "curlew-models",
+    "migration"
+  ],
+  "apis": [
+    "IPropertyBase",
+    "DeclaringType",
+    "StoreObjectIdentifier",
+    "GetColumnName"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/ef/core/modeling/bulk-configuration#conventions"
+        ],
+        "selectionNotes": [
+          "Use DeclaringType and distinguish IEntityType from IComplexType. Resolve columns with StoreObjectIdentifier for the selected table or view. EF11 complex paths may occur in key/index property lists; preserve list order and walk structural declaring paths. The older comparison retains an explicit entity SiteCode for key/index membership while separately inspecting its nested Location.Code. These are different authored models; this example does not migrate existing data. SQLite executes nested filtering and a keyless view. Native JSON indexes, container mappings and arbitrary provider hooks remain outside this route."
+        ],
+        "usage": "primary",
+        "target": "11.0",
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "EF Core 11 requires .NET 11. No older-runtime EF11 route is offered."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build the net11.0 consumer; measured SDK 11.0.100-rc.2.26504.105 is RC2 evidence, not GA proof."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Declared current language mode; no C# 15-specific syntax is required by the example."
+          },
+          "frameworks": [
+            "Microsoft.NET.Sdk console consumer"
+          ],
+          "packages": [
+            {
+              "match": "release-family",
+              "name": "Microsoft.EntityFrameworkCore.Sqlite",
+              "reason": "Exact RC2 graph is locked in the canonical project.",
+              "version": "11.0"
+            }
+          ],
+          "packageAssets": [
+            "Independent locked EF10.0.13/net10.0/SDK10.0.402/C#14 and EF11.0.0-rc.2.26504.105/net11.0/SDK11.0.100-rc.2.26504.105/C#15 graphs. EF11 requires .NET11; no older-runtime EF11 route. Current proof uses RC2, not GA. No experimental attribute or opt-in is required on the exercised public contracts."
+          ],
+          "providers": [
+            "Windows x64 bundled SQLite 3.53.3/3.53.4"
+          ],
+          "workloads": [],
+          "platforms": [
+            "Executed on Windows x64 with bundled SQLite. Other platforms/providers and NativeAOT unverified."
+          ],
+          "renderingModes": [
+            "Not applicable: console/database extension."
+          ],
+          "constraints": [
+            "Use DeclaringType and distinguish IEntityType from IComplexType. Resolve columns with StoreObjectIdentifier for the selected table or view. EF11 complex paths may occur in key/index property lists; preserve list order and walk structural declaring paths. The older comparison retains an explicit entity SiteCode for key/index membership while separately inspecting its nested Location.Code. These are different authored models; this example does not migrate existing data. SQLite executes nested filtering and a keyless view. Native JSON indexes, container mappings and arbitrary provider hooks remain outside this route."
+          ],
+          "prerequisites": [
+            "PowerShell7, SDK10.0.402 and SDK11.0.100-rc.2.26504.105. Restore both independent projects; run eng/Test-CurlewModels.ps1 -Record."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Public extension contracts are upgrade-sensitive. Stable API shape measured on pinned RC2; reconcile actual GA separately."
+          ]
+        },
+        "conditional": false,
+        "evidenceSamples": [
+          "samples/net11.0/CurlewMappings/CurlewMappings.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://learn.microsoft.com/en-us/ef/core/modeling/bulk-configuration#conventions",
+      "title": "Official EF model conventions"
+    }
+  ],
+  "evidence": [
+    {
+      "language": "14.0",
+      "sample": "samples/net10.0/CurlewMappings/CurlewMappings.csproj",
+      "sdk": "10.0.402",
+      "target": "net10.0",
+      "kind": "compile",
+      "scope": "Pinned real SQLite compilation and execution; no GA or other-platform claim."
+    },
+    {
+      "language": "14.0",
+      "sample": "samples/net10.0/CurlewMappings/CurlewMappings.csproj",
+      "sdk": "10.0.402",
+      "target": "net10.0",
+      "kind": "execution",
+      "record": "samples/net10.0/CurlewMappings/behavior.evidence.json",
+      "scope": "Pinned real SQLite compilation and execution; no GA or other-platform claim."
+    },
+    {
+      "language": "15.0",
+      "sample": "samples/net11.0/CurlewMappings/CurlewMappings.csproj",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "target": "net11.0",
+      "kind": "compile",
+      "scope": "Pinned real SQLite compilation and execution; no GA or other-platform claim."
+    },
+    {
+      "language": "15.0",
+      "sample": "samples/net11.0/CurlewMappings/CurlewMappings.csproj",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "target": "net11.0",
+      "kind": "execution",
+      "record": "samples/net11.0/CurlewMappings/behavior.evidence.json",
+      "scope": "Pinned real SQLite compilation and execution; no GA or other-platform claim."
+    }
+  ],
+  "snippets": {
+    "n11-directory-packages-props": {
+      "region": "complete",
+      "language": "xml",
+      "path": "samples/net11.0/CurlewMappings/Directory.Packages.props"
+    },
+    "n10-program-cs": {
+      "region": "complete",
+      "language": "csharp",
+      "path": "samples/net10.0/CurlewMappings/Program.cs"
+    },
+    "n11-program-cs": {
+      "region": "complete",
+      "language": "csharp",
+      "path": "samples/net11.0/CurlewMappings/Program.cs"
+    },
+    "n10-curlewmappings-csproj": {
+      "region": "complete",
+      "language": "xml",
+      "path": "samples/net10.0/CurlewMappings/CurlewMappings.csproj"
+    },
+    "n10-directory-build-targets": {
+      "region": "complete",
+      "language": "xml",
+      "path": "samples/net10.0/CurlewMappings/Directory.Build.targets"
+    },
+    "n10-directory-build-props": {
+      "region": "complete",
+      "language": "xml",
+      "path": "samples/net10.0/CurlewMappings/Directory.Build.props"
+    },
+    "n11-directory-build-targets": {
+      "region": "complete",
+      "language": "xml",
+      "path": "samples/net11.0/CurlewMappings/Directory.Build.targets"
+    },
+    "n10-global-json": {
+      "region": "complete",
+      "language": "json",
+      "path": "samples/net10.0/CurlewMappings/global.json"
+    },
+    "n10-directory-packages-props": {
+      "region": "complete",
+      "language": "xml",
+      "path": "samples/net10.0/CurlewMappings/Directory.Packages.props"
+    },
+    "n11-directory-build-props": {
+      "region": "complete",
+      "language": "xml",
+      "path": "samples/net11.0/CurlewMappings/Directory.Build.props"
+    },
+    "n11-global-json": {
+      "region": "complete",
+      "language": "json",
+      "path": "samples/net11.0/CurlewMappings/global.json"
+    },
+    "n11-curlewmappings-csproj": {
+      "region": "complete",
+      "language": "xml",
+      "path": "samples/net11.0/CurlewMappings/CurlewMappings.csproj"
+    }
+  },
+  "humanProof": {
+    "scope": "Agent-executable local SQLite checks; no Human proof required.",
+    "status": "not-required"
+  }
+}
