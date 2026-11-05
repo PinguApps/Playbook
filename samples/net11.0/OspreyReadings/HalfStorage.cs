@@ -13,7 +13,7 @@ static class HalfStorage
         foreach (var value in values)
         {
             command.CommandText = "DELETE FROM Gauges; INSERT INTO Gauges VALUES ($value);";
-            command.Parameters.Clear(); command.Parameters.AddWithValue("$value", (object?)value ?? DBNull.Value); command.ExecuteNonQuery();
+            command.Parameters.Clear(); command.Parameters.AddWithValue("$value", value.HasValue ? (object)value.Value : DBNull.Value); command.ExecuteNonQuery();
             command.CommandText = "SELECT Value, typeof(Value) FROM Gauges";
             using var reader = command.ExecuteReader(); reader.Read();
             Half? result = reader.IsDBNull(0) ? null : reader.GetFieldValue<Half>(0);

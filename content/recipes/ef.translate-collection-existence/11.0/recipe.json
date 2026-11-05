@@ -26,7 +26,8 @@
     "routes": [
       {
         "sourceUrls": [
-          "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew"
+          "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew",
+          "https://github.com/dotnet/core/blob/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/preview6/efcore.md"
         ],
         "selectionNotes": [
           "Osprey survey readings use nullable JSON integer lists and nullable binary signals. EF11 translates Exists to EXISTS over json_each or OPENJSON, and binary Any to length or DATALENGTH. Explicit null guards exclude nulls; empty collections yield no match. The populated row alone matches. EF10 rejects these direct predicates before sending a command; it does not silently evaluate these filters on the client. List.Any remains valid. Use the fixed SQL length query for binary values: EF10 rewrites the apparent Length > 0 alternative to unsupported Any. Keep user values parameterized. No index-use, query-plan or performance claim follows."
@@ -108,6 +109,10 @@
     {
       "title": "Source audit and artifact qualification",
       "url": "https://github.com/PinguApps/Playbook/blob/a7fd46cd658708c25a7e0d032735760c3fe6d63f/docs/planning/audits/ef.md"
+    },
+    {
+      "title": "Pinned official EF11 feature introduction",
+      "url": "https://github.com/dotnet/core/blob/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/preview6/efcore.md"
     }
   ],
   "evidence": [
@@ -205,4 +210,3 @@
     "scope": "Agent-executable isolated SQLite/SQL checks; no Human proof required."
   }
 }
-

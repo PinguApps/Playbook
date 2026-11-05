@@ -31,7 +31,8 @@
     "routes": [
       {
         "sourceUrls": [
-          "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew"
+          "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew",
+          "https://github.com/dotnet/core/blob/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/preview7/efcore.md"
         ],
         "selectionNotes": [
           "Osprey survey imports store numeric text. EF11 translates the single-string byte, short, int, long, decimal, float and double Parse calls to tinyint, smallint, int, bigint, decimal(18,2), real and float CAST expressions. The executed filter returns only reading 1. Invalid text, int overflow and comma-decimal text fail at SQL Server with conversion errors; no TryParse guarantee is implied. A nullable result projection propagates SQL NULL. CLR Parse(null) instead throws; culture-sensitive CLR parsing is not the SQL grammar. The French CLR control accepts 1,5 as 1.5 while the integer SQL cast rejects it. Decimal CAST has fixed scale and can round differently from CLR decimal.Parse. No culture/provider overload or arbitrary .NET numeric format is promised. EF10 rejects Parse in a predicate; its fixed SQL TRY_CAST alternative treats failed conversions as NULL and excludes them. TRY_CAST deliberately has different error semantics from CAST. A WHERE guard is not a guarantee of SQL expression evaluation order. Clean input before conversion or use a deliberate TRY_CAST policy."
@@ -113,6 +114,10 @@
     {
       "title": "Source audit and artifact qualification",
       "url": "https://github.com/PinguApps/Playbook/blob/a7fd46cd658708c25a7e0d032735760c3fe6d63f/docs/planning/audits/ef.md"
+    },
+    {
+      "title": "Pinned official EF11 feature introduction",
+      "url": "https://github.com/dotnet/core/blob/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/preview7/efcore.md"
     }
   ],
   "evidence": [
@@ -210,4 +215,3 @@
     "scope": "Agent-executable isolated SQLite/SQL checks; no Human proof required."
   }
 }
-

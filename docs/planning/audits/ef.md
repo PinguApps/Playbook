@@ -1019,3 +1019,9 @@ JSON Half mapping, nonfinite payloads, other platforms and GA remain unverified.
 No ninth foundation is added. PIN-959's qualifying coverage and PIN-965's actual
 GA reconciliation are not established by this delivery; existing terminal tracker
 states and Human gates are preserved.
+
+Source disposition is **delivered for the bounded E20/E21/E23 routes above**.
+These are source-section deliveries with no new public CLR declaration ownership
+rule; residual U2/U3 contracts and actual-GA reconciliation remain separate.
+Retained EF10 controls execute binary Length > 0 rejection and generic Half
+converter model rejection alongside the working explicit alternatives.

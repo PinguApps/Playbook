@@ -27,7 +27,8 @@
     "routes": [
       {
         "sourceUrls": [
-          "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew"
+          "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew",
+          "https://github.com/dotnet/core/blob/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/preview7/efcore.md"
         ],
         "selectionNotes": [
           "Osprey gauges measure finite half-precision values. Microsoft.Data.Sqlite11 binds boxed Half and GetFieldValue<Half> reads it; EF11 maps nullable Half directly. EF10 uses an explicit double parameter/read cast and an explicit expression converter. The generic HasConversion<double>() call alone does not supply this older Half converter. Actual zero, rounded 1.1, extrema, minimum subnormal and NULL round-trip; a fresh EF context reads the same nullable values. SQLite stores non-null parameters as REAL and nulls as NULL. Half is a 16-bit CLR type, not a promise of two-byte SQLite disk storage. Precision is already lost when converting 1.1 to Half; REAL cannot recover it. Reading 100000.0 into Half overflows to positive infinity, so validate the finite range before accepting wider values. This example teaches finite scalar columns only. JSON mapping, NaN payload preservation, signed-zero bit identity and encryption are not established by these checks and are not taught as supported routes."
@@ -109,6 +110,10 @@
     {
       "title": "Source audit and artifact qualification",
       "url": "https://github.com/PinguApps/Playbook/blob/a7fd46cd658708c25a7e0d032735760c3fe6d63f/docs/planning/audits/ef.md"
+    },
+    {
+      "title": "Pinned official EF11 feature introduction",
+      "url": "https://github.com/dotnet/core/blob/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/preview7/efcore.md"
     }
   ],
   "evidence": [
@@ -206,4 +211,3 @@
     "scope": "Agent-executable isolated SQLite/SQL checks; no Human proof required."
   }
 }
-

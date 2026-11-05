@@ -23,6 +23,12 @@ static class HalfStorage
         command.Parameters.Clear(); command.CommandText = "SELECT 100000.0";
         using (var reader = command.ExecuteReader()) { reader.Read(); if (!Half.IsPositiveInfinity((Half)reader.GetDouble(0))) throw new Exception("Expected range overflow to infinity"); }
         var options = new DbContextOptionsBuilder<Gauges>().UseSqlite(connection).Options;
+        using (var generic = new GenericGauges(new DbContextOptionsBuilder<GenericGauges>().UseSqlite(connection).Options))
+        {
+            try { _ = generic.Model; throw new Exception("Expected generic Half converter rejection"); }
+            catch (InvalidOperationException error) when (error.Message.Contains("could not be mapped", StringComparison.Ordinal))
+            { Console.WriteLine("PASS EF10 generic Half converter rejected; explicit expressions required"); }
+        }
         using (var db = new Gauges(options)) { db.Database.EnsureCreated(); }
         // EnsureCreated does not add tables to a database that already contains Gauges.
         command.CommandText = "CREATE TABLE Measurements (Id INTEGER PRIMARY KEY, Value REAL NULL)"; command.ExecuteNonQuery();
@@ -43,6 +49,10 @@ sealed class Gauges(DbContextOptions<Gauges> options) : DbContext(options)
     protected override void OnModelCreating(ModelBuilder modelBuilder) => modelBuilder.Entity<Measurement>().Property(x => x.Value).HasConversion(v => (double)v!.Value, v => (Half)v);
 }
 sealed class Measurement { public int Id { get; set; } public Half? Value { get; set; } }
+sealed class GenericGauges(DbContextOptions<GenericGauges> options) : DbContext(options)
+{
+    protected override void OnModelCreating(ModelBuilder modelBuilder) => modelBuilder.Entity<Measurement>().Property(x => x.Value).HasConversion<double>();
+}
 // endsnippet:complete
 
 

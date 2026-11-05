@@ -10,17 +10,19 @@ Osprey survey imports store numeric text. EF11 translates the single-string byte
 
 ## Migration
 
-1. Identify stored types, null policy and provider before changing queries or converters.
-2. Restore the complete previous and current consumers independently. EF11 requires .NET11; no EF11-on-net10 route is offered.
-3. Apply only the supported shape described above. Preserve intentional older server-side approaches.
-4. Run eng/Test-OspreyReadings.ps1 and inspect executed commands and exact results.
-5. Recheck on actual GA artifacts and your deployment provider before relying on a broader claim.
+1. Identify stored text format, destination type and the intended conversion failure policy.
+2. Keep older TRY_CAST SQL when malformed text should become NULL and be excluded. This remains a valid server-side approach.
+3. On EF11 use only a supported single-string Parse overload. Inspect the CAST destination: decimal(18,2) does not preserve arbitrary CLR decimal precision.
+4. Execute valid and null cases, then isolate invalid text, integer overflow and comma-decimal failures.
+5. Compare CLR culture parsing separately. A WHERE guard does not guarantee SQL expression evaluation order or make CAST accept every CLR format.
 
 ## Requirements and verification
 
 Use SDK10.0.403/C#14/EF10.0.13 versus SDK11.0.100-rc.3.26522.148/C#15/EF11.0.0-rc.2.26504.105. These are separate locked console consumers. Standard bundled SQLite initializes native access. SQL uses the existing disposable SQL2025 route. No workloads, browser rendering or experimental opt-ins are required. Compilation and actual database execution are recorded independently of installed-tool retrieval. No new .NET10 foundation is added.
 
 ## Older approach
+
+EF10 rejects int.Parse in the predicate before sending SQL. Its fixed TRY_CAST alternative returns the valid matching row while choosing NULL rather than an error for failed conversions.
 
 ### Directory.Build.props
 
@@ -52,6 +54,8 @@ Use SDK10.0.403/C#14/EF10.0.13 versus SDK11.0.100-rc.3.26522.148/C#15/EF11.0.0-r
 
 ## Newer approach
 
+EF11 executes CAST in the filter and seven numeric projection overloads. Isolated invalid text, overflow and comma text controls make each SQL failure observable.
+
 ### Directory.Build.props
 
 {{snippet:n11-directory-build-props}}
@@ -82,14 +86,15 @@ Use SDK10.0.403/C#14/EF10.0.13 versus SDK11.0.100-rc.3.26522.148/C#15/EF11.0.0-r
 
 ## References
 
+[Pinned official feature notes](https://github.com/dotnet/core/blob/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/preview7/efcore.md).
+
 [Official EF11 guidance](https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew).
 
 
 ## Constraints
 
-Only the declared scalar/query shapes and providers are covered. No GA, JSON Half mapping, nonfinite bit preservation, other-platform, index or performance claim is made. SQL CAST follows server grammar and range rules, not CLR culture rules.
+SQL Server CAST follows server grammar, null propagation, range and scale rules. The French CLR control is a comparison, not a SQL culture option. TRY_CAST deliberately changes failure handling. Other Parse overloads and providers are not promised.
 
 ## Evidence
 
 Both independently locked consumers compile and execute through eng/Test-OspreyReadings.ps1 -Record. Saved compilation and execution records include exact inputs and resolved dependencies. The ordinary installed tool is inspected separately through real stdio list/get with an isolated feed/cache and unrelated working directory.
-

@@ -22,6 +22,7 @@ foreach (var provider in new[] { "sqlite", "sql" })
     db.SaveChanges();
     Reject(() => db.Readings.Where(x => x.Levels != null && x.Levels.Exists(n => n > 5)).ToArray(), "list Exists");
     Reject(() => db.Readings.Where(x => x.Signal != null && x.Signal.Any()).ToArray(), "binary Any");
+    Reject(() => db.Readings.Where(x => x.Signal != null && x.Signal.Length > 0).ToArray(), "binary Length > 0");
     Check(db.Readings.Where(x => x.Levels != null && x.Levels.Any(n => n > 5)), "list Any alternative", [1]);
     Check(db.Readings.FromSqlRaw(provider == "sqlite" ? "SELECT * FROM Readings WHERE length(Signal) > 0" : "SELECT * FROM Readings WHERE DATALENGTH(Signal) > 0"), "binary SQL alternative", [1]);
     if (provider == "sql")

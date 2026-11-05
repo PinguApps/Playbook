@@ -10,17 +10,19 @@ Osprey gauges measure finite half-precision values. Microsoft.Data.Sqlite11 bind
 
 ## Migration
 
-1. Identify stored types, null policy and provider before changing queries or converters.
-2. Restore the complete previous and current consumers independently. EF11 requires .NET11; no EF11-on-net10 route is offered.
-3. Apply only the supported shape described above. Preserve intentional older server-side approaches.
-4. Run eng/Test-OspreyReadings.ps1 and inspect executed commands and exact results.
-5. Recheck on actual GA artifacts and your deployment provider before relying on a broader claim.
+1. Decide whether Half precision and range fit the measurement; rounding occurs before a database write.
+2. On the older provider bind/read explicit double values and configure conversion expressions. Retain the generic HasConversion<double>() model rejection control.
+3. On Microsoft.Data.Sqlite11 bind boxed Half and read GetFieldValue<Half>; EF11 maps the nullable scalar directly.
+4. Round-trip zero, rounded 1.1, extrema, minimum subnormal and NULL directly, then read EF writes using a fresh context.
+5. Inspect typeof(Value): finite values use REAL, not a two-byte storage class. Validate wider inputs before narrowing; the 100000.0 read becomes positive infinity.
 
 ## Requirements and verification
 
 Use SDK10.0.403/C#14/EF10.0.13 versus SDK11.0.100-rc.3.26522.148/C#15/EF11.0.0-rc.2.26504.105. These are separate locked console consumers. Standard bundled SQLite initializes native access. SQL uses the existing disposable SQL2025 route. No workloads, browser rendering or experimental opt-ins are required. Compilation and actual database execution are recorded independently of installed-tool retrieval. No new .NET10 foundation is added.
 
 ## Older approach
+
+The older direct path widens Half to double on write and narrows GetDouble on read. EF uses explicit conversion expressions; a separate model rejects the generic conversion overload alone.
 
 ### Directory.Build.props
 
@@ -52,6 +54,8 @@ Use SDK10.0.403/C#14/EF10.0.13 versus SDK11.0.100-rc.3.26522.148/C#15/EF11.0.0-r
 
 ## Newer approach
 
+The current binder and reader consume Half without a user converter. A fresh EF context reads nullable Half properties. Finite numeric equality does not establish bit-preserving serialization.
+
 ### Directory.Build.props
 
 {{snippet:n11-directory-build-props}}
@@ -82,14 +86,15 @@ Use SDK10.0.403/C#14/EF10.0.13 versus SDK11.0.100-rc.3.26522.148/C#15/EF11.0.0-r
 
 ## References
 
+[Pinned official feature notes](https://github.com/dotnet/core/blob/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/preview7/efcore.md).
+
 [Official EF11 guidance](https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew).
 
 
 ## Constraints
 
-Only the declared scalar/query shapes and providers are covered. No GA, JSON Half mapping, nonfinite bit preservation, other-platform, index or performance claim is made. SQL CAST follows server grammar and range rules, not CLR culture rules.
+Finite nullable scalar columns on SQLite only. Half does not guarantee two-byte disk storage, recover lost precision or automatically reject overflow. JSON mapping, NaN payloads, signed-zero bit identity, encrypted engines and other native platforms remain unverified.
 
 ## Evidence
 
 Both independently locked consumers compile and execute through eng/Test-OspreyReadings.ps1 -Record. Saved compilation and execution records include exact inputs and resolved dependencies. The ordinary installed tool is inspected separately through real stdio list/get with an isolated feed/cache and unrelated working directory.
-
