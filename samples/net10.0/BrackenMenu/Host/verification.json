@@ -3,10 +3,10 @@
   "workloads": [],
   "dependencies": [
     "BrackenMenu.Client/1.0.0",
-    "Microsoft.AspNetCore.App.Internal.Assets/10.0.13",
-    "Microsoft.AspNetCore.Components.WebAssembly.Server/10.0.13",
-    "Microsoft.AspNetCore.Components.WebAssembly/10.0.13",
-    "Microsoft.JSInterop.WebAssembly/10.0.13"
+    "Microsoft.AspNetCore.App.Internal.Assets/10.0.14",
+    "Microsoft.AspNetCore.Components.WebAssembly.Server/10.0.14",
+    "Microsoft.AspNetCore.Components.WebAssembly/10.0.14",
+    "Microsoft.JSInterop.WebAssembly/10.0.14"
   ],
   "buildArguments": [],
   "additionalInputs": [

@@ -103,7 +103,7 @@ The repository's eng/Test-ArchiveConsumer.ps1 repeats generation, independent co
 
 1. Run the .NET 11 sample with environment ARCHIVE_CONTRACT_SERVE=1 and ARCHIVE_CONTRACT_OUTPUT set to an existing absolute scratch directory. It writes openapi.json from v30 and prints ARCHIVE_ADDRESS before waiting. Keep this terminal running.
 2. Install NSwag.ConsoleCore 14.7.1 into a local tool directory with .NET 10's tool install and --tool-path. Do not rely on a global installation. Invoke its absolute executable with openapi2csclient, /Input pointing to that exported document, /Output pointing to Client.cs, /ClassName:ArchiveGenerated, /Namespace:ArchiveConsumer, /JsonLibrary:SystemTextJson, /UseBaseUrl:false and /OperationGenerationMode:SingleClientFromOperationId.
-3. In a separate independent net10.0 console project, compile Client.cs together with the following Program.cs. Enable implicit usings, disable nullable for the generator output, and use SDK 10.0.402. No application package is required by the generated System.Text.Json client. Pass the printed server address as the first argument.
+3. In a separate independent net10.0 console project, compile Client.cs together with the following Program.cs. Enable implicit usings, disable nullable for the generator output, and use SDK 10.0.403. No application package is required by the generated System.Text.Json client. Pass the printed server address as the first argument.
 4. Expect PASS for both JSON cases on Minimal API and MVC, and EXPECTED LIMIT for the text request. AdditionalProperties retains raw JSON values; this is not a typed anyOf union. Stop the server and clear the two environment variables afterwards. Remove only your own scratch directories.
 
 {{snippet:generated-consumer}}

@@ -78,8 +78,8 @@ finite limits, deliberately rejecting -1 instead of inheriting runtime defaults.
 ## Constraints
 
 Primary route: .NET11 SDK/runtime, net11.0/C#15, System.Formats.Cbor 11
-lib/net11.0. Exact proof uses SDK11.0.100-rc.2.26504.105 and package/runtime
-11.0.0-rc.2.26504.105. The valid older route uses SDK10.0.402, net10.0/C#14,
+lib/net11.0. Exact proof uses SDK11.0.100-rc.3.26522.148 and package/runtime
+11.0.0-rc.2.26504.105. The valid older route uses SDK10.0.403, net10.0/C#14,
 runtime10.0.13 and package10.0.13 lib/net10.0. Exact SDK patches identify
 reproduction; they are not universal consumer requirements.
 

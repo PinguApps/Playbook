@@ -6,7 +6,7 @@ Register a generated HybridWebView invocation target and JSON context for trimme
 
 ## Constraints
 
-The fictional Marsh Survey app records a bird count from bundled HTML. .NET10 uses SDK10.0.402, C#14 and Controls10.0.110; .NET11 uses SDK11.0.100-rc.2.26504.105, C#15 and Controls11.0.0-rc.2.26505.5. These are pinned preparation baselines, not GA execution evidence. No account, provider or web rendering mode is required.
+The fictional Marsh Survey app records a bird count from bundled HTML. .NET10 uses SDK10.0.403, C#14 and Controls10.0.110; .NET11 uses SDK11.0.100-rc.3.26522.148, C#15 and Controls11.0.0-rc.2.26505.5. These are pinned preparation baselines, not GA execution evidence. No account, provider or web rendering mode is required.
 
 ## Generated dispatch and JSON
 

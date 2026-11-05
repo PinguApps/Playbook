@@ -120,7 +120,7 @@ Use a separate directory for this target. Restore/build/run with the same comman
 - Removed members are the five-argument constructor, protected HostingEnvironment and protected Cache. The three-argument constructor is not a new .NET 11 invention. Arbitrary precompiled subclasses must be rebuilt.
 - Both built-in and derived image helpers can match the same element when imported together. Import the replacement deliberately; the sample imports only its own assembly. For selective coexistence, choose mutually exclusive targets or scopes.
 - Versioning requires the real web-root file provider to find the image. A missing local asset may keep an unversioned URL. This sample tests generated markup with a local file, not browser image loading, a CDN or production cache invalidation.
-- Use matching ASP.NET Core framework/reference packs. No extra package, workload, service account or database is required. SDK 10.0.402 / 11.0.100-rc.2.26504.105 and C# 14 / 15 are the actual sample pins, not minimum language-feature requirements.
+- Use matching ASP.NET Core framework/reference packs. No extra package, workload, service account or database is required. SDK 10.0.403 / 11.0.100-rc.3.26522.148 and C# 14 / 15 are the actual sample pins, not minimum language-feature requirements.
 - Stable migration APIs; no experimental opt-in. The exact .NET 11 evidence is RC2. This recipe exposes target 11 only; the older sample is a fair previous-release comparison and not an additional .NET 10 foundation.
 
 ## Evidence

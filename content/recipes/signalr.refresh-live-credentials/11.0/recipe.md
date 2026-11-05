@@ -35,7 +35,7 @@ cannot redirect credentials. Its token strings are still test data, not a cloud
 transport-token issuer. Query-string tickets are accepted only on the hub path;
 production systems must avoid logging token-bearing query strings.
 
-Measured SDKs are 10.0.402 and 11.0.100-rc.2.26504.105; frameworks and .NET SignalR packages are 10.0.13 and 11.0.0-rc.2.26504.105. Locked dependencies and source/tool hashes accompany the evidence. No down-level client/server refresh route, automatic expiry scheduling, Windows authentication, cloud provider, browser TypeScript transport, every SignalR transport, trimming/AOT or actual-GA support is proved. TypeScript ran on Node with WebSockets. Use TLS and trusted token validation in production.
+Measured SDKs are 10.0.403 and 11.0.100-rc.3.26522.148; frameworks and .NET SignalR packages are 10.0.13 and 11.0.0-rc.2.26504.105. Locked dependencies and source/tool hashes accompany the evidence. No down-level client/server refresh route, automatic expiry scheduling, Windows authentication, cloud provider, browser TypeScript transport, every SignalR transport, trimming/AOT or actual-GA support is proved. TypeScript ran on Node with WebSockets. Use TLS and trusted token validation in production.
 
 Blazor UI refresh is a separate subscription concern: see `blazor.react-to-refreshed-identity`. Framework propagation is context, not proof that an arbitrary authentication provider refreshes itself.
 

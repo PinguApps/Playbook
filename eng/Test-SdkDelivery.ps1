@@ -83,7 +83,7 @@ try {
       $null = Invoke-Delivery $dotnet $runner @('test', '--project', 'RunnerTests.csproj', '--no-build', '-c', 'Release', '--maximum-failed-tests', '1') @{ PIER_FAIL = '1' } 13
       $null = Invoke-Delivery $dotnet $runner @('test', '--project', 'RunnerTests.csproj', '--no-build', '-c', 'Release', '--timeout', '1s') @{ PIER_DELAY = '1' } 3
       $reports = Join-Path $scratch 'reports'
-      $modules = Invoke-Delivery $dotnet $runner @('test', '--root-directory', '..', '--test-modules', '**/bin/Release/net11.0/*Tests.dll; !**/NUnitTests.dll', '--results-directory', $reports, '--results-directory-layout', 'per-module', '--', '--report-xunit-trx', '--report-xunit-trx-filename', 'berths.trx')
+      $modules = Invoke-Delivery $dotnet $runner @('test', '--root-directory', '..', '--test-modules', 'RunnerTests/bin/Release/net11.0/*Tests.dll; NUnitTests/bin/Release/net11.0/*Tests.dll; !**/NUnitTests.dll', '--results-directory', $reports, '--results-directory-layout', 'per-module', '--', '--report-xunit-trx', '--report-xunit-trx-filename', 'berths.trx')
       Assert-Text $modules 'total: 4'
       $report = @(Get-ChildItem -LiteralPath $reports -Filter 'berths.trx' -Recurse)
       if ($report.Count -ne 1 -or $report[0].FullName -notmatch 'RunnerTests') { throw 'Per-module xUnit report missing or excluded module ran.' }

@@ -17,8 +17,8 @@ removed-setter migration and no forced rewrite of a working older observer.
 
 | Layer | Older comparison | Current consumer |
 | --- | --- | --- |
-| SDK / compiler / language | 10.0.402 / 5.9.0-1.26505.111 / C#14 | 11.0.100-rc.2.26504.105 / 5.12.0-1.26504.105 / C#15 |
-| Framework / ref / actual runtime | net10.0 / 10.0.13 | net11.0 / 11.0.0-rc.2.26504.105 |
+| SDK / compiler / language | 10.0.403 / 5.9.0-1.26523.112 / C#14 | 11.0.100-rc.3.26522.148 / 5.12.0-1.26522.148 / C#15 |
+| Framework / ref / actual runtime | net10.0 / 10.0.14 | net11.0 / 11.0.0-rc.3.26522.148 |
 | ObjectModel / CLI / Test.Sdk / TestHost | 18.7.0 | 18.11.0 |
 | ObjectModel compile/runtime assets | lib/net8.0 | lib/net8.0 |
 | Public event setters | private, except internal TestElement | public for all five |
@@ -26,7 +26,7 @@ removed-setter migration and no forced rewrite of a working older observer.
 Public package builds and the SDK-bundled tooling are separate artifacts, not
 assumed byte-identical from matching version labels. Both actual public CLI
 packages provide their complete net10.0 console closure; the current console
-runs under the selected .NET11 host. SDK/compiler/ref/runtime and package ZIP/
+runs through the selected SDK host; its data-collector process owns its own serializer dependencies. The collector uses a one-line scalar diagnostic format with Base64 test names, avoiding a dependency on System.Text.Json11 inside that tool host. SDK/compiler/ref/runtime and package ZIP/
 closure identities are recorded separately. Keep collector, test host and runner
 versions matched. The recipe advertises target11 only; this actual older comparison
 adds no ninth .NET10 foundation or unverified down-level route.
@@ -35,7 +35,7 @@ The measured platform is Windows x64 with PowerShell7 and complete matching SDKs
 There is no native compiler, optional workload, provider, account, UI rendering
 mode or experimental opt-in. Public NuGet access prepares the package closure;
 installed guidance itself is offline. The public packages are stable; SDK/runtime
-execution is RC2 evidence, not actual-GA qualification. Other OSes, arbitrary test
+execution is RC3 evidence, not actual-GA qualification. Other OSes, arbitrary test
 frameworks, .NET Framework, MTP, trimming and NativeAOT remain unqualified.
 
 ## Older approach
@@ -75,8 +75,8 @@ from the real test-run evidence.
 The project excludes `SetterControl.cs` by default. For the offline ordinary
 consumer, omit its conditional Compile line when that authoring-only control is
 not copied. Create `global.json` beside each project with
-`{"sdk":{"version":"10.0.402","rollForward":"disable"}}` for the older directory
-or `{"sdk":{"version":"11.0.100-rc.2.26504.105","rollForward":"disable"}}` for the
+`{"sdk":{"version":"10.0.403","rollForward":"disable"}}` for the older directory
+or `{"sdk":{"version":"11.0.100-rc.3.26522.148","rollForward":"disable"}}` for the
 current one. The explicit project fields make these copies independent of root
 tool/package settings. Copy the matching global.json into Tests as well when
 retaining the separate test project's evidence record.

@@ -30,7 +30,7 @@ Use the shared host registration, imports and seed.js shown below. The .NET 10 A
 
 ## Newer approach
 
-Use two distinct contracts. BadgeLabel is for local rendering; SeedChoice contains only JSON-compatible data cases. The native union syntax is C# 15, with no preview language switch on the measured RC2 SDK.
+Use two distinct contracts. BadgeLabel is for local rendering; SeedChoice contains only JSON-compatible data cases. The native union syntax is C# 15, with no preview language switch on the measured RC3 SDK.
 
 {{snippet:choices}}
 
@@ -54,7 +54,7 @@ Put this script in wwwroot/seed.js:
 
 ## Migration
 
-1. Use Microsoft.NET.Sdk.Web, net11.0, LangVersion 15.0, nullable and implicit usings. The canonical build pins SDK 11.0.100-rc.2.26504.105 and locked Microsoft.AspNetCore.App.Internal.Assets 11.0.0-rc.2.26504.105. The .NET 10 comparison pins SDK 10.0.402, language 14.0 and Internal.Assets 10.0.13. These SDK pins reproduce evidence; applicability requires the matching release families. No explicit NuGet package, optional workload, provider or external account is needed.
+1. Use Microsoft.NET.Sdk.Web, net11.0, LangVersion 15.0, nullable and implicit usings. The canonical build pins SDK 11.0.100-rc.3.26522.148 and locked Microsoft.AspNetCore.App.Internal.Assets 11.0.0-rc.2.26504.105. The .NET 10 comparison pins SDK 10.0.403, language 14.0 and Internal.Assets 10.0.13. These SDK pins reproduce evidence; applicability requires the matching release families. No explicit NuGet package, optional workload, provider or external account is needed.
 2. Add Choices.cs, SeedBadge.razor, Labels.razor and BatchPanel.razor above to the Playbook.Samples namespace. In _Imports.razor import Microsoft.AspNetCore.Components, Microsoft.AspNetCore.Components.Routing, Microsoft.AspNetCore.Components.Web, Microsoft.JSInterop, static Microsoft.AspNetCore.Components.Web.RenderMode and Playbook.Samples; set @namespace Playbook.Samples.
 3. Replace the old parameter pair only if changing that public component contract is acceptable. Update every caller to Label and choose explicit fallback handling for an unset/default union. EditorRequired diagnoses missing markup arguments; it is not runtime validation.
 4. Use this complete Program.cs to register the real server rendering path:

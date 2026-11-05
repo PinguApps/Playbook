@@ -57,7 +57,7 @@ assembly's file entry. Removing that implementation reference prevents compilati
    consumer. Restore and build, then inspect obj/project.assets.json: `compile`
    and `runtime` entries show actual selected assets. Do not infer selection from
    the package name or version alone. Refresh reviewed lock files deliberately.
-3. Interpret NU1510 with the actual version syntax. On the pinned RC2 SDK,
+3. Interpret NU1510 with the actual version syntax. On the pinned RC3 SDK,
    direct `10.0.13` minimum-version references produce nine NU1510 warnings;
    exact `[10.0.13]` references produce none. Both controls retain package entries.
    Minimum-version references have `_._` compile/runtime placeholders; exact pins
@@ -82,13 +82,13 @@ assembly's file entry. Removing that implementation reference prevents compilati
    not on runtime11 via roll-forward. Unconditional references can also be valid
    for multitarget libraries; review selection per TFM rather than assuming a
    net11-only warning or deleting the older dependency.
-5. Treat an intentional newer package as a separate decision. The checked
-   `Microsoft.Extensions.Logging.Abstractions` `[11.0.0-rc.3.26522.148]` override
-   selects a real lib/net11.0 package asset and loads its app-local RC3 assembly
-   under the RC2 runtime. It is newer than RC2's pruning ceiling and is retained.
-   This one executed ILogger consumer establishes that combination only, not
-   general forward compatibility for every newer Extensions implementation.
-   Do not remove a deliberate servicing/feature override just to reduce references.
+5. Compare an intentional override with the actual framework version. The checked
+   `Microsoft.Extensions.Logging.Abstractions` `[11.0.0-rc.3.26522.148]` reference
+   now matches the RC3 framework. Restore retains its exact package entry and
+   reports NU1510; execution loads the framework assembly. The isolated control
+   allows that specific warning to demonstrate the result. It no longer proves
+   a newer-package override. Do not infer forward compatibility for a genuinely
+   newer servicing or feature package from this matching-version control.
 6. Publish and execute the actual application. For the demonstrated
    framework-dependent publish, use `dotnet publish -c Release --self-contained false`
    with the appropriate absolute SDK executable from the sample's directory.
@@ -102,8 +102,8 @@ assembly's file entry. Removing that implementation reference prevents compilati
 ## Constraints and alternatives
 
 Application requirements are SDK/runtime11 for the base-framework route, and a
-compatible language/project system. Exact SDK10.0.402/runtime10.0.13 and
-SDK11.0.100-rc.2.26504.105/runtime11RC2 identify the measured consumers; C#14/15
+compatible language/project system. Exact SDK10.0.403/runtime10.0.14 and
+SDK11.0.100-rc.3.26522.148/runtime11RC3 identify the measured consumers; C#14/15
 are their declared language modes, not a new syntax requirement for project edits.
 The primary net11 consumer has an empty NuGet closure. Samples retain isolated
 package/build boundaries and exact locks; no root update permission is broadened.

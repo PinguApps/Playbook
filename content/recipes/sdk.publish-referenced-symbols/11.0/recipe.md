@@ -15,8 +15,8 @@ separate verification baselines, not mandatory patch upgrades for every consumer
 
 | Layer | Older consumer | Current consumer |
 | --- | --- | --- |
-| SDK | 10.0.402 | 11.0.100-rc.2.26504.105 |
-| C# compiler / language setting | 5.9.0-1.26505.111 / 14.0 | 5.12.0-1.26504.105 / 15.0 |
+| SDK | 10.0.403 | 11.0.100-rc.3.26522.148 |
+| C# compiler / language setting | 5.9.0-1.26523.112 / 14.0 | 5.12.0-1.26522.148 / 15.0 |
 | Framework / ref / runtime | net10.0 / 10.0.13 | net11.0 / 11.0.0-rc.2.26504.105 |
 | Bundled NuGet | 7.9.0-rc.611 | 8.0.0-rc.605 |
 | MSBuild product | 18.9.15 | 18.12.0-1.26504.105 |
@@ -34,7 +34,7 @@ remain open. These controls carry no experimental designation in the cited sourc
 
 Use **PublishReferencesSymbols**, with plural `References`. The Preview1 release
 note's singular **PublishReferenceSymbols** spelling is superseded by the actual
-SDK targets. SDK11 RC2 defaults the real property to **true**. Its false setting
+SDK targets. SDK11 RC3 defaults the real property to **true**. Its false setting
 omits the project's referenced PDB without removing the application's own PDB.
 
 The actual SDK10 baseline already publishes that project-reference PDB, even with
@@ -77,8 +77,8 @@ The current files at those same three paths are:
 {{snippet:rates-project-11}}
 
 Give each directory its own `global.json`: the older file is
-`{"sdk":{"version":"10.0.402","rollForward":"disable"}}`; the current file is
-`{"sdk":{"version":"11.0.100-rc.2.26504.105","rollForward":"disable"}}`.
+`{"sdk":{"version":"10.0.403","rollForward":"disable"}}`; the current file is
+`{"sdk":{"version":"11.0.100-rc.3.26522.148","rollForward":"disable"}}`.
 Use the matching complete SDK installation and runtime, not copied task DLLs.
 Outside the repository, no shared build/package configuration is needed. Inside
 another repository, inspect inherited configuration and isolate these examples

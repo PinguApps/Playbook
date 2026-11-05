@@ -16,7 +16,7 @@ mode, workload, public feed publication or production resource is involved.
 
 | Input or route | Older comparison | Current example |
 | --- | --- | --- |
-| SDK / Roslyn | 10.0.402 / 5.9.0-1.26505.111 | 11.0.100-rc.2.26504.105 / 5.12.0-1.26504.105 |
+| SDK / Roslyn | 10.0.403 / 5.9.0-1.26523.112 | 11.0.100-rc.3.26522.148 / 5.12.0-1.26522.148 |
 | Managed target/language | net10.0 / C#14.0 | net11.0 / C#15.0 |
 | Runtime/reference/ILCompiler | 10.0.13 | 11.0.0-rc.2.26504.105 |
 | Declared package RID | win-x64 | win-x64 |
@@ -44,14 +44,14 @@ Run a second outer `dotnet pack` without `-r` into the same feed to create the
 installable RID graph package; SDK10 does not orchestrate the native inner build.
 
 Save as `samples/net10.0/SkylarkNative/SkylarkNative.csproj` and pin its
-`global.json` to **10.0.402**, `rollForward: "disable"`:
+`global.json` to **10.0.403**, `rollForward: "disable"`:
 
 {{snippet:older}}
 
 ## Newer approach
 
 Save the current project under `samples/net11.0/SkylarkNative`, pinning
-`global.json` to **11.0.100-rc.2.26504.105**, `rollForward: "disable"`:
+`global.json` to **11.0.100-rc.3.26522.148**, `rollForward: "disable"`:
 
 {{snippet:newer}}
 

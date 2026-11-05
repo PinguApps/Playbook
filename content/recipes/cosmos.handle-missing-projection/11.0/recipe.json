@@ -100,7 +100,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Stable API contract prepared using .NET11 RC3 SDK/runtime/EF packages; no experimental opt-in. Actual GA reconciliation remains outstanding.",
+            "Stable API contract prepared using .NET11 RC3 SDK/runtime and EF11 RC3 packages; no experimental opt-in. Actual GA reconciliation remains outstanding.",
             "Official .NET11 documentation is authoritative. RC2/RC3 single-property undefined projections silently omit the absent row; Pingu approved shipping this documented contract on 3 November 2026 with real GA retesting pending. No GA exception behavior is claimed as executed."
           ]
         },

@@ -103,7 +103,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Stable API contract prepared using .NET11 RC2 SDK/runtime/EF packages; no experimental opt-in. Actual GA reconciliation remains outstanding."
+            "Stable API contract prepared using .NET11 RC3 SDK/runtime and EF11 RC2 packages; no experimental opt-in. Actual GA reconciliation remains outstanding."
           ]
         },
         "conditional": false,

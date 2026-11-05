@@ -146,7 +146,7 @@ No suppression or experimental opt-in is required. The new warning does not intr
 
 ## Migration
 
-1. Choose the consumer target and matching SDK/runtime. For this primary diagnostic route use net11.0 and the pinned RC2 SDK when reproducing the recorded result. Keep net10.0 and its own SDK for the valid older equivalent. Do not install the analyzer into an unsupported target by assumption.
+1. Choose the consumer target and matching SDK/runtime. For this primary diagnostic route use net11.0 and the pinned RC3 SDK when reproducing the recorded result. Keep net10.0 and its own SDK for the valid older equivalent. Do not install the analyzer into an unsupported target by assumption.
 2. Confirm the method is intended to be callable by JavaScript. Make ReceiveLevel public and retain [JSInvokable("AcceptLevel")]. Remove the attribute instead if the method should not be exposed.
 3. Retain input checks and enforce any real authorization separately on the trusted server. A public JS-invokable method and its identifier are interop discovery, not an authorization boundary or secret. This sample performs no privileged action.
 4. Own one DotNetObjectReference per component, reuse it for reads, and dispose it when the component is removed. Do not invoke its stale JS proxy after disposal. The callback itself only returns a value; its awaiting component event handles display updates. An independently initiated callback that changes UI may require an explicit renderer dispatch/render.

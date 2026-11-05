@@ -41,8 +41,8 @@ request path.
 
 Use Microsoft.NET.Sdk.Web, net11.0, LangVersion 15.0, Nullable enable and
 ImplicitUsings enable, with RootNamespace Playbook.Samples. The comparison uses
-net10.0/C# 14.0. Each project has its own global.json: SDK 11.0.100-rc.2.26504.105
-or 10.0.402. The measured SDK restores aligned
+net10.0/C# 14.0. Each project has its own global.json: SDK 11.0.100-rc.3.26522.148
+or 10.0.403. The measured SDK restores aligned
 Microsoft.AspNetCore.App.Internal.Assets browser files (11.0.0-rc.2.26504.105 or
 10.0.13); no explicit framework API package, provider, native workload or service
 account is required. Preserve the SDK-aligned assets and lock file on restore.

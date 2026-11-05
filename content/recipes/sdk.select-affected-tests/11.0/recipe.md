@@ -34,7 +34,7 @@ Audited assets are `netstandard2.0` and `net10.0`, with an MTP dependency minimu
 
 The packaged readme documents local `.cts/mappings` storage without an additional provider. Its linked `docs/cts/affectedteststorage.md` returns 404. The exact local storage configuration, change-policy schema and registration hook are therefore **unresolved here**. Do not invent a JSON property or builder method. Consult matching publisher documentation when available; until then use the ordinary full-test baseline. No Azure provider, account, token or remote storage is needed or authorized by this local-only recipe.
 
-The pinned TestFx rollout documents SDK **12.0.100-alpha.1.26509.101** for collection and empty-selection handshake fixes. Its newer moving documentation advances affected-test packages to **18.13.0-preview.26530.1**; that is source drift, not this recipe's reviewed package pin. Neither their Azure DevOps rollout nor SDK 11 RC2's command flags prove this local consumer works. This is a target-11 documentation edition, not a .NET 12 recipe or an advertised SDK12/net11 compatibility result. The sample SDK11 pin identifies intended inputs only.
+The pinned TestFx rollout documents SDK **12.0.100-alpha.1.26509.101** for collection and empty-selection handshake fixes. Its newer moving documentation advances affected-test packages to **18.13.0-preview.26530.1**; that is source drift, not this recipe's reviewed package pin. Neither their Azure DevOps rollout nor SDK 11 RC3's command flags prove this local consumer works. This is a target-11 documentation edition, not a .NET 12 recipe or an advertised SDK12/net11 compatibility result. The sample SDK11 pin identifies intended inputs only.
 
 ## Migration
 

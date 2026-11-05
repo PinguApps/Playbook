@@ -120,8 +120,8 @@ other-browser/OS, CoreCLR-browser, AOT or final-GA claim is made.
 
 eng/Test-InteropSoundings.ps1 -Record -VerifySources captures exact builds,
 resolved dependency sets, canonical inputs, compiler/reference/generator/generated
-stub hashes and deployed JS/wasm identities. Compilation uses SDK10.0.402 with
-10.0.13 packages/runtime and SDK11.0.100-rc.2.26504.105 with matching RC2 packages/runtime.
+stub hashes and deployed JS/wasm identities. Compilation uses SDK10.0.403 with
+10.0.13 packages/runtime and SDK11.0.100-rc.3.26522.148 with matching RC2 packages/runtime.
 The framework reference hashes match the original runtime-security asset audit.
 Paired official contracts and generator source are pinned in
 interop-soundings.sources.json; source alone is not browser proof.

@@ -19,7 +19,7 @@ DLL. No independently distributed package is restored by either publisher.
 
 | Input | Older comparison | Current route |
 | --- | --- | --- |
-| SDK / product source | 10.0.402 / `a8dd0577c5c13f43a2f57fe33b4ff11b90f6371e` | 11.0.100-rc.2.26504.105 / `820230c386db5b0106c5430b3e5aee92a7826bf5` |
+| SDK / product source | 10.0.403 / `a8dd0577c5c13f43a2f57fe33b4ff11b90f6371e` | 11.0.100-rc.3.26522.148 / `820230c386db5b0106c5430b3e5aee92a7826bf5` |
 | Runtime and reference pack | 10.0.13 | 11.0.0-rc.2.26504.105 |
 | Application / language | net10.0 / C#14 | net11.0 / C#15 |
 | Bundled NuGet product | 7.9.0-rc.611 | 8.0.0-rc.605 |

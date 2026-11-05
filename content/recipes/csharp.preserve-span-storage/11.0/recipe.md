@@ -10,11 +10,11 @@ This original failure fixture compiles with SDK10.0.100, compiler5.0 and the act
 
 {{snippet:escape}}
 
-Include `using System;` and `namespace Playbook.Samples;`. Both SDK10.0.402/compiler5.9 and SDK11 RC2/compiler5.12 reject the assignment with:
+Include `using System;` and `namespace Playbook.Samples;`. Both SDK10.0.403/compiler5.9 and SDK11 RC3/compiler5.12 reject the assignment with:
 
 `error CS8352: Cannot use variable 'parcelNumbers' in this context because it may expose referenced variables outside of their declaration scope`
 
-Replacing `Span<int>` with `ReadOnlySpan<int>` produces the same rejection. The collection expression's safe context is its declaration block. `scoped` restricts escape; it does not promote the inner collection expression's storage into an outer scope. This is a compiler correction, not a new requirement of runtime11 or a C#15-only syntax feature. The pinned Roslyn document covers changes after SDK10.0.100 through 11.0.100; the measured10.0.402 compiler already contains this one. Metadata `introducedIn:10.0` records that measured release-family presence, not the first exact compiler build or the age of span syntax.
+Replacing `Span<int>` with `ReadOnlySpan<int>` produces the same rejection. The collection expression's safe context is its declaration block. `scoped` restricts escape; it does not promote the inner collection expression's storage into an outer scope. This is a compiler correction, not a new requirement of runtime11 or a C#15-only syntax feature. The pinned Roslyn document covers changes after SDK10.0.100 through 11.0.100; the measured10.0.403 compiler already contains this one. Metadata `introducedIn:10.0` records that measured release-family presence, not the first exact compiler build or the age of span syntax.
 
 ## Newer approach
 
@@ -40,4 +40,4 @@ The served route is .NET11/SDK11/C#15. It uses framework APIs only: no package, 
 
 ## Evidence
 
-`eng/Test-CompilerMigrations.ps1 -Record` compiles the original Span and ReadOnlySpan fixtures with the actual SDK10.0.100/ref10.0.0, SDK10.0.402/ref10.0.13 and SDK11.0.100-rc.2.26504.105/ref11 RC2 sets. It requires old acceptance and exact CS8352 failures in both newer compilers. Paired corrected projects build and run; they check independent arrays, independent enclosing spans and deliberate shared-buffer aliasing. Saved compilation and execution records retain commands, hashed inputs, exact artifact identities and outputs. SDK10.0.100 is a historical reproducer only, not a recommended development prerequisite. RC2 proof is not GA verification; the comprehensive and GA reconciliation gates remain open.
+`eng/Test-CompilerMigrations.ps1 -Record` compiles the original Span and ReadOnlySpan fixtures with the actual SDK10.0.100/ref10.0.0, SDK10.0.403/ref10.0.13 and SDK11.0.100-rc.3.26522.148/ref11 RC2 sets. It requires old acceptance and exact CS8352 failures in both newer compilers. Paired corrected projects build and run; they check independent arrays, independent enclosing spans and deliberate shared-buffer aliasing. Saved compilation and execution records retain commands, hashed inputs, exact artifact identities and outputs. SDK10.0.100 is a historical reproducer only, not a recommended development prerequisite. RC2 proof is not GA verification; the comprehensive and GA reconciliation gates remain open.

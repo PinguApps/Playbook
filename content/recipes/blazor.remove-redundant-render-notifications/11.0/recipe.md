@@ -146,7 +146,7 @@ No suppression or experimental opt-in is required. The new warning does not intr
 
 ## Migration
 
-1. Choose the consumer target and matching SDK/runtime. For this primary diagnostic route use net11.0 and the pinned RC2 SDK when reproducing the recorded result. Keep net10.0 and its own SDK for the valid older equivalent. Do not install the analyzer into an unsupported target by assumption.
+1. Choose the consumer target and matching SDK/runtime. For this primary diagnostic route use net11.0 and the pinned RC3 SDK when reproducing the recorded result. Keep net10.0 and its own SDK for the valid older equivalent. Do not install the analyzer into an unsupported target by assumption.
 2. Inspect each call and its execution context before deleting it. In this example OnInitialized and the synchronous EventCallback method NextTicket are framework-managed. Remove their extra calls.
 3. Retain InvokeAsync and StateHasChanged in ReceiveExternalUpdate. The timer is outside the framework event/lifecycle flow. Dispatcher access and requesting a render serve different purposes.
 4. Keep timer ownership and disposal. Do not infer that OnAfterRender, async void, every intermediate await, custom IHandleEvent implementations or arbitrary notifications automatically rerender. BL0012 is a bounded analyzer, not a proof about all rendering flows.

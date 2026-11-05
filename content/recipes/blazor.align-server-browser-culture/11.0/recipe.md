@@ -10,7 +10,7 @@ Prerendered WASM in Blazor Web Apps; satellite assembly timing. This recipe sepa
 
 .NET 10 supports an explicit startup handoff. The server emits its selected names as Razor-encoded data attributes, and client Program reads those names before RunAsync. It sets both default thread cultures before the .NET 10 host loads satellites. This is a valid supported approach, especially where the application already owns culture selection. Restoring a custom component's state after initial resource loading is too late to guarantee the first translated render.
 
-Create an empty CultureHarbour directory with Host and Client children. Save the following complete files under those paths. Use SDK 10.0.402, runtime/framework/browser assets 10.0.13 and C# 14. Set DOTNET_ADD_GLOBAL_TOOLS_TO_PATH=0 in each child environment before invoking the SDK. Both Host/global.json and Client/global.json contain exactly this JSON: {"sdk":{"version":"10.0.402","rollForward":"disable","allowPrerelease":false}}.
+Create an empty CultureHarbour directory with Host and Client children. Save the following complete files under those paths. Use SDK 10.0.403, runtime/framework/browser assets 10.0.13 and C# 14. Set DOTNET_ADD_GLOBAL_TOOLS_TO_PATH=0 in each child environment before invoking the SDK. Both Host/global.json and Client/global.json contain exactly this JSON: {"sdk":{"version":"10.0.403","rollForward":"disable","allowPrerelease":false}}.
 
 The host fixes this desk's request policy to en-GB formatting and fr-FR translations. Clearing request providers is deliberate for this bounded example; a real application can select supported cultures from a cookie, URL or user policy, applied before rendering. Do not trust an arbitrary unvalidated culture name. AddLocalization registers the server localizer; the client assembly contains the resources used during both SSR and WASM rendering.
 
@@ -48,7 +48,7 @@ The host fixes this desk's request policy to en-GB formatting and fr-FR translat
 
 Use the parameterless AddInteractiveWebAssemblyComponents registration shown below. The cumulative release notes' former public WebAssemblyComponentsOptions.UseCultureFromServer callback was removed during Preview 7. Do not recreate that obsolete API or configure the internal options class. These original samples follow the actual pinned artifact/source route.
 
-Create a separate CultureHarbour directory for .NET 11 with the same Host/Client structure. Use SDK 11.0.100-rc.2.26504.105, matching ASP.NET/browser assets 11.0.0-rc.2.26504.105 and C# 15. Both Host/global.json and Client/global.json contain exactly this JSON: {"sdk":{"version":"11.0.100-rc.2.26504.105","rollForward":"disable","allowPrerelease":true}}.
+Create a separate CultureHarbour directory for .NET 11 with the same Host/Client structure. Use SDK 11.0.100-rc.3.26522.148, matching ASP.NET/browser assets 11.0.0-rc.2.26504.105 and C# 15. Both Host/global.json and Client/global.json contain exactly this JSON: {"sdk":{"version":"11.0.100-rc.3.26522.148","rollForward":"disable","allowPrerelease":true}}.
 
 The client Localization implementation is deliberately pinned to 10.0.13 in both comparisons. Its .NET 11 resolved abstractions/dependencies follow the WebAssembly RC2 graph; the committed locks and compilation records state that exact closure. No native workload, provider, credential or account is required. These APIs carry no reviewed Experimental diagnostic; prerelease RC2 execution does not establish GA behavior.
 

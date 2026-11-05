@@ -33,7 +33,7 @@ Both libraries contain the same original `ReadingScale.cs`:
 
 {{snippet:library}}
 
-Use exact SDK **10.0.402 / 11.0.100-rc.2.26504.105** pins in `global.json`
+Use exact SDK **10.0.403 / 11.0.100-rc.3.26522.148** pins in `global.json`
 beside the matching project: `sdk.version` is the chosen version,
 `rollForward` is `disable`, and `allowPrerelease` is true only for RC2.
 Language modes are C# **14 / 15**; the restore change itself is language

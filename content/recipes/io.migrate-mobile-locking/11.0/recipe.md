@@ -44,6 +44,6 @@ Framework APIs only; no NuGet dependency, provider, rendering mode or experiment
 
 ## Evidence
 
-`eng/Record-NativeBoundaries.ps1 -VerifySources` checks immutable runtime notes and old/new SafeFileHandle.Unix implementation. Actual SDK 10.0.402/C# 14/runtime10.0.13 and SDK 11RC2/C# 15/runtime11RC2 Windows consumers verify journal contents and pre-cancelled writes; thirty concurrent calls through the new singleton preserve thirty distinct records.
+`eng/Record-NativeBoundaries.ps1 -VerifySources` checks immutable runtime notes and old/new SafeFileHandle.Unix implementation. Actual SDK 10.0.403/C# 14/runtime10.0.13 and SDK 11RC2/C# 15/runtime11RC2 Windows consumers verify journal contents and pre-cancelled writes; thirty concurrent calls through the new singleton preserve thirty distinct records.
 
 **Not tested:** both canonical MobileJournal projects' iOS/tvOS integration, native compilation, advisory-lock enforcement, background suspension/termination and compatibility-setting behavior. This Windows machine has no usable Apple execution/Xcode route; the existing Docker setup does not supply it. These exact sample-specific exclusions follow PIN-699. Intended Apple toolchain pins are not measured versions. No requirement to obtain another environment or claim of Apple execution follows. Pingu owns feasible interactive approvals and refresh coordination. RC2 is not actual-GA proof.

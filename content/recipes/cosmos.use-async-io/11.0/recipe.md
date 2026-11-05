@@ -22,7 +22,7 @@ Await ToListAsync and SaveChangesAsync throughout the call chain. Keep the calle
 
 ## Constraints
 
-Cosmos; no switch restores sync in EF Core 11. Requires EF11/net11.0/SDK11/C#15; historical EF10.0.13/net10.0/SDK10.0.402/C#14 comparison. Exact package assets, provider and prerequisites are in applicability. Windows x64 execution; no renderer or additional workload. Stable contract, RC2 evidence, no experimental opt-in. GA reconciliation remains pending.
+Cosmos; no switch restores sync in EF Core 11. Requires EF11/net11.0/SDK11/C#15; historical EF10.0.13/net10.0/SDK10.0.403/C#14 comparison. Exact package assets, provider and prerequisites are in applicability. Windows x64 execution; no renderer or additional workload. Stable contract, RC2 evidence, no experimental opt-in. GA reconciliation remains pending.
 
 ## Complete projects
 

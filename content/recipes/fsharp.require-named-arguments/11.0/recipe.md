@@ -26,7 +26,7 @@ Complete supplied attribute file (compile before the API):
 2. Compile RequireNamedArguments.fs before the API file. Open System.Diagnostics.CodeAnalysis in that file and enable LangVersion=preview in F# callers.
 3. Apply the attribute only to selected methods or constructors. Name every affected call argument; verify positional calls fail with FS3923 in preview.
 
-Use .NET 11 SDK, net11.0 and FSharp.Core 11; exact evidence pins are SDK 11.0.100-rc.2.26504.105 and FSharp.Core 11.0.101-rc2.26504.105, selecting lib/net10.0. The comparison pins SDK 10.0.402 and FSharp.Core 10.1.402 (lib/netstandard2.1). Set LangVersion to preview for the newer example and 10.0 for the comparison.
+Use .NET 11 SDK, net11.0 and FSharp.Core 11; exact evidence pins are SDK 11.0.100-rc.3.26522.148 and FSharp.Core 11.0.101-rc2.26504.105, selecting lib/net10.0. The comparison pins SDK 10.0.403 and FSharp.Core 10.1.402 (lib/netstandard2.1). Set LangVersion to preview for the newer example and 10.0 for the comparison.
 
 ## Constraints
 

@@ -93,8 +93,8 @@ more clearly. Validate errors and lifetimes for the real component protocol.
 
 ## Evidence
 
-The sample-evidence workflow records SDK10.0.402/runtime10.0.13 and
-SDK11.0.100-rc.2.26504.105/runtime11.0.0-rc.2.26504.105, actual reference/compiler/
+The sample-evidence workflow records SDK10.0.403/runtime10.0.13 and
+SDK11.0.100-rc.3.26522.148/runtime11.0.0-rc.2.26504.105, actual reference/compiler/
 generator identities, native MSVC19.51.36260.0/linker14.51.36260.0/helper hashes,
 inputs, commands, empty managed dependency sets and observed native checks.
 eng/Test-BeaconContracts.ps1 -Record and eng/Test-BeaconDiagnostics.ps1 run the

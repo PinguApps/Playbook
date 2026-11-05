@@ -81,9 +81,9 @@ internal static class ArtifactIdentity
         }
         var references = new Dictionary<string, string>
         {
-            ["Microsoft.AspNetCore.Mvc.Abstractions.dll"] = "a17ea94db7f56b190ecb51e79e314561c946f252202a6b53def31fd295654568",
-            ["Microsoft.AspNetCore.Mvc.ApiExplorer.dll"] = "b15868118355a13b233185548f9a205a7fffc53a119a2bda14fcbb72a9b79411",
-            ["Microsoft.AspNetCore.Routing.dll"] = "d80db50a5177afb630ae855c18da45d0a42c8baad0c47b7480bdf75eeae752fa",
+            ["Microsoft.AspNetCore.Mvc.Abstractions.dll"] = "880ed6d937391a4d0d2627d6746eaf8458cd12b50488d3d41647f3d5b49b9067",
+            ["Microsoft.AspNetCore.Mvc.ApiExplorer.dll"] = "995696026a03db699d883c9d945f2be1bdd86104e0cb763c70ce5164098ea3dc",
+            ["Microsoft.AspNetCore.Routing.dll"] = "59f0e0e47cd79b62d6c60f6f80df71866073ca0345d93dff4eead801ecc16cd5",
         };
         foreach (var pair in references)
         {

@@ -99,8 +99,8 @@ run on a runtime that forbids dynamic code.
 ## Evidence
 
 eng/Test-RuntimeCalls.ps1 -Record -VerifySources builds and runs actual
-net10.0/C#14 and net11.0/C#15 consumers using SDK10.0.402/runtime10.0.13 and
-SDK11.0.100-rc.2.26504.105/runtime11.0.0-rc.2.26504.105. Saved compilation records
+net10.0/C#14 and net11.0/C#15 consumers using SDK10.0.403/runtime10.0.13 and
+SDK11.0.100-rc.3.26522.148/runtime11.0.0-rc.2.26504.105. Saved compilation records
 include exact commands, inputs, empty resolved package sets, compiler and loaded
 CoreLib identities, and audit-matching System.Runtime, Reflection.Emit.ILGeneration
 and Reflection.Emit.Lightweight reference hashes. Paired official contracts and

@@ -102,7 +102,9 @@ try{
       Assert-QuayText $output 'QUAY_COLLECTOR:'
       Assert-QuayText $output (Join-Path $scratch "packages/microsoft.testplatform.cli/$version")
       Assert-QuayText $output 'expected=12;actual=13'
-      $events=@([regex]::Matches($output,'QUAY_EVENT:(\{[^\r\n]+\})')|ForEach-Object {$_.Groups[1].Value|ConvertFrom-Json})
+      $events=@([regex]::Matches($output,'QUAY_EVENT:(start|end)\|([0-9a-f-]+)\|([A-Za-z0-9+/=]*)\|(True|False)\|([A-Za-z]*)')|ForEach-Object {
+        [pscustomobject]@{Phase=$_.Groups[1].Value;Id=$_.Groups[2].Value;Name=[Text.Encoding]::UTF8.GetString([Convert]::FromBase64String($_.Groups[3].Value));IsChild=[bool]::Parse($_.Groups[4].Value);Outcome=$(if($_.Groups[5].Value){$_.Groups[5].Value}else{$null})}
+      })
       if($events.Count -ne 4){throw "Expected four real start/end observations, received $($events.Count): $output"}
       foreach($result in $results.enabled){
         $observations=@($events|Where-Object Id -EQ $result.Id)

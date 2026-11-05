@@ -48,7 +48,7 @@ checks distinguish a live runtime from a page that merely loaded JavaScript.
 ## Migration
 
 1. Select net10.0/Mono or net11.0/Mono/CoreCLR, with the matching SDK, runtime pack,
-   WebAssembly SDK and native workload. The samples use SDK10.0.402/runtime10.0.13
+   WebAssembly SDK and native workload. The samples use SDK10.0.403/runtime10.0.13
    versus SDK11RC2/runtime11RC2, C#14/15 and TypeScript5.9.3. The project enables implicit usings and nullable annotations;
    retain those settings when copying the managed program. UseMonoRuntime=false is
    the narrow CoreCLR opt-in; Mono-specific Emscripten APIs are not a portable

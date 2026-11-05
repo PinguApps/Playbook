@@ -51,7 +51,7 @@ Display.GetName takes precedence; a null result allows fallback. ResourceType ne
 
 The caption cache is culture-sensitive and process-lived. Request culture selection is proven here; live WebAssembly culture switching and trimming of reflection/resource metadata aren't. Caption resources don't enable translated validation messages; that is a separate generated-validation goal.
 
-The exact baselines are SDK 10.0.402 / ASP.NET Core 10.0.13 and SDK 11.0.100-rc.2.26504.105 / ASP.NET Core 11.0.0-rc.2.26504.105, Windows x64 and Chromium 152. RC proof is not GA verification, screen-reader operation, trimming/AOT proof or a platform/browser matrix. No conditional newer-package/older-runtime route or extra .NET 10 foundation edition is advertised.
+The exact baselines are SDK 10.0.403 / ASP.NET Core 10.0.13 and SDK 11.0.100-rc.3.26522.148 / ASP.NET Core 11.0.0-rc.2.26504.105, Windows x64 and Chromium 152. RC proof is not GA verification, screen-reader operation, trimming/AOT proof or a platform/browser matrix. No conditional newer-package/older-runtime route or extra .NET 10 foundation edition is advertised.
 
 ## Evidence
 

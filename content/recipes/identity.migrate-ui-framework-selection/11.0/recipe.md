@@ -4,7 +4,7 @@
 
 Keep customized sign-in pages rendering when upgrading Identity UI by selecting Bootstrap 5 and migrating the affected markup, styles and published assets.
 
-Exact reproduction uses SDK10.0.402 / framework10.0.13 / C#14 versus SDK11.0.100-rc.2.26504.105 / framework11.0.0-rc.2.26504.105 / C#15. These are tested pins, not minimum supported versions. RC2 is not actual-GA proof. The exact eight approved .NET10 foundations, stable identities, PIN-959/PIN-963/PIN-964 and unrelated Human gates remain unchanged.
+Exact reproduction uses SDK10.0.403 / framework10.0.13 / C#14 versus SDK11.0.100-rc.3.26522.148 / framework11.0.0-rc.2.26504.105 / C#15. These are tested pins, not minimum supported versions. RC2 is not actual-GA proof. The exact eight approved .NET10 foundations, stable identities, PIN-959/PIN-963/PIN-964 and unrelated Human gates remain unchanged.
 
 ## Older approach — .NET 10
 

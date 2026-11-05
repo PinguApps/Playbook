@@ -27,7 +27,7 @@ AlwaysOn defaults false and is independent of FullScreen. Enabling it requests b
 
 ## Constraints
 
-Windows Desktop runtime and STA are required. Current SDK11.0.100-rc.2.26504.105/C#15 is compared with SDK10.0.402/C#14. The framework supplies WindowsDesktop assets; no extra NuGet package, provider account, Blazor rendering mode or experimental opt-in. No .NET10 backport is claimed. RC2 compilation is not GA verification.
+Windows Desktop runtime and STA are required. Current SDK11.0.100-rc.3.26522.148/C#15 is compared with SDK10.0.403/C#14. The framework supplies WindowsDesktop assets; no extra NuGet package, provider account, Blazor rendering mode or experimental opt-in. No .NET10 backport is claimed. RC2 compilation is not GA verification.
 
 ## Evidence
 

@@ -16,7 +16,7 @@ The current sample has no inline toggle and no matching hash or unsafe-hashes po
 
 ## Older approach: complete .NET 10 comparison
 
-Create a fresh `BrackenMenu10` directory and write every file below at its stated relative path. Parent build/package boundaries stop unrelated repository inheritance. Both projects pin SDK 10.0.402, net10.0 and C# 14. Packages are exactly 10.0.13; locks record the resolved dependency closure. No workload installation is required.
+Create a fresh `BrackenMenu10` directory and write every file below at its stated relative path. Parent build/package boundaries stop unrelated repository inheritance. Both projects pin SDK 10.0.403, net10.0 and C# 14. Packages are exactly 10.0.13; locks record the resolved dependency closure. No workload installation is required.
 
 The default old menu has an original handler scoped to its own containing menu. For the positive comparison start the host with `--AllowInlineMenu=true`; this allows only the matching SHA-256 handler hash `Q0PMW+uf6Mx6edY1pmu6zF3FR16ZFghnGK/H9yrsVQc=`. A different handler remains blocked. Start without that flag for the strict negative control: links still navigate, but the inline collapse is blocked. With the same strict header, append `?external=true` to use the valid module backport; its links retain the selection.
 
@@ -122,7 +122,7 @@ The default old menu has an original handler scoped to its own containing menu. 
 
 ## Newer approach: complete .NET 11 migration
 
-Create a separate `BrackenMenu11` directory. Write all the following files, rather than overlaying them on the old directory. This baseline uses SDK 11.0.100-rc.2.26504.105, matching runtime/browser assets and WebAssembly packages, net11.0 and C# 15. These are RC2 reproducibility pins, not GA proof or an experimental API opt-in. The migration itself needs no C# 15-only syntax.
+Create a separate `BrackenMenu11` directory. Write all the following files, rather than overlaying them on the old directory. This baseline uses SDK 11.0.100-rc.3.26522.148, matching runtime/browser assets and WebAssembly packages, net11.0 and C# 15. These are RC2 reproducibility pins, not GA proof or an experimental API opt-in. The migration itself needs no C# 15-only syntax.
 
 The custom element attaches a listener to its own menu when connected and removes that exact listener when disconnected. It ignores outside clicks and only clears a checked checkbox after a click inside the scroll area. Thus a second event cannot reopen a closed menu. Registration is guarded; enhanced updates can insert a new instance after a module has already loaded. No one-time query captures a stale menu node. The fictional implementation is independent of the migration guide's global listener.
 

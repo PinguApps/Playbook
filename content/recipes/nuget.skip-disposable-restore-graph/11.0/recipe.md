@@ -15,8 +15,8 @@ separate verification baselines, not mandatory patch upgrades for every consumer
 
 | Layer | Older consumer | Current consumer |
 | --- | --- | --- |
-| SDK | 10.0.402 | 11.0.100-rc.2.26504.105 |
-| C# compiler / language setting | 5.9.0-1.26505.111 / 14.0 | 5.12.0-1.26504.105 / 15.0 |
+| SDK | 10.0.403 | 11.0.100-rc.3.26522.148 |
+| C# compiler / language setting | 5.9.0-1.26523.112 / 14.0 | 5.12.0-1.26522.148 / 15.0 |
 | Framework / ref / runtime | net10.0 / 10.0.13 | net11.0 / 11.0.0-rc.2.26504.105 |
 | Bundled NuGet | 7.9.0-rc.611 | 8.0.0-rc.605 |
 | MSBuild product | 18.9.15 | 18.12.0-1.26504.105 |
@@ -33,7 +33,7 @@ remain open. These controls carry no experimental designation in the cited sourc
 ## Older approach
 
 The official .NET11 Preview4 notes announce `RestoreDoNotWriteDependencyGraphSpec`.
-The actual SDK10.0.402 baseline already honours it too. This is measured tooling
+The actual SDK10.0.403 baseline already honours it too. This is measured tooling
 overlap, not evidence that every older SDK supports it. The catalogue's feature
 release label follows those notes; it does not assert absence in serviced tooling.
 Both real implementations below solve the same quay-invoice goal.
@@ -73,8 +73,8 @@ The current files at those same three paths are:
 {{snippet:rates-project-11}}
 
 Give each directory its own `global.json`: the older file is
-`{"sdk":{"version":"10.0.402","rollForward":"disable"}}`; the current file is
-`{"sdk":{"version":"11.0.100-rc.2.26504.105","rollForward":"disable"}}`.
+`{"sdk":{"version":"10.0.403","rollForward":"disable"}}`; the current file is
+`{"sdk":{"version":"11.0.100-rc.3.26522.148","rollForward":"disable"}}`.
 Use the matching complete SDK installation and runtime, not copied task DLLs.
 Outside the repository, no shared build/package configuration is needed. Inside
 another repository, inspect inherited configuration and isolate these examples

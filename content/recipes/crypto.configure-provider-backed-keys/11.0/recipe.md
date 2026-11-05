@@ -87,8 +87,8 @@ native provider behavior. No unsafe switch or experimental opt-in is needed.
 
 eng/Test-ProviderRequests.ps1 -Record verifies immutable official sources,
 audit-matching reference hashes and compiler identities, and records existing
-sample-evidence receipts. Paired SDK10.0.402/runtime10.0.13 and
-SDK11.0.100-rc.2.26504.105/runtime11.0.0-rc.2.26504.105 consumers compile on
+sample-evidence receipts. Paired SDK10.0.403/runtime10.0.13 and
+SDK11.0.100-rc.3.26522.148/runtime11.0.0-rc.2.26504.105 consumers compile on
 Windows; the OpenSSL consumers execute in a network-none, pinned Linux container.
 The fixture generates a fresh disposable RSA2048 PEM key, verifies signatures
 and tamper rejection, missing provider/key, independent safe-handle ownership,

@@ -79,7 +79,7 @@ empty/malformed/overlong labels, lone surrogate, NUL, STD3 choices and both
 AllowUnassigned settings. Current calls also reject overlapping spans. Actual
 loaded ICU, native hash, runtime configuration and sort-data identities are recorded.
 
-SDK10.0.402/ref-runtime10.0.13 and SDK11.0.100-rc.2.26504.105/ref-runtime11RC2
+SDK10.0.403/ref-runtime10.0.13 and SDK11.0.100-rc.3.26522.148/ref-runtime11RC2
 are the exact reproduction pins, distinct from supported release prerequisites.
 No resolved NuGet dependencies. Compiler/CoreLib and audit-matching references,
 commands and fresh inputs use the existing evidence workflow. Pinned official

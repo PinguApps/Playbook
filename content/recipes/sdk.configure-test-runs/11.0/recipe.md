@@ -6,7 +6,7 @@ Run the pier's berth checks with the intended runner, choose exactly which proje
 
 ## Older approach
 
-SDK 10 already supports the native Microsoft.Testing.Platform (MTP) mode. Pin SDK 10.0.402 in global.json and set its test section to `"test": { "runner": "Microsoft.Testing.Platform" }`. Without that selection, dotnet test uses VSTest. This is a valid older configuration, not a need to rewrite every test.
+SDK 10 already supports the native Microsoft.Testing.Platform (MTP) mode. Pin SDK 10.0.403 in global.json and set its test section to `"test": { "runner": "Microsoft.Testing.Platform" }`. Without that selection, dotnet test uses VSTest. This is a valid older configuration, not a need to rewrite every test.
 
 {{snippet:older}}
 
@@ -16,7 +16,7 @@ Run `dotnet test --project RunnerTests.csproj -c Release` in MTP mode. The accom
 
 For standalone C# projects, add `<ImplicitUsings>enable</ImplicitUsings>` and `<Nullable>enable</Nullable>` inside the project PropertyGroup. The canonical comparisons obtain these settings from their isolated shared sample properties; do not depend on the Playbook checkout to supply them.
 
-Under SDK 11, keep global.json's MTP selection or set DOTNET_TEST_RUNNER=Microsoft.Testing.Platform in the child process environment. A recognised environment value overrides global.json; VSTest is the other supported value. That environment override is an SDK 11 capability, separate from the test application's target. Pin the original SDK to 11.0.100-rc.2.26504.105 for reproduction.
+Under SDK 11, keep global.json's MTP selection or set DOTNET_TEST_RUNNER=Microsoft.Testing.Platform in the child process environment. A recognised environment value overrides global.json; VSTest is the other supported value. That environment override is an SDK 11 capability, separate from the test application's target. Pin the original SDK to 11.0.100-rc.3.26522.148 for reproduction.
 
 {{snippet:newer}}
 
@@ -36,7 +36,7 @@ Run `dotnet test Traversal/dirs.proj -c Release --results-directory-layout per-m
 
 1. Inspect global.json and the actual framework/runner packages. Use the creation recipe to migrate incompatible projects before selecting MTP for a whole solution.
 2. Choose one selector: --project, --solution or --test-modules. Explicit project selection avoids accidentally running an unrelated test project.
-3. For already-built modules use a semicolon-separated glob expression, for example `--root-directory .. --test-modules "**/bin/Release/net11.0/*Tests.dll; !**/NUnitTests.dll"`. Set a common search root for both inclusion and exclusion patterns. SDK 11 trims whitespace and applies leading-! exclusions within that root; separately enumerated literal parent paths did not exclude the sibling in our initial probe. Do not combine module selection with --configuration, --framework, --runtime, --arch, --os, --use-current-runtime or --no-dependencies; those require project evaluation.
+3. For already-built modules use a semicolon-separated glob expression, for example `--root-directory .. --test-modules "RunnerTests/bin/Release/net11.0/*Tests.dll; NUnitTests/bin/Release/net11.0/*Tests.dll; !**/NUnitTests.dll"`. Set a common search root for both inclusion and exclusion patterns. SDK 11 trims whitespace and applies leading-! exclusions within that root; separately enumerated literal parent paths did not exclude the sibling in our initial probe. Do not combine module selection with --configuration, --framework, --runtime, --arch, --os, --use-current-runtime or --no-dependencies; those require project evaluation.
 4. With project selection, --no-dependencies skips building referenced projects; ensure their required artifacts already exist. --use-current-runtime selects the current runtime during restore/build; it does not change what --test-modules contains.
 5. Put run policies before -- and framework-extension options after it. For reports, set --results-directory to a deliberate location and --results-directory-layout per-module to avoid module filename collisions. Without an explicit directory, SDK artifacts layout uses <ArtifactsPath>/test/<project>/<pivot>; flat remains the ordinary default.
 
@@ -46,4 +46,4 @@ MTP-native dotnet test requires Microsoft.Testing.Platform 1.7 or later and an e
 
 ## Evidence
 
-The real original SDK-10 xUnit MTP and NUnit VSTest projects compile and execute; SDK 11 executes both as MTP applications. Focused commands check project selection, traversal's six results, module exclusions, a per-module xUnit TRX artifact, the environment override and the documented run-policy exit codes. --no-dependencies is exercised as an accepted project-mode option; the fixture has no required project-reference build, so the check does not establish build-skipping behavior. Sources establish recursive traversal/deduplication and runtime option semantics; no separate diamond or runtime-switch execution is claimed. Installed stdio list/get checks the full canonical body, goal, applicability and target-11 edition with local-only installation and network-isolated retrieval. Evidence retains exact RC2 SDK/package artifacts, not a GA claim.
+The real original SDK-10 xUnit MTP and NUnit VSTest projects compile and execute; SDK 11 executes both as MTP applications. Focused commands check project selection, traversal's six results, module exclusions, a per-module xUnit TRX artifact, the environment override and the documented run-policy exit codes. --no-dependencies is exercised as an accepted project-mode option; the fixture has no required project-reference build, so the check does not establish build-skipping behavior. Sources establish recursive traversal/deduplication and runtime option semantics; no separate diamond or runtime-switch execution is claimed. Installed stdio list/get checks the full canonical body, goal, applicability and target-11 edition with local-only installation and network-isolated retrieval. Evidence retains exact RC3 SDK/package artifacts, not a GA claim.

@@ -12,7 +12,7 @@ Explicit hints are already valid on .NET 10. The pinned Microsoft change guide d
 
 Initial/full navigation retains the framework's separate preload behavior. Framework PR 63544 also changes DOM synchronization of preload links; neither source change guarantees one network request in every browser. Our static SSR sample observes custom needed resources, not WebAssembly boot-preload generation.
 
-Create an empty net10 directory, with no inherited repository build/package settings. Save global.json containing exactly `{"sdk":{"version":"10.0.402","rollForward":"disable","allowPrerelease":false}}`. SDK 10.0.402 uses ASP.NET/runtime assets 10.0.13 and C# 14. Save TernLedger.csproj:
+Create an empty net10 directory, with no inherited repository build/package settings. Save global.json containing exactly `{"sdk":{"version":"10.0.403","rollForward":"disable","allowPrerelease":false}}`. SDK 10.0.403 uses ASP.NET/runtime assets 10.0.13 and C# 14. Save TernLedger.csproj:
 
 {{snippet:project-10}}
 
@@ -22,7 +22,7 @@ Save Program.cs in both applications with these three imports before the program
 
 ## Newer approach
 
-Create a separate empty net11 directory. Save global.json containing exactly `{"sdk":{"version":"11.0.100-rc.2.26504.105","rollForward":"disable","allowPrerelease":true}}`. The actual newer framework/browser assets are 11.0.0-rc.2.26504.105, with C# 15. No external PackageReference, provider, native toolchain or optional workload is required. The SDK resolves its matching Microsoft.AspNetCore.App.Internal.Assets; standalone restore produces packages.lock.json. Repository captures use reviewed locked closure.
+Create a separate empty net11 directory. Save global.json containing exactly `{"sdk":{"version":"11.0.100-rc.3.26522.148","rollForward":"disable","allowPrerelease":true}}`. The actual newer framework/browser assets are 11.0.0-rc.2.26504.105, with C# 15. No external PackageReference, provider, native toolchain or optional workload is required. The SDK resolves its matching Microsoft.AspNetCore.App.Internal.Assets; standalone restore produces packages.lock.json. Repository captures use reviewed locked closure.
 
 Save TernLedger.csproj and Program.cs:
 

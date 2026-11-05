@@ -82,7 +82,7 @@
           ],
           "optIns": [],
           "packageAssets": [
-            "Matching Microsoft.AspNetCore.App framework/reference pack; SDK 11 Blazor Individual-auth template for PasskeyAuthenticators. No extra production NuGet package; RC2 SDK restores Microsoft.AspNetCore.App.Internal.Assets/11.0.0-rc.2.26504.105 for the sample."
+            "Matching Microsoft.AspNetCore.App framework/reference pack; SDK 11 Blazor Individual-auth template for PasskeyAuthenticators. No extra production NuGet package; RC3 SDK restores Microsoft.AspNetCore.App.Internal.Assets/11.0.0-rc.2.26504.105 for the sample."
           ],
           "frameworks": [
             "ASP.NET Core Identity",

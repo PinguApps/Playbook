@@ -28,8 +28,15 @@ try {
   $package=Join-Path $HOME ".nuget/packages/$id/$version"
   $declarations="$package/runtimes/browser-wasm/native/dotnet.d.ts"
   $expected=@(($audit.baselines | Where-Object target -CEQ $target).browser | Where-Object id -CEQ $id)[0]
+  $archive="$package/$id.$version.nupkg"
+  if(-not(Test-Path $declarations)) {
+   $package=Join-Path (Split-Path $dotnet) "packs/$id/$version"
+   $declarations="$package/runtimes/browser-wasm/native/dotnet.d.ts"
+   $archive=Join-Path $root "artifacts/host-types/$id.$version.nupkg"
+   if(-not(Test-Path $archive)){Invoke-WebRequest $expected.url -OutFile $archive}
+  }
   if((Get-FileHash $declarations).Hash.ToLowerInvariant() -cne $expected.declarationsSha256){throw "Declaration drift: $id"}
-  if((Get-FileHash "$package/$id.$version.nupkg").Hash.ToLowerInvariant() -cne $expected.sha256){throw "Archive drift: $id"}
+  if((Get-FileHash $archive).Hash.ToLowerInvariant() -cne $expected.sha256){throw "Archive drift: $id"}
   Copy-Item $declarations "$types/_framework/dotnet.d.ts";Copy-Item "$directory/main.ts" "$types/main.ts"
   & $Node $tsc "$types/main.ts" --strict --target es2022 --module es2022 --lib es2022,dom --outDir "$types/out"
   # Reject the opposite diagnostic-provider spelling against the same actual declaration.

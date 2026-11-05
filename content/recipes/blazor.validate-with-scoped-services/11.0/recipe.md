@@ -68,7 +68,7 @@ This is manual top-level data-annotations integration and interactive component 
 
 The edition targets .NET 11. The working .NET 10 comparison preserves an already supported approach, without adding a ninth foundation or advertising a .NET 11 package-on-.NET 10 route. Stable APIs require no experimental opt-in. The current sample declares C# 15, Web SDK/reference assets and shared runtime 11; the previous declares C# 14 and target/runtime 10. SDK-aligned browser files are locked, with no explicit external package, provider, native workload or account requirement.
 
-Measured pins: SDK 10.0.402 / framework and browser assets 10.0.13, and SDK 11.0.100-rc.2.26504.105 / framework and browser assets 11.0.0-rc.2.26504.105. These exact artifacts record tests, not universal exact consumer prerequisites. Static SSR request scopes and lifecycle are not equivalent to Interactive Server circuit scope. No static-SSR, WASM/Auto, nested/generated validation, asynchronous attribute, trimming/AOT, external-provider or GA behavior is claimed.
+Measured pins: SDK 10.0.403 / framework and browser assets 10.0.13, and SDK 11.0.100-rc.3.26522.148 / framework and browser assets 11.0.0-rc.2.26504.105. These exact artifacts record tests, not universal exact consumer prerequisites. Static SSR request scopes and lifecycle are not equivalent to Interactive Server circuit scope. No static-SSR, WASM/Auto, nested/generated validation, asynchronous attribute, trimming/AOT, external-provider or GA behavior is claimed.
 
 ## Evidence
 

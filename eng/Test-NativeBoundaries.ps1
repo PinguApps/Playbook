@@ -2,7 +2,7 @@
 param(
   [string]$Net10Dotnet=(Get-Command dotnet -CommandType Application | Select-Object -First 1).Source,
   [string]$Net11Dotnet=(Get-Command dotnet -CommandType Application | Select-Object -First 1).Source,
-  [string]$X86Net10='C:/Program Files (x86)/dotnet/dotnet.exe',
+  [string]$X86Net10='',
   [string]$X86Net11='',
   [string]$VisualCppRoot='C:/Program Files (x86)/Microsoft Visual Studio/18/BuildTools/VC/Tools/MSVC/14.51.36231',
   [string]$WindowsSdkLibRoot='C:/Program Files (x86)/Windows Kits/10/Lib/10.0.26100.0',
@@ -25,18 +25,23 @@ try {
   $log.Add("SOURCE=$($source.url);sha256=$($source.sha256)")
  }
  if($Lane -in 'Windows','All'){
-  if(-not $X86Net11){
-   $X86Net11=Join-Path $scratch 'runtime11-x86/dotnet.exe'
-   $archive=Join-Path $scratch 'runtime11-x86.zip'
-   $pin=@((Get-Content (Join-Path $root 'samples/NativeBoundaries/sources.json') -Raw|ConvertFrom-Json).runtimeArchives|Where-Object name -CEQ 'win-x86-net11-rc2')[0]
+  function Get-X86Runtime([string]$Major){
+   $pin=@((Get-Content (Join-Path $root 'samples/NativeBoundaries/sources.json') -Raw|ConvertFrom-Json).runtimeArchives|Where-Object name -Like "win-x86-net$Major-*")
+   if($pin.Count -ne 1){throw 'Expected one pinned Windows x86 runtime per baseline'}
+   $pin=$pin[0]
+   $executable=Join-Path $scratch "$($pin.name)/dotnet.exe"
+   $archive=Join-Path $scratch "$($pin.name).zip"
    if(-not(Test-Path $archive)){Invoke-WebRequest $pin.url -OutFile $archive}
    $hash=(Get-FileHash $archive).Hash.ToLowerInvariant()
    if($hash -cne $pin.sha256){throw 'Pinned Windows x86 runtime archive hash mismatch'}
    $log.Add("RUNTIME_ARCHIVE=$($pin.url);sha256=$hash")
-   if(-not(Test-Path $X86Net11)){
-    Expand-Archive -LiteralPath $archive -DestinationPath (Split-Path $X86Net11) -Force
+   if(-not(Test-Path $executable)){
+    Expand-Archive -LiteralPath $archive -DestinationPath (Split-Path $executable) -Force
    }
+   return $executable
   }
+  if(-not $X86Net10){$X86Net10=Get-X86Runtime '10'}
+  if(-not $X86Net11){$X86Net11=Get-X86Runtime '11'}
   $linker=Join-Path $VisualCppRoot 'bin/Hostx64/x64/link.exe'
   $compiler=Join-Path $VisualCppRoot 'bin/Hostx64/x64/cl.exe'
   $native=@("MSVC/$((Get-Item $compiler).VersionInfo.FileVersion)","MSVC-link/$((Get-Item $linker).VersionInfo.FileVersion)","Windows-SDK/$(Split-Path $WindowsSdkLibRoot -Leaf)")
@@ -66,7 +71,7 @@ try {
    $dll="bin/Release/net$major.0/MarshHeap.dll"
    $actual=Invoke-Estuary $x86 $directory @($dll,'application')
    Assert-Estuary $actual 'ARCH=X86'
-   Assert-Estuary $actual $(if($major -eq '10'){'.NET 10.0.13'}else{'.NET 11.0.0-rc.2.26504.105'})
+   Assert-Estuary $actual $(if($major -eq '10'){'.NET 10.0.14'}else{'.NET 11.0.0-rc.3.26522.148'})
    $actual=Invoke-Estuary $x86 $directory @($dll) -Exit $(if($major -eq '10'){-532462766}else{0})
    Assert-Estuary $actual $(if($major -eq '10'){'RETAINED=134217728'}else{'LIMIT=33554432'})
    Save-EstuaryEvidence $sample $sdk $lang "net$major.0" 'Real Windows x86 application budget, configured 32MiB managed-heap limit, bounded allocation and OOM; old runtime ignores setting, current enforces it. RSS measured separately.' $info 'eng/Test-NativeBoundaries.ps1 -Lane Windows -Record' -ExpectedInputs $inputs

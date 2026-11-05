@@ -28,7 +28,7 @@
     "routes": [
       {
         "selectionNotes": [
-          "Experimental CoreCLR compiler flag. Public RC2 SDK requires Features; UseRuntimeAsync alone was inert."
+          "Experimental CoreCLR compiler flag. Public RC3 SDK requires Features; UseRuntimeAsync alone was inert."
         ],
         "usage": "primary",
         "sharedAreas": [

@@ -94,7 +94,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Stable migration contract, demonstrated using pinned .NET11 RC2 SDK/provider artifacts. No experimental API or experimental opt-in is used. Actual GA reconciliation remains pending in the existing release-wide gate."
+            "Stable migration contract, demonstrated using pinned .NET11 RC3 SDK/provider artifacts. No experimental API or experimental opt-in is used. Actual GA reconciliation remains pending in the existing release-wide gate."
           ]
         },
         "sourceUrls": [

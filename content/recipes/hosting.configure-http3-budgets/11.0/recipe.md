@@ -15,8 +15,8 @@ the assembly platform annotation declares that tested lane. It does not assert
 Linux/macOS support from a managed build. It fails if QUIC is unavailable and
 requires HTTP/3 exactly rather than accepting a silent HTTP/2 fallback.
 
-The exact older set is SDK10.0.402, .NET/ASP.NET10.0.13 and C#14. The newer set is
-SDK11.0.100-rc.2.26504.105, .NET/ASP.NET11.0.0-rc.2.26504.105 and C#15. Both load
+The exact older set is SDK10.0.403, .NET/ASP.NET10.0.13 and C#14. The newer set is
+SDK11.0.100-rc.3.26522.148, .NET/ASP.NET11.0.0-rc.2.26504.105 and C#15. Both load
 MsQuic2.5.11.159415436. These are measured reproduction pins, not minimum patches.
 The newer migration targets the .NET11 release family; RC2 evidence is not actual
 GA evidence. No additional NuGet library, workload, hosted provider or browser

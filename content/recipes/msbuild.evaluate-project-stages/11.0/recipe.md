@@ -14,9 +14,9 @@ utility itself targets net11.0; this edition advertises only that host route.
 
 ## Requirements and measured artifacts
 
-The qualified newer route uses SDK **11.0.100-rc.2.26504.105**, runtime/reference
+The qualified newer route uses SDK **11.0.100-rc.3.26522.148**, runtime/reference
 pack **11.0.0-rc.2.26504.105**, C# **15.0** and the SDK's MSBuild
-**18.12.0-1.26504.105**. The comparison uses SDK **10.0.402**, runtime/reference
+**18.12.0-1.26504.105**. The comparison uses SDK **10.0.403**, runtime/reference
 pack **10.0.13**, C# **14.0**, and MSBuild **18.9.15**. Assembly version
 `15.1.0.0` identifies neither product build. These are exact tested Windows x64
 artifacts, not a promise about every MSBuild release or an actual-GA qualification.
@@ -123,7 +123,7 @@ Run an initial `dotnet restore MuseumInventory.csproj` using the matching absolu
 executable from that directory. Then run `dotnet build MuseumInventory.csproj -c
 Release -p:RestoreLockedMode=true`, followed by that executable with
 `bin/Release/net11.0/MuseumInventory.dll`. For the older comparison change the host
-target/language to net10.0/14.0 and pin global.json to 10.0.402 with
+target/language to net10.0/14.0 and pin global.json to 10.0.403 with
 `rollForward: disable`; use the older reader and executable. Keep
 `DOTNET_ADD_GLOBAL_TOOLS_TO_PATH=0` in these child environments when using an
 isolated CLI home. Nothing requires installing a global tool or editing PATH.

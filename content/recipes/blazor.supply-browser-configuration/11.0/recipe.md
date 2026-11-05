@@ -8,9 +8,9 @@ The capability here is configuration-provider precedence and build reuse. Browse
 
 ## Older approach
 
-.NET 10 supports runtime-supplied browser environment variables and an explicit configuration provider. CreateDefault loads appsettings.json and appsettings.{Environment}.json but does not add that provider. Adding it manually remains a valid older approach. No newer compiler targeting .NET 10 substitutes for the actual SDK 10.0.402/C# 14 comparison below.
+.NET 10 supports runtime-supplied browser environment variables and an explicit configuration provider. CreateDefault loads appsettings.json and appsettings.{Environment}.json but does not add that provider. Adding it manually remains a valid older approach. No newer compiler targeting .NET 10 substitutes for the actual SDK 10.0.403/C# 14 comparison below.
 
-Create a standalone EstuaryBoard directory and save these as EstuaryBoard.csproj, Directory.Packages.props and Program.cs. The project declares all standalone settings and has no dependency on this repository's parent build files. Add global.json containing {"sdk":{"version":"10.0.402","rollForward":"disable","allowPrerelease":true}}. The exact package pins are author-maintained; restore generates the dependency lock file, and later restores should use --locked-mode.
+Create a standalone EstuaryBoard directory and save these as EstuaryBoard.csproj, Directory.Packages.props and Program.cs. The project declares all standalone settings and has no dependency on this repository's parent build files. Add global.json containing {"sdk":{"version":"10.0.403","rollForward":"disable","allowPrerelease":true}}. The exact package pins are author-maintained; restore generates the dependency lock file, and later restores should use --locked-mode.
 
 {{snippet:project-10}}
 
@@ -22,7 +22,7 @@ The initial endpoint captures JSON precedence before the manual environment regi
 
 ## Newer approach
 
-Create a separate EstuaryBoard directory with these project/package/program files. Add global.json containing {"sdk":{"version":"11.0.100-rc.2.26504.105","rollForward":"disable","allowPrerelease":true}}. Use the actual .NET 11 RC2 SDK, C# 15 mode and matching RC2 browser/runtime assets. No C# 15-only syntax is needed. These APIs have no Experimental opt-in in the reviewed artifacts; prerelease verification still does not establish GA behavior.
+Create a separate EstuaryBoard directory with these project/package/program files. Add global.json containing {"sdk":{"version":"11.0.100-rc.3.26522.148","rollForward":"disable","allowPrerelease":true}}. Use the actual .NET 11 RC3 SDK, C# 15 mode and matching RC3 browser/runtime assets. No C# 15-only syntax is needed. These APIs have no Experimental opt-in in the reviewed artifacts; prerelease verification still does not establish GA behavior.
 
 {{snippet:project-11}}
 

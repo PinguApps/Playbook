@@ -8,9 +8,9 @@ This is the G25 capability and its E03 expansion: generated value and void calls
 
 ## Older approach
 
-.NET 10 supports ordinary JavaScript Web Workers. This complete comparison performs the calculation in JavaScript and calls it through JS interop. That remains useful when the calculation is already JavaScript or starting a second .NET runtime would cost more than the work. A custom .NET worker bootstrap is another possible design, but is not the older route verified here. SDK 10.0.402 has no `blazorwebworker` template; a documentation version selector or a newer SDK targeting net10.0 cannot establish otherwise.
+.NET 10 supports ordinary JavaScript Web Workers. This complete comparison performs the calculation in JavaScript and calls it through JS interop. That remains useful when the calculation is already JavaScript or starting a second .NET runtime would cost more than the work. A custom .NET worker bootstrap is another possible design, but is not the older route verified here. SDK 10.0.403 has no `blazorwebworker` template; a documentation version selector or a newer SDK targeting net10.0 cannot establish otherwise.
 
-Create a separate FossilDesk directory. Save these files as FossilDesk.csproj and Directory.Packages.props. Add global.json with sdk.version 10.0.402, sdk.rollForward disable and sdk.allowPrerelease false. The actual language is C# 14 and runtime host is 10.0.13; the explicit application packages are 10.0.9. All project settings are included, without repository parent imports.
+Create a separate FossilDesk directory. Save these files as FossilDesk.csproj and Directory.Packages.props. Add global.json with sdk.version 10.0.403, sdk.rollForward disable and sdk.allowPrerelease false. The actual language is C# 14 and runtime host is 10.0.13; the explicit application packages are 10.0.9. All project settings are included, without repository parent imports.
 
 {{snippet:project-10}}
 
@@ -32,9 +32,9 @@ Use the complete shared document and observer below too. The observer only recor
 
 ## Newer approach
 
-Use SDK 11.0.100-rc.2.26504.105 with runtime/packages 11.0.0-rc.2.26504.105. Create adjacent FossilDesk and FossilWorker directories. From a directory with that SDK selected, run dotnet new blazorwebworker -n FossilWorker -o FossilWorker --no-restore. The generated artifact has WebWorkerClient.cs, WorkerMethods.cs and both wwwroot/dotnet-web-worker scripts. Keep the generated client/transport; replace only its starter method and apply the explicit project/package pins below. The complete generated files are also included offline later in this body.
+Use SDK 11.0.100-rc.3.26522.148 with runtime/packages 11.0.0-rc.2.26504.105. Create adjacent FossilDesk and FossilWorker directories. From a directory with that SDK selected, run dotnet new blazorwebworker -n FossilWorker -o FossilWorker --no-restore. The generated artifact has WebWorkerClient.cs, WorkerMethods.cs and both wwwroot/dotnet-web-worker scripts. Keep the generated client/transport; replace only its starter method and apply the explicit project/package pins below. The complete generated files are also included offline later in this body.
 
-In BOTH directories add global.json with sdk.version 11.0.100-rc.2.26504.105, sdk.rollForward disable and sdk.allowPrerelease true. Set Directory.Packages.props to the following identical contents. The packages and SDK are author-maintained RC2 pins, not a promise about a future GA template.
+In BOTH directories add global.json with sdk.version 11.0.100-rc.3.26522.148, sdk.rollForward disable and sdk.allowPrerelease true. Set Directory.Packages.props to the following identical contents. The packages and SDK are author-maintained RC2 pins, not a promise about a future GA template.
 
 {{snippet:packages-11}}
 
@@ -105,7 +105,7 @@ The page import map resolves fingerprinted dotnet.js before passing its URL into
 
 ## Evidence
 
-Actual SDK 10.0.402/C#14 compiles the older standalone WASM application. Actual SDK 11.0.100-rc.2.26504.105/C#15 compiles the consuming app and generated worker library independently with locked dependencies. These records are compilation, not desktop execution or cross-compilation. No mocked worker/client substitutes for the runtime.
+Actual SDK 10.0.403/C#14 compiles the older standalone WASM application. Actual SDK 11.0.100-rc.3.26522.148/C#15 compiles the consuming app and generated worker library independently with locked dependencies. These records are compilation, not desktop execution or cross-compilation. No mocked worker/client substitutes for the runtime.
 
 Separate foreground Chrome/native-Worker execution checks rendering and a counter update while the 1200 ms worker calculation is still running, value/void exports and per-worker state, creation timeout and cancellation, invocation timeout and cancellation, and explicit disposal during pending CPU work. The creation cancellation probe temporarily holds the REAL worker's init message to make the race deterministic; after cancellation it releases the message, observes successful real .NET boot, then terminates that intentionally orphaned worker. Neither a held init message nor source review is labelled normal unscheduled timing evidence. The generated invocation path itself is unmodified. Sent Report messages precede the timed/cancelled Score results, proving the caller's wait ended before actual CPU completion.
 

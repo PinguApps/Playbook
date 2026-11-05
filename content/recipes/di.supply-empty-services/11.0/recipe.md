@@ -87,7 +87,7 @@ scope-owned resources or registered rules; this goal is separate from startup DI
 ## Evidence
 
 `eng/Test-ExtensionContracts.ps1 -Record -VerifySources` builds/runs MuseumServices
-with SDK10.0.402/runtime10.0.13 and SDK11.0.100-rc.2.26504.105/runtime11RC2.
+with SDK10.0.403/runtime10.0.13 and SDK11.0.100-rc.3.26522.148/runtime11RC2.
 Application requirements are release-family SDK/runtime11; exact pins describe
 observed evidence. Both use empty locked package closures, no native toolchains,
 external providers, UI/rendering modes or experimental opt-ins. The audited

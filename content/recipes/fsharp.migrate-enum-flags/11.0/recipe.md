@@ -22,7 +22,7 @@ F# 11 rejects the old expressions with FS0001. Integer power-of-two members prov
 2. Open System. Choose an integer underlying type, None=0 and distinct power-of-two values for independent permissions. Add Flags for intent/display and migrate the OR/AND/XOR operations.
 3. If old characters were persisted or sent over a protocol, define an explicit boundary mapping before changing that contract. Do not reinterpret character code points as permission bits. Compare combinations, membership and toggling against the intended permission model.
 
-Use .NET 11 SDK, net11.0 and FSharp.Core 11; exact evidence pins are SDK 11.0.100-rc.2.26504.105 and FSharp.Core 11.0.101-rc2.26504.105, selecting lib/net10.0. The comparison pins SDK 10.0.402 and FSharp.Core 10.1.402 (lib/netstandard2.1). Set LangVersion to 11.0 for the newer example and 10.0 for the comparison.
+Use .NET 11 SDK, net11.0 and FSharp.Core 11; exact evidence pins are SDK 11.0.100-rc.3.26522.148 and FSharp.Core 11.0.101-rc2.26504.105, selecting lib/net10.0. The comparison pins SDK 10.0.403 and FSharp.Core 10.1.402 (lib/netstandard2.1). Set LangVersion to 11.0 for the newer example and 10.0 for the comparison.
 
 ## Constraints
 

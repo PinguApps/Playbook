@@ -1,7 +1,13 @@
 {
   "nativeToolchains": [],
   "workloads": [],
-  "dependencies": ["Microsoft.AspNetCore.App.Internal.Assets/10.0.13"],
+  "dependencies": [
+    "Microsoft.AspNetCore.App.Internal.Assets/10.0.14"
+  ],
   "buildArguments": [],
-  "additionalInputs": [".editorconfig", "eng/Record-Evidence.ps1", "eng/Evidence.ps1"]
+  "additionalInputs": [
+    ".editorconfig",
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1"
+  ]
 }

@@ -47,7 +47,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Compile net11.0; exact RC2 SDK below is the observed baseline."
+            "reason": "Compile net11.0; exact RC3 SDK below is the observed baseline."
           },
           "language": {
             "name": "C#",

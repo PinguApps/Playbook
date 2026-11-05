@@ -82,8 +82,8 @@ security or per-instance-lifetime mechanism. Actual RC2 evidence is not GA proof
 
 ## Evidence
 
-eng/Test-NativeBoundaries.ps1 -Lane Windows -Record builds real SDK10.0.402 / ILC
-10.0.13 and SDK11.0.100-rc.2.26504.105 / ILC11 RC2 artifacts. It captures locked
+eng/Test-NativeBoundaries.ps1 -Lane Windows -Record builds real SDK10.0.403 / ILC
+10.0.13 and SDK11.0.100-rc.3.26522.148 / ILC11 RC2 artifacts. It captures locked
 dependencies, MSVC/linker/SDK identities, audit-matching references, export tables,
 DLL hashes and independent C invocation for five variants. Both previous/current
 consumers compile and execute their actual native artifacts. Empty source-type

@@ -76,7 +76,7 @@ or performance claim. TAR archive link representation belongs to a separate reci
 ## Evidence
 
 `eng/Record-CertificateLinks.ps1 -VerifySources` compiles and runs the actual
-SDK10.0.402/C#14/runtime10.0.13 native consumer and SDK11RC2/C#15/runtime11RC2 managed
+SDK10.0.403/C#14/runtime10.0.13 native consumer and SDK11RC2/C#15/runtime11RC2 managed
 consumer on Windows x64, local C: NTFS. Saved records identify exact reference
 packs, compiler/CoreLib/kernel32 versions and hashes, empty package dependencies,
 input bytes/hashes, commands and output.

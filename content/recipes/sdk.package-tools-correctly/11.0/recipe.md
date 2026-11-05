@@ -10,7 +10,7 @@ SDK 10 already generates a correct tool package from PackAsTool and ToolCommandN
 
 {{snippet:older}}
 
-Program.cs contains `Console.WriteLine("manifest=PIER-42");` for a minimal independent utility. The canonical example also prints assembly/base paths for the companion single-file check. It needs no external packages or service. Build under the SDK 10.0.402 pin and pack Release with `dotnet pack DeliveryTool.csproj -c Release -o <local-feed>`. That creates Pier.Manifest.Tool.1.0.0.nupkg; the package ID and installed command name deliberately differ.
+Program.cs contains `Console.WriteLine("manifest=PIER-42");` for a minimal independent utility. The canonical example also prints assembly/base paths for the companion single-file check. It needs no external packages or service. Build under the SDK 10.0.403 pin and pack Release with `dotnet pack DeliveryTool.csproj -c Release -o <local-feed>`. That creates Pier.Manifest.Tool.1.0.0.nupkg; the package ID and installed command name deliberately differ.
 
 ## Newer approach
 
@@ -20,7 +20,7 @@ The corresponding SDK-11 project retains the SDK's tool packaging contract:
 
 {{snippet:newer}}
 
-Use SDK 11.0.100-rc.2.26504.105 to reproduce this RC2 verification. Leave NuspecFile unset. SDK 11 rejects combining PackAsTool=true with a custom NuspecFile using NETSDK1235. A nuspec used for an ordinary library package is not the tool settings/layout contract. Do not work around this diagnostic by switching off PackAsTool while still expecting dotnet tool install to recognise the output.
+Use SDK 11.0.100-rc.3.26522.148 to reproduce this RC2 verification. Leave NuspecFile unset. SDK 11 rejects combining PackAsTool=true with a custom NuspecFile using NETSDK1235. A nuspec used for an ordinary library package is not the tool settings/layout contract. Do not work around this diagnostic by switching off PackAsTool while still expecting dotnet tool install to recognise the output.
 
 ## Migration
 

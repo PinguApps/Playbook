@@ -126,7 +126,7 @@
     }
   ],
   "humanProof": {
-    "scope": "PIN-897 owner check recorded 3 November 2026 in samples/net11.0/FenStatus/owner-settings.evidence.json. Pingu reported: \"It seemed to work to me.\"; the transcript confirms High Contrast enabled/disabled notifications and Net11 -> Classic -> Net11. Source/project/DLL identity matched the prepared sample. This bounded Windows RC2 result is not broad visual/accessibility or GA certification.",
+    "scope": "PIN-897 owner check refreshed for SDK/runtime RC3 on 5 November 2026 in samples/net11.0/FenStatus/owner-settings.evidence.json. Pingu confirmed readable system-colour text with the decorative accent hidden in high contrast. Actual log shows initial disabled -> enabled/Classic -> restored disabled/Net11. Owner-reported readability; no broad accessibility or GA claim.",
     "status": "verified"
   },
   "snippets": {

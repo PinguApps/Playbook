@@ -172,7 +172,7 @@ handler. Server-side handlers need a connected circuit; the input remains a
 normal browser input. There is no persistence, deduplication or delivery guarantee.
 
 Runtime/SDK family 11 and matching browser assets are required for this changed
-guard. Samples pin SDK 10.0.402/C# 14 and SDK 11.0.100-rc.2.26504.105/C# 15,
+guard. Samples pin SDK 10.0.403/C# 14 and SDK 11.0.100-rc.3.26522.148/C# 15,
 ASP.NET Core/runtime 10.0.13 and 11.0.0-rc.2.26504.105 respectively. There are no
 external packages, providers or required workloads. The Web SDK implicitly resolves
 the matching Internal.Assets package; preserve the generated lock file after the

@@ -2,13 +2,14 @@
   "schemaVersion": 1,
   "baselines": [
     {
-      "sdk": "10.0.402",
-      "referencePack": "10.0.13",
+      "sdk": "10.0.403",
+      "referencePack": "10.0.14",
+      "packageVersion": "10.0.13",
       "target": "net10.0",
       "framework": [
         {
           "name": "System.Data.Common.dll",
-          "sha256": "a1020ceea8f8c7447d25fbcc429c1b364b154640045e9a4e3d177e014b0c8252",
+          "sha256": "5cf24487da9a9e5833657429943237e49ffa4b13300576ab6a9134087fefa06c",
           "declarationCount": 5,
           "declarationsSha256": "9e919a81dbc3997915683c15188a71f4888d21e8a2f832653effda2d11bb1a91",
           "obsoleteDeclarations": [
@@ -17,14 +18,14 @@
         },
         {
           "name": "System.Runtime.Serialization.dll",
-          "sha256": "4097d9d333fca666495541a3aa106ef96a2e2c0141c1ae13ae9b18d029a21d82",
+          "sha256": "39da6e91e025583c2d51a5180614cf278bdf7f6d850c4c011422869efca625ce",
           "declarationCount": 46,
           "declarationsSha256": "67eaba674623bcf4382d7fc128b3b7efa4310380e6abe56a93ca0db65c48b8cd",
           "obsoleteDeclarations": []
         },
         {
           "name": "System.Runtime.Serialization.Formatters.dll",
-          "sha256": "e0d4c3f2b5cb93b95584a50ebfa67b92cd0cdf47c738263ee7c8a7425d30513a",
+          "sha256": "fe0e0f73fd8969a83f07c3dc2f62fa3148272158c4162b3660d9c4588b566e5d",
           "declarationCount": 168,
           "declarationsSha256": "6b9ee1757630df0003ea56c67a9521bea48a703b4ae5666cbf54e36dba244a93",
           "obsoleteDeclarations": [
@@ -47,14 +48,14 @@
         },
         {
           "name": "System.Runtime.Serialization.Json.dll",
-          "sha256": "86f1f25e6fa7806d5c6a97289e7e10f9fb77e68a3a77fc3225b54ebb53c6193e",
+          "sha256": "28d148f440067454c06f597f5914bf064d3abf721db1861cfc1296adea77f1b9",
           "declarationCount": 97,
           "declarationsSha256": "b040cb22119f80ead776c6c88ac2bfc739d01f52d9a3999971be04c0f54cfd19",
           "obsoleteDeclarations": []
         },
         {
           "name": "System.Runtime.Serialization.Primitives.dll",
-          "sha256": "77e7b946a1a6bd9d0c539690dc1ec76704edc985e48bd80c083c10794d2f5e95",
+          "sha256": "5540b54d764c9297565ba2f525d3cdef4b8ed84ad80f479a9833340b8fec1e6c",
           "declarationCount": 109,
           "declarationsSha256": "f8c43ee94228fdfa06130bd5c4145aa8006d90b58acb1f31f0e0e43feb3bfc52",
           "obsoleteDeclarations": [
@@ -63,14 +64,14 @@
         },
         {
           "name": "System.Runtime.Serialization.Xml.dll",
-          "sha256": "948acffe5646f0db7439591926271cb9b0030e9ac063b587f0693af66253bcd1",
+          "sha256": "8e7eb76ed7cca0d653daa906731375fccbf65456b8645b22c4344876c5f9657c",
           "declarationCount": 505,
           "declarationsSha256": "bddf19b466f6590705c59ec14b800d7c795c6a0db9ada7a45bdf284428ef95e6",
           "obsoleteDeclarations": []
         },
         {
           "name": "System.Text.Json.dll",
-          "sha256": "ac815e6f37dc3163629beb6792e35b93ed587534276a937fe586d8b33ff5a0b8",
+          "sha256": "105ac7c08a63c6c41dbbf41650ff1b54c96ee11afa6ffb510cb213b78d23d71a",
           "declarationCount": 1486,
           "declarationsSha256": "7caa2b6e14b9a7767bfbafa7ad1a6ee8087b32947f5f5d8ece2fbda299f57480",
           "obsoleteDeclarations": [
@@ -83,21 +84,21 @@
         },
         {
           "name": "System.Xml.dll",
-          "sha256": "7b811308ee61840ccc69b447845446030d29c1c66bdb9842ba5a59a1c62a60cb",
+          "sha256": "8b35480d266706f1c8db8e70216a72ba26d3fb25725f8a1131731e4d380410ef",
           "declarationCount": 250,
           "declarationsSha256": "4c3db06cdde8fa503303d46931c8c2247188c3d8af60f6f0ea1bd781e27ac2ce",
           "obsoleteDeclarations": []
         },
         {
           "name": "System.Xml.Linq.dll",
-          "sha256": "b0a5b461bf71412df3cf98fa49afe230859ac7e7f8872525821bdeccc44fff89",
+          "sha256": "f66daa73628bd932749377aa5094ebad056a63748223ed0dedb4b7dcd49e22b9",
           "declarationCount": 26,
           "declarationsSha256": "1e315202189a618ea957aab3866db345d4c751416b99cbd2c97f6f19940f6869",
           "obsoleteDeclarations": []
         },
         {
           "name": "System.Xml.ReaderWriter.dll",
-          "sha256": "aac81c27a4033172c3e9077a33824264ba3a76f842a9f5d0e753894600cfa675",
+          "sha256": "83b97de9ae16e51138ac4122ebcd4ac5d573e36ece6cc53670f5ae158dfef5c9",
           "declarationCount": 3064,
           "declarationsSha256": "772aa13a3d244de53496b5ba4196ec7ddeb08ded3c5af69f571d1a5a3470f803",
           "obsoleteDeclarations": [
@@ -134,28 +135,28 @@
         },
         {
           "name": "System.Xml.Serialization.dll",
-          "sha256": "8cae84633102182c4b3484ba5b456f63d06bc5d67f4ec9caee9b271edf449b04",
+          "sha256": "4a38c5a78410d11d32df42565312306eefc1bee5c73a6c5c8c661b0cf1ac0717",
           "declarationCount": 27,
           "declarationsSha256": "e051af175e67b39f3d032689326b6df9e2c7ee0d140286b522dbfb583b1abee0",
           "obsoleteDeclarations": []
         },
         {
           "name": "System.Xml.XDocument.dll",
-          "sha256": "3bbc398f7217fae090aff20f6b61513de372c6ea90db5f865d4acbe433f23af3",
+          "sha256": "117b22c47c96c522e3869e64d1b611ba432d87c6bfcd680a98d89214d2af6d2f",
           "declarationCount": 447,
           "declarationsSha256": "55715aae6a49b54a1efe5ef77590240c93ad9c41daa0694a8becf2273bac70c8",
           "obsoleteDeclarations": []
         },
         {
           "name": "System.Xml.XmlDocument.dll",
-          "sha256": "bf18c4a123b6344cd11afb199b5013456a99ca216f99ce5be905139dc7cb4319",
+          "sha256": "fc671e921ca4cae98c3b1cd0ad0fdf1e75f115917c9fa0826f194efbd149c1ba",
           "declarationCount": 21,
           "declarationsSha256": "c7c7f66cb24b8f68847fd2757062a5e4f3eeca177f52cfecded53526e3208c89",
           "obsoleteDeclarations": []
         },
         {
           "name": "System.Xml.XmlSerializer.dll",
-          "sha256": "6296819ec5b90591e41e7a0cbb4b576bf915ecb36aa6f84965ec2d02e96d7435",
+          "sha256": "aa69bc4e804078583f3e3b63e08b895c68a2db2462dfa07a9d04a054f67e26b1",
           "declarationCount": 837,
           "declarationsSha256": "30636848e03109dd6aee299682bae154f8ce93b985daf93df38ea2889dd9e51c",
           "obsoleteDeclarations": [
@@ -164,7 +165,7 @@
         },
         {
           "name": "System.Xml.XPath.dll",
-          "sha256": "3351170020607a2a0925be565d9663f1b13f1c6d39c2e88396a7166c8d332d36",
+          "sha256": "d7a0ce15ae4b9eaa51e6c9bb6fc0e5ab3ff22e4a5f0ef53728363b6685dfe540",
           "declarationCount": 28,
           "declarationsSha256": "ce7ecfb588f17626b2144427da515574c6940e67b8877ce2f30b4dc80b4141f5",
           "obsoleteDeclarations": [
@@ -174,7 +175,7 @@
         },
         {
           "name": "System.Xml.XPath.XDocument.dll",
-          "sha256": "5b92848b5b295c801895ae2368414c789b0c7f5fa3695951ad34a11a214886ba",
+          "sha256": "477567062778b4aa20769570cdf43e6ba634cfa5496030088a512fa5be28b351",
           "declarationCount": 11,
           "declarationsSha256": "2c342a32755c653237de3a95b342f724332242979821a0f4ef8cd8dc618e3f4c",
           "obsoleteDeclarations": []
@@ -326,13 +327,14 @@
       ]
     },
     {
-      "sdk": "11.0.100-rc.2.26504.105",
-      "referencePack": "11.0.0-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
+      "referencePack": "11.0.0-rc.3.26522.148",
+      "packageVersion": "11.0.0-rc.2.26504.105",
       "target": "net11.0",
       "framework": [
         {
           "name": "System.Data.Common.dll",
-          "sha256": "282c58fb56a4f63ef4b312bef617e5c676200b79ffff415776c14f7cbce90577",
+          "sha256": "3593aaba228167e47609bcf988a8b8373beff6f210835b33a39e82e753aeea20",
           "declarationCount": 5,
           "declarationsSha256": "9e919a81dbc3997915683c15188a71f4888d21e8a2f832653effda2d11bb1a91",
           "obsoleteDeclarations": [
@@ -341,14 +343,14 @@
         },
         {
           "name": "System.Runtime.Serialization.dll",
-          "sha256": "45cc98fea2f2cf8e915699f175ac708ab1340d9da15292636bbf1ba3b2f1bcdf",
+          "sha256": "3e74ed7afb703d8a55717ec0643669c518f57a1b2875d209018de7f4c62381a9",
           "declarationCount": 46,
           "declarationsSha256": "67eaba674623bcf4382d7fc128b3b7efa4310380e6abe56a93ca0db65c48b8cd",
           "obsoleteDeclarations": []
         },
         {
           "name": "System.Runtime.Serialization.Formatters.dll",
-          "sha256": "8fe724d416a0c87ece336125ae1975e6143cc91647143243bd08b7619d66580e",
+          "sha256": "7775e833d699ca0440ba988bc98f32d65fe37267e70a23434ec50a7b89861e40",
           "declarationCount": 168,
           "declarationsSha256": "6b9ee1757630df0003ea56c67a9521bea48a703b4ae5666cbf54e36dba244a93",
           "obsoleteDeclarations": [
@@ -371,14 +373,14 @@
         },
         {
           "name": "System.Runtime.Serialization.Json.dll",
-          "sha256": "63e1de0c3cdbe0b64402a61c9d97b268391c1a5c5d8a6780c68cfd5437d297ec",
+          "sha256": "0a9e0a5afeae61045c7d03acb4f2abf45c4c58e1c85e9bd9da1c20b0158467fb",
           "declarationCount": 97,
           "declarationsSha256": "b040cb22119f80ead776c6c88ac2bfc739d01f52d9a3999971be04c0f54cfd19",
           "obsoleteDeclarations": []
         },
         {
           "name": "System.Runtime.Serialization.Primitives.dll",
-          "sha256": "7026defe28d4e2eb43dbaeeca2fd31d10b9398ceb8d1aa27a346ba3fcd2620a7",
+          "sha256": "f3a07e90e77f21485d43f4f0a36911d69a99bbedd7171e4f8f679383bb59485b",
           "declarationCount": 109,
           "declarationsSha256": "f8c43ee94228fdfa06130bd5c4145aa8006d90b58acb1f31f0e0e43feb3bfc52",
           "obsoleteDeclarations": [
@@ -387,14 +389,14 @@
         },
         {
           "name": "System.Runtime.Serialization.Xml.dll",
-          "sha256": "a684df30ecd1b4e4d723ce2ae79de52f034c9f40f3edcb8491ceb51b56f89b89",
+          "sha256": "31d1c5ec8b814414d7956303977be9d94f81459820d0c27da5f8ad6ab7c28738",
           "declarationCount": 505,
           "declarationsSha256": "bddf19b466f6590705c59ec14b800d7c795c6a0db9ada7a45bdf284428ef95e6",
           "obsoleteDeclarations": []
         },
         {
           "name": "System.Text.Json.dll",
-          "sha256": "dd1ec01e02c1c79682168b8b44bfb0bb64442765fd72a45c9964c4ac03bedbe1",
+          "sha256": "affa6cba44a3d54a8c1e136bc81b911193f35554eb56f7bcfeda6925f0b12d9c",
           "declarationCount": 1622,
           "declarationsSha256": "b2ba358d57fe4670b3d2213003e090b8702ab69995fe3940f9b95d25c24b008d",
           "obsoleteDeclarations": [
@@ -407,21 +409,21 @@
         },
         {
           "name": "System.Xml.dll",
-          "sha256": "82a2590075bdb10c49b2eecd1642c6a94604aee1d16dabbba52bfa0341b58f3e",
+          "sha256": "4958b9a78ad4ec0dbfab9c94c0a1804e7e2832d9fd6c6b1b5c22cff1e9a77d1f",
           "declarationCount": 250,
           "declarationsSha256": "4c3db06cdde8fa503303d46931c8c2247188c3d8af60f6f0ea1bd781e27ac2ce",
           "obsoleteDeclarations": []
         },
         {
           "name": "System.Xml.Linq.dll",
-          "sha256": "d0d14b18c7c4e4517b556c2225ec3ff5f10d7de349104f0cf0ba153303e9b33d",
+          "sha256": "9ab6e7147582f3c37aa4bfb2f2b531612da61bfe00a53f5d5a2e005555849ea7",
           "declarationCount": 26,
           "declarationsSha256": "1e315202189a618ea957aab3866db345d4c751416b99cbd2c97f6f19940f6869",
           "obsoleteDeclarations": []
         },
         {
           "name": "System.Xml.ReaderWriter.dll",
-          "sha256": "a02b881abd633d62235eab3a02919dce838f2e9870b3eabbc12021bda87aae69",
+          "sha256": "7bfbac28fa07620e58e12e81ae104b22039c05461943e38757758ca43650e327",
           "declarationCount": 3064,
           "declarationsSha256": "772aa13a3d244de53496b5ba4196ec7ddeb08ded3c5af69f571d1a5a3470f803",
           "obsoleteDeclarations": [
@@ -458,28 +460,28 @@
         },
         {
           "name": "System.Xml.Serialization.dll",
-          "sha256": "773a0407dcd56da27523c6ae42533301af0b2c9198b6430b8e6bf537c9f0733e",
+          "sha256": "b56765f954308a0e18697c137e62cd4bac55ab86c3ee570f9cb3d2f3cb4dec1e",
           "declarationCount": 27,
           "declarationsSha256": "e051af175e67b39f3d032689326b6df9e2c7ee0d140286b522dbfb583b1abee0",
           "obsoleteDeclarations": []
         },
         {
           "name": "System.Xml.XDocument.dll",
-          "sha256": "e369494f995cca2e8a29bb16960efff36cb667678c63c3099bba4f891c3616a5",
+          "sha256": "8058424fe0e08dbaeb6718b77b4ccb038c94162077dece7cf890d6b2220cf9cf",
           "declarationCount": 447,
           "declarationsSha256": "55715aae6a49b54a1efe5ef77590240c93ad9c41daa0694a8becf2273bac70c8",
           "obsoleteDeclarations": []
         },
         {
           "name": "System.Xml.XmlDocument.dll",
-          "sha256": "bc5af1d9dae379c9de6416b61d1750ff15594563806e866480a1e99e15f50c1f",
+          "sha256": "3a3ec9c2fce4ed367f03e504d40a18f3c0ed657da261c507779231972b04510e",
           "declarationCount": 21,
           "declarationsSha256": "c7c7f66cb24b8f68847fd2757062a5e4f3eeca177f52cfecded53526e3208c89",
           "obsoleteDeclarations": []
         },
         {
           "name": "System.Xml.XmlSerializer.dll",
-          "sha256": "135f6384e7b8f2c29b137fa6f4cc00ffb70c28d4a42b6b41605b6992615de08b",
+          "sha256": "3e7c2626bdb60cb2abae6583b0301efd22ebbd2370793d103b0d67d7d9a791c5",
           "declarationCount": 837,
           "declarationsSha256": "30636848e03109dd6aee299682bae154f8ce93b985daf93df38ea2889dd9e51c",
           "obsoleteDeclarations": [
@@ -488,7 +490,7 @@
         },
         {
           "name": "System.Xml.XPath.dll",
-          "sha256": "68d2f3287d488bb90a272c804f89801bb37eb868cbd960ef1b047c2d88e5a6d4",
+          "sha256": "ea637b18d75cdf328fa6810fbfb4bcf32aff371736325380d6c55ea226aff89c",
           "declarationCount": 28,
           "declarationsSha256": "ce7ecfb588f17626b2144427da515574c6940e67b8877ce2f30b4dc80b4141f5",
           "obsoleteDeclarations": [
@@ -498,7 +500,7 @@
         },
         {
           "name": "System.Xml.XPath.XDocument.dll",
-          "sha256": "c5027183cd8a871c9b7fc46cce4b2a09f16a838cc8e9f58e17d061439e51ab09",
+          "sha256": "69db67e94e0f223af6e9dc0fc071b7588a3cfe382d8e1f43920f09771d16baf2",
           "declarationCount": 11,
           "declarationsSha256": "2c342a32755c653237de3a95b342f724332242979821a0f4ef8cd8dc618e3f4c",
           "obsoleteDeclarations": []

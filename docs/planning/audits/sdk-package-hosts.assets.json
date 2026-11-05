@@ -539,26 +539,26 @@
     }
   ],
   "inspectedSdk": {
-    "version": "11.0.100-rc.2.26504.105",
+    "version": "11.0.100-rc.3.26522.148",
     "platform": "win-x64",
-    "vmrCommit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+    "vmrCommit": "5254d8bcf59917edc1e1abc33bdf2442b77b1c70",
     "evidenceKind": "Installed SDK file hashes and deps.json review, not test execution; replay only when Net11SdkDirectory is supplied",
     "files": [
       {
         "file": ".version",
-        "sha256": "7b6423775a3e5a9df62e63c543fbeb46945fdf5d92a0010047d8ebcadf0f61f9"
+        "sha256": "0c5e90cad5281608afe604b3c0b944f7a180267eac2cb25fe2c3f1a723488647"
       },
       {
         "file": "dotnet.deps.json",
-        "sha256": "801399020e3080177f5b34f9292e1b027344489a4c96d0a67d09435f588d892e"
+        "sha256": "4d7e290c423d4ac7be4d1c5074139c8f59cd6c07b3200f2a2a2936e799fc1f70"
       },
       {
         "file": "vstest.console.deps.json",
-        "sha256": "17e9991cf92357d15f88120911571ddddbee540268aa642ca3d335d840d2c2db"
+        "sha256": "3a0fd8dbed1c0cbf6d11ea06c211316de9d8c977e0f1f8714125cc42b2e95484"
       },
       {
         "file": "testhost.deps.json",
-        "sha256": "8a09ac734324e5dc864a983327cfd44dae748f5be973fc8afaf68077229a0fbc"
+        "sha256": "25c09cdc31dcb9d0409c36d26caee310d57cfb88a67a233505468dd6ce85539e"
       }
     ]
   }

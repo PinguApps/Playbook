@@ -50,4 +50,4 @@ Do not infer that ignoring a DTD sanitizes an untrusted file. Trust includes the
 
 ## Evidence
 
-Both original managed harnesses actually compile and execute with their pinned SDKs. They run real MSBuild tasks, check the queried value, edited XML and transformation output, and verify the DTD-free route. RC2 also reproduces all three default-rejection diagnostics. This is Windows x64 execution using SDK 10.0.402 and 11.0.100-rc.2.26504.105, not cross-compilation, a mock or GA proof. The packed-tool scenario separately checks the complete served body, applicability and target edition offline.
+Both original managed harnesses actually compile and execute with their pinned SDKs. They run real MSBuild tasks, check the queried value, edited XML and transformation output, and verify the DTD-free route. RC2 also reproduces all three default-rejection diagnostics. This is Windows x64 execution using SDK 10.0.403 and 11.0.100-rc.3.26522.148, not cross-compilation, a mock or GA proof. The packed-tool scenario separately checks the complete served body, applicability and target edition offline.

@@ -13,7 +13,7 @@ example, not an implementation of VSTest's process transport or negotiation.
 
 The actual **TestHost 18.7.0** package supplies CommunicationUtilities and depends
 on matching ObjectModel **18.7.0** plus Newtonsoft.Json **13.0.3**. This valid older
-.NET 10 consumer uses SDK **10.0.402**, C# **14** and runtime **10.0.13**:
+.NET 10 consumer uses SDK **10.0.403**, C# **14** and runtime **10.0.13**:
 
 {{snippet:older-project}}
 
@@ -43,7 +43,7 @@ stable custom-serializer extension API or make internal converters supported.
 Do not copy SDK-root DLLs, add an imaginary CommunicationUtilities NuGet package,
 or mix platform release sets. Keep the complete resolved runtime closure.
 
-The new .NET 11 project uses SDK **11.0.100-rc.2.26504.105**, C# **15** and runtime
+The new .NET 11 project uses SDK **11.0.100-rc.3.26522.148**, C# **15** and runtime
 **11.0.0-rc.2.26504.105**. CommunicationUtilities/ObjectModel still select their
 actual **lib/net8.0** compile and runtime assets:
 
@@ -52,7 +52,7 @@ actual **lib/net8.0** compile and runtime assets:
 {{snippet:newer-packages}}
 
 The independently compiled and executed .NET 10 route uses the same current
-package pin, SDK 10.0.402/C# 14/runtime 10.0.13:
+package pin, SDK 10.0.403/C# 14/runtime 10.0.13:
 
 {{snippet:current10-project}}
 

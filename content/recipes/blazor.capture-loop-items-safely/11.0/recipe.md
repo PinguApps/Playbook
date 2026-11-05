@@ -146,7 +146,7 @@ No suppression or experimental opt-in is required. The new warning does not intr
 
 ## Migration
 
-1. Choose the consumer target and matching SDK/runtime. For this primary diagnostic route use net11.0 and the pinned RC2 SDK when reproducing the recorded result. Keep net10.0 and its own SDK for the valid older equivalent. Do not install the analyzer into an unsupported target by assumption.
+1. Choose the consumer target and matching SDK/runtime. For this primary diagnostic route use net11.0 and the pinned RC3 SDK when reproducing the recorded result. Keep net10.0 and its own SDK for the valid older equivalent. Do not install the analyzer into an unsupported target by assumption.
 2. Locate the variable referenced by the delayed lambda, not just the value displayed in its label. A label is rendered now; an event runs later.
 3. Create int feedingTank = tank inside the for body and capture feedingTank. A single variable declared outside the loop still shares storage and does not fix the bug.
 4. Retain the foreach control. Copying an object reference does not freeze its mutable fields, and this sample does not establish collection synchronization, keyed identity or every possible closure pattern.

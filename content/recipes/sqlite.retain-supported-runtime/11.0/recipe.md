@@ -35,8 +35,8 @@ net48 example below supplies actual evidence for that limited fallback.
 
 ## Constraints
 
-The previous and optional net10 projects pin SDK10.0.402/C#14; the current project
-pins SDK11.0.100-rc.2.26504.105/C#15. The retained net48 project uses SDK10.0.402,
+The previous and optional net10 projects pin SDK10.0.403/C#14; the current project
+pins SDK11.0.100-rc.3.26522.148/C#15. The retained net48 project uses SDK10.0.403,
 C#7.3 and Microsoft.NETFramework.ReferenceAssemblies 1.0.3. Its x64 EXE was compiled
 against Framework4.8 and actually executed on Windows with Framework4.8.1
 (registry release 533509; CLR4.0.30319.42000). Newer language syntax is unnecessary

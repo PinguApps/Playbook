@@ -14,7 +14,7 @@ Current Microsoft dev-certs documentation also describes cross-environment trust
 
 Run dotnet dev-certs https --trust from the intended WSL user environment with a supported SDK. With Windows interoperability enabled, the operation also attempts Windows Current User trust. Running the Windows command does not mean trust propagates into every Linux distro, container, browser-specific store or remote machine. Check the actual CLI output and each consuming client; an attempted Windows import is not success.
 
-The authoring environment is WSL2 Ubuntu24.04.4 and WSL2.6.3, with an isolated Linux SDK11.0.100-rc.2.26504.105. Its actual dev-certs https --help exposes --trust, --check and --check-trust-machine-readable. No trust, generation, import or clean command was run for this guidance. CLI help proves command discovery only.
+The authoring environment is WSL2 Ubuntu24.04.4 and WSL2.6.3, with an isolated Linux SDK11.0.100-rc.3.26522.148. Its actual dev-certs https --help exposes --trust, --check and --check-trust-machine-readable. No trust, generation, import or clean command was run for this guidance. CLI help proves command discovery only.
 
 The canonical services below bind Kestrel to loopback port54485 using UseHttps and expose /survey. Both compile with their declared SDKs and framework assets. Execution using the user's real development certificate, Windows/WSL trust and cross-environment connectivity remain pending H_WSL_PROOF / PIN-956. Certificate generation alone cannot clear that gate.
 ### n10-directory-build-props
@@ -56,7 +56,7 @@ The canonical services below bind Kestrel to loopback port54485 using UseHttps a
 
 ## Migration
 
-1. Confirm WSL2, the intended Linux distro/user, Windows interoperability and access to Windows Current User certificate stores. Restore/build each service using SDK10.0.402/C#14/net10 or SDK11 RC2/C#15/net11. No external packages or workloads are needed. Keep runtime requirements separate from these exact verification pins.
+1. Confirm WSL2, the intended Linux distro/user, Windows interoperability and access to Windows Current User certificate stores. Restore/build each service using SDK10.0.403/C#14/net10 or SDK11 RC3/C#15/net11. No external packages or workloads are needed. Keep runtime requirements separate from these exact verification pins.
 2. Have the owner review the specific trust operation in the WSL environment. The owner runs dotnet dev-certs https --trust there, reviews prompts and retains the certificate thumbprint and actual command output. Do not run it under a different/root identity just to bypass a prompt.
 3. Check trust with dotnet dev-certs https --check --trust and inspect the Windows Current User store for the same public certificate. Linux OpenSSL/NSS consumers can require documented trust-directory configuration; review CLI output and use session-scoped configuration rather than silently editing profiles or persistent environment variables.
 4. Run the built EstuaryHttps service in WSL using the matching runtime. Request https://localhost:54485/survey from WSL and Windows with normal certificate validation. Expect Estuary survey ready. Do not disable verification, pin around a trust failure or infer connectivity from a build. WSL networking/localhost forwarding and port availability are prerequisites, not guaranteed by certificate trust.

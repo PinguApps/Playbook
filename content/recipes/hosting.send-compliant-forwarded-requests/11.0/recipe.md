@@ -75,7 +75,7 @@ The newer fixture sends malformed bytes without a high-level client's header nor
 
 ## Constraints
 
-- Runtime: this edition targets ASP.NET Core 11 Kestrel behavior. The same corrected messages work in the actual .NET 10.0.13 comparison. SDKs 10.0.402 and 11.0.100-rc.2.26504.105, C# 14/15 and corresponding runtime assets are the saved baselines.
+- Runtime: this edition targets ASP.NET Core 11 Kestrel behavior. The same corrected messages work in the actual .NET 10.0.13 comparison. SDKs 10.0.403 and 11.0.100-rc.3.26522.148, C# 14/15 and corresponding runtime assets are the saved baselines.
 - Packages/assets: no extra managed NuGet dependency or workload is needed. HTTP/3 execution needs working `System.Net.Quic` and native MsQuic, a supported OS, TLS 1.3 and UDP loopback access. Missing support is a failed prerequisite, not a passing skip. Windows x64 used `msquic.dll` 2.5.11.159415436. Other OS routes were not executed.
 - The temporary HTTPS certificate is pinned by the HTTP/3 fixture and never added to shared trust. This is not production certificate provisioning. HTTP/2 prior knowledge runs over loopback TCP; HTTP/3 uses encrypted QUIC.
 - The header filter is a focused transport repair, not a general reverse proxy. It does not implement authentication, routing, trailer translation, content transformations or hop-by-hop WebSocket tunneling. A proxy library's own validated outbound writer is preferable to hand-writing production HPACK/QPACK.

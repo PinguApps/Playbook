@@ -5,7 +5,7 @@
     <TargetFramework>net10.0</TargetFramework>
     <LangVersion>14.0</LangVersion>
     <ImplicitUsings>enable</ImplicitUsings>
-    <RuntimeFrameworkVersion>10.0.13</RuntimeFrameworkVersion>
+    <RuntimeFrameworkVersion>10.0.14</RuntimeFrameworkVersion>
     <RollForward>Disable</RollForward>
     <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
   </PropertyGroup>

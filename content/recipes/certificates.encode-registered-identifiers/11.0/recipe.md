@@ -46,7 +46,7 @@ these values are fictional and confer no production registration or authority.
    Otherwise use net11.0 with the .NET 11 SDK/framework and the newer helper above.
    The canonical project declares C# 15.0, nullable and implicit usings. There is no
    package, workload, provider selector or experimental opt-in for AddRegisteredId
-   in the reviewed contract. Exact RC2 SDK/runtime versions are verification pins.
+   in the reviewed contract. Exact RC3 SDK/runtime versions are verification pins.
 2. Add each dotted OID separately, alongside existing DNS/IP/URI entries. The
    builder preserves insertion order and does not replace unrelated entries.
    AddRegisteredId rejects null/empty input with ArgumentOutOfRangeException and
@@ -84,7 +84,7 @@ verification; PIN-962 retains that reconciliation and PIN-959 stays open.
 
 ## Evidence
 
-SDK 10.0.402/runtime 10.0.13 and SDK 11.0.100-rc.2.26504.105/runtime 11RC2 compile and
+SDK 10.0.403/runtime 10.0.13 and SDK 11.0.100-rc.3.26522.148/runtime 11RC2 compile and
 run the real consumers with no package dependencies and warnings as errors.
 Both export/reload certificates and assert the SAN OID 2.5.29.17, noncritical flag,
 primitive [2]/[8] tags, unchanged DNS label, three exact OIDs (including a very

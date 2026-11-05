@@ -16,13 +16,13 @@ you invoke: a tool manager or stale copied script can retain that older behavior
 
 Gullhaven museum checks that accession-card identifiers are unique. It builds a
 local-only package; no public or third-party package is executed. The SDK 10
-comparison pins SDK 10.0.402, C# 14 and runtime 10.0.13:
+comparison pins SDK 10.0.403, C# 14 and runtime 10.0.13:
 
 {{snippet:older-project}}
 
 ## Newer approach
 
-The .NET 11 comparison pins SDK 11.0.100-rc.2.26504.105, C# 15 and matching RC2
+The .NET 11 comparison pins SDK 11.0.100-rc.3.26522.148, C# 15 and matching RC2
 runtime:
 
 {{snippet:newer-project}}
@@ -71,8 +71,8 @@ restore any parent-process values afterwards. No PATH change is needed.
 From that museum directory, invoke the intended installation's absolute `dotnet`
 executable with arguments `--version`, then with
 `dnx Gullhaven.Museum.Catalogue@1.0.0 --configfile NuGet.Config --no-http-cache -- "east wing cards.txt" --gallery "east wing"`.
-For the older route, use the SDK 10.0.402 installation and the `feed-10` package.
-For the primary route, use the SDK 11.0.100-rc.2.26504.105 installation, the newer
+For the older route, use the SDK 10.0.403 installation and the `feed-10` package.
+For the primary route, use the SDK 11.0.100-rc.3.26522.148 installation, the newer
 project and its separate `feed-11` package/cache. Both packages retain version
 1.0.0. All paths refer to your authored files; no Playbook checkout is required.
 
@@ -97,18 +97,18 @@ separately. Do not equate SDK selection with the framework required by a tool.
 
 ## Verified selection cases
 
-The Windows check builds an isolated layout with actual SDKs 9.0.319, 10.0.402
-and 11 RC2. It copies each shipped 10.0.402 and RC2 wrapper unchanged, with its
+The Windows check builds an isolated layout with actual SDKs 9.0.319, 10.0.403
+and 11 RC2. It copies each shipped 10.0.403 and RC2 wrapper unchanged, with its
 hash recorded; the SDK/framework directories refer to the installed artifacts.
 It executes both original net10 and net11 tool packages in separate caches.
 
 | Working-directory pin | Explicit `dotnet dnx` | Either serviced wrapper in that layout |
 | --- | --- | --- |
-| SDK 9.0.319 | Fails: SDK has no dnx command; no tool execution | Runs with SDK 11 RC2 |
-| SDK 10.0.402 | Runs the net10 package with SDK 10.0.402 | Runs with SDK 11 RC2 |
-| SDK 11 RC2 | Runs with SDK 11 RC2 | Runs with SDK 11 RC2 |
+| SDK 9.0.319 | Fails: SDK has no dnx command; no tool execution | Runs with SDK 11 RC3 |
+| SDK 10.0.403 | Runs the net10 package with SDK 10.0.403 | Runs with SDK 11 RC3 |
+| SDK 11 RC3 | Runs with SDK 11 RC3 | Runs with SDK 11 RC3 |
 
-SDK 11 runs the net10 package on runtime 10.0.13. SDK 10.0.402 **rejects this
+SDK 11 runs the net10 package on runtime 10.0.13. SDK 10.0.403 **rejects this
 net11-only package**, even with runtime 11 installed: its actual diagnostic is
 `Settings file 'DotnetToolSettings.xml' was not found in the package.` Select a
 compatible SDK/package asset pair as well as providing the tool runtime; an
@@ -133,7 +133,7 @@ exact forwarded arguments, successful unique-card checks and duplicate exit 7.
 4. If choosing the wrapper, document its bypass behavior and identify the
    actual selected SDK. Recheck after servicing or changing the installation;
    the publisher's introduction boundary is 10.0.302 / 10.0.400, while the actual
-   tested serviced artifact here is 10.0.402, compared with RC2.
+   tested serviced artifact here is 10.0.403, compared with RC2.
 
 ## Constraints
 

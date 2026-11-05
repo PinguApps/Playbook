@@ -30,7 +30,7 @@ Apply AnyNewLine together with Multiline to ^.+$. The newer version recognizes m
 
 AnyNewLine changes authored regex newline handling; generator/code-fixer improvements are not extra APIs or automatic fixes to existing patterns. Multiline controls anchors and Singleline controls dot: Singleline still allows dot to consume line separators. The test checks this interaction and seven mixed-ending records. Preserve timeout/security policy for untrusted complex expressions; this small fixed pattern is not a general log parser. Normalization and direct matching can produce equal line values while retaining different source offsets. Do not promise the older normalized offsets equal the original positions.
 
-This edition targets .NET 11. It has no rendering mode, external provider, optional workload or experimental opt-in. It uses framework APIs and needs no additional package or package asset. The sample SDK pins 10.0.402 and 11.0.100-rc.2.26504.105 are reproducibility baselines, not mandatory exact consumer SDK installations. RC2 execution is not GA verification. No .NET 10 catalogue edition or conditional older-target package route is advertised.
+This edition targets .NET 11. It has no rendering mode, external provider, optional workload or experimental opt-in. It uses framework APIs and needs no additional package or package asset. The sample SDK pins 10.0.403 and 11.0.100-rc.3.26522.148 are reproducibility baselines, not mandatory exact consumer SDK installations. RC2 execution is not GA verification. No .NET 10 catalogue edition or conditional older-target package route is advertised.
 
 ## Evidence
 

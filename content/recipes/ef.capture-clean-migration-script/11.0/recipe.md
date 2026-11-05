@@ -26,7 +26,7 @@ EF11 separates generated script stdout from diagnostic stderr. Capture the two s
 
 ## Constraints
 
-This stream behavior is for dotnet-ef11 scripting, not arbitrary application logging or other shell commands. Startup code must also avoid writing its own diagnostics to stdout. The sample uses a matching EF11 RC2 tool and net11.0 provider; no older-target route is declared. The historical comparison uses EF10.0.13/net10.0 with output. PowerShell7, SDK11 RC2/C#15 and SDK10.0.402/C#14 are the measured environment. SQLite local execution does not prove another provider or GA. No browser, renderer, workload, service account or production database is required.
+This stream behavior is for dotnet-ef11 scripting, not arbitrary application logging or other shell commands. Startup code must also avoid writing its own diagnostics to stdout. The sample uses a matching EF11 RC2 tool and net11.0 provider; no older-target route is declared. The historical comparison uses EF10.0.13/net10.0 with output. PowerShell7, SDK11 RC3/C#15 and SDK10.0.403/C#14 are the measured environment. SQLite local execution does not prove another provider or GA. No browser, renderer, workload, service account or production database is required.
 
 ## Evidence
 

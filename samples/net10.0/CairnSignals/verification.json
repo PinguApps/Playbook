@@ -8,7 +8,7 @@
     "eng/CairnSignals.browser.js"
   ],
   "dependencies": [
-    "Microsoft.AspNetCore.App.Internal.Assets/10.0.13"
+    "Microsoft.AspNetCore.App.Internal.Assets/10.0.14"
   ],
   "nativeToolchains": [],
   "workloads": [],

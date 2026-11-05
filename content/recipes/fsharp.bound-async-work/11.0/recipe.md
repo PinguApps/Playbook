@@ -22,7 +22,7 @@ Async.parallelLimit accepts cold workflows. Task.parallelLimit accepts Cancellat
 2. For async use Async.parallelLimit limit workflows and start/await the returned workflow. For tasks pass uninvoked factories to Task.parallelLimit limit cancellationToken.
 3. Do not create tasks first and wrap already-running values in factories; that work already escaped the limit. Await completion and handle failure/cancellation at the batch boundary.
 
-Use .NET 11 SDK, net11.0 and FSharp.Core 11; exact evidence pins are SDK 11.0.100-rc.2.26504.105 and FSharp.Core 11.0.101-rc2.26504.105, selecting lib/net10.0. The comparison pins SDK 10.0.402 and FSharp.Core 10.1.402 (lib/netstandard2.1). Set LangVersion to 11.0 for the newer example and 10.0 for the comparison.
+Use .NET 11 SDK, net11.0 and FSharp.Core 11; exact evidence pins are SDK 11.0.100-rc.3.26522.148 and FSharp.Core 11.0.101-rc2.26504.105, selecting lib/net10.0. The comparison pins SDK 10.0.403 and FSharp.Core 10.1.402 (lib/netstandard2.1). Set LangVersion to 11.0 for the newer example and 10.0 for the comparison.
 
 ## Constraints
 

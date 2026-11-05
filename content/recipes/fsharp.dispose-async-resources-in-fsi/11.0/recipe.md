@@ -12,7 +12,7 @@ Save this complete support as `FsiCleanupSupport.fsx`. `DisposeAsync` waits on a
 
 ## Older approach
 
-The actual SDK 10.0.402 FSI loads **netstandard2.0** FSharp.Core. A `task { use owned = resource }` binding for IAsyncDisposable fails with **FS0001**, because that asset exposes the IDisposable binding. The asynchronous Using overload already exists in the older NuGet **netstandard2.1** asset: the overload itself is not new. A compiled .NET 10 application and this FSI host select different assets.
+The actual SDK 10.0.403 FSI loads **netstandard2.0** FSharp.Core. A `task { use owned = resource }` binding for IAsyncDisposable fails with **FS0001**, because that asset exposes the IDisposable binding. The asynchronous Using overload already exists in the older NuGet **netstandard2.1** asset: the overload itself is not new. A compiled .NET 10 application and this FSI host select different assets.
 
 Save this definition in `Cleanup.fsx`, preceded by `#load "FsiCleanupSupport.fsx"`, `open System`, `open System.Runtime.ExceptionServices`, `open System.Threading.Tasks` and `open FsiCleanupSupport`:
 
@@ -30,7 +30,7 @@ Append `showCore ()` and `Task.Run(fun () -> checkCases false inspectBeacon).Get
 
 ## Migration
 
-1. Select the intended SDK using `global.json` in the script directory. Exact tested pins are `10.0.402` and `11.0.100-rc.2.26504.105`, with `rollForward: "disable"`. Run `dotnet --version` from that directory to confirm selection. A separately installed SDK may require its absolute dotnet host path.
+1. Select the intended SDK using `global.json` in the script directory. Exact tested pins are `10.0.403` and `11.0.100-rc.3.26522.148`, with `rollForward: "disable"`. Run `dotnet --version` from that directory to confirm selection. A separately installed SDK may require its absolute dotnet host path.
 2. Run `dotnet fsi --exec Cleanup.fsx` from that directory. The .NET 11 FSI host requires its corresponding .NET 11 runtime; a NuGet package's target label does not retarget FSI. No workload or external package restore is needed for these scripts. Do not replace files in the SDK, add a conflicting Core reference to an already initialized FSI session, or infer selection from `fsi.deps.json` alone.
 3. Inspect `showCore` output: location, TargetFrameworkAttribute and SHA-256 identify the actually loaded DLL. The previous SDK copy reports `.NETStandard,Version=v2.0`, hash `7c1574193332ea24678d32103df140c094c85cf1b08708ffda88ef44540b03a6`. The RC2 tools copy reports `.NETCoreApp,Version=v10.0`, hash `cc9140abff3283005b2418dd270c6a097e70abcb90c22af3473fafac0d2687ca`. The newer SDK DLL is not byte-identical to the NuGet net10.0 asset.
 4. Require each case to remain incomplete while disposal is gated, then observe `closing,closed` exactly once and script completion afterward. Both normal and body-failure cases await cleanup.

@@ -17,8 +17,8 @@ pages below; a framework upgrade does not rewrite them.
 
 | Comparison | Exact tested set | Working route |
 | --- | --- | --- |
-| Previous | SDK10.0.402, .NET/ASP.NET10.0.13, C#14; Identity.UI/Identity.EntityFrameworkCore/EF SQLite10.0.13 | Original Razor Pages gate with CanSignInAsync on both registration paths |
-| Current | SDK11.0.100-rc.2.26504.105, matching runtime/framework and three packages, C#15 | Packaged Identity UI, or the same explicit custom-page gate |
+| Previous | SDK10.0.403, .NET/ASP.NET10.0.13, C#14; Identity.UI/Identity.EntityFrameworkCore/EF SQLite10.0.13 | Original Razor Pages gate with CanSignInAsync on both registration paths |
+| Current | SDK11.0.100-rc.3.26522.148, matching runtime/framework and three packages, C#15 | Packaged Identity UI, or the same explicit custom-page gate |
 
 These pins identify the reproduction, not minimum servicing releases. The served
 edition targets .NET11; the compiled .NET10 comparison preserves a working older

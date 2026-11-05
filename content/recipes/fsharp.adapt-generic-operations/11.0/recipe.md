@@ -22,7 +22,7 @@ The public extension supplies ManifestWidth to a statically resolved type parame
 2. Declare a public extension in a named module, open it where the inline algorithm is defined, then declare the member constraint.
 3. For another assembly, reference the library and open Playbook.Samples.ApiPreview.HarbourExtensions at the consuming call site before Manifest.width. The external-consumer check compiles and executes this route.
 
-Use .NET 11 SDK, net11.0 and FSharp.Core 11; exact evidence pins are SDK 11.0.100-rc.2.26504.105 and FSharp.Core 11.0.101-rc2.26504.105, selecting lib/net10.0. The comparison pins SDK 10.0.402 and FSharp.Core 10.1.402 (lib/netstandard2.1). Set LangVersion to preview for the newer example and 10.0 for the comparison.
+Use .NET 11 SDK, net11.0 and FSharp.Core 11; exact evidence pins are SDK 11.0.100-rc.3.26522.148 and FSharp.Core 11.0.101-rc2.26504.105, selecting lib/net10.0. The comparison pins SDK 10.0.403 and FSharp.Core 10.1.402 (lib/netstandard2.1). Set LangVersion to preview for the newer example and 10.0 for the comparison.
 
 ## Constraints
 

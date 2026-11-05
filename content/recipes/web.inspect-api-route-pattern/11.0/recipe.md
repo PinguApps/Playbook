@@ -32,8 +32,8 @@ browser, Blazor rendering mode or experimental opt-in. The actual property has
 no ExperimentalAttribute. SDK/language release families and these reproduction
 pins are separate: the example uses no C#15-only syntax.
 
-The exact measured sets are SDK **10.0.402**, C# **14.0**, framework **10.0.13**
-and SDK **11.0.100-rc.2.26504.105**, C# **15.0**, framework
+The exact measured sets are SDK **10.0.403**, C# **14.0**, framework **10.0.13**
+and SDK **11.0.100-rc.3.26522.148**, C# **15.0**, framework
 **11.0.0-rc.2.26504.105**. Saved sample records contain build/run commands,
 input hashes, empty resolved library graphs, actual Roslyn product versions and
 hashes, loaded CoreLib/MVC/Routing paths, versions and hashes. Each execution

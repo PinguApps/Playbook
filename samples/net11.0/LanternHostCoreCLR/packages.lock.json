@@ -4,9 +4,9 @@
     "net11.0": {
       "Microsoft.NET.Sdk.WebAssembly.Pack": {
         "type": "Direct",
-        "requested": "[11.0.0-rc.2.26504.105, )",
-        "resolved": "11.0.0-rc.2.26504.105",
-        "contentHash": "q4bssLD3lFnzmc1vYcyRvTt9y+uXkUfTBl2wY9ft/D9OB/UoO3Q5ygj8ieigyxAWx28ls6ZmgRboDRf11xKZGQ=="
+        "requested": "[11.0.0-rc.3.26522.148, )",
+        "resolved": "11.0.0-rc.3.26522.148",
+        "contentHash": "Z8JRMYBrAuZpMbXVtooGSRMnaSgiNrFcWcMZYJYJW3deUXCXmD6m8GV6ijt0tHfX55QpUhJig/Yp1fooAA0KJw=="
       }
     },
     "net11.0/browser-wasm": {}

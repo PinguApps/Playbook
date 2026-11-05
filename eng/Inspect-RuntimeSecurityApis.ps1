@@ -140,8 +140,8 @@ try {
     $tooling += [ordered]@{ path = "sdk/$($baseline.sdk)/System.Reflection.MetadataLoadContext.dll"; sha256 = Get-Hash (Join-Path $baseline.root "sdk/$($baseline.sdk)/System.Reflection.MetadataLoadContext.dll") }
     $packages = @()
     foreach ($id in @('microsoft.bcl.cryptography', 'system.security.cryptography.pkcs', 'system.security.cryptography.xml', 'system.security.cryptography.protecteddata', 'system.net.http.winhttphandler', 'system.threading.accesscontrol')) {
-      $url = "https://api.nuget.org/v3-flatcontainer/$id/$($baseline.runtime)/$id.$($baseline.runtime).nupkg"
-      $zip = Join-Path $temporary "$id.$($baseline.runtime).nupkg"
+      $url = "https://api.nuget.org/v3-flatcontainer/$id/$($baseline.version)/$id.$($baseline.version).nupkg"
+      $zip = Join-Path $temporary "$id.$($baseline.version).nupkg"
       Invoke-WebRequest -Uri $url -OutFile $zip
       $directory = "$zip.contents"
       [IO.Compression.ZipFile]::ExtractToDirectory($zip, $directory)
@@ -169,8 +169,8 @@ try {
     $browserPackages = @('microsoft.netcore.app.runtime.mono.browser-wasm')
     if ($baseline.target -eq 'net11.0') { $browserPackages += 'microsoft.netcore.app.runtime.browser-wasm' }
     foreach ($id in $browserPackages) {
-      $url = "https://api.nuget.org/v3-flatcontainer/$id/$($baseline.version)/$id.$($baseline.version).nupkg"
-      $zip = Join-Path $temporary "$id.$($baseline.version).nupkg"
+      $url = "https://api.nuget.org/v3-flatcontainer/$id/$($baseline.runtime)/$id.$($baseline.runtime).nupkg"
+      $zip = Join-Path $temporary "$id.$($baseline.runtime).nupkg"
       Invoke-WebRequest -Uri $url -OutFile $zip
       $directory = "$zip.contents"
       [IO.Compression.ZipFile]::ExtractToDirectory($zip, $directory)

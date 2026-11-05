@@ -10,7 +10,7 @@ WASM browser lifetime; not durable work after tab/process termination. A timer i
 
 .NET 10 can use the same registered IHostedService contract, but its WebAssemblyHost does not start or stop those registrations. The original comparison explicitly owns that coordination. This remains a useful supported approach; a component-owned cancellation loop can also be suitable when the work belongs only to that component.
 
-Create an empty BeaconWatch directory. Save these files as BeaconWatch.csproj and Directory.Packages.props. The complete project declares the settings needed outside this repository; no parent imports are required. Add global.json with sdk.version 10.0.402 and sdk.rollForward disable. Its canonical language is C# 14, without a newer compiler targeting an older runtime.
+Create an empty BeaconWatch directory. Save these files as BeaconWatch.csproj and Directory.Packages.props. The complete project declares the settings needed outside this repository; no parent imports are required. Add global.json with sdk.version 10.0.403 and sdk.rollForward disable. Its canonical language is C# 14, without a newer compiler targeting an older runtime.
 
 {{snippet:project-10}}
 
@@ -26,7 +26,7 @@ OwnedBrowserLifetime.cs stops the services before disposing the renderer and ser
 
 ## Newer approach
 
-Create a separate BeaconWatch directory for .NET 11. Use these complete project/package files and a global.json with sdk.version 11.0.100-rc.2.26504.105, sdk.rollForward disable and sdk.allowPrerelease true. The canonical mode is C# 15; this example needs no C# 15-only syntax. Exact RC2 packages and matching framework/browser assets are required for the recorded proof. Hosting.Abstractions is already available through the .NET 11 reference set; adding its redundant explicit reference raises NU1510 with warnings treated as errors.
+Create a separate BeaconWatch directory for .NET 11. Use these complete project/package files and a global.json with sdk.version 11.0.100-rc.3.26522.148, sdk.rollForward disable and sdk.allowPrerelease true. The canonical mode is C# 15; this example needs no C# 15-only syntax. Exact RC2 packages and matching framework/browser assets are required for the recorded proof. Hosting.Abstractions is already available through the .NET 11 reference set; adding its redundant explicit reference raises NU1510 with warnings treated as errors.
 
 {{snippet:project-11}}
 
@@ -62,7 +62,7 @@ Save wwwroot/watch-lifetime.js. Its event journal and external controls make the
 
 The document includes the complete demonstration CSS.
 
-From each directory, restore and run with its matching absolute dotnet executable. SDK 10.0.402 uses Microsoft.NETCore.App 10.0.13; the .NET 11 SDK uses runtime 11.0.0-rc.2.26504.105. Set DOTNET_ADD_GLOBAL_TOOLS_TO_PATH=0 before invoking either SDK. Run dotnet restore, then dotnet run --configuration Release --no-restore --no-launch-profile --urls http://localhost:5811 for the older app or http://localhost:5812 for the newer app. DevServer is a local development host, not a deployment recommendation. The RC2 DevServer emits a deprecation warning recommending Components.Gateway for future migration; this deliberately pinned comparison still runs it and does not broaden into that separate hosting migration. Initial restore downloads the matching WebAssembly SDK/runtime packs; interpreted WASM needs no installed wasm-tools workload, native compiler or AOT. Repository packages.lock.json files retain the exact resolved dependency closure; a fresh standalone directory generates its own lock on restore.
+From each directory, restore and run with its matching absolute dotnet executable. SDK 10.0.403 uses Microsoft.NETCore.App 10.0.13; the .NET 11 SDK uses runtime 11.0.0-rc.2.26504.105. Set DOTNET_ADD_GLOBAL_TOOLS_TO_PATH=0 before invoking either SDK. Run dotnet restore, then dotnet run --configuration Release --no-restore --no-launch-profile --urls http://localhost:5811 for the older app or http://localhost:5812 for the newer app. DevServer is a local development host, not a deployment recommendation. The RC2 DevServer emits a deprecation warning recommending Components.Gateway for future migration; this deliberately pinned comparison still runs it and does not broaden into that separate hosting migration. Initial restore downloads the matching WebAssembly SDK/runtime packs; interpreted WASM needs no installed wasm-tools workload, native compiler or AOT. Repository packages.lock.json files retain the exact resolved dependency closure; a fresh standalone directory generates its own lock on restore.
 
 ## Migration
 

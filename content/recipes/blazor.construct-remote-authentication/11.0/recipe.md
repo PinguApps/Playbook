@@ -124,7 +124,7 @@ Create a separate .NET 11 directory with these files. The stable replacement alr
 
 ## Constraints
 
-- Current proof: SDK **11.0.100-rc.2.26504.105**, **net11.0**, C# **15**, WASM/Authentication/browser runtime **11.0.0-rc.2.26504.105**. Previous proof: SDK **10.0.402**, **net10.0**, C# **14**, matching packages/browser runtime **10.0.13**. Exact test pins and full locked dependencies are separate from release-family consumer requirements.
+- Current proof: SDK **11.0.100-rc.3.26522.148**, **net11.0**, C# **15**, WASM/Authentication/browser runtime **11.0.0-rc.2.26504.105**. Previous proof: SDK **10.0.403**, **net10.0**, C# **14**, matching packages/browser runtime **10.0.13**. Exact test pins and full locked dependencies are separate from release-family consumer requirements.
 - Browser-hosted interactive WASM only. No server cookie logout, server-side Identity, static SSR execution, authorization enforcement, new authentication system or production resources.
 - Stable supported replacement APIs; no experimental warning or preview-language opt-in. RC2 proof does not establish GA. No older-target/newer-package route or ninth .NET 10 foundation is added.
 - The controlled adapter returns a non-authorizing token string. Real framework service, scoped options/logging, account factory and browser interop execute; provider authentication and token issuance do not. This recipe is independent of the logout-provider fixture.

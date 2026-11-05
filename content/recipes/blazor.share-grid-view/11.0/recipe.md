@@ -12,7 +12,7 @@ other list or an existing `scope=open` query value.
 
 The newer implementation targets **net11.0** with ASP.NET Core 11 and
 `Microsoft.AspNetCore.Components.QuickGrid` 11. Canonical verification uses SDK
-**11.0.100-rc.2.26504.105**, QuickGrid and SDK browser assets
+**11.0.100-rc.3.26522.148**, QuickGrid and SDK browser assets
 **11.0.0-rc.2.26504.105**, and C# **15.0**. These are RC2 measurements, not GA
 execution evidence. URL navigation is not marked experimental in these artifacts
 and requires no experimental opt-in. No workload, database/provider, native
@@ -82,7 +82,7 @@ namespace and creates page links itself. No native URL-state API is claimed for
 QuickGrid 10. The standard .NET 10 interactive controls remain a good choice
 when a view does not need a shareable URL.
 
-Use the same shell with `net10.0`, C# **14.0**, SDK **10.0.402**, and
+Use the same shell with `net10.0`, C# **14.0**, SDK **10.0.403**, and
 QuickGrid **10.0.13**. Its matching Web SDK browser assets are **10.0.13**.
 Do not put the QuickGrid 11 package on this older target to imitate the new route.
 This older application is comparison evidence, not an additional catalogue

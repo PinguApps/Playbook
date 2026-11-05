@@ -76,9 +76,10 @@ PIN-881/PIN-882/PIN-883 add original CanalDesign comparisons. Both locked EF10
 and EF11 RC2 consumers compile and run. Real SQLite checks distinguish empty
 migration assemblies from externally owned schemas. Real dotnet-ef checks cover
 nested-directory defaults, config-relative projects and explicit context overrides.
-Actual Visual Studio PMC NoBuild execution remains pending H_PMC_PROOF / PIN-957;
-Pingu approved publishing this PR with that gap on 4 November 2026. Pending proof
-still blocks release-ready packaging; CLI execution does not substitute for PMC.
+Actual Visual Studio PMC NoBuild execution was performed by Pingu for PIN-957 on
+5 November 2026: VS18.11.0, PMC7.11.0.24, PowerShell5.1.26100.9711, SDK11 RC3
+with EF11 RC2. The linked PMC record covers generated migrations, stale/rebuilt
+model behavior and actual SQLite schema/history. This is not EF RC3 or GA proof.
 
 From any unrelated directory, in PowerShell7 with SDK10.0.402 and Node22.19+:
 

@@ -28,7 +28,7 @@ Named filters require EF10; EF9 uses the context parameter shown above. Query fi
 
 ## Evidence
 
-SDK9.0.319 / EF9.0.13 and SDK10.0.402 / EF10.0.13 compile and execute real Windows x64 SQLite reads. Both tenants return one active and two history rows; the all-filter override returns four rows. See the canonical verification-evidence.json files. No SQL Server, authorization or write-protection claim follows.
+SDK9.0.319 / EF9.0.13 and SDK10.0.403 / EF10.0.13 compile and execute real Windows x64 SQLite reads. Both tenants return one active and two history rows; the all-filter override returns four rows. See the canonical verification-evidence.json files. No SQL Server, authorization or write-protection claim follows.
 
 ## Complete project files
 

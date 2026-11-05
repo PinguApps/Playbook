@@ -15,8 +15,8 @@ approach on both measured SDKs; no newer-only reader API is claimed.
 
 | Layer | Older comparison | Current example |
 | --- | --- | --- |
-| SDK | 10.0.402 | 11.0.100-rc.2.26504.105 |
-| Compiler / language | 5.9.0-1.26505.111 / C#14 | 5.12.0-1.26504.105 / C#15 |
+| SDK | 10.0.403 | 11.0.100-rc.3.26522.148 |
+| Compiler / language | 5.9.0-1.26523.112 / C#14 | 5.12.0-1.26522.148 / C#15 |
 | Target / reference and runtime | net10.0 / 10.0.13 | net11.0 / 11.0.0-rc.2.26504.105 |
 | Reader | PowerShell7; .NET ProcessStartInfo and explicit decoder | Same existing reader APIs |
 
@@ -30,7 +30,7 @@ console/language condition requires a fresh byte-level check.
 ## Older approach
 
 Save this original project and program under `samples/net10.0/EstuaryEncoding`.
-Use `global.json` with SDK10.0.402 and `rollForward: "disable"`. Restore once before
+Use `global.json` with SDK10.0.403 and `rollForward: "disable"`. Restore once before
 calling the reader, which deliberately builds with `--no-restore`.
 
 {{snippet:older}}
@@ -46,7 +46,7 @@ fixture; this is not advice to relax an application's build policy.
 
 Save this project under `samples/net11.0/EstuaryEncoding`, retaining its relative
 link to the older program. Pin that directory's SDK to
-11.0.100-rc.2.26504.105 with roll-forward disabled.
+11.0.100-rc.3.26522.148 with roll-forward disabled.
 
 {{snippet:newer}}
 

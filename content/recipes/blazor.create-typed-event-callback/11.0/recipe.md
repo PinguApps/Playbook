@@ -167,8 +167,8 @@ Pointer type is the browser-supplied PointerEventArgs value. The sample checks a
 mouse pointer, not touch/pen semantics. There is no device control, background
 service, persistence or real valve hardware.
 
-The current sample pins SDK 11.0.100-rc.2.26504.105, net11.0/C# 15 and
-ASP.NET Core/runtime 11.0.0-rc.2.26504.105. The previous sample pins SDK 10.0.402,
+The current sample pins SDK 11.0.100-rc.3.26522.148, net11.0/C# 15 and
+ASP.NET Core/runtime 11.0.0-rc.2.26504.105. The previous sample pins SDK 10.0.403,
 net10.0/C# 14 and ASP.NET Core/runtime 10.0.13. These are exact verification
 baselines, distinct from the release-family consumer prerequisites above.
 Microsoft.NET.Sdk.Web implicitly resolves the matching

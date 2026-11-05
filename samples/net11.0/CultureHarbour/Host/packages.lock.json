@@ -4,37 +4,37 @@
     "net11.0": {
       "Microsoft.AspNetCore.App.Internal.Assets": {
         "type": "Direct",
-        "requested": "[11.0.0-rc.2.26504.105, )",
-        "resolved": "11.0.0-rc.2.26504.105",
-        "contentHash": "8jhYltmAmcMGPcyQO7eQrjVGtHgPgGCFl4IlykellniNYLNiI0Q5aiJ8mG4s78dc1IDs5wWQ/qmJzy08WJLjoA=="
+        "requested": "[11.0.0-rc.3.26522.148, )",
+        "resolved": "11.0.0-rc.3.26522.148",
+        "contentHash": "/2GrzIWKEE0NRw6e6ZIH468uCw8OUyOoQFISNed1HyztoUevG6q1df+fxJpH6+a97+b4DhKlKHie7hpBZfpWEA=="
       },
       "Microsoft.AspNetCore.Components.WebAssembly.Server": {
         "type": "Direct",
-        "requested": "[11.0.0-rc.2.26504.105, )",
-        "resolved": "11.0.0-rc.2.26504.105",
-        "contentHash": "qEc9knwsw2eeJYAhNmXyb8I0FvlY0eUsbOHsp5aKkjdFygLPPdFFNacvfCSfd+eaEOS53CS8oTp6yzCvcwVyVg==",
+        "requested": "[11.0.0-rc.3.26522.148, )",
+        "resolved": "11.0.0-rc.3.26522.148",
+        "contentHash": "x8BhnXFonnUOWow2H+38m/iXExgALqYs4ncYE+DrDVCb/Yw3lLMQT0z9kayb9nC99YfObpGH26a57cG5nrEPPQ==",
         "dependencies": {
-          "Microsoft.AspNetCore.Components.WebAssembly": "11.0.0-rc.2.26504.105"
+          "Microsoft.AspNetCore.Components.WebAssembly": "11.0.0-rc.3.26522.148"
         }
       },
       "Microsoft.JSInterop.WebAssembly": {
         "type": "Transitive",
-        "resolved": "11.0.0-rc.2.26504.105",
-        "contentHash": "s1TXmY6B0ZTT/wWaUWsD876VHQdb4gHRpWSrnvNRhOoQcFpBOwaDhzjkZAuAGruElssGiB22Ptd7nXH92yvXCA=="
+        "resolved": "11.0.0-rc.3.26522.148",
+        "contentHash": "d8o6JTZL5yVkUW2OW2EUKy2w17F5PMxGoO3naZoo8p7mY6siBE6XarAj5OR+T40xJpUyQL2eLZApOQZKA1fqwA=="
       },
       "CultureHarbour.Client": {
         "type": "Project",
         "dependencies": {
-          "Microsoft.AspNetCore.Components.WebAssembly": "[11.0.0-rc.2.26504.105, )"
+          "Microsoft.AspNetCore.Components.WebAssembly": "[11.0.0-rc.3.26522.148, )"
         }
       },
       "Microsoft.AspNetCore.Components.WebAssembly": {
         "type": "CentralTransitive",
-        "requested": "[11.0.0-rc.2.26504.105, )",
-        "resolved": "11.0.0-rc.2.26504.105",
-        "contentHash": "C8gcFWX7e/4pT21ag+FuI5crA6JBxom+yJGHNrLio4O5dGoh0pN/LGIowcv5obMkxyfju5WhHGUlaGjpwG1mJA==",
+        "requested": "[11.0.0-rc.3.26522.148, )",
+        "resolved": "11.0.0-rc.3.26522.148",
+        "contentHash": "2Y0usYtRxs/kgTqxONg8trNYQUxb2RY+yW6DA3GplH+giTqBfmda7SWSyyV0Ew+iQ6c23JHZF3AeBmBLMN3IfQ==",
         "dependencies": {
-          "Microsoft.JSInterop.WebAssembly": "11.0.0-rc.2.26504.105"
+          "Microsoft.JSInterop.WebAssembly": "11.0.0-rc.3.26522.148"
         }
       }
     }

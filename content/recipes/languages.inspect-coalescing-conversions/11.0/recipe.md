@@ -8,7 +8,7 @@ A fictional monitoring station accepts optional readings. Its compiler host need
 
 The actual Roslyn5.9.0 packages lack both language-specific `GetValueConversion` methods. `ICoalesceOperation.ValueConversion` remains a valid public `CommonConversion`: it reports numeric, reference and identity categories but does not expose VB's `IsWidening` or C#'s complete language-specific `Conversion` contract. Do not cast private operation implementations, reflect into compiler internals or pretend a common conversion contains every language-specific detail.
 
-Create separate `ReadingConversions` and `ReadingConversionsVB` directories. Save each block under the indicated filename. Each project is a complete console application. Use SDK10.0.402, actual runtime/reference10.0.13, C#14 and VB16.9. Pin the SDK in each project's `global.json` with `sdk.version` set to `10.0.402` and `sdk.rollForward` to `disable`. The C# host deliberately analyses both languages; the second executable is an actual VB caller.
+Create separate `ReadingConversions` and `ReadingConversionsVB` directories. Save each block under the indicated filename. Each project is a complete console application. Use SDK10.0.403, actual runtime/reference10.0.13, C#14 and VB16.9. Pin the SDK in each project's `global.json` with `sdk.version` set to `10.0.403` and `sdk.rollForward` to `disable`. The C# host deliberately analyses both languages; the second executable is an actual VB caller.
 
 `ReadingConversions/ReadingConversions.csproj`:
 
@@ -46,7 +46,7 @@ The `CURRENT` branches are intentionally excluded by these older projects. All t
 
 ## Newer approach
 
-Use SDK11.0.100-rc.2.26504.105 with its matching11 RC2 runtime/reference pack for the measured route. Pin that exact SDK in `global.json` as above. The declared C#15/VB16.9 modes require no `preview` switch. Restore Microsoft.CodeAnalysis.CSharp and VisualBasic **5.12.0-1.26504.105**, which resolve Common at the same version and Analyzers5.12.0-1.26465.4. These prerelease packages are available on Microsoft's `dotnet-tools` feed; the exact source mapping below keeps CodeAnalysis packages on that feed. NuGet.org's observed5.9.0 ceiling is not an alternative source for this pin.
+Use SDK11.0.100-rc.3.26522.148 with its matching11 RC2 runtime/reference pack for the measured route. Pin that exact SDK in `global.json` as above. The declared C#15/VB16.9 modes require no `preview` switch. Restore Microsoft.CodeAnalysis.CSharp and VisualBasic **5.12.0-1.26522.148**, which resolve Common at the same version and Analyzers5.12.0-1.26465.4. These prerelease packages are available on Microsoft's `dotnet-tools` feed; the exact source mapping below keeps CodeAnalysis packages on that feed. NuGet.org's observed5.9.0 ceiling is not an alternative source for this pin.
 
 Use separate directories from the older comparison, keeping the same filenames. The public signatures are `CSharpExtensions.GetValueConversion(ICoalesceOperation) -> Microsoft.CodeAnalysis.CSharp.Conversion` and `VisualBasicExtensions.GetValueConversion(ICoalesceOperation) -> Microsoft.CodeAnalysis.VisualBasic.Conversion`. Fully qualify their declaring namespaces: similarly named extension classes also exist in the common namespace.
 

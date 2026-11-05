@@ -73,7 +73,7 @@ responses on both success and failure and avoid reusing a sent request message.
 ## Evidence and explicit native exclusions
 
 eng/Test-ProviderRequests.ps1 -Record compiles and executes both desktop consumers
-with SDK10.0.402/runtime10.0.13 and SDK11.0.100-rc.2.26504.105/runtime11 RC2.
+with SDK10.0.403/runtime10.0.13 and SDK11.0.100-rc.3.26522.148/runtime11 RC2.
 The real controlled loopback server checks a successful report, 503 status,
 in-flight caller cancellation and a transport disconnect. The script reconciles
 actual reference assets with the audit and records compiler/runtime identities.

@@ -24,7 +24,7 @@ EF11 initializes the empty owned list. Count or enumerate it directly and remove
 
 ## Constraints
 
-EF Cosmos11 requires net11.0 and SDK11; these samples declare C#15 mode without requiring new language syntax. The older consumer uses net10.0/C#14/SDK10.0.402 and EF10.0.13. Current verification pins SDK11.0.100-rc.2.26504.105 and EF11.0.0-rc.2.26504.105. Both use Cosmos SDK3.63.1 and Newtonsoft.Json13.0.4. EF package assets are net10.0/net11.0 respectively; SDK assets are netstandard2.0 and Newtonsoft.Json selects net6.0. Lock files capture transitives.
+EF Cosmos11 requires net11.0 and SDK11; these samples declare C#15 mode without requiring new language syntax. The older consumer uses net10.0/C#14/SDK10.0.403 and EF10.0.13. Current verification pins SDK11.0.100-rc.3.26522.148 and EF11.0.0-rc.2.26504.105. Both use Cosmos SDK3.63.1 and Newtonsoft.Json13.0.4. EF package assets are net10.0/net11.0 respectively; SDK assets are netstandard2.0 and Newtonsoft.Json selects net6.0. Lock files capture transitives.
 
 Windows x64 with the approved legacy Linux emulator2.14.28.0 is the execution route. No workload, browser or rendering mode applies. Stable APIs are prepared using RC evidence; GA reconciliation, cloud parity and other platforms are unverified.
 

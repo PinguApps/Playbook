@@ -28,7 +28,7 @@ The early Preview4 workaround set MtouchLink=None for simulator watch sessions. 
 
 ## Constraints
 
-Use .NET11 SDK/runtime and matching native MAUI assets. Intended sample baseline: SDK11.0.100-rc.2.26504.105, Controls11.0.0-rc.2.26505.5, C#15, SourceGen, workload set11.0.100-rc.2.26513.2. Its reviewed mapping selects Android37.2.0-rc.2.84 and Apple27.0.12212-net11-rc.2. Android preparation requires the matching Android SDK/JDK25; Apple preparation requires the matching Xcode27.0 baseline. These are intended authoring pins, not measured native installations. Platform binding levels differ from minimum deployment OS versions. The canonical project records those separately. No external provider, account or web renderer is used by Playbook. IDE reload or rebuild/redeploy is an alternative when the CLI route is unsuitable.
+Use .NET11 SDK/runtime and matching native MAUI assets. Intended sample baseline: SDK11.0.100-rc.3.26522.148, Controls11.0.0-rc.2.26505.5, C#15, SourceGen, workload set11.0.100-rc.2.26513.2. Its reviewed mapping selects Android37.2.0-rc.2.84 and Apple27.0.12212-net11-rc.2. Android preparation requires the matching Android SDK/JDK25; Apple preparation requires the matching Xcode27.0 baseline. These are intended authoring pins, not measured native installations. Platform binding levels differ from minimum deployment OS versions. The canonical project records those separately. No external provider, account or web renderer is used by Playbook. IDE reload or rebuild/redeploy is an alternative when the CLI route is unsuitable.
 
 ## Evidence
 

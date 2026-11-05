@@ -101,7 +101,7 @@ provider, workload, rendering mode, native library, experimental opt-in or servi
 The APIs have no required experimental diagnostic opt-in in these artifacts;
 the package is prerelease, and final-GA reconciliation remains required.
 
-SDK reproduction pins are 10.0.402 and 11.0.100-rc.2.26504.105, with
+SDK reproduction pins are 10.0.403 and 11.0.100-rc.3.26522.148, with
 reference/runtime 10.0.13 and 11.0.0-rc.2.26504.105. SDK/runtime requirements and
 these measured pins are distinct. All behavior here was executed on Windows
 x64; no other-platform or performance result is claimed. The RC2 package also

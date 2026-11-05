@@ -91,6 +91,7 @@ try {
       $checks += "SUPPORT $name libraries=$($assets.libraries.Keys -join ',') targets=$($assets.targets | ConvertTo-Json -Depth 20 -Compress)"
       if ($name -eq 'Override') {
         if (-not $assets.libraries.ContainsKey('Microsoft.Extensions.Logging.Abstractions/11.0.0-rc.3.26522.148')) { throw 'Exact matching-version reference disappeared unexpectedly' }
+        if ($build -notmatch 'NU1510' -or $result -notmatch [regex]::Escape((Join-Path (Split-Path $Net11Dotnet) 'shared/Microsoft.NETCore.App'))) { throw 'Matching-version reference must warn and execute the framework assembly' }
       }
       foreach ($library in $assets.libraries.Keys) {
         if ($assets.libraries[$library].type -eq 'package') {

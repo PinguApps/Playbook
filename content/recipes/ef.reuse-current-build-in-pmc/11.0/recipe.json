@@ -46,7 +46,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Exact current-release proof uses SDK11 RC2, not GA."
+            "reason": "Exact current-release proof uses SDK11 RC3, not GA."
           },
           "language": {
             "name": "C#",
@@ -103,7 +103,7 @@
             "Save, restore and build after model/package changes and after scaffolding before Update-Database."
           ],
           "prerequisites": [
-            "Exact SDK10.0.402 and SDK11 11.0.100-rc.2.26504.105 with matching locked EF packages.",
+            "Exact SDK10.0.403 and SDK11 11.0.100-rc.3.26522.148 with matching locked EF packages.",
             "Matching local dotnet-ef; run eng/Test-CanalDesign.ps1 -Record.",
             "Visual Studio with NuGet PMC and matching Microsoft.EntityFrameworkCore.Tools package loaded."
           ],
@@ -140,7 +140,7 @@
     {
       "sample": "samples/net10.0/CanalDesign/CanalDesign.csproj",
       "target": "net10.0",
-      "sdk": "10.0.402",
+      "sdk": "10.0.403",
       "language": "14.0",
       "kind": "compile-and-run",
       "scope": "Canonical compilation, real sync/async empty-migration behavior and external-owner SQLite read; no PMC or GA proof."
@@ -148,10 +148,19 @@
     {
       "sample": "samples/net11.0/CanalDesign/CanalDesign.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.2.26504.105",
+      "sdk": "11.0.100-rc.3.26522.148",
       "language": "15.0",
       "kind": "compile-and-run",
       "scope": "Canonical compilation, real sync/async empty-migration behavior and external-owner SQLite read; no PMC or GA proof."
+    },
+    {
+      "sample": "samples/net11.0/CanalDesign/CanalDesign.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.3.26522.148",
+      "language": "15.0",
+      "kind": "execution",
+      "record": "samples/net11.0/CanalDesign/pmc.evidence.json",
+      "scope": "Pingu performed real Visual Studio 18.11.0 PMC Add-Migration/Update-Database NoBuild on 5 November 2026; host 7.11.0.24, PowerShell 5.1.26100.9711, SDK11 RC3 and EF11 RC2. Generated migrations, unchanged stale DLL, rebuilt AddColumn and actual SQLite schema/history verified. Exact mixed baseline only; no EF RC3 or GA claim."
     }
   ],
   "snippets": {
@@ -227,7 +236,7 @@
     }
   },
   "humanProof": {
-    "status": "pending",
-    "scope": "H_PMC_PROOF / PIN-957: real interactive Visual Studio Add-Migration and Update-Database NoBuild, with current and stale artifacts. Pingu approved publishing this PR with PMC proof pending on 4 November 2026. CLI execution and compilation do not establish PMC behavior; release-ready proof remains pending."
+    "status": "verified",
+    "scope": "Pingu performed real Visual Studio 18.11.0 PMC Add-Migration/Update-Database NoBuild on 5 November 2026; host 7.11.0.24, PowerShell 5.1.26100.9711, SDK11 RC3 and EF11 RC2. Generated migrations, unchanged stale DLL, rebuilt AddColumn and actual SQLite schema/history verified. Exact mixed baseline only; no EF RC3 or GA claim."
   }
 }

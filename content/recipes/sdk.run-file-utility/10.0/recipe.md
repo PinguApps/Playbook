@@ -28,7 +28,7 @@ Both commands print `slots=11`. A negative count or malformed row fails; checked
 
 ## Constraints
 
-The foundation requires a .NET 10 SDK, not merely a .NET 10 runtime. Canonical pins are 10.0.402 and, for retained use on target 11, 11.0.100-rc.2.26504.105. A repository global.json can select a different SDK even when another dotnet executable is launched. .NET 9 remains comparison-only; Playbook has no .NET 9 catalogue target.
+The foundation requires a .NET 10 SDK, not merely a .NET 10 runtime. Canonical pins are 10.0.403 and, for retained use on target 11, 11.0.100-rc.3.26522.148. A repository global.json can select a different SDK even when another dotnet executable is launched. .NET 9 remains comparison-only; Playbook has no .NET 9 catalogue target.
 
 Build with `dotnet build slots.cs -c Release`; generated output normally lives in the SDK's per-user temporary runfile cache. Do not assume a conventional bin directory beside the file. Keep package locks and repository-wide properties intentional. The serviced include directive and newer DLL/reference metadata have separate requirements explained by sdk.compose-file-apps.
 

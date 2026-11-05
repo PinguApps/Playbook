@@ -10,7 +10,7 @@ WASM only here. These are stable diagnostic APIs in a prerelease framework: the 
 
 .NET 10 already provides public component metrics and tracing registration. Call the static methods on ComponentsMetricsServiceCollectionExtensions in Microsoft.AspNetCore.Components.Infrastructure; their IServiceCollection parameter is not an extension-method receiver. Explicitly preserve runtime metrics, EventSource and HTTP activity propagation through the public MSBuild properties. This is a valid supported approach, not a missing historical API or a hand-written substitute for framework instrumentation.
 
-Create an empty net10 application directory. Save LoomActivity.csproj and Directory.Packages.props below. These complete settings work without this repository's parent build/package files. Save global.json containing exactly `{"sdk":{"version":"10.0.402","rollForward":"disable","allowPrerelease":false}}`. The actual browser runtime/packages are 10.0.13 and the language mode is C# 14.
+Create an empty net10 application directory. Save LoomActivity.csproj and Directory.Packages.props below. These complete settings work without this repository's parent build/package files. Save global.json containing exactly `{"sdk":{"version":"10.0.403","rollForward":"disable","allowPrerelease":false}}`. The actual browser runtime/packages are 10.0.13 and the language mode is C# 14.
 
 {{snippet:project-10}}
 
@@ -22,7 +22,7 @@ Save Program.cs. Register framework instrumentation, then construct the provider
 
 ## Newer approach
 
-Create a separate net11 application directory. Save global.json containing exactly `{"sdk":{"version":"11.0.100-rc.2.26504.105","rollForward":"disable","allowPrerelease":true}}`. Save these project/package files. The actual framework/runtime/browser assets are 11.0.0-rc.2.26504.105; canonical language mode is C# 15, without requiring new language syntax.
+Create a separate net11 application directory. Save global.json containing exactly `{"sdk":{"version":"11.0.100-rc.3.26522.148","rollForward":"disable","allowPrerelease":true}}`. Save these project/package files. The actual framework/runtime/browser assets are 11.0.0-rc.2.26504.105; canonical language mode is C# 15, without requiring new language syntax.
 
 {{snippet:project-11}}
 

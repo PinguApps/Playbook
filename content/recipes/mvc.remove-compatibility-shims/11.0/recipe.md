@@ -86,7 +86,7 @@ Use a separate directory for this target. Restore/build/run with the same comman
 - MVC source and binary migration only. Removing the no-op registration does not opt an ASP.NET Core 2.x application into equivalent behavior; a 2.x upgrade needs its own migration analysis.
 - The removed surfaces include SetCompatibilityVersion for IMvcBuilder and IMvcCoreBuilder, CompatibilityVersion, MvcCompatibilityOptions and ConfigureCompatibilityOptions<TOptions>. Remove usages rather than inventing implementations under the retired names.
 - The sample proves controller startup and one successful request. It does not prove every MVC option, view, formatter or third-party dependency is compatible. Recompile dependent binaries to avoid removed type/method references.
-- Use matching ASP.NET Core framework/reference packs. No extra package, workload, service account or database is required. SDK 10.0.402 / 11.0.100-rc.2.26504.105 and C# 14 / 15 are the actual sample pins, not minimum language-feature requirements.
+- Use matching ASP.NET Core framework/reference packs. No extra package, workload, service account or database is required. SDK 10.0.403 / 11.0.100-rc.3.26522.148 and C# 14 / 15 are the actual sample pins, not minimum language-feature requirements.
 - Stable migration APIs; no experimental opt-in. The exact .NET 11 evidence is RC2. This recipe exposes target 11 only; the older sample is a fair previous-release comparison and not an additional .NET 10 foundation.
 
 ## Evidence

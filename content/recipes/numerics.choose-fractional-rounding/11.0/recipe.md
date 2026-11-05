@@ -92,8 +92,8 @@ this helper. Preserve bit patterns separately when the protocol requires them.
 ## Constraints
 
 The recipe's primary route is .NET 11 on CoreCLR. Reproduction pins are SDK
-10.0.402 / runtime and reference pack 10.0.13 / C# 14, and SDK
-11.0.100-rc.2.26504.105 / runtime and reference pack 11.0.0-rc.2.26504.105 /
+10.0.403 / runtime and reference pack 10.0.13 / C# 14, and SDK
+11.0.100-rc.3.26522.148 / runtime and reference pack 11.0.0-rc.2.26504.105 /
 C# 15. Those exact SDKs are test artifacts, separate from consumer release-family
 requirements. Scalar APIs need no package. The optional tensor package is pinned
 above. Actual selected types/rounding methods have no Experimental attribute and

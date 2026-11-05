@@ -27,7 +27,7 @@ Save the linked source as `samples/WeatherJson/WeatherChecks.cs`:
 
 {{snippet:checks}}
 
-The older consumer genuinely builds and executes this check on SDK **10.0.402**,
+The older consumer genuinely builds and executes this check on SDK **10.0.403**,
 C# **14**, runtime **10.0.13**. Its lock records Newtonsoft 13.0.3 as **Transitive**,
 selecting `lib/net6.0/Newtonsoft.Json.dll` for compile/runtime. This valid historical
 route is retained; relying on a platform's unrelated dependency is fragile.
@@ -109,7 +109,7 @@ Keep current projects in their own directories under `samples/net10.0` or
 sources. The historical project lives directly in `samples/WeatherJson` and
 explicitly compiles only WeatherChecks.cs.
 Each directory has its own central package file and SDK pin. In `global.json`,
-set `sdk.version` to **10.0.402** or **11.0.100-rc.2.26504.105**,
+set `sdk.version` to **10.0.403** or **11.0.100-rc.3.26522.148**,
 `sdk.rollForward` to `disable`, and `test.runner` to **VSTest**. C# mode is
 declared in the project. Use nuget.org as the explicit package source.
 
@@ -183,7 +183,7 @@ under `artifacts/json-dependencies`. It does not install a global tool or publis
 
 ## Constraints and alternatives
 
-The exact evidence is Windows x64, SDK 10.0.402 / 11 RC2, C# 14 / 15 and runtimes
+The exact evidence is Windows x64, SDK 10.0.403 / 11 RC2, C# 14 / 15 and runtimes
 10.0.13 / 11.0.0-rc.2.26504.105. No C# 15 feature, provider, native compiler,
 workload, rendering mode, device, cloud resource or Human-only step is required.
 Test.Sdk brings CodeCoverage, but these checks run a **managed custom collector**;

@@ -82,7 +82,7 @@ No browser, rendering mode or workload is required. The EF11 sample requires net
 
 ## Evidence
 
-eng/Test-BeaconHistory.ps1 -Record executes the complete original projects against separate restricted databases on the authorized SQL2025 container and removes them in finally. The exact SDKs are10.0.402 and11.0.100-rc.2.26504.105; EF packages are10.0.13 and11.0.0-rc.2.26504.105. SqlClient6.1.7/7.1.0 and Pkcs10.0.13, their locked transitive packages and source hashes accompany the compilation records.
+eng/Test-BeaconHistory.ps1 -Record executes the complete original projects against separate restricted databases on the authorized SQL2025 container and removes them in finally. The exact SDKs are10.0.403 and11.0.100-rc.3.26522.148; EF packages are10.0.13 and11.0.0-rc.2.26504.105. SqlClient6.1.7/7.1.0 and Pkcs10.0.13, their locked transitive packages and source hashes accompany the compilation records.
 
 The checks require generated initial bounds, two adjacent historical periods, the original and renamed labels, and SQL Server error13537 for a direct period update. Time checks require actual wall/UTC/offset/bucket values; EF11 also checks server-local conversion, both constructors composed inside DateTrunc to force server translation, translation tokens and server grouping. These are real database checks, not mocks. Other engines and platforms, named-zone DST conversion and GA are unverified. PIN-959 and PIN-965 remain separate gates.
 

@@ -104,8 +104,8 @@ net11.0/HarbourPermit.csproj:
 Nullable and ImplicitUsings are enabled in the complete project blocks. Both projects lock their
 SDK-aligned Microsoft.AspNetCore.App.Internal.Assets dependency. No explicit
 NuGet package reference, workload, browser asset or native toolchain is needed
-for these plain static forms. global.json pins 10.0.402 for the older capture and
-11.0.100-rc.2.26504.105 for the current capture; these are test baselines, not
+for these plain static forms. global.json pins 10.0.403 for the older capture and
+11.0.100-rc.3.26522.148 for the current capture; these are test baselines, not
 mandatory exact consumer SDK installations.
 
 net11.0/Program.cs registrations:
@@ -142,11 +142,11 @@ The pins reproduce this evidence, not a universal exact consumer requirement.
 
 net10.0/global.json:
 
-{"sdk":{"version":"10.0.402","rollForward":"disable"}}
+{"sdk":{"version":"10.0.403","rollForward":"disable"}}
 
 net11.0/global.json:
 
-{"sdk":{"version":"11.0.100-rc.2.26504.105","rollForward":"disable"}}
+{"sdk":{"version":"11.0.100-rc.3.26522.148","rollForward":"disable"}}
 
 ## Constraints
 
@@ -184,8 +184,8 @@ or replay prevention. Use application storage when that stronger guarantee matte
 
 ## Evidence
 
-Original samples compile as net10.0/C# 14.0 using SDK 10.0.402 and
-net11.0/C# 15.0 using SDK 11.0.100-rc.2.26504.105. The saved records are **compile**
+Original samples compile as net10.0/C# 14.0 using SDK 10.0.403 and
+net11.0/C# 15.0 using SDK 11.0.100-rc.3.26522.148. The saved records are **compile**
 evidence. The separate real Kestrel HTTP report follows a 302, checks the first
 and second reads under both newer providers, and compares the valid older MVC
 bridge. A held streaming response proves a fresh session cookie arrives before

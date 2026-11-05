@@ -59,7 +59,7 @@ The recipe edition targets .NET 11. Its paired comparison is a real .NET 10 appl
 
 Use the matching ASP.NET Core shared runtime, Web SDK/reference pack and SDK-aligned browser assets. The current canonical project declares C# 15; the previous project declares C# 14. No new language syntax, experimental opt-in, native workload, external provider or account is required. Interactive Server requires a working browser circuit connection. WebAssembly, Auto, authorization, reverse proxies, ambiguous identical routes and custom route tables were not exercised here.
 
-The exact verification pins are SDK 10.0.402 / framework and browser assets 10.0.13, and SDK 11.0.100-rc.2.26504.105 / framework and browser assets 11.0.0-rc.2.26504.105. They are recorded test artifacts, not universal exact consumer prerequisites. The stable replacement API does not make RC2 execution into GA evidence.
+The exact verification pins are SDK 10.0.403 / framework and browser assets 10.0.13, and SDK 11.0.100-rc.3.26522.148 / framework and browser assets 11.0.0-rc.2.26504.105. They are recorded test artifacts, not universal exact consumer prerequisites. The stable replacement API does not make RC2 execution into GA evidence.
 
 ## Evidence
 

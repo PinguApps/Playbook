@@ -24,7 +24,7 @@ The Open button stops propagation so its click opens the record once. Without th
 
 ## Migration
 
-1. Use Microsoft.NET.Sdk.Web, net11.0, LangVersion 15.0, nullable and implicit usings. Add Microsoft.AspNetCore.Components.QuickGrid 11. The canonical sample pins SDK 11.0.100-rc.2.26504.105 and QuickGrid/Internal.Assets 11.0.0-rc.2.26504.105. The comparison pins SDK 10.0.402, C# 14.0 and QuickGrid/Internal.Assets 10.0.13. SDK pins reproduce evidence; requirements use release families. Sample packages are locked and maintained manually. No optional workload, provider or account is needed.
+1. Use Microsoft.NET.Sdk.Web, net11.0, LangVersion 15.0, nullable and implicit usings. Add Microsoft.AspNetCore.Components.QuickGrid 11. The canonical sample pins SDK 11.0.100-rc.3.26522.148 and QuickGrid/Internal.Assets 11.0.0-rc.2.26504.105. The comparison pins SDK 10.0.403, C# 14.0 and QuickGrid/Internal.Assets 10.0.13. SDK pins reproduce evidence; requirements use release families. Sample packages are locked and maintained manually. No optional workload, provider or account is needed.
 2. Put MuseumTable.razor in namespace Playbook.Samples. In _Imports.razor set @namespace Playbook.Samples and import Microsoft.AspNetCore.Components, Microsoft.AspNetCore.Components.Routing, Microsoft.AspNetCore.Components.Web, Microsoft.AspNetCore.Components.QuickGrid and static Microsoft.AspNetCore.Components.Web.RenderMode.
 3. Register the interactive server path in Program.cs:
 

@@ -71,8 +71,8 @@ attribute, not a substitute for checking the extension's decoded meaning.
 
 ## Evidence
 
-`eng/Record-CertificateLinks.ps1 -VerifySources` records SDK10.0.402/C#14 with
-reference/runtime10.0.13, and SDK11.0.100-rc.2.26504.105/C#15 with reference/runtime
+`eng/Record-CertificateLinks.ps1 -VerifySources` records SDK10.0.403/C#14 with
+reference/runtime10.0.13, and SDK11.0.100-rc.3.26522.148/C#15 with reference/runtime
 11RC2. Compiler, reference and CoreLib identities/hashes, no resolved dependencies,
 exact commands, input hashes and observed output are saved in the existing
 sample-evidence records. Sources are hash-checked against the bounded audit and

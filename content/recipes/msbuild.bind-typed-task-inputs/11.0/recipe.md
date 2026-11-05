@@ -10,11 +10,11 @@ the filter and exposure text; projects never share an output file.
 
 ## Choose the host before changing the task
 
-This edition targets .NET 11 and uses **SDK 11.0.100-rc.2.26504.105**,
+This edition targets .NET 11 and uses **SDK 11.0.100-rc.3.26522.148**,
 **MSBuild 18.12.0-1.26504.105**, **C# 15.0**, and the matching .NET 11 RC2 runtime
 and reference pack. `-mt` is experimental and explicitly opt-in. This is RC2
 evidence, not an actual-GA qualification. The older comparison uses SDK
-**10.0.402**, MSBuild **18.9.15**, C# **14.0**, runtime/reference pack **10.0.13**.
+**10.0.403**, MSBuild **18.9.15**, C# **14.0**, runtime/reference pack **10.0.13**.
 Both MSBuild assembly identities are `15.1.0.0`; that is not their product version.
 
 The pinned SDK 10 already supplies `AbsolutePath`, `TaskEnvironment`,
@@ -76,7 +76,7 @@ sources separately; those are unnecessary in your task library.
 
 {{snippet:settings}}
 
-Pin `global.json` to `11.0.100-rc.2.26504.105`, `rollForward: disable` and
+Pin `global.json` to `11.0.100-rc.3.26522.148`, `rollForward: disable` and
 `allowPrerelease: true` in this qualification environment. Build in that directory
 with the matching dotnet executable. Only the two SDK references are required;
 leave their `Private` flags false. Copy the complete class above into the library.

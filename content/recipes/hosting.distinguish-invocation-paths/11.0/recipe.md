@@ -40,7 +40,7 @@ The samples use real NTFS symbolic links and verified Windows symlink capability
 
 Executable and assembly paths can differ and can be unavailable. Bundled Location is empty, not the apphost path. This helper does not use ProcessPath as a fallback managed-file location. It does not open any reported path, infer trust, choose a writable data directory or promise physical-location availability under every custom host. Native AOT/custom-loader metadata belongs to the existing separate assembly-location recipes.
 
-Exact test artifacts are SDK 10.0.402 / 11.0.100-rc.2.26504.105, C# 14 / 15, framework reference/runtime 10.0.13 / 11.0.0-rc.2.26504.105 and Windows x64 apphosts. Single-file publication is framework-dependent with the exact runtime selected explicitly, not self-contained or Native AOT. Release-family runtime/SDK prerequisites are separate from these reproduction pins. No added package or experimental opt-in is needed; the changed runtime behavior is not a new ProcessPath API. RC2 results remain GA-pending evidence.
+Exact test artifacts are SDK 10.0.403 / 11.0.100-rc.3.26522.148, C# 14 / 15, framework reference/runtime 10.0.13 / 11.0.0-rc.2.26504.105 and Windows x64 apphosts. Single-file publication is framework-dependent with the exact runtime selected explicitly, not self-contained or Native AOT. Release-family runtime/SDK prerequisites are separate from these reproduction pins. No added package or experimental opt-in is needed; the changed runtime behavior is not a new ProcessPath API. RC2 results remain GA-pending evidence.
 
 ## Evidence
 

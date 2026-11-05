@@ -96,8 +96,8 @@ net11.0/HarbourPermit.csproj:
 
 {{snippet:project}}
 
-Nullable and ImplicitUsings are enabled in the complete project blocks. The canonical previous/current SDK pins are 10.0.402 and
-11.0.100-rc.2.26504.105, C# 14.0/15.0. The Web SDK supplies matching framework
+Nullable and ImplicitUsings are enabled in the complete project blocks. The canonical previous/current SDK pins are 10.0.403 and
+11.0.100-rc.3.26522.148, C# 14.0/15.0. The Web SDK supplies matching framework
 assemblies and its aligned Internal.Assets dependency; there are no explicit
 NuGet packages, native workloads or browser scripts required for these forms.
 
@@ -136,11 +136,11 @@ The pins reproduce this evidence, not a universal exact consumer requirement.
 
 net10.0/global.json:
 
-{"sdk":{"version":"10.0.402","rollForward":"disable"}}
+{"sdk":{"version":"10.0.403","rollForward":"disable"}}
 
 net11.0/global.json:
 
-{"sdk":{"version":"11.0.100-rc.2.26504.105","rollForward":"disable"}}
+{"sdk":{"version":"11.0.100-rc.3.26522.148","rollForward":"disable"}}
 
 ### Streaming check
 

@@ -87,6 +87,6 @@ This is a serial, renderer-owned mutable state example. Unknown names, wrong pro
 
 ## Evidence
 
-The canonical .NET 10/C#14 and .NET 11/C#15 projects compile and execute against actual SDK 10.0.402/framework 10.0.13 and SDK 11.0.100-rc.2.26504.105/framework 11.0.0-rc.2.26504.105. Both have empty external dependency closures and lock files. `verification-evidence.json` captures the real commands, inputs and output through `eng/Record-Evidence.ps1`. Neither cross-compilation nor mocks establish these renderer checks.
+The canonical .NET 10/C#14 and .NET 11/C#15 projects compile and execute against actual SDK 10.0.403/framework 10.0.13 and SDK 11.0.100-rc.3.26522.148/framework 11.0.0-rc.2.26504.105. Both have empty external dependency closures and lock files. `verification-evidence.json` captures the real commands, inputs and output through `eng/Record-Evidence.ps1`. Neither cross-compilation nor mocks establish these renderer checks.
 
 `eng/Test-ArchiveFragments.ps1` runs both actual consumers, rejects the custom registration on .NET 10, and proves the RC2 analyzer with a deliberate RenderTree control. The installed-MCP consumer check reconstructs these complete files from the returned Markdown and runs them outside the checkout. Requirements above describe consumers; exact RC pins describe observations. No ExperimentalAttribute opt-in applies, and RC proof is not GA verification. PIN-959 and PIN-964 remain open for comprehensive and actual-GA reconciliation.

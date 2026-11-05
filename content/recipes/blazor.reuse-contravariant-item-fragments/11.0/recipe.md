@@ -68,6 +68,6 @@ Null handling remains application policy. Here a missing item renders `No observ
 
 ## Evidence
 
-Actual .NET 10/C#14 (SDK 10.0.402/framework 10.0.13) and .NET 11/C#15 (SDK 11.0.100-rc.2.26504.105/framework 11.0.0-rc.2.26504.105) consumers compile and render `SpecialObservation("Comet & dust", 30)` as encoded text, then render the null placeholder. They have empty external dependency closures and lock files. `eng/Record-Evidence.ps1` saves fresh input hashes, exact commands and successful real renderer output in the existing sample evidence records.
+Actual .NET 10/C#14 (SDK 10.0.403/framework 10.0.13) and .NET 11/C#15 (SDK 11.0.100-rc.3.26522.148/framework 11.0.0-rc.2.26504.105) consumers compile and render `SpecialObservation("Comet & dust", 30)` as encoded text, then render the null placeholder. They have empty external dependency closures and lock files. `eng/Record-Evidence.ps1` saves fresh input hashes, exact commands and successful real renderer output in the existing sample evidence records.
 
 The focused compiler checks reject the unsafe reverse conversion on both dependency sets and the new direct conversion on .NET 10. The installed-MCP check rebuilds and executes consumers using only the returned Markdown outside the repository. These are execution and compiler results, not mocks. Exact pins are verification baselines, separate from the release-family consumer requirements. No experimental opt-in applies. Actual-GA reconciliation (PIN-964) and comprehensive coverage (PIN-959) remain outstanding.
