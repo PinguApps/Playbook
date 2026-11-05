@@ -21,7 +21,7 @@ try {
   "<Project Sdk=`"Microsoft.NET.Sdk`"><PropertyGroup><TargetFramework>net11.0</TargetFramework><AllowUnsafeBlocks>true</AllowUnsafeBlocks><LangVersion>preview</LangVersion><EnableDefaultCompileItems>false</EnableDefaultCompileItems><Features>$feature</Features></PropertyGroup><ItemGroup><Compile Include=`"$source`" /></ItemGroup></Project>" | Set-Content "$directory/Probe.csproj"
   Push-Location $directory
   try {
-   $output=(& 'C:/Users/pingu/.dotnet-playbook-11/dotnet.exe' build Probe.csproj -p:ImportDirectoryBuildProps=false -p:ImportDirectoryBuildTargets=false --nologo 2>&1 | Out-String)
+   $output=(& (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source build Probe.csproj -p:ImportDirectoryBuildProps=false -p:ImportDirectoryBuildTargets=false --nologo 2>&1 | Out-String)
    $exitCode=$LASTEXITCODE
   } finally {Pop-Location}
   if($expected -eq 'PASS') {if($exitCode -ne 0){throw $output}}

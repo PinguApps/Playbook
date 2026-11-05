@@ -1,7 +1,7 @@
 [CmdletBinding()]
 param(
-  [string]$Dotnet = 'C:/Program Files/dotnet/dotnet.exe',
-  [string]$Net11Dotnet = 'C:/Users/pingu/.dotnet-playbook-11/dotnet.exe',
+  [string]$Dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source,
+  [string]$Net11Dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source,
   [switch]$RecordEvidence
 )
 $ErrorActionPreference = 'Stop'
@@ -44,7 +44,7 @@ try {
             foreach ($asset in $audited[0].assets) {
               if ((Get-FileHash -LiteralPath (Join-Path $packageDirectory $asset.path)).Hash.ToLowerInvariant() -cne $asset.surface.sha256) { throw "Audited compile asset mismatch: $library" }
             }
-          } elseif ($identity[0] -ne 'Microsoft.Extensions.DependencyModel' -or $identity[1] -cne $baseline.referencePack) {
+          } elseif ($identity[0] -ne 'Microsoft.Extensions.DependencyModel' -or $identity[1] -cne $baseline.packageVersion) {
             throw "Unqualified additional package: $library"
           }
           # DependencyModel is the matching Mvc.Testing supporting closure, qualified

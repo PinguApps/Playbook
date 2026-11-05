@@ -1,7 +1,7 @@
 [CmdletBinding()]
 param(
-  [string]$Net10Root = 'C:/Program Files/dotnet',
-  [string]$Net11Root = 'C:/Users/pingu/.dotnet-playbook-11',
+  [string]$Net10Root = (Split-Path (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source -Parent),
+  [string]$Net11Root = (Split-Path (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source -Parent),
   [string]$OutputPath = (Join-Path $PSScriptRoot '../artifacts/data-io.assets.json'),
   [string]$CompareWith,
   [string]$SourceManifest = (Join-Path $PSScriptRoot '../docs/planning/audits/data-io.sources.json'),
@@ -120,18 +120,18 @@ New-Item -ItemType Directory -Path $temporary | Out-Null
 try {
   Add-Type -Path (Join-Path $Net10Root 'sdk/10.0.403/System.Reflection.MetadataLoadContext.dll')
   $baselines = @(
-    @{ root = $Net10Root; sdk = '10.0.403'; version = '10.0.13'; target = 'net10.0' },
-    @{ root = $Net11Root; sdk = '11.0.100-rc.3.26522.148'; version = '11.0.0-rc.2.26504.105'; target = 'net11.0' }
+    @{ root = $Net10Root; sdk = '10.0.403'; version = '10.0.13'; runtime = '10.0.14'; target = 'net10.0' },
+    @{ root = $Net11Root; sdk = '11.0.100-rc.3.26522.148'; version = '11.0.0-rc.2.26504.105'; runtime = '11.0.0-rc.3.26522.148'; target = 'net11.0' }
   )
   $results = @()
   foreach ($baseline in $baselines) {
-    $refDirectory = Join-Path $baseline.root "packs/Microsoft.NETCore.App.Ref/$($baseline.version)/ref/$($baseline.target)"
+    $refDirectory = Join-Path $baseline.root "packs/Microsoft.NETCore.App.Ref/$($baseline.runtime)/ref/$($baseline.target)"
     $references = @(Get-ChildItem -LiteralPath $refDirectory -Filter '*.dll' | ForEach-Object FullName)
     if ($references.Count -eq 0) { throw "Missing reference pack: $refDirectory" }
     $selected = @($references | Where-Object { [IO.Path]::GetFileName($_) -match '^System\.(Buffers|Collections.*|Console|Diagnostics\.(Process|FileVersionInfo)|Formats\.Tar|Globalization.*|IO.*|Linq.*|Memory|Numerics.*|ObjectModel|Runtime|Runtime\.Extensions|Runtime\.Handles|Runtime\.Numerics|Runtime\.Intrinsics|Text\.(Encoding.*|Encodings\.Web|RegularExpressions))\.dll$' })
     Write-Host "Inspecting $($baseline.target): $($selected.Count) reference assemblies and three packages."
     $framework = @($selected | Sort-Object | ForEach-Object { Get-Surface $_ $references })
-    $tooling = @(Get-ChildItem (Join-Path $baseline.root "packs/Microsoft.NETCore.App.Ref/$($baseline.version)/analyzers") -Recurse -Filter 'System.Text.RegularExpressions.Generator.dll' | Sort-Object FullName | ForEach-Object {
+    $tooling = @(Get-ChildItem (Join-Path $baseline.root "packs/Microsoft.NETCore.App.Ref/$($baseline.runtime)/analyzers") -Recurse -Filter 'System.Text.RegularExpressions.Generator.dll' | Sort-Object FullName | ForEach-Object {
       [ordered]@{ path = [IO.Path]::GetRelativePath($baseline.root, $_.FullName).Replace('\', '/'); sha256 = Get-Hash $_.FullName }
     })
     if ($tooling.Count -eq 0) { throw 'Missing regex public tooling artifact.' }
@@ -159,7 +159,7 @@ try {
       if (@($assets | Where-Object path -Match "^lib/$($baseline.target)/").Count -ne 1) { throw "Missing/ambiguous $id target asset: $($baseline.target)" }
       $packages += [ordered]@{ id = $id; version = $baseline.version; url = $url; sha256 = Get-Hash $zip; repository = $nuspec.package.metadata.repository.url; commit = $nuspec.package.metadata.repository.commit; assets = $assets; otherAssets = $otherAssets }
     }
-    $results += [ordered]@{ sdk = $baseline.sdk; referencePack = $baseline.version; target = $baseline.target; tooling = $tooling; framework = $framework; packages = $packages }
+    $results += [ordered]@{ sdk = $baseline.sdk; referencePack = $baseline.runtime; packageVersion = $baseline.version; target = $baseline.target; tooling = $tooling; framework = $framework; packages = $packages }
   }
   $diffs = @()
   foreach ($name in Get-Ordinal @($results.framework.name | Select-Object -Unique)) {

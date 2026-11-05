@@ -1,7 +1,7 @@
 [CmdletBinding()]
 param(
-  [string]$Dotnet = 'C:\Program Files\dotnet\dotnet.exe',
-  [string]$Net11Dotnet = 'C:\Users\pingu\.dotnet-playbook-11\dotnet.exe',
+  [string]$Dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source,
+  [string]$Net11Dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source,
   [string]$Node = 'C:\Program Files\nodejs\node.exe',
   [switch]$NoBuild
 )

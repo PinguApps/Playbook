@@ -31,7 +31,7 @@ try {
         Write-Host $run
         $record.output += "`nMODE $mode`n$run"
       }
-      $pack = if ($major -eq 10) { '10.0.13' } else { '11.0.0-rc.2.26504.105' }
+      $pack = if ($major -eq 10) { '10.0.14' } else { '11.0.0-rc.3.26522.148' }
       foreach ($assembly in 'Microsoft.AspNetCore.Http.Abstractions.dll','Microsoft.AspNetCore.dll') {
         $reference = Join-Path (Split-Path $dotnet) "packs/Microsoft.AspNetCore.App.Ref/$pack/ref/net$major.0/$assembly"
         $record.output += "`nREFERENCE $reference sha256=$((Get-FileHash -LiteralPath $reference).Hash.ToLowerInvariant())"

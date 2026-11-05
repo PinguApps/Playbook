@@ -1,7 +1,7 @@
 [CmdletBinding()]
 param(
-  [string]$Net10Dotnet = 'C:/Program Files/dotnet/dotnet.exe',
-  [string]$Net11Dotnet = 'C:/Users/pingu/.dotnet-playbook-11/dotnet.exe',
+  [string]$Net10Dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source,
+  [string]$Net11Dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source,
   [ValidateSet('RegisteredIdentifiers','TypedDns')]
   [string[]]$SampleNames = @('RegisteredIdentifiers','TypedDns'),
   [switch]$Record,
@@ -91,8 +91,8 @@ try {
           [IO.File]::WriteAllText((Join-Path (Split-Path $project) 'verification-evidence.json'), ($evidence | ConvertTo-Json -Depth 40).Replace("`r`n","`n") + "`n")
         }
         if ($name -eq 'TypedDns') {
-          $image = if ($variant -eq 'net10.0') { 'mcr.microsoft.com/dotnet/runtime@sha256:e454ed02b8c903dff0d7fd40a63451e55f16c186463d168a78e584738244f939' }
-            else { 'mcr.microsoft.com/dotnet/runtime@sha256:3b52667dbaff185a1ddd4cefb16d9517e6945f6e61257faa2e57e6040877d95b' }
+          $image = if ($variant -eq 'net10.0') { 'mcr.microsoft.com/dotnet/runtime@sha256:6b0cde57a2d55aa6ef5b9c9eafbc156e3c0e0b7c114134111103bc0a3e474517' }
+            else { 'mcr.microsoft.com/dotnet/runtime@sha256:811515cabb3edf04bbbef8da41adbd51beb7f973716046d80de77822d2c1dece' }
           $docker = 'C:/Program Files/Docker/Docker/resources/bin/docker.exe'
           $inputs = Get-EvidenceInputs $root $sample
           $container = 'playbook-typed-dns-' + [guid]::NewGuid().ToString('N')

@@ -1,8 +1,8 @@
 #Requires -Version 7.0
 [CmdletBinding()]
 param(
-  [string]$Net10Dotnet = 'C:/Program Files/dotnet/dotnet.exe',
-  [string]$Net11Dotnet = 'C:/Users/pingu/.dotnet-playbook-11/dotnet.exe',
+  [string]$Net10Dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source,
+  [string]$Net11Dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source,
   [switch]$Record
 )
 $ErrorActionPreference = 'Stop'
@@ -51,7 +51,7 @@ try {
 
   # Direct compiler probes use actual Core and reference assemblies, not generated shims.
   $sdkRoot = Join-Path (Split-Path $Net11Dotnet) 'sdk/11.0.100-rc.3.26522.148'
-  $refs = @(Get-ChildItem (Join-Path (Split-Path $Net11Dotnet) 'packs/Microsoft.NETCore.App.Ref/11.0.0-rc.2.26504.105/ref/net11.0') -Filter '*.dll' | ForEach-Object { '-r:' + $_.FullName })
+  $refs = @(Get-ChildItem (Join-Path (Split-Path $Net11Dotnet) 'packs/Microsoft.NETCore.App.Ref/11.0.0-rc.3.26522.148/ref/net11.0') -Filter '*.dll' | ForEach-Object { '-r:' + $_.FullName })
   $core = Join-Path $root 'samples/net11.0/SeedFold/bin/Release/net11.0/FSharp.Core.dll'
   $baseArgs = @((Join-Path $sdkRoot 'FSharp/fsc.dll'), '--target:library', '--targetprofile:netcore', '--noframework', '--simpleresolution', '--optimize+', "-r:$core") + $refs
   $valid = 'let inline batch ([<InlineIfLambda; OptimizeClosureIfNotInlined>] step: int -> int -> int) state reading = step state reading'
@@ -73,7 +73,7 @@ try {
   }
   # The two new Roslyn surfaces are unavailable in the actual older package set.
   $oldRoot = Split-Path $Net10Dotnet
-  $oldRefs = @(Get-ChildItem (Join-Path $oldRoot 'packs/Microsoft.NETCore.App.Ref/10.0.13/ref/net10.0') -Filter '*.dll' | ForEach-Object { '-r:' + $_.FullName })
+  $oldRefs = @(Get-ChildItem (Join-Path $oldRoot 'packs/Microsoft.NETCore.App.Ref/10.0.14/ref/net10.0') -Filter '*.dll' | ForEach-Object { '-r:' + $_.FullName })
   $oldCompiler = Join-Path $oldRoot 'sdk/10.0.403/Roslyn/bincore/csc.dll'
   $oldAssets = Join-Path $root 'samples/net10.0/ReadingConversions/bin/Release/net10.0'
   $roslynRefs = @('Microsoft.CodeAnalysis','Microsoft.CodeAnalysis.CSharp','Microsoft.CodeAnalysis.VisualBasic') | ForEach-Object { '-r:' + (Join-Path $oldAssets "$_.dll") }
@@ -91,7 +91,7 @@ try {
   foreach ($release in 10,11) {
     $exe = if ($release -eq 10) { $Net10Dotnet } else { $Net11Dotnet }
     $version = if ($release -eq 10) { '10.0.403' } else { '11.0.100-rc.3.26522.148' }
-    $runtime = if ($release -eq 10) { '10.0.13' } else { '11.0.0-rc.2.26504.105' }
+    $runtime = if ($release -eq 10) { '10.0.14' } else { '11.0.0-rc.3.26522.148' }
     $hostRoot = Split-Path $exe
     foreach ($file in @(
       (Join-Path $hostRoot "sdk/$version/Roslyn/bincore/csc.dll"),

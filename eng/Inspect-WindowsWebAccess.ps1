@@ -3,7 +3,7 @@
 param(
     [ValidateSet('Prepare', 'Run')][string]$Action = 'Prepare',
     [string]$WorkDirectory = (Join-Path ([IO.Path]::GetTempPath()) ('pb-web-' + [guid]::NewGuid().ToString('N'))),
-    [string]$Dotnet = 'C:/Program Files/dotnet/dotnet.exe',
+    [string]$Dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source,
     [ValidateRange(49152, 65535)][int]$Port = 54483
 )
 

@@ -1,7 +1,7 @@
 [CmdletBinding()]
 param(
-  [string]$Net10Dotnet = 'C:/Program Files/dotnet/dotnet.exe',
-  [string]$Net11Dotnet = 'C:/Users/pingu/.dotnet-playbook-11/dotnet.exe',
+  [string]$Net10Dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source,
+  [string]$Net11Dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source,
   [switch]$Record,
   [switch]$VerifySources
 )
@@ -90,7 +90,7 @@ try {
       $assets = Get-Content obj/project.assets.json -Raw | ConvertFrom-Json -AsHashtable
       $checks += "SUPPORT $name libraries=$($assets.libraries.Keys -join ',') targets=$($assets.targets | ConvertTo-Json -Depth 20 -Compress)"
       if ($name -eq 'Override') {
-        if (-not $assets.libraries.ContainsKey('Microsoft.Extensions.Logging.Abstractions/11.0.0-rc.3.26522.148')) { throw 'Newer override pruned unexpectedly' }
+        if (-not $assets.libraries.ContainsKey('Microsoft.Extensions.Logging.Abstractions/11.0.0-rc.3.26522.148')) { throw 'Exact matching-version reference disappeared unexpectedly' }
       }
       foreach ($library in $assets.libraries.Keys) {
         if ($assets.libraries[$library].type -eq 'package') {
@@ -161,7 +161,8 @@ try {
             if ((Get-FileHash $assembly.path).Hash.ToLowerInvariant() -cne $assembly.sha256) { throw 'Executed assembly changed' }
             $fromFramework = $assembly.path.StartsWith((Join-Path (Split-Path $dotnet) 'shared'),[StringComparison]::OrdinalIgnoreCase)
             if ($fromFramework -ne ($variant -eq 'net11.0')) { throw "Unexpected load source: $($assembly.path)" }
-            if ($assembly.version -notlike "$($baseline.referencePack)*") { throw 'Executed Extensions baseline drift' }
+            $executedVersion = if ($variant -eq 'net10.0') { $baseline.packageVersion } else { $baseline.referencePack }
+            if ($assembly.version -notlike "$executedVersion*") { throw 'Executed Extensions baseline drift' }
             if ($variant -eq 'net10.0') {
               $library = "$($assembly.name)/10.0.13"
               $entry = $assets.libraries[$library]

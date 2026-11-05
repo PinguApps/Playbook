@@ -1,8 +1,8 @@
 [CmdletBinding()]
 param(
   [string]$Net9Dotnet = 'C:\Users\pingu\.dotnet-playbook-9\dotnet.exe',
-  [string]$Net10Dotnet = 'C:\Program Files\dotnet\dotnet.exe',
-  [string]$Net11Dotnet = 'C:\Users\pingu\.dotnet-playbook-11\dotnet.exe',
+  [string]$Net10Dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source,
+  [string]$Net11Dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source,
   [switch]$Record
 )
 
@@ -75,8 +75,8 @@ try {
   Copy-Item -LiteralPath $Net11Dotnet -Destination "$layout/dotnet.exe"
   $pins = @(
     @{ exe=$Net9Dotnet; sdk='9.0.319'; runtime='9.0.21' },
-    @{ exe=$Net10Dotnet; sdk='10.0.403'; runtime='10.0.13' },
-    @{ exe=$Net11Dotnet; sdk='11.0.100-rc.3.26522.148'; runtime='11.0.0-rc.2.26504.105' }
+    @{ exe=$Net10Dotnet; sdk='10.0.403'; runtime='10.0.14' },
+    @{ exe=$Net11Dotnet; sdk='11.0.100-rc.3.26522.148'; runtime='11.0.0-rc.3.26522.148' }
   )
   foreach ($pin in $pins) {
     $installation = Split-Path $pin.exe
@@ -101,7 +101,7 @@ try {
     $inputs = Get-EvidenceInputs $root $sample
     $firstLog = $log.Count
     $sdk = if ($release -eq '10') { '10.0.403' } else { '11.0.100-rc.3.26522.148' }
-    $runtime = if ($release -eq '10') { '10.0.13' } else { '11.0.0-rc.2.26504.105' }
+    $runtime = if ($release -eq '10') { '10.0.14' } else { '11.0.0-rc.3.26522.148' }
     $buildExe = if ($release -eq '10') { $Net10Dotnet } else { $Net11Dotnet }
     $feed = Join-Path $scratch "local feed $release"
     $null = Invoke-Sdk $buildExe $source @('pack','MuseumCatalogue.csproj','-c','Release','-o',$feed)

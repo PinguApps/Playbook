@@ -1,7 +1,7 @@
 [CmdletBinding()]
 param(
-  [string]$Net10Dotnet = 'C:/Program Files/dotnet/dotnet.exe',
-  [string]$Net11Dotnet = 'C:/Users/pingu/.dotnet-playbook-11/dotnet.exe',
+  [string]$Net10Dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source,
+  [string]$Net11Dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source,
   [string]$VcRoot = 'C:/Program Files (x86)/Microsoft Visual Studio/18/BuildTools/VC/Tools/MSVC/14.51.36231',
   [string]$WindowsKit = 'C:/Program Files (x86)/Windows Kits/10',
   [string]$Packages = (Join-Path $HOME '.nuget/packages')

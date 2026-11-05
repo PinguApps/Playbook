@@ -1,7 +1,7 @@
 [CmdletBinding()]
 param(
-  [string]$Net10Dotnet = 'C:\Program Files\dotnet\dotnet.exe',
-  [string]$Net11Dotnet = 'C:\Users\pingu\.dotnet-playbook-11\dotnet.exe',
+  [string]$Net10Dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source,
+  [string]$Net11Dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source,
   [switch]$Record
 )
 $ErrorActionPreference = 'Stop'
@@ -140,10 +140,10 @@ try {
   }
   $proofPrefix = $log.ToArray()
   foreach ($case in @(
-    @{ Path='ArchiveTemplate'; Target='netstandard2.0'; Version='10.0.403'; Asset='netstandard2.0'; Lane='old'; Sdk='10.0.403'; Language='14.0'; Kind='compile' },
-    @{ Path='net10.0/ArchiveTemplateRunner'; Target='net10.0'; Version='10.0.403'; Asset='net10.0'; Lane='old'; Sdk='10.0.403'; Language='14.0'; Kind='compile-and-run' },
-    @{ Path='net10.0/ArchiveTemplateHost'; Target='net10.0'; Version='11.0.100-rc.3.26522.148'; Asset='net10.0'; Lane='current10'; Sdk='10.0.403'; Language='14.0'; Kind='compile-and-run' },
-    @{ Path='net11.0/ArchiveTemplateHost'; Target='net11.0'; Version='11.0.100-rc.3.26522.148'; Asset='net11.0'; Lane='current11'; Sdk='11.0.100-rc.3.26522.148'; Language='15.0'; Kind='compile-and-run' }
+    @{ Path='ArchiveTemplate'; Target='netstandard2.0'; Version='10.0.402'; Asset='netstandard2.0'; Lane='old'; Sdk='10.0.403'; Language='14.0'; Kind='compile' },
+    @{ Path='net10.0/ArchiveTemplateRunner'; Target='net10.0'; Version='10.0.402'; Asset='net10.0'; Lane='old'; Sdk='10.0.403'; Language='14.0'; Kind='compile-and-run' },
+    @{ Path='net10.0/ArchiveTemplateHost'; Target='net10.0'; Version='11.0.100-rc.2.26504.105'; Asset='net10.0'; Lane='current10'; Sdk='10.0.403'; Language='14.0'; Kind='compile-and-run' },
+    @{ Path='net11.0/ArchiveTemplateHost'; Target='net11.0'; Version='11.0.100-rc.2.26504.105'; Asset='net11.0'; Lane='current11'; Sdk='11.0.100-rc.3.26522.148'; Language='15.0'; Kind='compile-and-run' }
   )) {
     $first = $log.Count
     if ($case.Kind -eq 'compile') { foreach ($line in $proofPrefix) { $log.Add($line) } }

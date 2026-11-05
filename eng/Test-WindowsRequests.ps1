@@ -19,7 +19,7 @@ try {
     $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH = '0'
     $env:DOTNET_GENERATE_ASPNET_CERTIFICATE = 'false'
     foreach ($version in '10','11') {
-        $dotnet = if ($version -eq '10') { 'C:/Program Files/dotnet/dotnet.exe' } else { 'C:/Users/pingu/.dotnet-playbook-11/dotnet.exe' }
+        $dotnet = if ($version -eq '10') { (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source } else { (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source }
         $directory = "samples/net$version.0/HarbourRequests"
         if ($Record) { & ./eng/Record-Evidence.ps1 -Sample "$directory/HarbourRequests.csproj" -Dotnet $dotnet }
         else { & $dotnet "$directory/bin/Release/net$version.0/HarbourRequests.dll" }

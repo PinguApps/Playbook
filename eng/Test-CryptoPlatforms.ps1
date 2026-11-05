@@ -1,7 +1,7 @@
 [CmdletBinding()]
 param(
     [string]$Docker = 'C:/Program Files/Docker/Docker/resources/bin/docker.exe',
-    [string]$Image = 'mcr.microsoft.com/dotnet/sdk@sha256:bfabf51e74c5a7cf2fc4eac852145db86f4867d475257d809518d6a2b0fe71e1',
+    [string]$Image = 'mcr.microsoft.com/dotnet/sdk@sha256:9fc2f44fba54c579b9b650f6feea29beff050fb030d797eac697de85a94ad77f',
     [string]$Packages = (Join-Path $env:USERPROFILE '.nuget/packages')
 )
 

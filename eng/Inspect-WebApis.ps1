@@ -1,7 +1,7 @@
 [CmdletBinding()]
 param(
-  [string]$Net10Root = 'C:/Program Files/dotnet',
-  [string]$Net11Root = 'C:/Users/pingu/.dotnet-playbook-11',
+  [string]$Net10Root = (Split-Path (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source -Parent),
+  [string]$Net11Root = (Split-Path (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source -Parent),
   [string]$OutputPath = (Join-Path $PSScriptRoot '../artifacts/web.assets.json'),
   [string]$CompareWith,
   [string]$SourceManifest = (Join-Path $PSScriptRoot '../docs/planning/audits/web.sources.json'),
@@ -155,13 +155,13 @@ New-Item -ItemType Directory -Path $temporary | Out-Null
 try {
   Add-Type -Path (Join-Path $Net10Root 'sdk/10.0.403/System.Reflection.MetadataLoadContext.dll')
   $baselines = @(
-    @{ root=$Net10Root; sdk='10.0.403'; version='10.0.13'; target='net10.0' },
-    @{ root=$Net11Root; sdk='11.0.100-rc.3.26522.148'; version='11.0.0-rc.2.26504.105'; target='net11.0' }
+    @{ root=$Net10Root; sdk='10.0.403'; version='10.0.13'; runtime='10.0.14'; target='net10.0' },
+    @{ root=$Net11Root; sdk='11.0.100-rc.3.26522.148'; version='11.0.0-rc.2.26504.105'; runtime='11.0.0-rc.3.26522.148'; target='net11.0' }
   )
   $results = @()
   foreach ($baseline in $baselines) {
-    $core = Join-Path $baseline.root "packs/Microsoft.NETCore.App.Ref/$($baseline.version)/ref/$($baseline.target)"
-    $asp = Join-Path $baseline.root "packs/Microsoft.AspNetCore.App.Ref/$($baseline.version)/ref/$($baseline.target)"
+    $core = Join-Path $baseline.root "packs/Microsoft.NETCore.App.Ref/$($baseline.runtime)/ref/$($baseline.target)"
+    $asp = Join-Path $baseline.root "packs/Microsoft.AspNetCore.App.Ref/$($baseline.runtime)/ref/$($baseline.target)"
     $references = @(Get-ChildItem -LiteralPath $core,$asp -Filter '*.dll' | ForEach-Object FullName)
     $selected = @($references | Where-Object {
       [IO.Path]::GetFileName($_) -match '^Microsoft\.(AspNetCore\.(?!Components[\.]|Components\.dll|Razor[\.]|Razor\.dll)|Extensions\.Identity\.|Net\.Http\.Headers)'
@@ -239,11 +239,11 @@ try {
       ($_.FullName -match 'Microsoft.NET.Sdk.Web.ProjectSystem' -and $_.Extension -in @('.targets','.props','.dll')) -or
       ($_.FullName -match '[\\/]aspnetcoretools[\\/]' -and $_.Extension -in @('.dll','.json','.exe'))
     } | Sort-Object FullName | ForEach-Object { Get-TextAsset $_.FullName $sdk })
-    $templatePackage = @(Get-ChildItem (Join-Path $baseline.root "templates/$($baseline.version)") -Filter 'microsoft.dotnet.web.projecttemplates*.nupkg')
+    $templatePackage = @(Get-ChildItem (Join-Path $baseline.root "templates/$($baseline.runtime)") -Filter 'microsoft.dotnet.web.projecttemplates*.nupkg')
     if ($templatePackage.Count -ne 1) { throw 'Missing/ambiguous actual web template package.' }
     $templateRoot=Join-Path $temporary "templates-$($baseline.target)"
     [IO.Compression.ZipFile]::ExtractToDirectory($templatePackage[0].FullName,$templateRoot)
-    $mcpPackage=@(Get-ChildItem (Join-Path $baseline.root "templates/$($baseline.version)") -Filter 'microsoft.mcpserver.projecttemplates*.nupkg')
+    $mcpPackage=@(Get-ChildItem (Join-Path $baseline.root "templates/$($baseline.runtime)") -Filter 'microsoft.mcpserver.projecttemplates*.nupkg')
     if ($mcpPackage.Count -ne 1) { throw 'Missing/ambiguous bundled MCP template package.' }
     [IO.Compression.ZipFile]::ExtractToDirectory($mcpPackage[0].FullName,(Join-Path $templateRoot 'mcp'))
     $templates=@(Get-ChildItem $templateRoot -Recurse -File | Where-Object {
@@ -264,7 +264,7 @@ try {
       if ($_.Name.EndsWith('.d.ts')) { $entry.lines=@([IO.File]::ReadAllText($_.FullName) -split '\r?\n') }
       $entry
     })
-    $results += [ordered]@{ sdk=$baseline.sdk; referencePack=$baseline.version; target=$baseline.target; metadataReaderSha256=Get-Hash (Join-Path $sdk 'System.Reflection.MetadataLoadContext.dll'); framework=$surfaces; sdkSurface=$sdkSurface; packages=$packages; webTooling=$tooling; signalrNpm=[ordered]@{version=$npmVersion;url=$npmUrl;sha256=Get-Hash $npmArchive;files=$typeScript}; templatePackage=[ordered]@{ file=$templatePackage[0].Name; sha256=Get-Hash $templatePackage[0].FullName; bundledMcp=[ordered]@{file=$mcpPackage[0].Name;sha256=Get-Hash $mcpPackage[0].FullName}; files=$templates } }
+    $results += [ordered]@{ sdk=$baseline.sdk; referencePack=$baseline.runtime; packageVersion=$baseline.version; target=$baseline.target; metadataReaderSha256=Get-Hash (Join-Path $sdk 'System.Reflection.MetadataLoadContext.dll'); framework=$surfaces; sdkSurface=$sdkSurface; packages=$packages; webTooling=$tooling; signalrNpm=[ordered]@{version=$npmVersion;url=$npmUrl;sha256=Get-Hash $npmArchive;files=$typeScript}; templatePackage=[ordered]@{ file=$templatePackage[0].Name; sha256=Get-Hash $templatePackage[0].FullName; bundledMcp=[ordered]@{file=$mcpPackage[0].Name;sha256=Get-Hash $mcpPackage[0].FullName}; files=$templates } }
   }
   $textDiffs=@()
   foreach ($family in @('webTooling','packageFiles','templates','typeScript')) {

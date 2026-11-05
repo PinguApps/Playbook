@@ -1,5 +1,5 @@
 [CmdletBinding()]
-param([string]$Net11Dotnet = 'C:\Users\pingu\.dotnet-playbook-11\dotnet.exe')
+param([string]$Net11Dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source)
 
 $ErrorActionPreference = 'Stop'
 $dotnet = (Get-Command $Net11Dotnet -CommandType Application | Select-Object -First 1).Source

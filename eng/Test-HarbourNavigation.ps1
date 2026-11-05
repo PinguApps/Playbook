@@ -66,8 +66,8 @@ try {
         $start = [Diagnostics.ProcessStartInfo]::new((Join-Path $root 'samples/net10.0/HarbourNavigation/bin/Release/net10.0-windows10.0.19041.0/win-x64/HarbourNavigation.exe'))
         $start.UseShellExecute = $false
         $start.Environment['HARBOUR_NAVIGATION_RECEIPT'] = $receiptPath
-        $start.Environment['DOTNET_ROOT'] = 'C:/Program Files/dotnet'
-        $start.Environment['DOTNET_ROOT_X64'] = 'C:/Program Files/dotnet'
+        $start.Environment['DOTNET_ROOT'] = (Split-Path (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source -Parent)
+        $start.Environment['DOTNET_ROOT_X64'] = (Split-Path (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source -Parent)
         $start.Environment['DOTNET_ADD_GLOBAL_TOOLS_TO_PATH'] = '0'
         $process = [Diagnostics.Process]::Start($start)
         try {

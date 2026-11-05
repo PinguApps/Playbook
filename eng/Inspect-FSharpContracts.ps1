@@ -1,9 +1,9 @@
 [CmdletBinding()]
 param(
   [string]$Manifest = (Join-Path $PSScriptRoot '../docs/planning/audits/fsharp-contracts.sources.json'),
-  [string]$Net10Root = 'C:/Program Files/dotnet',
-  [string]$Net11Root = 'C:/Users/pingu/.dotnet-playbook-11',
-  [string]$ReferencePackVersion = '10.0.13',
+  [string]$Net10Root = (Split-Path (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source -Parent),
+  [string]$Net11Root = (Split-Path (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source -Parent),
+  [string]$ReferencePackVersion = '10.0.14',
   [string]$OutputPath = (Join-Path $PSScriptRoot '../artifacts/fsharp-contracts.json'),
   [string]$CompareWith
 )

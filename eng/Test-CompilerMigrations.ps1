@@ -1,7 +1,7 @@
 [CmdletBinding()]
 param(
-  [string]$Dotnet = 'C:/Program Files/dotnet/dotnet.exe',
-  [string]$Net11Dotnet = 'C:/Users/pingu/.dotnet-playbook-11/dotnet.exe',
+  [string]$Dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source,
+  [string]$Net11Dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source,
   [string]$BaselineDotnet = (Join-Path $PSScriptRoot '../artifacts/compiler-tools/net10.0.100/dotnet.exe'),
   [switch]$SetupBaseline,
   [switch]$Record
@@ -47,8 +47,8 @@ try {
   }
   $sets = @(
     @{ Name = 'baseline'; Dotnet = $BaselineDotnet; Sdk = '10.0.100'; Ref = '10.0.0'; Target = 'net10.0'; Language = '14.0'; Runtime = '10.0.0' },
-    @{ Name = 'previous'; Dotnet = $Dotnet; Sdk = '10.0.403'; Ref = '10.0.13'; Target = 'net10.0'; Language = '14.0'; Runtime = '10.0.13' },
-    @{ Name = 'current'; Dotnet = $Net11Dotnet; Sdk = '11.0.100-rc.3.26522.148'; Ref = '11.0.0-rc.2.26504.105'; Target = 'net11.0'; Language = '15.0'; Runtime = '11.0.0-rc.2.26504.105' }
+    @{ Name = 'previous'; Dotnet = $Dotnet; Sdk = '10.0.403'; Ref = '10.0.14'; Target = 'net10.0'; Language = '14.0'; Runtime = '10.0.14' },
+    @{ Name = 'current'; Dotnet = $Net11Dotnet; Sdk = '11.0.100-rc.3.26522.148'; Ref = '11.0.0-rc.3.26522.148'; Target = 'net11.0'; Language = '15.0'; Runtime = '11.0.0-rc.3.26522.148' }
   )
   foreach ($set in $sets) {
     $set.Dotnet = [IO.Path]::GetFullPath($set.Dotnet)

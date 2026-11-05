@@ -1,7 +1,7 @@
 [CmdletBinding()]
 param(
-  [string]$Dotnet = 'C:/Program Files/dotnet/dotnet.exe',
-  [string]$Net11Dotnet = 'C:/Users/pingu/.dotnet-playbook-11/dotnet.exe'
+  [string]$Dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source,
+  [string]$Net11Dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source
 )
 $ErrorActionPreference = 'Stop'
 $PSNativeCommandUseErrorActionPreference = $true
@@ -54,7 +54,7 @@ try {
       if ($audited.Count -gt 0 -and $hash -cne $audited[0].sha256) { throw "Audited package mismatch: $library" }
       $output.Add("PACKAGE $library | SHA256=$hash | auditMatch=$($audited.Count -gt 0)")
     }
-    $framework = if ($release -eq '10') { '10.0.13' } else { '11.0.0-rc.2.26504.105' }
+    $framework = if ($release -eq '10') { '10.0.14' } else { '11.0.0-rc.3.26522.148' }
     $baseline = $audit.baselines | Where-Object target -EQ "net$release.0"
     foreach ($name in 'Microsoft.AspNetCore.Identity.dll','Microsoft.Extensions.Identity.Core.dll','Microsoft.Extensions.Identity.Stores.dll') {
       $reference = Join-Path (Split-Path $hostDotnet -Parent) "packs/Microsoft.AspNetCore.App.Ref/$framework/ref/net$release.0/$name"

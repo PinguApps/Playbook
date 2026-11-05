@@ -1,7 +1,7 @@
 [CmdletBinding()]
 param(
-  [string]$Dotnet10 = 'C:\Program Files\dotnet\dotnet.exe',
-  [string]$Dotnet11 = 'C:\Users\pingu\.dotnet-playbook-11\dotnet.exe',
+  [string]$Dotnet10 = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source,
+  [string]$Dotnet11 = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source,
   [string]$OutputDirectory = (Join-Path $PSScriptRoot '../artifacts/quarry-ledger')
 )
 $ErrorActionPreference = 'Stop'

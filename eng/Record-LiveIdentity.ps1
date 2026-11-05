@@ -59,7 +59,7 @@ try {
       if ($name -eq 'CopperRidgeHub') {
         $files = @('generated/aspnetcore.tar.gz','generated/client/HubConnection.js','generated/client/HttpConnection.js','node_modules/typescript/package.json') | ForEach-Object { Join-Path $root "artifacts/identity-tooling/ts/$_" }
       } else {
-        $pack = if ($major -eq 10) { '10.0.13' } else { '11.0.0-rc.2.26504.105' }
+        $pack = if ($major -eq 10) { '10.0.14' } else { '11.0.0-rc.3.26522.148' }
         $files = @(Join-Path (Split-Path $Dotnet) "packs/Microsoft.AspNetCore.App.Ref/$pack/analyzers/dotnet/cs/Microsoft.AspNetCore.Components.Analyzers.dll")
       }
       $tooling = @($files | ForEach-Object { @{ file=$_; sha256=(Get-FileHash -LiteralPath $_).Hash.ToLowerInvariant() } })

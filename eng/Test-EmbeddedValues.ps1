@@ -15,7 +15,7 @@ try {
     & $route -Action Start
     $started = $true
     foreach ($release in '10','11') {
-        $dotnet = if ($release -eq '10') { 'C:\Program Files\dotnet\dotnet.exe' } else { 'C:\Users\pingu\.dotnet-playbook-11\dotnet.exe' }
+        $dotnet = if ($release -eq '10') { (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source } else { (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source }
         if ($Record) {
             & "$PSScriptRoot/Record-Evidence.ps1" -Sample "samples/net$release.0/HarbourLabels/HarbourLabels.csproj" -Dotnet $dotnet
         }

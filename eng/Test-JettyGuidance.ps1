@@ -1,7 +1,7 @@
 [CmdletBinding()]
 param(
   [string]$Net10Dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source,
-  [string]$Net11Dotnet = 'C:\Users\pingu\.dotnet-playbook-11\dotnet.exe',
+  [string]$Net11Dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source,
   [string]$Output = (Join-Path (Split-Path $PSScriptRoot -Parent) 'artifacts/pin809-810/execution.json')
 )
 $ErrorActionPreference = 'Stop'

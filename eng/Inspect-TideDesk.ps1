@@ -2,7 +2,7 @@ Set-Location -LiteralPath 'V:\_worktrees\Playbook\agent-pin-788-04-016-server-co
 $ErrorActionPreference = 'Stop'
 $PSNativeCommandUseErrorActionPreference = $true
 $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH = '0'
-$dotnet = 'C:\Program Files\dotnet\dotnet.exe'
+$dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source
 $node = 'C:\Program Files\nodejs\node.exe'
 New-Item -ItemType Directory -Path ./artifacts/pin788 -Force | Out-Null
 & $dotnet build ./src/PinguApps.Playbook -c Release

@@ -18,7 +18,7 @@ try {
  & $linker /NOLOGO /DLL /NOENTRY /NODEFAULTLIB /MACHINE:X64 "/OUT:$native/beacon.dll" "$native/beacon.obj"
  $toolchains=@("MSVC/$((Get-Item $compiler).VersionInfo.FileVersion)","MSVC-link/$((Get-Item $linker).VersionInfo.FileVersion)")
  foreach($target in 'net10.0','net11.0') {
-  $dotnet=if($target -eq 'net10.0'){'C:/Program Files/dotnet/dotnet.exe'}else{'C:/Users/pingu/.dotnet-playbook-11/dotnet.exe'}
+  $dotnet=if($target -eq 'net10.0'){(Get-Command dotnet -CommandType Application | Select-Object -First 1).Source}else{(Get-Command dotnet -CommandType Application | Select-Object -First 1).Source}
   $sample="samples/$target/BeaconContracts/BeaconContracts.csproj"
   Push-Location "samples/$target/BeaconContracts"
   try { & $dotnet build -c Release -p:RestoreLockedMode=true } finally {Pop-Location}

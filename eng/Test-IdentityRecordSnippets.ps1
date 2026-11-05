@@ -3,8 +3,8 @@ param(
   [string]$InspectionDirectory = (Join-Path $PSScriptRoot '../artifacts/identity-records/inspection'),
   [ValidateSet('certificates.encode-registered-identifiers','dns.inspect-typed-records')]
   [string[]]$RecipeId = @('certificates.encode-registered-identifiers','dns.inspect-typed-records'),
-  [string]$Net10Dotnet = 'C:/Program Files/dotnet/dotnet.exe',
-  [string]$Net11Dotnet = 'C:/Users/pingu/.dotnet-playbook-11/dotnet.exe'
+  [string]$Net10Dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source,
+  [string]$Net11Dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source
 )
 $ErrorActionPreference = 'Stop'
 $PSNativeCommandUseErrorActionPreference = $true

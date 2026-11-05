@@ -1,7 +1,7 @@
 [CmdletBinding()]
 param(
   [string]$Docker='C:/Program Files/Docker/Docker/resources/bin/docker.exe',
-  [string]$Dotnet='C:/Program Files/dotnet/dotnet.exe',
+  [string]$Dotnet=(Get-Command dotnet -CommandType Application | Select-Object -First 1).Source,
   [switch]$Record
 )
 $ErrorActionPreference='Stop'

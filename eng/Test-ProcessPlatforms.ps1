@@ -1,7 +1,7 @@
 [CmdletBinding()]
 param(
-  [string]$Docker = (Get-Command docker -CommandType Application).Source,
-  [string]$Image = 'mcr.microsoft.com/dotnet/sdk@sha256:bfabf51e74c5a7cf2fc4eac852145db86f4867d475257d809518d6a2b0fe71e1'
+  [string]$Docker = (Get-Command docker -CommandType Application | Select-Object -First 1).Source,
+  [string]$Image = 'mcr.microsoft.com/dotnet/sdk@sha256:9fc2f44fba54c579b9b650f6feea29beff050fb030d797eac697de85a94ad77f'
 )
 
 $ErrorActionPreference = 'Stop'

@@ -1,7 +1,7 @@
 [CmdletBinding()]
 param(
-  [string]$Net10Dotnet = 'C:/Program Files/dotnet/dotnet.exe',
-  [string]$Net11Dotnet = 'C:/Users/pingu/.dotnet-playbook-11/dotnet.exe',
+  [string]$Net10Dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source,
+  [string]$Net11Dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source,
   [switch]$Record
 )
 $ErrorActionPreference = 'Stop'
@@ -214,7 +214,7 @@ try {
       $probeProject = [regex]::Replace($probeProject,'<PackageReference[^>]*/>','')
       $probeProject = $probeProject.Replace('</ItemGroup>',"<Reference Include=`"Microsoft.TestPlatform.PlatformAbstractions`"><HintPath>$sdkResolver</HintPath></Reference></ItemGroup>")
       Write-Lf "$probe/Probe.csproj" $probeProject
-      if ((Get-FileHash $sdkResolver).Hash.ToLowerInvariant() -cne 'e52ae9db24b333b65ccb15173d2db1fabd944f7f861e1b9209e613710bf624b5') { throw 'Audited old SDK resolver drift.' }
+      if ((Get-FileHash $sdkResolver).Hash.ToLowerInvariant() -cne '23bfb0d766d451a9e05bd0f33892f0af92ceef3b0aa608b97e714e3764e75f4f') { throw 'Audited old SDK resolver drift.' }
       $log.Add("resolver-old-sdk=$sdkResolver;sha256=$((Get-FileHash $sdkResolver).Hash.ToLowerInvariant());public-package18.7-lacks-RequestingAssembly")
     }
     Write-Lf "$probe/Probe.cs" 'using R = Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.Interfaces.AssemblyResolveEventArgs; namespace TernTesting; public static class Probe { public static R Make() => new R("Tern") { RequestingAssembly = typeof(Probe).Assembly }; }'

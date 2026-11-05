@@ -28,7 +28,7 @@ try {
     }
     Copy-Item -LiteralPath (Join-Path $base 'TideDesk/Directory.Packages.props') -Destination (Join-Path $base 'TideDesk.Client/Directory.Packages.props')
     $sdk = if ($target -eq 'net10.0') { '10.0.403' } else { '11.0.100-rc.3.26522.148' }
-    $dotnet = if ($target -eq 'net10.0') { 'C:\Program Files\dotnet\dotnet.exe' } else { 'C:\Users\pingu\.dotnet-playbook-11\dotnet.exe' }
+    $dotnet = if ($target -eq 'net10.0') { (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source } else { (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source }
     foreach ($folder in @('TideDesk', 'TideDesk.Client')) {
       [IO.File]::WriteAllText((Join-Path $base "$folder/global.json"), ('{"sdk":{"version":"' + $sdk + '","rollForward":"disable"}}'))
     }
@@ -41,7 +41,7 @@ try {
     $report.results += @{ target = $target; sdk = $sdk; compiled = $true; hostSha256 = (Get-FileHash (Join-Path $base "TideDesk/bin/Release/$target/TideDesk.dll")).Hash.ToLowerInvariant(); clientSha256 = (Get-FileHash (Join-Path $base "TideDesk.Client/bin/Release/$target/TideDesk.Client.dll")).Hash.ToLowerInvariant() }
   }
   $base = Join-Path $consumer 'net11.0/TideDesk'
-  $start = [Diagnostics.ProcessStartInfo]::new('C:\Users\pingu\.dotnet-playbook-11\dotnet.exe')
+  $start = [Diagnostics.ProcessStartInfo]::new((Get-Command dotnet -CommandType Application | Select-Object -First 1).Source)
   $start.WorkingDirectory = $base
   $start.UseShellExecute = $false
   $start.CreateNoWindow = $true

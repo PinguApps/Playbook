@@ -1,5 +1,6 @@
 [CmdletBinding()]
-param([string]$PackageVersion = '1.0.0-preview.1')
+param([string]$PackageVersion = '1.0.0-preview.1',
+  [string]$Dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source)
 
 $ErrorActionPreference = 'Stop'
 $PSNativeCommandUseErrorActionPreference = $true
@@ -128,7 +129,7 @@ The original project is built and executed by eng/Verify.ps1; synthetic filter m
     $recipe | ConvertTo-Json -Depth 30 | Set-Content (Join-Path $destination 'recipe.json') -Encoding utf8
     $markdown | Set-Content (Join-Path $destination 'recipe.md') -Encoding utf8
   }
-  dotnet pack (Join-Path $root 'src/PinguApps.Playbook') -c Release -p:Version=$PackageVersion -p:PackageVersion=$PackageVersion `
+  & $Dotnet pack (Join-Path $root 'src/PinguApps.Playbook') -c Release -p:Version=$PackageVersion -p:PackageVersion=$PackageVersion `
     "-p:RecipeRoot=$fixture" --output (Join-Path $root 'artifacts/release-fixture')
   # The positive fixture above must build; removing its explicit conditional flag must fail.
   $conditionalPath = Join-Path $fixture 'fixture.conditional-route/11.0/recipe.json'
@@ -149,7 +150,7 @@ The original project is built and executed by eng/Verify.ps1; synthetic filter m
 }
 finally {
   # Restore ordinary build output so a later --no-build pack cannot pick up fixture recipes.
-  dotnet build (Join-Path $root 'src/PinguApps.Playbook') -c Release -p:Version=$PackageVersion
+  & $Dotnet build (Join-Path $root 'src/PinguApps.Playbook') -c Release -p:Version=$PackageVersion
   # The resolved cleanup target must stay inside the uniquely named temporary fixture.
   $resolved = [IO.Path]::GetFullPath($fixture)
   $temporaryRoot = [IO.Path]::GetFullPath([IO.Path]::GetTempPath())

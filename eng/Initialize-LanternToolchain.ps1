@@ -1,5 +1,5 @@
 [CmdletBinding()]
-param([string]$SourceSdk='C:/Users/pingu/.dotnet-playbook-11')
+param([string]$SourceSdk=(Split-Path (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source -Parent))
 $ErrorActionPreference='Stop'
 $PSNativeCommandUseErrorActionPreference=$true
 $root=Split-Path $PSScriptRoot -Parent

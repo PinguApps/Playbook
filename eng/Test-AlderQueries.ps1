@@ -10,7 +10,7 @@ $integration = $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH
 try {
     $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH = '0'
     foreach ($release in '10','11') {
-        $dotnet = if ($release -eq '10') { 'C:\Program Files\dotnet\dotnet.exe' } else { 'C:\Users\pingu\.dotnet-playbook-11\dotnet.exe' }
+        $dotnet = if ($release -eq '10') { (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source } else { (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source }
         $sample = "samples/net$release.0/AlderQueries/AlderQueries.csproj"
         $directory = Split-Path (Join-Path $root $sample)
         Push-Location $directory

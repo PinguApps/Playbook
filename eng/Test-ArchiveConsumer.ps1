@@ -1,7 +1,7 @@
 [CmdletBinding()]
 param(
   [string]$Dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source,
-  [string]$Net11Dotnet = 'C:\Users\pingu\.dotnet-playbook-11\dotnet.exe',
+  [string]$Net11Dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source,
   [switch]$RecordEvidence
 )
 

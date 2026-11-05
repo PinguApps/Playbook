@@ -17,7 +17,7 @@ $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH = '0'
 try {
   if (Get-NetTCPConnection -LocalPort 5971,5972 -State Listen -ErrorAction SilentlyContinue) { throw 'A CairnSignals port is occupied; no process was stopped.' }
   foreach ($major in @(10,11)) {
-    $dotnet = if ($major -eq 10) { 'C:\Program Files\dotnet\dotnet.exe' } else { 'C:\Users\pingu\.dotnet-playbook-11\dotnet.exe' }
+    $dotnet = if ($major -eq 10) { (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source } else { (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source }
     $directory = Join-Path $Samples "net$major.0/CairnSignals"
     Push-Location $directory
     try { & $dotnet build CairnSignals.csproj -c Release }

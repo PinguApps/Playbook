@@ -35,7 +35,7 @@ foreach($v in @(10,11)){
 }
 $logs=[ordered]@{}
 foreach($v in @(10,11)){
- $dotnet=if($v -eq 10){'C:\Program Files\dotnet\dotnet.exe'}else{'C:\Users\pingu\.dotnet-playbook-11\dotnet.exe'}
+ $dotnet=if($v -eq 10){(Get-Command dotnet -CommandType Application | Select-Object -First 1).Source}else{(Get-Command dotnet -CommandType Application | Select-Object -First 1).Source}
  Push-Location (Join-Path $standalone "net$v.0/Host")
  try{
   $restore=(& $dotnet restore Host.csproj|Out-String)

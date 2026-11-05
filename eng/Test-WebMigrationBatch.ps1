@@ -1,7 +1,7 @@
 [CmdletBinding()]
 param(
-  [string]$Dotnet = 'C:/Program Files/dotnet/dotnet.exe',
-  [string]$Net11Dotnet = 'C:/Users/pingu/.dotnet-playbook-11/dotnet.exe',
+  [string]$Dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source,
+  [string]$Net11Dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source,
   [string]$Gh = 'C:/Program Files/GitHub CLI/gh.exe',
   [string]$OutputDirectory = (Join-Path $PSScriptRoot '../artifacts/web-migrations'),
   [switch]$RecordEvidence
@@ -154,7 +154,7 @@ try {
             & $dotnetHost build -c Release --no-restore
           }
         }
-        $framework = if ($release -eq '10') { '10.0.13' } else { '11.0.0-rc.2.26504.105' }
+        $framework = if ($release -eq '10') { '10.0.14' } else { '11.0.0-rc.3.26522.148' }
         $sdk = if ($release -eq '10') { '10.0.403' } else { '11.0.100-rc.3.26522.148' }
         $installation = Split-Path $dotnetHost -Parent
         foreach ($assembly in 'Microsoft.AspNetCore.Server.Kestrel.Core.dll','Microsoft.AspNetCore.Http.Abstractions.dll') {

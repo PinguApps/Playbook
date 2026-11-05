@@ -1,8 +1,8 @@
 [CmdletBinding()]
 param(
   [string]$ResponsePath = (Join-Path $PSScriptRoot '../artifacts/pin1177/inspection/identity.confirm-before-registration-signin.json'),
-  [string]$Dotnet = 'C:/Program Files/dotnet/dotnet.exe',
-  [string]$Net11Dotnet = 'C:/Users/pingu/.dotnet-playbook-11/dotnet.exe',
+  [string]$Dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source,
+  [string]$Net11Dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source,
   [string]$OutputDirectory = (Join-Path $PSScriptRoot '../artifacts/pin1177/consumer')
 )
 $ErrorActionPreference = 'Stop'

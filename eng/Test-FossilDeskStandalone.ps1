@@ -32,7 +32,7 @@ foreach($case in @(@('net10.0/FossilDesk','10.0.403'),@('net11.0/FossilDesk','11
 }
 $logs=@{}
 foreach($target in @('net10.0','net11.0')){
- $dotnet=if($target -eq 'net10.0'){'C:\Program Files\dotnet\dotnet.exe'}else{'C:\Users\pingu\.dotnet-playbook-11\dotnet.exe'}
+ $dotnet=if($target -eq 'net10.0'){(Get-Command dotnet -CommandType Application | Select-Object -First 1).Source}else{(Get-Command dotnet -CommandType Application | Select-Object -First 1).Source}
  Push-Location (Join-Path $standalone "$target/FossilDesk")
  try{
   $log=(& $dotnet restore ./FossilDesk.csproj|Out-String)+(& $dotnet build ./FossilDesk.csproj -c Release --no-restore|Out-String)
@@ -41,7 +41,7 @@ foreach($target in @('net10.0','net11.0')){
  }finally{Pop-Location}
 }
 Push-Location (Join-Path $standalone 'net11.0/FossilWorker')
-try { $logs.worker=(& 'C:\Users\pingu\.dotnet-playbook-11\dotnet.exe' build ./FossilWorker.csproj -c Release --no-restore|Out-String) } finally {Pop-Location}
+try { $logs.worker=(& (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source build ./FossilWorker.csproj -c Release --no-restore|Out-String) } finally {Pop-Location}
 $hashes=[ordered]@{}
 foreach($file in Get-ChildItem $standalone -Recurse -File|Sort-Object FullName){
  if($file.FullName -match '\\obj\\'){continue}

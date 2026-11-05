@@ -26,7 +26,7 @@ function Start-Owned([string]$Exe, [string]$Directory, [string]$Arguments, [stri
 try {
   if (@(Get-NetTCPConnection -State Listen -LocalPort 5911,5912,5913,5914 -ErrorAction SilentlyContinue).Count) { throw 'A Quayside port is occupied; no process was stopped.' }
   foreach ($major in @(10,11)) {
-    $dotnet = if ($major -eq 10) { 'C:\Program Files\dotnet\dotnet.exe' } else { 'C:\Users\pingu\.dotnet-playbook-11\dotnet.exe' }
+    $dotnet = if ($major -eq 10) { (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source } else { (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source }
     $base = Join-Path $Samples "net$major.0/QuaysideRoutes"
     $entry = if ($major -eq 10) { 'Host' } else { 'Client' }
     Push-Location $base
