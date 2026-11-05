@@ -913,3 +913,30 @@ S(2) estimates retain the bounded configuration, identity and single-option scop
 Package-matched raw source URLs attempted during authoring returned 404;
 the retained audit, actual package APIs/diagnostics and executable consumers
 remain the source/artifact boundary rather than an invented successful fetch.
+
+## Extension contracts — PIN-1199–1201
+
+Original TernGauges, TernPatches and TernPermits compare independently locked
+EF10.0.13/SDK10.0.402/C#14 and EF11 RC2/SDK11 RC2/C#15 consumers.
+Public scalar mapping plugins execute SQL model/query/save/round-trip, mutable
+snapshot/equality/null and relational clone controls. An explicit comparer owns
+mutable application semantics; generic defaults do not infer them. Structural
+JSON mappings and NativeAOT remain distinct, unclaimed contracts.
+
+A bounded public UpdateSqlGenerator hook consumes real column modifications and
+executes root/nested/array/dotted-name SQL2025 updates, verifying untouched
+siblings. The actual type is StructuredJsonPath. ToString's optional character
+controls wildcard rendering, not quoting; direct rendering initially failed the
+dotted-name control. Segment rendering preserves that property as one key.
+This is not a replacement of SQL Server internal provider services or a broad
+provider rewrite. Arbitrary name escaping and native json type are not claimed.
+
+EF10 already calls TryCreate during persistence. The legacy Create-only override
+compiled but failed custom-key checks. The working comparison uses TryCreate on
+both editions; EF10 retains an explicit obsolete Select failure control while
+EF11 checks false/null. SQLite saves three distinct generated keys and reads
+them through a fresh context. No globally coordinated identifier claim follows.
+
+Canonical projects, locked dependencies and fresh compilation/execution records
+support the offline recipes. No extra .NET10 foundation or recurring matrix is
+added. PIN-959 comprehensive readiness and PIN-965 actual GA remain open.

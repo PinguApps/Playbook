@@ -1,0 +1,207 @@
+{
+  "id": "ef.migrate-generic-type-mapping",
+  "edition": "11.0",
+  "title": "Migrate custom scalar mappings and comparers",
+  "goal": "Preserve custom scalar query, persistence and change tracking when upgrading an EF extension.",
+  "areas": [
+    "ef-core"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "tern-extensions",
+    "migration"
+  ],
+  "apis": [
+    "RelationalTypeMapping<T>",
+    "CoreTypeMapping<T>",
+    "ValueComparer",
+    "Clone"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/ef/core/modeling/value-comparers"
+        ],
+        "selectionNotes": [
+          "Use the public relational mapping plugin boundary. EF11 adds generic mapping bases whose default comparer creation can use the closed CLR type; the non-generic EF10 base remains the comparison. A mutable Reading still needs an explicit snapshot and value equality comparer: generic defaults cannot infer application semantics. The mapping converts Reading to int and preserves that converter and comparer through Clone. CoreTypeMapping.Clone parameters move from in to by-value in the pinned contracts; the relational Clone override shown takes RelationalTypeMappingParameters by value in both. JSON structural type mapping describes object/collection structure; it is not the scalar mapping used here. No JSON graph or NativeAOT compatibility follows from this sample."
+        ],
+        "usage": "primary",
+        "target": "11.0",
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "EF Core 11 requires .NET 11. No older-runtime EF11 route is offered."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build the net11.0 consumer; measured SDK 11.0.100-rc.2.26504.105 is RC2 evidence, not GA proof."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Declared current language mode; no C# 15-specific syntax is required by the example."
+          },
+          "frameworks": [
+            "Microsoft.NET.Sdk console consumer"
+          ],
+          "packages": [
+            {
+              "match": "release-family",
+              "name": "Microsoft.EntityFrameworkCore.SqlServer",
+              "reason": "Exact RC2 graph is locked in the canonical project.",
+              "version": "11.0"
+            }
+          ],
+          "packageAssets": [
+            "EF10.0.13/net10.0 versus EF11.0.0-rc.2.26504.105/net11.0. SDK10.0.402/C#14 versus SDK11.0.100-rc.2.26504.105/C#15. SQL graphs pin Pkcs10.0.13 and SqlClient6.1.7/7.1.0. SQLite uses the locked platform bundle; actual native DLL hashes are in execution records. EF11 requires .NET11; no older-runtime route is offered. No workload or rendering mode applies. No experimental opt-in or NativeAOT claim. RC2 proof is not actual GA reconciliation."
+          ],
+          "providers": [
+            "SQL Server2025 17.0.5035.5 compatibility170; approved isolated Docker route"
+          ],
+          "workloads": [],
+          "platforms": [
+            "Executed on Windows x64; SQL engine runs in the existing Linux container. No other native platform verified."
+          ],
+          "renderingModes": [
+            "Not applicable: console/database extension."
+          ],
+          "constraints": [
+            "Use the public relational mapping plugin boundary. EF11 adds generic mapping bases whose default comparer creation can use the closed CLR type; the non-generic EF10 base remains the comparison. A mutable Reading still needs an explicit snapshot and value equality comparer: generic defaults cannot infer application semantics. The mapping converts Reading to int and preserves that converter and comparer through Clone. CoreTypeMapping.Clone parameters move from in to by-value in the pinned contracts; the relational Clone override shown takes RelationalTypeMappingParameters by value in both. JSON structural type mapping describes object/collection structure; it is not the scalar mapping used here. No JSON graph or NativeAOT compatibility follows from this sample."
+          ],
+          "prerequisites": [
+            "PowerShell7, pinned SDK10.0.402 and SDK11 RC2, restored locked graphs. SQL samples use the approved isolated SqlServer.ps1 route. Run eng/Test-TernExtensions.ps1 -Record."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Public extension contracts are upgrade-sensitive. Stable API shape measured on pinned RC2; reconcile actual GA separately."
+          ]
+        },
+        "conditional": false,
+        "evidenceSamples": [
+          "samples/net11.0/TernGauges/TernGauges.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Official contract guidance",
+      "url": "https://learn.microsoft.com/en-us/ef/core/modeling/value-comparers"
+    }
+  ],
+  "evidence": [
+    {
+      "language": "14.0",
+      "sample": "samples/net10.0/TernGauges/TernGauges.csproj",
+      "sdk": "10.0.402",
+      "target": "net10.0",
+      "kind": "compile",
+      "scope": "eng/Test-TernExtensions.ps1 -Record: real compilation and bounded provider execution with cleanup. No GA/NativeAOT/other-platform guarantee."
+    },
+    {
+      "language": "14.0",
+      "sample": "samples/net10.0/TernGauges/TernGauges.csproj",
+      "sdk": "10.0.402",
+      "target": "net10.0",
+      "kind": "execution",
+      "record": "samples/net10.0/TernGauges/behavior.evidence.json",
+      "scope": "eng/Test-TernExtensions.ps1 -Record: real compilation and bounded provider execution with cleanup. No GA/NativeAOT/other-platform guarantee."
+    },
+    {
+      "language": "15.0",
+      "sample": "samples/net11.0/TernGauges/TernGauges.csproj",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "target": "net11.0",
+      "kind": "compile",
+      "scope": "eng/Test-TernExtensions.ps1 -Record: real compilation and bounded provider execution with cleanup. No GA/NativeAOT/other-platform guarantee."
+    },
+    {
+      "language": "15.0",
+      "sample": "samples/net11.0/TernGauges/TernGauges.csproj",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "target": "net11.0",
+      "kind": "execution",
+      "record": "samples/net11.0/TernGauges/behavior.evidence.json",
+      "scope": "eng/Test-TernExtensions.ps1 -Record: real compilation and bounded provider execution with cleanup. No GA/NativeAOT/other-platform guarantee."
+    }
+  ],
+  "snippets": {
+    "n11-directory-packages-props": {
+      "region": "complete",
+      "language": "xml",
+      "path": "samples/net11.0/TernGauges/Directory.Packages.props"
+    },
+    "n11-directory-build-targets": {
+      "region": "complete",
+      "language": "xml",
+      "path": "samples/net11.0/TernGauges/Directory.Build.targets"
+    },
+    "n10-program-cs": {
+      "region": "complete",
+      "language": "csharp",
+      "path": "samples/net10.0/TernGauges/Program.cs"
+    },
+    "n11-program-cs": {
+      "region": "complete",
+      "language": "csharp",
+      "path": "samples/net11.0/TernGauges/Program.cs"
+    },
+    "n10-directory-build-targets": {
+      "region": "complete",
+      "language": "xml",
+      "path": "samples/net10.0/TernGauges/Directory.Build.targets"
+    },
+    "n10-directory-build-props": {
+      "region": "complete",
+      "language": "xml",
+      "path": "samples/net10.0/TernGauges/Directory.Build.props"
+    },
+    "n10-terngauges-csproj": {
+      "region": "complete",
+      "language": "xml",
+      "path": "samples/net10.0/TernGauges/TernGauges.csproj"
+    },
+    "n10-global-json": {
+      "region": "complete",
+      "language": "json",
+      "path": "samples/net10.0/TernGauges/global.json"
+    },
+    "n11-terngauges-csproj": {
+      "region": "complete",
+      "language": "xml",
+      "path": "samples/net11.0/TernGauges/TernGauges.csproj"
+    },
+    "n10-directory-packages-props": {
+      "region": "complete",
+      "language": "xml",
+      "path": "samples/net10.0/TernGauges/Directory.Packages.props"
+    },
+    "n11-directory-build-props": {
+      "region": "complete",
+      "language": "xml",
+      "path": "samples/net11.0/TernGauges/Directory.Build.props"
+    },
+    "n11-global-json": {
+      "region": "complete",
+      "language": "json",
+      "path": "samples/net11.0/TernGauges/global.json"
+    }
+  },
+  "humanProof": {
+    "scope": "Automated local SQL2025 or Windows x64 SQLite. No NativeAOT or GA claim.",
+    "status": "not-required"
+  }
+}
