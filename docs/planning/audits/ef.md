@@ -1025,3 +1025,41 @@ These are source-section deliveries with no new public CLR declaration ownership
 rule; residual U2/U3 contracts and actual-GA reconciliation remain separate.
 Retained EF10 controls execute binary Length > 0 rejection and generic Half
 converter model rejection alongside the working explicit alternatives.
+
+## Tuple composition, missing projections and CPM bundles — PIN-1212–1214
+
+E24/E25/E26 are delivered as `ef.compose-tuple-projections/11.0`,
+`ef.materialize-missing-projection/11.0` and
+`ef.bundle-centrally-managed-migrations/11.0` with original Plover consumers.
+SDK10.0.403/C#14 and SDK11 RC3/C#15 deliberately differ from the historical
+SDK10.0.402/11 RC2 audit. Queries compare EF10.0.13 with EF11 RC3; bundles retain
+matching EF/Design/dotnet-ef10.0.13 and 11 RC2. Actual locked graphs preserve
+EF11 net11 and direct Sqlite11 net10 assets, with SQLite3.53.3/3.53.4 on Windows x64.
+
+Tuple grouped/joined keys, one-element arity and nested ValueTuple Rest execute;
+EF10 retains a working anonymous grouped key and negative translation controls.
+Arbitrary record constructors and untested arities/providers are excluded.
+
+E25 is **documentation-based delivery with deferred final behavior qualification**,
+explicitly authorized by Pingu on 5 November 2026 after actual RC2/RC3 unmatched
+DTO/anonymous reads failed. Grouped DTO/default struct also throw; nullable struct
+member composition is untranslated. Official intended whole-object null/default
+semantics are taught with a runnable qualification target and the working nullable
+marker fallback. Compilation, recorded exceptions and fallback execution do not
+establish successful direct materialization or guarantee a final artifact.
+
+CPM guidance distinguishes versionless application references from explicit versions
+in non-CPM temporary bundle projects. EF11 conditionally selects a versionless Design reference when CPM is inherited, and an explicit version otherwise. Isolated inherited-CPM/non-CPM comparisons inspect
+the actual generated project and execute framework-dependent bundles against file
+SQLite databases, including repeated migration and persistence checks. EF10's
+ordinary external-temp route remains valid; inherited CPM reproduces NU1008 and
+requires a temporary-project boundary workaround. No wildcard-context bundle,
+self-contained, NativeAOT, production deployment, encryption or other-platform
+claim is made.
+
+Source manifests/hashes and historical audit baselines are unchanged. The exact
+eight foundations, existing editions, PIN-959 qualifying evidence gate and PIN-965
+actual-GA reconciliation remain separate; their closure is not established here.
+M(3)/M(3)/L(5) remain the bounded translation, materialization and deployable-artifact
+sizing. Installed offline retrieval checks guidance delivery separately from runtime
+proof. No recurring client/native/OS matrix is added.

@@ -4199,3 +4199,27 @@ Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-8bad76cb'
 Run `eng/Test-OspreyReadings.ps1 -Record` for real isolated SQL2025 and Windows
 x64 SQLite execution. Exact RC package evidence is not actual GA, other-platform,
 JSON Half mapping or a performance claim. No public package is published.
+
+## Tuple projections, missing joins and CPM bundles
+
+From an unrelated directory, the following selects this worktree explicitly,
+builds/packs the ordinary tool, then installs that exact package through an isolated
+local feed/cache and exercises real offline stdio discovery and retrieval:
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-c2fd1474'
+$env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH = '0'
+& 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' pack ./src/PinguApps.Playbook -c Release -p:PackageVersion=0.0.0-pin1212-1214 --output ./artifacts
+& ./eng/Inspect-PloverGuidance.ps1 -PackageVersion '0.0.0-pin1212-1214'
+```
+
+Expect IDs/titles/goals and complete canonical Markdown, edition11.0,
+applicability and evidence for `ef.compose-tuple-projections`,
+`ef.materialize-missing-projection` and `ef.bundle-centrally-managed-migrations`.
+The inspector compares the retrieved body with compiled canonical snippets.
+PIN-1213 explicitly teaches official intended behavior with final execution deferred:
+actual RC2/RC3 materialization failures and the working marker fallback remain visible.
+The installed-tool check establishes delivery, not successful direct materialization.
+Run `eng/Test-PloverBundles.ps1 -Record` separately for actual generated-project,
+CPM/non-CPM, repeated migration and SQLite persistence checks. No production resources,
+additional native platforms or GA behavior are established.
