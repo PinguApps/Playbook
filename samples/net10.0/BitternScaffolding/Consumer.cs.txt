@@ -1,0 +1,11 @@
+// snippet:complete
+using Bittern.Generated;
+using Microsoft.EntityFrameworkCore;
+var options = new DbContextOptionsBuilder<MarshContext>().UseSqlite("Data Source=" + Path.Combine(args.Single(), "bittern.db")).Options;
+using var db = new MarshContext(options);
+db.Database.OpenConnection();
+using (var version = db.Database.GetDbConnection().CreateCommand()) { version.CommandText = "select sqlite_version()"; Console.WriteLine("SQLite " + version.ExecuteScalar()); }
+var rows = db.Observations.OrderBy(x => x.Id).ToList();
+if (rows.Count != 2 || rows[0].Station != "Reedbank" || rows[0].Depth != 12.5 || rows[1].Depth != null) throw new Exception("Generated query failed");
+Console.WriteLine("PASS generated C# compiles and queries both SQLite rows and null depth");
+// endsnippet:complete
