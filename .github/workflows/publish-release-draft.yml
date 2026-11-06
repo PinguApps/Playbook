@@ -29,25 +29,17 @@ jobs:
         id: publish
         env:
           GH_TOKEN: ${{ github.token }}
+        shell: pwsh
         run: |
-          set -euo pipefail
-          releases=$(gh api "repos/$GITHUB_REPOSITORY/releases?per_page=100" --paginate | jq -s 'add')
-          latest_tag=$(jq -r '[.[] | select(.draft == false and .prerelease == false) | select(.tag_name | test("^v[0-9]+\\.[0-9]+\\.[0-9]+$"))] | max_by(.published_at) | .tag_name // empty' <<< "$releases")
-          if [[ -z "$latest_tag" ]]; then echo 'No published stable release; first stable publication is manual'; exit 0; fi
-          if ! git merge-base --is-ancestor "$latest_tag" HEAD; then echo 'Latest stable release is not on main' >&2; exit 1; fi
-          if [[ $(git rev-list --count "$latest_tag..HEAD") -eq 0 ]]; then echo 'No new main commits'; exit 0; fi
-          count=$(jq '[.[] | select(.draft)] | length' <<< "$releases")
-          if [[ "$count" -gt 1 ]]; then echo 'Multiple release drafts; refusing to choose one' >&2; exit 1; fi
-          draft=$(jq -r '.[] | select(.draft and .prerelease == false) | [.id, .tag_name] | @tsv' <<< "$releases")
-          if [[ -z "$draft" ]]; then echo 'No stable release draft'; exit 0; fi
-          IFS=$'\t' read -r draft_id draft_tag <<< "$draft"
-          if [[ ! "$draft_tag" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]] ||
-             [[ "$draft_tag" == "$latest_tag" ]] ||
-             [[ $(printf '%s\n' "$latest_tag" "$draft_tag" | sort -V | tail -n 1) != "$draft_tag" ]]; then
-            echo 'Draft must have a newer stable tag' >&2; exit 1
-          fi
-          gh api --method PATCH "repos/$GITHUB_REPOSITORY/releases/$draft_id" -F draft=false --jq .html_url
-          echo "tag=$draft_tag" >> "$GITHUB_OUTPUT"
+          $ErrorActionPreference = 'Stop'
+          $pages = gh api "repos/$env:GITHUB_REPOSITORY/releases?per_page=100" --paginate --slurp | ConvertFrom-Json
+          if ($LASTEXITCODE -ne 0) { throw 'Cannot read releases.' }
+          $releases = @($pages | ForEach-Object { $_ })
+          $draft = ./eng/Select-WeeklyRelease.ps1 -Releases $releases -Repository .
+          if (-not $draft) { exit 0 }
+          gh api --method PATCH "repos/$env:GITHUB_REPOSITORY/releases/$($draft.id)" -F draft=false --jq .html_url
+          if ($LASTEXITCODE -ne 0) { throw 'Cannot publish draft.' }
+          "tag=$($draft.tag_name)" >> $env:GITHUB_OUTPUT
 
   publish_packages:
     needs: publish_draft
