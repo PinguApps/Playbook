@@ -88,6 +88,10 @@ jobs:
           GITHUB_COM_TOKEN: ${{ github.token }}
         run: ./eng/Test-Renovate.ps1 -IsolatedNode
 
+      - name: Check publication guards without credentials
+        shell: pwsh
+        run: ./eng/Test-Publishing.ps1
+
       - name: Compile samples and verify the packed tool
         if: '!inputs.smoke || inputs.release_ready'
         shell: pwsh
