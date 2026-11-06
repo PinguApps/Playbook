@@ -1,0 +1,351 @@
+{
+  "id": "maui.author-themed-app-assets",
+  "edition": "11.0",
+  "title": "Generate app artwork for the selected platform and theme",
+  "goal": "Choose Android monochrome artwork, light and dark splash resources, deliberate resize sampling and mutually exclusive Apple Icon Composer bundles.",
+  "areas": [
+    "maui"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "tern-guidance"
+  ],
+  "apis": [
+    "MauiIcon.MonochromeFile",
+    "MauiSplashScreen.DarkFile",
+    "ResizeQuality",
+    "MauiIcon"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "requirements": {
+          "runtime": {
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "MAUI .NET 11 native application; CoreCLR is the default mobile runtime. No NativeAOT execution claim.",
+            "name": ".NET"
+          },
+          "sdk": {
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Compatible .NET 11 SDK with a matching native workload; current authoring SDK pin is RC3.",
+            "name": ".NET SDK"
+          },
+          "language": {
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Canonical .NET 11 sample uses C# 15; no preview language features.",
+            "name": "C#"
+          },
+          "frameworks": [
+            ".NET MAUI"
+          ],
+          "packages": [
+            {
+              "match": "release-family",
+              "name": "Microsoft.Maui.Controls",
+              "reason": "Exact Controls/Core/Essentials/Resizetizer RC2 assets are used; sample pins 11.0.0-rc.2.26505.5.",
+              "version": "11.0"
+            }
+          ],
+          "packageAssets": [
+            "Platform-specific .NET 11 MAUI RC2 assets; neutral assemblies alone do not establish native behavior."
+          ],
+          "workloads": [
+            {
+              "name": "maui-android / maui-ios / maui-windows (choose target)",
+              "version": "11.0",
+              "match": "release-family",
+              "reason": "Reviewed RC2 workload set11.0.100-rc.2.26513.2 selects MAUI11.0.0-rc.2.26505.5, Android37.2.0-rc.2.84 and Apple27.0.12212-net11-rc.2. This is source/artifact provenance, not an installed workload for the pinned RC3 SDK; a matching native workload is still required and unavailable here."
+            }
+          ],
+          "providers": [
+            "No external provider or account"
+          ],
+          "platforms": [
+            "Android assets; iOS/Mac Catalyst icon selection and bundle source-reviewed only; Apple native compilation unavailable."
+          ],
+          "renderingModes": [
+            "Native MAUI controls; no Blazor rendering mode"
+          ],
+          "prerequisites": [
+            "Matching native MAUI workload; Android SDK for Android; matched Apple workload and Xcode for Apple targets."
+          ],
+          "constraints": [
+            "No supported older-target route is claimed; .NET 10 sample is comparison-only. Native execution limits are stated in Evidence."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Stable contracts prepared from RC2 source/artifacts. No GA verification."
+          ]
+        },
+        "sharedAreas": [],
+        "conditional": false,
+        "target": "11.0",
+        "neutralLanguages": [],
+        "usage": "primary",
+        "evidenceSamples": [
+          "samples/net11.0/TernAssets/TernAssets.csproj"
+        ],
+        "selectionNotes": [
+          "No verified older-target route; .NET 10 is comparison-only."
+        ],
+        "sourceUrls": [
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/src/Platform/Windows/MauiWinUIApplication.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/src/LifecycleEvents/Windows/WindowsLifecycle.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/src/LifecycleEvents/Windows/WindowsLifecycleBuilderExtensions.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Essentials/src/Permissions/Permissions.shared.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Essentials/src/Permissions/Permissions.ios.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Essentials/src/Geolocation/Geolocation.android.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Essentials/src/Geolocation/GeolocationListeningRequest.shared.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/SingleProject/Resizetizer/src/ResizeImageInfo.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/SingleProject/Resizetizer/src/GenerateSplashAndroidResources.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/SingleProject/Resizetizer/src/GenerateSplashAssetCatalog.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/SingleProject/Resizetizer/src/nuget/buildTransitive/Microsoft.Maui.Resizetizer.targets",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Essentials/src/Types/LocationExtensions.android.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/SingleProject/Resizetizer/src/Resizer.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/SingleProject/Resizetizer/src/nuget/buildTransitive/Microsoft.Maui.Resizetizer.After.targets"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "MauiWinUIApplication.cs official source",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/src/Platform/Windows/MauiWinUIApplication.cs"
+    },
+    {
+      "title": "WindowsLifecycle.cs official source",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/src/LifecycleEvents/Windows/WindowsLifecycle.cs"
+    },
+    {
+      "title": "WindowsLifecycleBuilderExtensions.cs official source",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/src/LifecycleEvents/Windows/WindowsLifecycleBuilderExtensions.cs"
+    },
+    {
+      "title": "Permissions.shared.cs official source",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Essentials/src/Permissions/Permissions.shared.cs"
+    },
+    {
+      "title": "Permissions.ios.cs official source",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Essentials/src/Permissions/Permissions.ios.cs"
+    },
+    {
+      "title": "Geolocation.android.cs official source",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Essentials/src/Geolocation/Geolocation.android.cs"
+    },
+    {
+      "title": "GeolocationListeningRequest.shared.cs official source",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Essentials/src/Geolocation/GeolocationListeningRequest.shared.cs"
+    },
+    {
+      "title": "ResizeImageInfo.cs official source",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/SingleProject/Resizetizer/src/ResizeImageInfo.cs"
+    },
+    {
+      "title": "GenerateSplashAndroidResources.cs official source",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/SingleProject/Resizetizer/src/GenerateSplashAndroidResources.cs"
+    },
+    {
+      "title": "GenerateSplashAssetCatalog.cs official source",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/SingleProject/Resizetizer/src/GenerateSplashAssetCatalog.cs"
+    },
+    {
+      "title": "Microsoft.Maui.Resizetizer.targets official source",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/SingleProject/Resizetizer/src/nuget/buildTransitive/Microsoft.Maui.Resizetizer.targets"
+    },
+    {
+      "title": "LocationExtensions.android.cs official source",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Essentials/src/Types/LocationExtensions.android.cs"
+    },
+    {
+      "title": "Resizer.cs official source",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/SingleProject/Resizetizer/src/Resizer.cs"
+    },
+    {
+      "title": "Microsoft.Maui.Resizetizer.After.targets official source",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/SingleProject/Resizetizer/src/nuget/buildTransitive/Microsoft.Maui.Resizetizer.After.targets"
+    }
+  ],
+  "evidence": [
+    {
+      "language": "14.0",
+      "target": "net10.0-android36.0",
+      "scope": "Actual Release compilation. Android AOT disabled. Execution is separately scoped below.",
+      "sample": "samples/net10.0/TernAssets/TernAssets.csproj",
+      "kind": "compile",
+      "sdk": "10.0.402"
+    },
+    {
+      "language": "15.0",
+      "target": "net11.0-android37.0",
+      "scope": "Immutable source/artifact review. Native build attempted and failed NETSDK1147; compilation and execution not-tested under PIN-699.",
+      "sample": "samples/net11.0/TernAssets/TernAssets.csproj",
+      "kind": "official-review",
+      "sdk": "11.0.100-rc.3.26522.148"
+    }
+  ],
+  "humanProof": {
+    "scope": "Current .NET 11 native build/execution unavailable (NETSDK1147). No GA proof. PIN-699 exclusions do not establish behavior. Android device/emulator and Apple/Xcode execution unavailable; source-only Apple routes are uncompiled. No pending Human obligation.",
+    "untestedSamples": [
+      "samples/net11.0/TernAssets/TernAssets.csproj",
+      "samples/net10.0/TernAssets/TernAssets.csproj"
+    ],
+    "status": "not-tested"
+  },
+  "snippets": {
+    "samples-net11-0-ternassets-resources-appicon-tern-svg": {
+      "path": "samples/net11.0/TernAssets/Resources/AppIcon/tern.svg",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net10-0-ternassets-resources-splash-night-svg": {
+      "path": "samples/net10.0/TernAssets/Resources/Splash/night.svg",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-ternassets-ternassets-csproj": {
+      "path": "samples/net11.0/TernAssets/TernAssets.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net10-0-ternassets-resources-appicon-tern-svg": {
+      "path": "samples/net10.0/TernAssets/Resources/AppIcon/tern.svg",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net10-0-ternassets-directory-build-targets": {
+      "path": "samples/net10.0/TernAssets/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-ternassets-platforms-android-mainapplication-cs": {
+      "path": "samples/net11.0/TernAssets/Platforms/Android/MainApplication.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net10-0-ternassets-platforms-android-mainapplication-cs": {
+      "path": "samples/net10.0/TernAssets/Platforms/Android/MainApplication.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net10-0-ternassets-platforms-android-androidmanifest-xml": {
+      "path": "samples/net10.0/TernAssets/Platforms/Android/AndroidManifest.xml",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net10-0-ternassets-directory-packages-props": {
+      "path": "samples/net10.0/TernAssets/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-ternassets-resources-images-marker-svg": {
+      "path": "samples/net11.0/TernAssets/Resources/Images/marker.svg",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-ternassets-directory-build-props": {
+      "path": "samples/net11.0/TernAssets/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-ternassets-directory-packages-props": {
+      "path": "samples/net11.0/TernAssets/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-ternassets-resources-appicon-tern-icon-assets-tern-svg": {
+      "path": "samples/net11.0/TernAssets/Resources/AppIcon/tern.icon/Assets/tern.svg",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-ternassets-directory-build-targets": {
+      "path": "samples/net11.0/TernAssets/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-ternassets-resources-appicon-mono-svg": {
+      "path": "samples/net11.0/TernAssets/Resources/AppIcon/mono.svg",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-ternassets-resources-splash-day-svg": {
+      "path": "samples/net11.0/TernAssets/Resources/Splash/day.svg",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-ternassets-platforms-android-androidmanifest-xml": {
+      "path": "samples/net11.0/TernAssets/Platforms/Android/AndroidManifest.xml",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net10-0-ternassets-mauiprogram-cs": {
+      "path": "samples/net10.0/TernAssets/MauiProgram.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net10-0-ternassets-resources-appicon-mono-svg": {
+      "path": "samples/net10.0/TernAssets/Resources/AppIcon/mono.svg",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-ternassets-platforms-android-mainactivity-cs": {
+      "path": "samples/net11.0/TernAssets/Platforms/Android/MainActivity.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net10-0-ternassets-platforms-android-mainactivity-cs": {
+      "path": "samples/net10.0/TernAssets/Platforms/Android/MainActivity.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net10-0-ternassets-resources-splash-day-svg": {
+      "path": "samples/net10.0/TernAssets/Resources/Splash/day.svg",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-ternassets-global-json": {
+      "path": "samples/net11.0/TernAssets/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "samples-net10-0-ternassets-ternassets-csproj": {
+      "path": "samples/net10.0/TernAssets/TernAssets.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net10-0-ternassets-directory-build-props": {
+      "path": "samples/net10.0/TernAssets/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net10-0-ternassets-global-json": {
+      "path": "samples/net10.0/TernAssets/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "samples-net10-0-ternassets-resources-images-marker-svg": {
+      "path": "samples/net10.0/TernAssets/Resources/Images/marker.svg",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-ternassets-resources-splash-night-svg": {
+      "path": "samples/net11.0/TernAssets/Resources/Splash/night.svg",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-ternassets-mauiprogram-cs": {
+      "path": "samples/net11.0/TernAssets/MauiProgram.cs",
+      "region": "complete",
+      "language": "csharp"
+    }
+  }
+}
