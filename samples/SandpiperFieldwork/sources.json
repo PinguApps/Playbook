@@ -1,0 +1,30 @@
+[
+  {
+    "url": "https://raw.githubusercontent.com/dotnet/android/801f9ecbab5118b13d21cb52409e507ad4b2feb7/Documentation/docs-mobile/building-apps/build-properties.md",
+    "sha256": "2d25dc77a35032752ef1d1ef875ec2444140c5c7f6f1b58d4404ed6701ac2964"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/docs/building-apps/build-properties.md",
+    "sha256": "a6e1687d5e4d3cde4f386f8027e34a3a0a92e9cd67bc84ed8611908e8968a68a"
+  },
+  {
+    "url": "https://api.nuget.org/v3-flatcontainer/microsoft.android.templates/37.2.0-rc.2.84/microsoft.android.templates.37.2.0-rc.2.84.nupkg",
+    "sha256": "fe1e0ab990ed350928ad2a2f56d530cd2dd4b014679e012bc0d02c95e44e3c75"
+  },
+  {
+    "url": "https://api.nuget.org/v3-flatcontainer/microsoft.ios.templates/27.0.12212-net11-rc.2/microsoft.ios.templates.27.0.12212-net11-rc.2.nupkg",
+    "sha256": "43a0f0bf17e7f8ba6e879ce3db991ef8975b10f27244d8c521f369a8471c4b95"
+  },
+  {
+    "url": "https://api.nuget.org/v3-flatcontainer/microsoft.tvos.templates/27.0.12212-net11-rc.2/microsoft.tvos.templates.27.0.12212-net11-rc.2.nupkg",
+    "sha256": "8747bbdc90de13a35304d50f9c9df50ad9a7204f36f8b372378aff9601d3c2c4"
+  },
+  {
+    "url": "https://api.nuget.org/v3-flatcontainer/microsoft.macos.templates/27.0.12212-net11-rc.2/microsoft.macos.templates.27.0.12212-net11-rc.2.nupkg",
+    "sha256": "5be1288b5e2d45ee9f3655cbf54cdedaa3069edd019927b1e486f6949677df64"
+  },
+  {
+    "url": "https://api.nuget.org/v3-flatcontainer/microsoft.maccatalyst.templates/27.0.12212-net11-rc.2/microsoft.maccatalyst.templates.27.0.12212-net11-rc.2.nupkg",
+    "sha256": "d96cf84d9e910d8bc3fce65fe06925556cf91e853023cd1cb2a0dd0c0751448c"
+  }
+]

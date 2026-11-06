@@ -1,0 +1,10 @@
+{
+  "buildArguments": [],
+  "dependencies": [],
+  "workloads": [],
+  "nativeToolchains": [],
+  "additionalInputs": [
+    "samples/SandpiperFieldwork/sources.json",
+    "eng/Test-SandpiperFieldwork.ps1"
+  ]
+}

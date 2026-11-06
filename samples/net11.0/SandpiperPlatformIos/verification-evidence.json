@@ -1,0 +1,33 @@
+{
+  "kind": "official-review",
+  "sample": "samples/net11.0/SandpiperPlatformIos/SandpiperPlatformIos.csproj",
+  "target": "net11.0-ios",
+  "sdk": "11.0.100-rc.3.26522.148",
+  "language": "15.0",
+  "command": "eng/Test-SandpiperFieldwork.ps1 -Record",
+  "scope": "Exact RC2 sources and template package hashes checked; five real template generations on Windows. Canonical native app compilation/execution not-tested under PIN-699.",
+  "recordedAt": "2026-11-06T23:49:25.8372143+00:00",
+  "sourceCommit": "c9195d8ff4da7878f3d0e28f4621889e7cc96c07",
+  "sourceDirty": true,
+  "inputs": {
+    "eng/Test-SandpiperFieldwork.ps1": "f8f4cc1590dbc1728b46252a1c5c91a61e94e3f3380fdbe7a843ef80a1b37e33",
+    "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
+    "samples/Directory.Build.props": "ac524510d3e5112332f8c69b4c7b367c90642848dfd249163bd084405502def6",
+    "samples/Directory.Build.targets": "17284cb74605517cbec8a8153505da71a685b28694b67b5ef80608cd79b1c0ea",
+    "samples/net11.0/SandpiperPlatformIos/Directory.Packages.props": "a96e6b8834dbdb32e1410abfdb50d0483c028bba2edd5fed4b6e5cfc583c6e46",
+    "samples/net11.0/SandpiperPlatformIos/global.json": "4351f24ea90853d3f985de8e799db3bdfdc6fb64fa50185b5080b77fcdd78f31",
+    "samples/net11.0/SandpiperPlatformIos/Info.plist": "4a4df441f4b20debf1c89b23639c4571239012c95df7898f2d2bd028ad3b25bf",
+    "samples/net11.0/SandpiperPlatformIos/Main.cs": "ffdcdb9ee97e1a3cac1acccca08591d8a8f49130660d879fac52244c5a4537e0",
+    "samples/net11.0/SandpiperPlatformIos/SandpiperPlatformIos.csproj": "bfee32722cffa65ba4edd650cc0916f7cc6112247bdbb9fc94522012c59b3dfc",
+    "samples/net11.0/SandpiperPlatformIos/Test1.cs": "54f261fb47c554c48158048bfda6bb859526f733a23d3e5b0970b4d5a03492c7",
+    "samples/net11.0/SandpiperPlatformIos/verification.json": "c622a7122b6c28f0471bdf7c3e431001cbe9f4bbbc587a30ee74f466b4ad36e3",
+    "samples/SandpiperFieldwork/sources.json": "927183847029ff6c3553a99b9a99caf7e73b4954f21b8653bf647404c73cad1b"
+  },
+  "dependencies": [],
+  "workloads": [],
+  "nativeToolchains": [],
+  "host": "Microsoft Windows 10.0.26200",
+  "sdkInfo": "Intended SDK11 RC3/native RC2 composition, not measured native compilation.",
+  "workloadInfo": "Native SDK11 workloads unavailable; Apple Xcode and mobile devices unavailable.",
+  "output": "PASS pinned inputs and five template generations; no native runtime or GA claim."
+}

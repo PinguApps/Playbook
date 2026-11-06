@@ -1,0 +1,31 @@
+{
+  "kind": "official-review",
+  "sample": "samples/net11.0/SandpiperCrashAndroid/SandpiperCrashAndroid.csproj",
+  "target": "net11.0-android37.0",
+  "sdk": "11.0.100-rc.3.26522.148",
+  "language": "15.0",
+  "command": "eng/Test-SandpiperFieldwork.ps1 -Record",
+  "scope": "Exact RC2 sources and template package hashes checked; five real template generations on Windows. Canonical native app compilation/execution not-tested under PIN-699.",
+  "recordedAt": "2026-11-06T23:49:25.5952663+00:00",
+  "sourceCommit": "c9195d8ff4da7878f3d0e28f4621889e7cc96c07",
+  "sourceDirty": true,
+  "inputs": {
+    "eng/Test-SandpiperFieldwork.ps1": "f8f4cc1590dbc1728b46252a1c5c91a61e94e3f3380fdbe7a843ef80a1b37e33",
+    "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
+    "samples/Directory.Build.targets": "17284cb74605517cbec8a8153505da71a685b28694b67b5ef80608cd79b1c0ea",
+    "samples/Directory.Packages.props": "7209dd1e4245a84c619bada1f05c2505db0eb84ee6123af21759267b9c7e36a1",
+    "samples/net11.0/SandpiperCrashAndroid/Directory.Build.props": "2368e33ca1eb82aa8817f8d9f0eb154c6a88937dfad550d079a0af062f4e1530",
+    "samples/net11.0/SandpiperCrashAndroid/global.json": "5a95e203fb893dbd40eb7c4cda6bdc0122281c70786bf3f4093655eedd069800",
+    "samples/net11.0/SandpiperCrashAndroid/Marker.cs": "97beef2df69fc7685138c29956bb8269f21702cc35f3df509031b07f24cd4faa",
+    "samples/net11.0/SandpiperCrashAndroid/SandpiperCrashAndroid.csproj": "e3a552a17782b223fa18e2b70d7db9de7310010f19fdf431b8c3c4a989341267",
+    "samples/net11.0/SandpiperCrashAndroid/verification.json": "c622a7122b6c28f0471bdf7c3e431001cbe9f4bbbc587a30ee74f466b4ad36e3",
+    "samples/SandpiperFieldwork/sources.json": "927183847029ff6c3553a99b9a99caf7e73b4954f21b8653bf647404c73cad1b"
+  },
+  "dependencies": [],
+  "workloads": [],
+  "nativeToolchains": [],
+  "host": "Microsoft Windows 10.0.26200",
+  "sdkInfo": "Intended SDK11 RC3/native RC2 composition, not measured native compilation.",
+  "workloadInfo": "Native SDK11 workloads unavailable; Apple Xcode and mobile devices unavailable.",
+  "output": "PASS pinned inputs and five template generations; no native runtime or GA claim."
+}
