@@ -16,7 +16,8 @@ T3/Codex connection using owner-held access and the existing isolated project.
 - Seed commit `ee45bc0`, branch `verify/pin1018-seed`; committed project
   `.codex/config.toml` selected that absolute executable with `args = ['mcp']`,
   `required = true`, `startup_timeout_sec = 30`. Existing scoped trust and owner
-  login were reused; no credentials, configuration or environment were changed.
+  login were reused. During this run, no credentials, configuration or environment
+  were changed; the seed configuration was committed earlier in `ee45bc0`.
 - [Actual fresh thread](t3-thread://v2/e161a58f-5feb-4993-b10f-5dc13775bd35/mcp:launch:d5e212845067aba665266f39b2aa259f59fe31ae5bf37d15b86937b32585eee3)
   used the app-created `verify/pin942-client` worktree. Activity positions 3/4
   contain completed `playbook.list_recipes` / `playbook.get_recipe` calls at
@@ -40,8 +41,8 @@ T3/Codex connection using owner-held access and the existing isolated project.
   archived only this thread at `20:29:10.414Z`. Playbook PID `58268`, created
   `20:27:49.828Z` as a child of Codex app-server PID `103832`, initially remained
   alive. An idle `t3_thread_interrupt(stop: true)` returned `no_active_run` and
-  did not immediately close it. Subsequent `Get-CimInstance Win32_Process`
-  checks observed Playbook exit while its Codex parent remained alive. No process
+  did not immediately close it. A later `Get-CimInstance Win32_Process` query
+  found Codex parent `103832` but not Playbook PID `58268`. No process
   was killed, provider restarted or other thread interrupted. Exit code and the
   exact exit instant were not captured; this establishes eventual server exit,
   not immediate archive-driven disposal. Keep the package/seed for other checks.
@@ -99,4 +100,4 @@ Both initial probe threads were archived through T3. The guide's guarded cleanup
 
 Pingu subsequently confirmed all other work was idle and authorized the required cleanup. At **19:03 UTC**, a fresh native handle query found no remaining handles on either residual directory. Both **empty directories** (`V:\_worktrees\PlaybookVerification\verify-pin-976-connection` and `V:\_worktrees\PlaybookVerification\verify-pin-976-trusted`) were then deleted nonrecursively from `C:\Windows\Temp`, with exact absolute-path/containment/emptiness checks and absence verified afterward. No process was restarted or terminated: the handles had cleared naturally while idle. Git's worktree list retains only the seed and intentional replacement-proof worktree. The installed replacement still reports its expected version.
 
-Cleanup therefore passed in two stages: Git files/registration removal followed by empty-directory removal once the provider was idle. The setup guide preserves the initial failure and tested retry. Provider-restart cleanup was unnecessary and remains untested; this does not establish the independent PIN-942 client shutdown smoke. The seed, current replacement worktree and two evidence-bearing package slots remain intentionally available for reuse.
+Cleanup therefore passed in two stages: Git files/registration removal followed by empty-directory removal once the provider was idle. The setup guide preserves the initial failure and tested retry. Provider-restart cleanup was unnecessary and remains untested. This October cleanup did not establish the independent PIN-942 client shutdown smoke; the November client check above records eventual server exit separately. The seed, current replacement worktree and two evidence-bearing package slots remain intentionally available for reuse.
