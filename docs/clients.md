@@ -43,6 +43,12 @@ Use an absolute executable path for an explicit-path install. A repository-local
 
 Source: [official Codex MCP documentation](https://developers.openai.com/codex/mcp/).
 
+The [Windows Codex CLI check](verification/agent-connection.md#codex-cli-client-check--6-november-2026)
+records actual discovery/detail calls through `codex exec`, full Markdown and
+applicability delivery, and server shutdown. Run `codex mcp get` from the consumer
+directory: in the tested client version, `codex -C <directory> mcp get` did not
+load that project's server entry. The interactive `/mcp` interface was not tested.
+
 ## Claude Code
 
 This example deliberately uses user scope, making the server available across repositories. Use `--scope project` instead for a shared repository `.mcp.json`; review that configuration before committing it.
