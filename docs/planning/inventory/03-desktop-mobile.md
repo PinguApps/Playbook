@@ -27,8 +27,8 @@ is separate from native packaging/runtime proof. No GA or Human execution is cla
 
 PIN-929/PIN-930 authoring: canonical TernPublish/TernProxy .NET10 examples compile
 on Windows; current Apple RC2 handler/build sources are pinned in
-samples/AppleRoutes/sources.json. The current proxy C# source compiles against
-the exact RC2 iOS reference assembly. Current native builds fail NETSDK1147.
+samples/AppleRoutes/sources.json. Both current C# samples compile against
+their exact RC2 iOS/Mac Catalyst reference assemblies. Current native builds fail NETSDK1147.
 Native publish artifacts, universal slices, registrar/runtime execution and Apple
 first-destination/CONNECT endpoint checks are explicitly not-tested under PIN-699.
 No GA reconciliation or pending Human execution is claimed.

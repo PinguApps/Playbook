@@ -14,7 +14,7 @@ try {
     foreach ($source in (Get-Content "$root/samples/AppleRoutes/sources.json" -Raw | ConvertFrom-Json)) {
         $bytes = $client.GetByteArrayAsync($source.url).GetAwaiter().GetResult()
         if ([Convert]::ToHexString([Security.Cryptography.SHA256]::HashData($bytes)).ToLowerInvariant() -cne $source.sha256) { throw "Changed official source: $($source.url)" }
-        $text = [Text.Encoding]::UTF8.GetString($bytes)
+        $text = if ($source.checks) { [Text.Encoding]::UTF8.GetString($bytes) } else { '' }
         foreach ($check in $source.checks) {
             if (-not $text.Contains($check)) { throw "Missing source contract '$check': $($source.url)" }
         }
@@ -39,6 +39,16 @@ try {
         & $Dotnet $compiler @arguments
         if ($LASTEXITCODE -ne 0) { throw 'Canonical proxy reference compilation failed' }
         Write-Host 'PASS canonical proxy C# reference compilation; no Apple native build or execution.'
+        $catalyst = Get-Content "$root/samples/AppleRoutes/sources.json" -Raw | ConvertFrom-Json | Where-Object asset
+        $bytes = $client.GetByteArrayAsync($catalyst.url).GetAwaiter().GetResult()
+        if ([Convert]::ToHexString([Security.Cryptography.SHA256]::HashData($bytes)).ToLowerInvariant() -cne $catalyst.sha256) { throw 'Changed Catalyst reference artifact' }
+        [IO.File]::WriteAllBytes("$scratch/catalyst.zip", $bytes)
+        Expand-Archive "$scratch/catalyst.zip" "$scratch/catalyst" -Force
+        $references = @(Get-ChildItem "$referenceDirectory/*.dll") + @(Get-Item "$scratch/catalyst/$($catalyst.asset)")
+        $arguments = @('/noconfig','/nostdlib+','/target:library','/nullable:enable','/langversion:15.0',"/out:$scratch/TernPublish.dll") + @($references | ForEach-Object { '/reference:' + $_.FullName }) + @(Get-ChildItem "$root/samples/net11.0/TernPublish/*.cs" | ForEach-Object FullName) + @("$scratch/GlobalUsings.cs")
+        & $Dotnet $compiler @arguments
+        if ($LASTEXITCODE -ne 0) { throw 'Canonical Catalyst reference compilation failed' }
+        Write-Host 'PASS canonical Catalyst C# reference compilation; no native publish or execution.'
     }
     if ($Record) {
         foreach ($name in 'TernPublish','TernProxy') {

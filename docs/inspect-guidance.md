@@ -3,8 +3,8 @@
 ## Apple deployment and native HTTP routes
 
 PIN-929/PIN-930 add TernPublish and TernProxy comparisons. .NET10 managed
-compilation passes on Windows. The current proxy source also compiles against the
-pinned RC2 iOS reference assembly. Current native builds fail NETSDK1147. Native
+compilation passes on Windows. Both current C# samples also compile against their
+pinned RC2 iOS/Mac Catalyst reference assemblies. Current native builds fail NETSDK1147. Native
 publish outputs, universal slices and first-destination/CONNECT endpoint behavior
 are explicitly not-tested under PIN-699; no native execution or GA proof is claimed.
 
@@ -26,7 +26,7 @@ Expect both edition11.0 recipes with complete canonical snippets and explicit
 source-review/native exclusions. Target10 has no applicable edition, preserving
 the eight foundations. Unusable proxies check proxy-independent offline retrieval,
 not OS network isolation. No package is published. `eng/Test-AppleRoutes.ps1 -CompileReference -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe'`
-rechecks pinned sources and the canonical proxy reference compilation; it does
+rechecks pinned sources and the canonical proxy and Catalyst reference compilation; it does
 not run the Apple handler or inspect native publish outputs.
 
 ## Android predictive back and Apple scene startup

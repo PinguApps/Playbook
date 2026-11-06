@@ -110,4 +110,7 @@ The selected runtime, native toolchain and route policy must match applicability
 
 ## Evidence
 
+The canonical net11 Catalyst C# compiles against the pinned RC2 Mac Catalyst reference assembly via eng/Test-AppleRoutes.ps1 -CompileReference. This is reference compilation, not native workload compilation, publish output or execution.
+
+
 SDK10.0.402/C#14 and SDK11.0.100-rc.3.26522.148/C#15 are intended sample pins. No preview language syntax or experimental API opt-in is used. The .NET10 examples compile on Windows; no native app execution is claimed. Exact Apple RC2 sources at a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d are checked by eng/Test-AppleRoutes.ps1. Current workload compilation, native publishing/signing, controlled Apple endpoint behavior and runtime/registrar execution are explicitly not-tested under PIN-699 because Apple runtime/Xcode is unavailable. Source review is not compilation or execution. No pending Human proof, package publication or GA certification is claimed. Packed-tool list/get verifies offline guidance delivery only. See applicability for exact source and asset identities.
