@@ -140,7 +140,7 @@
       "sdk": "10.0.402"
     },
     {
-      "scope": "Exact official RC2 sources reviewed; native compilation and execution not-tested.",
+      "scope": "Exact official RC2 sources reviewed. Canonical net11 proxy C# reference compilation passes against the pinned RC2 iOS reference assembly; no native workload compilation or execution.",
       "sample": "samples/net11.0/TernProxy/TernProxy.csproj",
       "language": "15.0",
       "kind": "official-review",

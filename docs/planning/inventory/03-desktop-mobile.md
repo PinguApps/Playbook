@@ -25,9 +25,17 @@ Apple launch/action delivery and current native compilation are not-tested under
 PIN-699. The actual Android reference includes the property; reference compilation
 is separate from native packaging/runtime proof. No GA or Human execution is claimed.
 
+PIN-929/PIN-930 authoring: canonical TernPublish/TernProxy .NET10 examples compile
+on Windows; current Apple RC2 handler/build sources are pinned in
+samples/AppleRoutes/sources.json. The current proxy C# source compiles against
+the exact RC2 iOS reference assembly. Current native builds fail NETSDK1147.
+Native publish artifacts, universal slices, registrar/runtime execution and Apple
+first-destination/CONNECT endpoint checks are explicitly not-tested under PIN-699.
+No GA reconciliation or pending Human execution is claimed.
+
 Source review: 16 October 2026, .NET 11 RC2 preparation baseline. These are proposed goal IDs and dispositions within the accepted scope, not published recipes or verification claims. Guidance targets GA; experimental capabilities remain included with labels. Compare the .NET 11 edition with .NET 10, using original examples.
 
-This pass records 87 disposition lines: 63 included goal candidates, eleven grouped subtopics, six excluded families, and seven unresolved items. Counts describe this register, not a final recipe total; some combined goals may split after applicability and sample work.
+The original 16 October pass recorded 87 disposition lines (before later delivery labels and grouping updates): 63 included goal candidates, eleven grouped subtopics, six excluded families, and seven unresolved items. Counts describe this register, not a final recipe total; some combined goals may split after applicability and sample work.
 
 ## Review boundary and evidence
 
@@ -249,11 +257,3 @@ All three .NET10 apps compiled. SDK11 RC3 native builds failed NETSDK1147;
 current native compilation/execution and unavailable Android/Apple interactions
 remain sample-specific PIN-699 not-tested exclusions. Official source/package
 identities are retained under samples/TernGuidance. No new Human gate or GA proof.
-
-PIN-929/PIN-930 authoring: canonical TernPublish/TernProxy .NET10 examples compile
-on Windows; current Apple RC2 handler/build sources are pinned in
-samples/AppleRoutes/sources.json. The current proxy C# source compiles against
-the exact RC2 iOS reference assembly. Current native builds fail NETSDK1147.
-Native publish artifacts, universal slices, registrar/runtime execution and Apple
-first-destination/CONNECT endpoint checks are explicitly not-tested under PIN-699.
-No GA reconciliation or pending Human execution is claimed.

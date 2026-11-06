@@ -13,7 +13,7 @@ public static class Route
         var handler = new SocketsHttpHandler
         {
             UseProxy = true,
-            Proxy = new WebProxy(proxy) { Credentials = proxyCredential },
+            Proxy = new WebProxy(proxy) { Credentials = proxyCredential, BypassProxyOnLocal = false, BypassList = [] },
             AllowAutoRedirect = false
         };
         return new HttpClient(handler) { BaseAddress = destination };

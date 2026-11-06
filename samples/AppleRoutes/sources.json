@@ -1,7 +1,16 @@
 [
   {
     "sha256": "ee5b6dff2651b8ae6e01a9daab11b6bc7784c6b9018d04de2ec94fe32b29ab5c",
-    "url": "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/src/Foundation/NSUrlSessionHandler.cs"
+    "url": "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/src/Foundation/NSUrlSessionHandler.cs",
+    "checks": [
+      "if (proxyConfigured)",
+      "proxy.GetProxy (destination)",
+      "Uri.UriSchemeHttp",
+      "proxy?.Credentials ?? sessionHandler.DefaultProxyCredentials",
+      "For plain HTTP destinations NSUrlSession doesn't deliver a proxy authentication challenge",
+      "NSUrlProtectionSpace.AuthenticationMethodHTTPDigest",
+      "credentials is CredentialCache"
+    ]
   },
   {
     "sha256": "a6e1687d5e4d3cde4f386f8027e34a3a0a92e9cd67bc84ed8611908e8968a68a",
