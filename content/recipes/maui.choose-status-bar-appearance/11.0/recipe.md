@@ -18,11 +18,11 @@ The Android-only MauiAndroidSystemBarsUseMauiChrome project opt-in matches suppo
 
 ## Constraints
 
-SDK/runtime11, C#15, Controls11.0.0-rc.2.26505.5 and matching MAUI workload are intended current pins; older comparison uses SDK10.0.402, C#14 and Controls10.0.110. Native controls, no web rendering mode, external provider or account. Stable APIs, no experimental opt-in. No documented older-target package route. 
+SDK/runtime11, C#15, Controls11.0.0-rc.2.26505.5 and matching MAUI workload are intended current pins; older comparison uses SDK10.0.402, C#14 and Controls10.0.110. Native controls, no web rendering mode, no external provider or account. Stable APIs, no experimental opt-in. No documented older-target package route.
 
 ## Evidence
 
-Actual RC2 package XML and immutable implementation reviewed; the current native build and all native interactions are not-tested under PIN-699. The .NET10 Android Release app compiled with the existing system SDK10.0.402 and MAUI10 toolchain. SDK11 build failed NETSDK1147 before compilation. Packed MCP retrieval proves content delivery only. No GA proof or new Human gate.
+Actual RC2 package XML and immutable implementation reviewed; the current native build and all native interactions are not-tested under PIN-699. The .NET10 Android Release app compiled with the existing system SDK10.0.402 and MAUI10 toolchain, with RunAOTCompilation=false. This does not establish AOT success. SDK11 build failed NETSDK1147 before compilation. Packed MCP retrieval proves content delivery only. No GA proof or new Human gate.
 
 ## Migration
 

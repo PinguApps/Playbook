@@ -14,17 +14,17 @@ The .NET10 comparison retains the station and asks the operator to retake an int
 
 The .NET11 Android recovery button first reads the non-consuming snapshot. If empty, it waits with a cancellable ten-second token. Canceling this wait removes the listener; it does not discard the operation. Retry after startup/resume when AndroidX replay arrives. Recovery is Android-only static MediaPicker API, not IMediaPicker and not a portable service method.
 
-Persist destination identity before capture. Copy each recovered file through OpenReadAsync into app-owned storage, then clear the recovered ID. The station hash supplies an idempotent destination if the app dies after copying but before clearing. Do not clear on failed copy. The narrow example accepts only CapturePhoto; orphaned and other operation kinds remain untouched for explicit user reconciliation. Get and Wait do not consume results. Clear acknowledges a published result; DiscardPendingMediaPickerOperationAsync abandons an unreplayed pending operation and can lose a late result. It does not cancel an active in-process picker. The sample asks before discarding. Published orphans need a separate explicit keep/discard decision by ID, not an automatic assignment to the current station.
+Persist destination identity before capture. Copy each recovered file through OpenReadAsync into app-owned storage, then clear the recovered ID. The station hash supplies an idempotent destination if the app dies after copying but before clearing. Do not clear on failed copy. The narrow example accepts only CapturePhoto, whose operation yields one photo; multi-file picking requires separate per-file destination identities and is outside this workflow. orphaned and other operation kinds remain untouched for explicit user reconciliation. Get and Wait do not consume results. Clear acknowledges a published result; DiscardPendingMediaPickerOperationAsync abandons an unreplayed pending operation and can lose a late result. It does not cancel an active in-process picker. The sample asks before discarding. Published orphans need a separate explicit keep/discard decision by ID, not an automatic assignment to the current station.
 
 Do not infer success from file existence or erase state merely because the first snapshot is empty. AndroidX activity-result replay is the recovery signal. Serialize startup/resume inspection with capture and disable duplicate actions in a production UI. This teaching page exposes a manual recovery button so replay inspection is intentional.
 
 ## Constraints
 
-SDK/runtime11, C#15, Controls11.0.0-rc.2.26505.5 and matching MAUI workload are intended current pins; older comparison uses SDK10.0.402, C#14 and Controls10.0.110. Native controls, no web rendering mode, external provider or account. Stable APIs, no experimental opt-in. No documented older-target package route. 
+SDK/runtime11, C#15, Controls11.0.0-rc.2.26505.5 and matching MAUI workload are intended current pins; older comparison uses SDK10.0.402, C#14 and Controls10.0.110. Native controls, no web rendering mode, no external provider or account. Stable APIs, no experimental opt-in. No documented older-target package route.
 
 ## Evidence
 
-Actual RC2 package XML and immutable implementation reviewed; the current native build and all native interactions are not-tested under PIN-699. The .NET10 Android Release app compiled with the existing system SDK10.0.402 and MAUI10 toolchain. SDK11 build failed NETSDK1147 before compilation. Packed MCP retrieval proves content delivery only. No GA proof or new Human gate.
+Actual RC2 package XML and immutable implementation reviewed; the current native build and all native interactions are not-tested under PIN-699. The .NET10 Android Release app compiled with the existing system SDK10.0.402 and MAUI10 toolchain, with RunAOTCompilation=false. This does not establish AOT success. SDK11 build failed NETSDK1147 before compilation. Packed MCP retrieval proves content delivery only. No GA proof or new Human gate.
 
 ## Migration
 
