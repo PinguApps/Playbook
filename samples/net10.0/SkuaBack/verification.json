@@ -1,0 +1,18 @@
+{
+  "buildArguments": [],
+  "workloads": [
+    "android/36.1.118/10.0.100"
+  ],
+  "dependencies": [
+    "Microsoft.NET.ILLink.Tasks/10.0.13"
+  ],
+  "nativeToolchains": [
+    "JDK/21.0.8",
+    "AndroidBuildTools/36.0.0"
+  ],
+  "additionalInputs": [
+    "samples/LifecycleGuidance/sources.json",
+    "samples/LifecycleGuidance/artifacts.json",
+    "eng/Test-LifecycleGuidance.ps1"
+  ]
+}

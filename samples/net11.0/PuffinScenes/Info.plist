@@ -1,0 +1,19 @@
+<!-- snippet:complete -->
+<?xml version="1.0" encoding="UTF-8"?>
+<plist version="1.0"><dict>
+  <key>UIDeviceFamily</key><array><integer>1</integer><integer>2</integer></array>
+  <key>UIApplicationShortcutItems</key><array><dict>
+    <key>UIApplicationShortcutItemType</key><string>org.puffin.new-observation</string>
+    <key>UIApplicationShortcutItemTitle</key><string>Record puffin</string>
+  </dict></array>
+  <key>UIApplicationSceneManifest</key><dict>
+    <key>UIApplicationSupportsMultipleScenes</key><false/>
+    <key>UISceneConfigurations</key><dict>
+      <key>UIWindowSceneSessionRoleApplication</key><array><dict>
+        <key>UISceneConfigurationName</key><string>Puffin notebook</string>
+        <key>UISceneDelegateClassName</key><string>PuffinSceneDelegate</string>
+      </dict></array>
+    </dict>
+  </dict>
+</dict></plist>
+<!-- endsnippet:complete -->
