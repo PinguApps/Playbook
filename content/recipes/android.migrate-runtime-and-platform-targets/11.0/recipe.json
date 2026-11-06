@@ -1,0 +1,261 @@
+{
+  "id": "android.migrate-runtime-and-platform-targets",
+  "edition": "11.0",
+  "title": "Choose Android runtime, device floor and build tools",
+  "goal": "Move an Android application to API24 and supported architectures; align JDK and trimming with its runtime.",
+  "areas": [
+    "android"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "coastal-probe",
+    "migration"
+  ],
+  "apis": [
+    "UseMonoRuntime",
+    "PublishTrimmed",
+    "PublishReadyToRun",
+    "SupportedOSPlatformVersion"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Comparisons preserve the eight .NET10 foundations; no older route added."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Android CoreCLR; NativeAOT is an experimental alternative, not executed."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Sample pins RC3; reviewed Android RC2 assets are not a tested RC3 workload composition."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "No preview syntax."
+          },
+          "frameworks": [
+            ".NET for Android"
+          ],
+          "packages": [],
+          "workloads": [
+            {
+              "name": "android",
+              "version": "37.2.0-rc.2.84",
+              "match": "exact",
+              "reason": "Reviewed workload artifact; matching SDK workload required."
+            }
+          ],
+          "packageAssets": [
+            "Microsoft.Android.Ref.37.2/37.2.0-rc.2.84 ref/net11.0/Mono.Android.dll"
+          ],
+          "providers": [
+            "No external service or account"
+          ],
+          "platforms": [
+            "Android API24+; arm64 canonical sample; x86 removed in .NET11"
+          ],
+          "renderingModes": [
+            "Native Android Activity; no Blazor render mode"
+          ],
+          "prerequisites": [
+            "JDK21 or25, Android SDK including selected API; Gradle9.1+ if invoked using JDK25.",
+            "A compatible native workload. The current sample build reports NETSDK1147."
+          ],
+          "constraints": [
+            ".NET10 sample is comparison-only, not a supported older-target route.",
+            "No Android device, JNI order, NativeAOT, or GA execution proof."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "RC source/artifact evidence, not GA certification.",
+            "Android NativeAOT remains experimental."
+          ]
+        },
+        "sourceUrls": [
+          "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/rc2/dotnetmaui.md",
+          "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/preview5/dotnetmaui.md",
+          "https://raw.githubusercontent.com/dotnet/docs-maui/e0fae4d0def74961bfe9633f96ca3420b18c4364/docs/whats-new/dotnet-11.md",
+          "https://raw.githubusercontent.com/dotnet/android/801f9ecbab5118b13d21cb52409e507ad4b2feb7/Documentation/docs-mobile/building-apps/build-properties.md",
+          "https://raw.githubusercontent.com/dotnet/android/801f9ecbab5118b13d21cb52409e507ad4b2feb7/Documentation/docs-mobile/building-apps/build-items.md",
+          "https://raw.githubusercontent.com/dotnet/android/801f9ecbab5118b13d21cb52409e507ad4b2feb7/src/Microsoft.Android.Sdk.TrimmableTypeMap/README.md",
+          "https://raw.githubusercontent.com/dotnet/android/801f9ecbab5118b13d21cb52409e507ad4b2feb7/src/Xamarin.Android.Build.Tasks/Microsoft.Android.Sdk/targets/Microsoft.Android.Sdk.DefaultProperties.targets",
+          "https://raw.githubusercontent.com/dotnet/android/801f9ecbab5118b13d21cb52409e507ad4b2feb7/external/Java.Interop/src/Java.Interop.NamingCustomAttributes/Java.Interop/ExportAttribute.cs"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/CoastalProbe/CoastalProbe.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Official pinned Android/MAUI source",
+      "url": "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/rc2/dotnetmaui.md"
+    },
+    {
+      "title": "Official pinned Android/MAUI source",
+      "url": "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/preview5/dotnetmaui.md"
+    },
+    {
+      "title": "Official pinned Android/MAUI source",
+      "url": "https://raw.githubusercontent.com/dotnet/docs-maui/e0fae4d0def74961bfe9633f96ca3420b18c4364/docs/whats-new/dotnet-11.md"
+    },
+    {
+      "title": "Official pinned Android/MAUI source",
+      "url": "https://raw.githubusercontent.com/dotnet/android/801f9ecbab5118b13d21cb52409e507ad4b2feb7/Documentation/docs-mobile/building-apps/build-properties.md"
+    },
+    {
+      "title": "Official pinned Android/MAUI source",
+      "url": "https://raw.githubusercontent.com/dotnet/android/801f9ecbab5118b13d21cb52409e507ad4b2feb7/Documentation/docs-mobile/building-apps/build-items.md"
+    },
+    {
+      "title": "Official pinned Android/MAUI source",
+      "url": "https://raw.githubusercontent.com/dotnet/android/801f9ecbab5118b13d21cb52409e507ad4b2feb7/src/Microsoft.Android.Sdk.TrimmableTypeMap/README.md"
+    },
+    {
+      "title": "Official pinned Android/MAUI source",
+      "url": "https://raw.githubusercontent.com/dotnet/android/801f9ecbab5118b13d21cb52409e507ad4b2feb7/src/Xamarin.Android.Build.Tasks/Microsoft.Android.Sdk/targets/Microsoft.Android.Sdk.DefaultProperties.targets"
+    },
+    {
+      "title": "Official pinned Android/MAUI source",
+      "url": "https://raw.githubusercontent.com/dotnet/android/801f9ecbab5118b13d21cb52409e507ad4b2feb7/external/Java.Interop/src/Java.Interop.NamingCustomAttributes/Java.Interop/ExportAttribute.cs"
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "compile",
+      "sample": "samples/net10.0/CoastalProbe/CoastalProbe.csproj",
+      "target": "net10.0-android36.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "scope": "Actual Release APK build and generated Java callback; no device execution."
+    },
+    {
+      "kind": "official-review",
+      "sample": "samples/net11.0/CoastalProbe/CoastalProbe.csproj",
+      "target": "net11.0-android37.2",
+      "sdk": "11.0.100-rc.3.26522.148",
+      "language": "15.0",
+      "scope": "RC2 source and actual reference metadata; RC3 build fails NETSDK1147. No native compile or execution."
+    }
+  ],
+  "humanProof": {
+    "status": "not-tested",
+    "scope": "PIN-699: both samples device/JNI execution unavailable; .NET11 native compilation unavailable. No pending Human action or GA proof.",
+    "untestedSamples": [
+      "samples/net10.0/CoastalProbe/CoastalProbe.csproj",
+      "samples/net11.0/CoastalProbe/CoastalProbe.csproj"
+    ]
+  },
+  "snippets": {
+    "net10-coastalprobe-csproj": {
+      "path": "samples/net10.0/CoastalProbe/CoastalProbe.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "net10-mainactivity-cs": {
+      "path": "samples/net10.0/CoastalProbe/MainActivity.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "net10-probepeer-cs": {
+      "path": "samples/net10.0/CoastalProbe/ProbePeer.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "net10-properties-androidmanifest-xml": {
+      "path": "samples/net10.0/CoastalProbe/Properties/AndroidManifest.xml",
+      "region": "complete",
+      "language": "xml"
+    },
+    "net10-global-json": {
+      "path": "samples/net10.0/CoastalProbe/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "net11-coastalprobe-csproj": {
+      "path": "samples/net11.0/CoastalProbe/CoastalProbe.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "net11-mainactivity-cs": {
+      "path": "samples/net11.0/CoastalProbe/MainActivity.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "net11-probepeer-cs": {
+      "path": "samples/net11.0/CoastalProbe/ProbePeer.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "net11-properties-androidmanifest-xml": {
+      "path": "samples/net11.0/CoastalProbe/Properties/AndroidManifest.xml",
+      "region": "complete",
+      "language": "xml"
+    },
+    "net11-global-json": {
+      "path": "samples/net11.0/CoastalProbe/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "net10-bindings-probebindings-csproj": {
+      "path": "samples/net10.0/CoastalProbe/Bindings/ProbeBindings.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "net10-directory-build-props": {
+      "path": "samples/net10.0/CoastalProbe/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "net10-directory-build-targets": {
+      "path": "samples/net10.0/CoastalProbe/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "net10-directory-packages-props": {
+      "path": "samples/net10.0/CoastalProbe/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "net11-bindings-probebindings-csproj": {
+      "path": "samples/net11.0/CoastalProbe/Bindings/ProbeBindings.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "net11-directory-build-props": {
+      "path": "samples/net11.0/CoastalProbe/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "net11-directory-build-targets": {
+      "path": "samples/net11.0/CoastalProbe/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "net11-directory-packages-props": {
+      "path": "samples/net11.0/CoastalProbe/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    }
+  }
+}

@@ -1,5 +1,19 @@
 # Desktop, mobile, and platform workload inventory
 
+PIN-923/PIN-924 delivery: `android.migrate-runtime-and-platform-targets` groups
+`android.configure-build-toolchain` and authored trimming/R2R; intentional manifest
+behavior remains `android.declare-target-sdk-intentionally`. Java peer and preload
+goals retain `android.migrate-java-peer-binding` and
+`android.control-native-library-preloading`, all edition11.0. Original CoastalProbe
+samples compare .NET10 Mono with the .NET11 CoreCLR route. Exact inputs live in
+`samples/CoastalProbe/{sources,artifacts}.json`; the source/reference check is
+`eng/Test-CoastalProbe.ps1`. The .NET10 Android36.1.118 build produces the owned
+peer library and app; current native build fails NETSDK1147. Current compilation,
+optional JNI-library generation/load ordering and both editions' device execution
+remain explicitly not-tested under PIN-699. RC2 artifact review does not establish
+a compatible RC3 workload composition or GA evidence. PIN-1069 package replacement
+and PIN-966 final reconciliation retain their separate scope.
+
 Source review: 16 October 2026, .NET 11 RC2 preparation baseline. These are proposed goal IDs and dispositions within the accepted scope, not published recipes or verification claims. Guidance targets GA; experimental capabilities remain included with labels. Compare the .NET 11 edition with .NET 10, using original examples.
 
 This pass records 87 disposition lines: 63 included goal candidates, eleven grouped subtopics, six excluded families, and seven unresolved items. Counts describe this register, not a final recipe total; some combined goals may split after applicability and sample work.

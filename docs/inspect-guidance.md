@@ -1,5 +1,34 @@
 # Inspect the guidance an agent receives
 
+## Android runtime, manifest, Java peers and JNI loading
+
+PIN-923/PIN-924 add original CoastalProbe comparisons. The .NET10 Release build
+compiles the owned peer library and app using SDK10.0.402, Android36.1.118,
+JDK21.0.8 and build-tools36.0.0. Current RC3 native compilation fails NETSDK1147;
+RC2 source/manifest/reference artifacts are reviewed separately. Device behavior,
+current typemap generation and the optional JNI binary/load ordering are explicitly
+not-tested under PIN-699. No GA verification is claimed.
+
+Run from any directory; this selects the task worktree, builds/packs the ordinary
+tool, installs it into an isolated feed/cache and retrieves actual stdio discovery,
+full Markdown, edition and applicability with unusable proxies for offline calls:
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-61fb9621'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('android.migrate-runtime-and-platform-targets','android.declare-target-sdk-intentionally','android.migrate-java-peer-binding','android.control-native-library-preloading') `
+  -Query 'coastal-probe' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -RecipeEdition '11.0' -PackageVersion '0.0.0-pin923-924' -BuildAndPack `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' -OutputDirectory './artifacts/android/inspection'
+```
+
+Expect four edition11.0 recipes, complete canonical snippets and explicit native
+limits. Target10 has no applicable edition; its samples are comparisons. This is
+proxy-independent offline delivery, not OS network isolation or native execution.
+`eng/Test-CoastalProbe.ps1` rechecks exact sources/artifacts and actual JavaFinalize
+obsolete metadata without installing workloads or executing downloaded assemblies.
+
 ## Linux TLS binding and Windows-authentication fallback
 
 PIN-1039/PIN-1103 add original Gannet comparisons using actual .NET10.0.14 and
