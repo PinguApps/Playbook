@@ -46,6 +46,7 @@ public sealed class SurveyPage : ContentPage
                 var results = await MediaPicker.GetRecoveredMediaPickerResultsAsync();
                 if (results.Count == 0) results = await MediaPicker.WaitForRecoveredMediaPickerResultsAsync(wait.Token);
                 var key = Preferences.Default.Get("reef.pending", "");
+                if (results.Count != 1) { status.Text = "Resolve ambiguous recovered results before continuing"; return; }
                 foreach (var result in results)
                 {
                     // Do not guess ownership of an orphan or an unexpected picker operation.
@@ -88,4 +89,5 @@ public sealed class SurveyPage : ContentPage
     }
 }
 // endsnippet:complete
+
 
