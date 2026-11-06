@@ -1,0 +1,254 @@
+{
+  "id": "android.preserve-r8-sensitive-members",
+  "edition": "11.0",
+  "title": "Preserve Java names used by lookup under R8",
+  "goal": "Keep only the Java classes and members accessed by name when migrating an R8-enabled Android app to optimization and private-member obfuscation.",
+  "areas": [
+    "android"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "breakwater-guidance",
+    "migration"
+  ],
+  "apis": [
+    "AndroidR8ObfuscationMode",
+    "ProguardConfiguration",
+    "Class.GetDeclaredMethod"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Comparisons preserve the eight .NET10 foundations; no older route added."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Android CoreCLR; NativeAOT is an experimental alternative, not executed."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Sample pins RC3; reviewed Android RC2 assets are not a tested RC3 workload composition."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "No preview syntax."
+          },
+          "frameworks": [
+            ".NET for Android"
+          ],
+          "packages": [],
+          "workloads": [
+            {
+              "name": "android",
+              "version": "11.0",
+              "match": "release-family",
+              "reason": "Compatible .NET11 Android workload required. Reviewed RC2 manifest/reference assets are37.2.0-rc.2.84; no compatible RC3 workload composition was tested."
+            }
+          ],
+          "packageAssets": [
+            "Microsoft.Android.Ref.37.2/37.2.0-rc.2.84 ref/net11.0/Mono.Android.dll"
+          ],
+          "providers": [
+            "No external service or account"
+          ],
+          "platforms": [
+            "Android API24+; arm64 canonical sample; x86 removed in .NET11"
+          ],
+          "renderingModes": [
+            "Native Android Activity; no Blazor render mode"
+          ],
+          "prerequisites": [
+            "Compatible Android workload, Android SDK and JDK21/25.",
+            "No service/account provisioning; use owned endpoints and Java code."
+          ],
+          "constraints": [
+            ".NET10 is comparison-only; no older-target route.",
+            "Device behavior and current native compilation not-tested under PIN-699."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "RC source/artifact evidence, not GA certification.",
+            "Android NativeAOT remains experimental."
+          ]
+        },
+        "sourceUrls": [
+          "https://raw.githubusercontent.com/dotnet/android/801f9ecbab5118b13d21cb52409e507ad4b2feb7/src/Mono.Android/Xamarin.Android.Net/AndroidMessageHandler.cs",
+          "https://raw.githubusercontent.com/dotnet/android/801f9ecbab5118b13d21cb52409e507ad4b2feb7/Documentation/docs-mobile/building-apps/build-properties.md",
+          "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/rc2/dotnetmaui.md"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/BreakwaterNames/BreakwaterNames.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Pinned official Android contract",
+      "url": "https://raw.githubusercontent.com/dotnet/android/801f9ecbab5118b13d21cb52409e507ad4b2feb7/src/Mono.Android/Xamarin.Android.Net/AndroidMessageHandler.cs"
+    },
+    {
+      "title": "Pinned official Android contract",
+      "url": "https://raw.githubusercontent.com/dotnet/android/801f9ecbab5118b13d21cb52409e507ad4b2feb7/Documentation/docs-mobile/building-apps/build-properties.md"
+    },
+    {
+      "title": "Pinned official Android contract",
+      "url": "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/rc2/dotnetmaui.md"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/BreakwaterNames/BreakwaterNames.csproj",
+      "language": "14.0",
+      "scope": "Actual Release APK build; no device execution.",
+      "kind": "compile",
+      "target": "net10.0-android36.0",
+      "sdk": "10.0.402"
+    },
+    {
+      "sample": "samples/net11.0/BreakwaterNames/BreakwaterNames.csproj",
+      "language": "15.0",
+      "scope": "Pinned RC2 source contracts; RC3 native compilation unavailable.",
+      "kind": "official-review",
+      "target": "net11.0-android37.2",
+      "sdk": "11.0.100-rc.3.26522.148"
+    },
+    {
+      "scope": "Actual R8 classfile optimization; javap confirms exact kept method and unused method removal. Not device or current workload execution.",
+      "kind": "execution",
+      "language": "14.0",
+      "sample": "samples/net10.0/BreakwaterNames/BreakwaterNames.csproj",
+      "target": "net10.0-android36.0",
+      "sdk": "10.0.402",
+      "record": "samples/net10.0/BreakwaterNames/r8.evidence.json"
+    }
+  ],
+  "humanProof": {
+    "untestedSamples": [
+      "samples/net10.0/BreakwaterNames/BreakwaterNames.csproj",
+      "samples/net11.0/BreakwaterNames/BreakwaterNames.csproj"
+    ],
+    "scope": "PIN-699: Android device execution for both samples and .NET11 native compilation unavailable. No pending Human action, GA or native execution claim.",
+    "status": "not-tested"
+  },
+  "snippets": {
+    "net11-beacon-pro": {
+      "language": "text",
+      "path": "samples/net11.0/BreakwaterNames/beacon.pro",
+      "region": "complete"
+    },
+    "net11-mainactivity-cs": {
+      "language": "csharp",
+      "path": "samples/net11.0/BreakwaterNames/MainActivity.cs",
+      "region": "complete"
+    },
+    "net10-beacon-pro": {
+      "language": "text",
+      "path": "samples/net10.0/BreakwaterNames/beacon.pro",
+      "region": "complete"
+    },
+    "net11-beacon-java": {
+      "language": "java",
+      "path": "samples/net11.0/BreakwaterNames/Java/Beacon.java",
+      "region": "complete"
+    },
+    "net11-directory-build-targets": {
+      "language": "xml",
+      "path": "samples/net11.0/BreakwaterNames/Directory.Build.targets",
+      "region": "complete"
+    },
+    "net10-breakwaternames-csproj": {
+      "language": "xml",
+      "path": "samples/net10.0/BreakwaterNames/BreakwaterNames.csproj",
+      "region": "complete"
+    },
+    "net10-namereader-cs": {
+      "language": "csharp",
+      "path": "samples/net10.0/BreakwaterNames/NameReader.cs",
+      "region": "complete"
+    },
+    "net11-namereader-cs": {
+      "language": "csharp",
+      "path": "samples/net11.0/BreakwaterNames/NameReader.cs",
+      "region": "complete"
+    },
+    "net10-androidmanifest-xml": {
+      "language": "xml",
+      "path": "samples/net10.0/BreakwaterNames/Properties/AndroidManifest.xml",
+      "region": "complete"
+    },
+    "net11-androidmanifest-xml": {
+      "language": "xml",
+      "path": "samples/net11.0/BreakwaterNames/Properties/AndroidManifest.xml",
+      "region": "complete"
+    },
+    "net11-breakwaternames-csproj": {
+      "language": "xml",
+      "path": "samples/net11.0/BreakwaterNames/BreakwaterNames.csproj",
+      "region": "complete"
+    },
+    "net11-directory-build-props": {
+      "language": "xml",
+      "path": "samples/net11.0/BreakwaterNames/Directory.Build.props",
+      "region": "complete"
+    },
+    "net10-global-json": {
+      "language": "json",
+      "path": "samples/net10.0/BreakwaterNames/global.json",
+      "region": "complete"
+    },
+    "net10-directory-build-props": {
+      "language": "xml",
+      "path": "samples/net10.0/BreakwaterNames/Directory.Build.props",
+      "region": "complete"
+    },
+    "net10-directory-build-targets": {
+      "language": "xml",
+      "path": "samples/net10.0/BreakwaterNames/Directory.Build.targets",
+      "region": "complete"
+    },
+    "net10-beacon-java": {
+      "language": "java",
+      "path": "samples/net10.0/BreakwaterNames/Java/Beacon.java",
+      "region": "complete"
+    },
+    "net11-global-json": {
+      "language": "json",
+      "path": "samples/net11.0/BreakwaterNames/global.json",
+      "region": "complete"
+    },
+    "net11-directory-packages-props": {
+      "language": "xml",
+      "path": "samples/net11.0/BreakwaterNames/Directory.Packages.props",
+      "region": "complete"
+    },
+    "net10-directory-packages-props": {
+      "language": "xml",
+      "path": "samples/net10.0/BreakwaterNames/Directory.Packages.props",
+      "region": "complete"
+    },
+    "net10-mainactivity-cs": {
+      "language": "csharp",
+      "path": "samples/net10.0/BreakwaterNames/MainActivity.cs",
+      "region": "complete"
+    }
+  }
+}

@@ -6,12 +6,12 @@
   "language": "14.0",
   "command": "eng/Test-BreakwaterGuidance.ps1 -Record",
   "scope": "JDK21 classfile compilation and real R8 optimization of canonical Beacon.java; javap confirms signal retained and unused removed. Not Android DEX/JNI execution or .NET11 workload proof.",
-  "recordedAt": "2026-11-06T19:59:11.0841434+00:00",
-  "sourceCommit": "22d9bbd5bc5902f5eb68942bc648518d5a5bbc58",
+  "recordedAt": "2026-11-06T20:01:53.8912187+00:00",
+  "sourceCommit": "1442f728467845a9d31dee8140a5dd5e3149cb94",
   "sourceDirty": true,
   "inputs": {
     "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
-    "samples/Breakwater/sources.json": "268d94b710574dd31c8a32526d015e8a3c85aee99f7e3e355ad4192acc3413d9",
+    "samples/Breakwater/sources.json": "276fc242f6162e1b50d3ed9240bb64fc0dea786286665c9820bc32a79286f4a5",
     "samples/net10.0/BreakwaterNames/beacon.pro": "24d96f470e583fe1045ca048ecd132d06bead9da7eba29bb5a07dff890f5b537",
     "samples/net10.0/BreakwaterNames/BreakwaterNames.csproj": "8dcfe65b075e505de8ec872bb92b679ad7add1a34637eae93d22800815e51be1",
     "samples/net10.0/BreakwaterNames/Directory.Build.props": "4892f7956b79d97f8b78bff39bfcbb66219aae5b0b4fbd7ac5c5fc00d8d351b6",
@@ -21,9 +21,9 @@
     "samples/net10.0/BreakwaterNames/Java/Beacon.java": "78f966cd9a84a37384fb1d167008bfbe4ff2f030c9a6968907d50fce7258f8c7",
     "samples/net10.0/BreakwaterNames/MainActivity.cs": "13f4f9d202f61944230160dbda5b9f14e91f3a39bce5586434e063d4fa23318a",
     "samples/net10.0/BreakwaterNames/NameReader.cs": "2f7b3fb145225f438b30dcba7d1584d9748a1f9faac83fcdb1efb32de0e036ee",
-    "samples/net10.0/BreakwaterNames/packages.lock.json": "f81aa2a1218f590fd0b79b91432ca24f9e4f65788ee26ba94eb83373261628e6",
+    "samples/net10.0/BreakwaterNames/packages.lock.json": "819f97cac5a9e2af0adb3d8916208c5e9492ef75b0896cd3eff7a004523491ec",
     "samples/net10.0/BreakwaterNames/Properties/AndroidManifest.xml": "3ea7d096e7916d60c52d999866b7db705d237f7f51fb8b3a6509df9581073124",
-    "samples/net10.0/BreakwaterNames/verification.json": "90b32ee91cceb03a96b324dac0d3de564dbdc49cab4967888a6552ba340d6be9"
+    "samples/net10.0/BreakwaterNames/verification.json": "66d1685a8227b63fc9cfcaf46922568fc4630cb59dc5a31b4fc0f8bdc6576c80"
   },
   "dependencies": [
     "Microsoft.NET.ILLink.Tasks/10.0.13"
@@ -37,6 +37,6 @@
   ],
   "host": "Microsoft Windows 10.0.26200",
   "sdkInfo": "openjdk version \"21.0.8\" 2025-07-15 LTS\r\nOpenJDK Runtime Environment Microsoft-11933218 (build 21.0.8+9-LTS)\r\nOpenJDK 64-Bit Server VM Microsoft-11933218 (build 21.0.8+9-LTS, mixed mode, sharing)\r\n",
-  "workloadInfo": "R8 SHA256=dd64b4e1473a547eaa0e2426770c3f1ecfe04a5a7923d967dba2af8cb313def9; Java input SHA256=87ace20115517b3e0f26568393f9bd993826a03b960c2a0e8f98b838157b9073; optimized output SHA256=7c52a58b5df0c7618974cf5c6c07990820fd33185a5f8cfc4096d90fc902bf49",
+  "workloadInfo": "R8 SHA256=dd64b4e1473a547eaa0e2426770c3f1ecfe04a5a7923d967dba2af8cb313def9; Java input SHA256=2fb7a20595a12ece7a41056658688e8a87c0960eb33e6b6254c2cb9fcf1681b4; optimized output SHA256=7c52a58b5df0c7618974cf5c6c07990820fd33185a5f8cfc4096d90fc902bf49",
   "output": "Compiled from \"SourceFile\"\r\npublic final class org.breakwater.names.Beacon {\r\n  public org.breakwater.names.Beacon();\r\n  private java.lang.String signal();\r\n}\r\n"
 }
