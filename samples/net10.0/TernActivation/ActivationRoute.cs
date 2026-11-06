@@ -31,8 +31,11 @@ internal static class Receipt
 {
     public static void Record(AppActivationArguments args)
     {
+        // Only the fixed, credential-free test URI may enter the receipt.
         string value = args.Data is IProtocolActivatedEventArgs protocol
-            ? protocol.Uri.AbsoluteUri : args.Kind.ToString();
+            ? protocol.Uri.AbsoluteUri == "playbook-tern-pin919://callback/?ticket=919"
+                ? protocol.Uri.AbsoluteUri : "Protocol (redacted)"
+            : args.Kind.ToString();
         File.AppendAllText(Path.Combine(AppContext.BaseDirectory, "activation.txt"),
             $"{Environment.ProcessId}|{value}{Environment.NewLine}");
     }

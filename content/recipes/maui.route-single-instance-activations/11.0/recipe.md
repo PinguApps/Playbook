@@ -12,9 +12,9 @@ The .NET 10 comparison owns Windows AppInstance registration in the native appli
 
 {{snippet:samples-net11-0-ternactivation-activationroute-cs}}
 
-The .NET 11 OnAppInstanceActivated lifecycle hook handles both initial activation and later redirected requests. MAUI dispatches later callbacks onto the application dispatcher and waits until handlers have consumed their data. Register one stable, application-specific key. A secondary instance redirects synchronously to the primary, then exits. Only return true when suppressing normal startup is intentional; the owning instance returns false so its initial window is created. Avoid waiting on work that needs the same UI thread.
+The .NET 11 OnAppInstanceActivated lifecycle hook handles both initial activation and later redirected requests. MAUI dispatches later callbacks onto the application dispatcher and waits until handlers have consumed their data. Register one stable, application-specific key. A secondary instance starts an asynchronous redirect, returns true to suppress its window, and exits only after transfer completes. A failed transfer exits with code1. The owning instance returns false so its initial window is created. Keep the dispatcher free while transfer is pending.
 
-This sample logs the complete URI only for a synthetic callback without credentials. Real callback handlers must validate scheme, host, path and correlation state and avoid logging authorization codes or tokens. Receiving a URI proves delivery, not authentication. MAUI can deliver WebAuthenticator callbacks through this lifecycle path, but this sample does not perform provider sign-in or token exchange.
+This sample logs the complete URI only when it exactly matches the fixed synthetic callback without credentials; other protocol URIs are redacted. Real callback handlers must validate scheme, host, path and correlation state and avoid logging authorization codes or tokens. Receiving a URI proves delivery, not authentication. MAUI can deliver WebAuthenticator callbacks through this lifecycle path, but this sample does not perform provider sign-in or token exchange.
 
 ## Migration
 
@@ -30,7 +30,7 @@ Windows only, native MAUI/WinUI; no web rendering mode, provider or account. The
 
 ## Evidence
 
-The actual .NET10 Windows Release app compiled. Separate processes 54424 and 54468 established launch redirection: the second exited with code0 and both launch receipts were written by54424. A real Windows protocol launch delivered playbook-tern-pin919://callback/?ticket=919 to54424. Temporary registration was removed, including its empty leftover root key. This is protocol delivery only, not WebAuthenticator/provider authentication. Current .NET11 compilation was attempted with SDK11 RC3 and failed NETSDK1147; current compilation/execution are explicitly not-tested under PIN-699. No MSIX deployment or trust change was tested.
+The actual .NET10 Windows Release app compiled. Separate processes 79376 and 77072 established launch redirection: the second exited with code0 and both launch receipts were written by79376. A real Windows protocol launch delivered playbook-tern-pin919://callback/?ticket=919 to79376. An additional protocol URI with a synthetic code parameter was received as Protocol (redacted), without persisting its query. Temporary registration was removed, including its empty leftover root key. This is protocol delivery only, not WebAuthenticator/provider authentication. Current .NET11 compilation was attempted with SDK11 RC3 and failed NETSDK1147; current compilation/execution are explicitly not-tested under PIN-699. No MSIX deployment or trust change was tested.
 
 ## Canonical inputs
 
