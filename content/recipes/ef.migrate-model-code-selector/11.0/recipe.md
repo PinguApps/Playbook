@@ -90,5 +90,4 @@ Windows x64 file SQLite only. Exact native/transitive assets remain in the locks
 
 ## Evidence
 
-Independent locked builds and real focused execution were recorded on Windows x64 with SDK10.0.403 and SDK11 RC3. Compilation, service execution and installed offline retrieval establish separate claims. Review the embedded evidence entries for exact inputs, dependencies and command outputs; freshness describes package-build inputs, not the consumer machine or GA. SQLite generated consumers measure engines3.53.3/3.53.4. Cosmos uses the approved loopback emulator; cloud parity remains unverified.
-
+Independent locked builds and real focused execution were recorded on Windows x64 with SDK10.0.403 and SDK11 RC3. Compilation, service execution and installed offline retrieval establish separate claims. Review the embedded evidence entries for exact inputs, dependencies and command outputs; freshness describes package-build inputs, not the consumer machine or GA. SQLite generated consumers measure engines 3.53.3/3.53.4. Other providers remain unverified.

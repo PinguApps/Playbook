@@ -25,6 +25,7 @@ fresh evidence through real stdio list/get. Target10 reports no applicable editi
 The harness uses an isolated local feed/cache, an unrelated directory and unusable
 network proxies. It establishes offline retrieval, not OS network isolation or GA.
 No package is published. Rerun the two Test-Bittern scripts for real provider proof.
+
 ## Current SDK baseline and PMC proof
 
 Active sample SDKs are 10.0.403 and 11.0.100-rc.3.26522.148. Package

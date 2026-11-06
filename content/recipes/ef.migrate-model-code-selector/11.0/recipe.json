@@ -60,6 +60,18 @@
               "match": "release-family",
               "name": "Microsoft.EntityFrameworkCore.Design",
               "reason": "Exact independently locked RC dependency graphs."
+            },
+            {
+              "name": "Microsoft.EntityFrameworkCore.Sqlite",
+              "version": "11.0",
+              "match": "release-family",
+              "reason": "Provider and Design versions match; the tested graph pins RC2."
+            },
+            {
+              "name": "System.Security.Cryptography.Pkcs",
+              "version": "10.0.13",
+              "match": "exact",
+              "reason": "Explicit patched dependency in both locked code-generation consumers."
             }
           ],
           "packageAssets": [
