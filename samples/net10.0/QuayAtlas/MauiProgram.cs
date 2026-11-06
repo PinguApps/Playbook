@@ -26,12 +26,18 @@ public sealed class QuayApp : Application
         map.MoveToRegion(new MapSpan(new Location(51.62, -3.94), 0.04, 0.06));
         var boundary = new Circle { Center = new Location(51.62, -3.94), Radius = Distance.FromMeters(350), StrokeColor = Colors.Teal, StrokeWidth = 3 };
         map.MapElements.Add(boundary);
-        map.Pins.Add(new Pin { Label = "Quay gate", Location = new Location(51.621, -3.941) });
+        var status = new Label { Text = "Select a survey marker" };
+        for (int i = 0; i < 24; i++)
+        {
+            var pin = new Pin { Label = $"Survey {i + 1}", Location = new Location(51.62 + i * 0.0002, -3.94 + i % 4 * 0.0003) };
+            pin.MarkerClicked += (_, _) => status.Text = pin.Label;
+            map.Pins.Add(pin);
+        }
         // Hide an older overlay by removing it; add it again to show it.
         var toggle = new Button { Text = "Toggle survey boundary" };
         toggle.Clicked += (_, _) => { if (map.MapElements.Contains(boundary)) map.MapElements.Remove(boundary); else map.MapElements.Add(boundary); };
         var layout = new Grid { RowDefinitions = { new RowDefinition(GridLength.Auto), new RowDefinition(GridLength.Star) } };
-        layout.Add(toggle);
+        layout.Add(new VerticalStackLayout { Children = { status, toggle } });
         layout.Add(map, 0, 1);
         return new ContentPage { Content = layout };
     }

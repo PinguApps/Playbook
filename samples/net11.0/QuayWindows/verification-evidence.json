@@ -6,8 +6,8 @@
   "language": "15.0",
   "command": "eng/Test-QuayMaps.ps1 -Record",
   "scope": "Pinned source/artifact review; native compilation, rendering and service execution not tested.",
-  "recordedAt": "2026-11-06T09:13:32.1898086+00:00",
-  "sourceCommit": "ec242ebafe92dcedcf5537745e32e6ef438845ef",
+  "recordedAt": "2026-11-06T09:18:02.1264674+00:00",
+  "sourceCommit": "b3f81ca27e48d8148ca89b183d1e2dd4cc2c45b8",
   "sourceDirty": true,
   "inputs": {
     "eng/Test-QuayMaps.ps1": "67a445ee6ccf2d85782370840c9e309de99215168bae12c7a3e98cb4de300586",

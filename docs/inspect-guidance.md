@@ -1,5 +1,36 @@
 # Inspect the guidance an agent receives
 
+## Dense native maps and the supported Windows surface
+
+PIN-914/PIN-915 add three Quay map recipes. The .NET10/.NET11 contract consumers
+compile the linked canonical source against actual Windows package assets, including
+safe placeholder token registration. The .NET10 fallback Windows app compiles with
+installed SDK10.0.402. SDK11 RC3 Windows MAUI fails NETSDK1147; Mac/Xcode is
+unavailable. Native map rendering/interaction and real provider calls are explicitly
+not-tested under PIN-699. PIN-935 has not run and remains open; no credentials or
+resources were acquired. The RC2 Windows camera argument mismatch is disclosed.
+
+This exact command was run from an unrelated directory. It builds and installs the
+actual tool through an isolated local feed/cache, then displays discovery ID/title/goal,
+full canonical Markdown, target edition and applicability through real stdio list/get.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-59d42d49'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('maui.compose-maps-declaratively','maui.interact-with-dense-map-markers','maui.enable-windows-maps') `
+  -Query 'quay-maps' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin914-915' -BuildAndPack `
+  -Dotnet 'C:/Users/pingu/AppData/Local/dotnetup/dotnet/dotnet.exe' `
+  -Node 'C:/Program Files/nodejs/node.exe' `
+  -OutputDirectory './artifacts/maps/inspection'
+```
+
+Expect all three edition11 recipes, complete expanded bodies and exact applicability,
+including source-only native exclusions. Target10 has no applicable edition. Unusable
+network proxies establish proxy-independent offline retrieval, not OS network isolation
+or native map execution. The harness publishes no package.
+
+
 ## Cosmos conversion composition and model-code selection
 
 PIN-1218/PIN-1219 add original Bittern comparisons. Cosmos checks actual server
