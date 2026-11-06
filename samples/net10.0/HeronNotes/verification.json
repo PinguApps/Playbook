@@ -1,0 +1,11 @@
+{
+  "nativeToolchains": [],
+  "workloads": [],
+  "additionalInputs": [
+    "samples/HeronGuidance/sources.json",
+    "samples/HeronGuidance/artifacts.json",
+    "eng/Test-HeronGuidance.ps1"
+  ],
+  "buildArguments": [],
+  "dependencies": []
+}
