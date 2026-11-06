@@ -1,0 +1,22 @@
+[
+  {
+    "id": "Microsoft.NET.Sdk.Android.Manifest-11.0.100-rc.2",
+    "version": "37.2.0-rc.2.84",
+    "kind": "manifest",
+    "url": "https://api.nuget.org/v3-flatcontainer/microsoft.net.sdk.android.manifest-11.0.100-rc.2/37.2.0-rc.2.84/microsoft.net.sdk.android.manifest-11.0.100-rc.2.37.2.0-rc.2.84.nupkg",
+    "sha256": "0dc3033b3c0f4b0d91afb3f43a8d6ffa366637f5acb449505457575d7a08de91",
+    "repositoryCommit": "801f9ecbab5118b13d21cb52409e507ad4b2feb7",
+    "packs": {
+      "Microsoft.Android.Ref.37.2": "37.2.0-rc.2.84",
+      "Microsoft.Android.Sdk.net11": "37.2.0-rc.2.84",
+      "Microsoft.Android.Sdk.net10": "36.1.118",
+      "Microsoft.Android.Runtime.CoreCLR.37.android-arm64": "37.2.0-rc.2.84"
+    }
+  },
+  {
+    "sha256": "08a6afaecf1d04740ab0c067ffb2ae45b52bdf0c00fea4fe63714467f1cdf50a",
+    "version": "37.2.0-rc.2.84",
+    "id": "Microsoft.Android.Ref.37.2",
+    "url": "https://api.nuget.org/v3-flatcontainer/microsoft.android.ref.37.2/37.2.0-rc.2.84/microsoft.android.ref.37.2.37.2.0-rc.2.84.nupkg"
+  }
+]

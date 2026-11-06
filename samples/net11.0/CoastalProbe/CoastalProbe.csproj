@@ -1,0 +1,25 @@
+<!-- snippet:complete -->
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net11.0-android37.2</TargetFramework>
+    <OutputType>Exe</OutputType>
+    <ApplicationId>org.coastal.probe</ApplicationId>
+    <SupportedOSPlatformVersion>24.0</SupportedOSPlatformVersion>
+    <TargetSdkVersion>37</TargetSdkVersion>
+    <RuntimeIdentifier>android-arm64</RuntimeIdentifier>
+    <PublishTrimmed>true</PublishTrimmed>
+    <PublishReadyToRun>true</PublishReadyToRun>
+    <AndroidTypeMapImplementation>trimmable</AndroidTypeMapImplementation>
+    <LangVersion>15.0</LangVersion>
+    <Nullable>enable</Nullable>
+    <DefaultItemExcludes>$(DefaultItemExcludes);obj/**;bin/**;Bindings/**</DefaultItemExcludes>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+    <AndroidPackageNamingPolicy>LowercaseCrc64</AndroidPackageNamingPolicy>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="ProbePeer.cs" />
+    <ProjectReference Include="Bindings/ProbeBindings.csproj" />
+  </ItemGroup>
+</Project>
+<!-- endsnippet:complete -->

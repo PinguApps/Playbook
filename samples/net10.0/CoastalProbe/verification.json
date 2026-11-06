@@ -1,0 +1,20 @@
+{
+  "additionalInputs": [
+    "samples/CoastalProbe/sources.json",
+    "samples/CoastalProbe/artifacts.json"
+  ],
+  "buildArguments": [
+    "-p:RunAOTCompilation=false"
+  ],
+  "dependencies": [
+    "Microsoft.NET.ILLink.Tasks/10.0.13",
+    "ProbeBindings/1.0.0"
+  ],
+  "workloads": [
+    "android/36.1.118/10.0.100"
+  ],
+  "nativeToolchains": [
+    "JDK/21.0.8",
+    "AndroidBuildTools/36.0.0"
+  ]
+}
