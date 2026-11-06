@@ -63,7 +63,7 @@ Use one complete object for each response. A detailed recipe object contains ide
 
 Use standard MCP structured content with an output schema, plus the same complete object serialized as a JSON text fallback. Do not put only metadata in structured content while leaving the recipe body exclusively in another representation. The typed C# SDK result pattern supports this without a custom output protocol. [MCP structured content](https://modelcontextprotocol.io/specification/2026-07-28/server/tools#structured-content), [C# SDK guidance](https://csharp.sdk.modelcontextprotocol.io/v2/concepts/tools/tools.html#structured-content).
 
-This accepted design is based on protocol/SDK documentation and client-source inspection, not executed client tests. In particular, the reviewed VS Code source prefers structured content for model input when it exists. Actual T3 Code, Codex CLI, Claude Code, and VS Code versions still need the agreed brief client checks. [VS Code source](https://github.com/microsoft/vscode/blob/main/src/vs/workbench/contrib/mcp/common/mcpLanguageModelToolContribution.ts).
+The original design used protocol/SDK documentation and client-source inspection. In particular, the reviewed VS Code source prefers structured content for model input when it exists. The recorded T3 Code and Codex CLI checks now provide the accepted client execution evidence; separate Claude Code and VS Code Copilot checks were cancelled. See the [client verification decision](../clients.md#release-client-evidence) for the evidence and its limits. [VS Code source](https://github.com/microsoft/vscode/blob/main/src/vs/workbench/contrib/mcp/common/mcpLanguageModelToolContribution.ts).
 
 ## Concise discovery (PIN-974)
 
@@ -124,7 +124,7 @@ Core Linux validation and sample build checks remain focused. Round 5 requires e
 
 ## Client checks
 
-One brief real check per T3 Code, Codex CLI, Claude Code, and VS Code Copilot, each on an available supported OS. Confirm the recipe body and applicability both reach the agent, and record actual client/OS versions. These checks supplement the tiny Windows/macOS tool smokes; do not create a four-client-by-three-OS matrix. No such checks have run during planning.
+Pingu accepted the recorded T3 Code and Codex CLI checks for release readiness on 6 November 2026 and cancelled the separate Claude Code and VS Code Copilot checks (PIN-944/PIN-945). Keep all four setup guides. The [client receipt](../verification/agent-connection.md) records actual versions, body/applicability delivery, shutdown and limitations; refresh affected evidence after relevant changes. This supersedes the original four-client requirement, without claiming the cancelled checks ran or changing the Windows/macOS packed-tool smokes. See the [client verification decision](../clients.md#release-client-evidence).
 
 ## Technical defaults for implementation
 

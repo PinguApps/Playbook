@@ -11,7 +11,7 @@ Keep the focused core Reqnroll scenarios in one test project. Cover meaningful c
 
 Pack once. Install that exact artifact through an isolated local feed/cache and exercise real stdio initialization, list/get and shutdown. Verify .NET 10 hosting and .NET 11 major roll-forward using the actual artifact with appropriate runtime isolation. Pass the same package to one brief Windows smoke and one brief macOS smoke, then publish those verified files without repacking. Linux remains the main focused core/portable lane.
 
-Each of T3 Code, Codex CLI, Claude Code and VS Code Copilot gets one brief real check on one available supported OS, recording actual versions and confirming both recipe body and applicability reach the agent. Do not create a client-by-OS matrix. The separate [manual evaluation](evaluation-plan.md) is four task pairs, capped at 80 execution minutes plus preparation/review.
+Pingu accepted the recorded T3 Code and Codex CLI checks as the release client evidence on 6 November 2026 and cancelled PIN-944/PIN-945. Keep all four setup guides; separate Claude Code and VS Code Copilot checks are no longer required. Preserve actual versions, body/applicability delivery, shutdown and limitations in the [client receipt](../verification/agent-connection.md), refreshing affected evidence after relevant changes. See the [client verification decision](../clients.md#release-client-evidence). The separate [manual evaluation](evaluation-plan.md) is four task pairs, capped at 80 execution minutes plus preparation/review.
 
 ## Content and compilation
 
