@@ -124,7 +124,7 @@ Core Linux validation and sample build checks remain focused. Round 5 requires e
 
 ## Client checks
 
-One brief real check per T3 Code, Codex CLI, Claude Code, and VS Code Copilot, each on an available supported OS. Confirm the recipe body and applicability both reach the agent, and record actual client/OS versions. These checks supplement the tiny Windows/macOS tool smokes; do not create a four-client-by-three-OS matrix. No such checks have run during planning.
+Pingu accepted the recorded T3 Code and Codex CLI checks for release readiness on 6 November 2026 and cancelled the separate Claude Code and VS Code Copilot checks (PIN-944/PIN-945). Keep all four setup guides. The [client receipt](../verification/agent-connection.md) records actual versions, body/applicability delivery, shutdown and limitations; refresh affected evidence after relevant changes. This supersedes the original four-client requirement, without claiming the cancelled checks ran or changing the Windows/macOS packed-tool smokes. See the [client verification decision](../clients.md#release-client-evidence).
 
 ## Technical defaults for implementation
 

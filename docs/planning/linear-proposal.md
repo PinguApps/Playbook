@@ -1,5 +1,7 @@
 # Playbook Linear proposal
 
+Client-verification update (6 November 2026): Pingu cancelled PIN-944/PIN-945 and accepted the recorded T3 Code and Codex CLI checks for release readiness. The [current client verification decision](../clients.md#release-client-evidence) supersedes the four-client requirements and blocking edges in these historical proposal/publication records, including their JSON snapshots. Live tickets were reconciled separately; the original records remain provenance.
+
 Proposal awaiting approval; no Linear mutations performed.
 
 Editorial note (17 October 2026): display wording was clarified after publication. The original approved proposal remains at commit b3778cc. These repository edits do not update published Linear issues or change their verified metadata and dependencies.

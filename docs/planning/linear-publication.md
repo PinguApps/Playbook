@@ -1,5 +1,7 @@
 # Playbook Linear publication receipt
 
+Client-verification update (6 November 2026): Pingu cancelled PIN-944/PIN-945 and accepted the recorded T3 Code and Codex CLI checks for release readiness. The [current client verification decision](../clients.md#release-client-evidence) supersedes the four-client requirements and blocking edges in these historical proposal/publication records, including their JSON snapshots. Live tickets were reconciled separately; the original records remain provenance.
+
 Published to [PinguApps → Playbook](https://linear.app/pinguapps/project/playbook-18c41f341c73) after explicit approval of proposal commit `b3778cc`. Verified at 2026-10-16 13:43:28 UTC.
 
 **303 issues, 10 native milestones and 857 native blocking edges.** All issues are in Backlog, unassigned and undelegated, with approved native T-Shirt estimates and labels. No cycles or issue/milestone dates were added; the existing project dates were preserved.
