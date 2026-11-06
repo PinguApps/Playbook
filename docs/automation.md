@@ -121,15 +121,19 @@ The default check uses a synthetic ZIP solely to test rejection paths. Supplying
 `-Package` checks the real artifact too; neither mode establishes NuGet login,
 push, hosted runner success or release readiness. The existing package checks
 remain responsible for installed tool behavior. Dispatch the **Publish NuGet
-Packages** workflow on the reviewed branch with a release-ready tag and
-`validate_only: true` for safe hosted composition/artifact validation.
+Packages** workflow on the reviewed branch with a release-ready tag containing
+these publication checks and `validate_only: true` for safe hosted composition/artifact
+validation. Tags predating these scripts cannot use this validation path; their
+checkout fails closed rather than skipping the new checks.
 
 For the separate Human trusted-publisher action, retain repository owner
 `PinguApps`, repository `Playbook`, workflow filename `publish.yml` and **empty
 environment** (the publishing job declares none). Package scope is
 `PinguApps.Playbook`; `NUGET_USER` is the nuget.org profile that owns the policy,
 not a persistent API key. The nested weekly caller uses this same publishing
-workflow. Check [NuGet's setup instructions](https://learn.microsoft.com/en-us/nuget/nuget-org/trusted-publishing)
+workflow and publishes live when its owner-controlled activation and stable-draft
+gates pass. `validate_only` applies only to direct manual dispatch; it does not
+turn enabled weekly calls into validation runs. Check [NuGet's setup instructions](https://learn.microsoft.com/en-us/nuget/nuget-org/trusted-publishing)
 when creating the policy. No account or publisher configuration is performed by
 these checks. Weekly activation and first public/stable release gates remain
 owner-controlled.
