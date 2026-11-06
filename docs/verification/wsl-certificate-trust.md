@@ -63,12 +63,15 @@ sudo, broad certificate cleanup, certificate generation or private-key export.
 Pingu authorized cleanup of all test additions. The agent checked the Linux PEM
 fingerprint and hash-link target, removed only that PEM/link pair, and confirmed
 the original private PFX remains. Both test listeners (54485 and 56485) are absent.
-Windows removal through the prepared identity-checking PowerShell script failed:
-`The operation is on user root store and UI is not allowed.` The Windows
-CurrentUser Root entry still requires owner removal in interactive PowerShell;
-the script can be rerun after the Linux cleanup. The agent must independently
-confirm its absence before closing this gate. No broad certificate cleanup is
-authorized. Temporary SDK/sample files remain disposable scratch.
+Windows removal with PowerShell's Certificate provider failed for both the agent
+and owner with `The operation is on user root store and UI is not allowed.`
+The authorized exact cleanup succeeded using
+`C:\Windows\System32\certutil.exe -user -delstore Root A4C492A4903F40831CDF8A14EB29FB9DD5B367C2`.
+The agent independently confirmed the Windows entry absent, Linux trust files
+absent, original Linux private PFX present and both test listeners absent. Other
+pre-existing Windows localhost roots remained present. The corrected cleanup
+script reran successfully with the entries already absent. No broad certificate
+cleanup was performed. Temporary SDK/sample files remain disposable scratch.
 
 This proves the .NET11 RC3 service with the two named clients, including required
 Linux process-local trust-directory configuration. It does not prove NSS/browser

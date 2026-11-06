@@ -118,8 +118,8 @@
     }
   ],
   "humanProof": {
-    "status": "pending",
-    "scope": "PIN-956: owner trust operation and trusted HTTPS from Windows Schannel and WSL OpenSSL curl observed on .NET11 RC3. Linux test trust removed and original private certificate preserved; interactive Windows CurrentUser Root cleanup remains pending. Browser/NSS and .NET10 Linux execution are unverified. See docs/verification/wsl-certificate-trust.md."
+    "status": "verified",
+    "scope": "PIN-956: owner trust operation and trusted HTTPS from Windows Schannel and WSL OpenSSL curl observed on .NET11 RC3. Windows and Linux test trust additions removed and absence independently confirmed; original private certificate preserved. Browser/NSS and .NET10 Linux execution are unverified. See docs/verification/wsl-certificate-trust.md."
   },
   "snippets": {
     "n10-directory-build-props": {
