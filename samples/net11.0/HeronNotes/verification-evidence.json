@@ -1,0 +1,32 @@
+{
+  "kind": "official-review",
+  "sample": "samples/net11.0/HeronNotes/HeronNotes.csproj",
+  "target": "net11.0-ios26.5",
+  "sdk": "11.0.100-rc.3.26522.148",
+  "language": "15.0",
+  "command": "eng/Test-HeronGuidance.ps1 -Record",
+  "scope": "Immutable source and actual Apple package contract review; native compilation and model execution not-tested under PIN-699.",
+  "recordedAt": "2026-11-06T17:41:47.8209932+00:00",
+  "sourceCommit": "1f9ba4d24bb3ad6e3e369ab8fbd4f6c568e069bf",
+  "sourceDirty": true,
+  "inputs": {
+    "eng/Test-HeronGuidance.ps1": "3df02183e61b6670ae97cbfeec2e6c7eab8fad69764981e8c457c1dc851000d8",
+    "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
+    "samples/HeronGuidance/artifacts.json": "4c436888ea74e611b9008cdf5d3291eeadb058143d8d153c0931bec04f34c8ef",
+    "samples/HeronGuidance/sources.json": "5773eed5e0eda2a103d291818693567f28e933a76e1d248ee9c168dad6491085",
+    "samples/net11.0/HeronNotes/Directory.Build.props": "347e2e29465c6a37869dd07b0b401c55743b8571fb513a4e42b6ee8facc06ca4",
+    "samples/net11.0/HeronNotes/Directory.Build.targets": "347e2e29465c6a37869dd07b0b401c55743b8571fb513a4e42b6ee8facc06ca4",
+    "samples/net11.0/HeronNotes/Directory.Packages.props": "347e2e29465c6a37869dd07b0b401c55743b8571fb513a4e42b6ee8facc06ca4",
+    "samples/net11.0/HeronNotes/global.json": "6c8b5134b137bd3f74d61083fffe10984ddd3c36e6dc4fdb830389cf97c70e00",
+    "samples/net11.0/HeronNotes/HeronNotes.csproj": "b79dc2a05619ca7a1b7b5d77c313e71987809cd457100d1049769c694dc1092b",
+    "samples/net11.0/HeronNotes/Notes.cs": "07c49b9529de9e6f8e7d50ae978d461b8a45c063d604f02b6bab13a9901c07a9",
+    "samples/net11.0/HeronNotes/verification.json": "befa53a0f00433e63b2521b281a16b00347cf59071c2578c1891c72a33e6922c"
+  },
+  "dependencies": [],
+  "workloads": [],
+  "nativeToolchains": [],
+  "host": "Microsoft Windows 10.0.26200",
+  "sdkInfo": "Intended SDK pin; actual attempted native build selected this SDK but failed before compilation.",
+  "workloadInfo": "Actual native build: NETSDK1147, ios workload unavailable. Mac/Xcode and eligible Apple hardware unavailable.",
+  "output": "PASS exact source and package hashes, native XML constructor/response contracts and MAUIAI0001 documentation. No model generation or native compilation claim."
+}

@@ -1,0 +1,8 @@
+// snippet:complete
+{
+  "sdk": {
+    "version": "10.0.403",
+    "rollForward": "disable"
+  }
+}
+// endsnippet:complete

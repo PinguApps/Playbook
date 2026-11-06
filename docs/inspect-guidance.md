@@ -1,5 +1,33 @@
 # Inspect the guidance an agent receives
 
+## Native passkeys and experimental Apple summaries
+
+PIN-916/PIN-922 add Heron guidance. The Windows passkey adapter compiles against
+the exact RC2 asset. Its actual native-host build fails NETSDK1147 (maui-tizen);
+both Apple samples fail NETSDK1147 (ios). Native ceremonies and model generation
+are explicitly not-tested under PIN-699. PIN-936 remains open and has not run;
+PIN-937 is canceled. No device approval, server interoperability or GA execution
+is claimed. No new hardware, workload installation or service is required.
+
+This block is checked from an unrelated directory. It builds/packs, installs into
+an isolated feed/cache, and calls the actual installed server over stdio. It
+displays ID/title/goal, complete rendered Markdown, edition and applicability.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-9a8dc444'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('maui.authenticate-with-platform-passkeys','maui.use-apple-intelligence-abstractions') `
+  -Query 'heron-guidance' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -RecipeEdition '11.0' -PackageVersion '0.0.0-pin916-922' -BuildAndPack `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' -OutputDirectory './artifacts/heron/inspection'
+```
+
+Expect both edition 11.0 recipes, the server verification boundary and experimental
+MAUIAI0001 prerequisites. Target 10 has no applicable edition: its Apple sample
+is comparison-only. Unusable proxies test proxy-independent offline retrieval,
+not OS network isolation or native execution. Nothing is published.
+
 ## Windows activation, permissions and themed assets
 
 PIN-919/PIN-920/PIN-921 add three original Tern comparisons. The .NET10
