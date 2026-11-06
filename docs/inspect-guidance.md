@@ -1,5 +1,36 @@
 # Inspect the guidance an agent receives
 
+## Windows activation, permissions and themed assets
+
+PIN-919/PIN-920/PIN-921 add three original Tern comparisons. The .NET10
+Windows activation app and both Android apps compile. Separate Windows processes
+verify launch redirection and synthetic protocol callback delivery; this does not
+verify OAuth or WebAuthenticator sign-in. Temporary protocol registration is
+removed. SDK11 RC3 native builds fail NETSDK1147, and Android devices/Apple Xcode
+are unavailable: those sample-specific native actions are explicitly not-tested
+under PIN-699. Source/artifact review is separate from native execution and GA.
+
+From an unrelated directory, this block builds and installs the actual package
+using an isolated feed/cache, then displays ID/title/goal, complete Markdown,
+edition and applicability through real stdio list/get:
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-b4d842e5'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('maui.route-single-instance-activations','maui.inject-permission-checks','maui.author-themed-app-assets') `
+  -Query 'tern-guidance' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -RecipeEdition '11.0' -PackageVersion '0.0.0-pin919-921' -BuildAndPack `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory './artifacts/tern/inspection'
+```
+
+Expect edition11.0 for all three recipes, complete canonical source and explicit
+native limitations. Target10 returns no applicable edition: its samples are
+comparisons, not extra foundation editions or supported older-target routes.
+The harness uses unusable proxies for offline retrieval; this is not OS network
+isolation or native behavior proof. No package publication is performed.
+
 ## Dense native maps and the supported Windows surface
 
 PIN-914/PIN-915 add three Quay recipes. Exact MAUI10.0.110 artifact metadata

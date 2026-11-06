@@ -202,3 +202,25 @@ Older Android compilation is separate from current source/artifact review;
 current MAUI compilation and all new native interactions are not-tested under
 PIN-699. No extra .NET10 foundation, older-target package route, provider resource,
 Human obligation, native CI matrix or GA verification is introduced.
+
+## Activation, permissions and themed assets (PIN-919 / PIN-920 / PIN-921)
+
+Inventory03:048 retains `maui.route-single-instance-activations`, edition11.0:
+original TernActivation pairs preserve valid Windows AppInstance ownership on10
+and use the MAUI lifecycle hook on11. Separate .NET10 processes and a temporary
+Windows URI scheme established redirection and callback delivery; no OAuth proof.
+
+Inventory03:049/050/051 are grouped into `maui.inject-permission-checks`, edition11.0.
+TernField retains a static-call/application-filter comparison and introduces borrowed
+IPermissions plus native minimum distance. iOS authorization and Android altitude
+reference/accuracy semantics remain distinct from notification scheduling.
+
+Inventory03:052/053/077 remain grouped into `maui.author-themed-app-assets`, edition11.0.
+TernAssets owns original silhouettes, monochrome and dark artwork, sampling metadata,
+and mutually exclusive image/Apple bundle selection. Apple hosting and actool are
+explicitly source-only. No older-target route or additional .NET10 foundation.
+
+All three .NET10 apps compiled. SDK11 RC3 native builds failed NETSDK1147;
+current native compilation/execution and unavailable Android/Apple interactions
+remain sample-specific PIN-699 not-tested exclusions. Official source/package
+identities are retained under samples/TernGuidance. No new Human gate or GA proof.

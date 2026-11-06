@@ -1154,3 +1154,25 @@
 # ReefSurvey generated sample receipts; canonical sources, locks, manifest and recorder remain reviewed.
 /samples/net10.0/ReefSurvey/verification-evidence.json
 /samples/net11.0/ReefSurvey/verification-evidence.json
+
+# Tern generated evidence: canonical samples, locks, manifests and recorder remain reviewed.
+/samples/net10.0/TernActivation/verification-evidence.json
+/samples/net10.0/TernField/verification-evidence.json
+/samples/net10.0/TernAssets/verification-evidence.json
+/samples/net11.0/TernActivation/verification-evidence.json
+/samples/net11.0/TernField/verification-evidence.json
+/samples/net11.0/TernAssets/verification-evidence.json
+/samples/net10.0/TernActivation/activation.evidence.json
+
+# Original Tern silhouette geometry and colour checked by the author; native appearance is not-tested.
+/samples/net10.0/TernAssets/Resources/AppIcon/tern.svg
+/samples/net10.0/TernAssets/Resources/AppIcon/mono.svg
+/samples/net10.0/TernAssets/Resources/Splash/day.svg
+/samples/net10.0/TernAssets/Resources/Splash/night.svg
+/samples/net10.0/TernAssets/Resources/Images/marker.svg
+/samples/net11.0/TernAssets/Resources/AppIcon/tern.svg
+/samples/net11.0/TernAssets/Resources/AppIcon/mono.svg
+/samples/net11.0/TernAssets/Resources/Splash/day.svg
+/samples/net11.0/TernAssets/Resources/Splash/night.svg
+/samples/net11.0/TernAssets/Resources/Images/marker.svg
+/samples/net11.0/TernAssets/Resources/AppIcon/tern.icon/Assets/tern.svg

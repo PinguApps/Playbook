@@ -1,0 +1,58 @@
+[
+  {
+    "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/src/Platform/Windows/MauiWinUIApplication.cs",
+    "sha256": "c9f3bab04a424c988b4eca07a2a4ae584e831a792ddb8d226738088b548a8a3b"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/src/LifecycleEvents/Windows/WindowsLifecycle.cs",
+    "sha256": "9b8091280e0adabf01a2d6ba710796fb0055789a45137a3916bfcef68d6515e0"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/src/LifecycleEvents/Windows/WindowsLifecycleBuilderExtensions.cs",
+    "sha256": "a685669a1f84049754e07323ac8939c0e7d619a5a85e1f3c8888c43a1a6d1d52"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Essentials/src/Permissions/Permissions.shared.cs",
+    "sha256": "c860ed6fb812ad8845fe370d2ab511d4c4b00c48027be8ac3af8dd9737e48101"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Essentials/src/Permissions/Permissions.ios.cs",
+    "sha256": "8f92b7bbec1d970da1ad398d5cc93703215b50a408a0ff19b8864fc9d4997954"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Essentials/src/Geolocation/Geolocation.android.cs",
+    "sha256": "aa78b1590a019621d310017975b6d587d273a7731b4517dc5f817b127e14769a"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Essentials/src/Geolocation/GeolocationListeningRequest.shared.cs",
+    "sha256": "d83f0efeddb116e950ed8f4c7d11a62574342502c6ca6b8e697c4164169ad95e"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/SingleProject/Resizetizer/src/ResizeImageInfo.cs",
+    "sha256": "c2410335c03fe4122eb8865e2aac72035d6d3e51dcf2aec406a489a2c1d34873"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/SingleProject/Resizetizer/src/GenerateSplashAndroidResources.cs",
+    "sha256": "7de77dbffe6810608b71e03705c21e587e1b9a99c3cc214049acb8e3870078cd"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/SingleProject/Resizetizer/src/GenerateSplashAssetCatalog.cs",
+    "sha256": "03c831a088868b4d982aebba308caaeef41f911314898bc1279a7a8dca1f0e57"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/SingleProject/Resizetizer/src/nuget/buildTransitive/Microsoft.Maui.Resizetizer.targets",
+    "sha256": "2bde203967710f2b167fea385da46c45a9d8494965b84580f86f15ca7cba1a0c"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Essentials/src/Types/LocationExtensions.android.cs",
+    "sha256": "f1df7f48b040dda847c04fc536eed3594ab5dd546d09424ff248a8e0360ed794"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/SingleProject/Resizetizer/src/Resizer.cs",
+    "sha256": "b90ad501b86fa1835a3d7da69eca5808a65e2840efd4cdcda6e27d3a8e54f021"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/SingleProject/Resizetizer/src/nuget/buildTransitive/Microsoft.Maui.Resizetizer.After.targets",
+    "sha256": "51d223922f2187c45d219e0bad4fc2392a08cf4cc766403d5f38943bcd800000"
+  }
+]
