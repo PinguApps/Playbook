@@ -1,0 +1,200 @@
+{
+  "id": "cosmos.translate-converted-expressions",
+  "edition": "11.0",
+  "title": "Compose Cosmos numeric conversions in server queries",
+  "goal": "Compose numeric casts with math and string concatenation in Cosmos queries, checking server semantics before replacing client evaluation.",
+  "areas": [
+    "cosmos"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "bittern-guidance"
+  ],
+  "apis": [
+    "MathF.Floor"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew",
+          "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/breaking-changes"
+        ],
+        "selectionNotes": [
+          "Measured RC tooling/provider behavior; no GA or other-platform claim."
+        ],
+        "usage": "primary",
+        "target": "11.0",
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "EF Core 11 requires .NET 11. No older-runtime EF11 route is offered."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Measured SDK11 RC3 consumer; not GA evidence."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Declared current C#15 mode; no preview language opt-in."
+          },
+          "frameworks": [
+            "Microsoft.NET.Sdk console consumer"
+          ],
+          "packages": [
+            {
+              "version": "11.0",
+              "match": "release-family",
+              "name": "Microsoft.EntityFrameworkCore.Cosmos",
+              "reason": "Exact independently locked RC dependency graphs."
+            }
+          ],
+          "packageAssets": [
+            "Exact current EF package 11.0.0-rc.3.26522.148; older EF10.0.13. SDK10.0.403/C#14/net10.0 and SDK11.0.100-rc.3.26522.148/C#15/net11.0. Independent locks retain all provider/native/transitive package identities; no EF11-on-net10 route."
+          ],
+          "providers": [
+            "Approved isolated legacy Cosmos emulator, gateway mode."
+          ],
+          "workloads": [],
+          "platforms": [
+            "Executed Windows x64 only; other platforms and GA unverified."
+          ],
+          "renderingModes": [
+            "Not applicable: console/database extension."
+          ],
+          "constraints": [
+            "Follow numbered migration steps and scoped controls; real execution is distinct from compilation."
+          ],
+          "prerequisites": [
+            "Pinned SDKs and actual restored locks; PowerShell7.3+. Approved disposable database route. No persistent environment changes."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "RC evidence; actual GA reconciliation remains separate."
+          ]
+        },
+        "conditional": false,
+        "evidenceSamples": [
+          "samples/net11.0/BitternConversions/BitternConversions.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Official EF11 changes",
+      "url": "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew"
+    },
+    {
+      "title": "Official EF11 migration constraints",
+      "url": "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/breaking-changes"
+    }
+  ],
+  "evidence": [
+    {
+      "sdk": "10.0.403",
+      "scope": "Independent locked compilation and focused checks in canonical sample/runner; RC evidence only.",
+      "sample": "samples/net10.0/BitternConversions/BitternConversions.csproj",
+      "kind": "compile-and-run",
+      "language": "14.0",
+      "target": "net10.0"
+    },
+    {
+      "sdk": "11.0.100-rc.3.26522.148",
+      "scope": "Independent locked compilation and focused checks in canonical sample/runner; RC evidence only.",
+      "sample": "samples/net11.0/BitternConversions/BitternConversions.csproj",
+      "kind": "compile-and-run",
+      "language": "15.0",
+      "target": "net11.0"
+    }
+  ],
+  "snippets": {
+    "n10-emulatortransport-cs": {
+      "region": "complete",
+      "path": "samples/net10.0/BitternConversions/EmulatorTransport.cs",
+      "language": "csharp"
+    },
+    "n10-directory-build-targets": {
+      "region": "complete",
+      "path": "samples/net10.0/BitternConversions/Directory.Build.targets",
+      "language": "xml"
+    },
+    "n11-global-json": {
+      "region": "complete",
+      "path": "samples/net11.0/BitternConversions/global.json",
+      "language": "json"
+    },
+    "n10-directory-packages-props": {
+      "region": "complete",
+      "path": "samples/net10.0/BitternConversions/Directory.Packages.props",
+      "language": "xml"
+    },
+    "n11-emulatortransport-cs": {
+      "region": "complete",
+      "path": "samples/net11.0/BitternConversions/EmulatorTransport.cs",
+      "language": "csharp"
+    },
+    "n10-global-json": {
+      "region": "complete",
+      "path": "samples/net10.0/BitternConversions/global.json",
+      "language": "json"
+    },
+    "n11-directory-packages-props": {
+      "region": "complete",
+      "path": "samples/net11.0/BitternConversions/Directory.Packages.props",
+      "language": "xml"
+    },
+    "n11-directory-build-props": {
+      "region": "complete",
+      "path": "samples/net11.0/BitternConversions/Directory.Build.props",
+      "language": "xml"
+    },
+    "n11-program-cs": {
+      "region": "complete",
+      "path": "samples/net11.0/BitternConversions/Program.cs",
+      "language": "csharp"
+    },
+    "n11-bitternconversions-csproj": {
+      "region": "complete",
+      "path": "samples/net11.0/BitternConversions/BitternConversions.csproj",
+      "language": "xml"
+    },
+    "n11-directory-build-targets": {
+      "region": "complete",
+      "path": "samples/net11.0/BitternConversions/Directory.Build.targets",
+      "language": "xml"
+    },
+    "n10-program-cs": {
+      "region": "complete",
+      "path": "samples/net10.0/BitternConversions/Program.cs",
+      "language": "csharp"
+    },
+    "n10-directory-build-props": {
+      "region": "complete",
+      "path": "samples/net10.0/BitternConversions/Directory.Build.props",
+      "language": "xml"
+    },
+    "n10-bitternconversions-csproj": {
+      "region": "complete",
+      "path": "samples/net10.0/BitternConversions/BitternConversions.csproj",
+      "language": "xml"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Disposable agent-executable database consumers."
+  }
+}

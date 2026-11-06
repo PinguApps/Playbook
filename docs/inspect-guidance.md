@@ -1,5 +1,30 @@
 # Inspect the guidance an agent receives
 
+## Cosmos conversion composition and model-code selection
+
+PIN-1218/PIN-1219 add original Bittern comparisons. Cosmos checks actual server
+math/concatenation, explicit older client evaluation, null, unsupported string
+conversion and range semantics. SQLite checks the selector extension through real
+scaffolding, compilation of generated C# and queries on engines3.53.3/3.53.4.
+
+From any directory, select this checkout and inspect the exact installed package:
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-dbdc9acd'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('cosmos.translate-converted-expressions','ef.migrate-model-code-selector') `
+  -Query 'bittern-guidance' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin1218-1219' -BuildAndPack `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory './artifacts/bittern/inspection'
+```
+
+Expect ID/title/goal, complete canonical Markdown, edition11 applicability and
+fresh evidence through real stdio list/get. Target10 reports no applicable edition.
+The harness uses an isolated local feed/cache, an unrelated directory and unusable
+network proxies. It establishes offline retrieval, not OS network isolation or GA.
+No package is published. Rerun the two Test-Bittern scripts for real provider proof.
 ## Current SDK baseline and PMC proof
 
 Active sample SDKs are 10.0.403 and 11.0.100-rc.3.26522.148. Package

@@ -19,18 +19,18 @@ try {
   $before = Get-EvidenceInputs $root $sample
   Push-Location $source
   try { $generation = & $Dotnet run -c Release -p:RestoreLockedMode=true -- $output | Out-String } finally { Pop-Location }
-  foreach ($f in 'global.json','Directory.Build.props','Directory.Build.targets','Directory.Packages.props') { Copy-Item "$source/$f" "$output/$f" }
+  foreach ($f in 'global.json','Directory.Build.props','Directory.Build.targets','Directory.Packages.props','packages.lock.json') { Copy-Item "$source/$f" "$output/$f" }
   Copy-Item "$source/BitternScaffolding.csproj" "$output/GeneratedConsumer.csproj"
   Copy-Item "$source/Consumer.cs.txt" "$output/Program.cs"
   Push-Location $output
-  try { $consumer = & $Dotnet run -c Release -- $output | Out-String } finally { Pop-Location }
+  try { $consumer = & $Dotnet run -c Release -p:RestoreLockedMode=true -- $output | Out-String } finally { Pop-Location }
   $generation; $consumer
   $after = Get-EvidenceInputs $root $sample
   if (($before | ConvertTo-Json -Depth 100 -Compress) -cne ($after | ConvertTo-Json -Depth 100 -Compress)) { throw 'Inputs changed during execution' }
   if ($Record) {
    $receipt = Get-Content "$source/verification-evidence.json" -Raw | ConvertFrom-Json -AsHashtable
    $receipt.kind = 'execution'
-   $receipt.command = "$Dotnet run -c Release -p:RestoreLockedMode=true -- $output; $Dotnet run -c Release -- $output (generated consumer)"
+   $receipt.command = "$Dotnet run -c Release -p:RestoreLockedMode=true -- $output; $Dotnet run -c Release -p:RestoreLockedMode=true -- $output (generated consumer)"
    $receipt.output = $generation + $consumer
    $receipt.scope = 'Windows x64 SQLite generation, actual generated C# compilation and fresh-context query; no GA or other provider proof.'
    $receipt.recordedAt = [DateTimeOffset]::UtcNow.ToString('O')
