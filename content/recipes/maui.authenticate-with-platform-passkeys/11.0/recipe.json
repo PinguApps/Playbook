@@ -1,0 +1,176 @@
+{
+  "id": "maui.authenticate-with-platform-passkeys",
+  "edition": "11.0",
+  "title": "Register and use passkeys through the native authenticator",
+  "goal": "Broker server-issued WebAuthn JSON through the native device ceremony while retaining server-side account verification.",
+  "areas": [
+    "maui"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "heron-guidance"
+  ],
+  "apis": [
+    "IPasskeys",
+    "Passkeys.CreateAsync",
+    "Passkeys.AssertAsync"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Canonical current target; RC authoring is not GA execution."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Exact authoring pin is 11.0.100-rc.3.26522.148."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Canonical language mode."
+          },
+          "frameworks": [
+            ".NET MAUI"
+          ],
+          "packages": [
+            {
+              "name": "Microsoft.Maui.Essentials",
+              "version": "11.0.0-rc.2.26505.5",
+              "match": "exact",
+              "reason": "Exact inspected sample asset baseline."
+            }
+          ],
+          "packageAssets": [
+            "Actual net11.0-windows10.0.19041 assets; neutral/reference compilation does not execute an authenticator."
+          ],
+          "workloads": [
+            {
+              "name": "maui-windows (native host)",
+              "version": "11.0",
+              "match": "release-family",
+              "reason": "Matching native workload required for the application host; unavailable here. The Windows adapter alone compiles without UseMaui."
+            }
+          ],
+          "providers": [
+            "Application-owned WebAuthn relying-party server and OS authenticator"
+          ],
+          "platforms": [
+            "Windows 10 1903+ WebAuthn and Windows Hello or a compatible FIDO2 key; Android 14+, iOS 16+, Mac Catalyst effective .NET 11 floor 17 require their native integrations"
+          ],
+          "renderingModes": [
+            "Native host; no Blazor rendering-mode claim"
+          ],
+          "prerequisites": [
+            "Existing native app host; initiate from a user action. Active Windows UI window on its UI thread, HTTPS RP identity, server-generated one-use challenge, exact native origin allowlist; domain/signing prerequisites for Apple/Android."
+          ],
+          "constraints": [
+            ".NET 10 is comparison only; no older-target applicability route or ninth foundation. Treat returned JSON as untrusted. Verify challenge, RP ID, origin, attestation/assertion and account policy on the server before issuing a session. IsSupported is not ceremony proof."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Stable public contract inspected in RC2; no GA execution claim."
+          ]
+        },
+        "sharedAreas": [],
+        "neutralLanguages": [],
+        "evidenceSamples": [
+          "samples/net11.0/HeronKeys/HeronKeys.csproj"
+        ],
+        "selectionNotes": [
+          ".NET 10 is comparison only; no older-target applicability route or ninth foundation. Treat returned JSON as untrusted. Verify challenge, RP ID, origin, attestation/assertion and account policy on the server before issuing a session. IsSupported is not ceremony proof."
+        ],
+        "sourceUrls": [
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Essentials/src/Passkeys/Passkeys.shared.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Essentials/src/Passkeys/Passkeys.windows.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Essentials/src/Passkeys/Passkeys.android.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Essentials/src/Passkeys/Passkeys.ios.cs"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Immutable official implementation",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Essentials/src/Passkeys/Passkeys.shared.cs"
+    },
+    {
+      "title": "Immutable official implementation",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Essentials/src/Passkeys/Passkeys.windows.cs"
+    },
+    {
+      "title": "Immutable official implementation",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Essentials/src/Passkeys/Passkeys.android.cs"
+    },
+    {
+      "title": "Immutable official implementation",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Essentials/src/Passkeys/Passkeys.ios.cs"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net11.0/HeronKeys/HeronKeys.csproj",
+      "target": "net11.0-windows10.0.19041.0",
+      "sdk": "11.0.100-rc.3.26522.148",
+      "language": "15.0",
+      "kind": "compile",
+      "scope": "Actual Windows contract compilation; no native host or ceremony execution."
+    }
+  ],
+  "humanProof": {
+    "status": "not-tested",
+    "untestedSamples": [
+      "samples/net11.0/HeronKeys/HeronKeys.csproj"
+    ],
+    "scope": "Windows adapter compiled; native host build failed NETSDK1147 (maui-tizen). Native ceremony/server interoperability not-tested under PIN-699. PIN-936 remains open and has not executed; unavailable native actions are excluded, not promised for later."
+  },
+  "snippets": {
+    "samples-net11-0-heronkeys-ceremony-cs": {
+      "path": "samples/net11.0/HeronKeys/Ceremony.cs",
+      "region": "ceremony",
+      "language": "csharp"
+    },
+    "samples-net11-0-heronkeys-heronkeys-csproj": {
+      "path": "samples/net11.0/HeronKeys/HeronKeys.csproj",
+      "region": "project",
+      "language": "xml"
+    },
+    "samples-net11-0-heronkeys-global-json": {
+      "path": "samples/net11.0/HeronKeys/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "samples-net11-0-heronkeys-directory-build-props": {
+      "path": "samples/net11.0/HeronKeys/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-heronkeys-directory-build-targets": {
+      "path": "samples/net11.0/HeronKeys/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-heronkeys-directory-packages-props": {
+      "path": "samples/net11.0/HeronKeys/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    }
+  }
+}

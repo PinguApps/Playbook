@@ -15,6 +15,28 @@ try {
         if ([Convert]::ToHexString([Security.Cryptography.SHA256]::HashData($bytes)).ToLowerInvariant() -cne $artifact.sha256) { throw "Changed Heron artifact: $($artifact.url)" }
         $zip = [IO.Compression.ZipArchive]::new([IO.MemoryStream]::new($bytes))
         try {
+            $nativeAsset = $artifact.assets[0].path.Replace('.xml','.dll')
+            $assembly = [IO.MemoryStream]::new()
+            $inputStream = $zip.GetEntry($nativeAsset).Open()
+            try { $inputStream.CopyTo($assembly) } finally { $inputStream.Dispose() }
+            $assembly.Position = 0
+            $pe = [Reflection.PortableExecutable.PEReader]::new($assembly)
+            try {
+                $metadata = [Reflection.Metadata.PEReaderExtensions]::GetMetadataReader($pe)
+                $experimental = $false
+                foreach ($handle in $metadata.GetAssemblyDefinition().GetCustomAttributes()) {
+                    $attribute = $metadata.GetCustomAttribute($handle)
+                    if ($attribute.Constructor.Kind -ne 'MemberReference') { continue }
+                    $constructor = $metadata.GetMemberReference([Reflection.Metadata.MemberReferenceHandle]$attribute.Constructor)
+                    if ($constructor.Parent.Kind -ne 'TypeReference') { continue }
+                    $type = $metadata.GetTypeReference([Reflection.Metadata.TypeReferenceHandle]$constructor.Parent)
+                    if ($metadata.GetString($type.Namespace) -cne 'System.Diagnostics.CodeAnalysis' -or $metadata.GetString($type.Name) -cne 'ExperimentalAttribute') { continue }
+                    $blob = $metadata.GetBlobReader($attribute.Value)
+                    if ($blob.ReadUInt16() -ne 1) { throw 'Invalid experimental attribute prolog' }
+                    if ($blob.ReadSerializedString() -ceq 'MAUIAI0001') { $experimental = $true }
+                }
+                if (-not $experimental) { throw "Missing actual MAUIAI0001 attribute: $nativeAsset" }
+            } finally { $pe.Dispose(); $assembly.Dispose() }
             foreach ($asset in $artifact.assets) {
                 $entry = $zip.GetEntry($asset.path)
                 if (-not $entry) { throw "Missing actual asset: $($asset.path)" }

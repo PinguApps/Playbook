@@ -1,0 +1,207 @@
+{
+  "id": "maui.use-apple-intelligence-abstractions",
+  "edition": "11.0",
+  "title": "Summarise local notes with experimental Apple Intelligence",
+  "goal": "Use the shipped experimental Apple IChatClient implementation while exposing device, model and native build limits.",
+  "areas": [
+    "maui"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "heron-guidance"
+  ],
+  "apis": [
+    "AppleIntelligenceChatClient",
+    "IChatClient",
+    "MAUIAI0001"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "experimental",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Canonical current target; RC authoring is not GA execution."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Exact authoring pin is 11.0.100-rc.3.26522.148."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Canonical language mode."
+          },
+          "frameworks": [
+            ".NET MAUI"
+          ],
+          "packages": [
+            {
+              "name": "Microsoft.Maui.Essentials.AI",
+              "version": "11.0.0-preview.6.26360.8",
+              "match": "exact",
+              "reason": "Exact inspected sample asset baseline."
+            }
+          ],
+          "packageAssets": [
+            "Apple platform-specific net11.0-ios26.5 assets; neutral assets do not contain the Apple implementation."
+          ],
+          "workloads": [
+            {
+              "name": "ios",
+              "version": "11.0",
+              "match": "release-family",
+              "reason": "Matching iOS workload and Xcode required for the declared binding target. Native builds failed NETSDK1147; intended native authoring pairing is not measured proof."
+            }
+          ],
+          "providers": [
+            "Apple Foundation Models; on-device, no cloud API key"
+          ],
+          "platforms": [
+            "iOS 26+ on Apple Intelligence eligible hardware with enabled/downloaded model; matching Apple workload/Xcode required"
+          ],
+          "renderingModes": [
+            "Native host; no Blazor rendering-mode claim"
+          ],
+          "prerequisites": [
+            "Existing native app host; initiate from a user action. Apple workload compatible with package target bindings; Mac/Xcode and eligible hardware are unavailable here."
+          ],
+          "constraints": [
+            ".NET 10 is comparison only; no older-target applicability route or ninth foundation. No image, tool, embedding or broad Apple API catalogue claim. Handle unavailable model and cancellation without silently sending notes to a cloud service."
+          ],
+          "optIns": [
+            "#pragma warning disable MAUIAI0001 around experimental API use; restore immediately afterward."
+          ],
+          "stabilityLimitations": [
+            "Experimental MAUIAI0001 remains despite shipped API status; preview pins may change."
+          ]
+        },
+        "sharedAreas": [],
+        "neutralLanguages": [],
+        "evidenceSamples": [
+          "samples/net11.0/HeronNotes/HeronNotes.csproj"
+        ],
+        "selectionNotes": [
+          ".NET 10 is comparison only; no older-target applicability route or ninth foundation. No image, tool, embedding or broad Apple API catalogue claim. Handle unavailable model and cancellation without silently sending notes to a cloud service."
+        ],
+        "sourceUrls": [
+          "https://raw.githubusercontent.com/dotnet/maui/e7264838d83d55430b219a23cc0e5da6e8b04e9a/src/AI/src/Essentials.AI/Platform/MaciOS/AppleIntelligenceChatClient.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/f9b311be07682fbe1714a18eba44d85ef24180fe/src/AI/src/Essentials.AI/Platform/MaciOS/AppleIntelligenceChatClient.cs"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Immutable official implementation",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/e7264838d83d55430b219a23cc0e5da6e8b04e9a/src/AI/src/Essentials.AI/Platform/MaciOS/AppleIntelligenceChatClient.cs"
+    },
+    {
+      "title": "Immutable official implementation",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/f9b311be07682fbe1714a18eba44d85ef24180fe/src/AI/src/Essentials.AI/Platform/MaciOS/AppleIntelligenceChatClient.cs"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/HeronNotes/HeronNotes.csproj",
+      "target": "net10.0-ios26.0",
+      "sdk": "10.0.403",
+      "language": "14.0",
+      "kind": "official-review",
+      "scope": "Source/artifact review only; Apple native compilation and execution unavailable (NETSDK1147)."
+    },
+    {
+      "sample": "samples/net11.0/HeronNotes/HeronNotes.csproj",
+      "target": "net11.0-ios26.5",
+      "sdk": "11.0.100-rc.3.26522.148",
+      "language": "15.0",
+      "kind": "official-review",
+      "scope": "Source/artifact review only; Apple native compilation and execution unavailable (NETSDK1147)."
+    }
+  ],
+  "humanProof": {
+    "status": "not-tested",
+    "untestedSamples": [
+      "samples/net10.0/HeronNotes/HeronNotes.csproj",
+      "samples/net11.0/HeronNotes/HeronNotes.csproj"
+    ],
+    "scope": "Apple native build/model execution unavailable; no obligation to obtain hardware under PIN-699. PIN-937 is canceled, not executed."
+  },
+  "snippets": {
+    "samples-net10-0-heronnotes-heronnotes-csproj": {
+      "path": "samples/net10.0/HeronNotes/HeronNotes.csproj",
+      "region": "project",
+      "language": "xml"
+    },
+    "samples-net10-0-heronnotes-notes-cs": {
+      "path": "samples/net10.0/HeronNotes/Notes.cs",
+      "region": "notes",
+      "language": "csharp"
+    },
+    "samples-net11-0-heronnotes-heronnotes-csproj": {
+      "path": "samples/net11.0/HeronNotes/HeronNotes.csproj",
+      "region": "project",
+      "language": "xml"
+    },
+    "samples-net11-0-heronnotes-notes-cs": {
+      "path": "samples/net11.0/HeronNotes/Notes.cs",
+      "region": "notes",
+      "language": "csharp"
+    },
+    "samples-net10-0-heronnotes-global-json": {
+      "path": "samples/net10.0/HeronNotes/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "samples-net10-0-heronnotes-directory-build-props": {
+      "path": "samples/net10.0/HeronNotes/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net10-0-heronnotes-directory-build-targets": {
+      "path": "samples/net10.0/HeronNotes/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net10-0-heronnotes-directory-packages-props": {
+      "path": "samples/net10.0/HeronNotes/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-heronnotes-global-json": {
+      "path": "samples/net11.0/HeronNotes/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "samples-net11-0-heronnotes-directory-build-props": {
+      "path": "samples/net11.0/HeronNotes/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-heronnotes-directory-build-targets": {
+      "path": "samples/net11.0/HeronNotes/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-heronnotes-directory-packages-props": {
+      "path": "samples/net11.0/HeronNotes/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    }
+  }
+}
