@@ -1,0 +1,9 @@
+<!-- snippet:complete -->
+<Project>
+  <!-- Import only when the owned library has been built for the selected ABI. -->
+  <ItemGroup>
+    <AndroidNativeLibrary Include="native/arm64-v8a/libcoastalprobe.so" />
+    <AndroidNativeLibraryNoJniPreload Include="libcoastalprobe.so" />
+  </ItemGroup>
+</Project>
+<!-- endsnippet:complete -->

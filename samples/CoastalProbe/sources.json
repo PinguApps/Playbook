@@ -1,0 +1,34 @@
+[
+  {
+    "url": "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/rc2/dotnetmaui.md",
+    "sha256": "ce8de3f99ea7b5c9e0b51b2d0fc3c558770f65b654486690950bde5008a38917"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/preview5/dotnetmaui.md",
+    "sha256": "115c7b8d0bc18305efe84d153787cfef216a66a9f3d3608b913b44238fb1403e"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/dotnet/docs-maui/e0fae4d0def74961bfe9633f96ca3420b18c4364/docs/whats-new/dotnet-11.md",
+    "sha256": "d1a5b70860961ae57559feefbb88dee44b944e3c9106302c8b827670ddb96435"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/dotnet/android/801f9ecbab5118b13d21cb52409e507ad4b2feb7/Documentation/docs-mobile/building-apps/build-properties.md",
+    "sha256": "2d25dc77a35032752ef1d1ef875ec2444140c5c7f6f1b58d4404ed6701ac2964"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/dotnet/android/801f9ecbab5118b13d21cb52409e507ad4b2feb7/Documentation/docs-mobile/building-apps/build-items.md",
+    "sha256": "843f8e792c99dfa16d3f5fd0f6017c9d369f86d1bedadb5ab7b3733b611e1fe3"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/dotnet/android/801f9ecbab5118b13d21cb52409e507ad4b2feb7/src/Microsoft.Android.Sdk.TrimmableTypeMap/README.md",
+    "sha256": "a7c80c9c487fbc2af0c6b0ed6f88027643df61c9c23f5fdcfc9578cfd27b29fe"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/dotnet/android/801f9ecbab5118b13d21cb52409e507ad4b2feb7/src/Xamarin.Android.Build.Tasks/Microsoft.Android.Sdk/targets/Microsoft.Android.Sdk.DefaultProperties.targets",
+    "sha256": "cb7e9f53be513d84867f3d25c6a23c2667cb99e05f70a65a0e1ae7c5c852366d"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/dotnet/android/801f9ecbab5118b13d21cb52409e507ad4b2feb7/external/Java.Interop/src/Java.Interop.NamingCustomAttributes/Java.Interop/ExportAttribute.cs",
+    "sha256": "a5ec47b918a89638c28b124a1c82e070f8d4fe90ce017cf31db311d464b38a97"
+  }
+]

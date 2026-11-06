@@ -1,0 +1,10 @@
+{
+  "additionalInputs": [
+    "samples/CoastalProbe/sources.json",
+    "samples/CoastalProbe/artifacts.json"
+  ],
+  "buildArguments": [],
+  "dependencies": [],
+  "workloads": [],
+  "nativeToolchains": []
+}
