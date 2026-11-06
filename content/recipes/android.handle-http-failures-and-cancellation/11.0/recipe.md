@@ -6,7 +6,13 @@ Handle AndroidMessageHandler transport failures and cancellation during headers 
 
 ## Newer approach
 
-Breakwater reads a harbour bulletin using an explicitly selected AndroidMessageHandler.
+Breakwater's RequestReader can read a harbour bulletin using an explicitly selected AndroidMessageHandler.
+The Activity is a static compilation shell; it does not issue a request. In your
+own asynchronous UI action, create a RequestReader owned by that screen and a
+CancellationTokenSource for each operation. Await reader.ReadAsync(address,
+cancellation.Token), passing an owned endpoint URI. Have the cancel action call
+cancellation.Cancel(); await completion before disposing the operation source.
+Cancel and await outstanding work before disposing the screen's reader.
 Reuse the client for its owner's lifetime. Pass the same operation token to
 GetAsync and ReadAsStringAsync: ResponseHeadersRead completes before body consumption,
 so cancelling only the headers request is insufficient. Dispose the response after
@@ -40,7 +46,7 @@ automatic redirect/disposal fixes as independent migration steps.
 1. Recreate the complete canonical files below, retaining their isolation and SDK pins.
 2. Replace WebException-only handling with the current exception branches. Preserve
    inner diagnostics and propagate cancellation through both request and body operations.
-3. On an available Android runtime, use an owned endpoint which can stall before
+3. From that asynchronous call site on an available Android runtime, use an owned endpoint which can stall before
    headers, stall after headers, return a 503, and close a connection prematurely.
    Cancel during each stall and observe cancellation; inspect the full exception
    chain for transport faults and StatusCode for 503. Use explicit endpoint signals
