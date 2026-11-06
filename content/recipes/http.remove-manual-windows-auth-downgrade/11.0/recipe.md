@@ -52,7 +52,7 @@ does not provision accounts, obtain tickets or fix an incorrect SPN.
    unauthorised and certificate-name failures; fallback must not turn them into
    successful access. Refresh the check when handler, proxy or server changes.
 
-## Conditions and limits
+## Constraints
 
 This is the SocketsHttpHandler route, not browser fetch or a native mobile HTTP
 handler. It needs a service that permits HTTP/1.1, HTTPS with valid name/trust,
@@ -76,7 +76,7 @@ versions are 10.0.14 and 11.0.0-rc.3.26522.148. The request helper itself needs 
 NuGet package or workload. There is no experimental opt-in. RC evidence prepares
 edition11.0 guidance; final-GA reconciliation remains open under PIN-962/PIN-959.
 
-## Verification
+## Evidence
 
 Run eng/Test-GannetGateway.ps1 -Record -VerifySources from the repository root
 using the pinned SDK installations. It compiles both real dependency sets,

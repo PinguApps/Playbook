@@ -1,0 +1,16 @@
+{
+  "workloads": [],
+  "dependencies": [],
+  "buildArguments": [],
+  "nativeToolchains": [],
+  "additionalInputs": [
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1",
+    ".editorconfig",
+    "eng/Test-GannetBinding.ps1",
+    "eng/Prepare-GannetRealm.sh",
+    "samples/GannetAuthentication/sources.json",
+    "samples/net10.0/GannetBinding/Program.cs",
+    "samples/net10.0/GannetBinding/GannetProtection.cs"
+  ]
+}

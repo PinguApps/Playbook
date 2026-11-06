@@ -10,6 +10,27 @@ supplied no consumer execution, GA evidence or publication permission.
 
 ## Boundary and evidence
 
+### Linux binding delivery reconciliation — 6 November 2026
+
+PIN-1039 implements draft C as `networking.bind-linux-negotiate-to-tls`, edition11.0.
+Following Pingu's official-documentation clarification, the route demonstrates
+the documented Linux GSSAPI mismatch validation, with the actual MIT Kerberos
+omission limitation explicit in discovery, applicability and the offline body.
+Actual .NET10.0.14 refuses required policy; .NET11RC3 authenticates matching
+bindings and returns BadBinding for a different certificate endpoint. An omitted
+client binding is accepted by MIT Kerberos1.20.1 despite Always; this route must
+not be used where every client must prove binding presence. IsAuthenticated can
+remain true after BadBinding, so final status checking is mandatory.
+
+Original Gannet consumers use real loopback TLS and a disposable MIT realm,
+service keytab and client cache. eng/Test-GannetBinding.ps1 records compilation,
+native identities and actual behavior; its optional RequireMissingBindingRejection
+gate remains failing for this route. No managed-NTLM, macOS, universal Unix or
+unique-TCP-session binding claim is made. Runtime sources at the actual servicing/
+RC3 commits are reconciled in samples/GannetAuthentication/sources.json alongside
+the original immutable audit sources. PIN-959 and final-GA reconciliation remain
+open; an expected launch fix is not claimed as verified.
+
 ### Callback delivery reconciliation — 30 October 2026
 
 PIN-1037 delivers approved draft A as
