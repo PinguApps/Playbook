@@ -1,0 +1,288 @@
+{
+  "id": "maui.choose-status-bar-appearance",
+  "edition": "11.0",
+  "title": "Choose system-bar contrast independently of app theme",
+  "goal": "Select mobile status-icon contrast and optionally match Android system-bar backgrounds to MAUI chrome without switching the application theme.",
+  "areas": [
+    "maui"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "reef-survey"
+  ],
+  "apis": [
+    "Window.StatusBarTheme",
+    "MauiAndroidSystemBarsUseMauiChrome"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "requirements": {
+          "runtime": {
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "MAUI .NET 11 native application; CoreCLR is the default mobile runtime. No NativeAOT execution claim.",
+            "name": ".NET"
+          },
+          "sdk": {
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Compatible .NET 11 SDK and the selected native workload are required; sample pins SDK11 RC3.",
+            "name": ".NET SDK"
+          },
+          "language": {
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Canonical sample pins C#15; no preview C# expressions.",
+            "name": "C#"
+          },
+          "frameworks": [
+            ".NET MAUI"
+          ],
+          "packages": [
+            {
+              "match": "release-family",
+              "name": "Microsoft.Maui.Controls",
+              "reason": "Canonical samples pin Controls11.0.0-rc.2.26505.5; exact Core package downloaded and inspected.",
+              "version": "11.0"
+            }
+          ],
+          "packageAssets": [
+            "Actual MAUI Essentials/Core/Controls.Core RC2 package assets reviewed; Android-specific recovery requires net11.0-android assets."
+          ],
+          "workloads": [
+            {
+              "name": "maui-android / maui-ios / maui-windows (choose target)",
+              "version": "11.0",
+              "match": "release-family",
+              "reason": "Install the workload matching the selected target. Reviewed set11.0.100-rc.2.26513.2 selects MAUI11.0.0-rc.2.26505.5, Android37.2.0-rc.2.84 and Apple27.0.12212-net11-rc.2."
+            }
+          ],
+          "providers": [
+            "No external provider or account"
+          ],
+          "platforms": [
+            "Android binding37.0/minimum24.0; iOS icon/gallery behavior described only; desktop no-op boundaries explicit."
+          ],
+          "renderingModes": [
+            "Native MAUI controls; no Blazor rendering mode"
+          ],
+          "prerequisites": [
+            "Matching MAUI native SDK and Android tools; Apple needs paired Mac/Xcode."
+          ],
+          "constraints": [
+            "No older-target route; .NET10 comparison only. No native execution."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Stable API surface reviewed against RC2; no GA or native behavior claim."
+          ]
+        },
+        "sharedAreas": [],
+        "conditional": false,
+        "target": "11.0",
+        "neutralLanguages": [],
+        "usage": "primary",
+        "evidenceSamples": [
+          "samples/net11.0/ReefSurvey/ReefSurvey.csproj"
+        ],
+        "selectionNotes": [
+          "No verified older-target route; .NET 10 is comparison-only."
+        ],
+        "sourceUrls": [
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Essentials/src/MediaPicker/MediaPicker.shared.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Essentials/src/MediaPicker/MediaPicker.android.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Essentials/src/MediaPicker/MediaPicker.ios.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Essentials/src/MediaPicker/MediaPickerRecovery.android.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/src/Core/StatusBarTheme.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Window/Window.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/src/Handlers/Window/WindowHandler.Android.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/src/Handlers/Window/WindowHandler.iOS.cs"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "MediaPicker.shared.cs official source",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Essentials/src/MediaPicker/MediaPicker.shared.cs"
+    },
+    {
+      "title": "MediaPicker.android.cs official source",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Essentials/src/MediaPicker/MediaPicker.android.cs"
+    },
+    {
+      "title": "MediaPicker.ios.cs official source",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Essentials/src/MediaPicker/MediaPicker.ios.cs"
+    },
+    {
+      "title": "MediaPickerRecovery.android.cs official source",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Essentials/src/MediaPicker/MediaPickerRecovery.android.cs"
+    },
+    {
+      "title": "StatusBarTheme.cs official source",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/src/Core/StatusBarTheme.cs"
+    },
+    {
+      "title": "Window.cs official source",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Window/Window.cs"
+    },
+    {
+      "title": "WindowHandler.Android.cs official source",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/src/Handlers/Window/WindowHandler.Android.cs"
+    },
+    {
+      "title": "WindowHandler.iOS.cs official source",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/src/Handlers/Window/WindowHandler.iOS.cs"
+    },
+    {
+      "url": "https://github.com/dotnet/core/blob/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/rc1/dotnetmaui.md",
+      "title": "MAUI RC1 Android chrome background opt-in"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/ReefSurvey/ReefSurvey.csproj",
+      "kind": "compile",
+      "target": "net10.0-android36.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "scope": "Actual .NET10 Android Release build; no device execution."
+    },
+    {
+      "sample": "samples/net11.0/ReefSurvey/ReefSurvey.csproj",
+      "kind": "official-review",
+      "target": "net11.0-android37.0",
+      "sdk": "11.0.100-rc.3.26522.148",
+      "language": "15.0",
+      "scope": "Official source/artifact review only; missing matching MAUI workload. No compilation/execution."
+    }
+  ],
+  "humanProof": {
+    "status": "not-tested",
+    "untestedSamples": [
+      "samples/net10.0/ReefSurvey/ReefSurvey.csproj",
+      "samples/net11.0/ReefSurvey/ReefSurvey.csproj"
+    ],
+    "scope": "Current SDK11 MAUI workload unavailable (NETSDK1147); no Android device/emulator for process recreation, capture, gallery, permissions or chrome. Older Android compilation is separate. Apple native routes untested. PIN-699 exclusions; no pending Human obligation."
+  },
+  "snippets": {
+    "samples-net10-0-reefsurvey-directory-build-props": {
+      "path": "samples/net10.0/ReefSurvey/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net10-0-reefsurvey-directory-build-targets": {
+      "path": "samples/net10.0/ReefSurvey/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net10-0-reefsurvey-directory-packages-props": {
+      "path": "samples/net10.0/ReefSurvey/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net10-0-reefsurvey-global-json": {
+      "path": "samples/net10.0/ReefSurvey/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "samples-net10-0-reefsurvey-mauiprogram-cs": {
+      "path": "samples/net10.0/ReefSurvey/MauiProgram.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net10-0-reefsurvey-platforms-android-androidmanifest-xml": {
+      "path": "samples/net10.0/ReefSurvey/Platforms/Android/AndroidManifest.xml",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net10-0-reefsurvey-platforms-android-mainactivity-cs": {
+      "path": "samples/net10.0/ReefSurvey/Platforms/Android/MainActivity.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net10-0-reefsurvey-platforms-android-mainapplication-cs": {
+      "path": "samples/net10.0/ReefSurvey/Platforms/Android/MainApplication.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net10-0-reefsurvey-reefsurvey-csproj": {
+      "path": "samples/net10.0/ReefSurvey/ReefSurvey.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net10-0-reefsurvey-surveychrome-cs": {
+      "path": "samples/net10.0/ReefSurvey/SurveyChrome.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net10-0-reefsurvey-surveypage-cs": {
+      "path": "samples/net10.0/ReefSurvey/SurveyPage.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net11-0-reefsurvey-directory-build-props": {
+      "path": "samples/net11.0/ReefSurvey/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-reefsurvey-directory-build-targets": {
+      "path": "samples/net11.0/ReefSurvey/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-reefsurvey-directory-packages-props": {
+      "path": "samples/net11.0/ReefSurvey/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-reefsurvey-global-json": {
+      "path": "samples/net11.0/ReefSurvey/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "samples-net11-0-reefsurvey-mauiprogram-cs": {
+      "path": "samples/net11.0/ReefSurvey/MauiProgram.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net11-0-reefsurvey-platforms-android-androidmanifest-xml": {
+      "path": "samples/net11.0/ReefSurvey/Platforms/Android/AndroidManifest.xml",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-reefsurvey-platforms-android-mainactivity-cs": {
+      "path": "samples/net11.0/ReefSurvey/Platforms/Android/MainActivity.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net11-0-reefsurvey-platforms-android-mainapplication-cs": {
+      "path": "samples/net11.0/ReefSurvey/Platforms/Android/MainApplication.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net11-0-reefsurvey-reefsurvey-csproj": {
+      "path": "samples/net11.0/ReefSurvey/ReefSurvey.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-reefsurvey-surveychrome-cs": {
+      "path": "samples/net11.0/ReefSurvey/SurveyChrome.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net11-0-reefsurvey-surveypage-cs": {
+      "path": "samples/net11.0/ReefSurvey/SurveyPage.cs",
+      "region": "complete",
+      "language": "csharp"
+    }
+  }
+}
