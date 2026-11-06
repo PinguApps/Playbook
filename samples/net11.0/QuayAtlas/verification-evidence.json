@@ -6,8 +6,8 @@
   "language": "15.0",
   "command": "eng/Test-QuayMaps.ps1 -Record",
   "scope": "Pinned source/artifact review; native compilation, rendering and service execution not tested.",
-  "recordedAt": "2026-11-06T09:18:02.0471379+00:00",
-  "sourceCommit": "b3f81ca27e48d8148ca89b183d1e2dd4cc2c45b8",
+  "recordedAt": "2026-11-06T09:24:04.0469887+00:00",
+  "sourceCommit": "024010458d09d72c659cd0d273d791428bf97947",
   "sourceDirty": true,
   "inputs": {
     "eng/Test-QuayMaps.ps1": "67a445ee6ccf2d85782370840c9e309de99215168bae12c7a3e98cb4de300586",
@@ -18,13 +18,13 @@
     "samples/net11.0/QuayAtlas/global.json": "ed53e3ba758246e4faafcbc5ea479583ae5f899a7430622fa6509b79e9a19407",
     "samples/net11.0/QuayAtlas/MauiProgram.cs": "4dd91d85508ee2bb142ad4aeafb45dbbc0d232460c32140f372c5d579382a42d",
     "samples/net11.0/QuayAtlas/Platforms/iOS/AppDelegate.cs": "ba6cd0a21b176d078bf5b66c70c9df4ac74c80ee7ce089417e28536a2323f99b",
-    "samples/net11.0/QuayAtlas/Platforms/iOS/Info.plist": "d6da815d50e0e4c5cfefec00720b955f19a553d586b5c83d11d2bb724b05a7fc",
+    "samples/net11.0/QuayAtlas/Platforms/iOS/Info.plist": "3afc8006e9083eee2d56dd43c3b54be28b9bb2891e993aa0a3cf5804bd98a98f",
     "samples/net11.0/QuayAtlas/Platforms/iOS/Program.cs": "e5f87f8048d48f7c63e50787b5da6fc160d0a8691d9f1b7b57ae673c4c34b2da",
     "samples/net11.0/QuayAtlas/Platforms/iOS/SceneDelegate.cs": "48651d9faa72c36e469699595e517690a32f916e8e0a293232fecf80c2eb272f",
-    "samples/net11.0/QuayAtlas/QuayAtlas.csproj": "e61b8c4d805c8a7b104827063bda33087260e0a7366bc388f223df7ceeed6c7a",
-    "samples/net11.0/QuayAtlas/Resources/Images/survey.svg": "a9465a51d263c729724b687b23078f0cf38143132cd4302467d121c3a5565e3b",
+    "samples/net11.0/QuayAtlas/QuayAtlas.csproj": "68109748d45fe7a5da56d29530ca8f57c18cd6d6ec11c03e3ded11130fcd70a8",
+    "samples/net11.0/QuayAtlas/Resources/Images/survey.svg": "dd5f249bf8ddeae9f06bf6be59bea3b2380160f4dc7c090f57086dbdd2916ef9",
     "samples/net11.0/QuayAtlas/verification.json": "03c3e827e873823cfeb4e25c5ad9f030399abfb6a960d898b01251c6c535b083",
-    "samples/QuayMaps/sources.json": "5eb685bc8847ba2d3bbd8c9a15b30903df6363a59e31f49eba4f3171de73046f"
+    "samples/QuayMaps/sources.json": "cee16375c14c255b3eaa77a8f10b2447be1127cdaa46e1880b0a2247c47c4534"
   },
   "dependencies": [],
   "workloads": [],

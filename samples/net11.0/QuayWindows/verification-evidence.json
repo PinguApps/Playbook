@@ -6,8 +6,8 @@
   "language": "15.0",
   "command": "eng/Test-QuayMaps.ps1 -Record",
   "scope": "Pinned source/artifact review; native compilation, rendering and service execution not tested.",
-  "recordedAt": "2026-11-06T09:18:02.1264674+00:00",
-  "sourceCommit": "b3f81ca27e48d8148ca89b183d1e2dd4cc2c45b8",
+  "recordedAt": "2026-11-06T09:24:04.1235580+00:00",
+  "sourceCommit": "024010458d09d72c659cd0d273d791428bf97947",
   "sourceDirty": true,
   "inputs": {
     "eng/Test-QuayMaps.ps1": "67a445ee6ccf2d85782370840c9e309de99215168bae12c7a3e98cb4de300586",
@@ -21,7 +21,7 @@
     "samples/net11.0/QuayWindows/Platforms/Windows/App.xaml.cs": "a4bd280bfa4fed2c5d9a16bdc635463f3c4895dfbeaf2eae49511f6aa153dd86",
     "samples/net11.0/QuayWindows/QuayWindows.csproj": "1250dc560c5290bc4d296946b58c0ac7a348b3e33ec48f6820bd81a103af4b32",
     "samples/net11.0/QuayWindows/verification.json": "03c3e827e873823cfeb4e25c5ad9f030399abfb6a960d898b01251c6c535b083",
-    "samples/QuayMaps/sources.json": "5eb685bc8847ba2d3bbd8c9a15b30903df6363a59e31f49eba4f3171de73046f"
+    "samples/QuayMaps/sources.json": "cee16375c14c255b3eaa77a8f10b2447be1127cdaa46e1880b0a2247c47c4534"
   },
   "dependencies": [],
   "workloads": [],
