@@ -47,7 +47,7 @@ sudo, broad certificate cleanup, certificate generation or private-key export.
    `netsh interface ipv4 show excludedportrange protocol=tcp` and its IPv6
    equivalent showed 54434–54533 reserved, including 54485. No reservations were
    changed. Windows loopback bind at 56485 passed before selecting that port.
-5. After rebuilding the canonical port56485 sample, Windows
+5. After rebuilding the canonical port56485 sample, Windows PowerShell ran
    `C:\Windows\System32\curl.exe --noproxy '*' --max-time 5 --fail --silent
    --show-error https://localhost:56485/survey` exited0 and returned
    `Estuary survey ready`.
