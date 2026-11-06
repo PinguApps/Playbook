@@ -76,7 +76,7 @@
             "Native MAUI controls; no Blazor rendering mode"
           ],
           "prerequisites": [
-            "Matching native MAUI workload; Android SDK for Android; matched Apple workload and Xcode for Apple targets."
+            "Matching MAUI Windows workload and Windows App SDK; use the canonical unpackaged win-x64 configuration."
           ],
           "constraints": [
             "No supported older-target route is claimed; .NET 10 sample is comparison-only. Native execution limits are stated in Evidence."
@@ -178,7 +178,7 @@
     {
       "language": "14.0",
       "target": "net10.0-windows10.0.19041.0",
-      "scope": "Actual Release compilation. Android AOT disabled. Execution is separately scoped below.",
+      "scope": "Actual .NET10 Windows Release compilation. Execution is separately scoped below.",
       "sample": "samples/net10.0/TernActivation/TernActivation.csproj",
       "kind": "compile",
       "sdk": "10.0.402"
