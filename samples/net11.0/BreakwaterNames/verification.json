@@ -1,0 +1,9 @@
+{
+  "buildArguments": [],
+  "workloads": [],
+  "dependencies": [],
+  "additionalInputs": [
+    "samples/Breakwater/sources.json"
+  ],
+  "nativeToolchains": []
+}

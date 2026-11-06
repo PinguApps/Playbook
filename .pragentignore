@@ -1185,3 +1185,11 @@
 /samples/net11.0/GannetBinding/verification-evidence.json
 /samples/net10.0/GannetBinding/behavior.evidence.json
 /samples/net11.0/GannetBinding/behavior.evidence.json
+
+# Breakwater generated receipts: review canonical inputs, manifests and recorder;
+# content build validates saved input freshness.
+/samples/net10.0/BreakwaterRequests/verification-evidence.json
+/samples/net10.0/BreakwaterNames/verification-evidence.json
+/samples/net10.0/BreakwaterNames/r8.evidence.json
+/samples/net11.0/BreakwaterRequests/verification-evidence.json
+/samples/net11.0/BreakwaterNames/verification-evidence.json

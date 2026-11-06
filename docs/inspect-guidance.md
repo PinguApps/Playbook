@@ -1,5 +1,31 @@
 # Inspect the guidance an agent receives
 
+## Android HTTP faults and R8 name lookup
+
+PIN-925/PIN-926 add Breakwater guidance. Both .NET10 Android apps compile;
+real R8 classfile output retains the named private method and removes unused code.
+Android device HTTP/lookup execution and .NET11 native compilation are explicitly
+not-tested under PIN-699. RC2 source review is separate from RC3 build attempts.
+
+From any directory, this builds/packs, installs through an isolated feed/cache,
+and displays discovery ID/title/goal, full Markdown, edition and applicability
+through the actual stdio server with unusable proxies:
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a4832620'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('android.handle-http-failures-and-cancellation','android.preserve-r8-sensitive-members') `
+  -Query 'breakwater-guidance' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -RecipeEdition '11.0' -PackageVersion '0.0.0-pin925-926' -BuildAndPack `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' -OutputDirectory './artifacts/breakwater/inspection'
+```
+
+Expect two edition11.0 recipes with complete snippets and explicit evidence limits.
+Target10 has no applicable edition; its examples are comparison-only. This proves
+proxy-independent offline retrieval, not OS network isolation or Android execution.
+No package is published. `eng/Test-BreakwaterGuidance.ps1` rechecks pinned source
+contracts and the real R8 classfile output without changing installed tooling.
 ## Android runtime, manifest, Java peers and JNI loading
 
 PIN-923/PIN-924 add original CoastalProbe comparisons. The .NET10 Release build

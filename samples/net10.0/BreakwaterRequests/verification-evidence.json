@@ -1,0 +1,40 @@
+{
+  "kind": "compile",
+  "sample": "samples/net10.0/BreakwaterRequests/BreakwaterRequests.csproj",
+  "target": "net10.0-android36.0",
+  "sdk": "10.0.402",
+  "language": "14.0",
+  "command": "C:\\Program Files\\dotnet\\dotnet.exe build BreakwaterRequests.csproj --configuration Release -p:RestoreLockedMode=true",
+  "scope": "See recipe scope; output records only the commands actually performed.",
+  "recordedAt": "2026-11-06T20:01:04.4641074+00:00",
+  "sourceCommit": "1442f728467845a9d31dee8140a5dd5e3149cb94",
+  "sourceDirty": true,
+  "inputs": {
+    "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
+    "samples/Breakwater/sources.json": "276fc242f6162e1b50d3ed9240bb64fc0dea786286665c9820bc32a79286f4a5",
+    "samples/net10.0/BreakwaterRequests/BreakwaterRequests.csproj": "5fee7c716bc6a42811ff12ae49697d6309ef93d460de48bfdb406b41169e4d55",
+    "samples/net10.0/BreakwaterRequests/Directory.Build.props": "4892f7956b79d97f8b78bff39bfcbb66219aae5b0b4fbd7ac5c5fc00d8d351b6",
+    "samples/net10.0/BreakwaterRequests/Directory.Build.targets": "347e2e29465c6a37869dd07b0b401c55743b8571fb513a4e42b6ee8facc06ca4",
+    "samples/net10.0/BreakwaterRequests/Directory.Packages.props": "347e2e29465c6a37869dd07b0b401c55743b8571fb513a4e42b6ee8facc06ca4",
+    "samples/net10.0/BreakwaterRequests/global.json": "eca47948312460b13800fbffb8a275eae886a7fa0099d2817371657f488fd10d",
+    "samples/net10.0/BreakwaterRequests/MainActivity.cs": "90da87d060480a126cc74786aff83f12380a827e3b5a8582626bac908dff295f",
+    "samples/net10.0/BreakwaterRequests/packages.lock.json": "819f97cac5a9e2af0adb3d8916208c5e9492ef75b0896cd3eff7a004523491ec",
+    "samples/net10.0/BreakwaterRequests/Properties/AndroidManifest.xml": "3ea7d096e7916d60c52d999866b7db705d237f7f51fb8b3a6509df9581073124",
+    "samples/net10.0/BreakwaterRequests/RequestReader.cs": "886a857ced50dd5902fb00ee7e184045bc6b4f2270edeff6d5cd5e43ff60c9c4",
+    "samples/net10.0/BreakwaterRequests/verification.json": "66d1685a8227b63fc9cfcaf46922568fc4630cb59dc5a31b4fc0f8bdc6576c80"
+  },
+  "dependencies": [
+    "Microsoft.NET.ILLink.Tasks/10.0.13"
+  ],
+  "workloads": [
+    "android/36.1.118/10.0.100"
+  ],
+  "nativeToolchains": [
+    "JDK/21.0.8",
+    "AndroidBuildTools/36.0.0"
+  ],
+  "host": "Microsoft Windows 10.0.26200 / X64",
+  "sdkInfo": ".NET SDK:\r\n Version:           10.0.402\r\n Commit:            a8dd0577c5\r\n Workload version:  10.0.400-manifests.6055ec36\r\n MSBuild version:   18.9.15+a8dd0577c\r\n\r\nRuntime Environment:\r\n OS Name:     Windows\r\n OS Version:  10.0.26200\r\n OS Platform: Windows\r\n RID:         win-x64\r\n Base Path:   C:\\Program Files\\dotnet\\sdk\\10.0.402\\\r\n\r\n.NET workloads installed:\r\n [wasm-tools]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    10.0.113/10.0.100\r\n   Manifest Path:       C:\\Program Files\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.workload.mono.toolchain.current\\10.0.113\\WorkloadManifest.json\r\n   Install Type:              Msi\r\n\r\n [maui-windows]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    10.0.110/10.0.100\r\n   Manifest Path:       C:\\Program Files\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.sdk.maui\\10.0.110\\WorkloadManifest.json\r\n   Install Type:              Msi\r\n\r\n [maccatalyst]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    26.5.10315/10.0.100\r\n   Manifest Path:       C:\\Program Files\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.sdk.maccatalyst\\26.5.10315\\WorkloadManifest.json\r\n   Install Type:              Msi\r\n\r\n [ios]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    26.5.10315/10.0.100\r\n   Manifest Path:       C:\\Program Files\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.sdk.ios\\26.5.10315\\WorkloadManifest.json\r\n   Install Type:              Msi\r\n\r\n [android]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    36.1.118/10.0.100\r\n   Manifest Path:       C:\\Program Files\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.sdk.android\\36.1.118\\WorkloadManifest.json\r\n   Install Type:              Msi\r\n\r\nConfigured to use workload sets when installing new manifests.\r\nNo workload sets are installed. Run \"dotnet workload restore\" to install a workload set.\r\n\r\nHost:\r\n  Version:      10.0.13\r\n  Architecture: x64\r\n  Commit:       4099f83977\r\n\r\n.NET SDKs installed:\r\n  10.0.300 [C:\\Program Files\\dotnet\\sdk]\r\n  10.0.402 [C:\\Program Files\\dotnet\\sdk]\r\n\r\n.NET runtimes installed:\r\n  Microsoft.AspNetCore.App 10.0.8 [C:\\Program Files\\dotnet\\shared\\Microsoft.AspNetCore.App]\r\n  Microsoft.AspNetCore.App 10.0.13 [C:\\Program Files\\dotnet\\shared\\Microsoft.AspNetCore.App]\r\n  Microsoft.NETCore.App 10.0.8 [C:\\Program Files\\dotnet\\shared\\Microsoft.NETCore.App]\r\n  Microsoft.NETCore.App 10.0.13 [C:\\Program Files\\dotnet\\shared\\Microsoft.NETCore.App]\r\n  Microsoft.WindowsDesktop.App 10.0.8 [C:\\Program Files\\dotnet\\shared\\Microsoft.WindowsDesktop.App]\r\n  Microsoft.WindowsDesktop.App 10.0.13 [C:\\Program Files\\dotnet\\shared\\Microsoft.WindowsDesktop.App]\r\n\r\nOther architectures found:\r\n  x86   [C:\\Program Files (x86)\\dotnet]\r\n    registered at [HKLM\\SOFTWARE\\dotnet\\Setup\\InstalledVersions\\x86\\InstallLocation]\r\n\r\nEnvironment variables:\r\n  DOTNET_ADD_GLOBAL_TOOLS_TO_PATH          [0]\r\n  DOTNET_ROOT                              [C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet]\r\n\r\nglobal.json file:\r\n  V:\\_worktrees\\Playbook\\t3-a4832620\\samples\\net10.0\\BreakwaterRequests\\global.json\r\n\r\nLearn more:\r\n  https://aka.ms/dotnet/info\r\n\r\nDownload .NET:\r\n  https://aka.ms/dotnet/download",
+  "workloadInfo": "Workload version: 10.0.400-manifests.6055ec36\r\n\r\nInstalled Workload Id      Manifest Version         Installation Source\r\n-----------------------------------------------------------------------\r\nandroid                    36.1.118/10.0.100        VS 18.11.12306.390 \r\nios                        26.5.10315/10.0.100      VS 18.11.12306.390 \r\nmaccatalyst                26.5.10315/10.0.100      VS 18.11.12306.390 \r\nmaui-windows               10.0.110/10.0.100        VS 18.11.12306.390 \r\nwasm-tools                 10.0.113/10.0.100        VS 18.11.12306.390 \r\n\r\nUse `dotnet workload search` to find additional workloads to install.",
+  "output": "Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  BreakwaterRequests -> V:\\_worktrees\\Playbook\\t3-a4832620\\samples\\net10.0\\BreakwaterRequests\\bin\\Release\\net10.0-android36.0\\android-arm64\\BreakwaterRequests.dll\r\n  Optimizing assemblies for size may change the behavior of the app. Be sure to test after publishing. See: https://aka.ms/dotnet-illink\r\n  Optimizing assemblies for size. This process might take a while.\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:27.04"
+}

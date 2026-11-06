@@ -1,0 +1,23 @@
+<!-- snippet:complete -->
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net11.0-android37.2</TargetFramework>
+    <OutputType>Exe</OutputType>
+    <ApplicationId>org.breakwater.names</ApplicationId>
+    <SupportedOSPlatformVersion>24.0</SupportedOSPlatformVersion>
+    <RuntimeIdentifier>android-arm64</RuntimeIdentifier>
+    <RunAOTCompilation>false</RunAOTCompilation>
+    <LangVersion>15.0</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AndroidLinkTool>r8</AndroidLinkTool><AndroidR8ObfuscationMode>private-members</AndroidR8ObfuscationMode>
+  </PropertyGroup>
+  <ItemGroup>
+    <AndroidJavaSource Include="Java/Beacon.java" />
+    <ProguardConfiguration Include="beacon.pro" />
+  </ItemGroup>
+</Project>
+<!-- endsnippet:complete -->
