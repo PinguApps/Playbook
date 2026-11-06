@@ -1,0 +1,249 @@
+{
+  "id": "ef.reconcile-old-snapshot-version",
+  "edition": "11.0",
+  "title": "Reconcile a snapshot made by an older EF version",
+  "goal": "Check an older EF model snapshot after upgrading, distinguish a real schema change, and regenerate only deliberately reviewed migration artifacts.",
+  "areas": [
+    "ef-core"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "avocet-guidance"
+  ],
+  "apis": [
+    "RelationalEventId.OldMigrationVersionWarning",
+    "dotnet-ef migrations has-pending-model-changes"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew",
+          "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/breaking-changes"
+        ],
+        "selectionNotes": [
+          "Measured RC tooling/provider behavior; no GA or other-platform claim."
+        ],
+        "usage": "primary",
+        "target": "11.0",
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "EF Core 11 requires .NET 11. No older-runtime EF11 route is offered."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Measured SDK11 RC3 consumer; not GA evidence."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Declared current C#15 mode; no preview language opt-in."
+          },
+          "frameworks": [
+            "Microsoft.NET.Sdk console consumer"
+          ],
+          "packages": [
+            {
+              "version": "11.0",
+              "match": "release-family",
+              "name": "Microsoft.EntityFrameworkCore.Sqlite",
+              "reason": "Exact independently locked RC dependency graphs."
+            }
+          ],
+          "packageAssets": [
+            "Exact current EF package 11.0.0-rc.2.26504.105; older EF10.0.13. SDK10.0.403/C#14/net10.0 and SDK11.0.100-rc.3.26522.148/C#15/net11.0. Independent locks retain all provider/native/transitive package identities; no EF11-on-net10 route."
+          ],
+          "providers": [
+            "Bundled SQLite on Windows x64."
+          ],
+          "workloads": [],
+          "platforms": [
+            "Executed Windows x64 only; other platforms and GA unverified."
+          ],
+          "renderingModes": [
+            "Not applicable: console/database extension."
+          ],
+          "constraints": [
+            "Follow numbered migration steps and scoped controls; real execution is distinct from compilation."
+          ],
+          "prerequisites": [
+            "Pinned SDKs and actual restored locks; PowerShell7.3+. Approved disposable database route. No persistent environment changes."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "RC evidence; actual GA reconciliation remains separate."
+          ]
+        },
+        "conditional": false,
+        "evidenceSamples": [
+          "samples/net11.0/AvocetSnapshot/AvocetSnapshot.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Official EF11 changes",
+      "url": "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew"
+    },
+    {
+      "title": "Official EF11 migration constraints",
+      "url": "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/breaking-changes"
+    }
+  ],
+  "evidence": [
+    {
+      "language": "14.0",
+      "target": "net10.0",
+      "sdk": "10.0.403",
+      "kind": "compile",
+      "sample": "samples/net10.0/AvocetSnapshot/AvocetSnapshot.csproj",
+      "scope": "Independent locked compilation; runtime behavior requires separate recorded checks."
+    },
+    {
+      "language": "15.0",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.3.26522.148",
+      "kind": "compile",
+      "sample": "samples/net11.0/AvocetSnapshot/AvocetSnapshot.csproj",
+      "scope": "Independent locked compilation; runtime behavior requires separate recorded checks."
+    },
+    {
+      "language": "14.0",
+      "target": "net10.0",
+      "sdk": "10.0.403",
+      "kind": "execution",
+      "sample": "samples/net10.0/AvocetSnapshot/AvocetSnapshot.csproj",
+      "scope": "Combined EF10/EF11 focused runner output; this entry identifies its independent compilation baseline. Actual Windows x64 tooling/schema/persistence controls; RC artifacts only.",
+      "record": "samples/net10.0/AvocetSnapshot/behavior.evidence.json"
+    },
+    {
+      "language": "15.0",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.3.26522.148",
+      "kind": "execution",
+      "sample": "samples/net11.0/AvocetSnapshot/AvocetSnapshot.csproj",
+      "scope": "Combined EF10/EF11 focused runner output; this entry identifies its independent compilation baseline. Actual Windows x64 tooling/schema/persistence controls; RC artifacts only.",
+      "record": "samples/net11.0/AvocetSnapshot/behavior.evidence.json"
+    }
+  ],
+  "snippets": {
+    "n11-samples-net11-0-avocetsnapshot-avocetsnapshot-csproj": {
+      "region": "complete",
+      "language": "xml",
+      "path": "samples/net11.0/AvocetSnapshot/AvocetSnapshot.csproj"
+    },
+    "n11-samples-net11-0-avocetsnapshot-migrations-20261105233125-initial-cs": {
+      "region": "complete",
+      "language": "csharp",
+      "path": "samples/net11.0/AvocetSnapshot/Migrations/20261105233125_Initial.cs"
+    },
+    "n11-samples-net11-0-avocetsnapshot-migrations-20261105233629-refreshsnapshot-cs": {
+      "region": "complete",
+      "language": "csharp",
+      "path": "samples/net11.0/AvocetSnapshot/Migrations/20261105233629_RefreshSnapshot.cs"
+    },
+    "n11-samples-net11-0-avocetsnapshot-program-cs": {
+      "region": "complete",
+      "language": "csharp",
+      "path": "samples/net11.0/AvocetSnapshot/Program.cs"
+    },
+    "n10-samples-net10-0-avocetsnapshot-migrations-20261105233125-initial-designer-cs": {
+      "region": "complete",
+      "language": "csharp",
+      "path": "samples/net10.0/AvocetSnapshot/Migrations/20261105233125_Initial.Designer.cs"
+    },
+    "n10-samples-net10-0-avocetsnapshot-program-cs": {
+      "region": "complete",
+      "language": "csharp",
+      "path": "samples/net10.0/AvocetSnapshot/Program.cs"
+    },
+    "n11-samples-net11-0-avocetsnapshot-directory-build-targets": {
+      "region": "complete",
+      "language": "xml",
+      "path": "samples/net11.0/AvocetSnapshot/Directory.Build.targets"
+    },
+    "n10-samples-net10-0-avocetsnapshot-directory-build-targets": {
+      "region": "complete",
+      "language": "xml",
+      "path": "samples/net10.0/AvocetSnapshot/Directory.Build.targets"
+    },
+    "n10-samples-net10-0-avocetsnapshot-directory-build-props": {
+      "region": "complete",
+      "language": "xml",
+      "path": "samples/net10.0/AvocetSnapshot/Directory.Build.props"
+    },
+    "n11-samples-net11-0-avocetsnapshot-directory-build-props": {
+      "region": "complete",
+      "language": "xml",
+      "path": "samples/net11.0/AvocetSnapshot/Directory.Build.props"
+    },
+    "n10-samples-net10-0-avocetsnapshot-avocetsnapshot-csproj": {
+      "region": "complete",
+      "language": "xml",
+      "path": "samples/net10.0/AvocetSnapshot/AvocetSnapshot.csproj"
+    },
+    "n11-samples-net11-0-avocetsnapshot-migrations-20261105233125-initial-designer-cs": {
+      "region": "complete",
+      "language": "csharp",
+      "path": "samples/net11.0/AvocetSnapshot/Migrations/20261105233125_Initial.Designer.cs"
+    },
+    "n11-samples-net11-0-avocetsnapshot-directory-packages-props": {
+      "region": "complete",
+      "language": "xml",
+      "path": "samples/net11.0/AvocetSnapshot/Directory.Packages.props"
+    },
+    "n10-samples-net10-0-avocetsnapshot-migrations-avocetcontextmodelsnapshot-cs": {
+      "region": "complete",
+      "language": "csharp",
+      "path": "samples/net10.0/AvocetSnapshot/Migrations/AvocetContextModelSnapshot.cs"
+    },
+    "n11-samples-net11-0-avocetsnapshot-migrations-20261105233629-refreshsnapshot-designer-cs": {
+      "region": "complete",
+      "language": "csharp",
+      "path": "samples/net11.0/AvocetSnapshot/Migrations/20261105233629_RefreshSnapshot.Designer.cs"
+    },
+    "n11-samples-net11-0-avocetsnapshot-migrations-avocetcontextmodelsnapshot-cs": {
+      "region": "complete",
+      "language": "csharp",
+      "path": "samples/net11.0/AvocetSnapshot/Migrations/AvocetContextModelSnapshot.cs"
+    },
+    "n10-samples-net10-0-avocetsnapshot-migrations-20261105233125-initial-cs": {
+      "region": "complete",
+      "language": "csharp",
+      "path": "samples/net10.0/AvocetSnapshot/Migrations/20261105233125_Initial.cs"
+    },
+    "n10-samples-net10-0-avocetsnapshot-directory-packages-props": {
+      "region": "complete",
+      "language": "xml",
+      "path": "samples/net10.0/AvocetSnapshot/Directory.Packages.props"
+    },
+    "sdk-10-avocetsnapshot": {
+      "path": "samples/net10.0/AvocetSnapshot/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "sdk-11-avocetsnapshot": {
+      "path": "samples/net11.0/AvocetSnapshot/global.json",
+      "region": "complete",
+      "language": "json"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Disposable agent-executable database consumers."
+  }
+}

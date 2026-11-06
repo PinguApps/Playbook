@@ -1114,3 +1114,18 @@
 /samples/net11.0/PloverBundle/verification-evidence.json
 /samples/net10.0/PloverBundle/behavior.evidence.json
 /samples/net11.0/PloverBundle/behavior.evidence.json
+
+# Avocet Record-Evidence and runtime receipts. Review canonical samples, locks,
+# manifests and focused runners; build/pack validates input freshness.
+/samples/net10.0/AvocetIdentity/verification-evidence.json
+/samples/net10.0/AvocetStore/verification-evidence.json
+/samples/net10.0/AvocetSnapshot/verification-evidence.json
+/samples/net10.0/AvocetSnapshot/behavior.evidence.json
+/samples/net10.0/AvocetStartup/verification-evidence.json
+/samples/net10.0/AvocetStartup/behavior.evidence.json
+/samples/net11.0/AvocetIdentity/verification-evidence.json
+/samples/net11.0/AvocetStore/verification-evidence.json
+/samples/net11.0/AvocetSnapshot/verification-evidence.json
+/samples/net11.0/AvocetSnapshot/behavior.evidence.json
+/samples/net11.0/AvocetStartup/verification-evidence.json
+/samples/net11.0/AvocetStartup/behavior.evidence.json

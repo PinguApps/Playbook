@@ -1063,3 +1063,45 @@ actual-GA reconciliation remain separate; their closure is not established here.
 M(3)/M(3)/L(5) remain the bounded translation, materialization and deployable-artifact
 sizing. Installed offline retrieval checks guidance delivery separately from runtime
 proof. No recurring client/native/OS matrix is added.
+
+## Startup output, snapshot versions and Cosmos identity — PIN-1215–1217
+
+E27/E28/E29 have original Avocet consumers and offline recipe editions:
+ef.use-custom-startup-output-metadata/11.0,
+ef.reconcile-old-snapshot-version/11.0 and
+cosmos.project-identity-resolution-keys/11.0.
+
+The independent SDK10.0.403/C#14/EF10.0.13 and SDK11 RC3/C#15 graphs
+deliberately differ from the historical audit SDK pins. SQLite tooling retains
+matching EF/Design/dotnet-ef11 RC2; Cosmos uses EF11 RC3 with SDK3.63.1 and
+Newtonsoft.Json13.0.4. Exact graphs are locked; EF11 selects net11.0.
+No older-runtime EF11 route or additional .NET10 foundation is introduced.
+
+Separate startup/target projects execute migrations and persistence. EF10 guesses
+the conventional deps filename; conventional outputs remain its working route.
+EF11 consumes real custom build output metadata. Missing deps fail without
+manufactured files. Direct application launch also needs explicit exec arguments
+for the custom runtimeconfig/deps names on the measured SDK.
+
+A real EF10 snapshot with an unchanged model validates under EF11. An empty
+regeneration updates snapshot metadata. A genuine Count change also triggers the
+old-version warning; the warning alone cannot classify a difference as harmless.
+A current snapshot retains the pending-model failure until the genuine schema
+migration is generated and applied. No blanket warning suppression is used.
+
+Cosmos runs on the approved loopback legacy emulator, with unique databases,
+certificate pinning and cleanup. EF11 rejects omitted root keys and materializes
+the explicit Id/Coast projection, preserving duplicate owned-object identity and
+stored values. EF10's duplicated keyed projection returns nulls. Pingu approved
+root-document materialization followed by in-memory projection as the older
+comparison; its omitted-key projection remains a working bounded control.
+Direct SDK reads verify stored owned content independently of EF materialization.
+Cloud parity, restart durability and distributed consistency are not established.
+
+These are bounded source-section deliveries, not closure of the qualifying
+coverage gate or actual-GA reconciliation. Existing terminal tracker states,
+PIN-959/PIN-965 obligations, the exact eight foundations and Human gates remain
+unchanged. M(3) each covers the bounded tooling, diagnostic/schema and service
+materialization checks; no recurring client/native/platform matrix is added.
+
+The installed Avocet inspection is a combined-delivery check: all E27/E28/E29 recipe editions must be present in the single packed artifact. This packaging dependency does not introduce another native issue blocker.

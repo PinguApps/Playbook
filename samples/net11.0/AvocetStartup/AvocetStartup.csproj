@@ -1,0 +1,5 @@
+<!-- snippet:complete -->
+<Project Sdk="Microsoft.NET.Sdk"><PropertyGroup><OutputType>Exe</OutputType><TargetFramework>net11.0</TargetFramework><LangVersion>15.0</LangVersion><ImplicitUsings>enable</ImplicitUsings><Nullable>enable</Nullable><RestorePackagesWithLockFile>true</RestorePackagesWithLockFile><ProjectDepsFileName>$(TargetDir)avocet-launch.deps.json</ProjectDepsFileName><ProjectRuntimeConfigFileName>$(TargetDir)avocet-launch.runtimeconfig.json</ProjectRuntimeConfigFileName></PropertyGroup><ItemGroup><PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite"/><PackageReference Include="Microsoft.EntityFrameworkCore.Design"/><PackageReference Include="System.Security.Cryptography.Pkcs"/></ItemGroup><ItemGroup><ProjectReference Include="../AvocetStore/AvocetStore.csproj" /></ItemGroup></Project>
+
+
+<!-- endsnippet:complete -->
