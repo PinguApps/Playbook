@@ -52,6 +52,7 @@ try {
         }
     }
     if ($Record) {
+        $git = (Get-Command git -CommandType Application | Select-Object -First 1).Source
         $sample = 'samples/net11.0/CoastalProbe/CoastalProbe.csproj'
         $receipt = [ordered]@{
             kind='official-review'; sample=$sample; target='net11.0-android37.2'
@@ -59,8 +60,8 @@ try {
             command='eng/Test-CoastalProbe.ps1 -Record'
             scope='Exact pinned sources and Android RC2 manifest/reference artifact hashes; actual JavaFinalize obsolete metadata. Native compilation/execution not-tested under PIN-699.'
             recordedAt=[DateTimeOffset]::UtcNow.ToString('O')
-            sourceCommit=(& 'C:/Program Files/Git/cmd/git.exe' -C $root rev-parse HEAD).Trim()
-            sourceDirty=[bool](& 'C:/Program Files/Git/cmd/git.exe' -C $root status --porcelain -- samples/CoastalProbe samples/net11.0/CoastalProbe eng/Test-CoastalProbe.ps1)
+            sourceCommit=(& $git -C $root rev-parse HEAD).Trim()
+            sourceDirty=[bool](& $git -C $root status --porcelain -- samples/CoastalProbe samples/net11.0/CoastalProbe eng/Test-CoastalProbe.ps1)
             inputs=(Get-EvidenceInputs $root $sample); dependencies=@(); workloads=@(); nativeToolchains=@()
             host=[Runtime.InteropServices.RuntimeInformation]::OSDescription
             sdkInfo='RC3 SDK selected for actual attempted build. RC2 SDK installation lacks runtimeconfig; no SDK files were modified.'
