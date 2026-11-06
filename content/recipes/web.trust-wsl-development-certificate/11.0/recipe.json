@@ -2,7 +2,7 @@
   "id": "web.trust-wsl-development-certificate",
   "edition": "11.0",
   "title": "Use one trust operation for Windows and WSL",
-  "goal": "Prepare a WSL-hosted HTTPS development service and use the supported cross-environment certificate trust operation; owner trust and connectivity proof remain pending.",
+  "goal": "Trust a WSL-hosted HTTPS development service for Windows and Linux clients; check client-specific trust configuration and actual connectivity.",
   "areas": [
     "aspnetcore"
   ],
@@ -28,7 +28,7 @@
           "runtime": {
             "version": "11.0",
             "match": "release-family",
-            "reason": "Canonical Kestrel service compiled for .NET 11 RC2; actual WSL trust and cross-environment HTTPS execution remain pending, not GA verification.",
+            "reason": "Canonical Kestrel service compiled and executed for .NET 11 RC3 with Windows Schannel and WSL OpenSSL curl; not GA verification.",
             "name": ".NET"
           },
           "sdk": {
@@ -61,14 +61,14 @@
             "Server HTTP endpoints; no Blazor rendering mode."
           ],
           "prerequisites": [
-            "Compile with the declared exact SDKs before running. Owner-controlled WSL/Windows trust and connectivity checks remain pending; this compile-only Kestrel fixture performs no certificate trust operation."
+            "Compile with the declared SDKs; owner performs trust. Linux OpenSSL requires process-local SSL_CERT_DIR; browser/NSS trust is unverified. Check loopback port availability on Windows and WSL."
           ],
           "constraints": [
-            "HTTPS required. See the full body for WSL interoperability, development-certificate prerequisites and compilation-only evidence limits."
+            "HTTPS required. See the full body for WSL interoperability, development-certificate prerequisites and client-specific evidence limits."
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Actual .NET11 RC2 evidence; GA reconciliation remains open."
+            "Actual .NET11 RC3 evidence; GA reconciliation remains open."
           ]
         },
         "sharedAreas": [],
@@ -80,7 +80,7 @@
           "samples/net11.0/EstuaryHttps/EstuaryHttps.csproj"
         ],
         "selectionNotes": [
-          "HTTPS required. See the full body for WSL interoperability, development-certificate prerequisites and compilation-only evidence limits."
+          "HTTPS required. See the full body for WSL interoperability, development-certificate prerequisites and client-specific evidence limits."
         ],
         "sourceUrls": [
           "https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-dev-certs",
@@ -106,7 +106,7 @@
       "kind": "compile",
       "language": "14.0",
       "sample": "samples/net10.0/EstuaryHttps/EstuaryHttps.csproj",
-      "scope": "Compilation only; owner-controlled WSL trust and actual cross-environment connectivity are pending PIN-956."
+      "scope": "Compilation only; .NET10 Linux trust propagation and execution were not tested."
     },
     {
       "target": "net11.0",
@@ -114,12 +114,12 @@
       "kind": "compile",
       "language": "15.0",
       "sample": "samples/net11.0/EstuaryHttps/EstuaryHttps.csproj",
-      "scope": "Compilation only; owner-controlled WSL trust and actual cross-environment connectivity are pending PIN-956."
+      "scope": "This record proves compilation. Separate controlled .NET11 RC3 execution with Windows Schannel and WSL OpenSSL curl is documented in docs/verification/wsl-certificate-trust.md."
     }
   ],
   "humanProof": {
-    "status": "pending",
-    "scope": "H_WSL_PROOF / PIN-956: owner-controlled trust in WSL and Windows plus actual trusted HTTPS connectivity to the canonical EstuaryHttps service. Compilation and CLI help establish neither trust nor connectivity."
+    "status": "verified",
+    "scope": "PIN-956: owner trust operation and trusted HTTPS from Windows Schannel and WSL OpenSSL curl observed on .NET11 RC3. Windows and Linux test trust additions removed and absence independently confirmed; original private certificate preserved. Browser/NSS and .NET10 Linux execution are unverified. See docs/verification/wsl-certificate-trust.md."
   },
   "snippets": {
     "n10-directory-build-props": {
