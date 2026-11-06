@@ -7,6 +7,9 @@ try {
 $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH='0'
 foreach($r in '10','11'){
 foreach($n in 'AvocetStore','AvocetSnapshot','AvocetStartup'){
+$lock=Join-Path $root "samples/net$r.0/$n/packages.lock.json"
+# Match .gitattributes before hashing NuGet-generated lock files on Windows.
+[IO.File]::WriteAllText($lock,[IO.File]::ReadAllText($lock).Replace("`r`n","`n"))
 & "$PSScriptRoot/Record-Evidence.ps1" -Sample "samples/net$r.0/$n/$n.csproj" -Dotnet $Dotnet -Kind compile
 }
 }
