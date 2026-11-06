@@ -1,0 +1,33 @@
+{
+  "kind": "official-review",
+  "sample": "samples/net11.0/QuayWindows/QuayWindows.csproj",
+  "target": "net11.0-windows10.0.19041.0",
+  "sdk": "11.0.100-rc.3.26522.148",
+  "language": "15.0",
+  "command": "eng/Test-QuayMaps.ps1 -Record",
+  "scope": "Pinned source/artifact review; native compilation, rendering and service execution not tested.",
+  "recordedAt": "2026-11-06T09:13:32.1898086+00:00",
+  "sourceCommit": "ec242ebafe92dcedcf5537745e32e6ef438845ef",
+  "sourceDirty": true,
+  "inputs": {
+    "eng/Test-QuayMaps.ps1": "67a445ee6ccf2d85782370840c9e309de99215168bae12c7a3e98cb4de300586",
+    "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
+    "samples/net11.0/QuayWindows/Directory.Build.props": "36ff4a49e0044fabdecea940fb07fcfbfb344bc7c9e4ea84204ecaa7d4fe45c1",
+    "samples/net11.0/QuayWindows/Directory.Build.targets": "36ff4a49e0044fabdecea940fb07fcfbfb344bc7c9e4ea84204ecaa7d4fe45c1",
+    "samples/net11.0/QuayWindows/Directory.Packages.props": "36ff4a49e0044fabdecea940fb07fcfbfb344bc7c9e4ea84204ecaa7d4fe45c1",
+    "samples/net11.0/QuayWindows/global.json": "ed53e3ba758246e4faafcbc5ea479583ae5f899a7430622fa6509b79e9a19407",
+    "samples/net11.0/QuayWindows/MauiProgram.cs": "7350143f4cbe1d53d0d6144ecc9154efa85b0bfaffa7761b6c23d7d40b6685b2",
+    "samples/net11.0/QuayWindows/Platforms/Windows/App.xaml": "167e3a3bbcfcff306e2b97d4e43a9f618ae29b5085044a8bbf2328e9ed68d414",
+    "samples/net11.0/QuayWindows/Platforms/Windows/App.xaml.cs": "a4bd280bfa4fed2c5d9a16bdc635463f3c4895dfbeaf2eae49511f6aa153dd86",
+    "samples/net11.0/QuayWindows/QuayWindows.csproj": "1250dc560c5290bc4d296946b58c0ac7a348b3e33ec48f6820bd81a103af4b32",
+    "samples/net11.0/QuayWindows/verification.json": "03c3e827e873823cfeb4e25c5ad9f030399abfb6a960d898b01251c6c535b083",
+    "samples/QuayMaps/sources.json": "5eb685bc8847ba2d3bbd8c9a15b30903df6363a59e31f49eba4f3171de73046f"
+  },
+  "dependencies": [],
+  "workloads": [],
+  "nativeToolchains": [],
+  "host": "Microsoft Windows 10.0.26200",
+  "sdkInfo": "Intended canonical SDK; separate QuayContracts compilation checks the linked source against real Windows assets.",
+  "workloadInfo": "QuayAtlas: Mac/Xcode unavailable. QuayWindows11: actual RC3 Windows MAUI build fails NETSDK1147 (maui-tizen).",
+  "output": "Official source hashes, contract tokens and exact package assets passed. Native actions excluded under PIN-699; PIN-935 service proof has not run."
+}

@@ -1,0 +1,10 @@
+{
+  "additionalInputs": [
+    "samples/QuayMaps/sources.json",
+    "eng/Test-QuayMaps.ps1"
+  ],
+  "dependencies": [],
+  "buildArguments": [],
+  "nativeToolchains": [],
+  "workloads": []
+}

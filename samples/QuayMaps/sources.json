@@ -1,0 +1,112 @@
+{
+  "artifacts": [
+    {
+      "sha256": "d482dba1661e2338cfb287b8bb352b7b7003b8c7327a19d10d3373c17665daa6",
+      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.maui.controls.maps/10.0.110/microsoft.maui.controls.maps.10.0.110.nupkg",
+      "assets": [
+        "lib/net10.0/Microsoft.Maui.Controls.Maps.dll",
+        "lib/net10.0-windows10.0.19041/Microsoft.Maui.Controls.Maps.dll",
+        "lib/net10.0-ios26.0/Microsoft.Maui.Controls.Maps.dll"
+      ]
+    },
+    {
+      "sha256": "4a93f0a4a127e897cc50685a8b6051c47ea6bd9db8594699e262bb806be01f5e",
+      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.maui.controls.maps/11.0.0-rc.2.26505.5/microsoft.maui.controls.maps.11.0.0-rc.2.26505.5.nupkg",
+      "assets": [
+        "lib/net11.0/Microsoft.Maui.Controls.Maps.dll",
+        "lib/net11.0-windows10.0.19041/Microsoft.Maui.Controls.Maps.dll",
+        "lib/net11.0-ios27.0/Microsoft.Maui.Controls.Maps.dll"
+      ]
+    },
+    {
+      "assets": [
+        "lib/net10.0/Microsoft.Maui.Maps.dll",
+        "lib/net10.0-windows10.0.19041/Microsoft.Maui.Maps.dll"
+      ],
+      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.maui.maps/10.0.110/microsoft.maui.maps.10.0.110.nupkg",
+      "sha256": "4f32e43833c2bd4c21865484c929a54e4cfc7ac170e3011aa75983258586ad61"
+    },
+    {
+      "assets": [
+        "lib/net11.0/Microsoft.Maui.Maps.dll",
+        "lib/net11.0-windows10.0.19041/Microsoft.Maui.Maps.dll"
+      ],
+      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.maui.maps/11.0.0-rc.2.26505.5/microsoft.maui.maps.11.0.0-rc.2.26505.5.nupkg",
+      "sha256": "55a65b2096698bdc2a623b7e0f6daef14cc6ef4dd00d85509ad53962e0d199f6"
+    }
+  ],
+  "sources": [
+    {
+      "sha256": "be276141b639b4905421abb0dd646aeecfd4441e83eacf83334d7d0bd4b5859f",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/Maps/src/Map.cs",
+      "tokens": [
+        "public MapSpan? Region",
+        "public bool IsClusteringEnabled",
+        "public event EventHandler<ClusterClickedEventArgs>? ClusterClicked"
+      ]
+    },
+    {
+      "sha256": "b60004a02c63376be8b58706e5d0d245ff0d57b4fc48f0a038297b1f511a1907",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/Maps/src/Pin.cs",
+      "tokens": [
+        "public ImageSource? ImageSource",
+        "public string ClusteringIdentifier"
+      ]
+    },
+    {
+      "sha256": "763025151e0960bf8a0cd4c6c81c74c4137c4a297274c29dd1c695e465ec4ad4",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/Maps/src/MapElement.cs",
+      "tokens": [
+        "public bool IsVisible",
+        "public int ZIndex"
+      ]
+    },
+    {
+      "sha256": "874423be03c3e36d916abf200ef09933813bada2022b7e6017c08b1199f39048",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/Maps/src/Circle.cs",
+      "tokens": [
+        "public event EventHandler? CircleClicked"
+      ]
+    },
+    {
+      "sha256": "2fa8f418e551a37c8ef17d8c6fdca3a745e03ddc47bbe0b176434039e9d31cd8",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/Maps/src/HandlerImpl/Map.Impl.cs",
+      "tokens": []
+    },
+    {
+      "sha256": "ff7a811e4b9fa0311b8533cd9c3c53a4263a5363d79994c65dbc4f763e36d459",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/maps/src/Handlers/Map/MapHandler.Windows.cs",
+      "tokens": [
+        "UseMapServiceToken",
+        "public static void MapIsClusteringEnabled(IMapHandler handler, IMap map) { }",
+        "Shapes are not rendered."
+      ]
+    },
+    {
+      "sha256": "adc81c20ea46a3ba97a05aabdded593ab41a481ef84372fee2fb6aa281fbbf3a",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/Maps/src/AppHostBuilderExtensions.cs",
+      "tokens": []
+    },
+    {
+      "sha256": "25134a1a68166883d84c634333de72c905e60c13456579c896e8b92ec9ebfe07",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/maps/src/Primitives/MapSpan.cs",
+      "tokens": [
+        "public static MapSpan FromLocations"
+      ]
+    },
+    {
+      "tokens": [
+        "public void MoveToRegion(MapSpan mapSpan)"
+      ],
+      "url": "https://raw.githubusercontent.com/dotnet/maui/9d881e94b1c56692e40a16262897677a3bb46fcb/src/Controls/Maps/src/Map.cs",
+      "sha256": "e56736849680ed980b40ab50f5d520658484d0a0034125caee77459044436bce"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/maps/src/Handlers/Map/MapHandler.cs",
+      "tokens": [
+        "[nameof(IMap.MoveToRegion)] = MapMoveToRegion"
+      ],
+      "sha256": "97b68261cc30602e062666c15ad86bfc03a05048ea67362304cd097e2c52b843"
+    }
+  ]
+}

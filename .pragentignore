@@ -1137,3 +1137,11 @@
 /samples/net11.0/BitternConversions/verification-evidence.json
 /samples/net11.0/BitternScaffolding/verification-evidence.json
 /samples/net11.0/BitternScaffolding/behavior.evidence.json
+
+# Quay Record-Evidence/Test-QuayMaps generated receipts; review canonical sources, locks, manifests and recorder.
+/samples/net10.0/QuayAtlas/verification-evidence.json
+/samples/net10.0/QuayWindows/verification-evidence.json
+/samples/net10.0/QuayContracts/verification-evidence.json
+/samples/net11.0/QuayAtlas/verification-evidence.json
+/samples/net11.0/QuayWindows/verification-evidence.json
+/samples/net11.0/QuayContracts/verification-evidence.json
