@@ -1129,3 +1129,11 @@
 /samples/net11.0/AvocetSnapshot/behavior.evidence.json
 /samples/net11.0/AvocetStartup/verification-evidence.json
 /samples/net11.0/AvocetStartup/behavior.evidence.json
+
+# Bittern Record-Evidence/runtime receipts; review source, locks, manifests and runners.
+/samples/net10.0/BitternConversions/verification-evidence.json
+/samples/net10.0/BitternScaffolding/verification-evidence.json
+/samples/net10.0/BitternScaffolding/behavior.evidence.json
+/samples/net11.0/BitternConversions/verification-evidence.json
+/samples/net11.0/BitternScaffolding/verification-evidence.json
+/samples/net11.0/BitternScaffolding/behavior.evidence.json

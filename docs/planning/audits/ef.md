@@ -1105,3 +1105,32 @@ unchanged. M(3) each covers the bounded tooling, diagnostic/schema and service
 materialization checks; no recurring client/native/platform matrix is added.
 
 The installed Avocet inspection is a combined-delivery check: all E27/E28/E29 recipe editions must be present in the single packed artifact. This packaging dependency does not introduce another native issue blocker.
+
+## Cosmos conversions and model-code selection — PIN-1218/1219
+
+E30/E31 are delivered as cosmos.translate-converted-expressions/11.0 and
+ef.migrate-model-code-selector/11.0 with original Bittern consumers.
+SDK10.0.403 and SDK11 RC3 deliberately differ from historical audit SDK pins.
+EF10 uses 10.0.13; Cosmos11 uses RC3, Design/SQLite11 retain RC2. Independent
+locks preserve actual dependencies and EF11's net11.0 requirement.
+
+Cosmos executes FLOOR and ToString composition. Expression-tree Convert nodes
+are distinct from unsupported System.Convert.ToDouble(string). Numeric casts
+are omitted by Cosmos: a range value remains 1e100. The older explicit client
+boundary remains valid; server casts are not CLR validation/truncation promises.
+Null, invalid string conversion and range controls bound this route; rounding
+migration remains PIN-874. Only the approved disposable loopback emulator is tested.
+
+Actual public Design selector decorators compile on both graphs. EF10 retains
+the obsolete string-language overload; its options overload already exists.
+EF11 forwards ModelCodeGenerationOptions intact. Real SQLite reverse engineering
+calls the decorator; generated C# compiles separately and reads both original
+rows and nullable depth. The internal SQLite design-service registration uses
+one local EF1001 suppression and has no stable compatibility guarantee.
+Generation-stage selection remains PIN-887.
+
+Canonical sources, independent locks and fresh compilation/execution receipts
+support these bounded deliveries. No additional .NET10 foundation or recurring
+native/client/OS matrix is introduced. Historical source manifests are unchanged.
+PIN-959 qualifying coverage, PIN-965 actual-GA reconciliation and Human gates
+remain separate obligations; this delivery does not establish their closure.
