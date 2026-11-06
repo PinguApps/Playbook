@@ -1,0 +1,62 @@
+{
+  "taskPackage": "Microsoft.Maui.Resizetizer/11.0.0-rc.2.26505.5",
+  "outputs": [
+    {
+      "sha256": "1c4050364f1c16ac92b296944bea7a78893d99fbe1dafe6d698d6bf40bb51d66",
+      "path": "images/drawable-mdpi/marker.png"
+    },
+    {
+      "sha256": "7e8ad3e6295b518d0c96a93a562e14710d0e0632bf320d0742ec1e49faf41e79",
+      "path": "images/mipmap-anydpi-v26/tern.xml"
+    },
+    {
+      "sha256": "bc65f982efcf296a154da8ece8c03e6e0e4e914a101b64ccc4bab77cc686d0c8",
+      "path": "images/mipmap-mdpi/tern_monochrome.png"
+    },
+    {
+      "sha256": "13d410aa49ec6ae2a384d6b4b79412648dd2ab5fd98fca77a4fa127ed0113e8d",
+      "path": "splash/drawable-night-mdpi/day.png"
+    },
+    {
+      "sha256": "476daa39031562e27ccd2c9c3997b286d45d78e7671dfbbb3ae82c0a353bdd04",
+      "path": "splash/values/maui_colors.xml"
+    },
+    {
+      "sha256": "541cc6c1e1bca8c69b06a300492a5ab7468f194cb67aa1e370264c3d5da06914",
+      "path": "splash/values-night/maui_colors.xml"
+    }
+  ],
+  "command": "dotnet msbuild samples/net11.0/TernAssets/AssetChecks.proj -t:Check -p:ResizetizerAssembly=<actual pinned package assembly>",
+  "scope": "Real Windows execution of RC2 task assembly on SDK10.0.403, original canonical assets. Monochrome XML/PNG, distinct day/night splash colors/PNGs and resized marker generated. Not Android app compilation/packaging, launcher execution, pixel-quality assessment or Apple actool.",
+  "sdk": "10.0.403",
+  "projectSha256": "6683556e0d80f0b684abc5d8692b7feb8ec80fef616cc004306a0b40d6db0dcb",
+  "taskAssemblySha256": "09c8085df46134d4b8375629a8d074760e9a90af8a524e426f3d425c72ecdf22",
+  "recordedAt": "2026-11-06T14:36:53.3856847+00:00",
+  "project": "samples/net11.0/TernAssets/AssetChecks.proj",
+  "sourceInputs": [
+    {
+      "path": "samples/net11.0/TernAssets/Resources/AppIcon/mono.svg",
+      "sha256": "a1f90fb0d7760eacce26d0817d7837ea73a241d7616f895f6eb2bfc1e69a1f44"
+    },
+    {
+      "path": "samples/net11.0/TernAssets/Resources/AppIcon/tern.svg",
+      "sha256": "65c1f32c1ad8fcd78c0bff92443aacf66f21917e61ecf22391f7eed652dd0aad"
+    },
+    {
+      "path": "samples/net11.0/TernAssets/Resources/AppIcon/tern.icon/Assets/tern.svg",
+      "sha256": "65c1f32c1ad8fcd78c0bff92443aacf66f21917e61ecf22391f7eed652dd0aad"
+    },
+    {
+      "path": "samples/net11.0/TernAssets/Resources/Images/marker.svg",
+      "sha256": "97bf546525d67ceacb62bde059ae51635e06d928d9424c97f9ff1805d2811a8a"
+    },
+    {
+      "path": "samples/net11.0/TernAssets/Resources/Splash/day.svg",
+      "sha256": "97bf546525d67ceacb62bde059ae51635e06d928d9424c97f9ff1805d2811a8a"
+    },
+    {
+      "path": "samples/net11.0/TernAssets/Resources/Splash/night.svg",
+      "sha256": "65c1f32c1ad8fcd78c0bff92443aacf66f21917e61ecf22391f7eed652dd0aad"
+    }
+  ]
+}

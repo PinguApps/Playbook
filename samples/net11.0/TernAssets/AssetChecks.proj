@@ -1,0 +1,23 @@
+<!-- snippet:complete -->
+<Project DefaultTargets="Check">
+  <PropertyGroup>
+    <Tasks>$(ResizetizerAssembly)</Tasks>
+    <Source>$(MSBuildThisFileDirectory)Resources</Source>
+    <Out>$(MSBuildThisFileDirectory)../../../artifacts/tern-assets-tasks/</Out>
+  </PropertyGroup>
+  <UsingTask TaskName="Microsoft.Maui.Resizetizer.ResizetizeImages" AssemblyFile="$(Tasks)" />
+  <UsingTask TaskName="Microsoft.Maui.Resizetizer.GenerateSplashAndroidResources" AssemblyFile="$(Tasks)" />
+  <ItemGroup>
+    <Artwork Include="$(Source)/AppIcon/tern.svg" IsAppIcon="true" Color="#183848" MonochromeFile="$(Source)/AppIcon/mono.svg" />
+    <Artwork Include="$(Source)/Images/marker.svg" ResizeQuality="Fastest" />
+    <Splash Include="$(Source)/Splash/day.svg" DarkFile="$(Source)/Splash/night.svg" Color="#F2E8D0" DarkColor="#183848" BaseSize="128,128" ResizeQuality="Best" />
+  </ItemGroup>
+  <Target Name="Check">
+    <Error Condition="!Exists('$(Tasks)')" Text="Pass ResizetizerAssembly for the pinned Microsoft.Maui.Resizetizer 11.0.0-rc.2.26505.5 package." />
+    <MakeDir Directories="$(Out)" />
+    <WriteLinesToFile File="$(Out)inputs.txt" Lines="Original Tern canonical metadata; direct RC2 task execution only" Overwrite="true" />
+    <ResizetizeImages PlatformType="android" Images="@(Artwork)" IntermediateOutputPath="$(Out)images/" InputsFile="$(Out)inputs.txt" />
+    <GenerateSplashAndroidResources MauiSplashScreen="@(Splash)" IntermediateOutputPath="$(Out)splash/" InputsFile="$(Out)inputs.txt" />
+  </Target>
+</Project>
+<!-- endsnippet:complete -->

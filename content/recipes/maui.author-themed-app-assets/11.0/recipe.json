@@ -194,7 +194,7 @@
     }
   ],
   "humanProof": {
-    "scope": "Current .NET 11 native build/execution unavailable (NETSDK1147). No GA proof. PIN-699 exclusions do not establish behavior. Android device/emulator and Apple/Xcode execution unavailable; source-only Apple routes are uncompiled. No pending Human obligation.",
+    "scope": "Current .NET 11 native build/execution unavailable (NETSDK1147). No GA proof. PIN-699 exclusions do not establish behavior. Android device/emulator and Apple/Xcode execution unavailable; source-only Apple routes are uncompiled. No pending Human obligation. Direct RC2 Resizetizer task execution on Windows SDK10.0.403 is separately verified; it is not native app compilation or execution.",
     "untestedSamples": [
       "samples/net11.0/TernAssets/TernAssets.csproj",
       "samples/net10.0/TernAssets/TernAssets.csproj"
@@ -346,6 +346,11 @@
       "path": "samples/net11.0/TernAssets/MauiProgram.cs",
       "region": "complete",
       "language": "csharp"
+    },
+    "asset-task-project": {
+      "region": "complete",
+      "language": "xml",
+      "path": "samples/net11.0/TernAssets/AssetChecks.proj"
     }
   }
 }
