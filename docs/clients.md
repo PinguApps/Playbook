@@ -18,6 +18,8 @@ Sources: T3 Code's [provider setup](https://github.com/pingdotgg/t3code/blob/mai
 
 For owner-authorized fresh-thread checks, use the [isolated verification project](t3-verification.md). Its tested project-scoped Codex connection needs trust for that specific seed repository; launching a T3 thread alone does not inject Playbook. The [setup receipt](verification/agent-connection.md) records actual calls, package identity and the initial missing-trust failure.
 
+The [Windows T3 client check](verification/agent-connection.md#t3-client-lifecycle-check--6-november-2026) records actual agent-visible Markdown/applicability and eventual server exit. Archiving a thread or stopping an idle turn does not prove immediate connection shutdown; check the recorded server PID disappears. A retained Codex parent alone does not mean the Playbook server is still running.
+
 ## Codex CLI
 
 Register the installed command, then inspect the saved entry:

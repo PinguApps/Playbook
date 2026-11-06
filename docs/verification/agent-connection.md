@@ -1,5 +1,58 @@
 # Agent connection evidence
 
+## T3 client lifecycle check — 6 November 2026
+
+[PIN-942](https://linear.app/pinguapps/issue/PIN-942) exercised one real Windows
+T3/Codex connection using owner-held access and the existing isolated project.
+
+- T3 server/client route: `0.1.8-nightly.20261105.4234`; Codex CLI `0.166.0`;
+  Windows 11 Pro `10.0.26200`, x64. Model `gpt-6.1-sol`, medium effort,
+  default service tier. No client/OS/model matrix was run.
+- Installed packed tool: `1.0.0-preview.1018.1+d033963b13b611a6fd2844b25406b0c1f959ab74`.
+  Retained installed `.nupkg` SHA-256:
+  `8cd91d296e5e6a5eb54524bd557975a7d48ac53d24bfc3f8b4afd7df3fb321a0`.
+  Executable: `V:\_Scratch\PlaybookVerification\packages\pin1018-1\tool\playbook.exe`.
+  This checks that historical artifact, not the current catalogue or release readiness.
+- Seed commit `ee45bc0`, branch `verify/pin1018-seed`; committed project
+  `.codex/config.toml` selected that absolute executable with `args = ['mcp']`,
+  `required = true`, `startup_timeout_sec = 30`. Existing scoped trust and owner
+  login were reused; no credentials, configuration or environment were changed.
+- [Actual fresh thread](t3-thread://v2/e161a58f-5feb-4993-b10f-5dc13775bd35/mcp:launch:d5e212845067aba665266f39b2aa259f59fe31ae5bf37d15b86937b32585eee3)
+  used the app-created `verify/pin942-client` worktree. Activity positions 3/4
+  contain completed `playbook.list_recipes` / `playbook.get_recipe` calls at
+  `20:28:08.010Z` / `20:28:10.196Z`. The coordinator read both complete outputs
+  through `t3_thread_read(view: activity, maxCharsPerItem: 50000)` without truncation.
+  Disposable copies are in `artifacts/pin942/agent-calls.json` in the task worktree;
+  the archived thread retains the actual calls independently.
+- Actual list input: `{"targetVersion":"10.0","query":"validate property assignment","limit":1}`.
+  The agent chose that query instead of the requested `field`; no retry or extra
+  discovery call was made. It returned `csharp.validate-property-assignment`,
+  **Normalize and validate properties with the C# field keyword**, and its goal
+  describing normalization/validation without a separate backing field.
+- Actual detail input: `{"id":"csharp.validate-property-assignment","targetVersion":"10.0"}`.
+  The agent received all **6,286 UTF-16 characters of Markdown** and both routes:
+  primary SDK/runtime 10 and C# 14; optional SDK 11 retaining `net10.0`, C# 14
+  and the .NET 10 targeting pack/runtime. Exact SDK evidence remains separate
+  from requirements. Both coverage entries were incomplete; the optional route
+  disclosed RC evidence and pending GA reconciliation. This proves delivery,
+  not sample execution or recipe-selection/application quality.
+- Run completion: `20:28:47.733Z`, `activeRunId: null`. The coordinator
+  archived only this thread at `20:29:10.414Z`. Playbook PID `58268`, created
+  `20:27:49.828Z` as a child of Codex app-server PID `103832`, initially remained
+  alive. An idle `t3_thread_interrupt(stop: true)` returned `no_active_run` and
+  did not immediately close it. Subsequent `Get-CimInstance Win32_Process`
+  checks observed Playbook exit while its Codex parent remained alive. No process
+  was killed, provider restarted or other thread interrupted. Exit code and the
+  exact exit instant were not captured; this establishes eventual server exit,
+  not immediate archive-driven disposal. Keep the package/seed for other checks.
+
+Documentation correction: archiving or stopping an idle T3 thread is not proof
+of immediate MCP shutdown. Verify the recorded server PID actually disappears;
+do not equate a completed agent turn or retained Codex parent with server exit.
+
+## Original setup proof
+
+
 Date: **20 October 2026**. [Repeat/setup/cleanup instructions](../t3-verification.md). This proves reusable fresh-thread MCP visibility and package replacement, not recipe-selection/application usability or a completed catalogue. No production source, recipes, tool contract, CI jobs, schedules or services changed.
 
 ## Actual route and identity
