@@ -1,5 +1,57 @@
 # Agent connection evidence
 
+## Codex CLI client check — 6 November 2026
+
+[PIN-943](https://linear.app/pinguapps/issue/PIN-943) exercised the standalone
+Codex CLI, using the owner's existing ChatGPT login on Windows 11 Pro
+`10.0.26200`, x64. Client `codex-cli 0.166.0`; installed Playbook
+`1.0.0-preview.1018.1+d033963b13b611a6fd2844b25406b0c1f959ab74`.
+The retained installed package SHA-256 is
+`8cd91d296e5e6a5eb54524bd557975a7d48ac53d24bfc3f8b4afd7df3fb321a0`.
+This is one historical packed artifact, not current-catalogue or GA proof.
+
+The existing trusted seed `V:\_Scratch\PlaybookVerification`, commit
+`ee45bc0b1bdffec1b85e62b63734fe3273d9c38c`, supplied project-local
+`.codex/config.toml`: absolute command
+`V:/_Scratch/PlaybookVerification/packages/pin1018-1/tool/playbook.exe`,
+`args = ['mcp']`, `required = true`, `startup_timeout_sec = 30`.
+No configuration, credentials or persistent environment settings were changed.
+`codex login status` reported `Logged in using ChatGPT`.
+
+From that seed directory, `codex mcp get playbook --json` confirmed the enabled
+stdio entry. `codex exec --json --color never -o <receipt-path> <prompt>`
+requested exactly one discovery and one detail call, with no shell, browsing,
+delegation or other MCP calls. Session
+`01a1b29d-c02d-72a0-b8a3-16bf67c749b7` completed both calls:
+
+- `list_recipes`: `{"targetVersion":"10.0","query":"field","limit":1}`.
+  Returned `csharp.validate-property-assignment`, its title and explanatory goal.
+- `get_recipe`: `{"id":"csharp.validate-property-assignment","targetVersion":"10.0"}`.
+  The [retained actual call outputs](codex-cli.calls.json) contain the full
+  JSON text fallback delivered to the agent, including **6,286 UTF-16 characters
+  of Markdown** and both applicability routes. The final agent message contained
+  the complete Markdown verbatim and printed the routes and limitations.
+  Primary: SDK/runtime 10, C# 14. Optional: SDK 11 retaining `net10.0`, C# 14
+  and the .NET 10 targeting pack/runtime. Exact test baselines are separate
+  from requirements. Both coverage entries are incomplete; RC evidence does
+  not establish .NET 11 GA verification.
+
+Playbook PID `67364`, parent `72672`, started at `20:47:25.532423Z`.
+After the CLI completed, exit code was **0** and a PID-specific CIM query at
+`20:48:55Z` found no server process. No process was killed. This establishes
+client-owned shutdown, not an observed server exit code or exact exit instant.
+Process, user and machine PATH comparisons passed unchanged. Disposable JSONL,
+stderr, final message and process observations remain under `artifacts/pin943/`.
+The existing package and verification seed remain available for other checks.
+
+Documentation finding: run configuration inspection from the consumer directory
+as documented. In this client version, `codex -C <seed> mcp get playbook --json`
+reported no server, whereas changing the working directory first succeeded.
+The documented absolute-command/`mcp` launch form needed no correction.
+This proves delivery and shutdown through `codex exec`; it does not exercise the
+interactive `/mcp` interface, other clients/OSes, sample execution or agent
+implementation quality.
+
 ## T3 client lifecycle check — 6 November 2026
 
 [PIN-942](https://linear.app/pinguapps/issue/PIN-942) exercised one real Windows
