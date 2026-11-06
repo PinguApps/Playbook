@@ -268,6 +268,16 @@
       "path": "samples/net11.0/TernActivation/TernActivation.csproj",
       "region": "project",
       "language": "xml"
+    },
+    "activation-complete-10": {
+      "language": "csharp",
+      "path": "samples/net10.0/TernActivation/ActivationRoute.cs",
+      "region": "complete"
+    },
+    "activation-complete-11": {
+      "language": "csharp",
+      "path": "samples/net11.0/TernActivation/ActivationRoute.cs",
+      "region": "complete"
     }
   }
 }

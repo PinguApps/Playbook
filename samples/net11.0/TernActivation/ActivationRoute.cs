@@ -1,3 +1,4 @@
+// snippet:complete
 // snippet:activation
 using Microsoft.Maui.Hosting;
 using Microsoft.Maui.LifecycleEvents;
@@ -35,3 +36,4 @@ internal static class Receipt
             $"{Environment.ProcessId}|{value}{Environment.NewLine}");
     }
 }
+// endsnippet:complete

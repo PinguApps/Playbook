@@ -30,7 +30,7 @@ Windows only, native MAUI/WinUI; no web rendering mode, provider or account. The
 
 ## Evidence
 
-The actual .NET10 Windows Release app compiled. Separate processes 82024 and 100424 established launch redirection: the second exited with code0 and both launch receipts were written by82024. A real Windows protocol launch delivered playbook-tern-pin919://callback/?ticket=919 to82024. Temporary registration was removed, including its empty leftover root key. This is protocol delivery only, not WebAuthenticator/provider authentication. Current .NET11 compilation was attempted with SDK11 RC3 and failed NETSDK1147; current compilation/execution are explicitly not-tested under PIN-699. No MSIX deployment or trust change was tested.
+The actual .NET10 Windows Release app compiled. Separate processes 54424 and 54468 established launch redirection: the second exited with code0 and both launch receipts were written by54424. A real Windows protocol launch delivered playbook-tern-pin919://callback/?ticket=919 to54424. Temporary registration was removed, including its empty leftover root key. This is protocol delivery only, not WebAuthenticator/provider authentication. Current .NET11 compilation was attempted with SDK11 RC3 and failed NETSDK1147; current compilation/execution are explicitly not-tested under PIN-699. No MSIX deployment or trust change was tested.
 
 ## Canonical inputs
 
@@ -82,3 +82,11 @@ The actual .NET10 Windows Release app compiled. Separate processes 82024 and 100
 ### samples/net11.0/TernActivation/TernActivation.csproj
 
 {{snippet:samples-net11-0-ternactivation-ternactivation-csproj}}
+
+### Complete receipt implementation (.NET10)
+
+{{snippet:activation-complete-10}}
+
+### Complete receipt implementation (.NET11)
+
+{{snippet:activation-complete-11}}
