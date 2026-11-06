@@ -1103,3 +1103,5 @@ coverage gate or actual-GA reconciliation. Existing terminal tracker states,
 PIN-959/PIN-965 obligations, the exact eight foundations and Human gates remain
 unchanged. M(3) each covers the bounded tooling, diagnostic/schema and service
 materialization checks; no recurring client/native/platform matrix is added.
+
+The installed Avocet inspection is a combined-delivery check: all E27/E28/E29 recipe editions must be present in the single packed artifact. This packaging dependency does not introduce another native issue blocker.

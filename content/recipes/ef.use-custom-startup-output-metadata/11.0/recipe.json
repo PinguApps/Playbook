@@ -2,7 +2,7 @@
   "id": "ef.use-custom-startup-output-metadata",
   "edition": "11.0",
   "title": "Run design-time tooling with customized output names",
-  "goal": "Run design-time tooling with customized output names when upgrading database tooling or query code; compare a working older route and verify the actual result.",
+  "goal": "Run database tooling when startup dependency or runtime configuration output names differ from the assembly name; select the real generated files.",
   "areas": [
     "ef-core"
   ],
@@ -64,7 +64,7 @@
             }
           ],
           "packageAssets": [
-            "Independently locked EF10.0.13/net10.0 and EF11 RC/net11.0 graphs. SDK10.0.403 and SDK11 RC3; SQLite tooling uses EF11 RC2, Cosmos EF11 RC3. No EF11-on-net10 claim."
+            "Exact current EF package 11.0.0-rc.2.26504.105; older EF10.0.13. SDK10.0.403/C#14/net10.0 and SDK11.0.100-rc.3.26522.148/C#15/net11.0. Independent locks retain all provider/native/transitive package identities; no EF11-on-net10 route."
           ],
           "providers": [
             "Bundled SQLite on Windows x64."
@@ -127,7 +127,7 @@
       "sdk": "10.0.403",
       "kind": "execution",
       "sample": "samples/net10.0/AvocetStartup/AvocetStartup.csproj",
-      "scope": "Real isolated SQLite tooling/schema/persistence controls; Windows x64 and measured RC artifacts only.",
+      "scope": "Combined EF10/EF11 focused runner output; this entry identifies its independent compilation baseline. Actual Windows x64 tooling/schema/persistence controls; RC artifacts only.",
       "record": "samples/net10.0/AvocetStartup/behavior.evidence.json"
     },
     {
@@ -136,7 +136,7 @@
       "sdk": "11.0.100-rc.3.26522.148",
       "kind": "execution",
       "sample": "samples/net11.0/AvocetStartup/AvocetStartup.csproj",
-      "scope": "Real isolated SQLite tooling/schema/persistence controls; Windows x64 and measured RC artifacts only.",
+      "scope": "Combined EF10/EF11 focused runner output; this entry identifies its independent compilation baseline. Actual Windows x64 tooling/schema/persistence controls; RC artifacts only.",
       "record": "samples/net11.0/AvocetStartup/behavior.evidence.json"
     },
     {
@@ -286,6 +286,26 @@
       "region": "complete",
       "language": "xml",
       "path": "samples/net10.0/AvocetStartup/Directory.Packages.props"
+    },
+    "sdk-10-avocetstartup": {
+      "path": "samples/net10.0/AvocetStartup/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "sdk-10-avocetstore": {
+      "path": "samples/net10.0/AvocetStore/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "sdk-11-avocetstartup": {
+      "path": "samples/net11.0/AvocetStartup/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "sdk-11-avocetstore": {
+      "path": "samples/net11.0/AvocetStore/global.json",
+      "region": "complete",
+      "language": "json"
     }
   },
   "humanProof": {

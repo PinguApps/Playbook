@@ -2,7 +2,7 @@
   "id": "ef.reconcile-old-snapshot-version",
   "edition": "11.0",
   "title": "Reconcile a snapshot made by an older EF version",
-  "goal": "Reconcile a snapshot made by an older EF version when upgrading database tooling or query code; compare a working older route and verify the actual result.",
+  "goal": "Check an older EF model snapshot after upgrading, distinguish a real schema change, and regenerate only deliberately reviewed migration artifacts.",
   "areas": [
     "ef-core"
   ],
@@ -64,7 +64,7 @@
             }
           ],
           "packageAssets": [
-            "Independently locked EF10.0.13/net10.0 and EF11 RC/net11.0 graphs. SDK10.0.403 and SDK11 RC3; SQLite tooling uses EF11 RC2, Cosmos EF11 RC3. No EF11-on-net10 claim."
+            "Exact current EF package 11.0.0-rc.2.26504.105; older EF10.0.13. SDK10.0.403/C#14/net10.0 and SDK11.0.100-rc.3.26522.148/C#15/net11.0. Independent locks retain all provider/native/transitive package identities; no EF11-on-net10 route."
           ],
           "providers": [
             "Bundled SQLite on Windows x64."
@@ -127,7 +127,7 @@
       "sdk": "10.0.403",
       "kind": "execution",
       "sample": "samples/net10.0/AvocetSnapshot/AvocetSnapshot.csproj",
-      "scope": "Real isolated SQLite tooling/schema/persistence controls; Windows x64 and measured RC artifacts only.",
+      "scope": "Combined EF10/EF11 focused runner output; this entry identifies its independent compilation baseline. Actual Windows x64 tooling/schema/persistence controls; RC artifacts only.",
       "record": "samples/net10.0/AvocetSnapshot/behavior.evidence.json"
     },
     {
@@ -136,7 +136,7 @@
       "sdk": "11.0.100-rc.3.26522.148",
       "kind": "execution",
       "sample": "samples/net11.0/AvocetSnapshot/AvocetSnapshot.csproj",
-      "scope": "Real isolated SQLite tooling/schema/persistence controls; Windows x64 and measured RC artifacts only.",
+      "scope": "Combined EF10/EF11 focused runner output; this entry identifies its independent compilation baseline. Actual Windows x64 tooling/schema/persistence controls; RC artifacts only.",
       "record": "samples/net11.0/AvocetSnapshot/behavior.evidence.json"
     }
   ],
@@ -230,6 +230,16 @@
       "region": "complete",
       "language": "xml",
       "path": "samples/net10.0/AvocetSnapshot/Directory.Packages.props"
+    },
+    "sdk-10-avocetsnapshot": {
+      "path": "samples/net10.0/AvocetSnapshot/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "sdk-11-avocetsnapshot": {
+      "path": "samples/net11.0/AvocetSnapshot/global.json",
+      "region": "complete",
+      "language": "json"
     }
   },
   "humanProof": {

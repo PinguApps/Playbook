@@ -12,14 +12,14 @@ foreach($n in 'AvocetStore','AvocetSnapshot','AvocetStartup'){
 }
 foreach($n in 'AvocetStartup','AvocetSnapshot'){
 $runner=if($n -eq 'AvocetStartup'){'Test-AvocetTooling.ps1'}else{'Test-AvocetSnapshots.ps1'}
-$output=& "$PSScriptRoot/$runner" *>&1 | Out-String
+$output=& "$PSScriptRoot/$runner" -Dotnet $Dotnet *>&1 | Out-String
 Write-Host $output
 foreach($r in '10','11'){
 $folder=Join-Path $root "samples/net$r.0/$n"
 $receipt=Get-Content "$folder/verification-evidence.json" -Raw|ConvertFrom-Json -AsHashtable
 $receipt.kind='execution'
 $receipt.command="eng/Record-AvocetTooling.ps1; eng/$runner"
-$receipt.scope="EF$r isolated Windows x64 real tooling, schema and persistence controls; RC artifacts, not GA."
+$receipt.scope="Combined EF10/EF11 Windows x64 runner output; this receipt identifies the net$r compilation baseline. Real tooling, schema and persistence controls; RC artifacts, not GA."
 $receipt.recordedAt=[DateTimeOffset]::UtcNow.ToString('O')
 $receipt.output=$output
 [IO.File]::WriteAllText("$folder/behavior.evidence.json",($receipt|ConvertTo-Json -Depth 40).Replace("`r`n","`n")+"`n")

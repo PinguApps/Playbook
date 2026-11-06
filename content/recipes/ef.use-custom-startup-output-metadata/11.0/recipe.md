@@ -2,15 +2,15 @@
 
 ## Goal
 
-Run design-time tooling with customized output names when upgrading database tooling or query code; compare a working older route and verify the actual result.
+Run database tooling when startup dependency or runtime configuration output names differ from the assembly name; select the real generated files.
 
 ## Older approach
 
-The independently compiled .NET10 consumer retains the working older route described in the migration steps. Read its limitations before replacing it.
+EF10 works with conventional output names. Keep those names when its tool derives the deps and runtimeconfig paths from AssemblyName.
 
 ## Newer approach
 
-The .NET11 consumer uses the current contract with explicit prerequisites and controls.
+EF11 reads the startup project output metadata. The example keeps AvocetStore as the target while using custom generated files from AvocetStartup.
 
 {{snippet:n11-samples-net11-0-avocetstartup-avocetstartup-csproj}}
 
@@ -137,3 +137,25 @@ SQLite uses the actual bundled native Windows x64 engines. Matching EF/Design/do
 ## Evidence
 
 Independent compilation uses each SDK pin and lock. Focused SQLite tooling and Cosmos emulator checks are recorded separately; compilation alone does not establish database behavior. Actual GA and other platforms remain unverified.
+
+## Exact toolchain
+
+Current EF package: 11.0.0-rc.2.26504.105; older package: 10.0.13. Tooling consumers match Design and dotnet-ef to the EF package. SDK pins are canonical below; release-family prerequisites do not relabel these RC checks as GA proof.
+
+### .NET10 AvocetStartup SDK pin
+
+{{snippet:sdk-10-avocetstartup}}
+
+### .NET10 AvocetStore SDK pin
+
+{{snippet:sdk-10-avocetstore}}
+
+### .NET11 AvocetStartup SDK pin
+
+{{snippet:sdk-11-avocetstartup}}
+
+### .NET11 AvocetStore SDK pin
+
+{{snippet:sdk-11-avocetstore}}
+
+The retained initial migrations use namespace AvocetStartup.Migrations because they were first scaffolded before separating the model project. Their compiled target assembly is AvocetStore; a namespace does not select the startup assembly.

@@ -2,15 +2,15 @@
 
 ## Goal
 
-Reconcile a snapshot made by an older EF version when upgrading database tooling or query code; compare a working older route and verify the actual result.
+Check an older EF model snapshot after upgrading, distinguish a real schema change, and regenerate only deliberately reviewed migration artifacts.
 
 ## Older approach
 
-The independently compiled .NET10 consumer retains the working older route described in the migration steps. Read its limitations before replacing it.
+EF10 generates the original Avocet snapshot and migration. Review model differences and scaffold actual schema changes before applying them.
 
 ## Newer approach
 
-The .NET11 consumer uses the current contract with explicit prerequisites and controls.
+EF11 reports an older snapshot when pending differences exist. Inspect the model and generated operations: the same warning can accompany a genuine schema change.
 
 {{snippet:n11-samples-net11-0-avocetsnapshot-avocetsnapshot-csproj}}
 
@@ -105,3 +105,15 @@ SQLite uses the actual bundled native Windows x64 engines. Matching EF/Design/do
 ## Evidence
 
 Independent compilation uses each SDK pin and lock. Focused SQLite tooling and Cosmos emulator checks are recorded separately; compilation alone does not establish database behavior. Actual GA and other platforms remain unverified.
+
+## Exact toolchain
+
+Current EF package: 11.0.0-rc.2.26504.105; older package: 10.0.13. Tooling consumers match Design and dotnet-ef to the EF package. SDK pins are canonical below; release-family prerequisites do not relabel these RC checks as GA proof.
+
+### .NET10 AvocetSnapshot SDK pin
+
+{{snippet:sdk-10-avocetsnapshot}}
+
+### .NET11 AvocetSnapshot SDK pin
+
+{{snippet:sdk-11-avocetsnapshot}}

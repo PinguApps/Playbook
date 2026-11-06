@@ -2,15 +2,15 @@
 
 ## Goal
 
-Keep keys in Cosmos identity-resolution projections when upgrading database tooling or query code; compare a working older route and verify the actual result.
+Retain root keys when projecting owned Cosmos entities with identity resolution, preserving stored values and repeated object identity.
 
 ## Older approach
 
-The independently compiled .NET10 consumer retains the working older route described in the migration steps. Read its limitations before replacing it.
+The measured EF10 duplicated keyed projection returns null owned values. Materialize root documents first, then project their owned values in memory; the omitted-key projection remains a working bounded control.
 
 ## Newer approach
 
-The .NET11 consumer uses the current contract with explicit prerequisites and controls.
+EF11 requires every root primary-key component in an owned projection with identity resolution. Project Id and Coast with Detail, then check values and repeated object identity.
 
 {{snippet:n11-samples-net11-0-avocetidentity-avocetidentity-csproj}}
 
@@ -73,3 +73,23 @@ Cosmos SDK3.63.1/Newtonsoft.Json13.0.4 and the approved digest-pinned legacy emu
 ## Evidence
 
 Independent compilation uses each SDK pin and lock. Focused SQLite tooling and Cosmos emulator checks are recorded separately; compilation alone does not establish database behavior. Actual GA and other platforms remain unverified.
+
+## Exact toolchain
+
+Current EF package: 11.0.0-rc.3.26522.148; older package: 10.0.13. Tooling consumers match Design and dotnet-ef to the EF package. SDK pins are canonical below; release-family prerequisites do not relabel these RC checks as GA proof.
+
+### .NET10 AvocetIdentity SDK pin
+
+{{snippet:sdk-10-avocetidentity}}
+
+### .NET11 AvocetIdentity SDK pin
+
+{{snippet:sdk-11-avocetidentity}}
+
+## .NET10 isolated emulator transport
+
+{{snippet:n10-emulator-transport}}
+
+## .NET11 isolated emulator transport
+
+{{snippet:n11-emulator-transport}}

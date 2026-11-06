@@ -160,13 +160,33 @@ translation/parameter controls have current sample evidence. See the
 The raw source/asset audit, exact eight foundations, actual-GA and comprehensive
 coverage gates are preserved; this adds no broad time/date/precision guarantee.
 
+**E27 / PIN-1215** delivers ef.use-custom-startup-output-metadata/11.0:
+separate Avocet startup/target projects, actual custom build outputs, migration
+generation/list/update, persistence, EF10 custom-name failure and missing-file
+controls. The older conventional-output route remains valid.
+
+**E28 / PIN-1216** delivers ef.reconcile-old-snapshot-version/11.0:
+genuine EF10/current snapshots, unchanged/genuine-change controls, deliberate
+empty regeneration and a real schema migration. An old-version warning alone
+does not establish that pending differences are harmless.
+
+**E29 / PIN-1217** delivers cosmos.project-identity-resolution-keys/11.0:
+actual owned projections against the approved isolated emulator, omitted-key
+failure, explicit-key success, duplicate identity and direct stored-document
+controls. Pingu approved root-document materialization followed by in-memory
+projection as the working EF10 comparison; cloud parity remains unverified.
+
+These bounded deliveries retain exact locked artifacts, compilation/runtime
+receipts and installed offline retrieval. SDK10.0.403/SDK11 RC3 differ from the
+historical audit pins; tooling uses EF11 RC2 and Cosmos uses EF11 RC3. Actual-GA,
+comprehensive qualifying coverage and the exact eight foundations remain separate.
 The [PIN-710 audit](../audits/ef.md) compares actual EF10/EF11 RC2 assemblies,
 first-party providers, public task/tooling assets and complete canonical sources.
 Its [reproducible deltas](../audits/ef.assets.json) and
 [ownership rules](../audits/ef.dispositions.json) retain all raw public/protected
 differences, obsoletions and unresolved extension contracts. PIN-842–889 preserve
 the existing 48 delivery goals below; E1–E31 are additional estimated drafts for
-PIN-986 approval, not authored/verified recipes. Source/artifact conflicts,
+PIN-986 approval; individually recorded deliveries above supersede draft status for their bounded routes. Source/artifact conflicts,
 provider prerequisites, targeted Human proofs and PIN-965 GA reconciliation remain
 explicit. The historical inventory counts are not a completed coverage claim.
 

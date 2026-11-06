@@ -2,7 +2,7 @@
   "id": "cosmos.project-identity-resolution-keys",
   "edition": "11.0",
   "title": "Keep keys in Cosmos identity-resolution projections",
-  "goal": "Keep keys in Cosmos identity-resolution projections when upgrading database tooling or query code; compare a working older route and verify the actual result.",
+  "goal": "Retain root keys when projecting owned Cosmos entities with identity resolution, preserving stored values and repeated object identity.",
   "areas": [
     "cosmos"
   ],
@@ -63,7 +63,7 @@
             }
           ],
           "packageAssets": [
-            "Independently locked EF10.0.13/net10.0 and EF11 RC/net11.0 graphs. SDK10.0.403 and SDK11 RC3; SQLite tooling uses EF11 RC2, Cosmos EF11 RC3. No EF11-on-net10 claim."
+            "Exact current EF package 11.0.0-rc.3.26522.148; older EF10.0.13. SDK10.0.403/C#14/net10.0 and SDK11.0.100-rc.3.26522.148/C#15/net11.0. Independent locks retain all provider/native/transitive package identities; no EF11-on-net10 route."
           ],
           "providers": [
             "Approved isolated legacy Cosmos emulator, gateway mode."
@@ -171,6 +171,26 @@
       "region": "complete",
       "language": "xml",
       "path": "samples/net10.0/AvocetIdentity/Directory.Build.props"
+    },
+    "sdk-10-avocetidentity": {
+      "path": "samples/net10.0/AvocetIdentity/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "sdk-11-avocetidentity": {
+      "path": "samples/net11.0/AvocetIdentity/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n10-emulator-transport": {
+      "language": "csharp",
+      "path": "samples/net10.0/AvocetIdentity/EmulatorTransport.cs",
+      "region": "complete"
+    },
+    "n11-emulator-transport": {
+      "language": "csharp",
+      "path": "samples/net11.0/AvocetIdentity/EmulatorTransport.cs",
+      "region": "complete"
     }
   },
   "humanProof": {

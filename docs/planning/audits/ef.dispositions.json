@@ -328,9 +328,9 @@
     {
       "id": "snapshot-warning",
       "pattern": "OldMigrationVersionWarning",
-      "disposition": "proposed",
-      "owner": "E28",
-      "reason": "An old snapshot version needs a deliberate artifact reconciliation, not a new migration added blindly."
+      "disposition": "delivered",
+      "owner": "PIN-1216",
+      "reason": "ef.reconcile-old-snapshot-version/11.0: actual EF10 snapshot, unchanged EF11 model, old-version warning on a genuine change, empty regeneration, current pending-model rejection and deliberate Count schema migration. The warning alone does not establish a harmless difference; GA reconciliation remains separate."
     },
     {
       "id": "extension-contract-residual",
