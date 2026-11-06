@@ -1,0 +1,11 @@
+<!-- snippet:complete -->
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net11.0-ios27.0</TargetFramework>
+    <OutputType>Exe</OutputType><ApplicationId>org.puffin.scenes</ApplicationId>
+    <SupportedOSPlatformVersion>15.0</SupportedOSPlatformVersion>
+    <RuntimeIdentifier>ios-arm64</RuntimeIdentifier><LangVersion>15.0</LangVersion>
+    <NoWarn>$(NoWarn);CA1711</NoWarn><Nullable>enable</Nullable><ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+</Project>
+<!-- endsnippet:complete -->

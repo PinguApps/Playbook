@@ -14,6 +14,17 @@ remain explicitly not-tested under PIN-699. RC2 artifact review does not establi
 a compatible RC3 workload composition or GA evidence. PIN-1069 package replacement
 and PIN-966 final reconciliation retain their separate scope.
 
+PIN-927/PIN-928 delivery: `android.configure-predictive-back` and
+`apple.adopt-scene-lifecycle` retain stable goal IDs with edition11.0. SkuaBack
+compares application-attribute and manifest declarations. PuffinScenes/PuffinMaui
+compare application startup with scene startup and acknowledged shortcut callbacks.
+.NET10 examples compile on Windows; .NET11 native builds fail NETSDK1147.
+Exact sources/artifacts and input freshness are retained under
+`samples/LifecycleGuidance` and canonical verification records. Device gestures,
+Apple launch/action delivery and current native compilation are not-tested under
+PIN-699. The actual Android reference includes the property; reference compilation
+is separate from native packaging/runtime proof. No GA or Human execution is claimed.
+
 Source review: 16 October 2026, .NET 11 RC2 preparation baseline. These are proposed goal IDs and dispositions within the accepted scope, not published recipes or verification claims. Guidance targets GA; experimental capabilities remain included with labels. Compare the .NET 11 edition with .NET 10, using original examples.
 
 This pass records 87 disposition lines: 63 included goal candidates, eleven grouped subtopics, six excluded families, and seven unresolved items. Counts describe this register, not a final recipe total; some combined goals may split after applicability and sample work.

@@ -1,0 +1,202 @@
+[
+  {
+    "id": "Microsoft.NET.Sdk.Android.Manifest-11.0.100-rc.2",
+    "version": "37.2.0-rc.2.84",
+    "kind": "manifest",
+    "url": "https://api.nuget.org/v3-flatcontainer/microsoft.net.sdk.android.manifest-11.0.100-rc.2/37.2.0-rc.2.84/microsoft.net.sdk.android.manifest-11.0.100-rc.2.37.2.0-rc.2.84.nupkg",
+    "sha256": "0dc3033b3c0f4b0d91afb3f43a8d6ffa366637f5acb449505457575d7a08de91",
+    "repositoryCommit": "801f9ecbab5118b13d21cb52409e507ad4b2feb7",
+    "packs": {
+      "Microsoft.Android.Ref.37.2": "37.2.0-rc.2.84",
+      "Microsoft.Android.Sdk.net11": "37.2.0-rc.2.84",
+      "Microsoft.Android.Sdk.net10": "36.1.118",
+      "Microsoft.Android.Runtime.CoreCLR.37.android-arm64": "37.2.0-rc.2.84"
+    }
+  },
+  {
+    "sha256": "08a6afaecf1d04740ab0c067ffb2ae45b52bdf0c00fea4fe63714467f1cdf50a",
+    "version": "37.2.0-rc.2.84",
+    "id": "Microsoft.Android.Ref.37.2",
+    "url": "https://api.nuget.org/v3-flatcontainer/microsoft.android.ref.37.2/37.2.0-rc.2.84/microsoft.android.ref.37.2.37.2.0-rc.2.84.nupkg"
+  },
+  {
+    "id": "Microsoft.iOS.Ref.net11.0_27.0",
+    "url": "https://api.nuget.org/v3-flatcontainer/microsoft.ios.ref.net11.0_27.0/27.0.12212-net11-rc.2/microsoft.ios.ref.net11.0_27.0.27.0.12212-net11-rc.2.nupkg",
+    "sha256": "566683bad91183e13bd5528ed35e9d20708f97e9045acf2645a3d1a6c87643c8",
+    "version": "27.0.12212-net11-rc.2",
+    "assets": [
+      "ref/net11.0/Microsoft.iOS.dll"
+    ]
+  },
+  {
+    "sha256": "47915931c89820f3623d287c46763308b8eb730f74c731c872eb666c62b300bc",
+    "assets": [
+      "lib/net11.0-ios27.0/Microsoft.Maui.dll"
+    ],
+    "version": "11.0.0-rc.2.26505.5",
+    "id": "microsoft.maui.core",
+    "url": "https://api.nuget.org/v3-flatcontainer/microsoft.maui.core/11.0.0-rc.2.26505.5/microsoft.maui.core.11.0.0-rc.2.26505.5.nupkg"
+  },
+  {
+    "sha256": "92787cfc8a46b941b88adefc9966624ec2f183f73bf08c25102b04fff1833fcc",
+    "assets": [
+      "lib/net11.0-ios27.0/Microsoft.Maui.Controls.dll"
+    ],
+    "version": "11.0.0-rc.2.26505.5",
+    "id": "microsoft.maui.controls.core",
+    "url": "https://api.nuget.org/v3-flatcontainer/microsoft.maui.controls.core/11.0.0-rc.2.26505.5/microsoft.maui.controls.core.11.0.0-rc.2.26505.5.nupkg"
+  },
+  {
+    "sha256": "c2b96b1b75735491fd94e8d0151e5d07ed59b6b2421d8f4544929f54a8903a28",
+    "assets": [
+      "lib/net11.0-ios27.0/Microsoft.Maui.Controls.Xaml.dll"
+    ],
+    "version": "11.0.0-rc.2.26505.5",
+    "id": "microsoft.maui.controls.xaml",
+    "url": "https://api.nuget.org/v3-flatcontainer/microsoft.maui.controls.xaml/11.0.0-rc.2.26505.5/microsoft.maui.controls.xaml.11.0.0-rc.2.26505.5.nupkg"
+  },
+  {
+    "sha256": "e80398e3215866fd912a28d934c008cd4aa942b16370846a6d3ac399529fd718",
+    "assets": [
+      "lib/net11.0-ios27.0/Microsoft.Maui.Essentials.dll"
+    ],
+    "version": "11.0.0-rc.2.26505.5",
+    "id": "microsoft.maui.essentials",
+    "url": "https://api.nuget.org/v3-flatcontainer/microsoft.maui.essentials/11.0.0-rc.2.26505.5/microsoft.maui.essentials.11.0.0-rc.2.26505.5.nupkg"
+  },
+  {
+    "sha256": "3396062cf841833822fdbb1f3d9f4b273d64406f164323e68397a34e27cd7a18",
+    "assets": [
+      "lib/net11.0-ios27.0/Microsoft.Maui.Graphics.dll"
+    ],
+    "version": "11.0.0-rc.2.26505.5",
+    "id": "microsoft.maui.graphics",
+    "url": "https://api.nuget.org/v3-flatcontainer/microsoft.maui.graphics/11.0.0-rc.2.26505.5/microsoft.maui.graphics.11.0.0-rc.2.26505.5.nupkg"
+  },
+  {
+    "sha256": "6d104cabba1ec5809cfb56a132f71de01aad0b4438a9d42c2790b02d3d715ab4",
+    "assets": [
+      "lib/net11.0/Microsoft.Extensions.Configuration.dll"
+    ],
+    "version": "11.0.0-rc.1.26425.128",
+    "id": "microsoft.extensions.configuration",
+    "url": "https://api.nuget.org/v3-flatcontainer/microsoft.extensions.configuration/11.0.0-rc.1.26425.128/microsoft.extensions.configuration.11.0.0-rc.1.26425.128.nupkg"
+  },
+  {
+    "sha256": "62fc0457705810437a95870c25c81f1e364983986ea9d71bada5b05caeb11ab1",
+    "assets": [
+      "lib/net11.0/Microsoft.Extensions.Configuration.Binder.dll"
+    ],
+    "version": "11.0.0-rc.1.26425.128",
+    "id": "microsoft.extensions.configuration.binder",
+    "url": "https://api.nuget.org/v3-flatcontainer/microsoft.extensions.configuration.binder/11.0.0-rc.1.26425.128/microsoft.extensions.configuration.binder.11.0.0-rc.1.26425.128.nupkg"
+  },
+  {
+    "sha256": "12fb31632d5e0c98781d04f48e3d6d1ffdb261f64857b18c707f5ac84b8b43bc",
+    "assets": [
+      "lib/net11.0/Microsoft.Extensions.Configuration.FileExtensions.dll"
+    ],
+    "version": "11.0.0-rc.1.26425.128",
+    "id": "microsoft.extensions.configuration.fileextensions",
+    "url": "https://api.nuget.org/v3-flatcontainer/microsoft.extensions.configuration.fileextensions/11.0.0-rc.1.26425.128/microsoft.extensions.configuration.fileextensions.11.0.0-rc.1.26425.128.nupkg"
+  },
+  {
+    "sha256": "93e37d0d7b96c243b266840ea78080dbe8f64eb15bf7b321730f31e3d09ca2ad",
+    "assets": [
+      "lib/net11.0/Microsoft.Extensions.Configuration.Json.dll"
+    ],
+    "version": "11.0.0-rc.1.26425.128",
+    "id": "microsoft.extensions.configuration.json",
+    "url": "https://api.nuget.org/v3-flatcontainer/microsoft.extensions.configuration.json/11.0.0-rc.1.26425.128/microsoft.extensions.configuration.json.11.0.0-rc.1.26425.128.nupkg"
+  },
+  {
+    "sha256": "7e42fa0e44d97f20f947f96493f5364cefb75a0fb61d9594ba3efdd9fb59a3f1",
+    "assets": [
+      "lib/net11.0/Microsoft.Extensions.DependencyInjection.dll"
+    ],
+    "version": "11.0.0-rc.1.26425.128",
+    "id": "microsoft.extensions.dependencyinjection",
+    "url": "https://api.nuget.org/v3-flatcontainer/microsoft.extensions.dependencyinjection/11.0.0-rc.1.26425.128/microsoft.extensions.dependencyinjection.11.0.0-rc.1.26425.128.nupkg"
+  },
+  {
+    "sha256": "be7d3cb47f56174dee03beb51c8b20fd7fa2db2d5d319ca528892a7a91526f63",
+    "assets": [
+      "lib/net11.0/Microsoft.Extensions.Diagnostics.dll"
+    ],
+    "version": "11.0.0-rc.1.26425.128",
+    "id": "microsoft.extensions.diagnostics",
+    "url": "https://api.nuget.org/v3-flatcontainer/microsoft.extensions.diagnostics/11.0.0-rc.1.26425.128/microsoft.extensions.diagnostics.11.0.0-rc.1.26425.128.nupkg"
+  },
+  {
+    "sha256": "2760a1fdcf47ffdac39889ab2716f57ff93e6fcfcde73b80d976860436be6376",
+    "assets": [
+      "lib/net11.0/Microsoft.Extensions.FileProviders.Composite.dll"
+    ],
+    "version": "11.0.0-rc.1.26425.128",
+    "id": "microsoft.extensions.fileproviders.composite",
+    "url": "https://api.nuget.org/v3-flatcontainer/microsoft.extensions.fileproviders.composite/11.0.0-rc.1.26425.128/microsoft.extensions.fileproviders.composite.11.0.0-rc.1.26425.128.nupkg"
+  },
+  {
+    "sha256": "20c6918b0c20da8e9207e1c8b41318a670648ef463e7b7db99907ddd4aabb0eb",
+    "assets": [
+      "lib/net11.0/Microsoft.Extensions.FileProviders.Embedded.dll"
+    ],
+    "version": "11.0.0-rc.1.26425.128",
+    "id": "microsoft.extensions.fileproviders.embedded",
+    "url": "https://api.nuget.org/v3-flatcontainer/microsoft.extensions.fileproviders.embedded/11.0.0-rc.1.26425.128/microsoft.extensions.fileproviders.embedded.11.0.0-rc.1.26425.128.nupkg"
+  },
+  {
+    "sha256": "14703de7d56e8e8c317af04485b5a301fe8a6f136002075d2a44bc9f32cf18ae",
+    "assets": [
+      "lib/net11.0/Microsoft.Extensions.FileProviders.Physical.dll"
+    ],
+    "version": "11.0.0-rc.1.26425.128",
+    "id": "microsoft.extensions.fileproviders.physical",
+    "url": "https://api.nuget.org/v3-flatcontainer/microsoft.extensions.fileproviders.physical/11.0.0-rc.1.26425.128/microsoft.extensions.fileproviders.physical.11.0.0-rc.1.26425.128.nupkg"
+  },
+  {
+    "sha256": "561fca0dc710e2a298156e37c8f5eff03d19b0a6f61ef86121a6d8623bffa431",
+    "assets": [
+      "lib/net11.0/Microsoft.Extensions.FileSystemGlobbing.dll"
+    ],
+    "version": "11.0.0-rc.1.26425.128",
+    "id": "microsoft.extensions.filesystemglobbing",
+    "url": "https://api.nuget.org/v3-flatcontainer/microsoft.extensions.filesystemglobbing/11.0.0-rc.1.26425.128/microsoft.extensions.filesystemglobbing.11.0.0-rc.1.26425.128.nupkg"
+  },
+  {
+    "sha256": "4bc617c508637a5075cf4fda646494e12e68bcdd9a13e9a77f4f668f1489781b",
+    "assets": [
+      "lib/net11.0/Microsoft.Extensions.Localization.Abstractions.dll"
+    ],
+    "version": "11.0.0-rc.1.26425.128",
+    "id": "microsoft.extensions.localization.abstractions",
+    "url": "https://api.nuget.org/v3-flatcontainer/microsoft.extensions.localization.abstractions/11.0.0-rc.1.26425.128/microsoft.extensions.localization.abstractions.11.0.0-rc.1.26425.128.nupkg"
+  },
+  {
+    "sha256": "77d44fdc52c2378b3db73ab12f3c4385bd0759b2f7cb0e684083f73804386c73",
+    "assets": [
+      "lib/net11.0/Microsoft.Extensions.Logging.dll"
+    ],
+    "version": "11.0.0-rc.1.26425.128",
+    "id": "microsoft.extensions.logging",
+    "url": "https://api.nuget.org/v3-flatcontainer/microsoft.extensions.logging/11.0.0-rc.1.26425.128/microsoft.extensions.logging.11.0.0-rc.1.26425.128.nupkg"
+  },
+  {
+    "sha256": "f2b685c619266227dc240816e6ccf86e451825bf42899957a113f4b86d0b835a",
+    "assets": [
+      "lib/net11.0/Microsoft.Extensions.Options.ConfigurationExtensions.dll"
+    ],
+    "version": "11.0.0-rc.1.26425.128",
+    "id": "microsoft.extensions.options.configurationextensions",
+    "url": "https://api.nuget.org/v3-flatcontainer/microsoft.extensions.options.configurationextensions/11.0.0-rc.1.26425.128/microsoft.extensions.options.configurationextensions.11.0.0-rc.1.26425.128.nupkg"
+  },
+  {
+    "sha256": "5fd4d9425759fa066a5d334e34c004b19aab095439e71cdf3b0c46350cd8076e",
+    "assets": [
+      "lib/net11.0/Microsoft.Extensions.Validation.dll"
+    ],
+    "version": "11.0.0-rc.1.26425.128",
+    "id": "microsoft.extensions.validation",
+    "url": "https://api.nuget.org/v3-flatcontainer/microsoft.extensions.validation/11.0.0-rc.1.26425.128/microsoft.extensions.validation.11.0.0-rc.1.26425.128.nupkg"
+  }
+]

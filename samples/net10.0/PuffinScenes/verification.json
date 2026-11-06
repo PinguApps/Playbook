@@ -1,0 +1,15 @@
+{
+  "buildArguments": [],
+  "dependencies": [
+    "Microsoft.NET.ILLink.Tasks/10.0.13"
+  ],
+  "workloads": [
+    "ios/26.5.10315/10.0.100"
+  ],
+  "nativeToolchains": [],
+  "additionalInputs": [
+    "samples/LifecycleGuidance/sources.json",
+    "samples/LifecycleGuidance/artifacts.json",
+    "eng/Test-LifecycleGuidance.ps1"
+  ]
+}

@@ -1,0 +1,214 @@
+{
+  "id": "android.configure-predictive-back",
+  "edition": "11.0",
+  "title": "Declare application predictive-back behaviour",
+  "goal": "Choose Android predictive-back participation at application scope when migrating manifest configuration to an Application attribute.",
+  "areas": [
+    "android"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "lifecycle-guidance",
+    "migration"
+  ],
+  "apis": [
+    "ApplicationAttribute.EnableOnBackInvokedCallback",
+    "android:enableOnBackInvokedCallback"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Comparisons preserve the eight .NET10 foundations; no older route added."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Android CoreCLR; NativeAOT is an experimental alternative, not executed."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Sample pins RC3; reviewed Android RC2 assets are not a tested RC3 workload composition."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "No preview syntax."
+          },
+          "frameworks": [
+            ".NET for Android"
+          ],
+          "packages": [],
+          "workloads": [
+            {
+              "name": "android",
+              "version": "11.0",
+              "match": "release-family",
+              "reason": "Compatible .NET11 Android workload required. Reviewed RC2 manifest/reference assets are 37.2.0-rc.2.84; no compatible RC3 workload composition was tested."
+            }
+          ],
+          "packageAssets": [
+            "Microsoft.Android.Ref.37.2/37.2.0-rc.2.84 ref/net11.0/Mono.Android.dll"
+          ],
+          "providers": [
+            "No external service or account"
+          ],
+          "platforms": [
+            "Android API24+ app minimum; predictive back API33+; target SDK defaults vary; sample arm64"
+          ],
+          "renderingModes": [
+            "Native Android Activity; no Blazor render mode"
+          ],
+          "prerequisites": [
+            "Compatible Android workload, SDK and JDK.",
+            "Retain existing navigation implementation; the flag does not implement in-app back handling."
+          ],
+          "constraints": [
+            ".NET10 samples are comparison-only; no older-target recipe route.",
+            "Unavailable native compilation/execution is explicitly not-tested under PIN-699.",
+            "No service/account/resource provisioning required."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "RC source/artifact preparation evidence; no GA certification."
+          ]
+        },
+        "sourceUrls": [
+          "https://raw.githubusercontent.com/dotnet/android/801f9ecbab5118b13d21cb52409e507ad4b2feb7/src/Xamarin.Android.NamingCustomAttributes/Android.App/ApplicationAttribute.cs",
+          "https://developer.android.com/guide/topics/manifest/application-element#enableOnBackInvokedCallback",
+          "https://developer.android.com/guide/navigation/custom-back/predictive-back-gesture"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/SkuaBack/SkuaBack.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Pinned official lifecycle contract",
+      "url": "https://raw.githubusercontent.com/dotnet/android/801f9ecbab5118b13d21cb52409e507ad4b2feb7/src/Xamarin.Android.NamingCustomAttributes/Android.App/ApplicationAttribute.cs"
+    },
+    {
+      "title": "Android application manifest",
+      "url": "https://developer.android.com/guide/topics/manifest/application-element#enableOnBackInvokedCallback"
+    },
+    {
+      "title": "Android predictive back navigation",
+      "url": "https://developer.android.com/guide/navigation/custom-back/predictive-back-gesture"
+    }
+  ],
+  "evidence": [
+    {
+      "sdk": "10.0.402",
+      "sample": "samples/net10.0/SkuaBack/SkuaBack.csproj",
+      "language": "14.0",
+      "target": "net10.0-android36.0",
+      "kind": "compile",
+      "scope": "Actual Windows compilation; no native execution."
+    },
+    {
+      "sdk": "11.0.100-rc.3.26522.148",
+      "sample": "samples/net11.0/SkuaBack/SkuaBack.csproj",
+      "language": "15.0",
+      "target": "net11.0-android37.2",
+      "kind": "official-review",
+      "scope": "Pinned official source and artifact review; native compilation/execution not-tested."
+    }
+  ],
+  "humanProof": {
+    "untestedSamples": [
+      "samples/net10.0/SkuaBack/SkuaBack.csproj",
+      "samples/net11.0/SkuaBack/SkuaBack.csproj"
+    ],
+    "status": "not-tested",
+    "scope": "PIN-699: current native workloads and Apple Xcode/Android devices unavailable. Both releases native execution and current native compilation not-tested. No pending Human proof or GA claim."
+  },
+  "snippets": {
+    "net10-0-skuaback-directory-build-props": {
+      "language": "xml",
+      "path": "samples/net10.0/SkuaBack/Directory.Build.props",
+      "region": "complete"
+    },
+    "net11-0-skuaback-global-json": {
+      "language": "json",
+      "path": "samples/net11.0/SkuaBack/global.json",
+      "region": "complete"
+    },
+    "net10-0-skuaback-directory-packages-props": {
+      "language": "xml",
+      "path": "samples/net10.0/SkuaBack/Directory.Packages.props",
+      "region": "complete"
+    },
+    "net11-0-skuaback-skuaback-csproj": {
+      "language": "xml",
+      "path": "samples/net11.0/SkuaBack/SkuaBack.csproj",
+      "region": "complete"
+    },
+    "net10-0-skuaback-global-json": {
+      "language": "json",
+      "path": "samples/net10.0/SkuaBack/global.json",
+      "region": "complete"
+    },
+    "net11-0-skuaback-directory-packages-props": {
+      "language": "xml",
+      "path": "samples/net11.0/SkuaBack/Directory.Packages.props",
+      "region": "complete"
+    },
+    "net10-0-skuaback-mainactivity-cs": {
+      "language": "csharp",
+      "path": "samples/net10.0/SkuaBack/MainActivity.cs",
+      "region": "complete"
+    },
+    "net10-0-skuaback-skuaback-csproj": {
+      "language": "xml",
+      "path": "samples/net10.0/SkuaBack/SkuaBack.csproj",
+      "region": "complete"
+    },
+    "net10-0-skuaback-properties-androidmanifest-xml": {
+      "language": "xml",
+      "path": "samples/net10.0/SkuaBack/Properties/AndroidManifest.xml",
+      "region": "complete"
+    },
+    "net11-0-skuaback-properties-androidmanifest-xml": {
+      "language": "xml",
+      "path": "samples/net11.0/SkuaBack/Properties/AndroidManifest.xml",
+      "region": "complete"
+    },
+    "net10-0-skuaback-directory-build-targets": {
+      "language": "xml",
+      "path": "samples/net10.0/SkuaBack/Directory.Build.targets",
+      "region": "complete"
+    },
+    "net11-0-skuaback-directory-build-targets": {
+      "language": "xml",
+      "path": "samples/net11.0/SkuaBack/Directory.Build.targets",
+      "region": "complete"
+    },
+    "net11-0-skuaback-mainactivity-cs": {
+      "language": "csharp",
+      "path": "samples/net11.0/SkuaBack/MainActivity.cs",
+      "region": "complete"
+    },
+    "net11-0-skuaback-directory-build-props": {
+      "language": "xml",
+      "path": "samples/net11.0/SkuaBack/Directory.Build.props",
+      "region": "complete"
+    }
+  }
+}

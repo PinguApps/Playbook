@@ -1,0 +1,11 @@
+{
+  "buildArguments": [],
+  "workloads": [],
+  "dependencies": [],
+  "additionalInputs": [
+    "samples/LifecycleGuidance/sources.json",
+    "samples/LifecycleGuidance/artifacts.json",
+    "eng/Test-LifecycleGuidance.ps1"
+  ],
+  "nativeToolchains": []
+}

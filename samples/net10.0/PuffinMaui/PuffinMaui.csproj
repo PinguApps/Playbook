@@ -1,0 +1,14 @@
+<!-- snippet:complete -->
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0-ios26.0</TargetFramework>
+    <OutputType>Exe</OutputType><UseMaui>true</UseMaui><SingleProject>true</SingleProject>
+    <ApplicationId>org.puffin.maui</ApplicationId><ApplicationTitle>Puffin notebook</ApplicationTitle>
+    <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion><ApplicationVersion>1</ApplicationVersion>
+    <SupportedOSPlatformVersion>15.0</SupportedOSPlatformVersion>
+    <RuntimeIdentifier>ios-arm64</RuntimeIdentifier><LangVersion>14.0</LangVersion>
+    <NoWarn>$(NoWarn);CA1711</NoWarn><RestorePackagesWithLockFile>true</RestorePackagesWithLockFile><Nullable>enable</Nullable><ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+  <ItemGroup><PackageReference Include="Microsoft.Maui.Controls" Version="10.0.110" /></ItemGroup>
+</Project>
+<!-- endsnippet:complete -->

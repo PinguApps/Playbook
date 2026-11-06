@@ -1,0 +1,389 @@
+{
+  "id": "apple.adopt-scene-lifecycle",
+  "edition": "11.0",
+  "title": "Move Apple launch handling to window scenes",
+  "goal": "Migrate existing iOS and Mac Catalyst startup and launch actions to the scene lifecycle required by Xcode 27 while preserving a single window.",
+  "areas": [
+    "ios",
+    "maccatalyst",
+    "maui"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "lifecycle-guidance",
+    "migration"
+  ],
+  "apis": [
+    "MauiUISceneDelegate",
+    "UIApplicationSceneManifest",
+    "UISceneConnectionOptions",
+    "PerformActionForShortcutItem"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Comparisons preserve the eight .NET10 foundations; no older route added."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Apple .NET11 workload; native runtime execution not-tested."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "RC3 SDK selected; pinned Apple and MAUI sources are preparation evidence, not a tested RC3 workload composition."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "C#15; no preview syntax."
+          },
+          "frameworks": [
+            ".NET for iOS",
+            ".NET for Mac Catalyst",
+            ".NET MAUI"
+          ],
+          "packages": [
+            {
+              "version": "11.0.0-rc.2.26505.5",
+              "name": "Microsoft.Maui.Controls",
+              "match": "exact",
+              "reason": "MAUI variant only; base UIKit variant has no MAUI package."
+            }
+          ],
+          "workloads": [
+            {
+              "match": "release-family",
+              "version": "11.0",
+              "name": "ios",
+              "reason": "Compatible workload required; RC3 native composition not built."
+            }
+          ],
+          "packageAssets": [
+            "Microsoft.iOS.Ref.net11.0_27.0/27.0.12212-net11-rc.2 ref/net11.0/Microsoft.iOS.dll",
+            "Microsoft.Maui.Core/11.0.0-rc.2.26505.5 lib/net11.0-ios27.0/Microsoft.Maui.dll",
+            "Microsoft.Maui.Controls.Core/11.0.0-rc.2.26505.5 lib/net11.0-ios27.0/Microsoft.Maui.Controls.dll"
+          ],
+          "providers": [
+            "No external service or account"
+          ],
+          "platforms": [
+            "iOS 15+; Mac Catalyst17+; Xcode27 SDKs require scenes; sample ios-arm64"
+          ],
+          "renderingModes": [
+            "UIKit window scene or MAUI native window; no Blazor render mode"
+          ],
+          "prerequisites": [
+            "Xcode27.0 on macOS26.6+ for native packaging/execution.",
+            "Register the scene delegate using its exact Objective-C name.",
+            "MAUI scene configuration name must be __MAUI_DEFAULT_SCENE_CONFIGURATION__."
+          ],
+          "constraints": [
+            ".NET10 samples are comparison-only; no older-target recipe route.",
+            "Unavailable native compilation/execution is explicitly not-tested under PIN-699.",
+            "No service/account/resource provisioning required."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "RC source/artifact preparation evidence; no GA certification."
+          ]
+        },
+        "sourceUrls": [
+          "https://raw.githubusercontent.com/dotnet/maui/7deff1e006978d1eed341ffcac899a85510f76bb/src/Core/src/Platform/iOS/MauiUISceneDelegate.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/7deff1e006978d1eed341ffcac899a85510f76bb/src/Templates/src/templates/maui-mobile/Platforms/iOS/Info.plist",
+          "https://raw.githubusercontent.com/dotnet/maui/7deff1e006978d1eed341ffcac899a85510f76bb/src/Templates/src/templates/maui-mobile/Platforms/iOS/SceneDelegate.cs",
+          "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/rc2/dotnetmaui.md",
+          "https://github.com/dotnet/macios/releases/tag/dotnet-11.0.1xx-rc2-12212"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/PuffinScenes/PuffinScenes.csproj",
+          "samples/net11.0/PuffinMaui/PuffinMaui.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Pinned official lifecycle contract",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/7deff1e006978d1eed341ffcac899a85510f76bb/src/Core/src/Platform/iOS/MauiUISceneDelegate.cs"
+    },
+    {
+      "title": "Pinned official lifecycle contract",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/7deff1e006978d1eed341ffcac899a85510f76bb/src/Templates/src/templates/maui-mobile/Platforms/iOS/Info.plist"
+    },
+    {
+      "title": "Pinned official lifecycle contract",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/7deff1e006978d1eed341ffcac899a85510f76bb/src/Templates/src/templates/maui-mobile/Platforms/iOS/SceneDelegate.cs"
+    },
+    {
+      "title": "Pinned official lifecycle contract",
+      "url": "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/rc2/dotnetmaui.md"
+    },
+    {
+      "title": "Apple RC2 release requirements",
+      "url": "https://github.com/dotnet/macios/releases/tag/dotnet-11.0.1xx-rc2-12212"
+    }
+  ],
+  "evidence": [
+    {
+      "sdk": "10.0.402",
+      "sample": "samples/net10.0/PuffinScenes/PuffinScenes.csproj",
+      "language": "14.0",
+      "target": "net10.0-ios26.0",
+      "kind": "compile",
+      "scope": "Actual Windows compilation; no native execution."
+    },
+    {
+      "sdk": "10.0.402",
+      "sample": "samples/net10.0/PuffinMaui/PuffinMaui.csproj",
+      "language": "14.0",
+      "target": "net10.0-ios26.0",
+      "kind": "compile",
+      "scope": "Actual Windows compilation; no native execution."
+    },
+    {
+      "sdk": "11.0.100-rc.3.26522.148",
+      "sample": "samples/net11.0/PuffinScenes/PuffinScenes.csproj",
+      "language": "15.0",
+      "target": "net11.0-ios27.0",
+      "kind": "official-review",
+      "scope": "Pinned official source and artifact review; native compilation/execution not-tested."
+    },
+    {
+      "sdk": "11.0.100-rc.3.26522.148",
+      "sample": "samples/net11.0/PuffinMaui/PuffinMaui.csproj",
+      "language": "15.0",
+      "target": "net11.0-ios27.0",
+      "kind": "official-review",
+      "scope": "Pinned official source and artifact review; native compilation/execution not-tested."
+    }
+  ],
+  "humanProof": {
+    "untestedSamples": [
+      "samples/net10.0/PuffinScenes/PuffinScenes.csproj",
+      "samples/net10.0/PuffinMaui/PuffinMaui.csproj",
+      "samples/net11.0/PuffinScenes/PuffinScenes.csproj",
+      "samples/net11.0/PuffinMaui/PuffinMaui.csproj"
+    ],
+    "status": "not-tested",
+    "scope": "PIN-699: current native workloads and Apple Xcode/Android devices unavailable. Both releases native execution and current native compilation not-tested. No pending Human proof or GA claim."
+  },
+  "snippets": {
+    "net10-0-puffinmaui-info-plist": {
+      "language": "xml",
+      "path": "samples/net10.0/PuffinMaui/Info.plist",
+      "region": "complete"
+    },
+    "net10-0-puffinscenes-info-plist": {
+      "language": "xml",
+      "path": "samples/net10.0/PuffinScenes/Info.plist",
+      "region": "complete"
+    },
+    "net10-0-puffinmaui-appdelegate-cs": {
+      "language": "csharp",
+      "path": "samples/net10.0/PuffinMaui/AppDelegate.cs",
+      "region": "complete"
+    },
+    "net10-0-puffinmaui-puffinmaui-csproj": {
+      "language": "xml",
+      "path": "samples/net10.0/PuffinMaui/PuffinMaui.csproj",
+      "region": "complete"
+    },
+    "net10-0-puffinmaui-program-cs": {
+      "language": "csharp",
+      "path": "samples/net10.0/PuffinMaui/Program.cs",
+      "region": "complete"
+    },
+    "net11-0-puffinscenes-global-json": {
+      "language": "json",
+      "path": "samples/net11.0/PuffinScenes/global.json",
+      "region": "complete"
+    },
+    "net11-0-puffinmaui-appdelegate-cs": {
+      "language": "csharp",
+      "path": "samples/net11.0/PuffinMaui/AppDelegate.cs",
+      "region": "complete"
+    },
+    "net10-0-puffinmaui-global-json": {
+      "language": "json",
+      "path": "samples/net10.0/PuffinMaui/global.json",
+      "region": "complete"
+    },
+    "net11-0-puffinscenes-observationview-cs": {
+      "language": "csharp",
+      "path": "samples/net11.0/PuffinScenes/ObservationView.cs",
+      "region": "complete"
+    },
+    "net11-0-puffinmaui-global-json": {
+      "language": "json",
+      "path": "samples/net11.0/PuffinMaui/global.json",
+      "region": "complete"
+    },
+    "net10-0-puffinmaui-mauiprogram-cs": {
+      "language": "csharp",
+      "path": "samples/net10.0/PuffinMaui/MauiProgram.cs",
+      "region": "complete"
+    },
+    "net11-0-puffinmaui-directory-packages-props": {
+      "language": "xml",
+      "path": "samples/net11.0/PuffinMaui/Directory.Packages.props",
+      "region": "complete"
+    },
+    "net11-0-puffinmaui-directory-build-props": {
+      "language": "xml",
+      "path": "samples/net11.0/PuffinMaui/Directory.Build.props",
+      "region": "complete"
+    },
+    "net11-0-puffinmaui-app-cs": {
+      "language": "csharp",
+      "path": "samples/net11.0/PuffinMaui/App.cs",
+      "region": "complete"
+    },
+    "net10-0-puffinscenes-observationview-cs": {
+      "language": "csharp",
+      "path": "samples/net10.0/PuffinScenes/ObservationView.cs",
+      "region": "complete"
+    },
+    "net10-0-puffinscenes-directory-build-targets": {
+      "language": "xml",
+      "path": "samples/net10.0/PuffinScenes/Directory.Build.targets",
+      "region": "complete"
+    },
+    "net11-0-puffinmaui-mauiprogram-cs": {
+      "language": "csharp",
+      "path": "samples/net11.0/PuffinMaui/MauiProgram.cs",
+      "region": "complete"
+    },
+    "net11-0-puffinscenes-scenedelegate-cs": {
+      "language": "csharp",
+      "path": "samples/net11.0/PuffinScenes/SceneDelegate.cs",
+      "region": "complete"
+    },
+    "net11-0-puffinscenes-info-plist": {
+      "language": "xml",
+      "path": "samples/net11.0/PuffinScenes/Info.plist",
+      "region": "complete"
+    },
+    "net11-0-puffinscenes-program-cs": {
+      "language": "csharp",
+      "path": "samples/net11.0/PuffinScenes/Program.cs",
+      "region": "complete"
+    },
+    "net11-0-puffinmaui-program-cs": {
+      "language": "csharp",
+      "path": "samples/net11.0/PuffinMaui/Program.cs",
+      "region": "complete"
+    },
+    "net11-0-puffinmaui-info-plist": {
+      "language": "xml",
+      "path": "samples/net11.0/PuffinMaui/Info.plist",
+      "region": "complete"
+    },
+    "net11-0-puffinscenes-puffinscenes-csproj": {
+      "language": "xml",
+      "path": "samples/net11.0/PuffinScenes/PuffinScenes.csproj",
+      "region": "complete"
+    },
+    "net10-0-puffinscenes-appdelegate-cs": {
+      "language": "csharp",
+      "path": "samples/net10.0/PuffinScenes/AppDelegate.cs",
+      "region": "complete"
+    },
+    "net10-0-puffinmaui-directory-build-props": {
+      "language": "xml",
+      "path": "samples/net10.0/PuffinMaui/Directory.Build.props",
+      "region": "complete"
+    },
+    "net11-0-puffinscenes-appdelegate-cs": {
+      "language": "csharp",
+      "path": "samples/net11.0/PuffinScenes/AppDelegate.cs",
+      "region": "complete"
+    },
+    "net10-0-puffinscenes-directory-packages-props": {
+      "language": "xml",
+      "path": "samples/net10.0/PuffinScenes/Directory.Packages.props",
+      "region": "complete"
+    },
+    "net11-0-puffinscenes-directory-build-props": {
+      "language": "xml",
+      "path": "samples/net11.0/PuffinScenes/Directory.Build.props",
+      "region": "complete"
+    },
+    "net10-0-puffinmaui-app-cs": {
+      "language": "csharp",
+      "path": "samples/net10.0/PuffinMaui/App.cs",
+      "region": "complete"
+    },
+    "net10-0-puffinscenes-program-cs": {
+      "language": "csharp",
+      "path": "samples/net10.0/PuffinScenes/Program.cs",
+      "region": "complete"
+    },
+    "net11-0-puffinmaui-directory-build-targets": {
+      "language": "xml",
+      "path": "samples/net11.0/PuffinMaui/Directory.Build.targets",
+      "region": "complete"
+    },
+    "net11-0-puffinscenes-directory-build-targets": {
+      "language": "xml",
+      "path": "samples/net11.0/PuffinScenes/Directory.Build.targets",
+      "region": "complete"
+    },
+    "net10-0-puffinscenes-directory-build-props": {
+      "language": "xml",
+      "path": "samples/net10.0/PuffinScenes/Directory.Build.props",
+      "region": "complete"
+    },
+    "net11-0-puffinmaui-puffinmaui-csproj": {
+      "language": "xml",
+      "path": "samples/net11.0/PuffinMaui/PuffinMaui.csproj",
+      "region": "complete"
+    },
+    "net10-0-puffinscenes-global-json": {
+      "language": "json",
+      "path": "samples/net10.0/PuffinScenes/global.json",
+      "region": "complete"
+    },
+    "net11-0-puffinmaui-scenedelegate-cs": {
+      "language": "csharp",
+      "path": "samples/net11.0/PuffinMaui/SceneDelegate.cs",
+      "region": "complete"
+    },
+    "net11-0-puffinscenes-directory-packages-props": {
+      "language": "xml",
+      "path": "samples/net11.0/PuffinScenes/Directory.Packages.props",
+      "region": "complete"
+    },
+    "net10-0-puffinscenes-puffinscenes-csproj": {
+      "language": "xml",
+      "path": "samples/net10.0/PuffinScenes/PuffinScenes.csproj",
+      "region": "complete"
+    },
+    "net10-0-puffinmaui-directory-build-targets": {
+      "language": "xml",
+      "path": "samples/net10.0/PuffinMaui/Directory.Build.targets",
+      "region": "complete"
+    },
+    "net10-0-puffinmaui-directory-packages-props": {
+      "language": "xml",
+      "path": "samples/net10.0/PuffinMaui/Directory.Packages.props",
+      "region": "complete"
+    }
+  }
+}

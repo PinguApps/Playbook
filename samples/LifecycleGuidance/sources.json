@@ -1,0 +1,22 @@
+[
+  {
+    "url": "https://raw.githubusercontent.com/dotnet/android/801f9ecbab5118b13d21cb52409e507ad4b2feb7/src/Xamarin.Android.NamingCustomAttributes/Android.App/ApplicationAttribute.cs",
+    "sha256": "0bcf26258a2055b45574f54e918ee522b938e8126d7c3449272f28e9f8ce83cc"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/dotnet/maui/7deff1e006978d1eed341ffcac899a85510f76bb/src/Core/src/Platform/iOS/MauiUISceneDelegate.cs",
+    "sha256": "3b4486c09e636d5c4c1ccc748595aeb10847bae020141b54ce4022d13691dbdc"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/dotnet/maui/7deff1e006978d1eed341ffcac899a85510f76bb/src/Templates/src/templates/maui-mobile/Platforms/iOS/Info.plist",
+    "sha256": "8914682d9fbcaee551e8d8152147572981df2296c1c2329b6ed3ad08e4b0b2f0"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/dotnet/maui/7deff1e006978d1eed341ffcac899a85510f76bb/src/Templates/src/templates/maui-mobile/Platforms/iOS/SceneDelegate.cs",
+    "sha256": "dc90d74e3cf41dd393da06e0ece70365c9b0d31a0ec672df1e713f059f12d02b"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/rc2/dotnetmaui.md",
+    "sha256": "ce8de3f99ea7b5c9e0b51b2d0fc3c558770f65b654486690950bde5008a38917"
+  }
+]
