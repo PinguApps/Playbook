@@ -13,7 +13,8 @@ public static class MauiProgram
 {
     public static MauiApp CreateMauiApp()
     {
-        var builder = MauiApp.CreateBuilder().UseMauiApp<QuayApp>();
+        var builder = MauiApp.CreateBuilder().UseMauiApp<QuayApp>().UseMauiMaps();
+        builder.ConfigureEssentials(options => options.UseMapServiceToken("PLAYBOOK_PLACEHOLDER_NOT_A_CREDENTIAL"));
         return builder.Build();
     }
 }
@@ -22,7 +23,11 @@ public sealed class QuayApp : Application
     protected override Window CreateWindow(IActivationState? activationState) => new Window(CreatePage());
     private static ContentPage CreatePage()
     {
-        return new ContentPage { Content = new Label { Text = "MAUI 10 has no first-party Windows map handler. Choose an explicitly assessed alternative map integration." } };
+        var map = new Map { MapType = MapType.Street, IsTrafficEnabled = false, IsScrollEnabled = true, IsZoomEnabled = true };
+        // This exact older implementation accepts MapSpan directly; service execution is not claimed.
+        map.MoveToRegion(new MapSpan(new Location(51.62, -3.94), 0.04, 0.06));
+        map.Pins.Add(new Pin { Label = "Quay gate", Location = new Location(51.621, -3.941) });
+        return new ContentPage { Content = map };
     }
 }
 // endsnippet:complete

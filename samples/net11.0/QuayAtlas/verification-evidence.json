@@ -6,11 +6,11 @@
   "language": "15.0",
   "command": "eng/Test-QuayMaps.ps1 -Record",
   "scope": "Pinned source/artifact review; native compilation, rendering and service execution not tested.",
-  "recordedAt": "2026-11-06T09:24:04.0469887+00:00",
-  "sourceCommit": "024010458d09d72c659cd0d273d791428bf97947",
+  "recordedAt": "2026-11-06T09:57:51.5352881+00:00",
+  "sourceCommit": "e9b635946fd1a38fee196d183b39d2c4425fd569",
   "sourceDirty": true,
   "inputs": {
-    "eng/Test-QuayMaps.ps1": "67a445ee6ccf2d85782370840c9e309de99215168bae12c7a3e98cb4de300586",
+    "eng/Test-QuayMaps.ps1": "ec5b06a24d377fdc261a2d21b1a96e327b992de952fc3d32bc13d93b2f15a941",
     "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
     "samples/net11.0/QuayAtlas/Directory.Build.props": "36ff4a49e0044fabdecea940fb07fcfbfb344bc7c9e4ea84204ecaa7d4fe45c1",
     "samples/net11.0/QuayAtlas/Directory.Build.targets": "36ff4a49e0044fabdecea940fb07fcfbfb344bc7c9e4ea84204ecaa7d4fe45c1",
@@ -24,7 +24,7 @@
     "samples/net11.0/QuayAtlas/QuayAtlas.csproj": "68109748d45fe7a5da56d29530ca8f57c18cd6d6ec11c03e3ded11130fcd70a8",
     "samples/net11.0/QuayAtlas/Resources/Images/survey.svg": "dd5f249bf8ddeae9f06bf6be59bea3b2380160f4dc7c090f57086dbdd2916ef9",
     "samples/net11.0/QuayAtlas/verification.json": "03c3e827e873823cfeb4e25c5ad9f030399abfb6a960d898b01251c6c535b083",
-    "samples/QuayMaps/sources.json": "cee16375c14c255b3eaa77a8f10b2447be1127cdaa46e1880b0a2247c47c4534"
+    "samples/QuayMaps/sources.json": "fa202b7c21f0a5b5235a792f1683224c6a71b7125d180bd4ef3a9325a2444e78"
   },
   "dependencies": [],
   "workloads": [],

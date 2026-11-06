@@ -12,7 +12,7 @@ The canonical iOS app uses Apple MapKit; native compilation and interaction are 
 
 ## Older approach
 
-.NET10 uses MoveToRegion, ordinary labelled pins and a Circle. Removing/readding the circle is a valid way to control visibility. It supplies neither the new declarative Region property nor built-in clustering/custom icon APIs. Keep this simple route when the marker count is small; no invented older clustering equivalent is claimed.
+.NET10 uses MoveToRegion, ordinary labelled pins and a Circle. Removing/readding the circle is a valid way to control visibility. Actual neutral10.0.110 assembly metadata and its exact repository source lack Map.Region, built-in clustering, Pin.ImageSource, overlay IsVisible/ZIndex and CircleClicked; those are present in the declared11 RC2 artifacts. The previous sample uses24 ordinary pins and remove/re-add visibility rather than claiming those newer members exist. Keep this simple route when the marker count is small; no invented older clustering equivalent is claimed.
 
 ## Newer approach
 
@@ -115,7 +115,7 @@ Windows is an explicitly unsupported route for these overlay, clustering, custom
 
 ## Evidence
 
-eng/Test-QuayMaps.ps1 checks exact official source hashes and downloaded Maps package assets in samples/QuayMaps/sources.json. QuayContracts links the canonical MauiProgram.cs files and compiles both releases against real Windows dependencies; it does not execute them. The .NET10 Windows fallback app compiles with installed SDK10.0.402. iOS native builds and interaction are not-tested (Mac/Xcode unavailable); .NET11 Windows MAUI build fails NETSDK1147 with SDK11 RC3. Rendering and service calls have not run. Evidence records retain input freshness; no GA or map execution proof is claimed. Packed-tool list/get verifies offline delivery only.
+eng/Test-QuayMaps.ps1 checks exact official source hashes, artifact repository commits and actual assembly metadata for present/absent APIs, plus downloaded Maps package assets in samples/QuayMaps/sources.json. QuayContracts links the canonical MauiProgram.cs files and compiles both releases against real Windows dependencies; it does not execute them. The .NET10 Windows fallback app compiles with installed SDK10.0.402. iOS native builds and interaction are not-tested (Mac/Xcode unavailable); .NET11 Windows MAUI build fails NETSDK1147 with SDK11 RC3. Rendering and service calls have not run. Evidence records retain input freshness; no GA or map execution proof is claimed. Packed-tool list/get verifies offline delivery only.
 
 ## Official references
 
@@ -138,3 +138,14 @@ eng/Test-QuayMaps.ps1 checks exact official source hashes and downloaded Maps pa
 ### samples/net11.0/QuayAtlas/Resources/Images/survey.svg
 
 {{snippet:samples-net11-0-quayatlas-resources-images-survey-svg}}
+
+
+### Exact previous-release artifact references
+
+- [Map.cs in MAUI10.0.110](https://raw.githubusercontent.com/dotnet/maui/6c379bf1dc24461a985a093be3fd8a3e9bc6fc00/src/Controls/Maps/src/Map.cs)
+- [Pin.cs in MAUI10.0.110](https://raw.githubusercontent.com/dotnet/maui/6c379bf1dc24461a985a093be3fd8a3e9bc6fc00/src/Controls/Maps/src/Pin.cs)
+- [MapElement.cs in MAUI10.0.110](https://raw.githubusercontent.com/dotnet/maui/6c379bf1dc24461a985a093be3fd8a3e9bc6fc00/src/Controls/Maps/src/MapElement.cs)
+- [Circle.cs in MAUI10.0.110](https://raw.githubusercontent.com/dotnet/maui/6c379bf1dc24461a985a093be3fd8a3e9bc6fc00/src/Controls/Maps/src/Circle.cs)
+- [MapSpan.cs in MAUI10.0.110](https://raw.githubusercontent.com/dotnet/maui/6c379bf1dc24461a985a093be3fd8a3e9bc6fc00/src/Core/maps/src/Primitives/MapSpan.cs)
+- [MapHandler.Windows.cs in MAUI10.0.110](https://raw.githubusercontent.com/dotnet/maui/6c379bf1dc24461a985a093be3fd8a3e9bc6fc00/src/Core/maps/src/Handlers/Map/MapHandler.Windows.cs)
+- [AppHostBuilderExtensions.cs in MAUI10.0.110](https://raw.githubusercontent.com/dotnet/maui/6c379bf1dc24461a985a093be3fd8a3e9bc6fc00/src/Controls/Maps/src/AppHostBuilderExtensions.cs)

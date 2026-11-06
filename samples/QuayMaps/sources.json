@@ -7,6 +7,28 @@
         "lib/net10.0/Microsoft.Maui.Controls.Maps.dll",
         "lib/net10.0-windows10.0.19041/Microsoft.Maui.Controls.Maps.dll",
         "lib/net10.0-ios26.0/Microsoft.Maui.Controls.Maps.dll"
+      ],
+      "repositoryCommit": "6c379bf1dc24461a985a093be3fd8a3e9bc6fc00",
+      "apiChecks": [
+        {
+          "asset": "lib/net10.0/Microsoft.Maui.Controls.Maps.dll",
+          "presentMethods": [
+            "Microsoft.Maui.Controls.Maps.Map::MoveToRegion",
+            "Microsoft.Maui.Controls.Maps.Pin::add_MarkerClicked"
+          ],
+          "absentMethods": [
+            "Microsoft.Maui.Controls.Maps.Map::get_Region",
+            "Microsoft.Maui.Controls.Maps.Map::get_IsClusteringEnabled",
+            "Microsoft.Maui.Controls.Maps.Map::get_MapStyle",
+            "Microsoft.Maui.Controls.Maps.Map::add_ClusterClicked",
+            "Microsoft.Maui.Controls.Maps.Pin::get_ClusteringIdentifier",
+            "Microsoft.Maui.Controls.Maps.Pin::get_ImageSource",
+            "Microsoft.Maui.Controls.Maps.Pin::ShowInfoWindow",
+            "Microsoft.Maui.Controls.Maps.MapElement::get_IsVisible",
+            "Microsoft.Maui.Controls.Maps.MapElement::get_ZIndex",
+            "Microsoft.Maui.Controls.Maps.Circle::add_CircleClicked"
+          ]
+        }
       ]
     },
     {
@@ -16,6 +38,27 @@
         "lib/net11.0/Microsoft.Maui.Controls.Maps.dll",
         "lib/net11.0-windows10.0.19041/Microsoft.Maui.Controls.Maps.dll",
         "lib/net11.0-ios27.0/Microsoft.Maui.Controls.Maps.dll"
+      ],
+      "repositoryCommit": "d32b79928709cf53b671336dabd0caef5a679fc2",
+      "apiChecks": [
+        {
+          "asset": "lib/net11.0/Microsoft.Maui.Controls.Maps.dll",
+          "presentMethods": [
+            "Microsoft.Maui.Controls.Maps.Map::MoveToRegion",
+            "Microsoft.Maui.Controls.Maps.Pin::add_MarkerClicked",
+            "Microsoft.Maui.Controls.Maps.Map::get_Region",
+            "Microsoft.Maui.Controls.Maps.Map::get_IsClusteringEnabled",
+            "Microsoft.Maui.Controls.Maps.Map::get_MapStyle",
+            "Microsoft.Maui.Controls.Maps.Map::add_ClusterClicked",
+            "Microsoft.Maui.Controls.Maps.Pin::get_ClusteringIdentifier",
+            "Microsoft.Maui.Controls.Maps.Pin::get_ImageSource",
+            "Microsoft.Maui.Controls.Maps.Pin::ShowInfoWindow",
+            "Microsoft.Maui.Controls.Maps.MapElement::get_IsVisible",
+            "Microsoft.Maui.Controls.Maps.MapElement::get_ZIndex",
+            "Microsoft.Maui.Controls.Maps.Circle::add_CircleClicked"
+          ],
+          "absentMethods": []
+        }
       ]
     },
     {
@@ -24,7 +67,27 @@
         "lib/net10.0-windows10.0.19041/Microsoft.Maui.Maps.dll"
       ],
       "url": "https://api.nuget.org/v3-flatcontainer/microsoft.maui.maps/10.0.110/microsoft.maui.maps.10.0.110.nupkg",
-      "sha256": "4f32e43833c2bd4c21865484c929a54e4cfc7ac170e3011aa75983258586ad61"
+      "sha256": "4f32e43833c2bd4c21865484c929a54e4cfc7ac170e3011aa75983258586ad61",
+      "repositoryCommit": "6c379bf1dc24461a985a093be3fd8a3e9bc6fc00",
+      "apiChecks": [
+        {
+          "asset": "lib/net10.0/Microsoft.Maui.Maps.dll",
+          "presentMethods": [
+            "Microsoft.Maui.Maps.MapSpan::FromCenterAndRadius"
+          ],
+          "absentMethods": [
+            "Microsoft.Maui.Maps.MapSpan::FromLocations"
+          ]
+        },
+        {
+          "asset": "lib/net10.0-windows10.0.19041/Microsoft.Maui.Maps.dll",
+          "presentMethods": [
+            "Microsoft.Maui.Maps.Handlers.MapHandler::CreatePlatformView",
+            "Microsoft.Maui.Maps.Handlers.MapHandler::MapPins"
+          ],
+          "absentMethods": []
+        }
+      ]
     },
     {
       "assets": [
@@ -32,7 +95,26 @@
         "lib/net11.0-windows10.0.19041/Microsoft.Maui.Maps.dll"
       ],
       "url": "https://api.nuget.org/v3-flatcontainer/microsoft.maui.maps/11.0.0-rc.2.26505.5/microsoft.maui.maps.11.0.0-rc.2.26505.5.nupkg",
-      "sha256": "55a65b2096698bdc2a623b7e0f6daef14cc6ef4dd00d85509ad53962e0d199f6"
+      "sha256": "55a65b2096698bdc2a623b7e0f6daef14cc6ef4dd00d85509ad53962e0d199f6",
+      "repositoryCommit": "d32b79928709cf53b671336dabd0caef5a679fc2",
+      "apiChecks": [
+        {
+          "asset": "lib/net11.0/Microsoft.Maui.Maps.dll",
+          "presentMethods": [
+            "Microsoft.Maui.Maps.MapSpan::FromCenterAndRadius",
+            "Microsoft.Maui.Maps.MapSpan::FromLocations"
+          ],
+          "absentMethods": []
+        },
+        {
+          "asset": "lib/net11.0-windows10.0.19041/Microsoft.Maui.Maps.dll",
+          "presentMethods": [
+            "Microsoft.Maui.Maps.Handlers.MapHandler::CreatePlatformView",
+            "Microsoft.Maui.Maps.Handlers.MapHandler::MapPins"
+          ],
+          "absentMethods": []
+        }
+      ]
     }
   ],
   "sources": [
@@ -107,6 +189,81 @@
         "[nameof(IMap.MoveToRegion)] = MapMoveToRegion"
       ],
       "sha256": "97b68261cc30602e062666c15ad86bfc03a05048ea67362304cd097e2c52b843"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/6c379bf1dc24461a985a093be3fd8a3e9bc6fc00/src/Controls/Maps/src/Map.cs",
+      "sha256": "e56736849680ed980b40ab50f5d520658484d0a0034125caee77459044436bce",
+      "tokens": [
+        "public void MoveToRegion(MapSpan mapSpan)"
+      ],
+      "absentTokens": [
+        "public MapSpan? Region",
+        "public bool IsClusteringEnabled",
+        "public string? MapStyle",
+        "public event EventHandler<UserLocationChangedEventArgs>"
+      ]
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/6c379bf1dc24461a985a093be3fd8a3e9bc6fc00/src/Controls/Maps/src/Pin.cs",
+      "sha256": "01123adc593b031c9091d34415c2838b1506103d8cfcb5deb860f1213e53d143",
+      "tokens": [
+        "public event EventHandler<PinClickedEventArgs>? MarkerClicked"
+      ],
+      "absentTokens": [
+        "public ImageSource? ImageSource",
+        "public string ClusteringIdentifier",
+        "public void ShowInfoWindow()"
+      ]
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/6c379bf1dc24461a985a093be3fd8a3e9bc6fc00/src/Controls/Maps/src/MapElement.cs",
+      "sha256": "29a684184867232235f4d29aab1b8e2b2b4a0ebca45c3925ee76737c1f696cb7",
+      "tokens": [
+        "public float StrokeWidth"
+      ],
+      "absentTokens": [
+        "public bool IsVisible",
+        "public int ZIndex"
+      ]
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/6c379bf1dc24461a985a093be3fd8a3e9bc6fc00/src/Controls/Maps/src/Circle.cs",
+      "sha256": "03a57ca6566b0b323dd3b1a7c4c7100dd215a4564a5995240e9f87526480b223",
+      "tokens": [
+        "public Distance Radius"
+      ],
+      "absentTokens": [
+        "CircleClicked"
+      ]
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/6c379bf1dc24461a985a093be3fd8a3e9bc6fc00/src/Core/maps/src/Primitives/MapSpan.cs",
+      "sha256": "005342d771e857aed619f462be01c1fb4971fa0a9a47a36e5490167c0c93a0d2",
+      "tokens": [
+        "public static MapSpan FromCenterAndRadius"
+      ],
+      "absentTokens": [
+        "public static MapSpan FromLocations"
+      ]
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/6c379bf1dc24461a985a093be3fd8a3e9bc6fc00/src/Core/maps/src/Handlers/Map/MapHandler.Windows.cs",
+      "sha256": "d4adbbd4f4e62624172ff6e3fdde9a705815f9e580b756dc06b5706968abf317",
+      "tokens": [
+        "using the WinUI 3 MapControl backed by Azure Maps",
+        "UseMapServiceToken",
+        "arg is MapSpan"
+      ],
+      "absentTokens": []
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/6c379bf1dc24461a985a093be3fd8a3e9bc6fc00/src/Controls/Maps/src/AppHostBuilderExtensions.cs",
+      "sha256": "2cee1ba834cab33690c3cdccbf59ce3dae672d201ab9d3b355200de1fac7fe4a",
+      "tokens": [
+        "UseMauiMaps",
+        "UseMapServiceToken"
+      ],
+      "absentTokens": []
     }
   ]
 }

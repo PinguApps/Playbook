@@ -2,34 +2,47 @@
 
 ## Dense native maps and the supported Windows surface
 
-PIN-914/PIN-915 add three Quay map recipes. The .NET10/.NET11 contract consumers
-compile the linked canonical source against actual Windows package assets, including
-safe placeholder token registration. The .NET10 fallback Windows app compiles with
-installed SDK10.0.402. SDK11 RC3 Windows MAUI fails NETSDK1147; Mac/Xcode is
-unavailable. Native map rendering/interaction and real provider calls are explicitly
-not-tested under PIN-699. PIN-935 has not run and remains open; no credentials or
-resources were acquired. The RC2 Windows camera argument mismatch is disclosed.
+PIN-914/PIN-915 add three Quay recipes. Exact MAUI10.0.110 artifact metadata
+confirms that Windows maps already exist while Region/clustering/custom-pin and
+new overlay APIs do not. Both releases compile the linked canonical registration
+against actual Windows assets; the native .NET10 map/pin app also compiles with
+SDK10.0.402. It was not launched against the service. SDK11 RC3 Windows MAUI
+fails NETSDK1147 and Mac/Xcode is unavailable: only those unavailable native
+sample actions use PIN-699 exclusions. No map/service execution is claimed.
+PIN-935 remains open and has not run; no credentials/resources were acquired.
+The RC2 Windows camera-dispatch mismatch is disclosed; it does not apply to10.0.110.
 
-This exact command was run from an unrelated directory. It builds and installs the
-actual tool through an isolated local feed/cache, then displays discovery ID/title/goal,
-full canonical Markdown, target edition and applicability through real stdio list/get.
+This exact block is tested from an unrelated directory. It builds/installs the
+actual package through an isolated local feed/cache and displays ID/title/goal,
+full Markdown, edition and applicability through real stdio list/get.
 
 ```powershell
 Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-59d42d49'
-& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
-  -RecipeId @('maui.compose-maps-declaratively','maui.interact-with-dense-map-markers','maui.enable-windows-maps') `
-  -Query 'quay-maps' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
-  -PackageVersion '0.0.0-pin914-915' -BuildAndPack `
-  -Dotnet 'C:/Users/pingu/AppData/Local/dotnetup/dotnet/dotnet.exe' `
-  -Node 'C:/Program Files/nodejs/node.exe' `
-  -OutputDirectory './artifacts/maps/inspection'
+$inspection = @{
+  Query = 'quay-maps'
+  RecipeEdition = '11.0'
+  PackageVersion = '0.0.0-pin914-915'
+  Dotnet = 'C:/Users/pingu/AppData/Local/dotnetup/dotnet/dotnet.exe'
+  Node = 'C:/Program Files/nodejs/node.exe'
+}
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 @inspection -BuildAndPack `
+  -RecipeId @('maui.compose-maps-declaratively','maui.interact-with-dense-map-markers') `
+  -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -OutputDirectory './artifacts/maps/inspection/11-dense'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 @inspection `
+  -RecipeId @('maui.enable-windows-maps') -TargetVersion '11.0' `
+  -OutputDirectory './artifacts/maps/inspection/11-windows'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 @inspection `
+  -RecipeId @('maui.enable-windows-maps') -TargetVersion '10.0' `
+  -OutputDirectory './artifacts/maps/inspection/10-windows'
 ```
 
-Expect all three edition11 recipes, complete expanded bodies and exact applicability,
-including source-only native exclusions. Target10 has no applicable edition. Unusable
-network proxies establish proxy-independent offline retrieval, not OS network isolation
-or native map execution. The harness publishes no package.
-
+Expect edition11 for all three recipes on target11. Target10 has no applicable
+dense-map edition; Windows maps resolve edition11 through an explicit conditional
+10.0.110 compatibility route backed by native compilation and source/artifact
+review. No extra .NET10 foundation edition is added. Unusable network proxies
+establish proxy-independent offline retrieval, not OS network isolation or native
+map execution. No package is published.
 
 ## Cosmos conversion composition and model-code selection
 

@@ -114,7 +114,14 @@
           "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/maps/src/Handlers/Map/MapHandler.Windows.cs",
           "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/Maps/src/AppHostBuilderExtensions.cs",
           "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/maps/src/Primitives/MapSpan.cs",
-          "https://learn.microsoft.com/azure/azure-maps/azure-maps-authentication"
+          "https://learn.microsoft.com/azure/azure-maps/azure-maps-authentication",
+          "https://raw.githubusercontent.com/dotnet/maui/6c379bf1dc24461a985a093be3fd8a3e9bc6fc00/src/Controls/Maps/src/Map.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/6c379bf1dc24461a985a093be3fd8a3e9bc6fc00/src/Controls/Maps/src/Pin.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/6c379bf1dc24461a985a093be3fd8a3e9bc6fc00/src/Controls/Maps/src/MapElement.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/6c379bf1dc24461a985a093be3fd8a3e9bc6fc00/src/Controls/Maps/src/Circle.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/6c379bf1dc24461a985a093be3fd8a3e9bc6fc00/src/Core/maps/src/Primitives/MapSpan.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/6c379bf1dc24461a985a093be3fd8a3e9bc6fc00/src/Core/maps/src/Handlers/Map/MapHandler.Windows.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/6c379bf1dc24461a985a093be3fd8a3e9bc6fc00/src/Controls/Maps/src/AppHostBuilderExtensions.cs"
         ]
       }
     ]
@@ -155,6 +162,34 @@
     {
       "url": "https://learn.microsoft.com/azure/azure-maps/azure-maps-authentication",
       "title": "Azure Maps authentication and credential security"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/6c379bf1dc24461a985a093be3fd8a3e9bc6fc00/src/Controls/Maps/src/Map.cs",
+      "title": "Map.cs exact MAUI10.0.110 source"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/6c379bf1dc24461a985a093be3fd8a3e9bc6fc00/src/Controls/Maps/src/Pin.cs",
+      "title": "Pin.cs exact MAUI10.0.110 source"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/6c379bf1dc24461a985a093be3fd8a3e9bc6fc00/src/Controls/Maps/src/MapElement.cs",
+      "title": "MapElement.cs exact MAUI10.0.110 source"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/6c379bf1dc24461a985a093be3fd8a3e9bc6fc00/src/Controls/Maps/src/Circle.cs",
+      "title": "Circle.cs exact MAUI10.0.110 source"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/6c379bf1dc24461a985a093be3fd8a3e9bc6fc00/src/Core/maps/src/Primitives/MapSpan.cs",
+      "title": "MapSpan.cs exact MAUI10.0.110 source"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/6c379bf1dc24461a985a093be3fd8a3e9bc6fc00/src/Core/maps/src/Handlers/Map/MapHandler.Windows.cs",
+      "title": "MapHandler.Windows.cs exact MAUI10.0.110 source"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/6c379bf1dc24461a985a093be3fd8a3e9bc6fc00/src/Controls/Maps/src/AppHostBuilderExtensions.cs",
+      "title": "AppHostBuilderExtensions.cs exact MAUI10.0.110 source"
     }
   ],
   "evidence": [

@@ -12,7 +12,7 @@ Windows requires the WinUI MapControl from the package-selected Windows App SDK 
 
 ## Older approach
 
-MAUI10 has no first-party Windows Map handler equivalent. The canonical previous sample builds a Windows page explaining that limit. It does not call a nonexistent map service. A web or third-party integration can be valid after its own provider, accessibility and security assessment; none is asserted compatible by this recipe.
+The exact MAUI10.0.110 packages already contain the Windows handler and the same UseMauiMaps/ConfigureEssentials/UseMapServiceToken setup. The previous sample is a real native map/pin application with a deliberately invalid placeholder, compiled with SDK10.0.402. Its MoveToRegion command passes MapSpan directly to the Windows handler. Keep this valid older approach when it meets your application's target; do not infer absence in10.0.110 from the earlier10.0.0 release source. The conditional target10 route requires these exact package assets. Compilation establishes API compatibility, not map rendering or service access.
 
 ## Newer approach
 
@@ -99,7 +99,7 @@ The exact RC3 native Windows MAUI route fails NETSDK1147 (maui-tizen) before com
 
 ## Evidence
 
-eng/Test-QuayMaps.ps1 checks exact official source hashes and downloaded Maps package assets in samples/QuayMaps/sources.json. QuayContracts links the canonical MauiProgram.cs files and compiles both releases against real Windows dependencies; it does not execute them. The .NET10 Windows fallback app compiles with installed SDK10.0.402. iOS native builds and interaction are not-tested (Mac/Xcode unavailable); .NET11 Windows MAUI build fails NETSDK1147 with SDK11 RC3. Rendering and service calls have not run. Evidence records retain input freshness; no GA or map execution proof is claimed. Packed-tool list/get verifies offline delivery only.
+eng/Test-QuayMaps.ps1 checks exact official source hashes, artifact repository commits and actual assembly metadata for present/absent APIs, plus downloaded Maps package assets in samples/QuayMaps/sources.json. QuayContracts links the canonical MauiProgram.cs files and compiles both releases against real Windows dependencies; it does not execute them. The actual .NET10 Windows map/pin app and placeholder registration compile with installed SDK10.0.402; it was not launched against the service. iOS native builds and interaction are not-tested (Mac/Xcode unavailable); .NET11 Windows MAUI build fails NETSDK1147 with SDK11 RC3. Rendering and service calls have not run. Evidence records retain input freshness; no GA or map execution proof is claimed. Packed-tool list/get verifies offline delivery only.
 
 ## Official references
 
@@ -112,3 +112,14 @@ eng/Test-QuayMaps.ps1 checks exact official source hashes and downloaded Maps pa
 - [AppHostBuilderExtensions.cs pinned official source](https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/Maps/src/AppHostBuilderExtensions.cs)
 - [MapSpan.cs pinned official source](https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/maps/src/Primitives/MapSpan.cs)
 - [Azure Maps authentication and credential security](https://learn.microsoft.com/azure/azure-maps/azure-maps-authentication)
+
+
+### Exact previous-release artifact references
+
+- [Map.cs in MAUI10.0.110](https://raw.githubusercontent.com/dotnet/maui/6c379bf1dc24461a985a093be3fd8a3e9bc6fc00/src/Controls/Maps/src/Map.cs)
+- [Pin.cs in MAUI10.0.110](https://raw.githubusercontent.com/dotnet/maui/6c379bf1dc24461a985a093be3fd8a3e9bc6fc00/src/Controls/Maps/src/Pin.cs)
+- [MapElement.cs in MAUI10.0.110](https://raw.githubusercontent.com/dotnet/maui/6c379bf1dc24461a985a093be3fd8a3e9bc6fc00/src/Controls/Maps/src/MapElement.cs)
+- [Circle.cs in MAUI10.0.110](https://raw.githubusercontent.com/dotnet/maui/6c379bf1dc24461a985a093be3fd8a3e9bc6fc00/src/Controls/Maps/src/Circle.cs)
+- [MapSpan.cs in MAUI10.0.110](https://raw.githubusercontent.com/dotnet/maui/6c379bf1dc24461a985a093be3fd8a3e9bc6fc00/src/Core/maps/src/Primitives/MapSpan.cs)
+- [MapHandler.Windows.cs in MAUI10.0.110](https://raw.githubusercontent.com/dotnet/maui/6c379bf1dc24461a985a093be3fd8a3e9bc6fc00/src/Core/maps/src/Handlers/Map/MapHandler.Windows.cs)
+- [AppHostBuilderExtensions.cs in MAUI10.0.110](https://raw.githubusercontent.com/dotnet/maui/6c379bf1dc24461a985a093be3fd8a3e9bc6fc00/src/Controls/Maps/src/AppHostBuilderExtensions.cs)
