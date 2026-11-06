@@ -1,0 +1,418 @@
+{
+  "id": "maui.enable-windows-maps",
+  "edition": "11.0",
+  "title": "Enable the supported Windows map and pin surface",
+  "goal": "Register an Azure Maps service key for the Windows MAUI map and standard pin surface; RC2 camera navigation is unsupported.",
+  "areas": [
+    "maui"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "quay-maps"
+  ],
+  "apis": [
+    "UseMauiMaps",
+    "ConfigureEssentials",
+    "UseMapServiceToken",
+    "Map.Pins"
+  ],
+  "introducedIn": "10.0",
+  "supportedTargets": [
+    "10.0",
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "requirements": {
+          "runtime": {
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "MAUI .NET 11 app; exact native target is declared in the canonical project.",
+            "name": ".NET"
+          },
+          "sdk": {
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "SDK11.0.100-rc.3.26522.148 with matched native workloads; RC2 MAUI artifacts are preparation evidence, not GA proof.",
+            "name": ".NET SDK"
+          },
+          "language": {
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Canonical sample pins C#15 without preview constructs.",
+            "name": "C#"
+          },
+          "frameworks": [
+            ".NET MAUI"
+          ],
+          "packages": [
+            {
+              "name": "Microsoft.Maui.Controls",
+              "version": "11.0",
+              "match": "release-family",
+              "reason": "Exact canonical pin 11.0.0-rc.2.26505.5; source and downloaded package assets reviewed."
+            },
+            {
+              "name": "Microsoft.Maui.Controls.Maps",
+              "version": "11.0",
+              "match": "release-family",
+              "reason": "Exact canonical pin 11.0.0-rc.2.26505.5; source and downloaded package assets reviewed."
+            }
+          ],
+          "packageAssets": [
+            "Microsoft.Maui.Controls.Maps and Microsoft.Maui.Maps11.0.0-rc.2.26505.5: net11.0-windows10.0.19041 assets. QuayContracts compiles linked canonical source; the native Windows app is not compiled."
+          ],
+          "workloads": [
+            {
+              "name": "maui-windows",
+              "version": "11.0",
+              "match": "release-family",
+              "reason": "Matching native SDK/workload required. Current RC3 installation fails Windows MAUI with NETSDK1147; Mac/Xcode unavailable."
+            }
+          ],
+          "providers": [
+            "Azure Maps account and authorized subscription key; network access and WebView2 runtime"
+          ],
+          "platforms": [
+            "Windows10.0.19041 target, win-x64, minimum10.0.17763; matched WinUI/Windows App SDK"
+          ],
+          "renderingModes": [
+            "Native MAUI map handler; Windows WinUI MapControl uses internal WebView2/Azure Maps JS. No Blazor rendering mode."
+          ],
+          "prerequisites": [
+            "UseMauiMaps registration and matching workload; provider access separately authorized. Placeholder is deliberately invalid. No provisioning or credential acquisition is part of this recipe."
+          ],
+          "constraints": [
+            "Source/contract compilation does not establish native rendering or provider behavior. See exact not-tested samples and PIN-935.",
+            "Pinned RC2 camera navigation unsupported: control sends MoveToRegionRequest but Windows handler expects MapSpan; do not rely on MoveToRegion or Region."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "RC2 package/source preparation evidence, not GA verification; no ExperimentalAttribute or experimental opt-in applies to these map APIs."
+          ]
+        },
+        "sharedAreas": [],
+        "conditional": false,
+        "target": "11.0",
+        "neutralLanguages": [],
+        "usage": "primary",
+        "evidenceSamples": [
+          "samples/net11.0/QuayWindows/QuayWindows.csproj"
+        ],
+        "selectionNotes": [
+          "The same Windows map setup is present in MAUI10.0.110; use the explicitly compiled optional target10 route where appropriate."
+        ],
+        "sourceUrls": [
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/Maps/src/Map.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/Maps/src/Pin.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/Maps/src/MapElement.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/Maps/src/Circle.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/Maps/src/HandlerImpl/Map.Impl.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/maps/src/Handlers/Map/MapHandler.Windows.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/Maps/src/AppHostBuilderExtensions.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/maps/src/Primitives/MapSpan.cs",
+          "https://learn.microsoft.com/azure/azure-maps/azure-maps-authentication",
+          "https://raw.githubusercontent.com/dotnet/maui/6c379bf1dc24461a985a093be3fd8a3e9bc6fc00/src/Controls/Maps/src/Map.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/6c379bf1dc24461a985a093be3fd8a3e9bc6fc00/src/Controls/Maps/src/Pin.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/6c379bf1dc24461a985a093be3fd8a3e9bc6fc00/src/Controls/Maps/src/MapElement.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/6c379bf1dc24461a985a093be3fd8a3e9bc6fc00/src/Controls/Maps/src/Circle.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/6c379bf1dc24461a985a093be3fd8a3e9bc6fc00/src/Core/maps/src/Primitives/MapSpan.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/6c379bf1dc24461a985a093be3fd8a3e9bc6fc00/src/Core/maps/src/Handlers/Map/MapHandler.Windows.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/6c379bf1dc24461a985a093be3fd8a3e9bc6fc00/src/Controls/Maps/src/AppHostBuilderExtensions.cs"
+        ]
+      },
+      {
+        "requirements": {
+          "runtime": {
+            "version": "10.0",
+            "match": "release-family",
+            "reason": "Actual compiled native comparison targets .NET10 Windows.",
+            "name": ".NET"
+          },
+          "sdk": {
+            "version": "10.0",
+            "match": "release-family",
+            "reason": "Actual native build uses installed SDK10.0.402 and MAUI Windows pack10.0.110; no SDK11 workload is used.",
+            "name": ".NET SDK"
+          },
+          "language": {
+            "version": "14.0",
+            "match": "exact",
+            "reason": "Canonical previous-release sample uses C#14.",
+            "name": "C#"
+          },
+          "frameworks": [
+            ".NET MAUI"
+          ],
+          "packages": [
+            {
+              "name": "Microsoft.Maui.Controls",
+              "version": "10.0.110",
+              "match": "exact",
+              "reason": "Exact declared artifact contains the Windows handler; the older10.0.0 source is not used to infer this package capability."
+            },
+            {
+              "name": "Microsoft.Maui.Controls.Maps",
+              "version": "10.0.110",
+              "match": "exact",
+              "reason": "Exact declared artifact contains the Windows handler; the older10.0.0 source is not used to infer this package capability."
+            }
+          ],
+          "packageAssets": [
+            "Microsoft.Maui.Controls.Maps and Microsoft.Maui.Maps10.0.110: net10.0-windows10.0.19041 assets; repository6c379bf1dc24461a985a093be3fd8a3e9bc6fc00."
+          ],
+          "workloads": [
+            {
+              "name": "maui-windows",
+              "version": "10.0.110",
+              "match": "exact",
+              "reason": "Actual installed native SDK pack10.0.110; workload manifest10.0.110/10.0.100."
+            }
+          ],
+          "providers": [
+            "Azure Maps account and authorized subscription key; network access and WebView2 runtime"
+          ],
+          "platforms": [
+            "Windows10.0.19041 target, win-x64, minimum10.0.17763; matched WinUI/Windows App SDK"
+          ],
+          "renderingModes": [
+            "Native MAUI map handler; Windows WinUI MapControl uses internal WebView2/Azure Maps JS. No Blazor rendering mode."
+          ],
+          "prerequisites": [
+            "UseMauiMaps registration and matching workload; provider access separately authorized. Placeholder is deliberately invalid. No provisioning or credential acquisition is part of this recipe."
+          ],
+          "constraints": [
+            "Native app and linked token registration compile, but the app was not launched against Azure Maps. No provider behavior or credentialed service result is claimed.",
+            "Windows shapes, built-in user location, labels/info windows and background clicks remain unsupported. This older MapSpan camera path does not have the RC2 request-wrapper mismatch."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Exact MAUI10.0.110 source and compilation evidence, not provider/runtime proof."
+          ]
+        },
+        "sharedAreas": [],
+        "conditional": true,
+        "target": "10.0",
+        "neutralLanguages": [],
+        "usage": "optional-alternative",
+        "evidenceSamples": [
+          "samples/net10.0/QuayWindows/QuayWindows.csproj"
+        ],
+        "selectionNotes": [
+          "Exact10.0.110 source/artifact review and native Windows compilation establish API compatibility. Neither native map rendering nor service execution was performed."
+        ],
+        "sourceUrls": [
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/Maps/src/Map.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/Maps/src/Pin.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/Maps/src/MapElement.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/Maps/src/Circle.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/Maps/src/HandlerImpl/Map.Impl.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/maps/src/Handlers/Map/MapHandler.Windows.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/Maps/src/AppHostBuilderExtensions.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/maps/src/Primitives/MapSpan.cs",
+          "https://learn.microsoft.com/azure/azure-maps/azure-maps-authentication",
+          "https://raw.githubusercontent.com/dotnet/maui/6c379bf1dc24461a985a093be3fd8a3e9bc6fc00/src/Controls/Maps/src/Map.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/6c379bf1dc24461a985a093be3fd8a3e9bc6fc00/src/Controls/Maps/src/Pin.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/6c379bf1dc24461a985a093be3fd8a3e9bc6fc00/src/Controls/Maps/src/MapElement.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/6c379bf1dc24461a985a093be3fd8a3e9bc6fc00/src/Controls/Maps/src/Circle.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/6c379bf1dc24461a985a093be3fd8a3e9bc6fc00/src/Core/maps/src/Primitives/MapSpan.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/6c379bf1dc24461a985a093be3fd8a3e9bc6fc00/src/Core/maps/src/Handlers/Map/MapHandler.Windows.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/6c379bf1dc24461a985a093be3fd8a3e9bc6fc00/src/Controls/Maps/src/AppHostBuilderExtensions.cs"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/Maps/src/Map.cs",
+      "title": "Map.cs pinned official source"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/Maps/src/Pin.cs",
+      "title": "Pin.cs pinned official source"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/Maps/src/MapElement.cs",
+      "title": "MapElement.cs pinned official source"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/Maps/src/Circle.cs",
+      "title": "Circle.cs pinned official source"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/Maps/src/HandlerImpl/Map.Impl.cs",
+      "title": "Map.Impl.cs pinned official source"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/maps/src/Handlers/Map/MapHandler.Windows.cs",
+      "title": "MapHandler.Windows.cs pinned official source"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/Maps/src/AppHostBuilderExtensions.cs",
+      "title": "AppHostBuilderExtensions.cs pinned official source"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/maps/src/Primitives/MapSpan.cs",
+      "title": "MapSpan.cs pinned official source"
+    },
+    {
+      "url": "https://learn.microsoft.com/azure/azure-maps/azure-maps-authentication",
+      "title": "Azure Maps authentication and credential security"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/6c379bf1dc24461a985a093be3fd8a3e9bc6fc00/src/Controls/Maps/src/Map.cs",
+      "title": "Map.cs exact MAUI10.0.110 source"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/6c379bf1dc24461a985a093be3fd8a3e9bc6fc00/src/Controls/Maps/src/Pin.cs",
+      "title": "Pin.cs exact MAUI10.0.110 source"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/6c379bf1dc24461a985a093be3fd8a3e9bc6fc00/src/Controls/Maps/src/MapElement.cs",
+      "title": "MapElement.cs exact MAUI10.0.110 source"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/6c379bf1dc24461a985a093be3fd8a3e9bc6fc00/src/Controls/Maps/src/Circle.cs",
+      "title": "Circle.cs exact MAUI10.0.110 source"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/6c379bf1dc24461a985a093be3fd8a3e9bc6fc00/src/Core/maps/src/Primitives/MapSpan.cs",
+      "title": "MapSpan.cs exact MAUI10.0.110 source"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/6c379bf1dc24461a985a093be3fd8a3e9bc6fc00/src/Core/maps/src/Handlers/Map/MapHandler.Windows.cs",
+      "title": "MapHandler.Windows.cs exact MAUI10.0.110 source"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/6c379bf1dc24461a985a093be3fd8a3e9bc6fc00/src/Controls/Maps/src/AppHostBuilderExtensions.cs",
+      "title": "AppHostBuilderExtensions.cs exact MAUI10.0.110 source"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/QuayWindows/QuayWindows.csproj",
+      "kind": "compile",
+      "target": "net10.0-windows10.0.19041.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "scope": "Actual native Windows map/pin app with safe placeholder token registration compiled against MAUI10.0.110; no map/service execution."
+    },
+    {
+      "sample": "samples/net11.0/QuayWindows/QuayWindows.csproj",
+      "kind": "official-review",
+      "target": "net11.0-windows10.0.19041.0",
+      "sdk": "11.0.100-rc.3.26522.148",
+      "language": "15.0",
+      "scope": "Pinned source/artifact review; native compilation and interaction not-tested under PIN-699."
+    },
+    {
+      "target": "net10.0-windows10.0.19041.0",
+      "language": "14.0",
+      "sdk": "10.0.403",
+      "kind": "compile",
+      "scope": "Workload-free Windows library compilation of the linked canonical MauiProgram.cs files, including placeholder registration; no native app build, rendering or service execution.",
+      "sample": "samples/net10.0/QuayContracts/QuayContracts.csproj"
+    },
+    {
+      "target": "net11.0-windows10.0.19041.0",
+      "language": "15.0",
+      "sdk": "11.0.100-rc.3.26522.148",
+      "kind": "compile",
+      "scope": "Workload-free Windows library compilation of the linked canonical MauiProgram.cs files, including placeholder registration; no native app build, rendering or service execution.",
+      "sample": "samples/net11.0/QuayContracts/QuayContracts.csproj"
+    }
+  ],
+  "humanProof": {
+    "status": "not-tested",
+    "untestedSamples": [
+      "samples/net11.0/QuayWindows/QuayWindows.csproj"
+    ],
+    "scope": "Mac/Xcode unavailable for QuayAtlas; RC3 Windows MAUI build fails NETSDK1147 for QuayWindows11. Native rendering, interaction and provider execution excluded under PIN-699. PIN-935 remains open and has not run; no credentials or resources acquired."
+  },
+  "snippets": {
+    "samples-net10-0-quaywindows-directory-build-props": {
+      "path": "samples/net10.0/QuayWindows/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net10-0-quaywindows-directory-build-targets": {
+      "path": "samples/net10.0/QuayWindows/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net10-0-quaywindows-directory-packages-props": {
+      "path": "samples/net10.0/QuayWindows/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net10-0-quaywindows-global-json": {
+      "path": "samples/net10.0/QuayWindows/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "samples-net10-0-quaywindows-mauiprogram-cs": {
+      "path": "samples/net10.0/QuayWindows/MauiProgram.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net10-0-quaywindows-platforms-windows-app-xaml": {
+      "path": "samples/net10.0/QuayWindows/Platforms/Windows/App.xaml",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net10-0-quaywindows-platforms-windows-app-xaml-cs": {
+      "path": "samples/net10.0/QuayWindows/Platforms/Windows/App.xaml.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net10-0-quaywindows-quaywindows-csproj": {
+      "path": "samples/net10.0/QuayWindows/QuayWindows.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-quaywindows-directory-build-props": {
+      "path": "samples/net11.0/QuayWindows/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-quaywindows-directory-build-targets": {
+      "path": "samples/net11.0/QuayWindows/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-quaywindows-directory-packages-props": {
+      "path": "samples/net11.0/QuayWindows/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-quaywindows-global-json": {
+      "path": "samples/net11.0/QuayWindows/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "samples-net11-0-quaywindows-mauiprogram-cs": {
+      "path": "samples/net11.0/QuayWindows/MauiProgram.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net11-0-quaywindows-platforms-windows-app-xaml": {
+      "path": "samples/net11.0/QuayWindows/Platforms/Windows/App.xaml",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-quaywindows-platforms-windows-app-xaml-cs": {
+      "path": "samples/net11.0/QuayWindows/Platforms/Windows/App.xaml.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net11-0-quaywindows-quaywindows-csproj": {
+      "path": "samples/net11.0/QuayWindows/QuayWindows.csproj",
+      "region": "complete",
+      "language": "xml"
+    }
+  }
+}

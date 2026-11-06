@@ -1,0 +1,20 @@
+<!-- snippet:complete -->
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net11.0-ios27.0</TargetFramework><OutputType>Exe</OutputType>
+    <UseMaui>true</UseMaui><SingleProject>true</SingleProject>
+    <Nullable>enable</Nullable><ImplicitUsings>enable</ImplicitUsings><LangVersion>15.0</LangVersion>
+    <ApplicationTitle>QuayAtlas</ApplicationTitle><ApplicationId>org.playbook.quayatlas</ApplicationId>
+    <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion><ApplicationVersion>1</ApplicationVersion>
+    <SupportedOSPlatformVersion>18.2</SupportedOSPlatformVersion>
+    <WindowsPackageType>None</WindowsPackageType><WindowsAppSDKSelfContained>true</WindowsAppSDKSelfContained>
+    <RuntimeIdentifier Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">win-x64</RuntimeIdentifier>
+    <SelfContained>false</SelfContained>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Maui.Controls" Version="11.0.0-rc.2.26505.5" />
+    <PackageReference Include="Microsoft.Maui.Controls.Maps" Version="11.0.0-rc.2.26505.5" />
+  </ItemGroup>
+  <ItemGroup><MauiImage Include="Resources/Images/survey.svg" /></ItemGroup>
+</Project>
+<!-- endsnippet:complete -->

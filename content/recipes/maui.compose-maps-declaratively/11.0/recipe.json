@@ -1,0 +1,349 @@
+{
+  "id": "maui.compose-maps-declaratively",
+  "edition": "11.0",
+  "title": "Compose a survey region and interactive map overlays",
+  "goal": "Set a declarative map region and control overlay visibility, draw order and selection on supported MAUI platforms.",
+  "areas": [
+    "maui"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "quay-maps"
+  ],
+  "apis": [
+    "Map.Region",
+    "MapSpan.FromLocations",
+    "Circle.CircleClicked",
+    "MapElement.IsVisible",
+    "MapElement.ZIndex"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "requirements": {
+          "runtime": {
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "MAUI .NET 11 app; exact native target is declared in the canonical project.",
+            "name": ".NET"
+          },
+          "sdk": {
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "SDK11.0.100-rc.3.26522.148 with matched native workloads; RC2 MAUI artifacts are preparation evidence, not GA proof.",
+            "name": ".NET SDK"
+          },
+          "language": {
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Canonical sample pins C#15 without preview constructs.",
+            "name": "C#"
+          },
+          "frameworks": [
+            ".NET MAUI"
+          ],
+          "packages": [
+            {
+              "name": "Microsoft.Maui.Controls",
+              "version": "11.0",
+              "match": "release-family",
+              "reason": "Exact canonical pin 11.0.0-rc.2.26505.5; source and downloaded package assets reviewed."
+            },
+            {
+              "name": "Microsoft.Maui.Controls.Maps",
+              "version": "11.0",
+              "match": "release-family",
+              "reason": "Exact canonical pin 11.0.0-rc.2.26505.5; source and downloaded package assets reviewed."
+            }
+          ],
+          "packageAssets": [
+            "Microsoft.Maui.Controls.Maps 11.0.0-rc.2.26505.5: net11.0-ios27.0 library. QuayContracts compiles linked source against actual Windows assets; this does not compile the iOS application."
+          ],
+          "workloads": [
+            {
+              "name": "maui-ios",
+              "version": "11.0",
+              "match": "release-family",
+              "reason": "Matching native SDK/workload required. Current RC3 installation fails Windows MAUI with NETSDK1147; Mac/Xcode unavailable."
+            }
+          ],
+          "providers": [
+            "Apple MapKit on iOS; Google Maps key, Maps SDK for Android and Google Play Services for an Android adaptation. No provider access was executed."
+          ],
+          "platforms": [
+            "Canonical iOS27.0 target, deployment minimum18.2; matched Mac/Xcode required. Android styling is conditional adaptation only, not a compiled Android sample."
+          ],
+          "renderingModes": [
+            "Native MAUI map handler; Windows WinUI MapControl uses internal WebView2/Azure Maps JS. No Blazor rendering mode."
+          ],
+          "prerequisites": [
+            "UseMauiMaps registration and matching workload; provider access separately authorized. Placeholder is deliberately invalid. No provisioning or credential acquisition is part of this recipe."
+          ],
+          "constraints": [
+            "Source/contract compilation does not establish native rendering or provider behavior. See exact not-tested samples and PIN-935."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "RC2 package/source preparation evidence, not GA verification; no ExperimentalAttribute or experimental opt-in applies to these map APIs."
+          ]
+        },
+        "sharedAreas": [],
+        "conditional": false,
+        "target": "11.0",
+        "neutralLanguages": [],
+        "usage": "primary",
+        "evidenceSamples": [
+          "samples/net11.0/QuayAtlas/QuayAtlas.csproj"
+        ],
+        "selectionNotes": [
+          "No verified older-target route; .NET 10 is comparison-only."
+        ],
+        "sourceUrls": [
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/Maps/src/Map.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/Maps/src/Pin.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/Maps/src/MapElement.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/Maps/src/Circle.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/Maps/src/HandlerImpl/Map.Impl.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/maps/src/Handlers/Map/MapHandler.Windows.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/Maps/src/AppHostBuilderExtensions.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/maps/src/Primitives/MapSpan.cs",
+          "https://learn.microsoft.com/azure/azure-maps/azure-maps-authentication",
+          "https://raw.githubusercontent.com/dotnet/maui/6c379bf1dc24461a985a093be3fd8a3e9bc6fc00/src/Controls/Maps/src/Map.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/6c379bf1dc24461a985a093be3fd8a3e9bc6fc00/src/Controls/Maps/src/Pin.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/6c379bf1dc24461a985a093be3fd8a3e9bc6fc00/src/Controls/Maps/src/MapElement.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/6c379bf1dc24461a985a093be3fd8a3e9bc6fc00/src/Controls/Maps/src/Circle.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/6c379bf1dc24461a985a093be3fd8a3e9bc6fc00/src/Core/maps/src/Primitives/MapSpan.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/6c379bf1dc24461a985a093be3fd8a3e9bc6fc00/src/Core/maps/src/Handlers/Map/MapHandler.Windows.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/6c379bf1dc24461a985a093be3fd8a3e9bc6fc00/src/Controls/Maps/src/AppHostBuilderExtensions.cs"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/Maps/src/Map.cs",
+      "title": "Map.cs pinned official source"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/Maps/src/Pin.cs",
+      "title": "Pin.cs pinned official source"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/Maps/src/MapElement.cs",
+      "title": "MapElement.cs pinned official source"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/Maps/src/Circle.cs",
+      "title": "Circle.cs pinned official source"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/Maps/src/HandlerImpl/Map.Impl.cs",
+      "title": "Map.Impl.cs pinned official source"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/maps/src/Handlers/Map/MapHandler.Windows.cs",
+      "title": "MapHandler.Windows.cs pinned official source"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/Maps/src/AppHostBuilderExtensions.cs",
+      "title": "AppHostBuilderExtensions.cs pinned official source"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/maps/src/Primitives/MapSpan.cs",
+      "title": "MapSpan.cs pinned official source"
+    },
+    {
+      "url": "https://learn.microsoft.com/azure/azure-maps/azure-maps-authentication",
+      "title": "Azure Maps authentication and credential security"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/6c379bf1dc24461a985a093be3fd8a3e9bc6fc00/src/Controls/Maps/src/Map.cs",
+      "title": "Map.cs exact MAUI10.0.110 source"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/6c379bf1dc24461a985a093be3fd8a3e9bc6fc00/src/Controls/Maps/src/Pin.cs",
+      "title": "Pin.cs exact MAUI10.0.110 source"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/6c379bf1dc24461a985a093be3fd8a3e9bc6fc00/src/Controls/Maps/src/MapElement.cs",
+      "title": "MapElement.cs exact MAUI10.0.110 source"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/6c379bf1dc24461a985a093be3fd8a3e9bc6fc00/src/Controls/Maps/src/Circle.cs",
+      "title": "Circle.cs exact MAUI10.0.110 source"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/6c379bf1dc24461a985a093be3fd8a3e9bc6fc00/src/Core/maps/src/Primitives/MapSpan.cs",
+      "title": "MapSpan.cs exact MAUI10.0.110 source"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/6c379bf1dc24461a985a093be3fd8a3e9bc6fc00/src/Core/maps/src/Handlers/Map/MapHandler.Windows.cs",
+      "title": "MapHandler.Windows.cs exact MAUI10.0.110 source"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/6c379bf1dc24461a985a093be3fd8a3e9bc6fc00/src/Controls/Maps/src/AppHostBuilderExtensions.cs",
+      "title": "AppHostBuilderExtensions.cs exact MAUI10.0.110 source"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/QuayAtlas/QuayAtlas.csproj",
+      "kind": "official-review",
+      "target": "net10.0-ios26.0",
+      "sdk": "10.0.403",
+      "language": "14.0",
+      "scope": "Pinned source/artifact review; native compilation and interaction not-tested under PIN-699."
+    },
+    {
+      "sample": "samples/net11.0/QuayAtlas/QuayAtlas.csproj",
+      "kind": "official-review",
+      "target": "net11.0-ios27.0",
+      "sdk": "11.0.100-rc.3.26522.148",
+      "language": "15.0",
+      "scope": "Pinned source/artifact review; native compilation and interaction not-tested under PIN-699."
+    },
+    {
+      "target": "net10.0-windows10.0.19041.0",
+      "language": "14.0",
+      "sdk": "10.0.403",
+      "kind": "compile",
+      "scope": "Workload-free Windows library compilation of the linked canonical MauiProgram.cs files, including placeholder registration; no native app build, rendering or service execution.",
+      "sample": "samples/net10.0/QuayContracts/QuayContracts.csproj"
+    },
+    {
+      "target": "net11.0-windows10.0.19041.0",
+      "language": "15.0",
+      "sdk": "11.0.100-rc.3.26522.148",
+      "kind": "compile",
+      "scope": "Workload-free Windows library compilation of the linked canonical MauiProgram.cs files, including placeholder registration; no native app build, rendering or service execution.",
+      "sample": "samples/net11.0/QuayContracts/QuayContracts.csproj"
+    }
+  ],
+  "humanProof": {
+    "status": "not-tested",
+    "untestedSamples": [
+      "samples/net10.0/QuayAtlas/QuayAtlas.csproj",
+      "samples/net11.0/QuayAtlas/QuayAtlas.csproj"
+    ],
+    "scope": "Mac/Xcode unavailable for QuayAtlas; RC3 Windows MAUI build fails NETSDK1147 for QuayWindows11. Native rendering, interaction and provider execution excluded under PIN-699. PIN-935 remains open and has not run; no credentials or resources acquired."
+  },
+  "snippets": {
+    "samples-net10-0-quayatlas-directory-build-props": {
+      "path": "samples/net10.0/QuayAtlas/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net10-0-quayatlas-directory-build-targets": {
+      "path": "samples/net10.0/QuayAtlas/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net10-0-quayatlas-directory-packages-props": {
+      "path": "samples/net10.0/QuayAtlas/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net10-0-quayatlas-global-json": {
+      "path": "samples/net10.0/QuayAtlas/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "samples-net10-0-quayatlas-mauiprogram-cs": {
+      "path": "samples/net10.0/QuayAtlas/MauiProgram.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net10-0-quayatlas-platforms-ios-appdelegate-cs": {
+      "path": "samples/net10.0/QuayAtlas/Platforms/iOS/AppDelegate.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net10-0-quayatlas-platforms-ios-info-plist": {
+      "path": "samples/net10.0/QuayAtlas/Platforms/iOS/Info.plist",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net10-0-quayatlas-platforms-ios-program-cs": {
+      "path": "samples/net10.0/QuayAtlas/Platforms/iOS/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net10-0-quayatlas-platforms-ios-scenedelegate-cs": {
+      "path": "samples/net10.0/QuayAtlas/Platforms/iOS/SceneDelegate.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net10-0-quayatlas-quayatlas-csproj": {
+      "path": "samples/net10.0/QuayAtlas/QuayAtlas.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-quayatlas-directory-build-props": {
+      "path": "samples/net11.0/QuayAtlas/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-quayatlas-directory-build-targets": {
+      "path": "samples/net11.0/QuayAtlas/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-quayatlas-directory-packages-props": {
+      "path": "samples/net11.0/QuayAtlas/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-quayatlas-global-json": {
+      "path": "samples/net11.0/QuayAtlas/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "samples-net11-0-quayatlas-mauiprogram-cs": {
+      "path": "samples/net11.0/QuayAtlas/MauiProgram.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net11-0-quayatlas-platforms-ios-appdelegate-cs": {
+      "path": "samples/net11.0/QuayAtlas/Platforms/iOS/AppDelegate.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net11-0-quayatlas-platforms-ios-info-plist": {
+      "path": "samples/net11.0/QuayAtlas/Platforms/iOS/Info.plist",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-quayatlas-platforms-ios-program-cs": {
+      "path": "samples/net11.0/QuayAtlas/Platforms/iOS/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net11-0-quayatlas-platforms-ios-scenedelegate-cs": {
+      "path": "samples/net11.0/QuayAtlas/Platforms/iOS/SceneDelegate.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net11-0-quayatlas-quayatlas-csproj": {
+      "path": "samples/net11.0/QuayAtlas/QuayAtlas.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net10-0-quayatlas-resources-images-survey-svg": {
+      "path": "samples/net10.0/QuayAtlas/Resources/Images/survey.svg",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-quayatlas-resources-images-survey-svg": {
+      "path": "samples/net11.0/QuayAtlas/Resources/Images/survey.svg",
+      "region": "complete",
+      "language": "xml"
+    }
+  }
+}

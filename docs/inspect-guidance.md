@@ -1,5 +1,49 @@
 # Inspect the guidance an agent receives
 
+## Dense native maps and the supported Windows surface
+
+PIN-914/PIN-915 add three Quay recipes. Exact MAUI10.0.110 artifact metadata
+confirms that Windows maps already exist while Region/clustering/custom-pin and
+new overlay APIs do not. Both releases compile the linked canonical registration
+against actual Windows assets; the native .NET10 map/pin app also compiles with
+SDK10.0.402. It was not launched against the service. SDK11 RC3 Windows MAUI
+fails NETSDK1147 and Mac/Xcode is unavailable: only those unavailable native
+sample actions use PIN-699 exclusions. No map/service execution is claimed.
+PIN-935 remains open and has not run; no credentials/resources were acquired.
+The RC2 Windows camera-dispatch mismatch is disclosed; it does not apply to10.0.110.
+
+This exact block is tested from an unrelated directory. It builds/installs the
+actual package through an isolated local feed/cache and displays ID/title/goal,
+full Markdown, edition and applicability through real stdio list/get.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-59d42d49'
+$inspection = @{
+  Query = 'quay-maps'
+  RecipeEdition = '11.0'
+  PackageVersion = '0.0.0-pin914-915'
+  Dotnet = 'C:/Users/pingu/AppData/Local/dotnetup/dotnet/dotnet.exe'
+  Node = 'C:/Program Files/nodejs/node.exe'
+}
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 @inspection -BuildAndPack `
+  -RecipeId @('maui.compose-maps-declaratively','maui.interact-with-dense-map-markers') `
+  -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -OutputDirectory './artifacts/maps/inspection/11-dense'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 @inspection `
+  -RecipeId @('maui.enable-windows-maps') -TargetVersion '11.0' `
+  -OutputDirectory './artifacts/maps/inspection/11-windows'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 @inspection `
+  -RecipeId @('maui.enable-windows-maps') -TargetVersion '10.0' `
+  -OutputDirectory './artifacts/maps/inspection/10-windows'
+```
+
+Expect edition11 for all three recipes on target11. Target10 has no applicable
+dense-map edition; Windows maps resolve edition11 through an explicit conditional
+10.0.110 compatibility route backed by native compilation and source/artifact
+review. No extra .NET10 foundation edition is added. Unusable network proxies
+establish proxy-independent offline retrieval, not OS network isolation or native
+map execution. No package is published.
+
 ## Cosmos conversion composition and model-code selection
 
 PIN-1218/PIN-1219 add original Bittern comparisons. Cosmos checks actual server
