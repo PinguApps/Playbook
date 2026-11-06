@@ -1,0 +1,113 @@
+{
+  "sources": [
+    {
+      "id": "negotiate-10-ExtendedProtectionPolicy",
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/runtime/src/libraries/System.Net.Security/src/System/Security/Authentication/ExtendedProtection/ExtendedProtectionPolicy.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Net.Security/src/System/Security/Authentication/ExtendedProtection/ExtendedProtectionPolicy.cs",
+      "sha256": "daa0d61c7ee70e0fdaf4cc7a59e4afe2375258d2d14fb74f2554d5eb3bdf93d5"
+    },
+    {
+      "id": "negotiate-10-NegotiateAuthenticationPal.Unix",
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/runtime/src/libraries/System.Net.Security/src/System/Net/NegotiateAuthenticationPal.Unix.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Net.Security/src/System/Net/NegotiateAuthenticationPal.Unix.cs",
+      "sha256": "5f6716f8459f8599fbccb2839eebd12f848593ce2dc1120509ad12cb52506f67"
+    },
+    {
+      "id": "negotiate-10-NegotiateAuthenticationServerOptions",
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/runtime/src/libraries/System.Net.Security/src/System/Net/Security/NegotiateAuthenticationServerOptions.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Net.Security/src/System/Net/Security/NegotiateAuthenticationServerOptions.cs",
+      "sha256": "84b37263699dafaf3de54459ab89d3c7eb8ada1ce720f3051d210b3e5108c0a3"
+    },
+    {
+      "id": "negotiate-11-ExtendedProtectionPolicy",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.Net.Security/src/System/Security/Authentication/ExtendedProtection/ExtendedProtectionPolicy.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.Security/src/System/Security/Authentication/ExtendedProtection/ExtendedProtectionPolicy.cs",
+      "sha256": "185c53155544e80507f3d4239006f31526258d29caee1e6a30086054e7a24955"
+    },
+    {
+      "id": "negotiate-11-native",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/native/libs/System.Net.Security.Native/pal_gssapi.c",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/native/libs/System.Net.Security.Native/pal_gssapi.c",
+      "sha256": "3689f8fc42ac4f1b2262e1a6ec5c45a65659184a903f327726a97ab35eaa556e"
+    },
+    {
+      "id": "negotiate-11-NegotiateAuthenticationPal.Unix",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.Net.Security/src/System/Net/NegotiateAuthenticationPal.Unix.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.Security/src/System/Net/NegotiateAuthenticationPal.Unix.cs",
+      "sha256": "8859b53e4a4173a29731a52d4c426fa031f0abbf59ded209714ce2b5042d3305"
+    },
+    {
+      "id": "negotiate-11-NegotiateAuthenticationServerOptions",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.Net.Security/src/System/Net/Security/NegotiateAuthenticationServerOptions.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.Security/src/System/Net/Security/NegotiateAuthenticationServerOptions.cs",
+      "sha256": "84b37263699dafaf3de54459ab89d3c7eb8ada1ce720f3051d210b3e5108c0a3"
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.Net.Http/src/System/Net/Http/SocketsHttpHandler/AuthenticationHelper.NtAuth.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.Http/src/System/Net/Http/SocketsHttpHandler/AuthenticationHelper.NtAuth.cs",
+      "sha256": "0f90b1be71906a063580c43282e824e37b7e44b0a8308833f3d9ece4c8bdb730",
+      "headings": []
+    },
+    {
+      "id": "actual-10-AuthenticationHelper.NtAuth.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/0427b9abbead3fa64c6655eb4290c537397131fa/src/runtime/src/libraries/System.Net.Http/src/System/Net/Http/SocketsHttpHandler/AuthenticationHelper.NtAuth.cs",
+      "sha256": "0c21ce65d9721165d21855460c66fa7e02e04b3c38794774c1747850ea309452"
+    },
+    {
+      "id": "actual-10-NegotiateAuthenticationPal.Unix.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/0427b9abbead3fa64c6655eb4290c537397131fa/src/runtime/src/libraries/System.Net.Security/src/System/Net/NegotiateAuthenticationPal.Unix.cs",
+      "sha256": "5f6716f8459f8599fbccb2839eebd12f848593ce2dc1120509ad12cb52506f67"
+    },
+    {
+      "id": "actual-10-pal_gssapi.c",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/0427b9abbead3fa64c6655eb4290c537397131fa/src/runtime/src/native/libs/System.Net.Security.Native/pal_gssapi.c",
+      "sha256": "e922c9c2803549a8ec78eee3be19cdaf8f348f77cac9c505426b4f19051efe47"
+    },
+    {
+      "id": "actual-11-AuthenticationHelper.NtAuth.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/5254d8bcf59917edc1e1abc33bdf2442b77b1c70/src/runtime/src/libraries/System.Net.Http/src/System/Net/Http/SocketsHttpHandler/AuthenticationHelper.NtAuth.cs",
+      "sha256": "0f90b1be71906a063580c43282e824e37b7e44b0a8308833f3d9ece4c8bdb730"
+    },
+    {
+      "id": "actual-11-NegotiateAuthenticationPal.Unix.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/5254d8bcf59917edc1e1abc33bdf2442b77b1c70/src/runtime/src/libraries/System.Net.Security/src/System/Net/NegotiateAuthenticationPal.Unix.cs",
+      "sha256": "8859b53e4a4173a29731a52d4c426fa031f0abbf59ded209714ce2b5042d3305"
+    },
+    {
+      "id": "actual-11-pal_gssapi.c",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/5254d8bcf59917edc1e1abc33bdf2442b77b1c70/src/runtime/src/native/libs/System.Net.Security.Native/pal_gssapi.c",
+      "sha256": "3689f8fc42ac4f1b2262e1a6ec5c45a65659184a903f327726a97ab35eaa556e"
+    },
+    {
+      "id": "actual-10-HttpConnectionPool.cs",
+      "sha256": "f3667bb44c53edd9358de811763b044676e152b3b922a9e9c43bfdffd7c5e425",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/0427b9abbead3fa64c6655eb4290c537397131fa/src/runtime/src/libraries/System.Net.Http/src/System/Net/Http/SocketsHttpHandler/ConnectionPool/HttpConnectionPool.cs"
+    },
+    {
+      "id": "actual-11-HttpConnectionPool.cs",
+      "sha256": "0c60d423a02a304a4b0f9cb809584dfd949fb5eb522930ab498e5030813bb0a7",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/5254d8bcf59917edc1e1abc33bdf2442b77b1c70/src/runtime/src/libraries/System.Net.Http/src/System/Net/Http/SocketsHttpHandler/ConnectionPool/HttpConnectionPool.cs"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/core/whats-new/dotnet-11/libraries.md",
+      "sha256": "66789f6faf28cdff61927df7bd9bf6c36c9fd2f438c20d059b3ddba7c07152f0",
+      "id": "official-dotnet11-libraries"
+    }
+  ]
+}

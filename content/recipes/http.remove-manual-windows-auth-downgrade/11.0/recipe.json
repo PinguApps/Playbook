@@ -1,0 +1,159 @@
+{
+  "id": "http.remove-manual-windows-auth-downgrade",
+  "edition": "11.0",
+  "title": "Remove a verified manual Windows-authentication downgrade",
+  "goal": "Let .NET 11 retry a Windows-authenticated HTTP/2 request over HTTP/1.1; use when a tested manual request-version override can be removed while preserving TLS, credentials and strict-version policy.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "gannet-authentication",
+    "http",
+    "windows-authentication"
+  ],
+  "apis": [
+    "HttpRequestMessage.Version",
+    "HttpRequestMessage.VersionPolicy",
+    "HttpVersionPolicy.RequestVersionOrLower",
+    "SocketsHttpHandler.Credentials"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "usage": "primary",
+        "conditional": false,
+        "requirements": {
+          "sdk": {
+            "match": "release-family",
+            "reason": "Canonical net11.0 consumer; SDK11 RC3 is the exact measured compiler baseline.",
+            "name": ".NET SDK",
+            "version": "11.0"
+          },
+          "runtime": {
+            "match": "release-family",
+            "reason": "Automatic Negotiate/NTLM HTTP/2 challenge fallback is implemented by .NET 11 SocketsHttpHandler.",
+            "name": ".NET",
+            "version": "11.0"
+          },
+          "language": {
+            "match": "exact",
+            "name": "C#",
+            "version": "15.0",
+            "reason": "Canonical net11.0 project explicitly selects C#15.0; the proxy API does not itself require new language syntax. This is the configured example route, not a minimum-language claim."
+          },
+          "frameworks": [
+            "Microsoft.NETCore.App 11; fixture also uses Microsoft.AspNetCore.App 11"
+          ],
+          "packages": [],
+          "packageAssets": [
+            "Request helper uses shared-framework System.Net.Http; Kestrel fixture has exact locked Microsoft.AspNetCore.Authentication.Negotiate and System.DirectoryServices.Protocols 11.0.0-rc.3.26522.148. No backport asserted."
+          ],
+          "workloads": [],
+          "prerequisites": [
+            "Trusted HTTPS Windows-auth service supporting HTTP/2 and HTTP/1.1; an authorised existing identity.",
+            "Use a reused HttpClient with deliberately scoped credentials and normal TLS validation; dispose requests/responses."
+          ],
+          "platforms": [
+            "Windows x64 Kestrel/SSPI NTLM with current local Windows identity measured; other platforms and Kerberos not tested."
+          ],
+          "providers": [
+            "Windows SSPI and Kestrel Negotiate; no credential/account provisioning or production endpoint."
+          ],
+          "renderingModes": [],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Actual .NET10.0.14 and .NET11 RC3 evidence; final GA remains PIN-962 and PIN-959 work."
+          ],
+          "constraints": [
+            "Strict HTTP/2 does not downgrade. Automatic retry does not grant credentials or authorisation.",
+            "Retain the manual HTTP/1.1 route on .NET 10; no global HTTP/2 disable switch."
+          ]
+        },
+        "sourceUrls": [
+          "https://raw.githubusercontent.com/dotnet/dotnet/0427b9abbead3fa64c6655eb4290c537397131fa/src/runtime/src/libraries/System.Net.Http/src/System/Net/Http/SocketsHttpHandler/AuthenticationHelper.NtAuth.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/5254d8bcf59917edc1e1abc33bdf2442b77b1c70/src/runtime/src/libraries/System.Net.Http/src/System/Net/Http/SocketsHttpHandler/AuthenticationHelper.NtAuth.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/0427b9abbead3fa64c6655eb4290c537397131fa/src/runtime/src/libraries/System.Net.Http/src/System/Net/Http/SocketsHttpHandler/ConnectionPool/HttpConnectionPool.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/5254d8bcf59917edc1e1abc33bdf2442b77b1c70/src/runtime/src/libraries/System.Net.Http/src/System/Net/Http/SocketsHttpHandler/ConnectionPool/HttpConnectionPool.cs",
+          "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/core/whats-new/dotnet-11/libraries.md"
+        ],
+        "selectionNotes": [
+          "Use only for a trusted Windows-auth service where HTTP/1.1 is permitted; keep strict HTTP/2 requests strict."
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/GannetGateway/GannetGateway.csproj"
+        ],
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "winforms",
+          "wpf"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/0427b9abbead3fa64c6655eb4290c537397131fa/src/runtime/src/libraries/System.Net.Http/src/System/Net/Http/SocketsHttpHandler/AuthenticationHelper.NtAuth.cs",
+      "title": "actual-10-AuthenticationHelper.NtAuth.cs"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/5254d8bcf59917edc1e1abc33bdf2442b77b1c70/src/runtime/src/libraries/System.Net.Http/src/System/Net/Http/SocketsHttpHandler/AuthenticationHelper.NtAuth.cs",
+      "title": "actual-11-AuthenticationHelper.NtAuth.cs"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/0427b9abbead3fa64c6655eb4290c537397131fa/src/runtime/src/libraries/System.Net.Http/src/System/Net/Http/SocketsHttpHandler/ConnectionPool/HttpConnectionPool.cs",
+      "title": "actual-10-HttpConnectionPool.cs"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/5254d8bcf59917edc1e1abc33bdf2442b77b1c70/src/runtime/src/libraries/System.Net.Http/src/System/Net/Http/SocketsHttpHandler/ConnectionPool/HttpConnectionPool.cs",
+      "title": "actual-11-HttpConnectionPool.cs"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/core/whats-new/dotnet-11/libraries.md",
+      "title": "official-dotnet11-libraries"
+    }
+  ],
+  "evidence": [
+    {
+      "sdk": "10.0.403",
+      "language": "14.0",
+      "kind": "compile-and-run",
+      "sample": "samples/net10.0/GannetGateway/GannetGateway.csproj",
+      "target": "net10.0",
+      "scope": "Actual Windows x64 Kestrel HTTPS/HTTP2 with current Windows NTLM identity: paired manual and automatic authentication, strict HTTP2 and anonymous 401, public HTTP2, denied403 and wrong-name TLS rejection. No Kerberos/domain identity, proxy, other-platform, Linux security or final-GA proof."
+    },
+    {
+      "sdk": "11.0.100-rc.3.26522.148",
+      "language": "15.0",
+      "kind": "compile-and-run",
+      "sample": "samples/net11.0/GannetGateway/GannetGateway.csproj",
+      "target": "net11.0",
+      "scope": "Actual Windows x64 Kestrel HTTPS/HTTP2 with current Windows NTLM identity: paired manual and automatic authentication, strict HTTP2 and anonymous 401, public HTTP2, denied403 and wrong-name TLS rejection. No Kerberos/domain identity, proxy, other-platform, Linux security or final-GA proof."
+    }
+  ],
+  "humanProof": {
+    "scope": "Actual Windows x64 Kestrel HTTPS/HTTP2 with current Windows NTLM identity: paired manual and automatic authentication, strict HTTP2 and anonymous 401, public HTTP2, denied403 and wrong-name TLS rejection. No Kerberos/domain identity, proxy, other-platform, Linux security or final-GA proof.",
+    "status": "not-required"
+  },
+  "snippets": {
+    "older": {
+      "path": "samples/net10.0/GannetGateway/SurveyRequest.cs",
+      "language": "csharp",
+      "region": "survey-request"
+    },
+    "newer": {
+      "path": "samples/net11.0/GannetGateway/SurveyRequest.cs",
+      "language": "csharp",
+      "region": "survey-request"
+    }
+  }
+}

@@ -1,0 +1,4 @@
+<Project>
+  <PropertyGroup><ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally></PropertyGroup>
+  <ItemGroup><PackageVersion Include="Microsoft.AspNetCore.Authentication.Negotiate" Version="10.0.14" /></ItemGroup>
+</Project>

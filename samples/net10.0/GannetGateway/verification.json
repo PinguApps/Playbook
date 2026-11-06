@@ -1,0 +1,16 @@
+{
+  "dependencies": [
+    "Microsoft.AspNetCore.Authentication.Negotiate/10.0.14",
+    "System.DirectoryServices.Protocols/10.0.14"
+  ],
+  "buildArguments": [],
+  "workloads": [],
+  "nativeToolchains": [],
+  "additionalInputs": [
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1",
+    ".editorconfig",
+    "eng/Test-GannetGateway.ps1",
+    "samples/GannetAuthentication/sources.json"
+  ]
+}
