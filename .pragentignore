@@ -1145,3 +1145,8 @@
 /samples/net11.0/QuayAtlas/verification-evidence.json
 /samples/net11.0/QuayWindows/verification-evidence.json
 /samples/net11.0/QuayContracts/verification-evidence.json
+
+# Original Quay marker artwork: parent checked circle geometry, colour and asset naming.
+# Native image rendering is explicitly not-tested; map usage and offline snippets remain reviewed.
+/samples/net10.0/QuayAtlas/Resources/Images/survey.svg
+/samples/net11.0/QuayAtlas/Resources/Images/survey.svg
