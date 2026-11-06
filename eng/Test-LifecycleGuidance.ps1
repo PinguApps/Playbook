@@ -1,15 +1,24 @@
 #Requires -Version 7.4
 [CmdletBinding()]
-param([switch]$Record, [switch]$CompileAndroidReference)
+param([switch]$Record, [switch]$CompileAndroidReference, [switch]$CompileAppleReference)
 $ErrorActionPreference = 'Stop'
 $root = Split-Path $PSScriptRoot -Parent
 . (Join-Path $PSScriptRoot 'Evidence.ps1')
 $client = [Net.Http.HttpClient]::new()
+$appleReferences = @()
+$scratch = Join-Path $root 'artifacts/lifecycle-reference'
 try {
     foreach ($file in 'sources.json','artifacts.json') {
         foreach ($source in (Get-Content "$root/samples/LifecycleGuidance/$file" -Raw | ConvertFrom-Json)) {
             $bytes = $client.GetByteArrayAsync($source.url).GetAwaiter().GetResult()
             if ([Convert]::ToHexString([Security.Cryptography.SHA256]::HashData($bytes)).ToLowerInvariant() -cne $source.sha256) { throw "Changed source/artifact: $($source.url)" }
+            if ($CompileAppleReference -and $source.assets) {
+                $directory = Join-Path $scratch $source.id
+                $null = New-Item -ItemType Directory $directory -Force
+                [IO.File]::WriteAllBytes("$directory/package.zip", $bytes)
+                Expand-Archive "$directory/package.zip" "$directory/expanded" -Force
+                foreach ($asset in $source.assets) { $appleReferences += (Get-Item "$directory/expanded/$asset") }
+            }
             if ($source.id -eq 'Microsoft.Android.Ref.37.2') {
                 if ($CompileAndroidReference) {
                     $scratch = Join-Path $root 'artifacts/lifecycle-reference'
@@ -46,6 +55,19 @@ try {
                 } finally { $zip.Dispose() }
             }
         }
+    }
+    if ($CompileAppleReference) {
+        $dotnetRoot = 'C:/Users/pingu/AppData/Local/dotnetup/dotnet'
+        $frameworkReferences = @(Get-ChildItem "$dotnetRoot/packs/Microsoft.NETCore.App.Ref/11.0.0-rc.3.26522.148/ref/net11.0/*.dll")
+        [IO.File]::WriteAllText("$scratch/GlobalUsings.cs", 'global using System;')
+        foreach ($name in 'PuffinScenes','PuffinMaui') {
+            $references = $frameworkReferences + $appleReferences
+            if ($name -eq 'PuffinScenes') { $references = $frameworkReferences + @($appleReferences | Where-Object Name -eq 'Microsoft.iOS.dll') }
+            $arguments = @('/noconfig','/nostdlib+','/target:library','/nullable:enable','/langversion:15.0',"/out:$scratch/$name.dll") + @($references | ForEach-Object { '/reference:' + $_.FullName }) + @(Get-ChildItem "$root/samples/net11.0/$name/*.cs" | ForEach-Object FullName) + @("$scratch/GlobalUsings.cs")
+            & "$dotnetRoot/dotnet.exe" "$dotnetRoot/sdk/11.0.100-rc.3.26522.148/Roslyn/bincore/csc.dll" @arguments
+            if ($LASTEXITCODE -ne 0) { throw "Canonical Apple reference compilation failed: $name" }
+        }
+        Write-Host 'PASS canonical .NET11 UIKit and MAUI reference compilation. No native build targets, manifest processing, signing, Xcode or scene execution.'
     }
     if ($Record) {
         foreach ($name in 'SkuaBack','PuffinScenes','PuffinMaui') {
