@@ -1,0 +1,21 @@
+{
+  "version": 2,
+  "dependencies": {
+    "net11.0": {
+      "Microsoft.AspNetCore.Authentication.Negotiate": {
+        "type": "Direct",
+        "requested": "[11.0.0-rc.3.26522.148, )",
+        "resolved": "11.0.0-rc.3.26522.148",
+        "contentHash": "S889fAo5Fhl8kpJJNuZih1iUxemTyyRHvkymej03EOcy6ekkFxpB23iEfgtGwOSmWR60iPH1eHEkfs94ZrkieQ==",
+        "dependencies": {
+          "System.DirectoryServices.Protocols": "11.0.0-rc.3.26522.148"
+        }
+      },
+      "System.DirectoryServices.Protocols": {
+        "type": "Transitive",
+        "resolved": "11.0.0-rc.3.26522.148",
+        "contentHash": "42QzonPgMCyOs3P3rqLAlpwSyjZ3oRP6Hr0qdKIp6nO7FEgCuP33dNgBH+QwRgEIBEHTb06P57qHv0yDBiv0og=="
+      }
+    }
+  }
+}

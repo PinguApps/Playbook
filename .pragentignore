@@ -1176,3 +1176,12 @@
 /samples/net11.0/TernAssets/Resources/Splash/night.svg
 /samples/net11.0/TernAssets/Resources/Images/marker.svg
 /samples/net11.0/TernAssets/Resources/AppIcon/tern.icon/Assets/tern.svg
+
+# Gannet Record-Evidence/Test-GannetBinding generated receipts; review canonical
+# sources, locks, manifests and runners. Build/pack checks input freshness.
+/samples/net10.0/GannetGateway/verification-evidence.json
+/samples/net11.0/GannetGateway/verification-evidence.json
+/samples/net10.0/GannetBinding/verification-evidence.json
+/samples/net11.0/GannetBinding/verification-evidence.json
+/samples/net10.0/GannetBinding/behavior.evidence.json
+/samples/net11.0/GannetBinding/behavior.evidence.json

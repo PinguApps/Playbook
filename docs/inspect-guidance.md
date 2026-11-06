@@ -1,5 +1,38 @@
 # Inspect the guidance an agent receives
 
+## Linux TLS binding and Windows-authentication fallback
+
+PIN-1039/PIN-1103 add original Gannet comparisons using actual .NET10.0.14 and
+.NET11RC3. The Linux MIT Kerberos route validates mismatches but accepts clients
+that omit bindings; this limitation appears in discovery, applicability and the
+complete offline body. It must not be used for mandatory client-binding policies.
+The Windows loopback Kestrel fixture uses the existing Windows identity, with no
+account provisioning, and records the actual HTTP/2 challenge/HTTP/1.1 retry.
+
+This block was checked from C:\, outside the task worktree. It builds/packs the
+ordinary tool, installs that exact artifact through an isolated feed/cache, and
+prints real stdio discovery ID/title/goal, full Markdown, edition and applicability:
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-3a4dc15e'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('networking.bind-linux-negotiate-to-tls','http.remove-manual-windows-auth-downgrade') `
+  -Query 'gannet-authentication' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -RecipeEdition '11.0' -PackageVersion '0.0.0-pin1039-1103' -BuildAndPack `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory './artifacts/authentication/inspection'
+```
+
+Expect edition11.0 for both, complete canonical snippets and fresh evidence.
+Target10 returns no applicable edition; its consumers are comparisons, preserving
+the existing eight foundations. Offline retrieval uses unusable proxies, not OS
+network isolation. No public package publication or final-GA proof is performed.
+eng/Test-GannetGateway.ps1 -Record -VerifySources and
+eng/Test-GannetBinding.ps1 -Record capture focused real behavior. The binding
+runner's optional -RequireMissingBindingRejection is intentionally failing on the
+measured RC3/MIT route and remains an explicit stronger qualification gate.
+
 ## Native passkeys and experimental Apple summaries
 
 PIN-916/PIN-922 add Heron guidance. The Windows passkey adapter compiles against

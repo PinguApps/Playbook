@@ -1,5 +1,21 @@
 # Runtime, native interop, transport and security coverage: PIN-705
 
+## Windows-authentication fallback delivery — PIN-1103
+
+R17 is implemented as `http.remove-manual-windows-auth-downgrade`, edition11.0.
+Original Gannet clients run against a loopback-only Kestrel HTTPS/HTTP2 fixture
+using the existing Windows identity and real SSPI NTLM. .NET10.0.14 needs the
+manual HTTP/1.1 request; .NET11RC3 records an actual HTTP/2 401 followed by an
+authenticated HTTP/1.1 200. Strict HTTP/2 and anonymous requests remain401,
+authenticated forbidden requests remain403, public HTTP/2 works, and wrong-name
+TLS fails. No account or credential is provisioned; no certificate store or
+persistent host setting changes. Kerberos/domain, proxies, other OS and GA are
+separate unverified routes. eng/Test-GannetGateway.ps1 captures fresh paired
+compilation/execution and verifies the original/current publisher source manifest.
+Offline installed discovery/body/applicability are checked with the existing
+Inspector harness. PIN-959/PIN-962 remain open; Linux binding is PIN-1039's
+separate documented boundary, not proof supplied by this Windows fixture.
+
 Reviewed **22 October 2026**. This is a bounded artifact/source audit, not recipe
 delivery or permission to publish. **25 narrow delivery drafts** below await
 review; none is created or implemented by this audit.

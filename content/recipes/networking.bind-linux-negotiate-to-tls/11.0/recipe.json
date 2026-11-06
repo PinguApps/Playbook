@@ -1,0 +1,220 @@
+{
+  "id": "networking.bind-linux-negotiate-to-tls",
+  "edition": "11.0",
+  "title": "Bind Linux Negotiate authentication to TLS",
+  "goal": "Supply the actual TLS endpoint binding to .NET 11 Linux GSSAPI authentication to reject mismatched bindings; use only where the documented provider behavior fits the security policy, since tested MIT Kerberos accepts clients that omit bindings.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "gannet-authentication",
+    "linux",
+    "tls",
+    "kerberos"
+  ],
+  "apis": [
+    "NegotiateAuthenticationServerOptions.Binding",
+    "NegotiateAuthenticationServerOptions.Policy",
+    "ExtendedProtectionPolicy",
+    "NegotiateAuthentication.GetOutgoingBlob"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "usage": "primary",
+        "conditional": false,
+        "requirements": {
+          "sdk": {
+            "match": "release-family",
+            "reason": "Canonical net11.0 consumer; SDK11 RC3 is the exact measured compiler baseline.",
+            "name": ".NET SDK",
+            "version": "11.0"
+          },
+          "runtime": {
+            "match": "release-family",
+            "reason": "Linux server forwards Binding to GSSAPI in .NET11; required policy is unsupported on the tested .NET10 Linux runtime.",
+            "name": ".NET",
+            "version": "11.0"
+          },
+          "language": {
+            "match": "exact",
+            "name": "C#",
+            "version": "15.0",
+            "reason": "Canonical net11.0 project explicitly selects C#15.0; the proxy API does not itself require new language syntax. This is the configured example route, not a minimum-language claim."
+          },
+          "frameworks": [
+            "Microsoft.NETCore.App 11 shared framework"
+          ],
+          "packages": [],
+          "packageAssets": [
+            "Framework System.Net.Security and its native GSSAPI bridge; no NuGet package or managed-NTLM server claim."
+          ],
+          "workloads": [],
+          "prerequisites": [
+            "Actual authenticated TLS connection and server certificate; this bounded sample supports SHA256-with-RSA certificates.",
+            "MIT Kerberos KDC, service keytab HTTP/station.gannet.test and client credential cache; configure KRB5_CONFIG, KRB5_KTNAME and KRB5CCNAME privately.",
+            "Keep ChannelBinding and SslStream alive through completion; inspect status codes and reject any non-Completed final result."
+          ],
+          "platforms": [
+            "Ubuntu24.04 x64/MIT Kerberos1.20.1/OpenSSL3.0.13 measured; macOS excluded by runtime source; other providers/architectures not tested."
+          ],
+          "providers": [
+            "MIT libgssapi-krb5-2/libkrb5-3 1.20.1-6ubuntu2.10; actual private disposable realm and real Kerberos mechanism."
+          ],
+          "renderingModes": [],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Actual .NET10.0.14/.NET11RC3 and native provider evidence; final-GA and mandatory omission-rejection gates remain open, with no promised future fix."
+          ],
+          "constraints": [
+            "PolicyEnforcement.Always does not make the measured MIT provider reject a client that omits bindings; do not enable this route when mandatory client binding is required.",
+            "BadBinding can coexist with IsAuthenticated=true on this runtime: require Completed, never trust that property alone.",
+            "Do not use a different certificate, accept arbitrary TLS certificates or infer Linux/macOS/managed-NTLM support from a Unix filename."
+          ]
+        },
+        "sourceUrls": [
+          "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Net.Security/src/System/Security/Authentication/ExtendedProtection/ExtendedProtectionPolicy.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Net.Security/src/System/Net/NegotiateAuthenticationPal.Unix.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Net.Security/src/System/Net/Security/NegotiateAuthenticationServerOptions.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.Security/src/System/Security/Authentication/ExtendedProtection/ExtendedProtectionPolicy.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/native/libs/System.Net.Security.Native/pal_gssapi.c",
+          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.Security/src/System/Net/NegotiateAuthenticationPal.Unix.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.Security/src/System/Net/Security/NegotiateAuthenticationServerOptions.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/0427b9abbead3fa64c6655eb4290c537397131fa/src/runtime/src/libraries/System.Net.Security/src/System/Net/NegotiateAuthenticationPal.Unix.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/0427b9abbead3fa64c6655eb4290c537397131fa/src/runtime/src/native/libs/System.Net.Security.Native/pal_gssapi.c",
+          "https://raw.githubusercontent.com/dotnet/dotnet/5254d8bcf59917edc1e1abc33bdf2442b77b1c70/src/runtime/src/libraries/System.Net.Security/src/System/Net/NegotiateAuthenticationPal.Unix.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/5254d8bcf59917edc1e1abc33bdf2442b77b1c70/src/runtime/src/native/libs/System.Net.Security.Native/pal_gssapi.c",
+          "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/core/whats-new/dotnet-11/libraries.md"
+        ],
+        "selectionNotes": [
+          "Linux MIT Kerberos mismatch validation only; omitted client bindings remain accepted. Refuse this route if every client must prove binding presence."
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/GannetBinding/GannetBinding.csproj"
+        ],
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "winforms",
+          "wpf"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Net.Security/src/System/Security/Authentication/ExtendedProtection/ExtendedProtectionPolicy.cs",
+      "title": "negotiate-10-ExtendedProtectionPolicy"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Net.Security/src/System/Net/NegotiateAuthenticationPal.Unix.cs",
+      "title": "negotiate-10-NegotiateAuthenticationPal.Unix"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Net.Security/src/System/Net/Security/NegotiateAuthenticationServerOptions.cs",
+      "title": "negotiate-10-NegotiateAuthenticationServerOptions"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.Security/src/System/Security/Authentication/ExtendedProtection/ExtendedProtectionPolicy.cs",
+      "title": "negotiate-11-ExtendedProtectionPolicy"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/native/libs/System.Net.Security.Native/pal_gssapi.c",
+      "title": "negotiate-11-native"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.Security/src/System/Net/NegotiateAuthenticationPal.Unix.cs",
+      "title": "negotiate-11-NegotiateAuthenticationPal.Unix"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.Security/src/System/Net/Security/NegotiateAuthenticationServerOptions.cs",
+      "title": "negotiate-11-NegotiateAuthenticationServerOptions"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/0427b9abbead3fa64c6655eb4290c537397131fa/src/runtime/src/libraries/System.Net.Security/src/System/Net/NegotiateAuthenticationPal.Unix.cs",
+      "title": "actual-10-NegotiateAuthenticationPal.Unix.cs"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/0427b9abbead3fa64c6655eb4290c537397131fa/src/runtime/src/native/libs/System.Net.Security.Native/pal_gssapi.c",
+      "title": "actual-10-pal_gssapi.c"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/5254d8bcf59917edc1e1abc33bdf2442b77b1c70/src/runtime/src/libraries/System.Net.Security/src/System/Net/NegotiateAuthenticationPal.Unix.cs",
+      "title": "actual-11-NegotiateAuthenticationPal.Unix.cs"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/5254d8bcf59917edc1e1abc33bdf2442b77b1c70/src/runtime/src/native/libs/System.Net.Security.Native/pal_gssapi.c",
+      "title": "actual-11-pal_gssapi.c"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/core/whats-new/dotnet-11/libraries.md",
+      "title": "official-dotnet11-libraries"
+    }
+  ],
+  "evidence": [
+    {
+      "language": "14.0",
+      "sdk": "10.0.403",
+      "sample": "samples/net10.0/GannetBinding/GannetBinding.csproj",
+      "kind": "compile",
+      "scope": "Actual Windows compiler/reference set; Linux behavior is a separate execution receipt.",
+      "target": "net10.0"
+    },
+    {
+      "language": "14.0",
+      "sdk": "10.0.403",
+      "record": "samples/net10.0/GannetBinding/behavior.evidence.json",
+      "sample": "samples/net10.0/GannetBinding/GannetBinding.csproj",
+      "kind": "execution",
+      "scope": "Paired real Linux MIT GSSAPI Kerberos and live loopback TLS: actual older unsupported required policy, matching/mismatched and omitted client binding, absent server binding and missing client credentials. Current MIT omission acceptance is a documented limitation, not mandatory-binding or GA proof.",
+      "target": "net10.0"
+    },
+    {
+      "language": "15.0",
+      "sdk": "11.0.100-rc.3.26522.148",
+      "sample": "samples/net11.0/GannetBinding/GannetBinding.csproj",
+      "kind": "compile",
+      "scope": "Actual Windows compiler/reference set; Linux behavior is a separate execution receipt.",
+      "target": "net11.0"
+    },
+    {
+      "language": "15.0",
+      "sdk": "11.0.100-rc.3.26522.148",
+      "record": "samples/net11.0/GannetBinding/behavior.evidence.json",
+      "sample": "samples/net11.0/GannetBinding/GannetBinding.csproj",
+      "kind": "execution",
+      "scope": "Paired real Linux MIT GSSAPI Kerberos and live loopback TLS: actual older unsupported required policy, matching/mismatched and omitted client binding, absent server binding and missing client credentials. Current MIT omission acceptance is a documented limitation, not mandatory-binding or GA proof.",
+      "target": "net11.0"
+    }
+  ],
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Paired real Linux MIT GSSAPI Kerberos and live loopback TLS: actual older unsupported required policy, matching/mismatched and omitted client binding, absent server binding and missing client credentials. Current MIT omission acceptance is a documented limitation, not mandatory-binding or GA proof."
+  },
+  "snippets": {
+    "newer": {
+      "region": "required-server",
+      "language": "csharp",
+      "path": "samples/net10.0/GannetBinding/GannetProtection.cs"
+    },
+    "older": {
+      "region": "required-server",
+      "language": "csharp",
+      "path": "samples/net10.0/GannetBinding/GannetProtection.cs"
+    },
+    "binding": {
+      "region": "endpoint-binding",
+      "language": "csharp",
+      "path": "samples/net10.0/GannetBinding/Program.cs"
+    }
+  }
+}
