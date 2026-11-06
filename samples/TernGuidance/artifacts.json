@@ -1,0 +1,32 @@
+[
+  {
+    "sha256": "e8598f8c8c45ac569245b53f385f586460afcad667b4caff3e3aa87a2cc23590",
+    "url": "https://api.nuget.org/v3-flatcontainer/microsoft.maui.core/10.0.110/microsoft.maui.core.10.0.110.nupkg",
+    "scope": "Actual cached package from NuGet. Source and target assets inspected; native current execution not established."
+  },
+  {
+    "sha256": "f42a790e6cf3749efc864f8e28ddbfbbaf73bb175ae0f20b562773030f2751a0",
+    "url": "https://api.nuget.org/v3-flatcontainer/microsoft.maui.essentials/10.0.110/microsoft.maui.essentials.10.0.110.nupkg",
+    "scope": "Actual cached package from NuGet. Source and target assets inspected; native current execution not established."
+  },
+  {
+    "sha256": "2f3303d92b6311c5fc0ffe6d3688fcb6260793f9243f60864065905e1d1bfe5e",
+    "url": "https://api.nuget.org/v3-flatcontainer/microsoft.maui.resizetizer/10.0.110/microsoft.maui.resizetizer.10.0.110.nupkg",
+    "scope": "Actual cached package from NuGet. Source and target assets inspected; native current execution not established."
+  },
+  {
+    "sha256": "47915931c89820f3623d287c46763308b8eb730f74c731c872eb666c62b300bc",
+    "url": "https://api.nuget.org/v3-flatcontainer/microsoft.maui.core/11.0.0-rc.2.26505.5/microsoft.maui.core.11.0.0-rc.2.26505.5.nupkg",
+    "scope": "Actual cached package from NuGet. Source and target assets inspected; native current execution not established."
+  },
+  {
+    "sha256": "e80398e3215866fd912a28d934c008cd4aa942b16370846a6d3ac399529fd718",
+    "url": "https://api.nuget.org/v3-flatcontainer/microsoft.maui.essentials/11.0.0-rc.2.26505.5/microsoft.maui.essentials.11.0.0-rc.2.26505.5.nupkg",
+    "scope": "Actual cached package from NuGet. Source and target assets inspected; native current execution not established."
+  },
+  {
+    "sha256": "e6e65695422b9d9e769512e04751e2f15b55931af25fab6e20ba6eb6a5b06def",
+    "url": "https://api.nuget.org/v3-flatcontainer/microsoft.maui.resizetizer/11.0.0-rc.2.26505.5/microsoft.maui.resizetizer.11.0.0-rc.2.26505.5.nupkg",
+    "scope": "Actual cached package from NuGet. Source and target assets inspected; native current execution not established."
+  }
+]

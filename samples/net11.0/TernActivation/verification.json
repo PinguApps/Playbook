@@ -1,0 +1,10 @@
+{
+  "additionalInputs": [
+    "samples/TernGuidance/sources.json",
+    "samples/TernGuidance/artifacts.json"
+  ],
+  "nativeToolchains": [],
+  "workloads": [],
+  "dependencies": [],
+  "buildArguments": []
+}
