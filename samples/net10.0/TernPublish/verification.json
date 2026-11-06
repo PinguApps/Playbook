@@ -1,0 +1,15 @@
+{
+  "buildArguments": [],
+  "dependencies": [
+    "Microsoft.NET.ILLink.Tasks/10.0.13"
+  ],
+  "workloads": [
+    "maccatalyst/26.5.10315/10.0.100"
+  ],
+  "nativeToolchains": [],
+  "additionalInputs": [
+    "samples/AppleRoutes/sources.json",
+    "eng/Test-AppleRoutes.ps1",
+    "samples/AppleRoutes/artifact.json"
+  ]
+}

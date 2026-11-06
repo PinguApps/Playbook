@@ -1,0 +1,5 @@
+<!-- snippet:complete -->
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup><TargetFramework>net10.0-maccatalyst26.0</TargetFramework><LangVersion>14.0</LangVersion><OutputType>Exe</OutputType><ApplicationId>org.tern.catalogue</ApplicationId><RestorePackagesWithLockFile>true</RestorePackagesWithLockFile></PropertyGroup>
+</Project>
+<!-- endsnippet:complete -->

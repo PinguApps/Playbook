@@ -1,0 +1,18 @@
+[
+  {
+    "sha256": "ee5b6dff2651b8ae6e01a9daab11b6bc7784c6b9018d04de2ec94fe32b29ab5c",
+    "url": "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/src/Foundation/NSUrlSessionHandler.cs"
+  },
+  {
+    "sha256": "a6e1687d5e4d3cde4f386f8027e34a3a0a92e9cd67bc84ed8611908e8968a68a",
+    "url": "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/docs/building-apps/build-properties.md"
+  },
+  {
+    "sha256": "b2af4d89e3dde1324d7e7d3f2775fbd62108beef01da5aad6e279a841879a990",
+    "url": "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/dotnet/targets/Xamarin.Shared.Sdk.targets"
+  },
+  {
+    "sha256": "e9f36f0593b0af703cd8dd95ff9a32f28681dd00e321b61d9083c236ec45ee8c",
+    "url": "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/dotnet/targets/Xamarin.Shared.Sdk.props"
+  }
+]

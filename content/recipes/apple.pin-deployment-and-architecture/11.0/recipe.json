@@ -1,0 +1,211 @@
+{
+  "id": "apple.pin-deployment-and-architecture",
+  "edition": "11.0",
+  "title": "Publish Apple apps for deliberate device and runtime targets",
+  "goal": "Choose Apple minimum OS versions, architectures and runtime options before SDK evaluation when a publish must work beyond the build host.",
+  "areas": [
+    "ios",
+    "maccatalyst"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "tern-apple-guidance",
+    "migration"
+  ],
+  "apis": [
+    "SupportedOSPlatformVersion",
+    "RuntimeIdentifier",
+    "RuntimeIdentifiers",
+    "PublishAot",
+    "DynamicCodeSupport",
+    "Registrar"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Comparisons preserve the eight .NET10 foundations; no older route added."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Apple .NET11 workload; native runtime execution not-tested."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "RC3 SDK intended; pinned Apple RC2 source/artifact review is separate from a tested native workload composition."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "C#15; no preview syntax."
+          },
+          "frameworks": [
+            ".NET for iOS",
+            ".NET for Mac Catalyst"
+          ],
+          "packages": [],
+          "workloads": [
+            {
+              "match": "release-family",
+              "version": "11.0",
+              "name": "ios",
+              "reason": "Compatible workload required; RC3 native composition not built."
+            }
+          ],
+          "packageAssets": [
+            "Microsoft.iOS.Ref.net11.0_27.0/27.0.12212-net11-rc.2 ref/net11.0/Microsoft.iOS.dll",
+            "Apple build props/targets at a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d"
+          ],
+          "providers": [
+            "No service provisioned; proxy recipe requires an existing authorized HTTP proxy for application execution."
+          ],
+          "platforms": [
+            "iOS or Mac Catalyst; canonical upload library ios-arm64, publish app maccatalyst-arm64; minimum OS 17.0 is a sample policy, not the workload minimum."
+          ],
+          "renderingModes": [
+            "Native Apple app/library; no web rendering mode"
+          ],
+          "prerequisites": [
+            "Compatible Apple workload and Xcode required for native publishing/execution.",
+            "RC3 SDK intended; RC2 sources reviewed separately, not a verified native composition."
+          ],
+          "constraints": [
+            ".NET10 comparison only; no older-target catalogue route.",
+            "Apple native execution/current native compilation not-tested under PIN-699.",
+            "No publication, signing setup, service provisioning or trust changes authorized."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "RC source/artifact preparation evidence; no GA certification."
+          ]
+        },
+        "sourceUrls": [
+          "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/src/Foundation/NSUrlSessionHandler.cs",
+          "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/docs/building-apps/build-properties.md",
+          "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/dotnet/targets/Xamarin.Shared.Sdk.targets",
+          "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/dotnet/targets/Xamarin.Shared.Sdk.props",
+          "https://api.nuget.org/v3-flatcontainer/microsoft.ios.ref.net11.0_27.0/27.0.12212-net11-rc.2/microsoft.ios.ref.net11.0_27.0.27.0.12212-net11-rc.2.nupkg"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/TernPublish/TernPublish.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/src/Foundation/NSUrlSessionHandler.cs",
+      "title": "Pinned Apple RC2 NSUrlSessionHandler.cs"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/docs/building-apps/build-properties.md",
+      "title": "Pinned Apple RC2 build-properties.md"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/dotnet/targets/Xamarin.Shared.Sdk.targets",
+      "title": "Pinned Apple RC2 Xamarin.Shared.Sdk.targets"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/dotnet/targets/Xamarin.Shared.Sdk.props",
+      "title": "Pinned Apple RC2 Xamarin.Shared.Sdk.props"
+    },
+    {
+      "title": "Exact Apple RC2 iOS reference package",
+      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.ios.ref.net11.0_27.0/27.0.12212-net11-rc.2/microsoft.ios.ref.net11.0_27.0.27.0.12212-net11-rc.2.nupkg"
+    }
+  ],
+  "evidence": [
+    {
+      "scope": "Actual Windows managed compilation; no native execution/publish output.",
+      "sample": "samples/net10.0/TernPublish/TernPublish.csproj",
+      "language": "14.0",
+      "kind": "compile",
+      "target": "net10.0-maccatalyst26.0",
+      "sdk": "10.0.402"
+    },
+    {
+      "scope": "Exact official RC2 sources reviewed; native compilation and execution not-tested.",
+      "sample": "samples/net11.0/TernPublish/TernPublish.csproj",
+      "language": "15.0",
+      "kind": "official-review",
+      "target": "net11.0-maccatalyst27.0",
+      "sdk": "11.0.100-rc.3.26522.148"
+    }
+  ],
+  "humanProof": {
+    "untestedSamples": [
+      "samples/net10.0/TernPublish/TernPublish.csproj",
+      "samples/net11.0/TernPublish/TernPublish.csproj"
+    ],
+    "status": "not-tested",
+    "scope": "PIN-699: Apple Xcode/runtime unavailable. Both samples native execution, controlled Apple proxy/CONNECT endpoints, universal Mach-O output, signing and registrar/runtime publish output not-tested. Current native compilation unavailable. No pending Human action or GA claim."
+  },
+  "snippets": {
+    "net10-info-plist": {
+      "language": "xml",
+      "region": "complete",
+      "path": "samples/net10.0/TernPublish/Info.plist"
+    },
+    "net11-directory-build-props": {
+      "language": "xml",
+      "region": "complete",
+      "path": "samples/net11.0/TernPublish/Directory.Build.props"
+    },
+    "net10-directory-build-props": {
+      "language": "xml",
+      "region": "complete",
+      "path": "samples/net10.0/TernPublish/Directory.Build.props"
+    },
+    "net11-program-cs": {
+      "language": "csharp",
+      "region": "complete",
+      "path": "samples/net11.0/TernPublish/Program.cs"
+    },
+    "net11-ternpublish-csproj": {
+      "language": "xml",
+      "region": "complete",
+      "path": "samples/net11.0/TernPublish/TernPublish.csproj"
+    },
+    "net11-info-plist": {
+      "language": "xml",
+      "region": "complete",
+      "path": "samples/net11.0/TernPublish/Info.plist"
+    },
+    "net10-program-cs": {
+      "language": "csharp",
+      "region": "complete",
+      "path": "samples/net10.0/TernPublish/Program.cs"
+    },
+    "net10-ternpublish-csproj": {
+      "language": "xml",
+      "region": "complete",
+      "path": "samples/net10.0/TernPublish/TernPublish.csproj"
+    },
+    "net11-runtimepolicy-cs": {
+      "language": "csharp",
+      "region": "complete",
+      "path": "samples/net11.0/TernPublish/RuntimePolicy.cs"
+    },
+    "net10-runtimepolicy-cs": {
+      "language": "csharp",
+      "region": "complete",
+      "path": "samples/net10.0/TernPublish/RuntimePolicy.cs"
+    }
+  }
+}

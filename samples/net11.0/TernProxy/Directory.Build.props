@@ -1,0 +1,8 @@
+<!-- snippet:complete -->
+<Project><PropertyGroup>
+  <TargetFramework>net11.0-ios27.0</TargetFramework>
+  <SupportedOSPlatformVersion>17.0</SupportedOSPlatformVersion>
+  <RuntimeIdentifier>ios-arm64</RuntimeIdentifier>
+  <LangVersion>15.0</LangVersion><Nullable>enable</Nullable><ImplicitUsings>enable</ImplicitUsings>
+</PropertyGroup></Project>
+<!-- endsnippet:complete -->

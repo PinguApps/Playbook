@@ -1,0 +1,37 @@
+{
+  "kind": "compile",
+  "sample": "samples/net10.0/TernProxy/TernProxy.csproj",
+  "target": "net10.0-ios26.0",
+  "sdk": "10.0.402",
+  "language": "14.0",
+  "command": "C:\\Program Files\\dotnet\\dotnet.exe build TernProxy.csproj --configuration Release -p:RestoreLockedMode=true",
+  "scope": "See recipe scope; output records only the commands actually performed.",
+  "recordedAt": "2026-11-06T21:55:35.6364424+00:00",
+  "sourceCommit": "0398d9bf0496bf2207f97355253bae86c0bfe829",
+  "sourceDirty": true,
+  "inputs": {
+    "eng/Test-AppleRoutes.ps1": "2b47162b8269fd6774f24ce1980320da7190aa3eaa8af56491ed32840b279585",
+    "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
+    "samples/AppleRoutes/artifact.json": "820dcb57d25fa2a8581d102f35fd5d4d82c170722cb2b5972df61eb619bd0c2f",
+    "samples/AppleRoutes/sources.json": "7bc6839094205acacb39b31d1298940709415bc0370303af859f3987422b282b",
+    "samples/net10.0/TernProxy/Directory.Build.props": "da1aa65726d0fb35b0caf55ec21fe1469513b2a2a7e74f1473c98025f92506a0",
+    "samples/net10.0/TernProxy/Directory.Build.targets": "17284cb74605517cbec8a8153505da71a685b28694b67b5ef80608cd79b1c0ea",
+    "samples/net10.0/TernProxy/Directory.Packages.props": "17284cb74605517cbec8a8153505da71a685b28694b67b5ef80608cd79b1c0ea",
+    "samples/net10.0/TernProxy/global.json": "d1bb820bf074027be921b263729d1fba343d34328f0c4b7484d10162287c059e",
+    "samples/net10.0/TernProxy/packages.lock.json": "4d73f1156f030e61cd404ae6b78620f9320da39a95d47b758cca020c3bb51906",
+    "samples/net10.0/TernProxy/Route.cs": "bfaf685113d9a5ffde22f343e13855be80a45fde7ff4b3b1988846801f140540",
+    "samples/net10.0/TernProxy/TernProxy.csproj": "517fcd45fc7d5131ec3102892acdc31664c5bb93c751f281b10e38a60a7515d4",
+    "samples/net10.0/TernProxy/verification.json": "bbfad465b3d27783d5b8800ace62e5e7ae3ac4f28900fb0d03919014f7dccc9e"
+  },
+  "dependencies": [
+    "Microsoft.NET.ILLink.Tasks/10.0.13"
+  ],
+  "workloads": [
+    "ios/26.5.10315/10.0.100"
+  ],
+  "nativeToolchains": [],
+  "host": "Microsoft Windows 10.0.26200 / X64",
+  "sdkInfo": ".NET SDK:\r\n Version:           10.0.402\r\n Commit:            a8dd0577c5\r\n Workload version:  10.0.400-manifests.6055ec36\r\n MSBuild version:   18.9.15+a8dd0577c\r\n\r\nRuntime Environment:\r\n OS Name:     Windows\r\n OS Version:  10.0.26200\r\n OS Platform: Windows\r\n RID:         win-x64\r\n Base Path:   C:\\Program Files\\dotnet\\sdk\\10.0.402\\\r\n\r\n.NET workloads installed:\r\n [wasm-tools]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    10.0.113/10.0.100\r\n   Manifest Path:       C:\\Program Files\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.workload.mono.toolchain.current\\10.0.113\\WorkloadManifest.json\r\n   Install Type:              Msi\r\n\r\n [maui-windows]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    10.0.110/10.0.100\r\n   Manifest Path:       C:\\Program Files\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.sdk.maui\\10.0.110\\WorkloadManifest.json\r\n   Install Type:              Msi\r\n\r\n [maccatalyst]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    26.5.10315/10.0.100\r\n   Manifest Path:       C:\\Program Files\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.sdk.maccatalyst\\26.5.10315\\WorkloadManifest.json\r\n   Install Type:              Msi\r\n\r\n [ios]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    26.5.10315/10.0.100\r\n   Manifest Path:       C:\\Program Files\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.sdk.ios\\26.5.10315\\WorkloadManifest.json\r\n   Install Type:              Msi\r\n\r\n [android]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    36.1.118/10.0.100\r\n   Manifest Path:       C:\\Program Files\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.sdk.android\\36.1.118\\WorkloadManifest.json\r\n   Install Type:              Msi\r\n\r\nConfigured to use workload sets when installing new manifests.\r\nNo workload sets are installed. Run \"dotnet workload restore\" to install a workload set.\r\n\r\nHost:\r\n  Version:      10.0.13\r\n  Architecture: x64\r\n  Commit:       4099f83977\r\n\r\n.NET SDKs installed:\r\n  10.0.300 [C:\\Program Files\\dotnet\\sdk]\r\n  10.0.402 [C:\\Program Files\\dotnet\\sdk]\r\n\r\n.NET runtimes installed:\r\n  Microsoft.AspNetCore.App 10.0.8 [C:\\Program Files\\dotnet\\shared\\Microsoft.AspNetCore.App]\r\n  Microsoft.AspNetCore.App 10.0.13 [C:\\Program Files\\dotnet\\shared\\Microsoft.AspNetCore.App]\r\n  Microsoft.NETCore.App 10.0.8 [C:\\Program Files\\dotnet\\shared\\Microsoft.NETCore.App]\r\n  Microsoft.NETCore.App 10.0.13 [C:\\Program Files\\dotnet\\shared\\Microsoft.NETCore.App]\r\n  Microsoft.WindowsDesktop.App 10.0.8 [C:\\Program Files\\dotnet\\shared\\Microsoft.WindowsDesktop.App]\r\n  Microsoft.WindowsDesktop.App 10.0.13 [C:\\Program Files\\dotnet\\shared\\Microsoft.WindowsDesktop.App]\r\n\r\nOther architectures found:\r\n  x86   [C:\\Program Files (x86)\\dotnet]\r\n    registered at [HKLM\\SOFTWARE\\dotnet\\Setup\\InstalledVersions\\x86\\InstallLocation]\r\n\r\nEnvironment variables:\r\n  DOTNET_ADD_GLOBAL_TOOLS_TO_PATH          [0]\r\n  DOTNET_ROOT                              [C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet]\r\n\r\nglobal.json file:\r\n  V:\\_worktrees\\Playbook\\t3-66e1b31a\\samples\\net10.0\\TernProxy\\global.json\r\n\r\nLearn more:\r\n  https://aka.ms/dotnet/info\r\n\r\nDownload .NET:\r\n  https://aka.ms/dotnet/download",
+  "workloadInfo": "Workload version: 10.0.400-manifests.6055ec36\r\n\r\nInstalled Workload Id      Manifest Version         Installation Source\r\n-----------------------------------------------------------------------\r\nandroid                    36.1.118/10.0.100        VS 18.11.12306.390 \r\nios                        26.5.10315/10.0.100      VS 18.11.12306.390 \r\nmaccatalyst                26.5.10315/10.0.100      VS 18.11.12306.390 \r\nmaui-windows               10.0.110/10.0.100        VS 18.11.12306.390 \r\nwasm-tools                 10.0.113/10.0.100        VS 18.11.12306.390 \r\n\r\nUse `dotnet workload search` to find additional workloads to install.",
+  "output": "Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  TernProxy -> V:\\_worktrees\\Playbook\\t3-66e1b31a\\samples\\net10.0\\TernProxy\\bin\\Release\\net10.0-ios26.0\\ios-arm64\\TernProxy.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:02.30"
+}

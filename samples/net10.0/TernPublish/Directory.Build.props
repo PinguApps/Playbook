@@ -1,0 +1,8 @@
+<!-- snippet:complete -->
+<Project><PropertyGroup>
+  <TargetFramework>net10.0-maccatalyst26.0</TargetFramework>
+  <SupportedOSPlatformVersion>17.0</SupportedOSPlatformVersion>
+  <RuntimeIdentifier>maccatalyst-arm64</RuntimeIdentifier>
+  <LangVersion>14.0</LangVersion><Nullable>enable</Nullable><ImplicitUsings>enable</ImplicitUsings>
+</PropertyGroup></Project>
+<!-- endsnippet:complete -->
