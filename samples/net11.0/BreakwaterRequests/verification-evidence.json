@@ -1,0 +1,32 @@
+{
+  "kind": "official-review",
+  "sample": "samples/net11.0/BreakwaterRequests/BreakwaterRequests.csproj",
+  "target": "net11.0-android37.2",
+  "sdk": "11.0.100-rc.3.26522.148",
+  "language": "15.0",
+  "command": "eng/Test-BreakwaterGuidance.ps1 -Record",
+  "scope": "Pinned Android RC2 handler implementation and R8 build policy. Intended SDK/workload composition; native compilation and device execution not-tested under PIN-699.",
+  "recordedAt": "2026-11-06T19:59:10.8986588+00:00",
+  "sourceCommit": "22d9bbd5bc5902f5eb68942bc648518d5a5bbc58",
+  "sourceDirty": true,
+  "inputs": {
+    "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
+    "samples/Breakwater/sources.json": "268d94b710574dd31c8a32526d015e8a3c85aee99f7e3e355ad4192acc3413d9",
+    "samples/net11.0/BreakwaterRequests/BreakwaterRequests.csproj": "1a5d955674e87e7d0fa7b28649b623dc049c5470c66cd23ba842cf3eef906c7f",
+    "samples/net11.0/BreakwaterRequests/Directory.Build.props": "4892f7956b79d97f8b78bff39bfcbb66219aae5b0b4fbd7ac5c5fc00d8d351b6",
+    "samples/net11.0/BreakwaterRequests/Directory.Build.targets": "347e2e29465c6a37869dd07b0b401c55743b8571fb513a4e42b6ee8facc06ca4",
+    "samples/net11.0/BreakwaterRequests/Directory.Packages.props": "347e2e29465c6a37869dd07b0b401c55743b8571fb513a4e42b6ee8facc06ca4",
+    "samples/net11.0/BreakwaterRequests/global.json": "b05d624a8caae0f55fe97583b584330feea85646a385b73cb899d83023edca56",
+    "samples/net11.0/BreakwaterRequests/MainActivity.cs": "90da87d060480a126cc74786aff83f12380a827e3b5a8582626bac908dff295f",
+    "samples/net11.0/BreakwaterRequests/Properties/AndroidManifest.xml": "3ea7d096e7916d60c52d999866b7db705d237f7f51fb8b3a6509df9581073124",
+    "samples/net11.0/BreakwaterRequests/RequestReader.cs": "672adc057087fc0538aa97252f5de3b806b6573a16457a90ec59fb9865c90497",
+    "samples/net11.0/BreakwaterRequests/verification.json": "d5bd1da0c0db880efcda2eb41b8fb89b5e6259b21f72c04945e99d0b3ceee1dc"
+  },
+  "dependencies": [],
+  "workloads": [],
+  "nativeToolchains": [],
+  "host": "Microsoft Windows 10.0.26200",
+  "sdkInfo": "Intended RC3 SDK; build attempted separately.",
+  "workloadInfo": "Actual build: NETSDK1147 android workload unavailable.",
+  "output": "PASS exact source hashes and contract assertions. No Android runtime or GA proof."
+}

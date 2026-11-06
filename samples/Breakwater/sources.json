@@ -1,0 +1,30 @@
+[
+  {
+    "sha256": "c44abd3d7cf277f6355d3bb6c5097acdd0e4f36534c57b4f82360ad662b85136",
+    "url": "https://raw.githubusercontent.com/dotnet/android/801f9ecbab5118b13d21cb52409e507ad4b2feb7/src/Mono.Android/Xamarin.Android.Net/AndroidMessageHandler.cs",
+    "assertions": [
+      "CreateHttpRequestException",
+      "CancellationAwareResponseStream",
+      "OperationCanceledException",
+      "WebExceptionStatus"
+    ]
+  },
+  {
+    "sha256": "2d25dc77a35032752ef1d1ef875ec2444140c5c7f6f1b58d4404ed6701ac2964",
+    "url": "https://raw.githubusercontent.com/dotnet/android/801f9ecbab5118b13d21cb52409e507ad4b2feb7/Documentation/docs-mobile/building-apps/build-properties.md",
+    "assertions": [
+      "AndroidR8ObfuscationMode",
+      "private-members",
+      "disabled"
+    ]
+  },
+  {
+    "sha256": "ce8de3f99ea7b5c9e0b51b2d0fc3c558770f65b654486690950bde5008a38917",
+    "url": "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/rc2/dotnetmaui.md",
+    "assertions": [
+      "private-members",
+      "retains shrinking",
+      "does not include the experimental"
+    ]
+  }
+]
