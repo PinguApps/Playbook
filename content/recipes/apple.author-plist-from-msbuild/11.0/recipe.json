@@ -1,0 +1,217 @@
+{
+  "id": "apple.author-plist-from-msbuild",
+  "edition": "11.0",
+  "title": "Author typed Apple app manifest values",
+  "goal": "Add, override or remove app manifest values by build configuration when one shared Info.plist should remain unchanged.",
+  "areas": [
+    "ios"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "oystercatcher-authoring",
+    "migration"
+  ],
+  "apis": [
+    "AppManifestEntry",
+    "PartialAppManifest"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Comparisons preserve the eight .NET10 foundations; no older route added."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Apple .NET11 workload; native runtime execution not-tested."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "RC3 SDK intended; pinned Apple RC2 source/artifact review is separate from a tested native workload composition."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Canonical C#15 binding/marker source; XML build configuration requires no C# feature."
+          },
+          "frameworks": [
+            ".NET for iOS"
+          ],
+          "packages": [],
+          "workloads": [
+            {
+              "match": "release-family",
+              "version": "11.0",
+              "name": "ios",
+              "reason": "Compatible workload required; RC3 native composition not built."
+            }
+          ],
+          "packageAssets": [
+            "Microsoft.iOS.Sdk.net11.0_27.0/27.0.12212-net11-rc.2 tools/lib/bgen and tools/msbuild/net11.0",
+            "Microsoft.iOS.Ref.net11.0_27.0/27.0.12212-net11-rc.2 ref/net11.0/Microsoft.iOS.dll"
+          ],
+          "providers": [
+            "No service, account or external provider required."
+          ],
+          "platforms": [
+            "iOS; canonical target ios-arm64, product minimum OS17. Other Apple platforms require their own matching workload/toolchain."
+          ],
+          "renderingModes": [
+            "Native Apple app or binding library; no browser rendering."
+          ],
+          "prerequisites": [
+            "Matching Apple workload and Xcode for actual native app/binding builds.",
+            "Verification uses SDK11.0.100-rc.3.26522.148, exact RC2 Apple artifacts; no experimental API opt-in."
+          ],
+          "constraints": [
+            ".NET10 comparisons do not add a catalogue edition or older-target route.",
+            "RC3 compiler/MSBuild plus RC2 tools/reference tests are not a complete supported native workload composition.",
+            "Xcode/native build, signing and device execution are not-tested under PIN-699.",
+            "No package publication, provisioning, trust change or Human action is authorized or pending."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "RC source/artifact preparation evidence; no GA certification."
+          ]
+        },
+        "sourceUrls": [
+          "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/docs/building-apps/build-items.md",
+          "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/docs/building-apps/build-properties.md",
+          "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/docs/website/binding_types_reference_guide.md",
+          "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/msbuild/Xamarin.MacDev.Tasks/Tasks/CompileAppManifest.cs",
+          "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/msbuild/Xamarin.MacDev.Tasks/Tasks/StripFrameworkHeaders.cs",
+          "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/dotnet/targets/Xamarin.Shared.Sdk.targets",
+          "https://api.nuget.org/v3-flatcontainer/microsoft.ios.sdk.net11.0_27.0/27.0.12212-net11-rc.2/microsoft.ios.sdk.net11.0_27.0.27.0.12212-net11-rc.2.nupkg",
+          "https://api.nuget.org/v3-flatcontainer/microsoft.ios.ref.net11.0_27.0/27.0.12212-net11-rc.2/microsoft.ios.ref.net11.0_27.0.27.0.12212-net11-rc.2.nupkg"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/OystercatcherManifest/OystercatcherManifest.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Pinned official Apple build-items.md",
+      "url": "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/docs/building-apps/build-items.md"
+    },
+    {
+      "title": "Pinned official Apple build-properties.md",
+      "url": "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/docs/building-apps/build-properties.md"
+    },
+    {
+      "title": "Pinned official Apple binding_types_reference_guide.md",
+      "url": "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/docs/website/binding_types_reference_guide.md"
+    },
+    {
+      "title": "Pinned official Apple CompileAppManifest.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/msbuild/Xamarin.MacDev.Tasks/Tasks/CompileAppManifest.cs"
+    },
+    {
+      "title": "Pinned official Apple StripFrameworkHeaders.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/msbuild/Xamarin.MacDev.Tasks/Tasks/StripFrameworkHeaders.cs"
+    },
+    {
+      "title": "Pinned official Apple Xamarin.Shared.Sdk.targets",
+      "url": "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/dotnet/targets/Xamarin.Shared.Sdk.targets"
+    },
+    {
+      "title": "Pinned official Apple microsoft.ios.sdk.net11.0_27.0.27.0.12212-net11-rc.2.nupkg",
+      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.ios.sdk.net11.0_27.0/27.0.12212-net11-rc.2/microsoft.ios.sdk.net11.0_27.0.27.0.12212-net11-rc.2.nupkg"
+    },
+    {
+      "title": "Pinned official Apple microsoft.ios.ref.net11.0_27.0.27.0.12212-net11-rc.2.nupkg",
+      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.ios.ref.net11.0_27.0/27.0.12212-net11-rc.2/microsoft.ios.ref.net11.0_27.0.27.0.12212-net11-rc.2.nupkg"
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "compile",
+      "sample": "samples/net10.0/OystercatcherManifest/OystercatcherManifest.csproj",
+      "language": "14.0",
+      "target": "net10.0-ios26.0",
+      "sdk": "10.0.402",
+      "scope": "Actual .NET10 managed library/binding compilation on Windows; no native execution."
+    },
+    {
+      "kind": "official-review",
+      "sample": "samples/net11.0/OystercatcherManifest/OystercatcherManifest.csproj",
+      "language": "15.0",
+      "target": "net11.0-ios27.0",
+      "sdk": "11.0.100-rc.3.26522.148",
+      "scope": "Pinned source/artifact review; real RC2 plist/strip task output and generated nullable factory/consumer reference compilation. No native workload compilation/execution or GA claim."
+    }
+  ],
+  "humanProof": {
+    "status": "not-tested",
+    "untestedSamples": [
+      "samples/net10.0/OystercatcherManifest/OystercatcherManifest.csproj",
+      "samples/net11.0/OystercatcherManifest/OystercatcherManifest.csproj"
+    ],
+    "scope": "PIN-699: both canonical samples native linking, Xcode builds, signed app output and iOS execution not-tested; current native workload compilation unavailable. Objective-C nil/success execution and final bundled framework behavior are not established by task/reference tests. No pending Human proof or GA claim."
+  },
+  "snippets": {
+    "net10-directory-build-props": {
+      "language": "xml",
+      "region": "complete",
+      "path": "samples/net10.0/OystercatcherManifest/Directory.Build.props"
+    },
+    "net10-info-plist": {
+      "language": "xml",
+      "region": "complete",
+      "path": "samples/net10.0/OystercatcherManifest/Info.plist"
+    },
+    "net10-marker-cs": {
+      "language": "csharp",
+      "region": "complete",
+      "path": "samples/net10.0/OystercatcherManifest/Marker.cs"
+    },
+    "net10-oystercatchermanifest-csproj": {
+      "language": "xml",
+      "region": "complete",
+      "path": "samples/net10.0/OystercatcherManifest/OystercatcherManifest.csproj"
+    },
+    "net10-surveyoverrides-plist": {
+      "language": "xml",
+      "region": "complete",
+      "path": "samples/net10.0/OystercatcherManifest/SurveyOverrides.plist"
+    },
+    "net11-directory-build-props": {
+      "language": "xml",
+      "region": "complete",
+      "path": "samples/net11.0/OystercatcherManifest/Directory.Build.props"
+    },
+    "net11-info-plist": {
+      "language": "xml",
+      "region": "complete",
+      "path": "samples/net11.0/OystercatcherManifest/Info.plist"
+    },
+    "net11-marker-cs": {
+      "language": "csharp",
+      "region": "complete",
+      "path": "samples/net11.0/OystercatcherManifest/Marker.cs"
+    },
+    "net11-oystercatchermanifest-csproj": {
+      "language": "xml",
+      "region": "complete",
+      "path": "samples/net11.0/OystercatcherManifest/OystercatcherManifest.csproj"
+    }
+  },
+  "languageNeutral": false
+}

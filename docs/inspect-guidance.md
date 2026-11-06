@@ -1,5 +1,38 @@
 # Inspect the guidance an agent receives
 
+## Apple manifest, framework contents and nullable factories
+
+PIN-931/PIN-932 add three original Oystercatcher comparisons. SDK10.0.402
+compiles all older managed libraries/bindings. SDK11 RC3 runs the exact RC2
+Apple manifest/strip tasks and bgen on Windows; generated nullable factory and
+consumer reference compilation pass. Xcode/native linking, signed app/framework
+output and Objective-C nil/success execution are explicitly not-tested under
+PIN-699. No pending Human or GA proof is claimed.
+
+Verified from C:\, in PowerShell7 with SDK10.0.403 and SDK11 RC3 at the stated
+path, Node22.19+ and Python3 at C:\Python315\python.exe. Setup downloads pinned
+NuGet/source artifacts. The Inspector builds/packs, installs the exact tool into
+an isolated feed/cache and calls real stdio list/get from an unrelated directory.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-1296ba2c'
+& ./eng/Test-AppleAuthoring.ps1
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('apple.author-plist-from-msbuild','apple.preserve-required-framework-metadata','apple.bind-failable-initializers') `
+  -Query 'oystercatcher-authoring' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -RecipeEdition '11.0' -PackageVersion '0.0.0-pin931-932' -BuildAndPack `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' -OutputDirectory './artifacts/oystercatcher/inspection'
+```
+
+Expect three ID/title/goal results, complete canonical Markdown, edition11,
+applicability and fresh evidence. Target10 has no applicable edition, preserving
+the eight foundations. Unusable retrieval proxies prove proxy independence,
+not OS network isolation. Nothing is published. The task checks establish typed
+plist add/override/remove and directory stripping/preservation controls, not a
+native signed app. Factory generation/reference compilation do not run Objective-C.
+
+
 ## Apple deployment and native HTTP routes
 
 PIN-929/PIN-930 add TernPublish and TernProxy comparisons. .NET10 managed
