@@ -10,11 +10,8 @@ public sealed class AppDelegate : UIApplicationDelegate
     {
         // Historical pre-scene startup; iOS 26 marks this constructor obsolete.
 #pragma warning disable CA1422
-        // Historical pre-scene constructor is obsolete in iOS26.
-#pragma warning disable CA1422
         Window = new UIWindow(UIScreen.MainScreen.Bounds) { RootViewController = ObservationView.Create("Puffin notebook") };
-        #pragma warning restore CA1422
-        #pragma warning restore CA1422
+#pragma warning restore CA1422
         Window.MakeKeyAndVisible();
         if (launchOptions?[UIApplication.LaunchOptionsShortcutItemKey] is UIApplicationShortcutItem item)
         {

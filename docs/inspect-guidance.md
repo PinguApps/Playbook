@@ -4,7 +4,7 @@
 
 PIN-927/PIN-928 add original SkuaBack and PuffinScenes/PuffinMaui comparisons.
 The .NET10 Android, UIKit and MAUI samples compile on Windows. Current native
-builds fail NETSDK1147; All three current C# samples compile against pinned reference assemblies; Android reports CS1701
+builds fail NETSDK1147. All three current C# samples compile against pinned reference assemblies; Android reports CS1701
 for Java.Interop's System.Runtime10 reference. It does not generate a manifest
 or prove a compatible native workload. Device gestures and Apple scene/action
 execution are explicitly not-tested under PIN-699; no Human or GA proof is claimed.

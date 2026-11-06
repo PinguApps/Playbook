@@ -17,9 +17,9 @@ public static class MauiProgram
             });
             ios.PerformActionForShortcutItem((application, item, completed) =>
             {
-                bool handled = item.Type == "org.puffin.new-observation";
-                if (handled) Console.WriteLine("New puffin observation requested");
-                completed(handled);
+                // This observer logs; another handler owns navigation.
+                if (item.Type == "org.puffin.new-observation") Console.WriteLine("New puffin observation requested");
+                completed(false);
             });
         }));
         return builder.Build();

@@ -59,7 +59,7 @@
               "name": "android",
               "version": "11.0",
               "match": "release-family",
-              "reason": "Compatible .NET11 Android workload required. Reviewed RC2 manifest/reference assets are37.2.0-rc.2.84; no compatible RC3 workload composition was tested."
+              "reason": "Compatible .NET11 Android workload required. Reviewed RC2 manifest/reference assets are 37.2.0-rc.2.84; no compatible RC3 workload composition was tested."
             }
           ],
           "packageAssets": [
