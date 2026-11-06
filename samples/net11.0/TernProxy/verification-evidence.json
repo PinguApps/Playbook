@@ -1,0 +1,32 @@
+{
+  "kind": "official-review",
+  "sample": "samples/net11.0/TernProxy/TernProxy.csproj",
+  "target": "net11.0-ios27.0",
+  "sdk": "11.0.100-rc.3.26522.148",
+  "language": "15.0",
+  "command": "eng/Test-AppleRoutes.ps1 -Record",
+  "scope": "Exact RC2 Apple handler/build source review. Native compilation and execution not-tested under PIN-699; no native publish output or endpoint observation.",
+  "recordedAt": "2026-11-06T22:23:48.4897132+00:00",
+  "sourceCommit": "1f0475a991d7525942805a23f77576b57b76ab6e",
+  "sourceDirty": true,
+  "inputs": {
+    "eng/Test-AppleRoutes.ps1": "347be03fd67bb5608400d79c1a301623efb6f6728ca4ff08672daf6f47441319",
+    "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
+    "samples/AppleRoutes/artifact.json": "fe52c2505181895492de006ef78d697290a245cab4529f3d3d7b971f68ff199e",
+    "samples/AppleRoutes/sources.json": "05d609046c39f30ead43da6fbe89666397f14be35aefed48e91153df5d725959",
+    "samples/net11.0/TernProxy/Directory.Build.props": "64529353f886111e98aaca23ff41f40f815cd13ce280ec8896ab75c70deaa851",
+    "samples/net11.0/TernProxy/Directory.Build.targets": "17284cb74605517cbec8a8153505da71a685b28694b67b5ef80608cd79b1c0ea",
+    "samples/net11.0/TernProxy/Directory.Packages.props": "17284cb74605517cbec8a8153505da71a685b28694b67b5ef80608cd79b1c0ea",
+    "samples/net11.0/TernProxy/global.json": "14d9d554113f1d1f4c63923840bdc684e9413fdffe50d34ae076b0a680b257b0",
+    "samples/net11.0/TernProxy/Route.cs": "cc7fef2c463fa234821a16410348c7661aec61386097edd1614c5d7172d1eb77",
+    "samples/net11.0/TernProxy/TernProxy.csproj": "a8f606ed5cf62ea6244f81dd493debe939a07757657b9e3141e852805c9779db",
+    "samples/net11.0/TernProxy/verification.json": "b7649d46a4db76a79d09d887c2f774f66b5994f3ec4d0c0a1c389d887e17840f"
+  },
+  "dependencies": [],
+  "workloads": [],
+  "nativeToolchains": [],
+  "host": "Microsoft Windows 10.0.26200",
+  "sdkInfo": "Intended RC3 SDK pin; no compatible current Apple workload installed.",
+  "workloadInfo": "Apple workload/Xcode execution unavailable.",
+  "output": "PASS exact official-source hashes. Source review is not compilation or execution."
+}

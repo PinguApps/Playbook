@@ -1,5 +1,34 @@
 # Inspect the guidance an agent receives
 
+## Apple deployment and native HTTP routes
+
+PIN-929/PIN-930 add TernPublish and TernProxy comparisons. .NET10 managed
+compilation passes on Windows. Both current C# samples also compile against their
+pinned RC2 iOS/Mac Catalyst reference assemblies. Current native builds fail NETSDK1147. Native
+publish outputs, universal slices and first-destination/CONNECT endpoint behavior
+are explicitly not-tested under PIN-699; no native execution or GA proof is claimed.
+
+This block is verified from C:\. It builds/packs the tool, installs through an
+isolated feed/cache and displays discovery ID/title/goal, full Markdown, edition
+and applicability through real stdio list/get from an unrelated directory:
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-66e1b31a'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('apple.pin-deployment-and-architecture','apple.configure-native-http-proxies') `
+  -Query 'tern-apple-guidance' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -RecipeEdition '11.0' -PackageVersion '0.0.0-pin929-930' -BuildAndPack `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' -OutputDirectory './artifacts/apple/inspection'
+```
+
+Expect both edition11.0 recipes with complete canonical snippets and explicit
+source-review/native exclusions. Target10 has no applicable edition, preserving
+the eight foundations. Unusable proxies check proxy-independent offline retrieval,
+not OS network isolation. No package is published. `eng/Test-AppleRoutes.ps1 -CompileReference -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe'`
+rechecks pinned sources and the canonical proxy and Catalyst reference compilation; it does
+not run the Apple handler or inspect native publish outputs.
+
 ## Android predictive back and Apple scene startup
 
 PIN-927/PIN-928 add original SkuaBack and PuffinScenes/PuffinMaui comparisons.

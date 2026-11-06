@@ -1,0 +1,191 @@
+{
+  "id": "apple.configure-native-http-proxies",
+  "edition": "11.0",
+  "title": "Route Apple HTTP sessions through a deliberate proxy",
+  "goal": "Configure native Apple HTTP sessions per destination/proxy policy and keep CONNECT proxy credentials separate from origin authentication.",
+  "areas": [
+    "ios",
+    "maccatalyst"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "tern-apple-guidance",
+    "migration"
+  ],
+  "apis": [
+    "NSUrlSessionHandler",
+    "IWebProxy",
+    "DefaultProxyCredentials",
+    "CredentialCache"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Comparisons preserve the eight .NET10 foundations; no older route added."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Apple .NET11 workload; native runtime execution not-tested."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "RC3 SDK intended; pinned Apple RC2 source/artifact review is separate from a tested native workload composition."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "C#15; no preview syntax."
+          },
+          "frameworks": [
+            ".NET for iOS",
+            ".NET for Mac Catalyst"
+          ],
+          "packages": [],
+          "workloads": [
+            {
+              "match": "release-family",
+              "version": "11.0",
+              "name": "ios",
+              "reason": "Compatible workload required; RC3 native composition not built."
+            }
+          ],
+          "packageAssets": [
+            "Microsoft.iOS.Ref.net11.0_27.0/27.0.12212-net11-rc.2 ref/net11.0/Microsoft.iOS.dll",
+            "Apple build props/targets at a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d"
+          ],
+          "providers": [
+            "No service provisioned; proxy recipe requires an existing authorized HTTP proxy for application execution."
+          ],
+          "platforms": [
+            "iOS or Mac Catalyst; canonical upload library ios-arm64, publish app maccatalyst-arm64; minimum OS 17.0 is a sample policy, not the workload minimum."
+          ],
+          "renderingModes": [
+            "Native Apple app/library; no web rendering mode"
+          ],
+          "prerequisites": [
+            "Compatible Apple workload and Xcode required for native publishing/execution.",
+            "RC3 SDK intended; RC2 sources reviewed separately, not a verified native composition."
+          ],
+          "constraints": [
+            ".NET10 comparison only; no older-target catalogue route.",
+            "Apple native execution/current native compilation not-tested under PIN-699.",
+            "No publication, signing setup, service provisioning or trust changes authorized.",
+            "Proxy selection is session-scoped using the first destination; create separate handlers for different routing policies.",
+            "Only http proxy URIs are supported; proxy credentials are applied to HTTPS CONNECT challenges, not plain HTTP destinations."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "RC source/artifact preparation evidence; no GA certification."
+          ]
+        },
+        "sourceUrls": [
+          "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/src/Foundation/NSUrlSessionHandler.cs",
+          "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/docs/building-apps/build-properties.md",
+          "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/dotnet/targets/Xamarin.Shared.Sdk.targets",
+          "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/dotnet/targets/Xamarin.Shared.Sdk.props",
+          "https://api.nuget.org/v3-flatcontainer/microsoft.ios.ref.net11.0_27.0/27.0.12212-net11-rc.2/microsoft.ios.ref.net11.0_27.0.27.0.12212-net11-rc.2.nupkg"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/TernProxy/TernProxy.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/src/Foundation/NSUrlSessionHandler.cs",
+      "title": "Pinned Apple RC2 NSUrlSessionHandler.cs"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/docs/building-apps/build-properties.md",
+      "title": "Pinned Apple RC2 build-properties.md"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/dotnet/targets/Xamarin.Shared.Sdk.targets",
+      "title": "Pinned Apple RC2 Xamarin.Shared.Sdk.targets"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/dotnet/targets/Xamarin.Shared.Sdk.props",
+      "title": "Pinned Apple RC2 Xamarin.Shared.Sdk.props"
+    },
+    {
+      "title": "Exact Apple RC2 iOS reference package",
+      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.ios.ref.net11.0_27.0/27.0.12212-net11-rc.2/microsoft.ios.ref.net11.0_27.0.27.0.12212-net11-rc.2.nupkg"
+    }
+  ],
+  "evidence": [
+    {
+      "scope": "Actual Windows managed compilation; no native execution/publish output.",
+      "sample": "samples/net10.0/TernProxy/TernProxy.csproj",
+      "language": "14.0",
+      "kind": "compile",
+      "target": "net10.0-ios26.0",
+      "sdk": "10.0.402"
+    },
+    {
+      "scope": "Exact official RC2 sources reviewed. Canonical net11 proxy C# reference compilation passes against the pinned RC2 iOS reference assembly; no native workload compilation or execution.",
+      "sample": "samples/net11.0/TernProxy/TernProxy.csproj",
+      "language": "15.0",
+      "kind": "official-review",
+      "target": "net11.0-ios27.0",
+      "sdk": "11.0.100-rc.3.26522.148"
+    }
+  ],
+  "humanProof": {
+    "untestedSamples": [
+      "samples/net10.0/TernProxy/TernProxy.csproj",
+      "samples/net11.0/TernProxy/TernProxy.csproj"
+    ],
+    "status": "not-tested",
+    "scope": "PIN-699: Apple Xcode/runtime unavailable. Both samples native execution, controlled Apple proxy/CONNECT endpoints, universal Mach-O output, signing and registrar/runtime publish output not-tested. Current native compilation unavailable. No pending Human action or GA claim."
+  },
+  "snippets": {
+    "net10-directory-build-props": {
+      "language": "xml",
+      "region": "complete",
+      "path": "samples/net10.0/TernProxy/Directory.Build.props"
+    },
+    "net11-directory-build-props": {
+      "language": "xml",
+      "region": "complete",
+      "path": "samples/net11.0/TernProxy/Directory.Build.props"
+    },
+    "net11-ternproxy-csproj": {
+      "language": "xml",
+      "region": "complete",
+      "path": "samples/net11.0/TernProxy/TernProxy.csproj"
+    },
+    "net10-ternproxy-csproj": {
+      "language": "xml",
+      "region": "complete",
+      "path": "samples/net10.0/TernProxy/TernProxy.csproj"
+    },
+    "net10-route-cs": {
+      "language": "csharp",
+      "region": "complete",
+      "path": "samples/net10.0/TernProxy/Route.cs"
+    },
+    "net11-route-cs": {
+      "language": "csharp",
+      "region": "complete",
+      "path": "samples/net11.0/TernProxy/Route.cs"
+    }
+  }
+}

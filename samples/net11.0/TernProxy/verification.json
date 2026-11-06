@@ -1,0 +1,11 @@
+{
+  "buildArguments": [],
+  "dependencies": [],
+  "workloads": [],
+  "nativeToolchains": [],
+  "additionalInputs": [
+    "samples/AppleRoutes/sources.json",
+    "eng/Test-AppleRoutes.ps1",
+    "samples/AppleRoutes/artifact.json"
+  ]
+}
