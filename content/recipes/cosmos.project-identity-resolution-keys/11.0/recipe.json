@@ -110,7 +110,7 @@
       "sdk": "10.0.403",
       "kind": "compile-and-run",
       "sample": "samples/net10.0/AvocetIdentity/AvocetIdentity.csproj",
-      "scope": "Actual compilation and isolated Cosmos execution, direct stored-document reads, omitted-key rejection and duplicate identity controls."
+      "scope": "Actual EF10 compilation/service execution: asserted omitted-key working projection, duplicated keyed null control and approved root fallback; both stored values and duplicate/distinct identity."
     },
     {
       "language": "15.0",
@@ -118,7 +118,7 @@
       "sdk": "11.0.100-rc.3.26522.148",
       "kind": "compile-and-run",
       "sample": "samples/net11.0/AvocetIdentity/AvocetIdentity.csproj",
-      "scope": "Actual compilation and isolated Cosmos execution, direct stored-document reads, omitted-key rejection and duplicate identity controls."
+      "scope": "Actual EF11 compilation/service execution: asserted omitted-key rejection naming Id/Coast, explicit-key success, both stored values and duplicate/distinct identity."
     }
   ],
   "snippets": {

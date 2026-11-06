@@ -17,21 +17,32 @@ db.ChangeTracker.Clear();
 using var sdkHttp = EmulatorTransport.CreateClient(endpoint, Required("PLAYBOOK_COSMOS_CERT_SHA256"));
 using var sdk = new CosmosClient(endpoint, Required("PLAYBOOK_COSMOS_KEY"), new CosmosClientOptions {
     ConnectionMode = ConnectionMode.Gateway, LimitToEndpoint = true, HttpClientFactory = () => sdkHttp });
-using var stored = await sdk.GetContainer(database, "logbooks").ReadItemStreamAsync("a", new PartitionKey("west"));
-stored.EnsureSuccessStatusCode();
-using var json = await System.Text.Json.JsonDocument.ParseAsync(stored.Content);
-if (json.RootElement.GetProperty("Detail").GetProperty("Note").GetString() != "ringed")
-    throw new Exception("Stored document control failed");
-Console.WriteLine("PASS direct stored document has expected owned value");
+foreach (var (id, expectedNote) in new[] { ("a", "ringed"), ("b", "unringed") }) {
+    using var stored = await sdk.GetContainer(database, "logbooks").ReadItemStreamAsync(id, new PartitionKey("west"));
+    stored.EnsureSuccessStatusCode();
+    using var json = await System.Text.Json.JsonDocument.ParseAsync(stored.Content);
+    if (json.RootElement.GetProperty("Detail").GetProperty("Note").GetString() != expectedNote)
+        throw new Exception("Stored document control failed for " + id);
+}
+Console.WriteLine("PASS both stored documents have distinct expected owned values");
+var omittedRejected = false;
 try {
-    var omitted = await db.Set<Logbook>().AsNoTrackingWithIdentityResolution().Select(x => x.Detail).ToListAsync();
-    Console.WriteLine($"OMITTED returned {omitted.Count}");
-} catch (InvalidOperationException ex) { Console.WriteLine("OMITTED rejected: " + ex.Message); }
+    _ = await db.Set<Logbook>().AsNoTrackingWithIdentityResolution().Select(x => x.Detail).ToListAsync();
+} catch (InvalidOperationException ex) {
+    if (!ex.Message.Contains("primary key properties", StringComparison.Ordinal) ||
+        !ex.Message.Contains("Id", StringComparison.Ordinal) ||
+        !ex.Message.Contains("Coast", StringComparison.Ordinal))
+        throw;
+    omittedRejected = true;
+    Console.WriteLine("OMITTED rejected: " + ex.Message);
+}
+if (!omittedRejected) throw new Exception("EF11 omitted-key projection unexpectedly succeeded");
 var keyed = await db.Set<Logbook>().AsNoTrackingWithIdentityResolution()
     .Select(x => new { x.Id, x.Coast, First = x.Detail, Second = x.Detail }).ToListAsync();
 foreach (var row in keyed) Console.WriteLine($"KEYED {row.Id} {row.Coast} first={row.First?.Note ?? "NULL"} second={row.Second?.Note ?? "NULL"}");
 if (keyed.Count != 2 || keyed.Any(x => !ReferenceEquals(x.First, x.Second)) ||
-    keyed.Single(x => x.Id == "a").First.Note != "ringed")
+    keyed.Single(x => x.Id == "a").First.Note != "ringed" ||
+    keyed.Single(x => x.Id == "b").First.Note != "unringed" || ReferenceEquals(keyed[0].First, keyed[1].First))
     throw new Exception("Keyed projection identity/value failed");
 Console.WriteLine("PASS keyed projection, duplicate identity and persisted values");
 sealed class AvocetContext(DbContextOptions<AvocetContext> options) : DbContext(options) {
