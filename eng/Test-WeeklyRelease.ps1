@@ -49,4 +49,6 @@ try {
 finally {
   if (Test-Path -LiteralPath $scratch) { Remove-Item -LiteralPath $scratch -Recurse -Force }
 }
+# Expected native failures above must not fail GitHub's PowerShell exit wrapper.
+$global:LASTEXITCODE = 0
 'PASS: weekly stable/preview flags, strict tags, draft ambiguity, Git ancestry and any-main-commit guards; no remote writes.'
