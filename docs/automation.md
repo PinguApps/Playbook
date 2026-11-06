@@ -90,3 +90,50 @@ Configure the `NUGET_USER` Actions secret with the nuget.org profile name, and a
 After the first manual stable publication and a fresh organization schedule check, set the Actions repository variable `ENABLE_WEEKLY_PUBLISH` to `true` to activate weekly publishing. It is unset by default. Draft preparation can run before activation; it does not publish a package.
 
 Repository settings: [Actions secrets and variables](https://github.com/PinguApps/Playbook/settings/secrets/actions), [NuGet trusted publishing](https://www.nuget.org/account/trustedpublishing), [workflows](https://github.com/PinguApps/Playbook/actions).
+
+## Validate package publication safely
+
+Manual `publish.yml` dispatch defaults `validate_only` to `true`. It resolves the
+selected tag, runs the full release-ready checks (including the desktop lanes),
+downloads `playbook-package` from this same run, and checks the sole package's
+filename, SHA-256 manifest and embedded NuGet ID/version. NuGet login and push
+are skipped. Missing release readiness still fails validation; this option does
+not waive catalogue, evidence or Human gates. Explicitly disabling it is actual
+publication and requires separate owner authorization.
+
+Preview tags use `1.0.0-preview.N` and are accepted only by manual dispatch.
+Published stable releases must have a stable tag and must not be marked prerelease.
+Release Drafter continues to choose independent package SemVer from PR labels.
+The package artifact cannot be selected from another run, and publishing never
+packs again. A successful reusable validation call requires all required Linux,
+Windows and macOS lanes; summaries do not turn a failed lane into success.
+
+Run local negative checks without accounts or publication:
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-8f87e0df'
+& ./eng/Test-Publishing.ps1
+# After an ordinary local package build, also inspect that actual artifact:
+& ./eng/Test-Publishing.ps1 -Package ./artifacts/PinguApps.Playbook.1.0.0-preview.1.nupkg
+```
+
+The default check uses a synthetic ZIP solely to test rejection paths. Supplying
+`-Package` checks the real artifact too; neither mode establishes NuGet login,
+push, hosted runner success or release readiness. The existing package checks
+remain responsible for installed tool behavior. Dispatch the **Publish NuGet
+Packages** workflow on the reviewed branch with a release-ready tag containing
+these publication checks and `validate_only: true` for safe hosted composition/artifact
+validation. Tags predating these scripts cannot use this validation path; their
+checkout fails closed rather than skipping the new checks.
+
+For the separate Human trusted-publisher action, retain repository owner
+`PinguApps`, repository `Playbook`, workflow filename `publish.yml` and **empty
+environment** (the publishing job declares none). Package scope is
+`PinguApps.Playbook`; `NUGET_USER` is the nuget.org profile that owns the policy,
+not a persistent API key. The nested weekly caller uses this same publishing
+workflow and publishes live when its owner-controlled activation and stable-draft
+gates pass. `validate_only` applies only to direct manual dispatch; it does not
+turn enabled weekly calls into validation runs. Check [NuGet's setup instructions](https://learn.microsoft.com/en-us/nuget/nuget-org/trusted-publishing)
+when creating the policy. No account or publisher configuration is performed by
+these checks. Weekly activation and first public/stable release gates remain
+owner-controlled.

@@ -1,0 +1,30 @@
+[
+  {
+    "url": "https://api.nuget.org/v3-flatcontainer/microsoft.maui.essentials.ai/11.0.0-preview.6.26360.8/microsoft.maui.essentials.ai.11.0.0-preview.6.26360.8.nupkg",
+    "assets": [
+      {
+        "tokens": [
+          "T:Microsoft.Maui.Essentials.AI.AppleIntelligenceChatClient",
+          "MAUIAI0001",
+          "M:Microsoft.Maui.Essentials.AI.AppleIntelligenceChatClient.GetResponseAsync"
+        ],
+        "path": "lib/net11.0-ios26.5/Microsoft.Maui.Essentials.AI.xml"
+      }
+    ],
+    "sha256": "665c1977531775449375d3a224d4b9773acd65976f7f3c6ba30245cc3ccd1903"
+  },
+  {
+    "url": "https://api.nuget.org/v3-flatcontainer/microsoft.maui.essentials.ai/10.0.80-preview.1.26319.4/microsoft.maui.essentials.ai.10.0.80-preview.1.26319.4.nupkg",
+    "assets": [
+      {
+        "tokens": [
+          "T:Microsoft.Maui.Essentials.AI.AppleIntelligenceChatClient",
+          "MAUIAI0001",
+          "M:Microsoft.Maui.Essentials.AI.AppleIntelligenceChatClient.GetResponseAsync"
+        ],
+        "path": "lib/net10.0-ios26.0/Microsoft.Maui.Essentials.AI.xml"
+      }
+    ],
+    "sha256": "aae1ee0d107f736b22e692c96fc8f2a72bc6240866772cf98483f2bdf3f155d2"
+  }
+]

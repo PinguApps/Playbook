@@ -8,6 +8,10 @@ on:
       tag:
         required: true
         type: string
+      validate_only:
+        description: Verify the selected release without NuGet login or push.
+        type: boolean
+        default: true
   workflow_call:
     inputs:
       tag:
@@ -27,16 +31,17 @@ jobs:
     outputs:
       package_version: ${{ steps.resolve.outputs.version }}
     steps:
+      - name: Checkout workflow guards
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
       - name: Resolve package version from the release tag
         id: resolve
         shell: pwsh
         env:
+          EVENT_NAME: ${{ github.event_name }}
+          PRERELEASE: ${{ github.event.release.prerelease }}
           RELEASE_TAG: ${{ github.event.release.tag_name || inputs.tag }}
         run: |
-          $version = $env:RELEASE_TAG -creplace '^v', ''
-          if ($version -cnotmatch '^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(-preview\.[1-9]\d*)?$') {
-            throw 'Expected a stable SemVer release tag or a manual preview.N release.'
-          }
+          $version = ./eng/Resolve-PublishVersion.ps1 -Tag $env:RELEASE_TAG -EventName $env:EVENT_NAME -Prerelease:($env:PRERELEASE -eq 'true')
           "version=$version" >> $env:GITHUB_OUTPUT
 
   verify:
@@ -58,7 +63,11 @@ jobs:
     permissions:
       contents: read
       id-token: write
+    env:
+      DOTNET_ADD_GLOBAL_TOOLS_TO_PATH: '0'
     steps:
+      - name: Checkout artifact guard
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
       - name: Download the exact verified package
         uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8
         with:
@@ -71,20 +80,23 @@ jobs:
           dotnet-version: 10.0.403
 
       - name: Check package identity and hash before publishing
-        working-directory: artifacts
+        shell: pwsh
         env:
           PACKAGE_VERSION: ${{ needs.version.outputs.package_version }}
         run: |
-          test -f "PinguApps.Playbook.$PACKAGE_VERSION.nupkg"
-          sha256sum --check package.sha256
+          $identity = ./eng/Assert-PublishPackage.ps1 -Artifacts ./artifacts -PackageVersion $env:PACKAGE_VERSION
+          $identity
+          $identity >> $env:GITHUB_STEP_SUMMARY
 
       - name: NuGet login (OIDC to temporary API key)
+        if: github.event_name != 'workflow_dispatch' || !inputs.validate_only
         uses: NuGet/login@8d196754b4036150537f80ac539e15c2f1028841 # v1
         id: login
         with:
           user: ${{ secrets.NUGET_USER }}
 
       - name: Publish the verified artifact without repacking
+        if: github.event_name != 'workflow_dispatch' || !inputs.validate_only
         env:
           PACKAGE_VERSION: ${{ needs.version.outputs.package_version }}
           NUGET_API_KEY: ${{ steps.login.outputs.NUGET_API_KEY }}

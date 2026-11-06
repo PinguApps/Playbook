@@ -1,0 +1,26 @@
+[
+  {
+    "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Essentials/src/Passkeys/Passkeys.shared.cs",
+    "sha256": "91d1dbf5dbf35808d90152064ba8d91605d5199ee1ea2a3dbcf6026f3a95f410"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Essentials/src/Passkeys/Passkeys.windows.cs",
+    "sha256": "5f836ad6df80cb6a1364fa00730aa627e5b3ac4b84e469d985b5a7c7f9bb382c"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Essentials/src/Passkeys/Passkeys.android.cs",
+    "sha256": "03d50131fef8dd4f9d2ca1398bb3573dda736ddd26be95008a61cb48536f9c94"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Essentials/src/Passkeys/Passkeys.ios.cs",
+    "sha256": "79ec2a60f2811d498db89d4719a18b6796714daaecd7fd6e5057d536b384a4c9"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/dotnet/maui/e7264838d83d55430b219a23cc0e5da6e8b04e9a/src/AI/src/Essentials.AI/Platform/MaciOS/AppleIntelligenceChatClient.cs",
+    "sha256": "2dd0e9e20613d4f09299ae3aef43ec39ee05ea55e0f56d53b41f71a6cb8d3465"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/dotnet/maui/f9b311be07682fbe1714a18eba44d85ef24180fe/src/AI/src/Essentials.AI/Platform/MaciOS/AppleIntelligenceChatClient.cs",
+    "sha256": "2dd0e9e20613d4f09299ae3aef43ec39ee05ea55e0f56d53b41f71a6cb8d3465"
+  }
+]

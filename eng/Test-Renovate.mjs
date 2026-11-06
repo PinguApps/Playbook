@@ -49,6 +49,27 @@ assert.equal(workflows['publish-release-draft'].jobs.publish_draft.if, "vars.ENA
 assert.equal(workflows['publish-release-draft'].jobs.publish_packages.if, "needs.publish_draft.outputs.tag != ''");
 console.log('PASS: reusable workflow permission chains, job-level OIDC and existing publication gates.');
 
+const publishing = workflows.publish;
+assert.equal(publishing.on.workflow_dispatch.inputs.validate_only.default, true);
+assert.deepEqual(publishing.jobs.publish.needs, ['version', 'verify']);
+assert.equal(publishing.jobs.verify.with.release_ready, true);
+assert.equal(publishing.jobs.verify.with.package_version, '${{ needs.version.outputs.package_version }}');
+assert.equal(publishing.jobs.verify.with.checkout_ref, '${{ github.event.release.tag_name || inputs.tag }}');
+const publishSteps = publishing.jobs.publish.steps;
+const download = publishSteps.find(step => step.uses?.startsWith('actions/download-artifact@'));
+assert.deepEqual(download.with, { name: 'playbook-package', path: 'artifacts' });
+const identityIndex = publishSteps.findIndex(step => step.run?.includes('./eng/Assert-PublishPackage.ps1'));
+const loginIndex = publishSteps.findIndex(step => step.uses?.startsWith('NuGet/login@'));
+const pushIndex = publishSteps.findIndex(step => step.run?.startsWith('dotnet nuget push'));
+assert(identityIndex >= 0 && identityIndex < loginIndex && loginIndex < pushIndex);
+for (const index of [loginIndex, pushIndex]) {
+  assert.equal(publishSteps[index].if, "github.event_name != 'workflow_dispatch' || !inputs.validate_only");
+}
+assert(!publishSteps.some(step => /dotnet (pack|build|publish)/.test(step.run ?? '')));
+assert.equal(publishing.jobs.publish.environment, undefined);
+console.log('PASS: release-ready artifact selection, identity-before-login, validation-only gates and no repack.');
+
+
 const load = (name) => import(pathToFileURL(path.join(renovateRoot, 'dist', name)).href);
 const { init } = await load('logger/index.js');
 await init();

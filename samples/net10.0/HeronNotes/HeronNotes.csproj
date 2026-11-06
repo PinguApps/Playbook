@@ -1,0 +1,6 @@
+<!-- snippet:project -->
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup><TargetFramework>net10.0-ios26.0</TargetFramework><LangVersion>14.0</LangVersion><Nullable>enable</Nullable><ImplicitUsings>enable</ImplicitUsings><RestorePackagesWithLockFile>true</RestorePackagesWithLockFile><SupportedOSPlatformVersion>26.0</SupportedOSPlatformVersion></PropertyGroup>
+  <ItemGroup><PackageReference Include="Microsoft.Maui.Essentials.AI" Version="10.0.80-preview.1.26319.4" /></ItemGroup>
+</Project>
+<!-- endsnippet:project -->
