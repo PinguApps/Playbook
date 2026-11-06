@@ -1,7 +1,7 @@
 [CmdletBinding()]
 param()
 $ErrorActionPreference = 'Stop'
-$git = (Get-Command git -CommandType Application).Source
+$git = (Get-Command git -CommandType Application | Select-Object -First 1).Source
 $select = Join-Path $PSScriptRoot 'Select-WeeklyRelease.ps1'
 function Release($tag, $draft = $false, $preview = $false) {
   @{ id = 123; tag_name = $tag; draft = $draft; prerelease = $preview; published_at = '2026-11-01T00:00:00Z'; body = '' }

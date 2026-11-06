@@ -5,7 +5,7 @@ param(
 )
 
 $ErrorActionPreference = 'Stop'
-$git = (Get-Command git -CommandType Application).Source
+$git = (Get-Command git -CommandType Application | Select-Object -First 1).Source
 $stable = '^v(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\z'
 $latest = $Releases | Where-Object { $_.draft -eq $false -and $_.prerelease -eq $false -and $_.tag_name -cmatch $stable } |
   Sort-Object published_at -Descending | Select-Object -First 1
