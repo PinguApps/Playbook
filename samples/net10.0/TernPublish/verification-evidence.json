@@ -6,24 +6,24 @@
   "language": "14.0",
   "command": "C:\\Program Files\\dotnet\\dotnet.exe build TernPublish.csproj --configuration Release -p:RestoreLockedMode=true",
   "scope": "See recipe scope; output records only the commands actually performed.",
-  "recordedAt": "2026-11-06T21:55:53.7108830+00:00",
-  "sourceCommit": "0398d9bf0496bf2207f97355253bae86c0bfe829",
+  "recordedAt": "2026-11-06T22:02:58.2886329+00:00",
+  "sourceCommit": "778b5c50bceca164a91966e3fbb0533a654f6084",
   "sourceDirty": true,
   "inputs": {
     "eng/Test-AppleRoutes.ps1": "2b47162b8269fd6774f24ce1980320da7190aa3eaa8af56491ed32840b279585",
     "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
-    "samples/AppleRoutes/artifact.json": "820dcb57d25fa2a8581d102f35fd5d4d82c170722cb2b5972df61eb619bd0c2f",
-    "samples/AppleRoutes/sources.json": "7bc6839094205acacb39b31d1298940709415bc0370303af859f3987422b282b",
+    "samples/AppleRoutes/artifact.json": "fe52c2505181895492de006ef78d697290a245cab4529f3d3d7b971f68ff199e",
+    "samples/AppleRoutes/sources.json": "0d697c4df28fa33317c262c1b37450a2800ddecfbbaad05f797719f1ee7f0409",
     "samples/net10.0/TernPublish/Directory.Build.props": "81289c14d9f21e68da16c1bd788b3ca28db27f741be3fe3b0ce3ee171269e5eb",
     "samples/net10.0/TernPublish/Directory.Build.targets": "17284cb74605517cbec8a8153505da71a685b28694b67b5ef80608cd79b1c0ea",
     "samples/net10.0/TernPublish/Directory.Packages.props": "17284cb74605517cbec8a8153505da71a685b28694b67b5ef80608cd79b1c0ea",
     "samples/net10.0/TernPublish/global.json": "d1bb820bf074027be921b263729d1fba343d34328f0c4b7484d10162287c059e",
-    "samples/net10.0/TernPublish/Info.plist": "3185e7bc41e03612d9d0afe10462cf62307c4a0f94dd4a2e76c13f98010f8271",
-    "samples/net10.0/TernPublish/packages.lock.json": "1368b5bd283146691fcdc0b77bc32ad9e06ba3144dcd91f5fd159e1bb3de1d21",
-    "samples/net10.0/TernPublish/Program.cs": "53ce803a7c964a4d4593e7a387e249258054e262f4b9cde62a13b8a05747b588",
+    "samples/net10.0/TernPublish/Info.plist": "c46b2e2df45614e000526a10fdea0ff932f79c929ab75cf0b04c2ac8cdde254a",
+    "samples/net10.0/TernPublish/packages.lock.json": "5a25500d843b05902eddac7926825df96a41e888c809c3caf8bf40701998886e",
+    "samples/net10.0/TernPublish/Program.cs": "4b0ac2a6f5f8efaaf4287e6eacb12d8084140543a9280d29ad538f485e755d01",
     "samples/net10.0/TernPublish/RuntimePolicy.cs": "8f5c01eed10640ab116aebe044caacc5da9e924b3d82f25710b67feec94c11f8",
     "samples/net10.0/TernPublish/TernPublish.csproj": "6b13020d8eca74adeb2585d290e01fbbb8dfa9ea02b71fc426d34ffbb50065a1",
-    "samples/net10.0/TernPublish/verification.json": "2240afbcdf8d6001be28c0bdb33809731c3541c280b93a2ae77ea940f781271e"
+    "samples/net10.0/TernPublish/verification.json": "9ad2d7c62c5b78342fdfdfc29330ba7b8242cc8fdb8d51d6f31f1f17df1bf13d"
   },
   "dependencies": [
     "Microsoft.NET.ILLink.Tasks/10.0.13"
@@ -35,5 +35,5 @@
   "host": "Microsoft Windows 10.0.26200 / X64",
   "sdkInfo": ".NET SDK:\r\n Version:           10.0.402\r\n Commit:            a8dd0577c5\r\n Workload version:  10.0.400-manifests.6055ec36\r\n MSBuild version:   18.9.15+a8dd0577c\r\n\r\nRuntime Environment:\r\n OS Name:     Windows\r\n OS Version:  10.0.26200\r\n OS Platform: Windows\r\n RID:         win-x64\r\n Base Path:   C:\\Program Files\\dotnet\\sdk\\10.0.402\\\r\n\r\n.NET workloads installed:\r\n [wasm-tools]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    10.0.113/10.0.100\r\n   Manifest Path:       C:\\Program Files\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.workload.mono.toolchain.current\\10.0.113\\WorkloadManifest.json\r\n   Install Type:              Msi\r\n\r\n [maui-windows]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    10.0.110/10.0.100\r\n   Manifest Path:       C:\\Program Files\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.sdk.maui\\10.0.110\\WorkloadManifest.json\r\n   Install Type:              Msi\r\n\r\n [maccatalyst]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    26.5.10315/10.0.100\r\n   Manifest Path:       C:\\Program Files\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.sdk.maccatalyst\\26.5.10315\\WorkloadManifest.json\r\n   Install Type:              Msi\r\n\r\n [ios]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    26.5.10315/10.0.100\r\n   Manifest Path:       C:\\Program Files\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.sdk.ios\\26.5.10315\\WorkloadManifest.json\r\n   Install Type:              Msi\r\n\r\n [android]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    36.1.118/10.0.100\r\n   Manifest Path:       C:\\Program Files\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.sdk.android\\36.1.118\\WorkloadManifest.json\r\n   Install Type:              Msi\r\n\r\nConfigured to use workload sets when installing new manifests.\r\nNo workload sets are installed. Run \"dotnet workload restore\" to install a workload set.\r\n\r\nHost:\r\n  Version:      10.0.13\r\n  Architecture: x64\r\n  Commit:       4099f83977\r\n\r\n.NET SDKs installed:\r\n  10.0.300 [C:\\Program Files\\dotnet\\sdk]\r\n  10.0.402 [C:\\Program Files\\dotnet\\sdk]\r\n\r\n.NET runtimes installed:\r\n  Microsoft.AspNetCore.App 10.0.8 [C:\\Program Files\\dotnet\\shared\\Microsoft.AspNetCore.App]\r\n  Microsoft.AspNetCore.App 10.0.13 [C:\\Program Files\\dotnet\\shared\\Microsoft.AspNetCore.App]\r\n  Microsoft.NETCore.App 10.0.8 [C:\\Program Files\\dotnet\\shared\\Microsoft.NETCore.App]\r\n  Microsoft.NETCore.App 10.0.13 [C:\\Program Files\\dotnet\\shared\\Microsoft.NETCore.App]\r\n  Microsoft.WindowsDesktop.App 10.0.8 [C:\\Program Files\\dotnet\\shared\\Microsoft.WindowsDesktop.App]\r\n  Microsoft.WindowsDesktop.App 10.0.13 [C:\\Program Files\\dotnet\\shared\\Microsoft.WindowsDesktop.App]\r\n\r\nOther architectures found:\r\n  x86   [C:\\Program Files (x86)\\dotnet]\r\n    registered at [HKLM\\SOFTWARE\\dotnet\\Setup\\InstalledVersions\\x86\\InstallLocation]\r\n\r\nEnvironment variables:\r\n  DOTNET_ADD_GLOBAL_TOOLS_TO_PATH          [0]\r\n  DOTNET_ROOT                              [C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet]\r\n\r\nglobal.json file:\r\n  V:\\_worktrees\\Playbook\\t3-66e1b31a\\samples\\net10.0\\TernPublish\\global.json\r\n\r\nLearn more:\r\n  https://aka.ms/dotnet/info\r\n\r\nDownload .NET:\r\n  https://aka.ms/dotnet/download",
   "workloadInfo": "Workload version: 10.0.400-manifests.6055ec36\r\n\r\nInstalled Workload Id      Manifest Version         Installation Source\r\n-----------------------------------------------------------------------\r\nandroid                    36.1.118/10.0.100        VS 18.11.12306.390 \r\nios                        26.5.10315/10.0.100      VS 18.11.12306.390 \r\nmaccatalyst                26.5.10315/10.0.100      VS 18.11.12306.390 \r\nmaui-windows               10.0.110/10.0.100        VS 18.11.12306.390 \r\nwasm-tools                 10.0.113/10.0.100        VS 18.11.12306.390 \r\n\r\nUse `dotnet workload search` to find additional workloads to install.",
-  "output": "Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  TernPublish -> V:\\_worktrees\\Playbook\\t3-66e1b31a\\samples\\net10.0\\TernPublish\\bin\\Release\\net10.0-maccatalyst26.0\\maccatalyst-arm64\\TernPublish.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:02.39"
+  "output": "Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  TernPublish -> V:\\_worktrees\\Playbook\\t3-66e1b31a\\samples\\net10.0\\TernPublish\\bin\\Release\\net10.0-maccatalyst26.0\\maccatalyst-arm64\\TernPublish.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:02.75"
 }
