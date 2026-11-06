@@ -1,0 +1,16 @@
+{
+  "buildArguments": [],
+  "dependencies": [
+    "Microsoft.NET.ILLink.Tasks/10.0.13"
+  ],
+  "workloads": [
+    "ios/26.5.10315/10.0.100"
+  ],
+  "nativeToolchains": [],
+  "additionalInputs": [
+    "samples/AppleAuthoring/sources.json",
+    "eng/Test-AppleAuthoring.ps1",
+    "eng/Evidence.ps1",
+    "eng/Record-Evidence.ps1"
+  ]
+}

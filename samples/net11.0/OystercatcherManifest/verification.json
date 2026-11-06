@@ -1,0 +1,11 @@
+{
+  "buildArguments": [],
+  "dependencies": [],
+  "workloads": [],
+  "nativeToolchains": [],
+  "additionalInputs": [
+    "samples/AppleAuthoring/sources.json",
+    "eng/Test-AppleAuthoring.ps1",
+    "eng/Evidence.ps1"
+  ]
+}

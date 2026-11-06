@@ -1,0 +1,8 @@
+<!-- snippet:complete -->
+<Project Sdk="Microsoft.NET.Sdk"><PropertyGroup><TargetFramework>net11.0-ios27.0</TargetFramework><LangVersion>15.0</LangVersion><OutputType>Library</OutputType><RestorePackagesWithLockFile>true</RestorePackagesWithLockFile></PropertyGroup><ItemGroup>
+    <AppManifestEntry Include="CFBundleDisplayName" Type="String" Value="Oystercatcher Surveys" />
+    <AppManifestEntry Include="OystercatcherOffline" Type="Boolean" Value="true" />
+    <AppManifestEntry Include="OystercatcherRegions" Type="StringArray" Value="Marsh|Estuary" ArraySeparator="|" />
+    <AppManifestEntry Include="OystercatcherLegacy" Type="Remove" />
+  </ItemGroup></Project>
+<!-- endsnippet:complete -->

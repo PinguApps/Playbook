@@ -1,0 +1,33 @@
+{
+  "kind": "official-review",
+  "sample": "samples/net11.0/OystercatcherManifest/OystercatcherManifest.csproj",
+  "target": "net11.0-ios27.0",
+  "sdk": "11.0.100-rc.3.26522.148",
+  "language": "15.0",
+  "command": "eng/Test-AppleAuthoring.ps1 -Record",
+  "scope": "Pinned official source/artifact review. Actual RC2 task output and generated net11 binding/consumer reference compilation on Windows; not a native workload build, package or runtime.",
+  "recordedAt": "2026-11-06T23:04:13.7145923+00:00",
+  "sourceCommit": "fe98350af86855db7f68d8de36049cfb4b8142e4",
+  "sourceDirty": true,
+  "inputs": {
+    "eng/Evidence.ps1": "b3dbd6b3788e31aefe1533ef89fed66625f2a637993f9291e8d1d4fc8a2ba849",
+    "eng/Test-AppleAuthoring.ps1": "aafaa177f4b2c33364bf9e401628bc29066e8de0dcc02f8c134f77d0d3a4e923",
+    "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
+    "samples/AppleAuthoring/sources.json": "fdee04414adbb686a77a41a3052cc20e0ea4e7864359c363db311814736ad786",
+    "samples/net11.0/OystercatcherManifest/Directory.Build.props": "1eb614983105cb9d46cfd065017fac4168074265c8783d8bed2ecc273536d2c1",
+    "samples/net11.0/OystercatcherManifest/Directory.Build.targets": "17284cb74605517cbec8a8153505da71a685b28694b67b5ef80608cd79b1c0ea",
+    "samples/net11.0/OystercatcherManifest/Directory.Packages.props": "17284cb74605517cbec8a8153505da71a685b28694b67b5ef80608cd79b1c0ea",
+    "samples/net11.0/OystercatcherManifest/global.json": "a968a56cba63ea127e28ee2a5e4c73c2aaa0914f0976e9015929ea580fe997ce",
+    "samples/net11.0/OystercatcherManifest/Info.plist": "dd7201d2d36cb35d387b8bdcc692924d3951ba51cdd5b03124cc8a0006f060a2",
+    "samples/net11.0/OystercatcherManifest/Marker.cs": "c99abfa9ec059d186ee22595b5e0e0bc099e7d153d0d721876ea3c26b6089532",
+    "samples/net11.0/OystercatcherManifest/OystercatcherManifest.csproj": "b32dfc7ac53a9df8b15567dcb66ef7325df1bcf98f2f2e65c5728b1b11aecd83",
+    "samples/net11.0/OystercatcherManifest/verification.json": "f8f463a2e41215777c5e974c0d420f904ae70cb383e759dffe6ce71441e76bfe"
+  },
+  "dependencies": [],
+  "workloads": [],
+  "nativeToolchains": [],
+  "host": "Microsoft Windows 10.0.26200",
+  "sdkInfo": "RC3 compiler and MSBuild; RC2 Apple tools/references. Intended native pins are not measured native compositions.",
+  "workloadInfo": "Xcode unavailable; native compilation/execution not-tested under PIN-699.",
+  "output": "PASS exact sources/artifacts; real plist and stripping tasks; generated nullable factory and consumer compiled. No native execution or GA claim."
+}
