@@ -1,5 +1,35 @@
 # Inspect the guidance an agent receives
 
+## Android predictive back and Apple scene startup
+
+PIN-927/PIN-928 add original SkuaBack and PuffinScenes/PuffinMaui comparisons.
+The .NET10 Android, UIKit and MAUI samples compile on Windows. Current native
+builds fail NETSDK1147; All three current C# samples compile against pinned reference assemblies; Android reports CS1701
+for Java.Interop's System.Runtime10 reference. It does not generate a manifest
+or prove a compatible native workload. Device gestures and Apple scene/action
+execution are explicitly not-tested under PIN-699; no Human or GA proof is claimed.
+
+From any directory, select this worktree and inspect the actual installed tool:
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-fcbefbf7'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('android.configure-predictive-back','apple.adopt-scene-lifecycle') `
+  -Query 'lifecycle-guidance' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -RecipeEdition '11.0' -PackageVersion '0.0.0-pin927-928' -BuildAndPack `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' -OutputDirectory './artifacts/lifecycle/inspection'
+```
+
+Expect two edition11.0 recipes with ID/title/goal, complete Markdown and explicit
+applicability/evidence limits. The harness builds/packs, installs from an isolated
+feed/cache and calls real stdio list/get with unusable proxies from an unrelated
+directory. Target10 has no applicable edition; comparisons do not add foundations.
+This checks proxy-independent offline retrieval, not OS network isolation or native
+execution. No package is published. `eng/Test-LifecycleGuidance.ps1 -CompileAndroidReference -CompileAppleReference`
+rechecks exact source/artifact hashes, actual property metadata and canonical
+reference compilation with the installed RC3 compiler. Apple native manifest processing, signing and scene delivery remain untested.
+
 ## Android HTTP faults and R8 name lookup
 
 PIN-925/PIN-926 add Breakwater guidance. Both .NET10 Android apps compile;
