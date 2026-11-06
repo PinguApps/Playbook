@@ -188,3 +188,17 @@ other-platform or GA verification is claimed; PIN-699 permits this native exclus
 ### Quay integration delivery
 
 The four edition11 goals above use original .NET10/11 Quay examples and the existing packed stdio harness. [Evidence and limits](../../verification/quay-integration.md) distinguish real neutral contract execution, original Windows10 compilation/lifecycle, actual first-party template generation, Avalonia package compilation and unavailable native11 behavior. Backend coverage is the approved contract demonstration, excluding rendering and real-view capture; source-only APIs are not called verified native behavior. GA reconciliation stays separate.
+
+## Media recovery and chrome delivery (PIN-917 / PIN-918)
+
+`maui.recover-interrupted-media-picking`, `maui.save-captured-media-to-gallery`
+and `maui.choose-status-bar-appearance` retain inventory03:045/046/047 and edition11.0.
+Original paired ReefSurvey examples preserve station identity, copy before clearing,
+expose explicit pending discard and separate gallery consent, icon contrast,
+Android background opt-in and application theme. The older route deliberately
+retakes interrupted captures and uses native Android icon control.
+Exact source/package identities are in samples/ReefSurvey/sources.json.
+Older Android compilation is separate from current source/artifact review;
+current MAUI compilation and all new native interactions are not-tested under
+PIN-699. No extra .NET10 foundation, older-target package route, provider resource,
+Human obligation, native CI matrix or GA verification is introduced.

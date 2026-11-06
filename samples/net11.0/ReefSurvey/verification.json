@@ -1,0 +1,9 @@
+{
+  "additionalInputs": [
+    "samples/ReefSurvey/sources.json"
+  ],
+  "dependencies": [],
+  "buildArguments": [],
+  "nativeToolchains": [],
+  "workloads": []
+}

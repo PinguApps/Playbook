@@ -4293,3 +4293,29 @@ The installed-tool check establishes delivery, not successful direct materializa
 Run `eng/Test-PloverBundles.ps1 -Record` separately for actual generated-project,
 CPM/non-CPM, repeated migration and SQLite persistence checks. No production resources,
 additional native platforms or GA behavior are established.
+
+## Android media recovery and system-bar contrast
+
+From an unrelated directory, select this worktree explicitly. Setup restores
+packages and installs the exact tool through an isolated local feed/cache.
+The existing harness calls real stdio list/get outside the checkout with unusable
+proxies and compares complete canonical Markdown and applicability.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-4d29ea06'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('maui.recover-interrupted-media-picking','maui.save-captured-media-to-gallery','maui.choose-status-bar-appearance') `
+  -Query 'reef-survey' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin917-918' -BuildAndPack `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory './artifacts/reef/inspection'
+```
+
+Expect each ID/title/goal, complete expanded Markdown, edition11, applicability
+and current evidence. Target10 has no applicable edition. Proxy independence
+is not OS network isolation. Older Android compilation uses system SDK10.0.402
+with RunAOTCompilation=false; no AOT success is claimed. Current SDK11 MAUI
+compilation and all native device behavior are not-tested under PIN-699.
+No gallery write, permission approval, process recreation or visual contrast is
+proved by MCP retrieval. No new native matrix, Human gate or GA claim is added.
