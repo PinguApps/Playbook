@@ -160,4 +160,6 @@ Apple reference packs and source assertions remain distinct from execution.
 Neither delivery closes PIN-959 or PIN-966, adds a .NET10 foundation, changes
 the factory-generation boundary, or claims GA verification.
 
+## Backend delivery follow-through
+
 PIN-913 now has edition11 `maui.build-community-platform-backends`: the original Quay consumer exercises public registration/service contracts, screenshot dispatch with an explicit contract double, and actual packaged SingleProject selection targets. Pingu approved excluding rendering and real-view capture. The screenshot double supplies no pixel data; dialog rendering and native gesture recognition are excluded. The asset consumer compiles separately against the exact Avalonia/MAUI packages. [Evidence and limits](../../verification/quay-integration.md) preserve these distinctions; this supplements the source dispositions above without relabelling the historical audit as execution.

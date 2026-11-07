@@ -18,7 +18,7 @@ Choose a maintained package with compatible modern Android assets and validate i
 
 ## Older approach
 
-The net10 Android consumer still selects the original MonoAndroid fixture and compiles. NU1703's new target guard does not apply there. That successful managed library build does not establish device compatibility. Preserve a working older product while separately validating a replacement; absence of this diagnostic is not proof of compatibility.
+The net10 Android consumer selects the original MonoAndroid fixture and compiles when restored with -p:MarkerVersion=1.0.0. Its committed default and lock retain the modern 2.0.0 end state; eng/Test-WhimbrelGuidance.ps1 explicitly restores, builds and asserts both stages against its generated local feed. NU1703's new target guard does not apply there. That successful managed library build does not establish device compatibility. Preserve a working older product while separately validating a replacement; absence of this diagnostic is not proof of compatibility.
 
 {{snippet:net10-project}}
 
@@ -27,7 +27,7 @@ The net10 Android consumer still selects the original MonoAndroid fixture and co
 ## Migration
 
 1. Record the SDK analysis level, target, resolved package version and compile/runtime asset paths before changing the dependency.
-2. Restore the original fixture and verify lib/monoandroid10.0/TrailMarkers.dll in both asset groups. On an available matched SDK11 Android workload, expect NU1703 with analysis level 11.0.100 or later.
+2. Generate the local fixtures with eng/Test-WhimbrelGuidance.ps1. Restore the original fixture using -p:MarkerVersion=1.0.0 and that generated local feed; verify lib/monoandroid10.0/TrailMarkers.dll in both asset groups. On an available matched SDK11 Android workload, expect NU1703 with analysis level 11.0.100 or later.
 3. Change MarkerVersion to 2.0.0, restore again and verify modern paths. Build and exercise the application's actual package-specific behavior before accepting an upstream replacement.
 4. If a short-lived suppression is needed, put NoWarn="NU1703" on only that PackageReference and record its removal condition. Do not add a global NoWarn, downgrade analysis to evade checks, or claim suppression repairs ABI/runtime compatibility.
 5. The current SDK11 native workload is unavailable here: current NU1703 emission/suppression, current asset selection/build and device checks are explicitly not-tested. The source guards and older real selection checks are distinct evidence.
