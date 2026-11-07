@@ -51,8 +51,8 @@ provider/security or Human gates remain unchanged.
 ## Inspect the recorded exclusion
 
 From any directory, with PowerShell 7, SDK 10.0.403 and Node 22.19+ at the
-paths below, build and install the ordinary package into an isolated feed/cache,
-then call real MCP list/get from an unrelated directory:
+paths below, build and install the ordinary package into an isolated feed/cache.
+The script runs MCP list/get itself from an isolated session outside the worktree:
 
 ```powershell
 Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-846cd1f7'
