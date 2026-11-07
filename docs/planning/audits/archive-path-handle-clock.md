@@ -88,6 +88,25 @@ isolated-feed-installed list/get inspection is in the
 [walkthrough](../../inspect-guidance.md#pipe-handles-mobile-locking-native-webassembly-and-hkdf-inputs).
 Other audit owners, eight foundations and PIN-959/PIN-962/other Human gates remain.
 
+## PIN-1044 evidence exception and delivery
+
+Pingu approved option 1 on 7 November 2026: deliver
+`runtime.choose-sleep-aware-deadlines` with physical Windows sleep/resume,
+hibernation and suspended OS-wait outcomes explicitly **not tested**. This
+overrides draft E's physical-proof blocking requirement for this delivery only.
+No separate machine, Human handoff or new hardware is required, and the authoring
+workstation must not be suspended. The physical subgoal remains unverified;
+source review and deterministic clocks do not establish power-state execution.
+
+InspectionDeadline's paired net10/net11 consumers use SDK10.0.403/runtime-ref10.0.14
+and SDK11RC3/runtime-ref11RC3, rather than relabelling this audit's historical
+10.0.13/RC2 evidence. They check ordinary tick/UTC/OS-wait observations and real
+UTC past/future expiry, with separate deterministic clock-jump and latch checks.
+The canonical policy distinguishes retry allowance from persisted UTC expiry.
+Reproduce through `eng/Record-InspectionDeadline.ps1 -VerifySources`; ordinary
+installed retrieval is in the Inspector walkthrough. Existing eight foundations,
+other owners, PIN-959 coverage and PIN-962 actual-GA gates remain unchanged.
+
 ## Full mitigation dispositions
 
 **Included** retains an authoring obligation. **Grouped** assigns it to an existing goal and distinguishes delivered checks from outstanding work. No listed finding has an unknown owner.
