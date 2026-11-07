@@ -100,7 +100,7 @@
           ],
           "workloads": [],
           "platforms": [
-            "Windows x64 verified configuration; other platforms untested."
+            "Windows x64 verified configuration and actual certificate-backed Default EF/cache authentication; other platforms untested."
           ],
           "renderingModes": [
             "Not applicable: server-side database and cache consumer."
@@ -110,7 +110,7 @@
             "Actual SDK10.0.403/C#14/EF10.0.13/cache10.0.13/SqlClient6.1.7 versus SDK11.0.100-rc.3.26522.148/C#15/EF11 and cache11.0.0-rc.2.26504.105/SqlClient7.1.0/Azure extension7.1.0. Exact asset graphs are locked in each sample; runtime and package version are separate constraints. No older-runtime EF11 route is offered. Windows x64 compilation, configuration execution and real certificate-backed Default EF/cache authentication; no rendering mode, workload or experimental opt-in. RC evidence is not GA verification."
           ],
           "prerequisites": [
-            "Restore the pinned projects with their matching SDKs. For --connect, supply MARSH_SQL_CONNECTION with Active Directory Default and an authorized identity/target; precreate dbo.ObservationCache and grant the minimum cache DML permissions. Never use production resources. Run eng/Test-MarshAccess.ps1 for both configuration/provider checks without connecting."
+            "Restore the pinned projects with their matching SDKs. For --connect, supply MARSH_SQL_CONNECTION with Active Directory Default and an authorized identity/target; precreate dbo.ObservationCache and grant the minimum cache DML permissions. Never use production resources. Run eng/Test-MarshAccess.ps1 for both configuration/provider checks without connecting. Maintainers can repeat the approved PIN-679 isolated route with eng/Test-MarshEntra.ps1 -Record, which revokes temporary grants and removes its cache table; -CheckEvidence performs only read-only freshness checks."
           ],
           "optIns": [],
           "stabilityLimitations": [

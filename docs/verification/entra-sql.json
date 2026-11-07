@@ -1,8 +1,8 @@
 {
-  "recordedAt": "2026-11-07T21:44:15.1360588+00:00",
+  "recordedAt": "2026-11-07T21:54:03.9336785+00:00",
   "scope": "PIN-958; original net10/net11 MarshAccess --connect; actual EF login and SQL distributed-cache write/read/remove; table empty, temporary grants/table removed, original container running state restored; process/user/machine PATH unchanged.",
-  "route": "Driver-managed Active Directory Default -> EnvironmentCredential -> PIN-679 certificate application identity; no injected token, callback, custom provider, browser session or mock.",
-  "provider": "SQL Server 2025 RTM-CU10 17.0.5035.5 Enterprise Developer on Linux; isolated playbook_entra_pin679, loopback TLS with local self-signed certificate trusted.",
+  "route": "Driver-managed Active Directory Default -> EnvironmentCredential (forced by AZURE_TOKEN_CREDENTIALS, supported by both locked Azure.Identity versions) -> PIN-679 certificate application identity; both original success markers asserted; no injected token, callback, custom provider, browser session or mock.",
+  "provider": "SQL Server 2025 RTM-CU10 17.0.5035.5 Enterprise Developer on Linux; isolated playbook_entra_pin679, encrypted loopback TLS with server certificate validation disabled (TrustServerCertificate=True).",
   "limitations": "Windows x64 only. EF/cache11 RC2 packages on SDK11 RC3/runtime11 RC3; no GA, managed/workload identity, interactive/MFA, migration or production TLS-trust proof. Certificate expires 5 February 2027; rerun after identity, server or relevant artifact changes.",
   "inputs": {
     "samples/net10.0/MarshAccess/Program.cs": "c355ba69d54183223ace355905e4132dceeba7dca71e3f754b757cc3d9216bdc",
@@ -19,7 +19,7 @@
     "samples/net11.0/MarshAccess/Directory.Packages.props": "347e2e29465c6a37869dd07b0b401c55743b8571fb513a4e42b6ee8facc06ca4",
     "samples/net11.0/MarshAccess/global.json": "b05d624a8caae0f55fe97583b584330feea85646a385b73cb899d83023edca56",
     "samples/net11.0/MarshAccess/packages.lock.json": "eaeb98f1c5fba5a2f4543218aea893d3822795af799a75859b6da520ae29141b",
-    "eng/Test-MarshEntra.ps1": "b4b40910aad38b02b34ba01dbc504a28b55a6c86de5ef9f203aaee0ed5d16820"
+    "eng/Test-MarshEntra.ps1": "98a65728145435db8996e3fd27b772be5ce6272fecf44e7036d66f3a26d33345"
   },
   "dependencies": {
     "net10.0": [
