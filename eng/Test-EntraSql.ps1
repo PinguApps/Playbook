@@ -22,6 +22,7 @@ if ($port -lt 1 -or $port -gt 65535) { throw 'Invalid SQL port.' }
 $work = Join-Path ([IO.Path]::GetTempPath()) ('playbook-entra-' + [Guid]::NewGuid().ToString('N'))
 $beforeUser = [Environment]::GetEnvironmentVariable('PATH', 'User')
 $beforeMachine = [Environment]::GetEnvironmentVariable('PATH', 'Machine')
+$beforeProcess = [Environment]::GetEnvironmentVariable('PATH', 'Process')
 try {
     New-Item -ItemType Directory -Path $work | Out-Null
     Copy-Item -LiteralPath (Join-Path $PSScriptRoot 'entra-sql/IdentityProbe.cs') -Destination (Join-Path $work 'Program.cs')
@@ -36,7 +37,7 @@ try {
     $start.UseShellExecute = $false
     $start.WorkingDirectory = $work
     $start.Environment['DOTNET_ADD_GLOBAL_TOOLS_TO_PATH'] = '0'
-    foreach ($argument in @('run', '--project', (Join-Path $work 'Probe.csproj'), '-c', 'Release', '--', $certificate, [string]$port)) { $start.ArgumentList.Add($argument) }
+    foreach ($argument in @('run', '--no-launch-profile', '--project', (Join-Path $work 'Probe.csproj'), '-c', 'Release', '--', $certificate, [string]$port)) { $start.ArgumentList.Add($argument) }
     $process = [Diagnostics.Process]::Start($start)
     $process.WaitForExit()
     if ($process.ExitCode) { throw 'Entra SQL access probe failed.' }
@@ -47,5 +48,5 @@ finally {
     $resolvedTemp = [IO.Path]::GetFullPath([IO.Path]::GetTempPath()).TrimEnd('\')
     if ([IO.Path]::GetDirectoryName($resolvedWork) -ne $resolvedTemp -or [IO.Path]::GetFileName($resolvedWork) -notmatch '^playbook-entra-[a-f0-9]{32}$') { throw 'Unexpected cleanup target.' }
     if (Test-Path -LiteralPath $resolvedWork) { Remove-Item -LiteralPath $resolvedWork -Recurse -Force }
-    if ($beforeUser -cne [Environment]::GetEnvironmentVariable('PATH', 'User') -or $beforeMachine -cne [Environment]::GetEnvironmentVariable('PATH', 'Machine')) { throw 'Persistent PATH changed during the probe; investigate without overwriting shared settings.' }
+    if ($beforeProcess -cne [Environment]::GetEnvironmentVariable('PATH', 'Process') -or $beforeUser -cne [Environment]::GetEnvironmentVariable('PATH', 'User') -or $beforeMachine -cne [Environment]::GetEnvironmentVariable('PATH', 'Machine')) { throw 'PATH changed during the probe; investigate without overwriting shared settings.' }
 }

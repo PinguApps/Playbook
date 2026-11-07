@@ -41,7 +41,7 @@ separate RSA certificates with no export password, protected by that directory A
 The server PFX is mounted read-only at `/var/opt/mssql/server.pfx`. SQL requires
 the passwordless PFX for this container route. Only public certificates were
 uploaded to Entra; no client secret was created. Both certificates expire on
-**5 February 2027 UTC** (server at 11:48:36; inspect client certificate for its exact time).
+**5 February 2027 UTC** (server at 11:48:36; client at 11:49:49).
 The current user's DPAPI-encrypted `credentials.xml` contains the random SQL `sa`
 password for owner-controlled maintenance; it is not the Entra client credential.
 Docker administrators can read the container's administrator password and mounted
@@ -63,18 +63,23 @@ The helper uses a temporary consumer with exact SqlClient **7.1.0**, Azure.Ident
 **1.21.0**, and Pkcs **10.0.13** pins, independently of root package/SDK inheritance.
 These are manually maintained verification dependencies, with no Renovate permission
 change. The helper sets `DOTNET_ADD_GLOBAL_TOOLS_TO_PATH=0` only in its child and
-checks saved user/machine PATH after execution. It removes its temporary consumer.
+checks process and saved user/machine PATH after execution. It removes its temporary consumer.
 
 ```powershell
 Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-1680d41f'
 $docker = 'C:\Program Files\Docker\Docker\resources\bin\docker.exe'
-& $docker start playbook-sql-entra-pin679
+$wasRunning = & $docker inspect --format '{{.State.Running}}' playbook-sql-entra-pin679
+if ($LASTEXITCODE) { throw 'PIN-679 container is unavailable.' }
+if ($wasRunning -ne 'true') {
+    & $docker start playbook-sql-entra-pin679
+    if ($LASTEXITCODE) { throw 'Could not start PIN-679 container.' }
+    Start-Sleep -Seconds 15 # Allow this retained SQL instance to recover.
+}
 try {
-    # If just started, allow SQL recovery to finish before running the check.
     & ./eng/Test-EntraSql.ps1
 }
 finally {
-    & $docker stop playbook-sql-entra-pin679
+    if ($wasRunning -ne 'true') { & $docker stop playbook-sql-entra-pin679 }
 }
 ```
 
@@ -100,3 +105,17 @@ Pingu must approve/coordinate removal or re-provisioning; do not rerun the origi
 local setup scripts blindly or replace credentials underneath a retained container.
 This document and helper retain the supported scope and repeatable check, not raw
 setup output. PIN-958 remains responsible for exact recipe artifacts and evidence.
+
+The owner maintenance query confirmed zero entries in `sys.server_role_members`
+for the client; its explicit database permissions were exactly `CONNECT` and
+`SELECT`. Denial probes run in a transaction which is always rolled back, so an
+accidental future write grant cannot leave an inserted row behind.
+
+Re-provisioning is owner-run; the original local provisioning scripts are not
+shipped in this repository. Use the tenant/app IDs, pinned image, ownership label,
+certificate settings and three Graph roles above with Microsoft's linked setup
+instructions, then recreate the external login, database user and fixture grants.
+To revoke the server's directory reads, Pingu can remove its three Graph
+application-role assignments or delete its dedicated service principal and app
+registration. Stop/remove the dedicated container and retire its local certificate
+material as part of coordinated decommissioning; do not remove the shared SQL route.
