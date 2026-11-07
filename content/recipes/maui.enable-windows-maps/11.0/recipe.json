@@ -331,7 +331,7 @@
     "untestedSamples": [
       "samples/net11.0/QuayWindows/QuayWindows.csproj"
     ],
-    "scope": "Mac/Xcode unavailable for QuayAtlas; RC3 Windows MAUI build fails NETSDK1147 for QuayWindows11. Native rendering, interaction and provider execution excluded under PIN-699. PIN-935 remains open and has not run; no credentials or resources acquired."
+    "scope": "Mac/Xcode unavailable for QuayAtlas; RC3 Windows MAUI build fails NETSDK1147 for QuayWindows11. Native rendering, interaction and provider execution excluded under PIN-699. PIN-700 and PIN-935 were cancelled by Pingu on 7 November 2026: verification must remain local and incur no cost. Live Azure Maps rendering and service checks are not-tested and excluded, not pending Human work. No resources, credentials or service requests are authorized for this verification."
   },
   "snippets": {
     "samples-net10-0-quaywindows-directory-build-props": {

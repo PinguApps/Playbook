@@ -307,7 +307,11 @@ against actual Windows assets; the native .NET10 map/pin app also compiles with
 SDK10.0.402. It was not launched against the service. SDK11 RC3 Windows MAUI
 fails NETSDK1147 and Mac/Xcode is unavailable: only those unavailable native
 sample actions use PIN-699 exclusions. No map/service execution is claimed.
-PIN-935 remains open and has not run; no credentials/resources were acquired.
+PIN-700/PIN-935 were cancelled on 7 November 2026: Pingu requires local-only,
+zero-cost verification. Live Azure Maps rendering/service checks are explicitly
+not-tested and excluded, not pending Human work or publication prerequisites.
+No Azure Maps resources, credentials or service/tile requests are authorized.
+Local compilation and source/artifact review are separate evidence.
 The RC2 Windows camera-dispatch mismatch is disclosed; it does not apply to10.0.110.
 
 This exact block is tested from an unrelated directory. It builds/installs the
@@ -315,11 +319,11 @@ actual package through an isolated local feed/cache and displays ID/title/goal,
 full Markdown, edition and applicability through real stdio list/get.
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-59d42d49'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-b6fc1956'
 $inspection = @{
   Query = 'quay-maps'
   RecipeEdition = '11.0'
-  PackageVersion = '0.0.0-pin914-915'
+  PackageVersion = '0.0.0-pin700'
   Dotnet = 'C:/Users/pingu/AppData/Local/dotnetup/dotnet/dotnet.exe'
   Node = 'C:/Program Files/nodejs/node.exe'
 }
