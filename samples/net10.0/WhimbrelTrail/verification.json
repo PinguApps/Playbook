@@ -1,0 +1,17 @@
+{
+  "workloads": [],
+  "buildArguments": [
+    "-p:MarkerVersion=2.0.0",
+    "-p:RestoreSources=../../../artifacts/whimbrel/feed",
+    "-p:RestorePackagesPath=../../../artifacts/whimbrel/cache"
+  ],
+  "additionalInputs": [
+    "samples/WhimbrelPackages",
+    "eng/Test-WhimbrelGuidance.ps1",
+    "samples/WhimbrelGuidance/sources.json"
+  ],
+  "nativeToolchains": [],
+  "dependencies": [
+    "Whimbrel.Trail.Markers/2.0.0"
+  ]
+}

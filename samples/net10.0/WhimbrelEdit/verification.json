@@ -1,0 +1,27 @@
+{
+  "buildArguments": [],
+  "nativeToolchains": [],
+  "additionalInputs": [
+    "docs/planning/audits/mobile-api-gaps.sources.json",
+    "eng/Test-WhimbrelGuidance.ps1",
+    "samples/WhimbrelGuidance/sources.json"
+  ],
+  "dependencies": [
+    "Microsoft.Extensions.Configuration.Abstractions/10.0.0",
+    "Microsoft.Extensions.Configuration/10.0.0",
+    "Microsoft.Extensions.DependencyInjection.Abstractions/10.0.0",
+    "Microsoft.Extensions.DependencyInjection/10.0.0",
+    "Microsoft.Extensions.Diagnostics.Abstractions/10.0.0",
+    "Microsoft.Extensions.FileProviders.Abstractions/10.0.0",
+    "Microsoft.Extensions.Hosting.Abstractions/10.0.0",
+    "Microsoft.Extensions.Logging.Abstractions/10.0.0",
+    "Microsoft.Extensions.Logging/10.0.0",
+    "Microsoft.Extensions.Options/10.0.0",
+    "Microsoft.Extensions.Primitives/10.0.0",
+    "Microsoft.Maui.Controls.Core/10.0.110",
+    "Microsoft.Maui.Core/10.0.110",
+    "Microsoft.Maui.Essentials/10.0.110",
+    "Microsoft.Maui.Graphics/10.0.110"
+  ],
+  "workloads": []
+}

@@ -1,0 +1,13 @@
+{
+  "additionalInputs": [
+    "docs/planning/audits/mobile-api-gaps.sources.json",
+    "eng/Test-WhimbrelGuidance.ps1",
+    "samples/WhimbrelGuidance/sources.json"
+  ],
+  "buildArguments": [],
+  "nativeToolchains": [],
+  "dependencies": [
+    "Microsoft.NET.ILLink.Tasks/10.0.13"
+  ],
+  "workloads": []
+}

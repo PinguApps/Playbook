@@ -1,0 +1,11 @@
+{
+  "additionalInputs": [
+    "docs/planning/audits/mobile-api-gaps.sources.json",
+    "eng/Test-WhimbrelGuidance.ps1",
+    "samples/WhimbrelGuidance/sources.json"
+  ],
+  "buildArguments": [],
+  "nativeToolchains": [],
+  "dependencies": [],
+  "workloads": []
+}

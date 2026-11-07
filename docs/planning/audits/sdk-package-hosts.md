@@ -228,6 +228,14 @@ Proposed ID `nuget.migrate-package-identities`. A fictional wildlife charity cha
 
 ### D. 07-039 - Replace a dependency selected from legacy Android assets — M (3)
 
+Delivery follow-through: PIN-1069 adds
+`android.replace-monoandroid-package-assets`, edition11.0. Whimbrel uses original
+local packages to isolate legacy/modern asset selection. The older real Android
+consumer compiles with both selected compile/runtime sets. This portable fixture
+does not prove arbitrary Xamarin ABI compatibility. Current native restore/build,
+NU1703 emission/suppression and device execution are not-tested under PIN-699;
+the exact source guards are documented separately. PIN-959 and PIN-966 remain open.
+
 Proposed ID `android.replace-monoandroid-package-assets`. A fictional coastal-trail application consumes original local packages with legacy and modern Android assets. Establish actual Android SDK 10/11 workload/toolchain access, then restore/build real projects and inspect project.assets.json's compile/runtime selection. Trigger NU1703 only with the stated net11-android/analysis guards and nonempty selected assets; show a modern dependency removes the cause. Check an older target and the temporary package-scoped diagnostic choice without claiming suppression repairs compatibility. Record real native compilation and any independently required device proof; no device matrix. Sources: Android note, `nuget-android`. Related: PIN-923, which retains its platform/runtime/JDK scope.
 
 ### E. 03-016 - Restore dependencies independently of next-best cache entries — M (3)

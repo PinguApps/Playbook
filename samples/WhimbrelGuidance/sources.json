@@ -1,0 +1,60 @@
+[
+  {
+    "id": "binding",
+    "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Binding.cs",
+    "sha256": "cb238d7ae268189d431bed3eab9d115def62d832871f92db8341d4098474a823"
+  },
+  {
+    "id": "binding-tests",
+    "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/tests/Core.UnitTests/BindingUnitTests.cs",
+    "sha256": "25dfbcaba109dbca903e37b594ac2c2882bf676fb1a85be93071421a0033d991"
+  },
+  {
+    "id": "compiled-binding",
+    "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/SourceGen/CompiledBindingMarkup.cs",
+    "sha256": "17a2a863847d2a4266966096e76f737b57307f767ec6ba69c86307bb68b7c8b8"
+  },
+  {
+    "id": "multibinding",
+    "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/MultiBinding.cs",
+    "sha256": "01a44ddc81c1f1334b516faaeb5fd5b5c6ddf8887d2daf5975c939e972c0c667"
+  },
+  {
+    "id": "typedbinding",
+    "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/TypedBinding.cs",
+    "sha256": "da6bf71dbddb2e1b6c7afb3079f35f1e2576fc9e88241a7d9d1738c5beb78280"
+  },
+  {
+    "id": "old-binding",
+    "url": "https://raw.githubusercontent.com/dotnet/maui/9d881e94b1c56692e40a16262897677a3bb46fcb/src/Controls/src/Core/Binding.cs",
+    "sha256": "25e449b6223611fd588e92e80b6c4530d92ba7a95ed90ccdf0e042046f9cd31a"
+  },
+  {
+    "id": "nullable",
+    "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/BindingExpressionHelper.cs",
+    "sha256": "c5f84bdc97aeaf9c4fd109394aa257661164338fbc3b098565d9f3f23499328a"
+  },
+  {
+    "id": "old-nullable",
+    "url": "https://raw.githubusercontent.com/dotnet/maui/9d881e94b1c56692e40a16262897677a3bb46fcb/src/Controls/src/Core/BindingExpressionHelper.cs",
+    "sha256": "4aea9fdf4d2d9f51b4d2db61ff6ac1964aeb5633a9a478a470727877120f3d39"
+  },
+  {
+    "id": "apple-src/appkit.cs",
+    "url": "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/src/appkit.cs",
+    "sha256": "8063bd11a4f78305887248af68d2d32fe81dc78dfbe0dfbb6c4b10d1cbaa9c9e"
+  },
+  {
+    "id": "apple-src/corenfc.cs",
+    "url": "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/src/corenfc.cs",
+    "sha256": "5903409eb4b56f29deed2b558b03a310efc1cbe09cdfbc1a7a5fb5b5e77c8879"
+  },
+  {
+    "id": "nuget-android",
+    "repository": "NuGet/NuGet.Client",
+    "commit": "623454983addd9cad23a4c16a28c8faf458c7546",
+    "path": "src/NuGet.Core/NuGet.Commands/RestoreCommand/MonoAndroidDeprecation.cs",
+    "url": "https://raw.githubusercontent.com/NuGet/NuGet.Client/623454983addd9cad23a4c16a28c8faf458c7546/src/NuGet.Core/NuGet.Commands/RestoreCommand/MonoAndroidDeprecation.cs",
+    "sha256": "05dfb3b79c3f51659136bf3418173ed9d6de5dac5af8bebc9a4b51d14f23e12f"
+  }
+]

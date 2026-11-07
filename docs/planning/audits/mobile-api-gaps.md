@@ -145,6 +145,21 @@ are made, so no new guidance retrieval is claimed.
 The [criterion and Linear ledger](https://github.com/PinguApps/Playbook/blob/e60419660a082da40dfc1bd8f0667401677c53f3/docs/verification/PIN-694.md) records coverage,
 source provenance, scoped owner decisions and the verification actually run.
 
+## Nullable consumer delivery follow-through
+
+PIN-1187 adds `maui.edit-nullable-values-with-converter-culture`, edition11.0.
+Whimbrel's actual MAUI10.0.110 / 11.0.0-rc.2.26505.5 neutral binding-engine
+consumers exercise culture, clear/re-entry and validation. The native compiled
+XAML page and keyboard/rendering route remain explicitly not-tested under PIN-699;
+the executable is not a rendered app. The converter retains its domain validation.
+
+PIN-1188 adds `apple.handle-nullable-native-results`, edition11.0. Its older
+CoreNFC consumer library compiles with the installed iOS workload; current native
+compilation and NFC/device execution remain not-tested. The pinned audit's actual
+Apple reference packs and source assertions remain distinct from execution.
+Neither delivery closes PIN-959 or PIN-966, adds a .NET10 foundation, changes
+the factory-generation boundary, or claims GA verification.
+
 ## Backend delivery follow-through
 
 PIN-913 now has edition11 `maui.build-community-platform-backends`: the original Quay consumer exercises public registration/service contracts, screenshot dispatch with an explicit contract double, and actual packaged SingleProject selection targets. Pingu approved excluding rendering and real-view capture. The screenshot double supplies no pixel data; dialog rendering and native gesture recognition are excluded. The asset consumer compiles separately against the exact Avalonia/MAUI packages. [Evidence and limits](../../verification/quay-integration.md) preserve these distinctions; this supplements the source dispositions above without relabelling the historical audit as execution.

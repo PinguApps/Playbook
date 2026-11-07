@@ -1,0 +1,183 @@
+{
+  "id": "maui.edit-nullable-values-with-converter-culture",
+  "edition": "11.0",
+  "title": "Edit nullable values with an explicit converter culture",
+  "goal": "Choose a binding converter culture and preserve validation when users edit, clear and re-enter nullable values.",
+  "areas": [
+    "maui"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "whimbrel-guidance",
+    "migration"
+  ],
+  "apis": [
+    "Binding.ConverterCulture",
+    "MultiBinding.ConverterCulture",
+    "IValueConverter"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Comparisons preserve the eight .NET10 foundations; no older route added."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": ".NET11 target; native execution exclusions are explicit."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "RC3 compiler check; RC2 native preparation baseline is separate from installed workload availability."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Canonical C# sample uses the pinned compiler; no preview language feature."
+          },
+          "frameworks": [
+            ".NET MAUI Controls"
+          ],
+          "packages": [
+            {
+              "name": "Microsoft.Maui.Controls.Core",
+              "version": "11.0.0-rc.2.26505.5",
+              "match": "exact",
+              "reason": "Actual neutral binding-engine consumer."
+            }
+          ],
+          "workloads": [],
+          "packageAssets": [],
+          "providers": [
+            "No service, account or external provider required."
+          ],
+          "platforms": [
+            "Neutral managed binding-engine check on Windows; native page integration requires a matched MAUI platform workload."
+          ],
+          "renderingModes": [
+            "Native MAUI page; neutral executable does not render UI."
+          ],
+          "prerequisites": [
+            "Native RC2 preparation: SDK11.0.100-rc.2.26504.105, workload set11.0.100-rc.2.26513.2, MAUI11.0.0-rc.2.26505.5. SourceGen compiled XAML requires a matching native MAUI project."
+          ],
+          "constraints": [
+            "Eight .NET10 foundations unchanged; older samples are comparisons only.",
+            "Native/device exclusions under PIN-699; no pending Human action or GA proof.",
+            "No account, provider or production resource required."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "RC preparation evidence; actual GA reconciliation remains open."
+          ]
+        },
+        "sourceUrls": [
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Binding.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/tests/Core.UnitTests/BindingUnitTests.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/SourceGen/CompiledBindingMarkup.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/MultiBinding.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/TypedBinding.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/9d881e94b1c56692e40a16262897677a3bb46fcb/src/Controls/src/Core/Binding.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/BindingExpressionHelper.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/9d881e94b1c56692e40a16262897677a3bb46fcb/src/Controls/src/Core/BindingExpressionHelper.cs"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/WhimbrelEdit/WhimbrelEdit.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Pinned official source Binding.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Binding.cs"
+    },
+    {
+      "title": "Pinned official source BindingUnitTests.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/tests/Core.UnitTests/BindingUnitTests.cs"
+    },
+    {
+      "title": "Pinned official source CompiledBindingMarkup.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/SourceGen/CompiledBindingMarkup.cs"
+    },
+    {
+      "title": "Pinned official source MultiBinding.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/MultiBinding.cs"
+    },
+    {
+      "title": "Pinned official source TypedBinding.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/TypedBinding.cs"
+    },
+    {
+      "title": "Pinned official source Binding.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/9d881e94b1c56692e40a16262897677a3bb46fcb/src/Controls/src/Core/Binding.cs"
+    },
+    {
+      "title": "Pinned official source BindingExpressionHelper.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/BindingExpressionHelper.cs"
+    },
+    {
+      "title": "Pinned official source BindingExpressionHelper.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/9d881e94b1c56692e40a16262897677a3bb46fcb/src/Controls/src/Core/BindingExpressionHelper.cs"
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net10.0/WhimbrelEdit/WhimbrelEdit.csproj",
+      "language": "14.0",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "scope": "Actual neutral MAUI binding-engine execution; no native UI."
+    },
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net11.0/WhimbrelEdit/WhimbrelEdit.csproj",
+      "language": "15.0",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.3.26522.148",
+      "scope": "Actual neutral MAUI binding-engine execution; no native UI."
+    }
+  ],
+  "humanProof": {
+    "status": "not-tested",
+    "untestedSamples": [
+      "samples/net10.0/WhimbrelEdit/WhimbrelEdit.csproj",
+      "samples/net11.0/WhimbrelEdit/WhimbrelEdit.csproj"
+    ],
+    "scope": "PIN-699: native rendering, device callbacks/keyboard/gestures and native runtime behavior not-tested. Current Android/iOS workload compilation unavailable; neutral MAUI engine execution and older libraries are separate evidence. No Human action pending."
+  },
+  "snippets": {
+    "net10-program": {
+      "language": "csharp",
+      "region": "complete",
+      "path": "samples/net10.0/WhimbrelEdit/Program.cs"
+    },
+    "net11-editor": {
+      "language": "xml",
+      "region": "complete",
+      "path": "samples/net11.0/WhimbrelEdit/Editor.xaml"
+    },
+    "net11-program": {
+      "language": "csharp",
+      "region": "complete",
+      "path": "samples/net11.0/WhimbrelEdit/Program.cs"
+    }
+  },
+  "languageNeutral": false
+}
