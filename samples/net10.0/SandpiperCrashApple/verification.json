@@ -1,0 +1,12 @@
+{
+  "buildArguments": [],
+  "dependencies": [
+    "Microsoft.NET.ILLink.Tasks/10.0.13"
+  ],
+  "workloads": [],
+  "nativeToolchains": [],
+  "additionalInputs": [
+    "samples/SandpiperFieldwork/sources.json",
+    "eng/Test-SandpiperFieldwork.ps1"
+  ]
+}

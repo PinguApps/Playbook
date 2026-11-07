@@ -1,0 +1,3 @@
+<!-- snippet:complete -->
+<Project Sdk="Microsoft.NET.Sdk"><PropertyGroup><TargetFramework>net11.0-android37.0</TargetFramework><LangVersion>15.0</LangVersion><OutputType>Library</OutputType><RestorePackagesWithLockFile>true</RestorePackagesWithLockFile><EnableCrashReport>true</EnableCrashReport></PropertyGroup></Project>
+<!-- endsnippet:complete -->

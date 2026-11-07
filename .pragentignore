@@ -1201,3 +1201,11 @@
 /samples/net11.0/SkuaBack/verification-evidence.json
 /samples/net11.0/PuffinScenes/verification-evidence.json
 /samples/net11.0/PuffinMaui/verification-evidence.json
+
+# Sandpiper receipts: canonical inputs and Test-SandpiperFieldwork.ps1 remain reviewable.
+/samples/net10.0/SandpiperCrashAndroid/verification-evidence.json
+/samples/net10.0/SandpiperCrashApple/verification-evidence.json
+/samples/net11.0/SandpiperCrashAndroid/verification-evidence.json
+/samples/net11.0/SandpiperCrashApple/verification-evidence.json
+/samples/net11.0/SandpiperPlatformAndroid/verification-evidence.json
+/samples/net11.0/SandpiperPlatformIos/verification-evidence.json
