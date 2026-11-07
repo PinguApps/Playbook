@@ -1,5 +1,7 @@
 # Playbook Linear publication receipt
 
+Map-verification decision (7 November 2026): Pingu cancelled PIN-700 and PIN-935 because verification must remain local and incur no cost. Live Azure Maps rendering/service checks are explicitly not-tested and excluded, not pending Human work or publication prerequisites. The [current verification policy](../contributing.md#ownership-and-handoff) supersedes the map-resource/service requirements and blocking edges in these historical records and their JSON snapshots. Retain the snapshots as provenance; do not treat them as current ticket state.
+
 Client-verification update (6 November 2026): Pingu cancelled PIN-944/PIN-945 and accepted the recorded T3 Code and Codex CLI checks for release readiness. The [current client verification decision](../clients.md#release-client-evidence) supersedes the four-client requirements and blocking edges in these historical proposal/publication records, including their JSON snapshots. Live tickets were reconciled separately; the original records remain provenance.
 
 Published to [PinguApps → Playbook](https://linear.app/pinguapps/project/playbook-18c41f341c73) after explicit approval of proposal commit `b3778cc`. Verified at 2026-10-16 13:43:28 UTC.

@@ -71,6 +71,17 @@ remain gates. Do not use an exclusion to avoid a feasible local check.
 
 ### Ownership and handoff
 
+For Windows map service verification, Pingu's 7 November 2026 decision cancels
+PIN-700 (Azure Maps resources) and PIN-935 (live service proof). Verification for
+this work must remain local and incur no cost. Do not provision map resources,
+obtain service credentials or make Azure Maps service/tile requests, including
+through allowances that could incur charges. Keep local compilation, placeholder
+registration and source/artifact evidence. Record live map rendering and service
+behaviour as explicitly **not-tested**, excluded by this owner decision rather
+than pending Human work. These checks are no longer publication prerequisites;
+other required local evidence and release gates remain. Mocks do not establish
+equivalent service proof.
+
 For HTTP.sys HTTPS, WSL certificate trust and Visual Studio Package Manager
 Console access, use the [controlled Windows web access route](windows-web-verification.md).
 It separates agent-executable preparation from owner setup and pending Human proof.
