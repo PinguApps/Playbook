@@ -1,0 +1,12 @@
+{
+  "nativeToolchains": [],
+  "dependencies": [],
+  "buildArguments": [],
+  "workloads": [],
+  "additionalInputs": [
+    "samples/InspectionDeadlineChecks.cs",
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1",
+    "eng/Record-InspectionDeadline.ps1"
+  ]
+}
