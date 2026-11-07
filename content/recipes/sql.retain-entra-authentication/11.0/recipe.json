@@ -49,7 +49,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Build the net11.0 consumer; measured SDK 11.0.100-rc.3.26522.148 is RC2 evidence, not GA proof."
+            "reason": "Build the net11.0 consumer; measured SDK 11.0.100-rc.3.26522.148 is RC3 evidence, not GA proof."
           },
           "language": {
             "name": "C#",
@@ -93,28 +93,28 @@
             }
           ],
           "packageAssets": [
-            "Actual SDK10.0.403/C#14/EF10.0.13/cache10.0.13/SqlClient6.1.7 versus SDK11.0.100-rc.3.26522.148/C#15/EF11 and cache11.0.0-rc.2.26504.105/SqlClient7.1.0/Azure extension7.1.0. Exact asset graphs are locked in each sample; runtime and package version are separate constraints. No older-runtime EF11 route is offered. Windows x64 compilation and configuration execution only; no rendering mode, workload or experimental opt-in. RC evidence is not GA verification. Both projects directly pin System.Security.Cryptography.Pkcs 10.0.13; the exact assets are retained in their lock files."
+            "Actual SDK10.0.403/C#14/EF10.0.13/cache10.0.13/SqlClient6.1.7 versus SDK11.0.100-rc.3.26522.148/C#15/EF11 and cache11.0.0-rc.2.26504.105/SqlClient7.1.0/Azure extension7.1.0. Exact asset graphs are locked in each sample; runtime and package version are separate constraints. No older-runtime EF11 route is offered. Windows x64 compilation, configuration execution and real certificate-backed Default EF/cache authentication; no rendering mode, workload or experimental opt-in. RC evidence is not GA verification. Both projects directly pin System.Security.Cryptography.Pkcs 10.0.13; the exact assets are retained in their lock files."
           ],
           "providers": [
-            "SQL Server with Entra authentication; actual authorized login/cache proof pending PIN-958 (H_ENTRA_PROOF)."
+            "SQL Server 2025 RTM-CU10 17.0.5035.5; actual authorized certificate-backed Active Directory Default login and SQL cache operations verified for both canonical samples under PIN-958."
           ],
           "workloads": [],
           "platforms": [
-            "Windows x64 verified configuration; other platforms untested."
+            "Windows x64 verified configuration and actual certificate-backed Default EF/cache authentication; other platforms untested."
           ],
           "renderingModes": [
             "Not applicable: server-side database and cache consumer."
           ],
           "constraints": [
             "EF SQL Server and SQL distributed cache share this dependency-migration goal. SqlClient 6.1.7 includes built-in Entra providers; SqlClient 7.1.0 requires the directly referenced matching Microsoft.Data.SqlClient.Extensions.Azure 7.1.0 for driver-managed Active Directory authentication. Active Directory Default selects credentials available to the host; review that selection explicitly. Replace obsolete Active Directory Password with a supported host-appropriate flow. No password mode is retained in these samples. Application-supplied AccessToken/AccessTokenCallback does not require this extension merely to supply a token.",
-            "Actual SDK10.0.403/C#14/EF10.0.13/cache10.0.13/SqlClient6.1.7 versus SDK11.0.100-rc.3.26522.148/C#15/EF11 and cache11.0.0-rc.2.26504.105/SqlClient7.1.0/Azure extension7.1.0. Exact asset graphs are locked in each sample; runtime and package version are separate constraints. No older-runtime EF11 route is offered. Windows x64 compilation and configuration execution only; no rendering mode, workload or experimental opt-in. RC evidence is not GA verification."
+            "Actual SDK10.0.403/C#14/EF10.0.13/cache10.0.13/SqlClient6.1.7 versus SDK11.0.100-rc.3.26522.148/C#15/EF11 and cache11.0.0-rc.2.26504.105/SqlClient7.1.0/Azure extension7.1.0. Exact asset graphs are locked in each sample; runtime and package version are separate constraints. No older-runtime EF11 route is offered. Windows x64 compilation, configuration execution and real certificate-backed Default EF/cache authentication; no rendering mode, workload or experimental opt-in. RC evidence is not GA verification."
           ],
           "prerequisites": [
-            "Restore the pinned projects with their matching SDKs. For --connect, supply MARSH_SQL_CONNECTION with Active Directory Default and an authorized identity/target; precreate dbo.ObservationCache and grant the minimum cache DML permissions. Never use production resources. Run eng/Test-MarshAccess.ps1 for both configuration/provider checks without connecting."
+            "Restore the pinned projects with their matching SDKs. For --connect, supply MARSH_SQL_CONNECTION with Active Directory Default and an authorized identity/target; precreate dbo.ObservationCache and grant the minimum cache DML permissions. Never use production resources. Run eng/Test-MarshAccess.ps1 for both configuration/provider checks without connecting. Maintainers can repeat the approved PIN-679 isolated route with eng/Test-MarshEntra.ps1 -Record, which revokes temporary grants and removes its cache table; -CheckEvidence performs only read-only freshness checks."
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Stable SqlClient authentication APIs; EF/cache11 RC artifacts require GA reconciliation under PIN-965. Actual Entra proof remains pending PIN-958."
+            "Stable SqlClient authentication APIs; EF/cache11 RC2 artifacts on SDK11 RC3 require GA reconciliation under PIN-965. Certificate-backed Default route verified; interactive/MFA and managed/workload identity untested."
           ]
         },
         "conditional": false,
@@ -140,7 +140,7 @@
       "sdk": "10.0.403",
       "kind": "compile-and-run",
       "language": "14.0",
-      "scope": "Actual compilation and execution of EF/cache registration and built-in Entra provider availability. No token acquisition, SQL login, cache network operations, mocks or GA proof.",
+      "scope": "Actual compilation/configuration execution plus PIN-958 real driver-managed Active Directory Default certificate authentication: EF SQL connection and distributed-cache write/read/remove. Exact source/lock/runner hashes and dependency graphs in docs/verification/entra-sql.json; repeat with eng/Test-MarshEntra.ps1. Windows x64 only; no mocks or GA proof.",
       "target": "net10.0"
     },
     {
@@ -148,7 +148,7 @@
       "sdk": "11.0.100-rc.3.26522.148",
       "kind": "compile-and-run",
       "language": "15.0",
-      "scope": "Actual compilation and execution of EF/cache registration and built-in Entra provider availability. No token acquisition, SQL login, cache network operations, mocks or GA proof.",
+      "scope": "Actual compilation/configuration execution plus PIN-958 real driver-managed Active Directory Default certificate authentication: EF SQL connection and distributed-cache write/read/remove. Exact source/lock/runner hashes and dependency graphs in docs/verification/entra-sql.json; repeat with eng/Test-MarshEntra.ps1. Windows x64 only; no mocks or GA proof.",
       "target": "net11.0"
     }
   ],
@@ -215,7 +215,7 @@
     }
   },
   "humanProof": {
-    "status": "pending",
-    "scope": "PIN-958 / H_ENTRA_PROOF owns actual authorized Entra login and cache operations for these exact samples. PIN-679 identity is SELECT-only; additional grants require Pingu. Configuration execution does not acquire a token or connect. Pending Human gate blocks release readiness."
+    "status": "verified",
+    "scope": "PIN-958 / H_ENTRA_PROOF: Pingu approved isolated cache table and temporary table-only DML grants on 7 November 2026. Both unchanged original samples passed real EF login and cache write/read/remove using the PIN-679 certificate via driver-managed Active Directory Default. Temporary table/grants removed; no credentials recorded. See docs/verification/entra-sql.json and eng/Test-MarshEntra.ps1 -CheckEvidence. Other identity routes and GA remain unverified."
   }
 }
