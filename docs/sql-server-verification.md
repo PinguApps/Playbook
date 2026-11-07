@@ -111,7 +111,8 @@ This does not change root tool/test dependencies or their .NET 10 boundary.
 - The EF 11 result is RC evidence, not GA evidence. These probes establish access
   and basic provider compatibility, not every recipe's EF translation/migration.
   Each recipe still needs its own focused execution against its exact artifacts.
-- No Entra identity/authentication is established; PIN-679 owns that separate gate.
+- This SQL-password route establishes no Entra authentication. PIN-679 provides a
+  separate [authorized Entra container and client](entra-sql-verification.md).
   No cloud/Azure-specific behavior or installed MCP content changes are claimed.
 
 See Microsoft's [Linux full-text setup](https://learn.microsoft.com/en-us/sql/linux/install-upgrade/setup-full-text-search?view=sql-server-ver17),
