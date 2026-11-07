@@ -1,0 +1,215 @@
+{
+  "id": "mobile.capture-native-dotnet-diagnostics",
+  "edition": "11.0",
+  "title": "Collect native crash reports and retain matching symbols",
+  "goal": "Enable the workload crash writer and deliberately retain matching diagnostic artifacts when investigating a native app failure.",
+  "areas": [
+    "android",
+    "ios"
+  ],
+  "exampleLanguages": [],
+  "tags": [
+    "sandpiper-fieldwork",
+    "diagnostics"
+  ],
+  "apis": [
+    "EnableCrashReport",
+    "IpaIncludeSymbols",
+    "ArchiveOnBuild"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Comparisons preserve the eight .NET10 foundations; no older route added."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Native .NET11 workload; execution not-tested."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "SDK11 with compatible native workloads required; actual generation used SDK10.0.403 template engine and RC2 packages."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "C#15 for native test code; crash settings are language-neutral XML."
+          },
+          "frameworks": [
+            ".NET for Android",
+            ".NET for iOS"
+          ],
+          "packages": [],
+          "workloads": [
+            {
+              "name": "android",
+              "version": "11.0",
+              "match": "release-family",
+              "reason": "Matching native workload required for actual builds."
+            },
+            {
+              "name": "ios",
+              "version": "11.0",
+              "match": "release-family",
+              "reason": "Matching native workload required for actual builds."
+            }
+          ],
+          "packageAssets": [
+            "RC2 Android37.2.0-rc.2.84 and Apple27.0.12212-net11-rc.2 workload assets."
+          ],
+          "providers": [
+            "No service, account or external provider required."
+          ],
+          "platforms": [
+            "Android device/emulator; iOS device/simulator. Apple builds require matching Xcode27/macOS. tvOS, macOS and Mac Catalyst templates are additionally generated, not executed."
+          ],
+          "renderingModes": [
+            "Native application process; no browser rendering."
+          ],
+          "prerequisites": [
+            "Compatible native workload, Android SDK/JDK or Apple Xcode and separately authorized signing/device access."
+          ],
+          "constraints": [
+            "SDK11 native builds and all device/Apple execution not-tested under PIN-699.",
+            "No .NET10 catalogue edition or older-target package route is added.",
+            "No package publication, provisioning, trust change or pending Human action."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "RC2 source/artifact preparation, not GA verification."
+          ]
+        },
+        "sourceUrls": [
+          "https://raw.githubusercontent.com/dotnet/android/801f9ecbab5118b13d21cb52409e507ad4b2feb7/Documentation/docs-mobile/building-apps/build-properties.md",
+          "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/docs/building-apps/build-properties.md",
+          "https://api.nuget.org/v3-flatcontainer/microsoft.android.templates/37.2.0-rc.2.84/microsoft.android.templates.37.2.0-rc.2.84.nupkg",
+          "https://api.nuget.org/v3-flatcontainer/microsoft.ios.templates/27.0.12212-net11-rc.2/microsoft.ios.templates.27.0.12212-net11-rc.2.nupkg",
+          "https://api.nuget.org/v3-flatcontainer/microsoft.tvos.templates/27.0.12212-net11-rc.2/microsoft.tvos.templates.27.0.12212-net11-rc.2.nupkg",
+          "https://api.nuget.org/v3-flatcontainer/microsoft.macos.templates/27.0.12212-net11-rc.2/microsoft.macos.templates.27.0.12212-net11-rc.2.nupkg",
+          "https://api.nuget.org/v3-flatcontainer/microsoft.maccatalyst.templates/27.0.12212-net11-rc.2/microsoft.maccatalyst.templates.27.0.12212-net11-rc.2.nupkg"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/SandpiperCrashAndroid/SandpiperCrashAndroid.csproj",
+          "samples/net11.0/SandpiperCrashApple/SandpiperCrashApple.csproj"
+        ],
+        "neutralLanguages": [
+          "csharp",
+          "fsharp",
+          "vb"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Pinned official build-properties.md",
+      "url": "https://raw.githubusercontent.com/dotnet/android/801f9ecbab5118b13d21cb52409e507ad4b2feb7/Documentation/docs-mobile/building-apps/build-properties.md"
+    },
+    {
+      "title": "Pinned official build-properties.md",
+      "url": "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/docs/building-apps/build-properties.md"
+    },
+    {
+      "title": "Pinned official microsoft.android.templates.37.2.0-rc.2.84.nupkg",
+      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.android.templates/37.2.0-rc.2.84/microsoft.android.templates.37.2.0-rc.2.84.nupkg"
+    },
+    {
+      "title": "Pinned official microsoft.ios.templates.27.0.12212-net11-rc.2.nupkg",
+      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.ios.templates/27.0.12212-net11-rc.2/microsoft.ios.templates.27.0.12212-net11-rc.2.nupkg"
+    },
+    {
+      "title": "Pinned official microsoft.tvos.templates.27.0.12212-net11-rc.2.nupkg",
+      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.tvos.templates/27.0.12212-net11-rc.2/microsoft.tvos.templates.27.0.12212-net11-rc.2.nupkg"
+    },
+    {
+      "title": "Pinned official microsoft.macos.templates.27.0.12212-net11-rc.2.nupkg",
+      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.macos.templates/27.0.12212-net11-rc.2/microsoft.macos.templates.27.0.12212-net11-rc.2.nupkg"
+    },
+    {
+      "title": "Pinned official microsoft.maccatalyst.templates.27.0.12212-net11-rc.2.nupkg",
+      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.maccatalyst.templates/27.0.12212-net11-rc.2/microsoft.maccatalyst.templates.27.0.12212-net11-rc.2.nupkg"
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "compile",
+      "sample": "samples/net10.0/SandpiperCrashAndroid/SandpiperCrashAndroid.csproj",
+      "language": "14.0",
+      "target": "net10.0-android36.0",
+      "sdk": "10.0.402",
+      "scope": "Windows managed configuration-library compilation; no app packaging or execution."
+    },
+    {
+      "kind": "compile",
+      "sample": "samples/net10.0/SandpiperCrashApple/SandpiperCrashApple.csproj",
+      "language": "14.0",
+      "target": "net10.0-ios26.0",
+      "sdk": "10.0.402",
+      "scope": "Windows managed configuration-library compilation; no app packaging or execution."
+    },
+    {
+      "kind": "official-review",
+      "sample": "samples/net11.0/SandpiperCrashAndroid/SandpiperCrashAndroid.csproj",
+      "language": "15.0",
+      "target": "net11.0-android37.0",
+      "sdk": "11.0.100-rc.3.26522.148",
+      "scope": "Pinned RC2 source/artifact review and actual template generation; native compilation/execution not-tested."
+    },
+    {
+      "kind": "official-review",
+      "sample": "samples/net11.0/SandpiperCrashApple/SandpiperCrashApple.csproj",
+      "language": "15.0",
+      "target": "net11.0-ios27.0",
+      "sdk": "11.0.100-rc.3.26522.148",
+      "scope": "Pinned RC2 source/artifact review and actual template generation; native compilation/execution not-tested."
+    }
+  ],
+  "humanProof": {
+    "status": "not-tested",
+    "untestedSamples": [
+      "samples/net10.0/SandpiperCrashAndroid/SandpiperCrashAndroid.csproj",
+      "samples/net10.0/SandpiperCrashApple/SandpiperCrashApple.csproj",
+      "samples/net11.0/SandpiperCrashAndroid/SandpiperCrashAndroid.csproj",
+      "samples/net11.0/SandpiperCrashApple/SandpiperCrashApple.csproj"
+    ],
+    "scope": "PIN-699: native app packaging, linking, signing and device/Apple execution not-tested for the named samples. SDK11 native workload compilation unavailable. Configuration libraries are not complete crash-producing apps. Template generation is not test execution. No Human proof is pending."
+  },
+  "snippets": {
+    "net10-sandpipercrashandroid": {
+      "language": "xml",
+      "region": "complete",
+      "path": "samples/net10.0/SandpiperCrashAndroid/SandpiperCrashAndroid.csproj"
+    },
+    "net10-sandpipercrashapple": {
+      "language": "xml",
+      "region": "complete",
+      "path": "samples/net10.0/SandpiperCrashApple/SandpiperCrashApple.csproj"
+    },
+    "net11-sandpipercrashandroid": {
+      "language": "xml",
+      "region": "complete",
+      "path": "samples/net11.0/SandpiperCrashAndroid/SandpiperCrashAndroid.csproj"
+    },
+    "net11-sandpipercrashapple": {
+      "language": "xml",
+      "region": "complete",
+      "path": "samples/net11.0/SandpiperCrashApple/SandpiperCrashApple.csproj"
+    }
+  },
+  "languageNeutral": true
+}

@@ -1,5 +1,34 @@
 # Inspect the guidance an agent receives
 
+## Native crash collection and in-app platform tests
+
+PIN-933/PIN-934 add original Sandpiper comparisons at edition11.0. PowerShell7,
+SDK10.0.403 and Node22.19+ run the package inspection. The authoring check also
+uses the installed system SDK10.0.402 Android/iOS workloads for older managed
+configuration compilation. Setup downloads exact RC2 templates and Inspector;
+no package is published. From an unrelated directory:
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-2ecaa10c'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('mobile.capture-native-dotnet-diagnostics','mobile.run-tests-in-app-process') `
+  -Query 'sandpiper-fieldwork' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin933-934' -BuildAndPack `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory './artifacts/sandpiper/inspection'
+```
+
+Expect both ID/title/goal summaries, full expanded Markdown, edition11 and
+applicability. Target10 returns no_applicable_edition. The existing harness
+installs that exact ordinary artifact in an isolated feed/cache and calls real
+stdio list/get outside the checkout with unusable proxies. This proves embedded
+offline retrieval, not OS network isolation. All five RC2 native test templates
+generate on Windows; both older diagnostic configuration libraries compile.
+SDK11 native builds fail NETSDK1147; native app packaging, device test execution,
+crash collection and symbolication remain not-tested under PIN-699. Generation
+does not verify a composed SDK11 workload or GA behavior; no Human proof is pending.
+
 ## Apple manifest, framework contents and nullable factories
 
 PIN-931/PIN-932 add three original Oystercatcher comparisons. SDK10.0.402

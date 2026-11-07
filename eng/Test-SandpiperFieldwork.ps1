@@ -34,13 +34,15 @@ try {
  }
  foreach($name in 'SandpiperCrashAndroid','SandpiperCrashApple'){
   $sample="samples/net10.0/$name/$name.csproj"
-  Push-Location (Split-Path $sample)
-  try { & $OlderDotnet restore "$name.csproj" --force-evaluate } finally {Pop-Location}
-  $assets=Get-Content "samples/net10.0/$name/obj/project.assets.json" -Raw|ConvertFrom-Json -AsHashtable
-  $manifest=Get-Content "samples/net10.0/$name/verification.json" -Raw|ConvertFrom-Json
-  $manifest.dependencies=@($assets.libraries.Keys|Sort-Object)
-  $manifest|ConvertTo-Json -Depth 10|Set-Content "samples/net10.0/$name/verification.json"
-  if($Record){ & "$PSScriptRoot/Record-Evidence.ps1" -Sample $sample -Dotnet $OlderDotnet -Kind compile }
+  if($Record){
+   Push-Location (Split-Path $sample)
+   try { & $OlderDotnet restore "$name.csproj" --force-evaluate } finally {Pop-Location}
+   $assets=Get-Content "samples/net10.0/$name/obj/project.assets.json" -Raw|ConvertFrom-Json -AsHashtable
+   $manifest=Get-Content "samples/net10.0/$name/verification.json" -Raw|ConvertFrom-Json
+   $manifest.dependencies=@($assets.libraries.Keys|Sort-Object)
+   [IO.File]::WriteAllText((Join-Path $root "samples/net10.0/$name/verification.json"),(($manifest|ConvertTo-Json -Depth 10)+"`n").Replace("`r`n","`n"))
+   & "$PSScriptRoot/Record-Evidence.ps1" -Sample $sample -Dotnet $OlderDotnet -Kind compile
+  }
   else {Push-Location (Split-Path $sample);try{& $OlderDotnet build "$name.csproj" -c Release -p:RestoreLockedMode=true}finally{Pop-Location}}
  }
  if($Record){
