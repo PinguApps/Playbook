@@ -19,7 +19,10 @@ try {
   $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH = '0'
   if ($VerifySources) {
     $manifest = Get-Content -LiteralPath (Join-Path $root 'docs/planning/audits/archive-path-handle-clock.sources.json') -Raw | ConvertFrom-Json
-    foreach ($source in ($manifest.sources | Where-Object id -In @('windows-clock','environment-windows','system-runtime-10','system-runtime-11'))) {
+    $sourceIds = @('windows-clock','environment-windows','system-runtime-10','system-runtime-11')
+    $selected = @($manifest.sources | Where-Object id -In $sourceIds)
+    if ($selected.Count -ne 4 -or @($selected.id | Sort-Object -Unique).Count -ne 4) { throw 'Expected exactly four distinct deadline sources.' }
+    foreach ($source in $selected) {
       $bytes = (Invoke-WebRequest -Uri $source.url).RawContentStream.ToArray()
       $hash = [Convert]::ToHexString([Security.Cryptography.SHA256]::HashData($bytes)).ToLowerInvariant()
       if ($hash -cne $source.sha256) { throw "Source changed: $($source.id)" }
