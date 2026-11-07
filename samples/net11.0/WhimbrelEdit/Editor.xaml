@@ -1,0 +1,17 @@
+<!-- snippet:complete -->
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:WhimbrelEdit"
+             x:DataType="local:TrailReading">
+  <ContentPage.Resources>
+    <local:DistanceConverter x:Key="DistanceConverter" />
+  </ContentPage.Resources>
+  <VerticalStackLayout>
+    <!-- x:DataType supplies the compiled binding's source type. -->
+    <Entry Text="{Binding Distance, Mode=TwoWay, Converter={StaticResource DistanceConverter}, ConverterCulture=fr-FR}" />
+    <!-- Plain conversion has built-in empty-to-null, but ordinary numeric parsing
+         still uses CurrentCulture. Use it only when that is the product's intent. -->
+    <Entry Text="{Binding Distance, Mode=TwoWay}" />
+  </VerticalStackLayout>
+</ContentPage>
+<!-- endsnippet:complete -->

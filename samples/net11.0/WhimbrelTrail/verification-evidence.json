@@ -1,0 +1,32 @@
+{
+  "kind": "official-review",
+  "sample": "samples/net11.0/WhimbrelTrail/WhimbrelTrail.csproj",
+  "target": "net11.0-android37.2",
+  "sdk": "11.0.100-rc.3.26522.148",
+  "language": "15.0",
+  "command": "eng/Test-WhimbrelGuidance.ps1 -Record",
+  "scope": "Exact pinned official source review. Current native build attempts fail NETSDK1147. No current restore, compilation or native/device execution claim.",
+  "recordedAt": "2026-11-07T00:54:57.6899864+00:00",
+  "sourceCommit": "73a46de273a442fd1d3b7ad5db5b81888552e2d4",
+  "sourceDirty": true,
+  "inputs": {
+    "eng/Test-WhimbrelGuidance.ps1": "c46340cfbc84aa677f64b87363885c27a1e8ab798461b80d568c15ae765f753f",
+    "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
+    "samples/Directory.Build.targets": "17284cb74605517cbec8a8153505da71a685b28694b67b5ef80608cd79b1c0ea",
+    "samples/net11.0/WhimbrelTrail/Directory.Build.props": "c4206791e1a6b32234928ae390677bec4081e8b1cd76d59416f638799db6a89b",
+    "samples/net11.0/WhimbrelTrail/Directory.Packages.props": "17284cb74605517cbec8a8153505da71a685b28694b67b5ef80608cd79b1c0ea",
+    "samples/net11.0/WhimbrelTrail/global.json": "a0d2d44045cc9132860f8638659a380191fad91bfea383684aa4c2696fb1a0b7",
+    "samples/net11.0/WhimbrelTrail/TrailMap.cs": "a097fa801590864bd5f5a831db729297999b9c4a7393fecc4154a36f57f41da2",
+    "samples/net11.0/WhimbrelTrail/verification.json": "005061cefc95109ff7c86a6d8002aac72447af66c57dff31512ef1858e552347",
+    "samples/net11.0/WhimbrelTrail/WhimbrelTrail.csproj": "073c558b2e37c2269c58867bcdd73e1903c3990fa75219d4c6defef2ae9135ed",
+    "samples/WhimbrelGuidance/sources.json": "b54eaec117e7b2675dbfd47c9c20567c3c9f38cf0665d2238fa89087b9890e45",
+    "samples/WhimbrelPackages/Marker.cs": "1759987dadbac93cf0258f2f88856e09b09d077430fa124fc23725662c4a496d"
+  },
+  "dependencies": [],
+  "workloads": [],
+  "nativeToolchains": [],
+  "host": "Microsoft Windows 10.0.26200",
+  "sdkInfo": "Intended RC3 SDK; current native build fails before compilation.",
+  "workloadInfo": "Current Android/iOS workloads unavailable; NETSDK1147 observed.",
+  "output": "PASS pinned official sources; current native restore/build and device behavior not-tested under PIN-699."
+}

@@ -1,0 +1,3 @@
+<!-- snippet:complete -->
+<Project Sdk="Microsoft.NET.Sdk"><PropertyGroup><TargetFramework>net10.0-android36.0</TargetFramework><LangVersion>14.0</LangVersion><OutputType>Library</OutputType><RestorePackagesWithLockFile>true</RestorePackagesWithLockFile><MarkerVersion Condition="'$(MarkerVersion)' == ''">1.0.0</MarkerVersion></PropertyGroup><ItemGroup><PackageReference Include="Whimbrel.Trail.Markers" Version="$(MarkerVersion)" /></ItemGroup></Project>
+<!-- endsnippet:complete -->

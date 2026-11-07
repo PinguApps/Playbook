@@ -1,0 +1,11 @@
+{
+  "workloads": [],
+  "buildArguments": [],
+  "additionalInputs": [
+    "samples/WhimbrelPackages",
+    "eng/Test-WhimbrelGuidance.ps1",
+    "samples/WhimbrelGuidance/sources.json"
+  ],
+  "nativeToolchains": [],
+  "dependencies": []
+}

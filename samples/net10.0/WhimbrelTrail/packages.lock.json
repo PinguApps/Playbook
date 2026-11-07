@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "dependencies": {
+    "net10.0-android36.0": {
+      "Whimbrel.Trail.Markers": {
+        "type": "Direct",
+        "requested": "[2.0.0, )",
+        "resolved": "2.0.0",
+        "contentHash": "QnijqFGP88UoFLeu2G3cXoRJLQ3h5CVc+bLq8yiHCxGdRH3c7IM+9ZJEXqHKc9g6qZ7diVIZ4N6J55tx+yDGRQ=="
+      }
+    }
+  }
+}

@@ -1,5 +1,36 @@
 # Inspect the guidance an agent receives
 
+## Legacy Android assets and nullable mobile consumers
+
+PIN-1069/PIN-1187/PIN-1188 add three Whimbrel recipes at edition11.0.
+The authoring runner checks original local package selections with the older
+Android workload and executes actual old/current MAUI neutral binding engines.
+The older CoreNFC library compiles; native UI/XAML generation, current native
+workload builds, current NU1703 emission/suppression and Apple/device behavior
+remain explicitly not-tested under PIN-699. No GA or device claim is made.
+
+From any directory, in PowerShell7.4+, with the installed SDK10.0.403,
+Node22.19+ and the older SDK10.0.402 Android/iOS workloads:
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-5e3ae123'
+& ./eng/Test-WhimbrelGuidance.ps1
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('android.replace-monoandroid-package-assets','maui.edit-nullable-values-with-converter-culture','apple.handle-nullable-native-results') `
+  -Query 'whimbrel-guidance' -RecipeEdition '11.0' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin1069-1187-1188' -BuildAndPack `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' -OutputDirectory './artifacts/whimbrel/inspection'
+```
+
+Expect three ID/title/goal summaries, full expanded canonical Markdown,
+edition11 applicability and fresh evidence. Target10 returns no_applicable_edition;
+the eight foundations remain unchanged. The harness builds/packs the ordinary
+tool, installs that exact artifact through an isolated feed/cache and calls real
+stdio list/get from an unrelated directory with unusable proxies. This proves
+offline embedded retrieval and proxy independence, not OS network isolation.
+Downloads support setup; nothing is publicly published.
+
 ## Native crash collection and in-app platform tests
 
 PIN-933/PIN-934 add original Sandpiper comparisons at edition11.0. PowerShell7,
