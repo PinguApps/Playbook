@@ -84,10 +84,16 @@
               "match": "release-family",
               "version": "11.0",
               "name": "Microsoft.Extensions.Caching.SqlServer"
+            },
+            {
+              "reason": "Explicit reviewed cryptography baseline for the SqlClient dependency graph in both consumers.",
+              "match": "exact",
+              "version": "10.0.13",
+              "name": "System.Security.Cryptography.Pkcs"
             }
           ],
           "packageAssets": [
-            "Actual SDK10.0.403/C#14/EF10.0.13/cache10.0.13/SqlClient6.1.7 versus SDK11.0.100-rc.3.26522.148/C#15/EF11 and cache11.0.0-rc.2.26504.105/SqlClient7.1.0/Azure extension7.1.0. Exact asset graphs are locked in each sample; runtime and package version are separate constraints. No older-runtime EF11 route is offered. Windows x64 compilation and configuration execution only; no rendering mode, workload or experimental opt-in. RC evidence is not GA verification."
+            "Actual SDK10.0.403/C#14/EF10.0.13/cache10.0.13/SqlClient6.1.7 versus SDK11.0.100-rc.3.26522.148/C#15/EF11 and cache11.0.0-rc.2.26504.105/SqlClient7.1.0/Azure extension7.1.0. Exact asset graphs are locked in each sample; runtime and package version are separate constraints. No older-runtime EF11 route is offered. Windows x64 compilation and configuration execution only; no rendering mode, workload or experimental opt-in. RC evidence is not GA verification. Both projects directly pin System.Security.Cryptography.Pkcs 10.0.13; the exact assets are retained in their lock files."
           ],
           "providers": [
             "SQL Server with Entra authentication; actual authorized login/cache proof pending PIN-958 (H_ENTRA_PROOF)."
@@ -104,7 +110,7 @@
             "Actual SDK10.0.403/C#14/EF10.0.13/cache10.0.13/SqlClient6.1.7 versus SDK11.0.100-rc.3.26522.148/C#15/EF11 and cache11.0.0-rc.2.26504.105/SqlClient7.1.0/Azure extension7.1.0. Exact asset graphs are locked in each sample; runtime and package version are separate constraints. No older-runtime EF11 route is offered. Windows x64 compilation and configuration execution only; no rendering mode, workload or experimental opt-in. RC evidence is not GA verification."
           ],
           "prerequisites": [
-            "Restore the pinned projects with their matching SDKs. For --connect, supply MARSH_SQL_CONNECTION with Active Directory Default and an authorized identity/target; precreate dbo.ObservationCache and grant the minimum cache DML permissions. Never use production resources."
+            "Restore the pinned projects with their matching SDKs. For --connect, supply MARSH_SQL_CONNECTION with Active Directory Default and an authorized identity/target; precreate dbo.ObservationCache and grant the minimum cache DML permissions. Never use production resources. Run eng/Test-MarshAccess.ps1 for both configuration/provider checks without connecting."
           ],
           "optIns": [],
           "stabilityLimitations": [

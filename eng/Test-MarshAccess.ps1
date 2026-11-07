@@ -1,7 +1,8 @@
 [CmdletBinding()]
-param([string]$Dotnet = 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe')
+param([string]$Dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source)
 $ErrorActionPreference = 'Stop'
 $PSNativeCommandUseErrorActionPreference = $true
+if (![IO.Path]::IsPathFullyQualified($Dotnet) -or !(Test-Path -LiteralPath $Dotnet -PathType Leaf)) { throw 'Supply an existing absolute dotnet executable path.' }
 $before = @{}
 foreach ($scope in 'Process','User','Machine') { $before[$scope] = [Environment]::GetEnvironmentVariable('PATH', $scope) }
 $previous = $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH
