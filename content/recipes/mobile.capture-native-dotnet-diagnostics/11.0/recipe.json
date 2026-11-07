@@ -48,7 +48,7 @@
             "name": "C#",
             "version": "15.0",
             "match": "exact",
-            "reason": "C#15 for native test code; crash settings are language-neutral XML."
+            "reason": "C#15 for the current configuration-library marker; the authored crash settings are language-neutral XML."
           },
           "frameworks": [
             ".NET for Android",

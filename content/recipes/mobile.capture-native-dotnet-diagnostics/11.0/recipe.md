@@ -32,8 +32,8 @@ The .NET10 fragments preserve archive and symbol intent without claiming the new
 
 ## Constraints
 
-Requires a compatible .NET11 native workload composition and platform toolchain. Source/template package preparation is RC2 evidence, not GA or native execution. Native test apps require MSTest4.3.2 and an MTP runner; crash configuration requires no service account. Unavailable native checks are sample-specific not-tested exclusions under PIN-699; no Human proof is pending.
+Requires a compatible .NET11 native workload composition and platform toolchain. Source preparation is RC2 evidence, not GA or native execution. Crash configuration requires no service account. Unavailable native checks are sample-specific not-tested exclusions under PIN-699; no Human proof is pending.
 
 ## Evidence
 
-Run eng/Test-SandpiperFieldwork.ps1 -Record for exact official input hashes, five actual template generations and feasible older configuration compilation. Canonical current native compilation and all native runtime behavior are explicitly not-tested under PIN-699. Actual template generation uses the host SDK10 engine with exact RC2 template packages; it does not establish a composed SDK11 native build. Packed stdio list/get verifies offline guidance delivery only. No GA, symbolication, crash collection or device-test execution is inferred; no Human proof is pending. The eight .NET10 foundations and comprehensive/GA gates remain unchanged.
+Run eng/Test-SandpiperFieldwork.ps1 -Record for exact official input hashes and feasible older configuration compilation. Canonical current native compilation and all native runtime behavior are explicitly not-tested under PIN-699. The current fragments have not been restored: their lock-file setting requests a lock file on a future supported restore, but no resolved dependency set or committed lock file is claimed. Packed stdio list/get verifies offline guidance delivery only. No GA, symbolication or crash collection is inferred; no Human proof is pending. The eight .NET10 foundations and comprehensive/GA gates remain unchanged.

@@ -12,7 +12,7 @@ no package is published. From an unrelated directory:
 Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-2ecaa10c'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('mobile.capture-native-dotnet-diagnostics','mobile.run-tests-in-app-process') `
-  -Query 'sandpiper-fieldwork' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -Query 'sandpiper-fieldwork' -RecipeEdition '11.0' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
   -PackageVersion '0.0.0-pin933-934' -BuildAndPack `
   -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' `

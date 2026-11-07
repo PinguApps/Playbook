@@ -53,7 +53,7 @@
             "name": "C#",
             "version": "15.0",
             "match": "exact",
-            "reason": "C#15 for native test code; crash settings are language-neutral XML."
+            "reason": "C#15 for the canonical native test assertions and generated app bootstrap."
           },
           "frameworks": [
             ".NET for Android",
