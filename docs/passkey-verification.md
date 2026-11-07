@@ -1,6 +1,7 @@
 # Passkey verification access
 
-Pingu approved the PIN-701 disposition on 7 November 2026: document the native
+Pingu approved the [PIN-701 disposition](https://linear.app/pinguapps/issue/PIN-701/01-025-provide-passkey-trust-signing-and-device-prerequisites)
+on 7 November 2026 (owner decision recorded in the issue comments): document the native
 exclusion; make no trust or signing changes. No relying-party service, account,
 credential, certificate trust, domain association or signing identity is provisioned
 by this decision. A separate localhost browser setup is outside this task.
@@ -19,8 +20,9 @@ while those inputs and conditions remain valid; it does not prove device approva
 
 The [Windows authoring assessment](verification/native-authoring.md) records a
 separate MAUI Windows host probe failing **NETSDK1147** (diagnostic names
-`maui-tizen`). The selected .NET 11 root advertises a preview workload but lacks
-the MAUI SDK pack; its pack inventory was checked again for PIN-701. There is no
+`maui-tizen`). That assessment measured the separate RC2 SDK root. For PIN-701,
+the RC3 root `C:\Users\pingu\AppData\Local\dotnetup\dotnet` was also checked:
+its `packs` directory contains no `Microsoft.Maui.Sdk*` pack. There is no
 usable canonical native client here for a registration/authentication ceremony.
 No workload installation or new native environment is required.
 
