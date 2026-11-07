@@ -38,8 +38,37 @@ checks and any other pending Human gates remain required where applicable.
 
 No native ceremony or browser ceremony was executed for PIN-701. Browser approval,
 an `IsSupported` result and adapter compilation cannot verify the MAUI route.
-PIN-936 remains separate ceremony work; its open status is not a promise to obtain
-an unavailable environment or a reason to block publication of this exclusion.
+For PIN-936, Pingu selected **“Reconcile as not-tested exclusion”** on 7 November
+2026 in the implementation conversation. Native host, device registration and
+authentication, and server challenge/response verification remain not-tested.
+No separate browser setup is authorized and no ceremony result is available.
+This disposition leaves no pending Human ceremony for the unavailable route and
+does not require another environment or block publication. The existing recipe
+evidence retains the exact sample exclusion and compilation/input identity;
+it is not relabelled as execution evidence. Feasible local checks and any other
+provider/security or Human gates remain unchanged.
+
+## Inspect the recorded exclusion
+
+From any directory, with PowerShell 7, SDK 10.0.403 and Node 22.19+ at the
+paths below, build and install the ordinary package into an isolated feed/cache,
+then call real MCP list/get from an unrelated directory:
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-846cd1f7'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId 'maui.authenticate-with-platform-passkeys' -Query 'passkeys' `
+  -RecipeEdition '11.0' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin936' -BuildAndPack `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory './artifacts/passkeys/inspection'
+```
+
+Expect ID/title/goal, full Markdown and applicability for edition 11.0, current
+compilation input freshness and the explicit native not-tested scope. Target
+10.0 has no applicable edition. This checks delivered guidance, not a ceremony
+or server verifier. Setup downloads Inspector; nothing is publicly published.
 
 ## Approval boundary if the route becomes available
 

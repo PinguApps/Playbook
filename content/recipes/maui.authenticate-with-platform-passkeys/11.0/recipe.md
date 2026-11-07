@@ -25,7 +25,7 @@ Start on the active window's UI thread. Cancellation and user dismissal do not m
 3. For Android, host Digital Asset Links at the RP domain, binding the exact package name and SHA-256 signing certificate; debug and release certificates differ. Accept only their deliberate android:apk-key-hash origins on the server. Require Android 14+ and a configured credential provider/screen lock.
 4. For iOS/Mac Catalyst, configure the webcredentials associated-domain entitlement and apple-app-site-association with the exact team/app identity. The server accepts the associated HTTPS origin. iOS API floor is 16; .NET 11's effective Mac Catalyst deployment floor is 17. These integrations are source-reviewed, not built here.
 5. On Windows, configure Windows Hello or a compatible FIDO2 key, use Windows 10 1903+, and expect the native origin https:// followed by the RP ID. Windows has no Apple/Android association file. Keep a real active UI window.
-6. Post responses to the RP server, check its verified result, and issue a session only there. Test registration, sign-in, denial/cancellation, wrong origin and replay independently. PIN-936 holds Human device approval; it has not run.
+6. Post responses to the RP server, check its verified result, and issue a session only there. Test registration, sign-in, denial/cancellation, wrong origin and replay independently when an approved route is available. PIN-936 records an explicit not-tested exclusion; no ceremony or server verification has run.
 
 ## Constraints
 
@@ -33,7 +33,7 @@ This sample is a compiled Windows adapter, not a complete MAUI application or a 
 
 ## Evidence
 
-The exact RC2 Windows Essentials asset compiles this adapter with SDK 11 RC3. Immutable platform source establishes JSON ownership, native origin derivation and window requirements. It does not prove a device ceremony or server interoperability. PIN-701 setup and PIN-936 Human execution remain separate and open; the unavailable native route is excluded from publication prerequisites under PIN-699. No endpoint, signing/trust setup or physical ceremony was provisioned. No GA, Android, Apple, browser or Windows Hello execution is claimed.
+The exact RC2 Windows Essentials asset compiles this adapter with SDK 11 RC3. Immutable platform source establishes JSON ownership, native origin derivation and window requirements. It does not prove a device ceremony or server interoperability. Under PIN-699, Pingu approved the PIN-701 native access exclusion and the PIN-936 not-tested ceremony disposition on 7 November 2026. No Human ceremony is pending for this unavailable route, and it is excluded from publication prerequisites. The exact sample/input identity remains in the existing compilation record. No endpoint, signing/trust setup or physical ceremony was provisioned. No GA, Android, Apple, browser or Windows Hello execution is claimed; no server challenge/response verification result is available.
 
 ## Canonical inputs
 
