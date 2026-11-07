@@ -1209,3 +1209,8 @@
 /samples/net11.0/SandpiperCrashApple/verification-evidence.json
 /samples/net11.0/SandpiperPlatformAndroid/verification-evidence.json
 /samples/net11.0/SandpiperPlatformIos/verification-evidence.json
+
+# InspectionDeadline generated receipts; review canonical policy, checks, pins and recorder.
+# Ordinary build/pack verifies saved input freshness.
+/samples/net10.0/InspectionDeadline/verification-evidence.json
+/samples/net11.0/InspectionDeadline/verification-evidence.json

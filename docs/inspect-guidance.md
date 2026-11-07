@@ -1,5 +1,33 @@
 # Inspect the guidance an agent receives
 
+## Deadlines across system sleep
+
+PIN-1044 delivers `runtime.choose-sleep-aware-deadlines`, edition11/target11.
+Paired real consumers test UTC expiry and ordinary OS waits; deterministic clocks
+test forward/backward correction policy separately. Physical sleep/resume,
+hibernation and waits spanning suspend are explicitly not-tested under Pingu's
+7 November 2026 approval. Nothing suspends the workstation or establishes GA proof.
+
+From any directory, in PowerShell7 with the installed SDK10.0.403/SDK11RC3 and Node:
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-71ea7910'
+& ./eng/Record-InspectionDeadline.ps1 -VerifySources
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('runtime.choose-sleep-aware-deadlines') -Query 'inspection-deadline' `
+  -RecipeEdition '11.0' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin1044' -BuildAndPack `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' -OutputDirectory './artifacts/deadline/inspection'
+```
+
+Expect discovery ID/title/goal, complete canonical Markdown, explicit applicability,
+current evidence and the physical-test exclusion. Target10 returns
+`no_applicable_edition`. Setup builds/packs the ordinary tool and downloads
+Inspector if needed; the exact artifact installs from an isolated local feed/cache
+and real stdio list/get runs from an unrelated directory with unusable proxies.
+This proves embedded offline retrieval, not OS network isolation. Nothing is published.
+
 ## Real Entra authentication after a SQL driver upgrade
 
 PIN-958 verifies the unchanged .NET 10/11 MarshAccess samples using the approved

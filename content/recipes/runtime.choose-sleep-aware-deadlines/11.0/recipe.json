@@ -1,0 +1,155 @@
+{
+  "id": "runtime.choose-sleep-aware-deadlines",
+  "edition": "11.0",
+  "title": "Choose whether a deadline includes system sleep",
+  "goal": "Choose an elapsed retry budget or an absolute UTC expiry when deadlines must account for system sleep and civil-clock adjustments.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "migration",
+    "timing",
+    "inspection-deadline"
+  ],
+  "apis": [
+    "Environment.TickCount64",
+    "Environment.TickCount",
+    "TimeProvider.GetUtcNow",
+    "DateTimeOffset.UtcNow"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "wpf",
+          "winforms"
+        ],
+        "selectionNotes": [
+          "Choose an elapsed retry budget or an absolute UTC expiry when deadlines must account for system sleep and civil-clock adjustments.",
+          "Older samples are comparisons, not additional catalogue targets."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "The primary route uses the net11.0 framework/package asset and .NET 11 behavior."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build the declared net11.0 consumer with a matching SDK."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "The canonical .NET 11 project selects C# 15; the comparison project selects C# 14."
+          },
+          "frameworks": [],
+          "packages": [],
+          "packageAssets": [
+            "Microsoft.NETCore.App.Ref ref/net11.0 and Microsoft.NETCore.App runtime; framework-supplied APIs, no added NuGet package"
+          ],
+          "workloads": [],
+          "providers": [],
+          "platforms": [
+            "Windows desktop/server .NET; physical sleep/resume and hibernation explicitly not tested. No browser/WASI or other-platform execution claim."
+          ],
+          "renderingModes": [],
+          "prerequisites": [
+            "Choose whether the policy measures awake elapsed time or an absolute UTC expiry; persist business expiry separately from boot-relative ticks."
+          ],
+          "constraints": [
+            "UTC can jump forward/backward; use the documented latch policy and recheck at the point of action.",
+            "TickCount64 excludes sleep on Windows starting .NET 11 according to official sources; no physical suspend proof is supplied.",
+            "TickCount has a 32-bit wrap period; prefer TickCount64. No timer-resolution or real-time scheduling guarantee."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Stable framework APIs; no experimental opt-in. Actual RC3 execution is not GA verification."
+          ]
+        },
+        "sourceUrls": [
+          "https://raw.githubusercontent.com/dotnet/docs/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/core/compatibility/core-libraries/11/environment-tickcount-windows-behavior.md",
+          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Environment.Windows.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Runtime/ref/System.Runtime.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Runtime/ref/System.Runtime.cs"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/InspectionDeadline/InspectionDeadline.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "windows-clock",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/core/compatibility/core-libraries/11/environment-tickcount-windows-behavior.md"
+    },
+    {
+      "title": "environment-windows",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Environment.Windows.cs"
+    },
+    {
+      "title": "system-runtime-10",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Runtime/ref/System.Runtime.cs"
+    },
+    {
+      "title": "system-runtime-11",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Runtime/ref/System.Runtime.cs"
+    }
+  ],
+  "evidence": [
+    {
+      "target": "net10.0",
+      "language": "14.0",
+      "scope": "Real consumer: UTC past/future checks, ordinary unsignaled OS wait and tick observations; separately deterministic forward/backward clock-jump and expiry-boundary checks. No physical suspend.",
+      "sample": "samples/net10.0/InspectionDeadline/InspectionDeadline.csproj",
+      "kind": "compile-and-run",
+      "sdk": "10.0.403"
+    },
+    {
+      "target": "net11.0",
+      "language": "15.0",
+      "scope": "Real consumer: UTC past/future checks, ordinary unsignaled OS wait and tick observations; separately deterministic forward/backward clock-jump and expiry-boundary checks. No physical suspend.",
+      "sample": "samples/net11.0/InspectionDeadline/InspectionDeadline.csproj",
+      "kind": "compile-and-run",
+      "sdk": "11.0.100-rc.3.26522.148"
+    }
+  ],
+  "snippets": {
+    "budget": {
+      "region": "budget",
+      "language": "csharp",
+      "path": "samples/net11.0/InspectionDeadline/InspectionDeadline.cs"
+    },
+    "expiry": {
+      "region": "expiry",
+      "language": "csharp",
+      "path": "samples/net11.0/InspectionDeadline/InspectionDeadline.cs"
+    }
+  },
+  "humanProof": {
+    "status": "not-tested",
+    "untestedSamples": [
+      "samples/net10.0/InspectionDeadline/InspectionDeadline.csproj",
+      "samples/net11.0/InspectionDeadline/InspectionDeadline.csproj"
+    ],
+    "scope": "Pingu approved delivery with this exclusion on 7 November 2026: physical Windows sleep/resume, hibernation, suspended OS-wait outcomes, power-mode effects and suspend interval are not tested. The workstation must not be suspended. Source review and deterministic clocks do not establish suspend execution; no Human handoff or new hardware is required."
+  }
+}
