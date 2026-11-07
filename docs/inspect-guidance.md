@@ -14,7 +14,6 @@ Node22.19+ and the older SDK10.0.402 Android/iOS workloads:
 
 ```powershell
 Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-5e3ae123'
-& ./eng/Test-WhimbrelGuidance.ps1
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('android.replace-monoandroid-package-assets','maui.edit-nullable-values-with-converter-culture','apple.handle-nullable-native-results') `
   -Query 'whimbrel-guidance' -RecipeEdition '11.0' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
