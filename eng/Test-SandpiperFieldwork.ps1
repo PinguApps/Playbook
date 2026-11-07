@@ -37,6 +37,9 @@ try {
   if($Record){
    Push-Location (Split-Path $sample)
    try { & $OlderDotnet restore "$name.csproj" --force-evaluate } finally {Pop-Location}
+   # Restore uses host line endings; evidence must match the LF bytes committed by Git.
+   $lock=Join-Path $root "samples/net10.0/$name/packages.lock.json"
+   [IO.File]::WriteAllText($lock,[IO.File]::ReadAllText($lock).Replace("`r`n","`n"))
    $assets=Get-Content "samples/net10.0/$name/obj/project.assets.json" -Raw|ConvertFrom-Json -AsHashtable
    $manifest=Get-Content "samples/net10.0/$name/verification.json" -Raw|ConvertFrom-Json
    $manifest.dependencies=@($assets.libraries.Keys|Sort-Object)
