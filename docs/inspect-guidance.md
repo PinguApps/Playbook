@@ -1,5 +1,35 @@
 # Inspect the guidance an agent receives
 
+## Real Entra authentication after a SQL driver upgrade
+
+PIN-958 verifies the unchanged .NET 10/11 MarshAccess samples using the approved
+certificate identity through driver-managed Active Directory Default. Both actual
+EF login and SQL cache write/read/remove passed. Temporary table/grants were
+removed; interactive/MFA, managed/workload identity and GA remain unverified.
+
+From any directory, with PowerShell7, the installed pinned SDKs and Node22.19+:
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-e7377d10'
+& ./eng/Test-MarshEntra.ps1 -CheckEvidence
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('sql.retain-entra-authentication') -Query 'marsh-access' `
+  -RecipeEdition '11.0' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin958' -BuildAndPack `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory './artifacts/marsh-entra/inspection'
+```
+
+Expect the ID/title/goal, full canonical Markdown, edition11 applicability and
+verified Human proof for the certificate route. Target10 returns
+`no_applicable_edition`. The existing harness builds/packs, installs that actual
+artifact using an isolated feed/cache and calls real stdio list/get from an
+unrelated directory with unusable proxies. This proves offline embedded retrieval,
+not OS network isolation. It does not repeat authentication; use the separately
+authorized [live check](entra-sql-verification.md#original-ef-and-distributed-cache-authentication-proof)
+for that. Setup needs NuGet; nothing is published.
+
 ## Legacy Android assets and nullable mobile consumers
 
 PIN-1069/PIN-1187/PIN-1188 add three Whimbrel recipes at edition11.0.

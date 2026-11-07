@@ -104,7 +104,7 @@ Removing/recreating the container loses the fixture and SQL principal grants.
 Pingu must approve/coordinate removal or re-provisioning; do not rerun the original
 local setup scripts blindly or replace credentials underneath a retained container.
 This document and helper retain the supported scope and repeatable check, not raw
-setup output. PIN-958 remains responsible for exact recipe artifacts and evidence.
+setup output. PIN-958's completed exact-sample proof is described below.
 
 The owner maintenance query confirmed zero entries in `sys.server_role_members`
 for the client; its explicit database permissions were exactly `CONNECT` and
@@ -119,3 +119,46 @@ To revoke the server's directory reads, Pingu can remove its three Graph
 application-role assignments or delete its dedicated service principal and app
 registration. Stop/remove the dedicated container and retire its local certificate
 material as part of coordinated decommissioning; do not remove the shared SQL route.
+
+## Original EF and distributed-cache authentication proof
+
+On 7 November 2026, Pingu approved creation of `dbo.ObservationCache` in this
+isolated database and temporary SELECT/INSERT/UPDATE/DELETE grants for the existing
+client on that table only, followed by revocation and table removal. Both unchanged
+canonical MarshAccess samples (.NET 10 and .NET 11) passed `--connect`: actual EF
+connection open/close and SQL distributed-cache write/read/remove. This completes
+PIN-958 / H_ENTRA_PROOF for `sql.retain-entra-authentication/11.0`.
+
+`eng/Test-MarshEntra.ps1` uses driver-managed **Active Directory Default**, with
+the approved tenant/client/certificate supplied only to each child process.
+EnvironmentCredential acquires the certificate token; no token, callback or custom
+provider is injected. No interactive login is required for this route. SqlClient
+6.1.7 includes its provider; SqlClient 7.1.0 uses the directly referenced Azure
+extension 7.1.0. Exact resolved graphs and source/lock/runner SHA-256 hashes are
+retained in [the authentication record](verification/entra-sql.json).
+
+The helper refuses a pre-existing cache table, provisions only the approved table,
+checks no cache rows remain, revokes its grants and drops its table in `finally`.
+It restores the container's original running state and checks process/user/machine
+PATH. The measured run returned the initially stopped container to stopped. The
+original fixture, SELECT grant, credentials and shared SQL route are preserved.
+
+From an unrelated directory, with Docker Desktop running and the original private
+directory available to the same Windows account:
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-e7377d10'
+# Read-only freshness check; no SQL or identity access.
+& ./eng/Test-MarshEntra.ps1 -CheckEvidence
+# Repeats the approved isolated temporary table/grants and cleans them up.
+& ./eng/Test-MarshEntra.ps1 -Record
+```
+
+Expect both samples to print `PASS actual EF login and SQL cache write/read/remove`,
+followed by empty-cache and table/grant cleanup confirmations. The installed
+dotnetup executable selects SDK10.0.403 and SDK11.0.100-rc.3.26522.148 using each
+sample's pin; EF/cache11 remain RC2 packages. This is Windows x64 and SQL Server
+2025 RTM-CU10 17.0.5035.5 evidence, not GA, interactive/MFA, managed/workload identity,
+migration or production TLS-trust proof. Local self-signed SQL TLS is trusted only
+for this isolated loopback check. Refresh after relevant sample/runner/dependency,
+identity/certificate, SQL engine or permission changes; Pingu owns coordination.
