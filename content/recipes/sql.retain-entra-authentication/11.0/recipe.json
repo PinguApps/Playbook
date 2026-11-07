@@ -1,0 +1,221 @@
+{
+  "id": "sql.retain-entra-authentication",
+  "edition": "11.0",
+  "title": "Retain Entra authentication after a SQL driver upgrade",
+  "goal": "Restore built-in Entra authentication for EF SQL Server and SQL distributed cache when upgrading to SqlClient 7, preserving the intended host identity.",
+  "areas": [
+    "ef-core"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "entra",
+    "authentication",
+    "dependency-migration",
+    "marsh-access"
+  ],
+  "apis": [
+    "SqlAuthenticationProvider",
+    "ActiveDirectoryDefault",
+    "AddDistributedSqlServerCache",
+    "UseSqlServer"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/sql/connect/ado-net/sql/azure-active-directory-authentication?view=azuresqldb-current",
+          "https://github.com/dotnet/SqlClient/wiki/Migration-Security-and-Authentication"
+        ],
+        "selectionNotes": [
+          "EF SQL Server and SQL distributed cache share this dependency-migration goal. SqlClient 6.1.7 includes built-in Entra providers; SqlClient 7.1.0 requires the directly referenced matching Microsoft.Data.SqlClient.Extensions.Azure 7.1.0 for driver-managed Active Directory authentication. Active Directory Default selects credentials available to the host; review that selection explicitly. Replace obsolete Active Directory Password with a supported host-appropriate flow. No password mode is retained in these samples. Application-supplied AccessToken/AccessTokenCallback does not require this extension merely to supply a token."
+        ],
+        "usage": "primary",
+        "target": "11.0",
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "EF Core 11 requires .NET 11. No older-runtime EF11 route is offered."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build the net11.0 consumer; measured SDK 11.0.100-rc.3.26522.148 is RC2 evidence, not GA proof."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Declared current language mode; no C# 15-specific syntax is required by the example."
+          },
+          "frameworks": [
+            "EF Core SQL Server and Microsoft.Extensions.Caching.SqlServer"
+          ],
+          "packages": [
+            {
+              "name": "Microsoft.EntityFrameworkCore.SqlServer",
+              "version": "11.0",
+              "match": "release-family",
+              "reason": "Matching EF11 provider and net11.0 consumer; exact RC2 graph locked."
+            },
+            {
+              "reason": "Direct pin prevents relying on EF/cache transitive driver selection.",
+              "match": "exact",
+              "version": "7.1.0",
+              "name": "Microsoft.Data.SqlClient"
+            },
+            {
+              "reason": "Built-in Entra provider moved from core driver in 7.0.",
+              "match": "exact",
+              "version": "7.1.0",
+              "name": "Microsoft.Data.SqlClient.Extensions.Azure"
+            },
+            {
+              "reason": "Canonical SQL distributed-cache consumer.",
+              "match": "release-family",
+              "version": "11.0",
+              "name": "Microsoft.Extensions.Caching.SqlServer"
+            },
+            {
+              "reason": "Explicit reviewed cryptography baseline for the SqlClient dependency graph in both consumers.",
+              "match": "exact",
+              "version": "10.0.13",
+              "name": "System.Security.Cryptography.Pkcs"
+            }
+          ],
+          "packageAssets": [
+            "Actual SDK10.0.403/C#14/EF10.0.13/cache10.0.13/SqlClient6.1.7 versus SDK11.0.100-rc.3.26522.148/C#15/EF11 and cache11.0.0-rc.2.26504.105/SqlClient7.1.0/Azure extension7.1.0. Exact asset graphs are locked in each sample; runtime and package version are separate constraints. No older-runtime EF11 route is offered. Windows x64 compilation and configuration execution only; no rendering mode, workload or experimental opt-in. RC evidence is not GA verification. Both projects directly pin System.Security.Cryptography.Pkcs 10.0.13; the exact assets are retained in their lock files."
+          ],
+          "providers": [
+            "SQL Server with Entra authentication; actual authorized login/cache proof pending PIN-958 (H_ENTRA_PROOF)."
+          ],
+          "workloads": [],
+          "platforms": [
+            "Windows x64 verified configuration; other platforms untested."
+          ],
+          "renderingModes": [
+            "Not applicable: server-side database and cache consumer."
+          ],
+          "constraints": [
+            "EF SQL Server and SQL distributed cache share this dependency-migration goal. SqlClient 6.1.7 includes built-in Entra providers; SqlClient 7.1.0 requires the directly referenced matching Microsoft.Data.SqlClient.Extensions.Azure 7.1.0 for driver-managed Active Directory authentication. Active Directory Default selects credentials available to the host; review that selection explicitly. Replace obsolete Active Directory Password with a supported host-appropriate flow. No password mode is retained in these samples. Application-supplied AccessToken/AccessTokenCallback does not require this extension merely to supply a token.",
+            "Actual SDK10.0.403/C#14/EF10.0.13/cache10.0.13/SqlClient6.1.7 versus SDK11.0.100-rc.3.26522.148/C#15/EF11 and cache11.0.0-rc.2.26504.105/SqlClient7.1.0/Azure extension7.1.0. Exact asset graphs are locked in each sample; runtime and package version are separate constraints. No older-runtime EF11 route is offered. Windows x64 compilation and configuration execution only; no rendering mode, workload or experimental opt-in. RC evidence is not GA verification."
+          ],
+          "prerequisites": [
+            "Restore the pinned projects with their matching SDKs. For --connect, supply MARSH_SQL_CONNECTION with Active Directory Default and an authorized identity/target; precreate dbo.ObservationCache and grant the minimum cache DML permissions. Never use production resources. Run eng/Test-MarshAccess.ps1 for both configuration/provider checks without connecting."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Stable SqlClient authentication APIs; EF/cache11 RC artifacts require GA reconciliation under PIN-965. Actual Entra proof remains pending PIN-958."
+          ]
+        },
+        "conditional": false,
+        "evidenceSamples": [
+          "samples/net11.0/MarshAccess/MarshAccess.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://learn.microsoft.com/en-us/sql/connect/ado-net/sql/azure-active-directory-authentication?view=azuresqldb-current",
+      "title": "SqlClient Entra authentication"
+    },
+    {
+      "url": "https://github.com/dotnet/SqlClient/wiki/Migration-Security-and-Authentication",
+      "title": "SqlClient authentication migration"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/MarshAccess/MarshAccess.csproj",
+      "sdk": "10.0.403",
+      "kind": "compile-and-run",
+      "language": "14.0",
+      "scope": "Actual compilation and execution of EF/cache registration and built-in Entra provider availability. No token acquisition, SQL login, cache network operations, mocks or GA proof.",
+      "target": "net10.0"
+    },
+    {
+      "sample": "samples/net11.0/MarshAccess/MarshAccess.csproj",
+      "sdk": "11.0.100-rc.3.26522.148",
+      "kind": "compile-and-run",
+      "language": "15.0",
+      "scope": "Actual compilation and execution of EF/cache registration and built-in Entra provider availability. No token acquisition, SQL login, cache network operations, mocks or GA proof.",
+      "target": "net11.0"
+    }
+  ],
+  "snippets": {
+    "n11-marshaccess-csproj": {
+      "language": "xml",
+      "path": "samples/net11.0/MarshAccess/MarshAccess.csproj",
+      "region": "complete"
+    },
+    "n11-program-cs": {
+      "language": "csharp",
+      "path": "samples/net11.0/MarshAccess/Program.cs",
+      "region": "complete"
+    },
+    "n11-directory-build-props": {
+      "language": "xml",
+      "path": "samples/net11.0/MarshAccess/Directory.Build.props",
+      "region": "complete"
+    },
+    "n10-directory-build-targets": {
+      "language": "xml",
+      "path": "samples/net10.0/MarshAccess/Directory.Build.targets",
+      "region": "complete"
+    },
+    "n10-directory-packages-props": {
+      "language": "xml",
+      "path": "samples/net10.0/MarshAccess/Directory.Packages.props",
+      "region": "complete"
+    },
+    "n10-marshaccess-csproj": {
+      "language": "xml",
+      "path": "samples/net10.0/MarshAccess/MarshAccess.csproj",
+      "region": "complete"
+    },
+    "n10-global-json": {
+      "language": "json",
+      "path": "samples/net10.0/MarshAccess/global.json",
+      "region": "complete"
+    },
+    "n11-global-json": {
+      "language": "json",
+      "path": "samples/net11.0/MarshAccess/global.json",
+      "region": "complete"
+    },
+    "n10-directory-build-props": {
+      "language": "xml",
+      "path": "samples/net10.0/MarshAccess/Directory.Build.props",
+      "region": "complete"
+    },
+    "n11-directory-build-targets": {
+      "language": "xml",
+      "path": "samples/net11.0/MarshAccess/Directory.Build.targets",
+      "region": "complete"
+    },
+    "n10-program-cs": {
+      "language": "csharp",
+      "path": "samples/net10.0/MarshAccess/Program.cs",
+      "region": "complete"
+    },
+    "n11-directory-packages-props": {
+      "language": "xml",
+      "path": "samples/net11.0/MarshAccess/Directory.Packages.props",
+      "region": "complete"
+    }
+  },
+  "humanProof": {
+    "status": "pending",
+    "scope": "PIN-958 / H_ENTRA_PROOF owns actual authorized Entra login and cache operations for these exact samples. PIN-679 identity is SELECT-only; additional grants require Pingu. Configuration execution does not acquire a token or connect. Pending Human gate blocks release readiness."
+  }
+}
