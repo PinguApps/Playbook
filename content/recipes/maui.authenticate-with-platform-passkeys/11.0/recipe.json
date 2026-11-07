@@ -139,7 +139,7 @@
     "untestedSamples": [
       "samples/net11.0/HeronKeys/HeronKeys.csproj"
     ],
-    "scope": "Windows adapter compiled; native host build failed NETSDK1147 (maui-tizen). Native ceremony/server interoperability not-tested under PIN-699. PIN-936 remains open and has not executed; unavailable native actions are excluded, not promised for later."
+    "scope": "Windows adapter compiled; native host build failed NETSDK1147 (maui-tizen). Native host, device registration/authentication and server interoperability remain not-tested under PIN-699. Pingu approved PIN-936 reconciliation as an explicit not-tested exclusion on 7 November 2026; no native or browser ceremony or server challenge/response verification ran. No Human ceremony is pending for this unavailable route."
   },
   "snippets": {
     "samples-net11-0-heronkeys-ceremony-cs": {
