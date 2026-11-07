@@ -83,6 +83,10 @@ implementation. Signing/trust changes or external resources still need their
 specific authorization; the ownership agreement supplies neither credentials
 nor permission to change production settings.
 
+For native passkeys, use the [passkey verification access decision](passkey-verification.md).
+PIN-701 records the unavailable native route as explicitly not-tested, with no
+trust/signing changes or separate browser setup authorized.
+
 **The content author** prepares the exact recipe/edition/route, source commit
 and dirty state, sample/input hashes, commands, expected result, target/RID,
 dependencies, SDK/workload/native versions and the precise Human action. Run all
