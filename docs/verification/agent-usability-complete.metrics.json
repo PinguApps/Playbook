@@ -1,0 +1,333 @@
+{
+  "summaries": [
+    {
+      "scenario": "a",
+      "threadId": "mcp:launch:f2ff69dbb79b88cafbbebd290f5bbc03fae955ef682e714023c7907fd4830852",
+      "link": "<t3-thread://v2/e161a58f-5feb-4993-b10f-5dc13775bd35/mcp:launch:f2ff69dbb79b88cafbbebd290f5bbc03fae955ef682e714023c7907fd4830852>",
+      "runId": "run:thread:mcp%3Alaunch%3Af2ff69dbb79b88cafbbebd290f5bbc03fae955ef682e714023c7907fd4830852:ordinal:1",
+      "durationSeconds": 67.036,
+      "tools": [
+        {
+          "position": 5,
+          "name": "playbook.list_recipes",
+          "input": {
+            "targetVersion": "10",
+            "languages": [
+              "csharp"
+            ],
+            "limit": 3,
+            "offset": 0
+          },
+          "outputCharacters": 5734
+        },
+        {
+          "position": 6,
+          "name": "playbook.list_recipes",
+          "input": {
+            "targetVersion": "10",
+            "languages": [
+              "csharp"
+            ],
+            "limit": 3,
+            "offset": 3
+          },
+          "outputCharacters": 4789
+        },
+        {
+          "position": 7,
+          "name": "playbook.list_recipes",
+          "input": {
+            "targetVersion": "10",
+            "languages": [
+              "csharp"
+            ],
+            "areas": [
+              "csharp"
+            ],
+            "query": "property",
+            "limit": 3,
+            "offset": 0
+          },
+          "outputCharacters": 4320
+        },
+        {
+          "position": 8,
+          "name": "playbook.get_recipe",
+          "input": {
+            "targetVersion": "10",
+            "id": "csharp.validate-property-assignment"
+          },
+          "outputCharacters": 42019,
+          "markdownCharacters": 6286
+        }
+      ]
+    },
+    {
+      "scenario": "b",
+      "threadId": "mcp:launch:f14205e76af05b7136149c52d2803804ea4f4ccf50207b0766f62020f219d5b3",
+      "link": "<t3-thread://v2/e161a58f-5feb-4993-b10f-5dc13775bd35/mcp:launch:f14205e76af05b7136149c52d2803804ea4f4ccf50207b0766f62020f219d5b3>",
+      "runId": "run:thread:mcp%3Alaunch%3Af14205e76af05b7136149c52d2803804ea4f4ccf50207b0766f62020f219d5b3:ordinal:1",
+      "durationSeconds": 59.459,
+      "tools": [
+        {
+          "position": 3,
+          "name": "playbook.list_recipes",
+          "input": {
+            "targetVersion": "latest",
+            "query": "async",
+            "languages": [
+              "F#"
+            ]
+          },
+          "outputCharacters": 369
+        },
+        {
+          "position": 4,
+          "name": "playbook.list_recipes",
+          "input": {
+            "targetVersion": "latest",
+            "query": "source",
+            "languages": [
+              "C#",
+              "F#"
+            ]
+          },
+          "outputCharacters": 380
+        },
+        {
+          "position": 5,
+          "name": "playbook.list_recipes",
+          "input": {
+            "targetVersion": "latest",
+            "query": "async",
+            "languages": [
+              "fsharp"
+            ]
+          },
+          "outputCharacters": 8637
+        },
+        {
+          "position": 6,
+          "name": "playbook.list_recipes",
+          "input": {
+            "targetVersion": "latest",
+            "query": "source",
+            "languages": [
+              "csharp",
+              "fsharp"
+            ]
+          },
+          "outputCharacters": 40323
+        },
+        {
+          "position": 7,
+          "name": "playbook.list_recipes",
+          "input": {
+            "targetVersion": "latest",
+            "areas": [
+              "msbuild"
+            ],
+            "query": "source",
+            "languages": [
+              "csharp",
+              "fsharp"
+            ]
+          },
+          "outputCharacters": 3403
+        },
+        {
+          "position": 8,
+          "name": "playbook.get_recipe",
+          "input": {
+            "id": "fsharp.author-runtime-async-sequence",
+            "targetVersion": "latest"
+          },
+          "outputCharacters": 33569,
+          "markdownCharacters": 11590
+        },
+        {
+          "position": 9,
+          "name": "playbook.list_recipes",
+          "input": {
+            "targetVersion": "latest",
+            "areas": [
+              "msbuild",
+              "sdk"
+            ],
+            "languages": [
+              "csharp",
+              "fsharp"
+            ],
+            "query": "",
+            "limit": 50
+          },
+          "outputCharacters": 92294
+        },
+        {
+          "position": 10,
+          "name": "playbook.get_recipe",
+          "input": {
+            "targetVersion": "latest",
+            "id": "msbuild.inspect-item-globs"
+          },
+          "outputCharacters": 34868,
+          "markdownCharacters": 7411
+        }
+      ]
+    },
+    {
+      "scenario": "c",
+      "threadId": "mcp:launch:012d3fadb15260e5aa6edb7c3075c06d24e02c3a8dfd56f4c54df464c6ecc84f",
+      "link": "<t3-thread://v2/e161a58f-5feb-4993-b10f-5dc13775bd35/mcp:launch:012d3fadb15260e5aa6edb7c3075c06d24e02c3a8dfd56f4c54df464c6ecc84f>",
+      "runId": "run:thread:mcp%3Alaunch%3A012d3fadb15260e5aa6edb7c3075c06d24e02c3a8dfd56f4c54df464c6ecc84f:ordinal:1",
+      "durationSeconds": 73.091,
+      "tools": [
+        {
+          "position": 5,
+          "name": "playbook.list_recipes",
+          "input": {
+            "targetVersion": "10",
+            "query": "union",
+            "limit": 50
+          },
+          "outputCharacters": 1477
+        },
+        {
+          "position": 6,
+          "name": "playbook.list_recipes",
+          "input": {
+            "targetVersion": "latest",
+            "query": "conversation",
+            "limit": 50
+          },
+          "outputCharacters": 7294
+        },
+        {
+          "position": 7,
+          "name": "playbook.list_recipes",
+          "input": {
+            "targetVersion": "10",
+            "areas": [],
+            "languages": [],
+            "query": null,
+            "includeShared": true,
+            "offset": 0,
+            "limit": 50
+          },
+          "outputCharacters": 39731
+        },
+        {
+          "position": 8,
+          "name": "playbook.list_recipes",
+          "input": {
+            "targetVersion": "latest",
+            "query": "state",
+            "areas": [
+              "blazor"
+            ],
+            "limit": 50
+          },
+          "outputCharacters": 40034
+        },
+        {
+          "position": 9,
+          "name": "playbook.list_recipes",
+          "input": {
+            "targetVersion": "latest",
+            "areas": [
+              "csharp"
+            ],
+            "includeShared": false,
+            "limit": 50
+          },
+          "outputCharacters": 19330
+        },
+        {
+          "position": 10,
+          "name": "playbook.get_recipe",
+          "input": {
+            "targetVersion": "latest",
+            "id": "blazor.restore-agent-conversation"
+          },
+          "outputCharacters": 42453,
+          "markdownCharacters": 19009
+        },
+        {
+          "position": 11,
+          "name": "playbook.get_recipe",
+          "input": {
+            "targetVersion": "latest",
+            "id": "blazor.synchronize-agent-view-state"
+          },
+          "outputCharacters": 43216,
+          "markdownCharacters": 19499
+        },
+        {
+          "position": 14,
+          "name": "playbook.get_recipe",
+          "input": {
+            "targetVersion": "latest",
+            "id": "csharp.closed-results"
+          },
+          "outputCharacters": 29679,
+          "markdownCharacters": 8359
+        },
+        {
+          "position": 15,
+          "name": "playbook.get_recipe",
+          "input": {
+            "targetVersion": "latest",
+            "id": "csharp.closed-hierarchies"
+          },
+          "outputCharacters": 27482,
+          "markdownCharacters": 6140
+        }
+      ]
+    },
+    {
+      "scenario": "d",
+      "threadId": "mcp:launch:2588c4fc259d229eadace003c3942b90fa21ff2e2c973987e84847e72c62c3d5",
+      "link": "<t3-thread://v2/e161a58f-5feb-4993-b10f-5dc13775bd35/mcp:launch:2588c4fc259d229eadace003c3942b90fa21ff2e2c973987e84847e72c62c3d5>",
+      "runId": "run:thread:mcp%3Alaunch%3A2588c4fc259d229eadace003c3942b90fa21ff2e2c973987e84847e72c62c3d5:ordinal:1",
+      "durationSeconds": 69.244,
+      "tools": [
+        {
+          "position": 4,
+          "name": "playbook.list_recipes",
+          "input": {
+            "targetVersion": "10",
+            "query": "tangerine warehouse property normalization"
+          },
+          "outputCharacters": 1514
+        },
+        {
+          "position": 5,
+          "name": "playbook.list_recipes",
+          "input": {
+            "targetVersion": "10",
+            "areas": [],
+            "languages": [],
+            "query": null,
+            "includeShared": true,
+            "offset": 0,
+            "limit": 20
+          },
+          "outputCharacters": 39731
+        },
+        {
+          "position": 7,
+          "name": "playbook.get_recipe",
+          "input": {
+            "id": "csharp.validate-property-assignment",
+            "targetVersion": "10"
+          },
+          "outputCharacters": 42019,
+          "markdownCharacters": 6286
+        }
+      ]
+    }
+  ],
+  "totalExecutionSeconds": 268.83000000000004,
+  "tokens": "not exposed",
+  "sizeMeaning": "JavaScript string characters in JSON.stringify(dynamic_tool.output); serialized observed activity, not wire payload or tokens."
+}

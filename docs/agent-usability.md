@@ -12,6 +12,9 @@ The [larger-catalogue extension](agent-usability-larger-catalogue.md) freezes th
 second checkpoint's paging/neutral-guidance additions. Its [PIN-978 report](verification/agent-usability-expanded.md)
 retains three passing scenarios and one failed recovery-filter check.
 
+The [complete-catalogue checkpoint](agent-usability-complete-catalogue.md) freezes
+the third exercise against the approved pre-GA coverage boundary.
+
 For the single PIN-1018 recovery follow-up, copy the current
 [companion instruction](agent-instructions.md), including its recovery paragraph,
 into a new seed revision; retain the earlier seed and receipts. Use the unchanged
