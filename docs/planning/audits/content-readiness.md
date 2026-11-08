@@ -51,7 +51,8 @@ withdrawn/unsupported consumer dispositions. Their historical approval totals do
 not override those later decisions.
 
 The 26 initially unmatched aliases/aggregate owners have explicit dispositions in
-the ledger. Representative mappings follow. These identify existing content,+rather than declaring missing recipes
+the ledger. Representative mappings follow. These identify existing content,
+rather than declaring missing recipes
 solely because an earlier proposed ID differs:
 
 | Register goal | Delivered guidance or accountable boundary |
@@ -144,6 +145,19 @@ ticket do not supply that proof.
 
 Routine logs, Inspector responses and container archives remain under ignored
 `artifacts/pin-959/`; they are not release approval artifacts.
+
+The saved checkpoint has a narrow freshness check. From any starting directory,
+with PowerShell 7:
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-b415b02e'
+& ./eng/Test-ContentReadiness.ps1
+```
+
+It verifies register/audit hashes, current row locations and recipe destinations,
+the exact foundation identities and the pending-gate inventory. Pass the local
+candidate's absolute path with `-PackagePath` to also verify its SHA-256. A pass
+means the checkpoint still matches its inputs; it does not certify release readiness.
 
 ## Remaining evidence gates
 
