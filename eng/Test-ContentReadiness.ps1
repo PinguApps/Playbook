@@ -5,10 +5,10 @@ $ErrorActionPreference = 'Stop'
 $root = Split-Path $PSScriptRoot -Parent
 $ledger = Get-Content -LiteralPath (Join-Path $root 'docs/planning/audits/content-readiness.inventory.json') -Raw | ConvertFrom-Json -AsHashtable
 
-foreach ($input in @($ledger.inputs) + @($ledger.audits)) {
-    $path = Join-Path $root $input.path
-    if ((Get-FileHash -LiteralPath $path -Algorithm SHA256).Hash.ToLowerInvariant() -cne $input.sha256) {
-        throw "Readiness checkpoint input changed: $($input.path). Reconcile the affected coverage before refreshing the checkpoint."
+foreach ($checkpointInput in @($ledger.inputs) + @($ledger.audits)) {
+    $path = Join-Path $root $checkpointInput.path
+    if ((Get-FileHash -LiteralPath $path -Algorithm SHA256).Hash.ToLowerInvariant() -cne $checkpointInput.sha256) {
+        throw "Readiness checkpoint input changed: $($checkpointInput.path). Reconcile the affected coverage before refreshing the checkpoint."
     }
 }
 foreach ($row in $ledger.currentRows) {
