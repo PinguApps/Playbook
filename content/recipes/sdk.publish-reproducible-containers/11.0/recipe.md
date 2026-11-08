@@ -4,7 +4,7 @@
 
 Make an image digest a useful identity for a source snapshot. Two independent container publishes can only be compared meaningfully when the source, compiler, dependencies, base image and authored image configuration are held constant.
 
-This recipe is theoretical. No image, digest, layer or NuGet package has been produced or compared for these examples.
+This provisional walkthrough retains documented GA intent. Consult the evidence section for actual local observations and the remaining unverified behavior.
 
 ## Older approach
 
@@ -43,8 +43,10 @@ The SDK's remote manifest-existence optimization is separate from reproducible i
 
 The sample's `LocalRegistry=Podman` is an explicit destination choice, not a requirement of the timestamp feature. Docker can be selected deliberately. The host must support the chosen SDK and engine; both requested Linux architectures need compatible base/runtime assets. No extra NuGet package, provider, UI rendering mode or workload is declared.
 
-## Evidence
+## Evidence and limitations
 
-Reviewed official SDK RC1 reproducibility notes and the container configuration contract. Original canonical projects declare the intended 10.0.403 and 11.0.100-rc.3.26522.148 SDKs. Saved `official-review` records contain source/input hashes and explicitly report no compilation or execution.
+The canonical .NET10 and .NET11 projects now have actual locked compilation records from Windows, using their declared SDKs and dependencies. The original official-source review is retained separately. Compilation of the rules/decoder library does not compile illustrative .cs.txt host integration or establish behavior.
 
-No repeat-publish experiment, registry-cache experiment, base-image resolution, NuGet timestamp comparison, image/index inspection or installed offline MCP retrieval occurred. The reproducibility result remains an expectation to verify, not a measured result. Pending proof blocks release-ready packaging and remains visible in discovery/detail. Target 10 is comparison-only; no unverified older-target route or additional historical foundation is declared. .NET 11 GA reconciliation remains outstanding.
+The pre-GA preview is explicitly provisional. Pending proof remains visible in discovery/detail and blocks stable readiness. The approved preview evidence register names this exact edition, canonical samples, limitations and its final-reconciliation owner; it does not claim successful unperformed checks.
+
+Two SDK11 publishes separated by a clean produced matching OCI image-index identities and matching content hashes for all 19 regular archive entries. Archive-file hashes differed. This is bounded RC3 image-object evidence, not archive-byte or final-GA reproducibility.

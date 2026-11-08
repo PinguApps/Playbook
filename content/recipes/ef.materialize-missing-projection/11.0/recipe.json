@@ -31,7 +31,8 @@
           "https://github.com/PinguApps/Playbook/blob/a7fd46cd658708c25a7e0d032735760c3fe6d63f/docs/planning/audits/ef.md"
         ],
         "selectionNotes": [
-          "Pingu authorized official-documentation guidance on 5 November 2026 despite missing RC behavior. EF11 RC2 and RC3 direct DTO/anonymous projections throw on unmatched rows, including grouped DTO/default struct. Nullable struct composition fails translation. The explicit nullable marker returns -1 and 12 on both editions. Intended direct semantics and final artifact behavior remain pending; compilation and recorded failures are not successful execution proof."
+          "Pingu authorized official-documentation guidance on 5 November 2026 despite missing RC behavior. EF11 RC2 and RC3 direct DTO/anonymous projections throw on unmatched rows, including grouped DTO/default struct. Nullable struct composition fails translation. The explicit nullable marker returns -1 and 12 on both editions. Intended direct semantics and final artifact behavior remain pending; compilation and recorded failures are not successful execution proof.",
+          "Provisional pre-GA guidance: pending behavior/final-artifact proof is not successful execution or GA verification."
         ],
         "usage": "primary",
         "target": "11.0",
@@ -86,7 +87,8 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Pingu authorized official-documentation guidance on 5 November 2026 despite missing RC behavior. EF11 RC2 and RC3 direct DTO/anonymous projections throw on unmatched rows, including grouped DTO/default struct. Nullable struct composition fails translation. The explicit nullable marker returns -1 and 12 on both editions. Intended direct semantics and final artifact behavior remain pending; compilation and recorded failures are not successful execution proof."
+            "Pingu authorized official-documentation guidance on 5 November 2026 despite missing RC behavior. EF11 RC2 and RC3 direct DTO/anonymous projections throw on unmatched rows, including grouped DTO/default struct. Nullable struct composition fails translation. The explicit nullable marker returns -1 and 12 on both editions. Intended direct semantics and final artifact behavior remain pending; compilation and recorded failures are not successful execution proof.",
+            "Provisional pre-GA guidance: pending behavior/final-artifact proof is not successful execution or GA verification."
           ]
         },
         "conditional": false,

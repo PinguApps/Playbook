@@ -4,7 +4,7 @@
 
 Show a build's include, exclude and remove patterns next to the files selected by those patterns. A pattern explains an input rule; an expanded item tells you which path survived evaluation. Neither output alone answers every question about the other.
 
-This recipe is theoretical. The sample's item evaluation and diagnostic output have not been run.
+This provisional walkthrough retains documented GA intent. Consult the evidence section for actual local observations and the remaining unverified behavior.
 
 ## Older approach
 
@@ -41,8 +41,10 @@ This XML build configuration is language-neutral and can explain custom items in
 
 The **archive tasks** in the companion recipe are unavailable in .NET Framework `MSBuild.exe`; that restriction must not be generalized into a claim that all MSBuild glob diagnostics are .NET-only. This sample specifies the .NET SDK-11/MSBuild route. It supplies no Visual Studio/.NET Framework execution or compatibility evidence.
 
-## Evidence
+## Evidence and limitations
 
-Reviewed the official MSBuild RC1 glob contract and `XmlPeek` task documentation. Canonical older/newer imported targets preserve the original rules and reporting implementations. Saved source-review records hash the projects, targets and fixture inputs; SDK/language fields are intended unbuilt pins.
+The canonical .NET10 and .NET11 projects now have actual locked compilation records from Windows, using their declared SDKs and dependencies. The original official-source review is retained separately. Compilation of the rules/decoder library does not compile illustrative .cs.txt host integration or establish behavior.
 
-There is no compilation, item-evaluation output, Framework-MSBuild run, real archive interaction or installed offline MCP retrieval evidence. Pending proof remains visible in discovery/detail and blocks release-ready packaging. This target-11 edition adds no historical foundation or undocumented older-target route, and the RC documentation baseline is not GA verification.
+The pre-GA preview is explicitly provisional. Pending proof remains visible in discovery/detail and blocks stable readiness. The approved preview evidence register names this exact edition, canonical samples, limitations and its final-reconciliation owner; it does not claim successful unperformed checks.
+
+Both targets returned include/exclude/remove descriptions and the expected expanded payload file. Additional negative, mutation and imported-graph behavior is not claimed.

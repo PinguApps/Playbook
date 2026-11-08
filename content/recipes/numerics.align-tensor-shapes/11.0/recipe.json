@@ -57,7 +57,8 @@
         "usage": "primary",
         "selectionNotes": [
           "Align differently ranked measurement batches while preserving requested dimensions; final .NET 11 package behavior and native-width execution remain pending.",
-          "Prepared for the full .NET 11 release from the merged release/11.0 backport. Published RC2/RC3 packages lack the required behavior. Current sample evidence is compilation only; final execution is tracked by PIN-962."
+          "Prepared for the full .NET 11 release from the merged release/11.0 backport. Published RC2/RC3 packages lack the required behavior. Current sample evidence is compilation only; final execution is tracked by PIN-962.",
+          "Provisional pre-GA guidance: pending behavior/final-artifact proof is not successful execution or GA verification."
         ],
         "requirements": {
           "runtime": {
@@ -109,7 +110,8 @@
           "optIns": [],
           "stabilityLimitations": [
             "Pending final SDK/runtime/package behavior, all five scalar/pairwise Any families, views/extrema and native traversal beyond int.MaxValue. PIN-962 owns refresh; pending proof blocks release-ready packaging.",
-            "No experimental annotation was required by the selected types/signatures on actual compilation assets. Full-release guidance is not an advertisement for RC2/RC3 behavior."
+            "No experimental annotation was required by the selected types/signatures on actual compilation assets. Full-release guidance is not an advertisement for RC2/RC3 behavior.",
+            "Provisional pre-GA guidance: pending behavior/final-artifact proof is not successful execution or GA verification."
           ]
         },
         "sourceUrls": [

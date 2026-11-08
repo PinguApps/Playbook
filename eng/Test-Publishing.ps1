@@ -60,3 +60,4 @@ finally { Remove-Item -LiteralPath $scratch -Recurse -Force }
 'PASS: publication versions, manual preview channel, package selection, embedded identity and hash guards (no login or push).'
 
 & (Join-Path $PSScriptRoot 'Test-WeeklyRelease.ps1')
+& (Join-Path $PSScriptRoot 'Test-PreviewReadiness.ps1') -GuardsOnly

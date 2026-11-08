@@ -2,7 +2,7 @@
 
 Original .NET guidance served offline to coding agents through a client-owned stdio MCP process.
 
-The development catalogue covers .NET 11 goals with original previous-release comparisons and selected .NET 10 foundations. Coverage and release proof remain incomplete; it is not ready for public publication. Both tools require an explicit application target or deliberate `latest` choice. `latest` means the newest release in the installed catalogue, not an SDK build or consumer compatibility.
+The catalogue covers .NET 11 goals with original previous-release comparisons and selected .NET 10 foundations. Pre-GA previews retain explicitly labelled provisional guidance and unverified behavior; they do not establish GA compatibility or stable-release readiness. The [release policy](docs/planning/release-plan.md) requires named, input-bound exceptions alongside the normal source, offline-content and evidence checks. Both tools require an explicit application target or deliberate `latest` choice. `latest` means the newest release in the installed catalogue, not an SDK build or consumer compatibility.
 
 ```powershell
 playbook --help

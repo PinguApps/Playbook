@@ -1,0 +1,203 @@
+{
+  "schemaVersion": 1,
+  "approvedBy": "Pingu",
+  "approvedOn": "2026-11-08",
+  "decision": "Pre-GA preview may include explicitly disclosed documented GA intent and provisional reference material. Pending proof is retained; this approval is not execution or stable readiness. Local feasible checks, complete offline content, source accuracy and input freshness remain mandatory.",
+  "exceptions": [
+    {
+      "id": "blazor.restore-agent-conversation",
+      "edition": "11.0",
+      "classification": "documented-ga-intent",
+      "scope": "Pingu authorized documentation-based recipe delivery on 3 November 2026. Final GA, browser/provider/AG-UI, renderer/storage and Linux native TLS behaviour checks remain pending and are not claimed. These deferred checks do not block this ticket; broader release readiness remains gated.",
+      "followUp": "PIN-964",
+      "samples": [
+        "samples/net10.0/ObservatoryLog/ObservatoryLog.csproj",
+        "samples/net11.0/ObservatoryLog/ObservatoryLog.csproj"
+      ],
+      "metadataSha256": "6c7e50ccebedbd3f02f1aeb9c6cd1ac3b0f16000485525199cdb5dfad99606b3",
+      "markdownSha256": "9c08c0396a925a41f8441a05559ebc30c8b2cb10bbde8519bf57db7dfb8b18e5"
+    },
+    {
+      "id": "blazor.synchronize-agent-view-state",
+      "edition": "11.0",
+      "classification": "documented-ga-intent",
+      "scope": "Pingu authorized documentation-based recipe delivery on 3 November 2026. Final GA, browser/provider/AG-UI, renderer/storage and Linux native TLS behaviour checks remain pending and are not claimed. These deferred checks do not block this ticket; broader release readiness remains gated.",
+      "followUp": "PIN-964",
+      "samples": [
+        "samples/net10.0/MuseumCaptions/MuseumCaptions.csproj",
+        "samples/net11.0/MuseumCaptions/MuseumCaptions.csproj"
+      ],
+      "metadataSha256": "d56bb8397c394ca37b5c7c3c145973c9c6cabb8df45cfb0be532d1f6043e7b21",
+      "markdownSha256": "e1bf8aaf220764259aa68f8ef560704411d9ffe4bc7f9c3dc4ca78e9efbe4e07"
+    },
+    {
+      "id": "ef.configure-generated-model-stage",
+      "edition": "11.0",
+      "classification": "documented-ga-intent",
+      "scope": "Pingu authorized documentation-based PR delivery on 4 November 2026 despite RC2/RC3 generation failure. Actual generated model/query build/publish/AOT evidence remains pending until a working release; this is not GA proof.",
+      "followUp": "PIN-965",
+      "samples": [
+        "samples/net10.0/FernGeneration/FernGeneration.csproj",
+        "samples/net11.0/FernGeneration/FernGeneration.csproj"
+      ],
+      "metadataSha256": "0453adc161da0d3fb1c393b917384175ae43e71f1a6ebbab58f0f3c360c15bc6",
+      "markdownSha256": "92b93f43b5479b8a976da56ab88d85ed5b35959ef19d628eeb12d161322a1568"
+    },
+    {
+      "id": "ef.materialize-missing-projection",
+      "edition": "11.0",
+      "classification": "documented-ga-intent",
+      "scope": "Final package qualification is deferred by Pingu; no Human approval or successful direct materialization is inferred. PIN-959 and actual-GA reconciliation remain outstanding.",
+      "followUp": "PIN-965",
+      "samples": [
+        "samples/net10.0/PloverQueries/PloverQueries.csproj",
+        "samples/net11.0/PloverQueries/PloverQueries.csproj"
+      ],
+      "metadataSha256": "30fbbdc4449bb2d603ca26a22aeff5ebdc99f22a65aa12990f612335f1d4ba6f",
+      "markdownSha256": "3e7a34d86c94d49025d4376cc1d8ebac1dc6b2c5bb62eb3677dfebefe74500e9"
+    },
+    {
+      "id": "hosting.select-direct-tls",
+      "edition": "11.0",
+      "classification": "documented-ga-intent",
+      "scope": "Pingu authorized documentation-based recipe delivery on 3 November 2026. Final GA, browser/provider/AG-UI, renderer/storage and Linux native TLS behaviour checks remain pending and are not claimed. These deferred checks do not block this ticket; broader release readiness remains gated.",
+      "followUp": "PIN-964",
+      "samples": [
+        "samples/net10.0/HarbourTls/HarbourTls.csproj",
+        "samples/net11.0/HarbourTls/HarbourTls.csproj"
+      ],
+      "metadataSha256": "d6cd1dc40ef9611609f281467a48bcef9600a68dd6d5b1aff572ad306fa8e351",
+      "markdownSha256": "55944a21f4a7a4b5f649180e827522211340a133c462a7f413bf9816ed3e01c9"
+    },
+    {
+      "id": "msbuild.archive-build-artifacts",
+      "edition": "11.0",
+      "classification": "documented-ga-intent",
+      "scope": "Pre-GA preview approved by Pingu on 8 November 2026; canonical project compilation is measured. Provisional pre-GA guidance: pending behavior/final-artifact proof is not successful execution or GA verification. Remaining claim-specific behavior and final qualification are not verified; stable readiness remains gated. Final reconciliation: PIN-963.",
+      "followUp": "PIN-963",
+      "samples": [
+        "samples/net10.0/BuildArtifacts/BuildArtifacts.csproj",
+        "samples/net11.0/BuildArtifacts/BuildArtifacts.csproj"
+      ],
+      "metadataSha256": "ed4acd65ac04feecc26e029e3a77dcf345d4363ebc943637b3234ce2a43dd4de",
+      "markdownSha256": "7ff9d6ea3d631af198d8693672337ed565ba29299dc8a2c622fee41c6d92873d"
+    },
+    {
+      "id": "msbuild.inspect-file-access-records",
+      "edition": "11.0",
+      "classification": "provisional-reference",
+      "scope": "Pre-GA preview approved by Pingu on 8 November 2026; canonical project compilation is measured. Provisional preview reference: supported host composition is unresolved; this is not a turnkey implementation. Remaining claim-specific behavior and final qualification are not verified; stable readiness remains gated. Final reconciliation: PIN-963.",
+      "followUp": "PIN-963",
+      "samples": [
+        "samples/net10.0/BuildAccessObserver/BuildAccessObserver.csproj",
+        "samples/net11.0/BuildAccessObserver/BuildAccessObserver.csproj"
+      ],
+      "metadataSha256": "4f51f50cde15bfdee158f205d0409beb3909ac9b1947ddd6bc92bd1166138645",
+      "markdownSha256": "93d94c0cdc2c7d00db2ba3d7f1b531364cfa86486fc0ee67430a79a1333ae7dc"
+    },
+    {
+      "id": "msbuild.inspect-item-globs",
+      "edition": "11.0",
+      "classification": "documented-ga-intent",
+      "scope": "Pre-GA preview approved by Pingu on 8 November 2026; canonical project compilation is measured. Provisional pre-GA guidance: pending behavior/final-artifact proof is not successful execution or GA verification. Remaining claim-specific behavior and final qualification are not verified; stable readiness remains gated. Final reconciliation: PIN-963.",
+      "followUp": "PIN-963",
+      "samples": [
+        "samples/net10.0/BuildArtifacts/BuildArtifacts.csproj",
+        "samples/net11.0/BuildArtifacts/BuildArtifacts.csproj"
+      ],
+      "metadataSha256": "3a610b3b0776e5fdee89d040bfd04429380623336204c946504e315adeb16e46",
+      "markdownSha256": "2e5b3207170223b684dbe181b21a4cde020f6533c6782375636c27f9ee6d7b64"
+    },
+    {
+      "id": "numerics.align-tensor-shapes",
+      "edition": "11.0",
+      "classification": "documented-ga-intent",
+      "scope": "Pingu authorized full .NET11 release preparation on30October2026 with final-package execution deferred. PIN-962 must select GA SDK/runtime/tensor assets, run all shape/view/scalar-pairwise Any checks and memory-preflighted native traversal beyond int.MaxValue, refresh actual sample evidence and clear pending proof only on success. Current code compilation and source review are not this proof; release-ready packaging stays blocked.",
+      "followUp": "PIN-962",
+      "samples": [
+        "samples/net10.0/InstrumentBatch/InstrumentBatch.csproj",
+        "samples/net11.0/InstrumentBatch/InstrumentBatch.csproj"
+      ],
+      "metadataSha256": "debcbf1f05a704d7cf71f4dfbbff79be76264fe1fa41b8b3f04e8efe09977849",
+      "markdownSha256": "6845ca98c94a95b2ceb4930df7f99dec9d63c789267373576efd8204d3c856cf"
+    },
+    {
+      "id": "numerics.copy-tensor-views-safely",
+      "edition": "11.0",
+      "classification": "documented-ga-intent",
+      "scope": "Pingu authorized full-release preparation on 30 October 2026 with final-package execution deferred to PIN-962. Select actual final SDK/runtime/tensor assets, run every committed storage check, refresh evidence and clear pending proof only after successful execution. Current compilation and merged source are not that proof; release-ready packaging remains blocked.",
+      "followUp": "PIN-962",
+      "samples": [
+        "samples/net10.0/GridTransform/GridTransform.csproj",
+        "samples/net11.0/GridTransform/GridTransform.csproj"
+      ],
+      "metadataSha256": "7f631f9d58e6eac27637a55320bf1592078792d230c1233e43624f9ad704de9f",
+      "markdownSha256": "15e5d62c4d523fb95a758768ded5b13d881f13299120ba362a02d192e91621c1"
+    },
+    {
+      "id": "sdk.configure-cli-telemetry",
+      "edition": "11.0",
+      "classification": "documented-ga-intent",
+      "scope": "Pre-GA preview approved by Pingu on 8 November 2026; canonical project compilation is measured. Provisional pre-GA guidance: pending behavior/final-artifact proof is not successful execution or GA verification. Remaining claim-specific behavior and final qualification are not verified; stable readiness remains gated. Final reconciliation: PIN-963.",
+      "followUp": "PIN-963",
+      "samples": [
+        "samples/net10.0/CliTelemetry/CliTelemetry.csproj",
+        "samples/net11.0/CliTelemetry/CliTelemetry.csproj"
+      ],
+      "metadataSha256": "95068d45a29c74f15614daecba26e9eab35111119e2f7d4b656f75a6b92e8f11",
+      "markdownSha256": "ddb6bee6633dbf2a6353178118ea4c19036bee2755cf3edb9a1b1e3261e433b3"
+    },
+    {
+      "id": "sdk.publish-multiarch-with-podman",
+      "edition": "11.0",
+      "classification": "documented-ga-intent",
+      "scope": "Pre-GA preview approved by Pingu on 8 November 2026; canonical project compilation is measured. Provisional pre-GA guidance: pending behavior/final-artifact proof is not successful execution or GA verification. Remaining claim-specific behavior and final qualification are not verified; stable readiness remains gated. Final reconciliation: PIN-963.",
+      "followUp": "PIN-963",
+      "samples": [
+        "samples/net10.0/ContainerPublishing/ContainerPublishing.csproj",
+        "samples/net11.0/ContainerPublishing/ContainerPublishing.csproj"
+      ],
+      "metadataSha256": "13c3fb7cbd462edf8078778f5e6d7c9fbb457c3b7f0afe0231f564ded68de296",
+      "markdownSha256": "f83aa3640c717b08fce8e36b2e7153c20a67cef6a8f6e387b9a3225ff1d2b66d"
+    },
+    {
+      "id": "sdk.publish-reproducible-containers",
+      "edition": "11.0",
+      "classification": "documented-ga-intent",
+      "scope": "Pre-GA preview approved by Pingu on 8 November 2026; canonical project compilation is measured. Provisional pre-GA guidance: pending behavior/final-artifact proof is not successful execution or GA verification. Remaining claim-specific behavior and final qualification are not verified; stable readiness remains gated. Final reconciliation: PIN-963.",
+      "followUp": "PIN-963",
+      "samples": [
+        "samples/net10.0/ContainerPublishing/ContainerPublishing.csproj",
+        "samples/net11.0/ContainerPublishing/ContainerPublishing.csproj"
+      ],
+      "metadataSha256": "bd46a699b35073413ac1a6b2cd8a850f0011b0efd71120c6467720a598016a74",
+      "markdownSha256": "aec251ebc51f02074e7aecce29124a3e1872376fc74000cb897a1ff61a7cbe87"
+    },
+    {
+      "id": "sdk.select-affected-tests",
+      "edition": "11.0",
+      "classification": "provisional-reference",
+      "scope": "Pre-GA preview approved by Pingu on 8 November 2026; canonical project compilation is measured. Provisional preview reference: supported host composition is unresolved; this is not a turnkey implementation. Remaining claim-specific behavior and final qualification are not verified; stable readiness remains gated. Final reconciliation: PIN-963.",
+      "followUp": "PIN-963",
+      "samples": [
+        "samples/net10.0/SeedBankMap/SeedBankMap.csproj",
+        "samples/net11.0/SeedBankMap/SeedBankMap.csproj"
+      ],
+      "metadataSha256": "a5dab718aa07fe05add9b6f2935fa89fc26006cfb29d524841720c19cec71c19",
+      "markdownSha256": "bbddd14c18181848616a56ddfe17171d98cedd6db5120cf248de9f57c7c8718e"
+    },
+    {
+      "id": "sdk.select-local-container-engine",
+      "edition": "11.0",
+      "classification": "documented-ga-intent",
+      "scope": "Pre-GA preview approved by Pingu on 8 November 2026; canonical project compilation is measured. Provisional pre-GA guidance: pending behavior/final-artifact proof is not successful execution or GA verification. Remaining claim-specific behavior and final qualification are not verified; stable readiness remains gated. Final reconciliation: PIN-963.",
+      "followUp": "PIN-963",
+      "samples": [
+        "samples/net10.0/ContainerPublishing/ContainerPublishing.csproj",
+        "samples/net11.0/ContainerPublishing/ContainerPublishing.csproj"
+      ],
+      "metadataSha256": "a79fdc7f2fb3c2efe319747b5c1e934e4591a4ca8dde73547033883582b6cc6b",
+      "markdownSha256": "6c4ea6dd4ce7fe01a0e56eabe7b0ff95b2e8397c5bd6affc26606661e80dbf5b"
+    }
+  ]
+}

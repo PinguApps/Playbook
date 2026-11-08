@@ -43,8 +43,10 @@ Engine support, index format, base-image platforms, runtime packs and registry c
 
 The explicit request for theoretical implementation superseded this task's requirement to obtain a live Podman route. It did not supply missing artifacts or authorize provisioning, remote pushes or live checks. No older-target route is asserted from documentation alone.
 
-## Evidence
+## Evidence and limitations
 
-Official SDK documentation and the local-engine property contract/source were reviewed. Both original project versions and their shared program are canonical sample inputs; their declared SDK/language versions are intended unbuilt pins. All saved records are `official-review`.
+The canonical .NET10 and .NET11 projects now have actual locked compilation records from Windows, using their declared SDKs and dependencies. The original official-source review is retained separately. Compilation of the rules/decoder library does not compile illustrative .cs.txt host integration or establish behavior.
 
-Compilation, architecture-specific publication, Podman invocation, manifest creation/inspection, executable behavior and installed offline MCP retrieval remain unverified. Pending proof is carried into discovery/detail and blocks release-ready packaging. No mock stands in for Podman, and no Docker result is presented as Podman evidence. The edition targets 11 with an older .NET 10 comparison and an explicit RC-to-GA limitation.
+The pre-GA preview is explicitly provisional. Pending proof remains visible in discovery/detail and blocks stable readiness. The approved preview evidence register names this exact edition, canonical samples, limitations and its final-reconciliation owner; it does not claim successful unperformed checks.
+
+Two SDK11 local OCI archive publishes produced both Linux architectures. Actual Podman loading and execution remain unverified; Docker and archive output are separate evidence.

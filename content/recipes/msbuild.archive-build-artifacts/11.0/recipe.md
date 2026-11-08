@@ -4,7 +4,7 @@
 
 Package a dispatch application's build output into a tar archive, then extract it into a separate intermediate directory. Keep the archive outside the directory being archived, and make the intended overwrite behavior explicit.
 
-This implementation is theoretical. No build, tar file, extracted directory or incremental behavior has been observed for these samples.
+This provisional walkthrough retains documented GA intent. Consult the evidence section for actual local observations and the remaining unverified behavior.
 
 ## Older approach
 
@@ -51,8 +51,10 @@ The tar helper and tasks are for trusted build artifacts. This recipe does not e
 
 The private/draft fixture files support the independent glob recipe. They are not copied to the output by this project. Item inspection does not itself change which files a publish/archive target consumes.
 
-## Evidence
+## Evidence and limitations
 
-Reviewed official MSBuild RC1 task contracts and the .NET 10 `TarFile` creation/extraction API contracts. Both original projects, the helper, imported targets and fictional payload are canonical sample inputs with intended SDK/language pins. The only recorded evidence is `official-review`.
+The canonical .NET10 and .NET11 projects now have actual locked compilation records from Windows, using their declared SDKs and dependencies. The original official-source review is retained separately. Compilation of the rules/decoder library does not compile illustrative .cs.txt host integration or establish behavior.
 
-Neither project has compiled. Archive format/contents, extraction, overwrite/failure/incremental behavior and installed offline MCP retrieval remain unverified. No mock or source review is presented as an actual build artifact. Pending proof is visible in discovery/detail and blocks release-ready packaging; .NET 11 source review is not GA verification. The exact historical foundation set is unchanged.
+The pre-GA preview is explicitly provisional. Pending proof remains visible in discovery/detail and blocks stable readiness. The approved preview evidence register names this exact edition, canonical samples, limitations and its final-reconciliation owner; it does not claim successful unperformed checks.
+
+The older archive helper extracted payload bytes correctly. SDK11 RC3 TarDirectory failed internally, including a single-node retry. The documented GA implementation is retained; newer extraction and incremental behavior are not verified.

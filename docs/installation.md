@@ -1,6 +1,6 @@
 # Install and update Playbook
 
-`PinguApps.Playbook` installs the `playbook` command. This development package is **not ready for public publication**. Use the local package below today; NuGet.org commands describe installation after a release is published.
+`PinguApps.Playbook` installs the `playbook` command. Pre-GA preview packages include explicitly labelled provisional guidance and pending behavior proof under the [preview policy](planning/release-plan.md). They are not GA verification. Use the local package below until a release is published; NuGet.org commands describe installation after publication.
 
 ## Prerequisites and host runtime
 

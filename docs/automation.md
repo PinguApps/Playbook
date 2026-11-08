@@ -94,11 +94,13 @@ Repository settings: [Actions secrets and variables](https://github.com/PinguApp
 ## Validate package publication safely
 
 Manual `publish.yml` dispatch defaults `validate_only` to `true`. It resolves the
-selected tag, runs the full release-ready checks (including the desktop lanes),
+selected tag, runs the full publication checks (including the desktop lanes),
 downloads `playbook-package` from this same run, and checks the sole package's
 filename, SHA-256 manifest and embedded NuGet ID/version. NuGet login and push
-are skipped. Missing release readiness still fails validation; this option does
-not waive catalogue, evidence or Human gates. Explicitly disabling it is actual
+  are skipped. The selected `preview.N` version uses only the named, input-bound
+  preview exceptions; stable versions reject pending proof. Missing required
+  catalogue/evidence checks still fail validation. `validate_only` does not change
+  that version-specific boundary. Explicitly disabling it is actual
 publication and requires separate owner authorization.
 
 Preview tags use `1.0.0-preview.N` and are accepted only by manual dispatch.

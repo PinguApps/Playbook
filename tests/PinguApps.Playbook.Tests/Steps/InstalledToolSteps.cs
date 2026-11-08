@@ -1904,7 +1904,7 @@ public sealed class InstalledToolSteps : IDisposable
         return (await reader.ReadToEndAsync().ConfigureAwait(false)).Replace("\r\n", "\n", StringComparison.Ordinal);
     }
 
-    [Then("theoretical SDK and build recipes retain complete bodies and source-only proof")]
+    [Then("provisional SDK and build recipes retain complete bodies and distinguish compilation from pending behavior")]
     public async Task CheckTheoreticalBuildGuidanceAsync()
     {
         string[] ids = ["sdk.select-local-container-engine", "sdk.publish-reproducible-containers", "sdk.publish-multiarch-with-podman", "sdk.configure-cli-telemetry", "msbuild.archive-build-artifacts", "msbuild.inspect-item-globs"];
@@ -1932,12 +1932,14 @@ public sealed class InstalledToolSteps : IDisposable
             Assert.Equal(expected, recipe.GetProperty("markdown").GetString());
             AssertSelection(summary, recipe);
             Assert.Equal("pending", recipe.GetProperty("humanProof").GetProperty("status").GetString());
-            Assert.Contains("Theoretical guidance", summary.ToString(), StringComparison.Ordinal);
-            Assert.All(recipe.GetProperty("evidence").EnumerateArray(), evidence =>
+            Assert.Contains("Provisional pre-GA guidance", summary.ToString(), StringComparison.Ordinal);
+            JsonElement[] records = [.. recipe.GetProperty("evidence").EnumerateArray()];
+            Assert.Contains(records, evidence => evidence.GetProperty("kind").GetString() == "official-review" && evidence.GetProperty("role").GetString() == "source-review");
+            foreach (string target in new[] { "net10.0", "net11.0" })
             {
-                Assert.Equal("official-review", evidence.GetProperty("kind").GetString());
-                Assert.Equal("source-review", evidence.GetProperty("role").GetString());
-            });
+                Assert.Contains(records, evidence => evidence.GetProperty("kind").GetString() == "compile" && evidence.GetProperty("target").GetString() == target);
+            }
+            Assert.All(records, evidence => Assert.Equal("current", evidence.GetProperty("freshness").GetString()));
             JsonElement route = Assert.Single(recipe.GetProperty("applicability").GetProperty("routes").EnumerateArray());
             Assert.Equal("11.0", route.GetProperty("target").GetString());
             Assert.False(route.GetProperty("conditional").GetBoolean());

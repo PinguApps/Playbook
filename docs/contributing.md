@@ -1,5 +1,17 @@
 # Contribute and verify an original recipe
 
+## Pre-GA preview evidence
+
+Pingu approved a separate preview boundary on 8 November 2026. Stable publication
+still rejects pending proof. A `preview.N` publication may retain only the exact
+exceptions in `content/preview-evidence.json`, with edition/sample identities,
+metadata and Markdown hashes, a bounded limitation and a final-reconciliation owner.
+Keep pending proof and provisional-reference warnings visible; a preview approval
+does not establish compilation, execution or GA compatibility. New/changed inputs
+require reconciliation of the approved exception. Source accuracy, complete offline
+delivery, existing evidence freshness and feasible local/no-cost checks still apply.
+See [release policy](planning/release-plan.md#package-version-and-channels).
+
 ## Choose the check and retain its result
 
 1. Name the behaviour or claim the change could break. Choose the narrowest meaningful existing check in `eng/` or the installed-package scenarios.
