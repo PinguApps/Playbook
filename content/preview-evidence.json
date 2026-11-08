@@ -80,7 +80,7 @@
         "samples/net11.0/BuildArtifacts/BuildArtifacts.csproj"
       ],
       "metadataSha256": "d0d3eff49ddfd1d2c28e465c13a784e55f0b4ba9689b0ae5b5b85633b4cd6255",
-      "markdownSha256": "977504a97e2ffaa651eed41679c8fd4d9494ca5e3ef1881d2b544e525d8409f2"
+      "markdownSha256": "87206668c582236c37841972f0ac3b63ac43b3c0e5f6d1138fc18e8552d9dd24"
     },
     {
       "id": "msbuild.inspect-file-access-records",
@@ -106,7 +106,7 @@
         "samples/net11.0/BuildArtifacts/BuildArtifacts.csproj"
       ],
       "metadataSha256": "9d859b8af485d66a5d6fd7d3e1b00940ee0d0841e619467d741fb72076b90846",
-      "markdownSha256": "2e5b3207170223b684dbe181b21a4cde020f6533c6782375636c27f9ee6d7b64"
+      "markdownSha256": "bca03e82e96b2598bff275b7fb42b7477cee3e99feec83747a2960530bebd10a"
     },
     {
       "id": "numerics.align-tensor-shapes",
@@ -145,7 +145,7 @@
         "samples/net11.0/CliTelemetry/CliTelemetry.csproj"
       ],
       "metadataSha256": "971ef6457670fa615f1bb614ee267122ef74848b18d708492c2cf7f691dc3d37",
-      "markdownSha256": "ddb6bee6633dbf2a6353178118ea4c19036bee2755cf3edb9a1b1e3261e433b3"
+      "markdownSha256": "ce9a51a851b36b0f8f59c23fb9bae485579eeca04cf7e32a3d53bca688258284"
     },
     {
       "id": "sdk.publish-multiarch-with-podman",
@@ -158,7 +158,7 @@
         "samples/net11.0/ContainerPublishing/ContainerPublishing.csproj"
       ],
       "metadataSha256": "d29a65c28f3fd5cf96bd205f2ab94299d49d88c6835ce846f6fb27b6b30811cf",
-      "markdownSha256": "f83aa3640c717b08fce8e36b2e7153c20a67cef6a8f6e387b9a3225ff1d2b66d"
+      "markdownSha256": "fbf47c4f1093b500a4a124c2d4784633c4a26e771deddbbe28a48e86685ddc4e"
     },
     {
       "id": "sdk.publish-reproducible-containers",
@@ -171,7 +171,7 @@
         "samples/net11.0/ContainerPublishing/ContainerPublishing.csproj"
       ],
       "metadataSha256": "b1d06b0f3f568dc3984e3a181c58d426d4e182f394dcb39586c1a4e932c441eb",
-      "markdownSha256": "09fb39a19860eaa5a7d42c7be0a243a4d1543790683b371c7b187f606208fce1"
+      "markdownSha256": "38e92188aa3221ae62b61a7fd0bba2793b4a54c55ead0e3f31db37bd0fa2c6b2"
     },
     {
       "id": "sdk.select-affected-tests",
@@ -197,7 +197,7 @@
         "samples/net11.0/ContainerPublishing/ContainerPublishing.csproj"
       ],
       "metadataSha256": "030ea5631cdd6a3849be60647997413b8e4bd1eb118866e67c3ae15069bc4c93",
-      "markdownSha256": "6c4ea6dd4ce7fe01a0e56eabe7b0ff95b2e8397c5bd6affc26606661e80dbf5b"
+      "markdownSha256": "53ceb968bba09ddbbe14361f72f1d37deee0553520636098aec9a5c6eddc8336"
     }
   ]
 }
