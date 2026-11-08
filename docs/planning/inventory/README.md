@@ -1,5 +1,14 @@
 # Recipe inventory
 
+Pingu's 8 November 2026 pre-GA decision permits only the named, input-bound
+[preview evidence exceptions](../../../content/preview-evidence.json), with pending
+proof and explicit provisional-reference limitations retained. Earlier delivery
+notes in these registers describe their recorded baselines; the current
+[coverage/evidence report](../audits/content-readiness.md) includes supplemental
+compilation and local observations. Preview eligibility does not certify GA or
+clear the existing final-reconciliation owners. Coverage rows, grouping reasons,
+withdrawn consumers and the exact eight foundations remain accounted for.
+
 The [audit proposal decision record](../audit-proposal-review.md) reconciles the
 historical audit drafts with approved delivery tickets and existing coverage.
 Use its retained owners instead of treating old draft numbers or approval notes

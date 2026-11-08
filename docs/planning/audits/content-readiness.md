@@ -1,10 +1,43 @@
 # Comprehensive content and evidence gate
 
-Audit checkpoint: 8 November 2026. **Blocked; not a publication approval.**
-PIN-959 owns this gate. This report records a bounded checkpoint, not completion
-of the comprehensive semantic/originality review or the final GA audit.
+Audit checkpoint: 8 November 2026. **Approved pre-GA preview boundary.**
+Pingu approved completing PIN-959 with accountable coverage, feasible local checks
+and explicitly provisional content. Stable/GA certification remains gated by the
+15 named pending editions below. The implementation PR prepares publication; it
+does not publish a package.
 
-## Candidate identity
+The [preview registry](../../../content/preview-evidence.json) binds each exception
+to exact metadata, Markdown and canonical sample identities, with existing GA
+follow-up ownership. Changes invalidate approval until explicitly reconciled.
+Source review, compilation and failed execution retain their separate meanings.
+
+## Preview candidate and refreshed proof
+
+- Content revision: `b47547cb95c34791f604087c901e05fcb489594b`.
+- Package: `PinguApps.Playbook.0.0.0-preview.959.nupkg`, locally built, unpublished.
+- SHA-256: `1a87ee5bdb45e95acde45191505412375087ac1305735e39e89967074aea2d36`.
+- All 486 unique installed editions matched full canonical Markdown across 505
+  target10/11 list/get pairs, including discovery title/goal, applicability,
+  current evidence and text/structured parity.
+- The documented Inspector setup/build/pack/example passed from `C:/`, selecting
+  this worktree literally. All15 exceptions returned complete provisional guidance.
+- Full `eng/Verify.ps1 -ReleaseReady -PackageVersion 0.0.0-preview.959
+  -SkipInstalledTests` passed build, portable checks, stale/incomplete-content
+  rejection and release-selection fixture packing. The affected content was
+  rebuilt/repacked after disclosure corrections; unchanged sample proof is reused.
+- Preview guard tests passed approval and rejected stable versions, mixed modes,
+  missing exceptions and changed approved inputs. An actual stable `1.0.0` pack
+  with `PlaybookReleaseReady=true` rejected pending proof and emitted no package.
+- The exact preview passed all51 installed scenarios on each isolated .NET10
+  and .NET11 RC Docker host with `--network none` (102 scenario executions).
+  The existing suite was rebuilt with current embedded guidance. The consumer
+  wrapper's stale46 expectation was corrected to the actual51 scenarios; stale
+  runtime-patch and measured discovery-budget assertions were reconciled without
+  truncating warnings or changing the served response contract.
+- Dependency/renovation policy checks and publishing workflow guard checks passed.
+  Native/Maps behavior exclusions and unperformed GA proof remain explicit.
+
+## Historical checkpoint identity
 
 - Source: `e37e09204e0f8c97e06951bd5c4d1a08e3353747`.
 - Package: `PinguApps.Playbook.0.0.0-pin959-audit.nupkg`, built locally, unpublished.
@@ -76,10 +109,10 @@ solely because an earlier proposed ID differs:
 
 Canonical sample lineage and full body retrieval do not establish successful
 composition of the supported hosts listed below. Those missing consumer contracts
-and final-package results prevent comprehensive certification. Linkage and a Done
-ticket do not supply that proof.
+and final-package results prevent stable certification. The approved preview
+exposes those limits; linkage and a Done ticket do not supply execution proof.
 
-## Checks actually performed
+## Historical checkpoint and feasible local checks
 
 - `eng/Build-Content.ps1`: passed ordinary metadata, canonical snippet and saved
   evidence/input-freshness validation for the candidate. This does not execute
@@ -174,7 +207,7 @@ means the checkpoint still matches its inputs; it does not certify release readi
 | `numerics.copy-tensor-views-safely` | `GridTransform` | Final tensor/runtime storage and copying execution |
 | `sdk.configure-cli-telemetry` | `CliTelemetry` | Measured opt-out/configuration/network/collector behavior |
 | `sdk.publish-multiarch-with-podman` | `ContainerPublishing` | Actual Podman load/inspect; no Podman executable was available |
-| `sdk.publish-reproducible-containers` | `ContainerPublishing` | Integrate bounded two-run image/object evidence and qualify the supported final artifact; do not claim archive-byte equality |
+| `sdk.publish-reproducible-containers` | `ContainerPublishing` | Bounded two-run image/object evidence is served; qualify the supported final artifact and default Podman path; do not claim archive-byte equality |
 | `sdk.select-affected-tests` | `SeedBankMap` | Supported composed MTP host, local storage/registration contract, mapping and selection/failure behavior; compiled rules alone are insufficient |
 | `msbuild.inspect-file-access-records` | `BuildAccessObserver` | Composed real observer host and file-access/failure/cancellation behavior; `.cs.txt` callback is not compiled by the existing project |
 | `sdk.select-local-container-engine` | `ContainerPublishing` | Error/fallback checks and Podman remain; actual Docker x64 publish/load/run passed |
@@ -182,24 +215,32 @@ means the checkpoint still matches its inputs; it does not certify release readi
 No pending status was cleared. Existing unavailable-native exclusions remain
 sample-specific `not-tested`; native hardware is not a new prerequisite. Windows
 Maps service/rendering stays `not-tested` under Pingu's local-only/no-cost decision:
-no resources, credentials or service/tile requests were used. Other local/provider
-and genuinely required Human proof are not waived.
+no resources, credentials or service/tile requests were used. Other required local/provider/Human proof remains pending where explicitly
+registered for preview and must be completed before stable publication.
 
-## Next actions
+## Preview completion and stable follow-up
 
-1. Reconcile the affected coverage rows after the missing supported consumer
-   contracts and actual final-package evidence are available, preserving all
-   grouping/exclusion reasons. Do not treat source-only preparations as completed
-   implementation evidence.
-2. Retain the new compilation proof in served metadata only when updating its
-   source-only prose and scope together; rebuild and inspect the resulting artifact.
-3. Pingu's 8 November decision is to follow the official .NET11 documentation when
-   RC3 behavior differs. Retain the documented archive implementation; do not add
-   an RC workaround or a separate delivery ticket solely for this task failure.
-   Keep the observed failure separate from successful execution evidence and
-   preserve final-artifact qualification with the existing GA reconciliation.
-4. Resolve the existing pending consumer contracts and final-package gates with
-   their owners. Do not build an unknown-sized missing corpus inside this audit.
-5. Re-run the release-ready gate after required evidence is complete, then complete
-   pre-PR review and PR/CI delivery. No PR or publication is authorized by a passing
-   tool smoke or this checkpoint alone.
+The current preview incorporates the ten existing-format compilation records in
+served evidence, alongside source-review records. Every named edition discloses
+its provisional scope in discovery/applicability and full Markdown. MTP selection
+and file-access callbacks remain provisional reference material, not working
+composed host claims. The remaining source/API findings retain their bounded
+recipe/audit ownership in the ledger; this ticket introduces no new qualifying
+unowned corpus finding.
+
+- `PIN-962`: runtime/BCL/tensor final artifacts and actual tensor suites.
+- `PIN-963`: SDK/MSBuild/tooling/container GA qualification and supported hosts.
+- `PIN-964`: web/Blazor/AI/browser/native TLS final qualification.
+- `PIN-965`: EF final packages and generated/provider consumer evidence.
+
+Pingu's decision is to follow official .NET11 documentation where RC3 differs.
+The archive implementation is retained without an RC workaround or a separate
+failure-only ticket. Its observed failure remains distinct from successful proof.
+No pending status or sample-specific native/Maps exclusion was cleared.
+
+The normal release publication path chooses the approved preview gate only for
+`X.Y.Z-preview.N`; stable versions still use the strict `-ReleaseReady` gate.
+Changing inputs, missing approvals/disclosures or stale evidence rejects preview
+packaging. This is a repeatable release decision, not a blanket preview bypass.
+Reconcile and retire exceptions with their existing owners once final artifacts
+and supported consumer contracts can pass; then run the strict stable gate.

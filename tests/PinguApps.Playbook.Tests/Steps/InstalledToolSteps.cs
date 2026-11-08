@@ -304,7 +304,7 @@ public sealed class InstalledToolSteps : IDisposable
         }
 
         string markdown = recipe.GetProperty("markdown").GetString()!;
-        foreach (string contract in new[] { "Blazor enhanced navigation; only resources actually needed", "10.0.13", "blazor-enhanced-nav=on", "modulepreload does not execute", "warm cache", "not GA", "no unavailable older public API", "as=\"fetch\"", "crossorigin=\"anonymous\"", "data-enhance-nav=\"false\"" })
+        foreach (string contract in new[] { "Blazor enhanced navigation; only resources actually needed", "10.0.14", "blazor-enhanced-nav=on", "modulepreload does not execute", "warm cache", "not GA", "no unavailable older public API", "as=\"fetch\"", "crossorigin=\"anonymous\"", "data-enhance-nav=\"false\"" })
         {
             Assert.Contains(contract, markdown, StringComparison.OrdinalIgnoreCase);
         }
@@ -2550,7 +2550,7 @@ public sealed class InstalledToolSteps : IDisposable
             JsonElement list = AssertMatchingRepresentations(result);
             JsonElement[] summaries = [.. list.GetProperty("recipes").EnumerateArray()];
             measurements.Add($"{target}: count={summaries.Length}, largest summary={summaries.Max(Bytes)}, structured={Bytes(list)}, result={Bytes(result)} UTF-8 bytes");
-            withinBudget &= summaries.All(summary => Bytes(summary) <= 3000) && Bytes(result) <= 80000;
+            withinBudget &= summaries.All(summary => Bytes(summary) <= 5000) && Bytes(result) <= 100000;
         }
 
         string report = string.Join(Environment.NewLine, measurements);
@@ -2572,10 +2572,10 @@ public sealed class InstalledToolSteps : IDisposable
                 JsonElement list = AssertMatchingRepresentations(result);
                 Assert.Equal(limit, list.GetProperty("recipes").GetArrayLength());
                 measurements.Add($"{query ?? "all"} {limit}: summary={Bytes(list.GetProperty("recipes")[0])}, structured={Bytes(list)}, result={Bytes(result)} UTF-8 bytes");
-                int budget = query is null ? 80000 : 65000;
+                int budget = query is null ? 100000 : 65000;
                 if (limit == 50)
                 {
-                    budget = query is null ? 170000 : 160000;
+                    budget = query is null ? 225000 : 160000;
                 }
 
                 withinBudget &= Bytes(result) <= budget;

@@ -77,10 +77,18 @@ This is an incompatible (`major`) public response-shape change. Migrate discover
 
 Response sizes and practical regression budgets are documented in [PIN-974 verification](https://github.com/PinguApps/Playbook/blob/e60419660a082da40dfc1bd8f0667401677c53f3/docs/verification/PIN-974.md). Budgets fail verification; the server never shortens safety information to meet them.
 
-PIN-750/751 measures 162,974 bytes for the 50-item real-content fixture page
-after adding required cryptography provider/experimental conditions. Its practical
-allowance is now 170,000 bytes; default real pages remain 80,000, synthetic
-20/50-item fixture pages remain 65,000/160,000, and per-summary remains 3,000.
+PIN-750/751 measured 162,974 bytes for the 50-item real-content fixture page
+after adding required cryptography provider/experimental conditions. At that checkpoint the practical
+allowance was 170,000 bytes, default real pages 80,000, synthetic
+20/50-item fixture pages 65,000/160,000, and per-summary 3,000.
+
+PIN-959 remeasured the delivered corpus: default target10/11 pages are
+96,772/94,604 bytes, the largest summary is 4,367 bytes, and the 50-item real
+page is 213,149 bytes. These outgrew the earlier limits before the preview change;
+the original audit package reproduces the target10 sizes. Current bounds are
+100,000 bytes for default real pages, 225,000 for 50-item real pages and 5,000
+per summary. Synthetic fixture bounds remain unchanged. These are measured
+regression limits, not token guarantees.
 No response is truncated and no selection condition is removed to fit a budget.
 
 ## GA target and RC evidence

@@ -37,9 +37,23 @@ $pending = @(Get-ChildItem -LiteralPath (Join-Path $root 'content/recipes') -Rec
 })
 $savedPending = @($ledger.pendingProof | ForEach-Object { "$($_.id)/$($_.edition)" })
 if (@(Compare-Object $pending $savedPending).Count -ne 0) { throw 'Pending proof changed; reconcile the checkpoint rather than treating it as current.' }
+if ($ledger.previewPolicy) {
+    $policyPath = Join-Path $root $ledger.previewPolicy.path
+    if ((Get-FileHash -LiteralPath $policyPath -Algorithm SHA256).Hash.ToLowerInvariant() -cne $ledger.previewPolicy.sha256) {
+        throw 'Preview approval changed; reconcile the checkpoint.'
+    }
+    $policy = Get-Content -LiteralPath $policyPath -Raw | ConvertFrom-Json
+    foreach ($exception in $policy.exceptions) {
+        $directory = Join-Path $root "content/recipes/$($exception.id)/$($exception.edition)"
+        if ((Get-FileHash -LiteralPath (Join-Path $directory 'recipe.json') -Algorithm SHA256).Hash.ToLowerInvariant() -cne $exception.metadataSha256 -or
+            (Get-FileHash -LiteralPath (Join-Path $directory 'recipe.md') -Algorithm SHA256).Hash.ToLowerInvariant() -cne $exception.markdownSha256) {
+            throw "Preview approval inputs changed: $($exception.id)/$($exception.edition)"
+        }
+    }
+}
 if ($PackagePath) {
     if ((Get-FileHash -LiteralPath $PackagePath -Algorithm SHA256).Hash.ToLowerInvariant() -cne $ledger.candidatePackage.sha256) {
         throw 'The supplied artifact is not the audited candidate.'
     }
 }
-Write-Host "PASS: checkpoint input hashes, $($ledger.currentRows.Count) row locations/destinations, exact foundations and $($pending.Count) pending gates match. This does not establish release readiness."
+Write-Host "PASS: checkpoint input hashes, $($ledger.currentRows.Count) row locations/destinations, exact foundations, preview approval and $($pending.Count) pending gates match. Stable readiness remains gated."
