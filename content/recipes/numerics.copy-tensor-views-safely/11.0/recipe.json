@@ -93,7 +93,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "PIN-962 must select final SDK/runtime/tensor artifacts, execute all storage checks and refresh proof; pending proof blocks release-ready packaging.",
+            "PIN-962 must select final SDK/runtime/tensor artifacts, execute all storage checks and refresh proof; pending proof blocks stable-release packaging.",
             "No experimental annotation or opt-in on actual compilation types. Full-release preparation does not advertise RC2/RC3 behavior.",
             "Provisional pre-GA guidance: pending behavior/final-artifact proof is not successful execution or GA verification."
           ]
@@ -172,6 +172,6 @@
   },
   "humanProof": {
     "status": "pending",
-    "scope": "Pingu authorized full-release preparation on 30 October 2026 with final-package execution deferred to PIN-962. Select actual final SDK/runtime/tensor assets, run every committed storage check, refresh evidence and clear pending proof only after successful execution. Current compilation and merged source are not that proof; release-ready packaging remains blocked."
+    "scope": "Pingu authorized full-release preparation on 30 October 2026 with final-package execution deferred to PIN-962. Select actual final SDK/runtime/tensor assets, run every committed storage check, refresh evidence and clear pending proof only after successful execution. Current compilation and merged source are not that proof; stable-release packaging remains blocked."
   }
 }

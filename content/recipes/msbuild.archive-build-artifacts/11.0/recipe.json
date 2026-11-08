@@ -32,7 +32,7 @@
         "conditional": false,
         "usage": "primary",
         "selectionNotes": [
-          "Theoretical guidance: source review only; samples have not been compiled or executed. Pending proof blocks release-ready packaging.",
+          "Theoretical guidance: source review only; samples have not been compiled or executed. Pending proof blocks stable readiness; preview publication requires a named approved exception.",
           "TarDirectory and Untar require .NET-hosted MSBuild; .NET Framework MSBuild.exe does not provide these tasks.",
           "Only trusted archives belong in this build workflow.",
           "Provisional pre-GA guidance: pending behavior/final-artifact proof is not successful execution or GA verification."
@@ -85,7 +85,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Theoretical guidance: source review only; samples have not been compiled or executed. Pending proof blocks release-ready packaging.",
+            "Theoretical guidance: source review only; samples have not been compiled or executed. Pending proof blocks stable readiness; preview publication requires a named approved exception.",
             "Official .NET 11 RC documentation and source were reviewed; the pinned RC2 samples are uncompiled. No experimental API is intentionally used; GA reconciliation remains separate.",
             "Provisional pre-GA guidance: pending behavior/final-artifact proof is not successful execution or GA verification."
           ]

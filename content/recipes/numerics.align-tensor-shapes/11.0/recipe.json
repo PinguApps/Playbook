@@ -109,7 +109,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Pending final SDK/runtime/package behavior, all five scalar/pairwise Any families, views/extrema and native traversal beyond int.MaxValue. PIN-962 owns refresh; pending proof blocks release-ready packaging.",
+            "Pending final SDK/runtime/package behavior, all five scalar/pairwise Any families, views/extrema and native traversal beyond int.MaxValue. PIN-962 owns refresh; pending proof blocks stable-release packaging.",
             "No experimental annotation was required by the selected types/signatures on actual compilation assets. Full-release guidance is not an advertisement for RC2/RC3 behavior.",
             "Provisional pre-GA guidance: pending behavior/final-artifact proof is not successful execution or GA verification."
           ]
@@ -183,6 +183,6 @@
   },
   "humanProof": {
     "status": "pending",
-    "scope": "Pingu authorized full .NET11 release preparation on30October2026 with final-package execution deferred. PIN-962 must select GA SDK/runtime/tensor assets, run all shape/view/scalar-pairwise Any checks and memory-preflighted native traversal beyond int.MaxValue, refresh actual sample evidence and clear pending proof only on success. Current code compilation and source review are not this proof; release-ready packaging stays blocked."
+    "scope": "Pingu authorized full .NET11 release preparation on30October2026 with final-package execution deferred. PIN-962 must select GA SDK/runtime/tensor assets, run all shape/view/scalar-pairwise Any checks and memory-preflighted native traversal beyond int.MaxValue, refresh actual sample evidence and clear pending proof only on success. Current code compilation and source review are not this proof; stable-release packaging stays blocked."
   }
 }

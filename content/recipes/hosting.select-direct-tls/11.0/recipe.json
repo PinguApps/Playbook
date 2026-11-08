@@ -35,7 +35,7 @@
         "usage": "primary",
         "selectionNotes": [
           "Experimental documentation-based recipe: the older socket consumer compiled; the current DirectTls example reproduces CS0246 against RC1 and has no successful compilation. Neither sample was executed.",
-          "Theoretical guidance: source review only for samples/net11.0/HarbourTls/HarbourTls.csproj; this sample has not been compiled successfully or executed. Compilation of other samples is recorded separately. Pending proof blocks release-ready packaging.",
+          "Theoretical guidance: source review only for samples/net11.0/HarbourTls/HarbourTls.csproj; this sample has not been compiled successfully or executed. Compilation of other samples is recorded separately. Pending proof blocks stable readiness; preview publication requires a named approved exception.",
           "Provisional pre-GA guidance: pending behavior/final-artifact proof is not successful execution or GA verification."
         ],
         "requirements": {
@@ -92,8 +92,8 @@
             "Explicit experimental package adoption; ASPNETCORE_DIRECTTLS_001 scoped to transport registration"
           ],
           "stabilityLimitations": [
-            "Pingu authorized documentation-based recipe delivery on 3 November 2026. Final GA, browser/provider/AG-UI, renderer/storage and Linux native TLS behaviour checks remain pending and are not claimed. These deferred checks do not block this ticket; broader release readiness remains gated.",
-            "Theoretical guidance: source review only for samples/net11.0/HarbourTls/HarbourTls.csproj; this sample has not been compiled successfully or executed. Compilation of other samples is recorded separately. Pending proof blocks release-ready packaging.",
+            "Pingu authorized documentation-based recipe delivery on 3 November 2026. Final GA, browser/provider/AG-UI, renderer/storage and Linux native TLS behaviour checks remain pending and are not claimed. These deferred checks do not block this ticket; stable release readiness remains gated.",
+            "Theoretical guidance: source review only for samples/net11.0/HarbourTls/HarbourTls.csproj; this sample has not been compiled successfully or executed. Compilation of other samples is recorded separately. Pending proof blocks stable readiness; preview publication requires a named approved exception.",
             "Provisional pre-GA guidance: pending behavior/final-artifact proof is not successful execution or GA verification."
           ]
         },
@@ -215,6 +215,6 @@
   },
   "humanProof": {
     "status": "pending",
-    "scope": "Pingu authorized documentation-based recipe delivery on 3 November 2026. Final GA, browser/provider/AG-UI, renderer/storage and Linux native TLS behaviour checks remain pending and are not claimed. These deferred checks do not block this ticket; broader release readiness remains gated."
+    "scope": "Pingu authorized documentation-based recipe delivery on 3 November 2026. Final GA, browser/provider/AG-UI, renderer/storage and Linux native TLS behaviour checks remain pending and are not claimed. These deferred checks do not block this ticket; stable release readiness remains gated."
   }
 }

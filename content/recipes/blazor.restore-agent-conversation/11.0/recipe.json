@@ -102,7 +102,7 @@
             "Explicit experimental Components.AI package reference; compilation required no experimental diagnostic suppression"
           ],
           "stabilityLimitations": [
-            "Pingu authorized documentation-based recipe delivery on 3 November 2026. Final GA, browser/provider/AG-UI, renderer/storage and Linux native TLS behaviour checks remain pending and are not claimed. These deferred checks do not block this ticket; broader release readiness remains gated.",
+            "Pingu authorized documentation-based recipe delivery on 3 November 2026. Final GA, browser/provider/AG-UI, renderer/storage and Linux native TLS behaviour checks remain pending and are not claimed. These deferred checks do not block this ticket; stable release readiness remains gated.",
             "Provisional pre-GA guidance: pending behavior/final-artifact proof is not successful execution or GA verification."
           ]
         },
@@ -258,6 +258,6 @@
   },
   "humanProof": {
     "status": "pending",
-    "scope": "Pingu authorized documentation-based recipe delivery on 3 November 2026. Final GA, browser/provider/AG-UI, renderer/storage and Linux native TLS behaviour checks remain pending and are not claimed. These deferred checks do not block this ticket; broader release readiness remains gated."
+    "scope": "Pingu authorized documentation-based recipe delivery on 3 November 2026. Final GA, browser/provider/AG-UI, renderer/storage and Linux native TLS behaviour checks remain pending and are not claimed. These deferred checks do not block this ticket; stable release readiness remains gated."
   }
 }

@@ -199,6 +199,6 @@
   },
   "humanProof": {
     "status": "pending",
-    "scope": "Final package qualification is deferred by Pingu; no Human approval or successful direct materialization is inferred. PIN-959 and actual-GA reconciliation remain outstanding."
+    "scope": "Final package qualification is deferred by Pingu; no Human approval or successful direct materialization is inferred. Actual-GA reconciliation remains outstanding; PIN-959 permits this explicitly provisional preview."
   }
 }
