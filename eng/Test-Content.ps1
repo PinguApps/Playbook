@@ -5,6 +5,7 @@ param([switch]$Pack,
 $ErrorActionPreference = 'Stop'
 $PSNativeCommandUseErrorActionPreference = $false
 $root = Split-Path $PSScriptRoot -Parent
+$pwsh = (Get-Command pwsh -CommandType Application | Select-Object -First 1).Source
 $fixture = Join-Path ([IO.Path]::GetTempPath()) "playbook-content-$([guid]::NewGuid().ToString('N'))"
 $original = Get-Content (Join-Path $root 'content/recipes/csharp.validate-property-assignment/10.0/recipe.json') -Raw
 $narrative = Get-Content (Join-Path $root 'content/recipes/csharp.validate-property-assignment/10.0/recipe.md') -Raw
@@ -82,7 +83,8 @@ try {
       New-Item -ItemType Directory -Path (Join-Path $recipes 'duplicate') | Out-Null
       Copy-Item -LiteralPath (Split-Path $edition) -Destination (Join-Path $recipes 'duplicate') -Recurse
     }
-    $result = & pwsh -NoProfile -File (Join-Path $PSScriptRoot 'Build-Content.ps1') -RecipeRoot $recipes -OutputPath (Join-Path $fixture 'catalogue.json') 2>&1 | Out-String
+    # Capture the exception message without the host's width-dependent error formatting.
+    $result = & $pwsh -NoProfile -CommandWithArgs 'try { & $args[0] -RecipeRoot $args[1] -OutputPath $args[2] } catch { [Console]::Error.WriteLine($_.Exception.Message); exit 1 }' (Join-Path $PSScriptRoot 'Build-Content.ps1') $recipes (Join-Path $fixture 'catalogue.json') 2>&1 | Out-String
     if ($LASTEXITCODE -eq 0 -or $result -notlike "*$($case.Error)*") { throw "Fixture '$($case.Name)' was not rejected correctly: $result" }
     Write-Host "Rejected $($case.Name)."
   }
