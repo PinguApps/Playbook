@@ -132,6 +132,14 @@
 /docs/verification/agent-usability-initial.d.json
 /docs/verification/agent-connection.calls.json
 /docs/verification/agent-recovery.agent.json
+# PIN-979 full T3 activity and installed discovery serializations. Review frozen
+# prompts, checkpoint report and measured-call summary; parent checked complete
+# returned Markdown against compiled content and independently ran both consumers.
+/docs/verification/agent-usability-complete.a.json
+/docs/verification/agent-usability-complete.b.json
+/docs/verification/agent-usability-complete.c.json
+/docs/verification/agent-usability-complete.d.json
+/docs/verification/agent-usability-complete.catalogue.json
 
 # Selected official collector output; Test-LoomReceipts.ps1 checks actual receipt.
 /docs/verification/browser-telemetry.receipts.jsonl
