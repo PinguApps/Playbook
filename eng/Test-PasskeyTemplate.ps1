@@ -21,6 +21,7 @@ try {
   $archive = [IO.Compression.ZipFile]::OpenRead($archivePath)
   try {
     $entry = $archive.GetEntry('content/BlazorWeb-CSharp/BlazorWebCSharp.1/Components/Account/PasskeyAuthenticators.cs')
+    if (-not $entry) { $entry = $archive.GetEntry('BlazorWeb-CSharp/BlazorWebCSharp.1/Components/Account/PasskeyAuthenticators.cs') }
     if (-not $entry) { throw 'Pinned template has no authenticator mapping.' }
     $reader = [IO.StreamReader]::new($entry.Open())
     try { $source = $reader.ReadToEnd() } finally { $reader.Dispose() }
@@ -29,7 +30,8 @@ try {
   $anchor = 'private static readonly Dictionary<Guid, string> KnownAuthenticators = new()'
   if (-not $source.Contains($anchor)) { throw 'Template customization anchor changed.' }
   $addition = '        [new("32aa82d8-9ea2-42bd-aabc-52e970752036")] = "Beacon loan key",'
-  $source = $source.Replace($anchor + "`r`n    {", $anchor + "`r`n    {`r`n" + $addition)
+  $newline = if ($source.Contains("`r`n")) { "`r`n" } else { "`n" }
+  $source = $source.Replace($anchor + $newline + '    {', $anchor + $newline + '    {' + $newline + $addition)
   if (-not $source.Contains('Beacon loan key')) { throw 'Template entry was not inserted.' }
   [IO.File]::WriteAllText((Join-Path $work 'PasskeyAuthenticators.cs'), $source)
   Copy-Item -LiteralPath (Join-Path $root 'samples/net11.0/BeaconKeys/global.json') -Destination $work
