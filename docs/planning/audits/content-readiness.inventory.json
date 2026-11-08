@@ -16687,8 +16687,8 @@
   ],
   "candidatePackage": {
     "name": "PinguApps.Playbook.0.0.0-preview.959.nupkg",
-    "sha256": "e1a83a33f9169c0db140bd69814a4f31bd90846111cf90f15bc2ecb3586b5f22",
-    "scope": "Approved pre-GA preview after six sample-specific disclosure corrections; all15 pending gates retained."
+    "sha256": "5a3cddd59963690cc87db0e95d062704780d3cb23d0d87d34fde84e79e23310e",
+    "scope": "Approved pre-GA preview with sample-specific limitations and historical check statements reconciled;15 pending gates retained."
   },
   "historicalIdentityReconciliation": {
     "scope": "Goal identity/grouping/disposition reconciliation only; pending supported consumers and final artifact evidence prevent comprehensive certification.",
@@ -16707,15 +16707,15 @@
   },
   "previewPolicy": {
     "path": "content/preview-evidence.json",
-    "sha256": "3cb2460c4deba9214ad22233c91c000a4a76767cba80167aaea209af50614233",
+    "sha256": "b72f7331701d3e8f9e1c9977e36d05c14f71e2e384c7b5e3355f8d64a7f847e1",
     "approvedBy": "Pingu",
     "approvedOn": "2026-11-08",
-    "implementationCommit": "fa4fa6ed0a7d8e4df6326bd381ae3254047a1f2c",
+    "implementationCommit": "28de282680e14de82a09e405d603869d119fccb0",
     "scope": "Exact named pending exceptions; no stable proof waiver or actual publication."
   },
   "previousPreviewCandidate": {
     "name": "PinguApps.Playbook.0.0.0-preview.959.nupkg",
-    "sha256": "1a87ee5bdb45e95acde45191505412375087ac1305735e39e89967074aea2d36",
-    "scope": "Superseded preview before six sample-specific disclosure corrections from R2 review."
+    "sha256": "e1a83a33f9169c0db140bd69814a4f31bd90846111cf90f15bc2ecb3586b5f22",
+    "scope": "Superseded before two stale historical check statements were reconciled with existing observations."
   }
 }
