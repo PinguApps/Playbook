@@ -106,7 +106,7 @@
         "samples/net11.0/BuildArtifacts/BuildArtifacts.csproj"
       ],
       "metadataSha256": "9d859b8af485d66a5d6fd7d3e1b00940ee0d0841e619467d741fb72076b90846",
-      "markdownSha256": "bca03e82e96b2598bff275b7fb42b7477cee3e99feec83747a2960530bebd10a"
+      "markdownSha256": "96aaecf984023132aa054da730feb9c3962980931ed6f6230b0f062022a9b938"
     },
     {
       "id": "numerics.align-tensor-shapes",
@@ -197,7 +197,7 @@
         "samples/net11.0/ContainerPublishing/ContainerPublishing.csproj"
       ],
       "metadataSha256": "030ea5631cdd6a3849be60647997413b8e4bd1eb118866e67c3ae15069bc4c93",
-      "markdownSha256": "53ceb968bba09ddbbe14361f72f1d37deee0553520636098aec9a5c6eddc8336"
+      "markdownSha256": "da29f9c1072a6df85beaee8a4f8711bb74bb7a9dc18deff85d7ad2390fcfda55"
     }
   ]
 }

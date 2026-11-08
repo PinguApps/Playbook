@@ -22,7 +22,7 @@ SDK 11's MSBuild can supply `MSBuildItemGlob` items during the build when `MSBui
 
 The glob entries retain the item type plus `Include`, `Exclude` and `Remove` metadata as unevaluated patterns in project-file order. The separate `Expanded files` message prints `@(DispatchSheet)`. A wildcard such as `payload/**/*.txt` should still be a wildcard in the glob metadata; replacing it with a list of matching paths would lose the authored rule.
 
-The fixture contains `payload/departures.txt`, `payload/draft-late.txt` and `payload/private/crew.txt`. The intended expanded set is only the departure sheet: the include finds text files, the exclude filters the private subtree, and the remove filters draft names. These are expected results from the authored rules, not observed output.
+The fixture contains `payload/departures.txt`, `payload/draft-late.txt` and `payload/private/crew.txt`. The intended expanded set is only the departure sheet: the include finds text files, the exclude filters the private subtree, and the remove filters draft names. These are expected results from the authored rules; the recorded happy-path observations and their limits are listed below.
 
 ## Migration
 

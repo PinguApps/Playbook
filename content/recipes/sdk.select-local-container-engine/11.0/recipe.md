@@ -4,7 +4,7 @@
 
 Keep an SDK container publish directed at the intended local image store. This matters when a workstation has several engines: a successful load into one store does not make the image available in another.
 
-This is theoretical guidance prepared from official sources. Neither comparison has been compiled, and no engine selection or image load has been exercised.
+This is provisional guidance prepared from official sources. Both canonical projects have recorded compilation; the newer comparison's Docker selection, image load and run passed. Podman and failure/fallback behavior remain unverified.
 
 ## Older approach
 
