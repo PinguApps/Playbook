@@ -35,7 +35,8 @@
         "selectionNotes": [
           "Documentation-based experimental guidance authorized by Pingu on 3 November 2026. Original samples are source-reviewed only; compilation and experimental execution proof remain pending.",
           "Target 11 only; older examples are comparisons, not additional .NET 10 foundations.",
-          "Theoretical guidance: source review only; samples have not been compiled or executed. Pending proof blocks release-ready packaging."
+          "Theoretical guidance: source review only; samples have not been compiled or executed. Pending proof blocks stable readiness; preview publication requires a named approved exception.",
+          "Provisional preview reference: supported host composition is unresolved; this is not a turnkey implementation."
         ],
         "sharedAreas": [],
         "neutralLanguages": [],
@@ -79,7 +80,7 @@
           ],
           "constraints": [
             "No production resources, remote storage or public package publication. No recurring native/platform matrix.",
-            "Pending sample proof blocks release-ready packaging. Installed guidance retrieval does not establish sample behaviour.",
+            "Pending sample proof blocks stable-release packaging. Installed guidance retrieval does not establish sample behaviour.",
             "Eleven-argument FileAccessData construction remains available; new fields default to null/0.",
             "EnumerationPattern absence is not a wildcard; requested FlagsAndAttributes are not kernel-observed OpenedFileOrDirectoryAttributes.",
             "Preserve context/errors, bound observer storage and do not publish cancelled/failed partial data as a successful cache result."
@@ -91,7 +92,8 @@
           "stabilityLimitations": [
             "Documentation-based experimental guidance authorized by Pingu on 3 November 2026. Original samples are source-reviewed only; compilation and experimental execution proof remain pending.",
             "Experimental contracts may change. Source input freshness is not compilation or runtime evidence. PIN-959 and actual-GA reconciliation remain open.",
-            "Theoretical guidance: source review only; samples have not been compiled or executed. Pending proof blocks release-ready packaging."
+            "Theoretical guidance: source review only; samples have not been compiled or executed. Pending proof blocks stable readiness; preview publication requires a named approved exception.",
+            "Provisional preview reference: supported host composition is unresolved; this is not a turnkey implementation."
           ]
         },
         "sourceUrls": [
@@ -142,6 +144,24 @@
       "sdk": "11.0.100-rc.3.26522.148",
       "language": "15.0",
       "scope": "Official documentation/source review and original examples only. Intended sample inputs are uncompiled. No composed consumer, native capture or experimental execution proof."
+    },
+    {
+      "kind": "compile",
+      "sample": "samples/net10.0/BuildAccessObserver/BuildAccessObserver.csproj",
+      "record": "samples/net10.0/BuildAccessObserver/verification-evidence.json",
+      "target": "net10.0",
+      "sdk": "10.0.403",
+      "language": "14.0",
+      "scope": "Actual locked compilation of this canonical project on Windows. This is not composed-host, provider, telemetry, archive, engine or final-GA behavior proof; .cs.txt integration inputs are not compiled."
+    },
+    {
+      "kind": "compile",
+      "sample": "samples/net11.0/BuildAccessObserver/BuildAccessObserver.csproj",
+      "record": "samples/net11.0/BuildAccessObserver/verification-evidence.json",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.3.26522.148",
+      "language": "15.0",
+      "scope": "Actual locked compilation of this canonical project on Windows. This is not composed-host, provider, telemetry, archive, engine or final-GA behavior proof; .cs.txt integration inputs are not compiled."
     }
   ],
   "snippets": {
@@ -163,6 +183,6 @@
   },
   "humanProof": {
     "status": "pending",
-    "scope": "Pingu authorized documentation-based delivery on 3 November 2026. Sample compilation, composed-consumer compatibility and all experimental behaviour/failure checks remain pending. Do not block provisional content on unreleased execution; release-ready and actual-GA gates remain open."
+    "scope": "Pre-GA preview approved by Pingu on 8 November 2026; canonical project compilation is measured. Provisional preview reference: supported host composition is unresolved; this is not a turnkey implementation. Remaining claim-specific behavior and final qualification are not verified; stable readiness remains gated. Final reconciliation: PIN-963."
   }
 }

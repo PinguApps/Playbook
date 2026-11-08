@@ -2,7 +2,7 @@
 
 ## Goal
 
-Use this when an existing MSBuild project-cache observer needs to interpret directory enumeration and opened-file attributes correctly. **Experimental, documentation-based guidance.** The original decoder examples have not been compiled or exercised with a live event stream. Pingu authorized this provisional delivery on 3 November 2026; pending execution proof remains explicit.
+Use this when an existing MSBuild project-cache observer needs to interpret directory enumeration and opened-file attributes correctly. **Experimental, documentation-based guidance.** The original decoder projects compile, but have not been exercised with a live event stream. Pingu authorized this provisional delivery on 3 November 2026; pending execution proof remains explicit.
 
 ## Older approach
 
@@ -59,11 +59,13 @@ The callback's `FileAccessContext` preserves request association. Handle finaliz
 | Opt-in/control | Compare enabled reporting with capture disabled; a successful ordinary build does not prove event delivery. |
 | Cancellation | Observe a cancelled active build and ensure partial data is not published as successful cache evidence. |
 
-## Evidence
+## Evidence and limitations
 
-Read-only discovery on this machine found x64 Visual Studio MSBuild **18.11.0.47511** and **18.10.1.42706**. Both accepted `/reportFileAccesses` on a disposable `WriteLinesToFile` project and exited zero. **No project-cache observer was registered, so this establishes switch acceptance only.** It does not qualify Detours delivery, native binary compatibility, the original decoder or cancellation. The prerelease SDK metadata and those Visual Studio versions are separate artifacts.
+The canonical .NET10 and .NET11 projects now have actual locked compilation records from Windows, using their declared SDKs and dependencies. The original official-source review is retained separately. Compilation of the rules/decoder library does not compile illustrative .cs.txt host integration or establish behavior.
 
-No exact external NuGet package closure or diagnostic-suppression ID is invented. Use the chosen host's documented plugin contract and reconcile any experimental diagnostics narrowly; do not globally suppress warnings to force compatibility. The examples use intended net10/C#14 and net11/C#15 library targets, with no external package or workload dependency. Their builds, native host integration and execution remain pending. No Linux/macOS, IDE, rendering, framework-host or Native AOT route is claimed. This target-11 edition preserves existing identities and the exact eight .NET 10 foundations; it adds no older-target discovery route. PIN-959 qualifying evidence and actual-GA reconciliation stay open.
+The pre-GA preview is explicitly provisional. Pending proof remains visible in discovery/detail and blocks stable readiness. The approved preview evidence register names this exact edition, canonical samples, limitations and its final-reconciliation owner; it does not claim successful unperformed checks.
+
+Only the canonical decoder libraries compiled. The .cs.txt callback is not compiled into a composed project-cache observer. Native Visual Studio x64 host instrumentation, real event capture and cancellation behavior remain unverified. This edition is provisional reference material.
 
 ## Official references
 

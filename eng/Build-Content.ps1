@@ -4,7 +4,10 @@ param(
   [string]$RepositoryRoot = (Split-Path $PSScriptRoot -Parent),
   [string]$RecipeRoot = (Join-Path $RepositoryRoot 'content/recipes'),
   [string]$VerifyAgainst,
-  [switch]$ReleaseReady
+  [switch]$ReleaseReady,
+  [switch]$PreviewReady,
+  [string]$PackageVersion,
+  [string]$PreviewPolicyPath = (Join-Path $RepositoryRoot 'content/preview-evidence.json')
 )
 
 $ErrorActionPreference = 'Stop'
@@ -12,6 +15,20 @@ Set-StrictMode -Version Latest
 $root = [IO.Path]::GetFullPath($RepositoryRoot)
 $schema = Join-Path $PSScriptRoot 'recipe.schema.json'
 . (Join-Path $PSScriptRoot 'Evidence.ps1')
+if ($ReleaseReady -and $PreviewReady) { throw 'Choose stable or preview readiness, not both.' }
+$previewExceptions = @{}
+if ($PreviewReady) {
+  if ($PackageVersion -cnotmatch '^(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)-preview\.[1-9][0-9]*\z') { throw 'Preview readiness requires a preview.N package version.' }
+  $policy = Get-Content -LiteralPath $PreviewPolicyPath -Raw | ConvertFrom-Json -AsHashtable
+  if ($policy.schemaVersion -ne 1 -or $policy.approvedBy -cne 'Pingu' -or -not $policy.ContainsKey('exceptions')) { throw 'Invalid preview evidence policy.' }
+  foreach ($exception in $policy.exceptions) {
+    $key = "$($exception.id)/$($exception.edition)"
+    if ($previewExceptions.ContainsKey($key) -or $exception.classification -cnotin @('documented-ga-intent', 'provisional-reference') -or
+        [string]::IsNullOrWhiteSpace($exception.scope) -or $exception.followUp -cnotmatch '^PIN-[0-9]+$' -or -not $exception.samples.Count) { throw "Invalid preview exception: $key" }
+    $previewExceptions[$key] = $exception
+  }
+}
+$usedPreviewExceptions = [Collections.Generic.HashSet[string]]::new([StringComparer]::Ordinal)
 
 function Resolve-Source([string]$RelativePath) {
   $path = [IO.Path]::GetFullPath((Join-Path $root $RelativePath))
@@ -30,6 +47,17 @@ foreach ($file in (Get-ChildItem $RecipeRoot -Filter recipe.json -Recurse | Sort
   $recipe = ConvertFrom-Json $json -AsHashtable
   if ($ReleaseReady -and $recipe.humanProof.status -ceq 'pending') {
     throw "Pending Human proof blocks release readiness: $($recipe.id)/$($recipe.edition): $($recipe.humanProof.scope)"
+  }
+  if ($PreviewReady -and $recipe.humanProof.status -ceq 'pending') {
+    $key = "$($recipe.id)/$($recipe.edition)"
+    if (-not $previewExceptions.ContainsKey($key)) { throw "Unapproved pending preview evidence: $key" }
+    $exception = $previewExceptions[$key]
+    $markdownPath = Join-Path $file.DirectoryName 'recipe.md'
+    if ((Get-FileHash -LiteralPath $file.FullName -Algorithm SHA256).Hash.ToLowerInvariant() -cne $exception.metadataSha256 -or
+        (Get-FileHash -LiteralPath $markdownPath -Algorithm SHA256).Hash.ToLowerInvariant() -cne $exception.markdownSha256 -or
+        @(Compare-Object -CaseSensitive @($recipe.evidence.sample | Sort-Object -Unique -CaseSensitive) @($exception.samples | Sort-Object -Unique -CaseSensitive)).Count) { throw "Preview exception inputs changed: $key" }
+    if ((Get-Content -LiteralPath $markdownPath -Raw) -notmatch '(?i)pending|unverified|not.*(compiled|executed)|theoretical|provisional') { throw "Missing provisional preview disclosure: $key" }
+    $null = $usedPreviewExceptions.Add($key)
   }
   $untestedSamples = @()
   if ($recipe.humanProof.status -ceq 'not-tested') {
@@ -155,9 +183,9 @@ foreach ($file in (Get-ChildItem $RecipeRoot -Filter recipe.json -Recurse | Sort
       }
       $warning = if ($excluded) { 'Source review only: excluded sample has not been compiled or executed.' }
         elseif (@($verified | Where-Object { $_.sample -cne $sample -and $_.kind -in @('compile', 'cross-compile', 'compile-and-run') }).Count -gt 0) {
-          "Theoretical guidance: source review only for $sample; this sample has not been compiled successfully or executed. Compilation of other samples is recorded separately. Pending proof blocks release-ready packaging."
+          "Theoretical guidance: source review only for $sample; this sample has not been compiled successfully or executed. Compilation of other samples is recorded separately. Pending proof blocks stable readiness; preview publication requires a named approved exception."
         }
-        else { 'Theoretical guidance: source review only; samples have not been compiled or executed. Pending proof blocks release-ready packaging.' }
+        else { 'Theoretical guidance: source review only; samples have not been compiled or executed. Pending proof blocks stable readiness; preview publication requires a named approved exception.' }
       foreach ($route in ($recipe.applicability.routes | Where-Object { $sample -cin $_.evidenceSamples })) {
         if ($warning -cnotin $route.selectionNotes) { $route.selectionNotes += $warning }
         if ($warning -cnotin $route.requirements.stabilityLimitations) { $route.requirements.stabilityLimitations += $warning }
@@ -203,6 +231,7 @@ foreach ($file in (Get-ChildItem $RecipeRoot -Filter recipe.json -Recurse | Sort
   $editions.Add($recipe)
 }
 if ($editions.Count -eq 0) { throw 'The catalogue must contain at least one edition.' }
+if ($PreviewReady -and $usedPreviewExceptions.Count -ne $previewExceptions.Count) { throw 'Preview policy contains an absent or no-longer-pending edition; reconcile the policy.' }
 $output = [IO.Path]::GetFullPath($OutputPath)
 [IO.Directory]::CreateDirectory((Split-Path $output)) | Out-Null
 $generated = ConvertTo-Json -InputObject $editions.ToArray() -Depth 30

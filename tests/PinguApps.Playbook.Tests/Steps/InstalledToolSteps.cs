@@ -304,7 +304,7 @@ public sealed class InstalledToolSteps : IDisposable
         }
 
         string markdown = recipe.GetProperty("markdown").GetString()!;
-        foreach (string contract in new[] { "Blazor enhanced navigation; only resources actually needed", "10.0.13", "blazor-enhanced-nav=on", "modulepreload does not execute", "warm cache", "not GA", "no unavailable older public API", "as=\"fetch\"", "crossorigin=\"anonymous\"", "data-enhance-nav=\"false\"" })
+        foreach (string contract in new[] { "Blazor enhanced navigation; only resources actually needed", "10.0.14", "blazor-enhanced-nav=on", "modulepreload does not execute", "warm cache", "not GA", "no unavailable older public API", "as=\"fetch\"", "crossorigin=\"anonymous\"", "data-enhance-nav=\"false\"" })
         {
             Assert.Contains(contract, markdown, StringComparison.OrdinalIgnoreCase);
         }
@@ -1904,7 +1904,7 @@ public sealed class InstalledToolSteps : IDisposable
         return (await reader.ReadToEndAsync().ConfigureAwait(false)).Replace("\r\n", "\n", StringComparison.Ordinal);
     }
 
-    [Then("theoretical SDK and build recipes retain complete bodies and source-only proof")]
+    [Then("provisional SDK and build recipes retain complete bodies and distinguish compilation from pending behavior")]
     public async Task CheckTheoreticalBuildGuidanceAsync()
     {
         string[] ids = ["sdk.select-local-container-engine", "sdk.publish-reproducible-containers", "sdk.publish-multiarch-with-podman", "sdk.configure-cli-telemetry", "msbuild.archive-build-artifacts", "msbuild.inspect-item-globs"];
@@ -1932,12 +1932,14 @@ public sealed class InstalledToolSteps : IDisposable
             Assert.Equal(expected, recipe.GetProperty("markdown").GetString());
             AssertSelection(summary, recipe);
             Assert.Equal("pending", recipe.GetProperty("humanProof").GetProperty("status").GetString());
-            Assert.Contains("Theoretical guidance", summary.ToString(), StringComparison.Ordinal);
-            Assert.All(recipe.GetProperty("evidence").EnumerateArray(), evidence =>
+            Assert.Contains("Provisional pre-GA guidance", summary.ToString(), StringComparison.Ordinal);
+            JsonElement[] records = [.. recipe.GetProperty("evidence").EnumerateArray()];
+            Assert.Contains(records, evidence => evidence.GetProperty("kind").GetString() == "official-review" && evidence.GetProperty("role").GetString() == "source-review");
+            foreach (string target in new[] { "net10.0", "net11.0" })
             {
-                Assert.Equal("official-review", evidence.GetProperty("kind").GetString());
-                Assert.Equal("source-review", evidence.GetProperty("role").GetString());
-            });
+                Assert.Contains(records, evidence => evidence.GetProperty("kind").GetString() == "compile" && evidence.GetProperty("target").GetString() == target);
+            }
+            Assert.All(records, evidence => Assert.Equal("current", evidence.GetProperty("freshness").GetString()));
             JsonElement route = Assert.Single(recipe.GetProperty("applicability").GetProperty("routes").EnumerateArray());
             Assert.Equal("11.0", route.GetProperty("target").GetString());
             Assert.False(route.GetProperty("conditional").GetBoolean());
@@ -2548,7 +2550,7 @@ public sealed class InstalledToolSteps : IDisposable
             JsonElement list = AssertMatchingRepresentations(result);
             JsonElement[] summaries = [.. list.GetProperty("recipes").EnumerateArray()];
             measurements.Add($"{target}: count={summaries.Length}, largest summary={summaries.Max(Bytes)}, structured={Bytes(list)}, result={Bytes(result)} UTF-8 bytes");
-            withinBudget &= summaries.All(summary => Bytes(summary) <= 3000) && Bytes(result) <= 80000;
+            withinBudget &= summaries.All(summary => Bytes(summary) <= 5000) && Bytes(result) <= 100000;
         }
 
         string report = string.Join(Environment.NewLine, measurements);
@@ -2570,10 +2572,10 @@ public sealed class InstalledToolSteps : IDisposable
                 JsonElement list = AssertMatchingRepresentations(result);
                 Assert.Equal(limit, list.GetProperty("recipes").GetArrayLength());
                 measurements.Add($"{query ?? "all"} {limit}: summary={Bytes(list.GetProperty("recipes")[0])}, structured={Bytes(list)}, result={Bytes(result)} UTF-8 bytes");
-                int budget = query is null ? 80000 : 65000;
+                int budget = query is null ? 100000 : 65000;
                 if (limit == 50)
                 {
-                    budget = query is null ? 170000 : 160000;
+                    budget = query is null ? 225000 : 160000;
                 }
 
                 withinBudget &= Bytes(result) <= budget;

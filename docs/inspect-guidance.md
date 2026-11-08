@@ -1,5 +1,35 @@
 # Inspect the guidance an agent receives
 
+## Approved pre-GA preview guidance
+
+PIN-959 separates preview publication readiness from stable/GA verification.
+The named exceptions in `content/preview-evidence.json` retain pending proof;
+discovery/applicability disclose provisional guidance, and unresolved host examples
+are explicitly reference material. Actual compiler records remain distinct from
+unperformed behavior. A stable package still rejects pending proof.
+
+From any directory, with PowerShell7, SDK10.0.403 and Node22.19+:
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-b415b02e'
+$env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH = '0'
+$env:DOTNET_GENERATE_ASPNET_CERTIFICATE = 'false'
+& 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' build ./src/PinguApps.Playbook -c Release -p:Version=0.0.0-preview.959
+& 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' pack ./src/PinguApps.Playbook -c Release --no-build -p:PackageVersion=0.0.0-preview.959 -p:PlaybookReleaseReady=true --output ./artifacts
+$recipeIds = @((Get-Content ./content/preview-evidence.json -Raw | ConvertFrom-Json).exceptions.id)
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 -RecipeId $recipeIds -Query '' `
+  -RecipeEdition '11.0' -TargetVersion '11.0' -PackageVersion '0.0.0-preview.959' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' -OutputDirectory './artifacts/pin-959/inspection-final'
+```
+
+Expect ID/title/goal, full canonical Markdown, explicit applicability and fresh
+declared evidence for every approved exception, including pending-proof warnings.
+The actual locally installed package is called through stdio from an unrelated
+directory with unusable proxies. This proves delivery, not the recipe's unperformed
+consumer behavior or OS network isolation. Nothing is published. To check the
+version/approval boundaries separately, run `eng/Test-PreviewReadiness.ps1`.
+
 ## Deadlines across system sleep
 
 PIN-1044 delivers `runtime.choose-sleep-aware-deadlines`, edition11/target11.

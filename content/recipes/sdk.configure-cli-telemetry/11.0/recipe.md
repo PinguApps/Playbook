@@ -34,7 +34,7 @@ Choosing OTLP does **not** establish that Microsoft's ordinary telemetry destina
 
 1. Decide separately whether to allow CLI usage collection, whether to export it to a collector, and whether application diagnostics should exist. Record which process tree the choice covers.
 2. Set `DOTNET_CLI_TELEMETRY_OPTOUT=1` or `true` **before starting** each opted-out command or its launcher. A parent shell/CI-job environment applies to subsequently launched children; it does not rewrite the environment of an already-running process. Set it before an SDK installer too if installer telemetry is in scope.
-3. Use the canonical wrapper without `export` for the opt-out route. Supply the absolute `dotnet` path for the intended SDK, and launch from the sample directory containing the matching `global.json`. The wrapper and its child command are unrun here.
+3. Use the canonical wrapper without `export` for the opt-out route. Supply the absolute `dotnet` path for the intended SDK, and launch from the sample directory containing the matching `global.json`. The opt-out wrapper branch has run; the export branch and measured telemetry behavior remain unverified.
 4. If export is deliberately required, arrange an existing compatible OTLP collector first, inspect inherited `OTEL_EXPORTER_OTLP_*` settings, and adapt the newer child's endpoint/protocol to the chosen destination. The `export` argument is an explicit collection decision, not a privacy-preserving reroute. Configure any needed authentication in the environment's secret store; never embed headers/tokens in a recipe or source file.
 5. Keep the settings at process or CI-job scope unless a persistent machine-wide policy is separately intended. The sample writes only `ProcessStartInfo.Environment`; it does not modify PATH, shell profiles, user variables or machine variables. `DOTNET_ADD_GLOBAL_TOOLS_TO_PATH=0` is a separate first-run guard, not a telemetry switch.
 6. A future behavior check would launch representative SDK commands with collection disabled/enabled and observe an isolated collector/network boundary. A successful `--info`, quiet output or absence of a welcome message is not proof of absent or delivered telemetry. No such observation has been made.
@@ -47,8 +47,10 @@ CLI telemetry covers SDK commands such as build, pack and run. Starting an alrea
 
 OTLP generic endpoints are base addresses; transport and per-signal overrides affect the final request paths. Collector receipt, contents, batching, flushing and failure behavior cannot be inferred from environment values alone. The sample deliberately does not make a delivery guarantee or claim `--info` produces a particular span. No additional NuGet package, provider, rendering mode or workload is required by the wrapper.
 
-## Evidence
+## Evidence and limitations
 
-Reviewed the official CLI scope/default/opt-out documentation, .NET 11 SDK overview, CLI exporter activation source and OpenTelemetry exporter contract. The older/newer wrappers are independently authored canonical C# sources, intended for SDK 10.0.403/C# 14 and SDK 11.0.100-rc.3.26522.148/C# 15.
+The canonical .NET10 and .NET11 projects now have actual locked compilation records from Windows, using their declared SDKs and dependencies. The original official-source review is retained separately. Compilation alone does not exercise the export branch or measure telemetry configuration/network behavior.
 
-The saved records are source reviews, not compilations or measured telemetry evidence. No environment policy was applied to a live consumer, no data was sent and no collector/account was provisioned. Compilation, opt-out precedence, actual affected-command behavior, transport delivery and installed offline MCP retrieval remain unverified. Pending proof blocks release-ready packaging and is visible in discovery/detail. This target-11 edition does not add an unverified older-target route; RC documentation/source review is not GA verification.
+The pre-GA preview is explicitly provisional. Pending proof remains visible in discovery/detail and blocks stable readiness. The approved preview evidence register names this exact edition, canonical samples, limitations and its final-reconciliation owner; it does not claim successful unperformed checks.
+
+Both opt-out wrappers executed successfully. No collector or export branch was exercised; absence of telemetry and transport delivery were not measured.

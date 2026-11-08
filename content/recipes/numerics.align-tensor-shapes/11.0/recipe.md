@@ -147,4 +147,4 @@ Earlier qualification observed false leading-padding equality on both RC2/RC3,
 and default-empty/Any exceptions on RC3. Upstream source/tests do not replace this
 recipe's own final-artifact execution. Under Pingu's explicit preparation decision,
 PIN-962 owns successful final SDK/package and native-width checks; `humanProof`
-remains pending and release-ready packaging remains blocked.
+remains pending and stable-release packaging remains blocked.

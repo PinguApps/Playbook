@@ -42,7 +42,8 @@
         "usage": "primary",
         "selectionNotes": [
           "Preserve logical grid values when tensor views share storage by choosing snapshots or independent output; final .NET 11 storage-contract execution remains pending.",
-          "Prepared for full .NET 11 from merged release/11.0 backport #135281. Published RC2/RC3 lack the required behavior. Current evidence is compilation only; PIN-962 owns final execution."
+          "Prepared for full .NET 11 from merged release/11.0 backport #135281. Published RC2/RC3 lack the required behavior. Current evidence is compilation only; PIN-962 owns final execution.",
+          "Provisional pre-GA guidance: pending behavior/final-artifact proof is not successful execution or GA verification."
         ],
         "requirements": {
           "runtime": {
@@ -92,8 +93,9 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "PIN-962 must select final SDK/runtime/tensor artifacts, execute all storage checks and refresh proof; pending proof blocks release-ready packaging.",
-            "No experimental annotation or opt-in on actual compilation types. Full-release preparation does not advertise RC2/RC3 behavior."
+            "PIN-962 must select final SDK/runtime/tensor artifacts, execute all storage checks and refresh proof; pending proof blocks stable-release packaging.",
+            "No experimental annotation or opt-in on actual compilation types. Full-release preparation does not advertise RC2/RC3 behavior.",
+            "Provisional pre-GA guidance: pending behavior/final-artifact proof is not successful execution or GA verification."
           ]
         },
         "sourceUrls": [
@@ -170,6 +172,6 @@
   },
   "humanProof": {
     "status": "pending",
-    "scope": "Pingu authorized full-release preparation on 30 October 2026 with final-package execution deferred to PIN-962. Select actual final SDK/runtime/tensor assets, run every committed storage check, refresh evidence and clear pending proof only after successful execution. Current compilation and merged source are not that proof; release-ready packaging remains blocked."
+    "scope": "Pingu authorized full-release preparation on 30 October 2026 with final-package execution deferred to PIN-962. Select actual final SDK/runtime/tensor assets, run every committed storage check, refresh evidence and clear pending proof only after successful execution. Current compilation and merged source are not that proof; stable-release packaging remains blocked."
   }
 }

@@ -11,7 +11,7 @@ separate ownership of the underlying array.
 pending under PIN-962.** The merged .NET 11 release-branch implementation defines
 the intended contract below. Published tensor RC2 and RC3 do not implement it;
 their successful compilation is not behavior proof. Pingu approved preparing this
-guide while retaining pending proof and the release-ready packaging gate.
+guide while retaining pending proof and the stable-release packaging gate.
 
 Use console projects with implicit System imports, nullable enabled,
 `using System.Numerics.Tensors;` and namespace `Playbook.Samples`. Canonical

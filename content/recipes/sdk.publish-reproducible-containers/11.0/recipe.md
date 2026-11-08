@@ -4,7 +4,7 @@
 
 Make an image digest a useful identity for a source snapshot. Two independent container publishes can only be compared meaningfully when the source, compiler, dependencies, base image and authored image configuration are held constant.
 
-This recipe is theoretical. No image, digest, layer or NuGet package has been produced or compared for these examples.
+This provisional walkthrough retains documented GA intent. Consult the evidence section for actual local observations and the remaining unverified behavior.
 
 ## Older approach
 
@@ -31,7 +31,7 @@ The managed payload is intentionally simple:
 1. Capture an input manifest: source revision and dirty state, exact SDK, project and publish properties, resolved dependencies, RID set, runtime base index and selected child digests, labels, environment, entry point and image format. Include generated files and any values injected by CI.
 2. Resolve a real compatible runtime index digest from the selected official base image. Supply it as `PinnedContainerBase`. A `:11.0` or `:latest` tag can move and is insufficient for a repeatability claim. The sample intentionally supplies no made-up digest.
 3. Choose a stable `SOURCE_DATE_EPOCH`, such as the approved source-snapshot timestamp, and pass the identical value to both independent SDK-11 publishes. `-p:SOURCE_DATE_EPOCH=1792454400` is the explicit property form matching this sample. Do not derive it from the current time.
-4. When execution is authorized, publish twice from clean, equivalent inputs using the selected SDK and engine. From the newer sample directory the candidate command is `publish -c Release /t:PublishContainer -p:ContainerRegistry= -p:PinnedContainerBase=<reference>`. Use distinct retained artifacts/stores if needed to avoid mistaking a reused result for a rebuild. No such command was run here.
+4. When execution is authorized, publish twice from clean, equivalent inputs using the selected SDK and engine. From the newer sample directory the candidate command is `publish -c Release /t:PublishContainer -p:ContainerRegistry= -p:PinnedContainerBase=<reference>`. Use distinct retained artifacts/stores if needed to avoid mistaking a reused result for a rebuild. Two local archive-output variants using Docker were run with these fixed inputs; the default Podman command remains unverified.
 5. Compare the actual per-platform manifest/config/layer digests and the image-index digest using the same format and metadata policy. A changed tag name, index annotation or platform set can change the index even when a layer is identical. Record the actual objects compared and the engine versions.
 6. Treat NuGet package reproducibility as a separate check. Identical assembly bytes or normalized `.nupkg` ZIP timestamps do not prove identical container tar headers, config timestamps or manifests; identical container digests do not prove identical `.nupkg` files either.
 
@@ -43,8 +43,10 @@ The SDK's remote manifest-existence optimization is separate from reproducible i
 
 The sample's `LocalRegistry=Podman` is an explicit destination choice, not a requirement of the timestamp feature. Docker can be selected deliberately. The host must support the chosen SDK and engine; both requested Linux architectures need compatible base/runtime assets. No extra NuGet package, provider, UI rendering mode or workload is declared.
 
-## Evidence
+## Evidence and limitations
 
-Reviewed official SDK RC1 reproducibility notes and the container configuration contract. Original canonical projects declare the intended 10.0.403 and 11.0.100-rc.3.26522.148 SDKs. Saved `official-review` records contain source/input hashes and explicitly report no compilation or execution.
+The canonical .NET10 and .NET11 projects now have actual locked compilation records from Windows, using their declared SDKs and dependencies. The original official-source review is retained separately. Compilation alone does not compare image indexes, manifests/configs/layers or archive bytes across independent publishes.
 
-No repeat-publish experiment, registry-cache experiment, base-image resolution, NuGet timestamp comparison, image/index inspection or installed offline MCP retrieval occurred. The reproducibility result remains an expectation to verify, not a measured result. Pending proof blocks release-ready packaging and remains visible in discovery/detail. Target 10 is comparison-only; no unverified older-target route or additional historical foundation is declared. .NET 11 GA reconciliation remains outstanding.
+The pre-GA preview is explicitly provisional. Pending proof remains visible in discovery/detail and blocks stable readiness. The approved preview evidence register names this exact edition, canonical samples, limitations and its final-reconciliation owner; it does not claim successful unperformed checks.
+
+Two SDK11 publishes separated by a clean produced matching OCI image-index identities and matching content hashes for all 19 regular archive entries. Archive-file hashes differed. This is bounded RC3 image-object evidence, not archive-byte or final-GA reproducibility.

@@ -66,9 +66,11 @@ Do not combine affected-test operations with device testing, parallel test modul
 
 ## Evidence and limitations
 
-Official command documentation, pinned TestFx rollout/configuration and the source audit/package readme support this provisional guidance. Source-review records contain original input hashes; they are not resolved dependency closures, compiler output, native execution or selection evidence. Both example TFMs remain uncompiled. Installed Playbook inspection verifies delivery of this text and its warnings, not the described experimental behaviour. Rendering is not applicable; no UI, provider or recurring platform matrix is added.
+The canonical .NET10 and .NET11 projects now have actual locked compilation records from Windows, using their declared SDKs and dependencies. The original official-source review is retained separately. Compilation of the rules/decoder library does not compile illustrative .cs.txt host integration or establish behavior.
 
-Release-ready proof remains pending. The exact eight .NET 10 foundations are unchanged; .NET 10 examples are comparisons only. PIN-959 comprehensive content/evidence and PIN-963 actual-GA reconciliation remain open. All unavailable subgoals above remain visible instead of being counted as verified coverage.
+The pre-GA preview is explicitly provisional. Pending proof remains visible in discovery/detail and blocks stable readiness. The approved preview evidence register names this exact edition, canonical samples, limitations and its final-reconciliation owner; it does not claim successful unperformed checks.
+
+Only the canonical rule libraries compiled. The illustrative .cs.txt tests are not a composed MTP host. Supported local storage/registration and real mapping, selection, failure and cancellation checks remain unresolved. This edition is provisional reference material, not a turnkey affected-test implementation.
 
 ## Official references
 

@@ -4,7 +4,7 @@
 
 Keep an SDK container publish directed at the intended local image store. This matters when a workstation has several engines: a successful load into one store does not make the image available in another.
 
-This is theoretical guidance prepared from official sources. Neither comparison has been compiled, and no engine selection or image load has been exercised.
+This is provisional guidance prepared from official sources. Both canonical projects have recorded compilation; the newer comparison's Docker selection, image load and run passed. Podman and failure/fallback behavior remain unverified.
 
 ## Older approach
 
@@ -42,8 +42,10 @@ Both samples use SDK-provided container tasks, a framework-dependent console app
 
 The actual base image, engine and manifests are absent from this source-only delivery. The earlier access assessment found Docker but no Podman; Pingu explicitly chose theoretical implementation without obtaining Podman. No installation or live check is requested by consulting this content.
 
-## Evidence
+## Evidence and limitations
 
-Official SDK guidance, the container property reference and the accepted-value source were reviewed. Canonical .NET 10/11 projects and the shared original dispatch program are embedded through snippet extraction. Their records are `official-review`, with intended pins 10.0.403 and 11.0.100-rc.3.26522.148; these are not observed compiler results.
+The canonical .NET10 and .NET11 projects now have actual locked compilation records from Windows, using their declared SDKs and dependencies. The original official-source review is retained separately. Compilation alone does not verify engine selection, dispatch or fallback behavior.
 
-Compilation, engine dispatch, image/index creation, architecture execution and installed offline MCP retrieval are all unverified. Pending proof is visible in discovery and detail and blocks release-ready packaging. This edition declares only target 11; the older comparison does not establish a target-10 catalogue route. No experimental API is intentionally used; the .NET 11 source baseline remains RC-era guidance pending GA reconciliation.
+The pre-GA preview is explicitly provisional. Pending proof remains visible in discovery/detail and blocks stable readiness. The approved preview evidence register names this exact edition, canonical samples, limitations and its final-reconciliation owner; it does not claim successful unperformed checks.
+
+SDK11 explicitly selected Docker, loaded an owned Linux x64 image and ran it with networking disabled; the image was removed. Podman and engine failure/fallback controls remain unverified.
