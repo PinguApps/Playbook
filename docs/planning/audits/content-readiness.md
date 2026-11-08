@@ -13,12 +13,14 @@ Source review, compilation and failed execution retain their separate meanings.
 
 ## Preview candidate and refreshed proof
 
-- Content revision: `b47547cb95c34791f604087c901e05fcb489594b`.
+- Content revision: `fa4fa6ed0a7d8e4df6326bd381ae3254047a1f2c`.
 - Package: `PinguApps.Playbook.0.0.0-preview.959.nupkg`, locally built, unpublished.
-- SHA-256: `1a87ee5bdb45e95acde45191505412375087ac1305735e39e89967074aea2d36`.
+- SHA-256: `e1a83a33f9169c0db140bd69814a4f31bd90846111cf90f15bc2ecb3586b5f22`.
 - All 486 unique installed editions matched full canonical Markdown across 505
   target10/11 list/get pairs, including discovery title/goal, applicability,
   current evidence and text/structured parity.
+- Six copied compilation-limit sentences were corrected to name their own sample
+  behavior; approved Markdown hashes, package and this ledger were refreshed.
 - The documented Inspector setup/build/pack/example passed from `C:/`, selecting
   this worktree literally. All15 exceptions returned complete provisional guidance.
 - Full `eng/Verify.ps1 -ReleaseReady -PackageVersion 0.0.0-preview.959
