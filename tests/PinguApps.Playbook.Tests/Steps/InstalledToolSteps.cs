@@ -2737,6 +2737,20 @@ public sealed class InstalledToolSteps : IDisposable
         Assert.Equal("Major", runtime.GetProperty("rollForward").GetString());
         Assert.Equal("Microsoft.NETCore.App", runtime.GetProperty("framework").GetProperty("name").GetString());
         await using ZipArchive archive = await ZipFile.OpenReadAsync(package).ConfigureAwait(false);
+        ZipArchiveEntry specEntry = Assert.Single(archive.Entries, entry => entry.FullName.EndsWith(".nuspec", StringComparison.Ordinal));
+        await using Stream specStream = await specEntry.OpenAsync().ConfigureAwait(false);
+        System.Xml.Linq.XDocument spec = await System.Xml.Linq.XDocument.LoadAsync(specStream, System.Xml.Linq.LoadOptions.None, CancellationToken.None).ConfigureAwait(false);
+        Assert.Equal("icon.png", Assert.Single(spec.Descendants(), element => element.Name.LocalName == "icon").Value);
+        ZipArchiveEntry icon = Assert.Single(archive.Entries, entry => entry.FullName == "icon.png");
+        Assert.InRange(icon.Length, 33, 1024 * 1024);
+        await using Stream iconStream = await icon.OpenAsync().ConfigureAwait(false);
+        byte[] header = new byte[26];
+        await iconStream.ReadExactlyAsync(header).ConfigureAwait(false);
+        Assert.Equal(new byte[] { 137, 80, 78, 71, 13, 10, 26, 10 }, header[..8]);
+        Assert.Equal("IHDR", Encoding.ASCII.GetString(header, 12, 4));
+        Assert.Equal(128, System.Buffers.Binary.BinaryPrimitives.ReadInt32BigEndian(header.AsSpan(16, 4)));
+        Assert.Equal(128, System.Buffers.Binary.BinaryPrimitives.ReadInt32BigEndian(header.AsSpan(20, 4)));
+        Assert.Equal(6, header[25]); // RGBA: retain transparency in the packaged PNG.
         await using Stream packedAssembly = await archive.GetEntry("tools/net10.0/any/PinguApps.Playbook.dll")!.OpenAsync().ConfigureAwait(false);
         using FileStream installedAssembly = File.OpenRead(runtimeConfig.Replace(".runtimeconfig.json", ".dll", StringComparison.Ordinal));
         Assert.Equal(await SHA256.HashDataAsync(packedAssembly).ConfigureAwait(false), await SHA256.HashDataAsync(installedAssembly).ConfigureAwait(false));

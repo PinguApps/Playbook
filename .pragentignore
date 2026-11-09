@@ -1235,3 +1235,7 @@
 # Ordinary build/pack verifies saved input freshness.
 /samples/net10.0/InspectionDeadline/verification-evidence.json
 /samples/net11.0/InspectionDeadline/verification-evidence.json
+# ImageGen raster master approved by Pingu; package icon is its 128px reduction.
+# Visually checked at gallery sizes on light/dark; installed-package smoke checks embedding/PNG metadata.
+/assets/icon/playbook-master.png
+/src/PinguApps.Playbook/icon.png

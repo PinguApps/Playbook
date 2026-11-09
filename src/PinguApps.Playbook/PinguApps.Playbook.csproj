@@ -4,6 +4,7 @@
     <PackAsTool>true</PackAsTool>
     <ToolCommandName>playbook</ToolCommandName>
     <PackageId>PinguApps.Playbook</PackageId>
+    <PackageIcon>icon.png</PackageIcon>
     <RollForward>Major</RollForward>
     <Description>Original, offline .NET implementation recipes for coding agents over stdio MCP.</Description>
     <RecipeRoot Condition="'$(RecipeRoot)' == ''">$(MSBuildProjectDirectory)/../../content/recipes</RecipeRoot>
@@ -15,6 +16,7 @@
     <PackageReference Include="Microsoft.Extensions.Hosting" />
     <PackageReference Include="ModelContextProtocol" />
     <None Include="../../README.md" Pack="true" PackagePath="/" />
+    <None Update="icon.png" Pack="true" PackagePath="/" />
     <EmbeddedResource Include="$(IntermediateOutputPath)Generated/catalogue.json" LogicalName="Playbook.Catalogue" />
     <EmbeddedResource Include="../../content/coverage.json" LogicalName="Playbook.Coverage" />
   </ItemGroup>
