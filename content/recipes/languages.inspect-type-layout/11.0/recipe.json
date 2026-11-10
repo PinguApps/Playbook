@@ -40,7 +40,7 @@
             "name": ".NET",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Run the declared net11.0 consumer. Measured RC2 artifacts are separate from final GA support."
+            "reason": "Run the declared net11.0 consumer. GA host verification is distinct from retained preview-package stability."
           },
           "sdk": {
             "name": ".NET SDK",
@@ -83,7 +83,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "RC2 package/compiler verification is not actual GA verification. PIN-959 and PIN-961 remain open. No blanket performance or interop guarantee."
+            "GA host execution does not promote retained preview packages to stable. PIN-967 remains open. No blanket performance or interop guarantee."
           ]
         },
         "sourceUrls": [
@@ -116,7 +116,7 @@
       "kind": "compile-and-run"
     },
     {
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "sample": "samples/net11.0/PacketLayout/PacketLayout.csproj",
       "scope": "Read declared layout kind, packing and size from a compiler symbol when inspecting packet declarations without private symbol casts or runtime-layout assumptions.",

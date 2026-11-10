@@ -1,5 +1,33 @@
 # Inspect the guidance an agent receives
 
+## GA compiler-host packages
+
+PIN-1289 checks stable FCS/Core on .NET 10/11 and retains labelled Roslyn preview
+packages where NuGet.org stable 5.9.0 lacks the required APIs. Historical RC proof
+remains in Git; PIN-967 still owns global stable readiness. No publication occurs.
+
+From any directory, in PowerShell 7 with the pinned SDK10.0.403 and Node installed:
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-aa96736d'
+$env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH = '0'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('fsharp.configure-compiler-service-memory','fsharp.adapt-opaque-callbacks','languages.inspect-coalescing-conversions','languages.inspect-type-layout') `
+  -Query '' -RecipeEdition '11.0' -TargetVersion '11.0' `
+  -PackageVersion '0.0.0-pin1289' -BuildAndPack `
+  -Dotnet 'V:\_worktrees\Playbook\t3-aa96736d\artifacts\pin1289\dotnet10\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' -OutputDirectory './artifacts/pin1289/inspection'
+```
+
+The explicit Dotnet path uses the SHA512-verified portable SDK10.0.403 prepared
+for this task because the shared SDK directory was incomplete. Setup builds and
+packs the ordinary server, installs the exact local artifact and calls real stdio
+list/get from an unrelated directory. Expect each ID/title/goal, full Markdown,
+applicability and fresh evidence; F# routes are stable and Roslyn routes remain
+preview. Network is needed for setup; unusable proxies during retrieval demonstrate
+offline embedding, not OS network isolation. Other-platform execution and stable
+release approval are not established by this check.
+
 ## Approved pre-GA preview guidance
 
 PIN-959 separates preview publication readiness from stable/GA verification.

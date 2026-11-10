@@ -50,8 +50,8 @@ try {
   $observations | Select-Object -Last 3 | Write-Host
 
   # Direct compiler probes use actual Core and reference assemblies, not generated shims.
-  $sdkRoot = Join-Path (Split-Path $Net11Dotnet) 'sdk/11.0.100-rc.3.26522.148'
-  $refs = @(Get-ChildItem (Join-Path (Split-Path $Net11Dotnet) 'packs/Microsoft.NETCore.App.Ref/11.0.0-rc.3.26522.148/ref/net11.0') -Filter '*.dll' | ForEach-Object { '-r:' + $_.FullName })
+  $sdkRoot = Join-Path (Split-Path $Net11Dotnet) 'sdk/11.0.100'
+  $refs = @(Get-ChildItem (Join-Path (Split-Path $Net11Dotnet) 'packs/Microsoft.NETCore.App.Ref/11.0.0/ref/net11.0') -Filter '*.dll' | ForEach-Object { '-r:' + $_.FullName })
   $core = Join-Path $root 'samples/net11.0/SeedFold/bin/Release/net11.0/FSharp.Core.dll'
   $baseArgs = @((Join-Path $sdkRoot 'FSharp/fsc.dll'), '--target:library', '--targetprofile:netcore', '--noframework', '--simpleresolution', '--optimize+', "-r:$core") + $refs
   $valid = 'let inline batch ([<InlineIfLambda; OptimizeClosureIfNotInlined>] step: int -> int -> int) state reading = step state reading'
@@ -90,8 +90,8 @@ try {
 
   foreach ($release in 10,11) {
     $exe = if ($release -eq 10) { $Net10Dotnet } else { $Net11Dotnet }
-    $version = if ($release -eq 10) { '10.0.403' } else { '11.0.100-rc.3.26522.148' }
-    $runtime = if ($release -eq 10) { '10.0.14' } else { '11.0.0-rc.3.26522.148' }
+    $version = if ($release -eq 10) { '10.0.403' } else { '11.0.100' }
+    $runtime = if ($release -eq 10) { '10.0.14' } else { '11.0.0' }
     $hostRoot = Split-Path $exe
     foreach ($file in @(
       (Join-Path $hostRoot "sdk/$version/Roslyn/bincore/csc.dll"),

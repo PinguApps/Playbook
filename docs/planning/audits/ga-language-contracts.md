@@ -193,3 +193,40 @@ Expect seventeen ID/title/goal entries (sixteen F# recipes plus the shared JSON 
 including experimental gates and retained cleanup/upcast limitations. The harness
 installs the actual local artifact and calls list/get through stdio from an
 unrelated directory. This proves served guidance, not other-platform execution.
+
+## Compiler-host GA package reconciliation
+
+PIN-1289 retains the historical RC guidance, locks and receipts in Git at
+`564f2974efd0cdbf903d14f4e3606a0d52c3acf7`. SDK 11.0.100 bundles Roslyn
+5.12.0-1.26529.118; that is not a stable NuGet package. NuGet.org's package
+indexes still report stable Roslyn 5.9.0, while FCS 43.13.101 and Core 11.0.101
+are available stable packages. Later FCS 43.13.404 is not selected merely for
+being latest. The selected FCS nuspec names GA VMR
+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f and exactly Core [11.0.101,11.0.101].
+Its netstandard dependency group also lists System packages; actual net10/net11
+restore prunes those framework-provided dependencies, leaving the locked two-package
+closure. Selected FCS is lib/netstandard2.0 and Core is lib/net10.0.
+
+The retained public dotnet-tools Roslyn packages remain 5.12.0-1.26504.105,
+with Common at that exact version and Analyzers 5.12.0-1.26465.4. Their nuspec
+provenance is RC2 VMR 820230c386db5b0106c5430b3e5aee92a7826bf5, and the net11
+consumers select lib/net10.0. Recipe prose previously named 26522.148 despite
+canonical pins/locks naming 26504.105; the prose now matches the actual assets.
+No Roslyn pin or preview label is promoted based on SDK GA status.
+
+Actual stable FCS executes both default-sharing and opt-out checkers on runtime
+10.0.14 and 11.0.0, including compatible/differing closures, int-to-string reference
+replacement and isolated missing-reference diagnostics. The installed SDK10.0.403
+was incomplete (missing dotnet.runtimeconfig.json); a portable official Windows x64
+SDK archive, SHA512-checked against the release feed, provided the same pinned SDK
+without changing PATH or shared installation files. Core/SDK GA refresh also covers
+the separate SeedFold library/consumer and its emitted-IL/diagnostic controls.
+
+`eng/Test-CompilerInspections.ps1 -Record` runs the paired C#/VB conversion and
+packet-layout consumers, callback consumers, optimized IL, invalid-shape gates,
+and newer-compiler F#8-mode imported-library execution. The stable 5.9.0 control
+rejects both conversion extensions (CS0117) and TypeLayout (CS1061). This justifies
+retaining the labelled preview package route. These checks establish declared
+layout, conversion classification and callback behavior, not runtime interop layout
+or benchmark savings. New receipts record GA execution; RC receipts are not relabelled.
+PIN-967 remains the global stable-readiness gate; no publication is performed.

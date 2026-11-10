@@ -34,7 +34,7 @@ The consumer is a separate assembly. A literal lambda captures bias4; the non-in
 
 ## Newer approach
 
-Use separate sibling directories from the older comparison. Pin SDK11.0.100-rc.3.26522.148 and FSharp.Core11.0.101-rc2.26504.105 as shown; the measured runtime/reference closure is11 RC2. F# **11.0**, rather than `preview`, is the declaration gate. The attribute is public, sealed, parameter-only and has a parameterless constructor. It must accompany `InlineIfLambda` on a **separately curried parameter** of a suitable inline function or method. That parameter must have a curried F# function type of arity **2–5**; a tupled unary function is not an arity-two callback.
+Use separate sibling directories from the older comparison. Pin SDK11.0.100 and FSharp.Core11.0.101 as shown; the measured runtime/reference closure is11.0.0. F# **11.0**, rather than `preview`, is the declaration gate. The attribute is public, sealed, parameter-only and has a parameterless constructor. It must accompany `InlineIfLambda` on a **separately curried parameter** of a suitable inline function or method. That parameter must have a curried F# function type of arity **2–5**; a tupled unary function is not an arity-two callback.
 
 `SeedFoldLibrary/SeedFoldLibrary.fsproj` and its package file:
 
@@ -69,9 +69,9 @@ The `foldControl` function preserves the same body and `InlineIfLambda` without 
 
 ## Constraints
 
-Only target11/edition11 is served; the original target10 comparison preserves the exact eight foundations. Measured Core11 assets include net10.0 and netstandard variants, but an asset label is not a tested older-target route. This recipe advertises no new attribute route on an older target or old compiler. The separate import check builds an attributed library with the newer compiler, then consumes it using that **same newer compiler in F#8 mode** and runs on11 RC2. That proves imported metadata consumption for those conditions, not old-compiler/runtime compatibility. Use the genuinely old library/consumer above when retaining the older toolchain.
+Only target11/edition11 is served; the original target10 comparison preserves the exact eight foundations. Measured Core11 assets include net10.0 and netstandard variants, but an asset label is not a tested older-target route. This recipe advertises no new attribute route on an older target or old compiler. The separate import check builds an attributed library with the newer compiler, then consumes it using that **same newer compiler in F#8 mode** and runs on11.0.0. That proves imported metadata consumption for those conditions, not old-compiler/runtime compatibility. Use the genuinely old library/consumer above when retaining the older toolchain.
 
-The framework/package/SDK pins are deliberately separate: the SDK's bundled Core and NuGet Core can have different hashes despite related versions. Saved records identify actual packages and selected assets; the new consumers select Core `lib/net10.0`, the older ones `lib/netstandard2.1`. No provider, rendering mode, workload, native toolchain, preview-language switch or experimental diagnostic suppression is required. Verification ran on Windows x64. The package/SDK are RC2; final GA reconciliation, comprehensive coverage and existing Human gates remain open. No performance benchmark or cross-platform matrix is claimed.
+The framework/package/SDK pins are deliberately separate: the SDK's bundled Core and NuGet Core can have different hashes despite related versions. Saved records identify actual packages and selected assets; the new consumers select Core `lib/net10.0`, the older ones `lib/netstandard2.1`. No provider, rendering mode, workload, native toolchain, preview-language switch or experimental diagnostic suppression is required. Verification ran on Windows x64. The package/SDK are GA; comprehensive coverage and existing Human gates remain open. PIN-967 remains the stable-readiness gate. No performance benchmark or cross-platform matrix is claimed.
 
 ## Evidence
 
