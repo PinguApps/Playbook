@@ -25,7 +25,7 @@ RC3. Neither baseline is overwritten.
 
 The adjacent source manifest binds installed DLL hashes, immutable source URLs,
 source hashes and all 29 prepared edition 11.0 language/compiler recipe identities,
-stability labels and content hashes. Two C# edition 10.0 foundations are unchanged
+stability labels and content hashes. The C# edition 10.0 foundations `csharp.extend-uneditable-types` and `csharp.validate-property-assignment` are unchanged
 and outside this GA refresh. Framework-specific VB application/Designer guidance
 remains with PIN-966 rather than inventing a new VB language version.
 
@@ -55,7 +55,7 @@ correction/evidence assignments, not claims that GA samples already pass.
 
 | Owner | Edition 11.0 recipes | Required outcome |
 | --- | --- | --- |
-| [PIN-1287](https://linear.app/pinguapps/issue/PIN-1287) | `csharp.audit-memory-boundaries`, `bind-dynamic-conditions`, `closed-hierarchies`, `closed-results`, `configure-collection-construction`, `control-nested-loops`, `index-existing-types`, `preserve-span-storage`, `static-interface-helpers` (all with `csharp.` prefix) | Refresh GA pins and actual checks for nine recipes; resolve memory-safety/version/keyword probes; retain experimental labels. |
+| [PIN-1287](https://linear.app/pinguapps/issue/PIN-1287) | `csharp.audit-memory-boundaries`, `bind-dynamic-conditions`, `closed-hierarchies`, `closed-results`, `configure-collection-construction`, `control-nested-loops`, `index-existing-types`, `preserve-span-storage`, `static-interface-helpers` (all with `csharp.` prefix) | Refresh GA pins and actual checks for nine recipes; resolve memory-safety/version/keyword probes; retain any existing experimental labels. |
 | [PIN-1288](https://linear.app/pinguapps/issue/PIN-1288) | `fsharp.adapt-generic-operations`, `author-runtime-async-builder`, `author-runtime-async-sequence`, `bound-async-work`, `compose-records`, `construct-records`, `dispose-async-resources-in-fsi`, `format-without-reflection`, `migrate-based-arrays-for-aot`, `migrate-enum-flags`, `pass-methods-as-delegates`, `preserve-interpolation-culture`, `require-named-arguments`, `rethrow-in-computations`, `reuse-api-documentation`, `start-async-on-caller` (all with `fsharp.` prefix) | Refresh sixteen language/runtime routes and affected FSI/AOT/experimental behavior with GA artifacts. Preserve older comparisons and actual failures. |
 | [PIN-1289](https://linear.app/pinguapps/issue/PIN-1289) | `fsharp.adapt-opaque-callbacks`, `fsharp.configure-compiler-service-memory`, `languages.inspect-coalescing-conversions`, `languages.inspect-type-layout` | Reconcile four package-bound routes, dependency/assets and actual hosts; retain preview routes where stable equivalents are unavailable. |
 
@@ -84,7 +84,7 @@ $audit.fsharpSources | Where-Object { -not $_.unchanged } | Select-Object path, 
 $audit.catalogue | Format-Table id, stability
 ```
 
-Expected: PASS, 29 editions; zero Roslyn declaration changes; FSI, source-manifest
+Expected: PASS after exact retained artifact/source/catalogue comparison, 29 editions; zero Roslyn declaration changes; FSI, source-manifest
 and FCS release-note deltas. Source hashes and installed product identities are
 recorded, not asserted to be fresh execution evidence. No build, FSI behavior,
 Native AOT, GA package-host restore or installed MCP check is claimed here.
