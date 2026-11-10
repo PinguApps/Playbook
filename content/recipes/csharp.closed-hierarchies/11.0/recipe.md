@@ -38,7 +38,7 @@ Closed limits direct inheritance to the declaring assembly, not to one source fi
 
 Null is not an instance of a leaf. This sample returns `absent` for it and persists it as JSON null. Payload validation is a separate responsibility. Inference uses type-derived discriminators; the .NET 10 example uses explicit lowercase names, so these sample wire formats differ. Do not silently replace registrations in a stored or public contract.
 
-The route requires .NET 11 / SDK 11 / C# 15 with no experimental opt-in, workloads, packages, providers or rendering context. Only RC2 artifacts were executed; this is not GA verification or a supported older-target route. Source generation here uses metadata mode; no Native AOT publish was performed.
+The route requires .NET 11 / SDK 11 / C# 15 with no experimental opt-in, workloads, packages, providers or rendering context. The declared sample was executed with GA SDK 11.0.100/runtime 11.0.0; no supported older-target route is claimed. Source generation here uses metadata mode; no Native AOT publish was performed.
 
 ## Evidence
 

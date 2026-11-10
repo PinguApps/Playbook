@@ -10,7 +10,7 @@ This original failure fixture compiles with SDK10.0.100, compiler5.0 and the act
 
 {{snippet:escape}}
 
-Include `using System;` and `namespace Playbook.Samples;`. Both SDK10.0.403/compiler5.9 and SDK11 RC3/compiler5.12 reject the assignment with:
+Include `using System;` and `namespace Playbook.Samples;`. Both SDK10.0.403/compiler5.9 and SDK11.0.100/compiler5.12 reject the assignment with:
 
 `error CS8352: Cannot use variable 'parcelNumbers' in this context because it may expose referenced variables outside of their declaration scope`
 

@@ -30,10 +30,10 @@ An extension does not add storage, private-member access, interface implementati
 
 This example is not thread-safe against concurrent mutation. It promises zero-based integer positions only, with no from-end or range contract. Null checks happen in the implementation because extension calls can receive null. Bracket notation does not imply constant-time lookup.
 
-Canonical RC1 notes stabilize extension indexers in C# 15; the recorded artifacts are RC2, with GA reconciliation pending. No older-target C# 15 route, package, workload, provider or rendering requirement is claimed.
+Canonical RC1 notes stabilize extension indexers in C# 15; the recorded artifacts are GA SDK 11.0.100/runtime 11.0.0. No older-target C# 15 route, package, workload, provider or rendering requirement is claimed.
 
 ## Evidence
 
-Both canonical CollectionLike projects compile on their actual targets (net10.0/C# 14, net11.0/C# 15) and execute reads, middle-node replacement, preserved sequence/length and null/negative/past-end rejection. A rejected write leaves the list unchanged. Exact saved SDK/runtime/input records accompany the samples; focused execution is distinct from source-reviewed general lookup restrictions. No native execution, mocks, cross-compilation or GA proof is claimed. Full source snippets and instructions are embedded in the offline tool.
+Both canonical CollectionLike projects compile on their actual targets (net10.0/C# 14, net11.0/C# 15) and execute reads, middle-node replacement, preserved sequence/length and null/negative/past-end rejection. A rejected write leaves the list unchanged. Exact saved SDK/runtime/input records accompany the samples; focused execution is distinct from source-reviewed general lookup restrictions. No native execution, mocks or cross-compilation is claimed. Full source snippets and instructions are embedded in the offline tool.
 
 GA refresh (PIN-1287): the declared .NET 11 sample was rebuilt and executed with SDK 11.0.100 and runtime 11.0.0. Earlier RC observations above remain historical; this refresh does not establish broader platform or API behavior.

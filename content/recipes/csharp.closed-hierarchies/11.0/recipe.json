@@ -65,7 +65,7 @@
           "workloads": [],
           "optIns": [],
           "stabilityLimitations": [
-            "Verified using .NET 11 RC2 artifacts only; GA reconciliation is pending."
+            "Verified using SDK 11.0.100 and runtime 11.0.0; comprehensive readiness remains open."
           ]
         },
         "evidenceSamples": [
@@ -135,7 +135,7 @@
       "sdk": "11.0.100",
       "language": "15.0",
       "sample": "samples/net11.0/ClosedOutcomes/ClosedOutcomes.csproj",
-      "scope": "Original case/payload matching and generated-metadata JSON round trips, null/default and ambiguous-object rejection. RC2 additionally executes explicit-registration precedence and missing-generated-inference failure. Exact records captured by eng/Record-Evidence.ps1; eng/Verify.ps1 reruns samples.",
+      "scope": "Original case/payload matching and generated-metadata JSON round trips, null/default and ambiguous-object rejection. The GA run additionally executes explicit-registration precedence and missing-generated-inference failure. Exact records captured by eng/Record-Evidence.ps1; eng/Verify.ps1 reruns samples.",
       "kind": "compile-and-run"
     }
   ],

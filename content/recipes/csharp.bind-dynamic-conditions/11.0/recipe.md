@@ -12,7 +12,7 @@ The original policy below can be viewed through `ILoadingPolicy`. This older spe
 
 With SDK10.0.100/compiler5.0 and net10.0/ref10.0.0, both methods compile. Actual runtime10.0.0 execution throws `RuntimeBinderException` for both operators: the binder cannot apply them to `ILoadingPolicy` and `LoadingPolicy`. This is a failing older implementation, not working logic that an upgrade removed.
 
-SDK10.0.403/compiler5.9 and SDK11 RC3/compiler5.12 reject the same methods with these separate diagnostics:
+SDK10.0.403/compiler5.9 and SDK11.0.100/compiler5.12 reject the same methods with these separate diagnostics:
 
 `error CS7083: Expression must be implicitly convertible to Boolean or its type 'ILoadingPolicy' must not be an interface and must define operator 'false'.`
 

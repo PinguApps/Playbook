@@ -68,7 +68,7 @@
           "workloads": [],
           "optIns": [],
           "stabilityLimitations": [
-            "Verified using .NET 11 RC2 artifacts only; GA reconciliation is pending."
+            "Verified using SDK 11.0.100 and runtime 11.0.0; comprehensive readiness remains open."
           ]
         },
         "evidenceSamples": [
