@@ -1,0 +1,437 @@
+{
+  "scope": "GA language/compiler source and bundled artifact reconciliation; no consumer execution",
+  "gaSource": "297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+  "rcSource": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+  "sdk": "11.0.100",
+  "runtime": "11.0.0",
+  "artifacts": [
+    {
+      "path": "Roslyn/bincore/Microsoft.CodeAnalysis.dll",
+      "productVersion": "5.12.0-1.26529.118+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "f1dc66bbc983d1ed97c8b2a89ce2234729d99d810d19a6198903e6be977af1b5"
+    },
+    {
+      "path": "Roslyn/bincore/Microsoft.CodeAnalysis.CSharp.dll",
+      "productVersion": "5.12.0-1.26529.118+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "4caaec68ef7d6648d913dfe64131e939f1b8cb8ba66d79df7641803c3c774735"
+    },
+    {
+      "path": "Roslyn/bincore/Microsoft.CodeAnalysis.VisualBasic.dll",
+      "productVersion": "5.12.0-1.26529.118+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "7c496611e89061481ae70c69f3733a63760df0a5e9a9223c73756c89ca617c92"
+    },
+    {
+      "path": "FSharp/FSharp.Core.dll",
+      "productVersion": "11.0.101-rtm.26529.118+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "48d8d12b8b0e7b7b24d132d24a8f0460cdd20806c06e410c0c16bc4c378913b8"
+    },
+    {
+      "path": "FSharp/FSharp.Compiler.Service.dll",
+      "productVersion": "43.13.101-rtm.26529.118+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "0f01542f4d52929e6faa46651e19e36919f127c70b8271659734acdbf1206369"
+    }
+  ],
+  "roslynApi": [
+    {
+      "area": "Core",
+      "added": [],
+      "removed": []
+    },
+    {
+      "area": "CSharp",
+      "added": [],
+      "removed": []
+    },
+    {
+      "area": "VisualBasic",
+      "added": [],
+      "removed": []
+    }
+  ],
+  "catalogue": [
+    {
+      "id": "csharp.audit-memory-boundaries",
+      "stability": "experimental",
+      "metadataHash": "90827ad7daa358c33d85c989c03df628deece8558f03796c34d5bd38e9ff6699",
+      "markdownHash": "e5f9800aa6df940054b4cd5e85a7da98e90021181512d526c965c8ff0c042812"
+    },
+    {
+      "id": "csharp.bind-dynamic-conditions",
+      "stability": "stable",
+      "metadataHash": "ed1fbc1c161afe3687165fe0b8fb1bbe6b7a044af26158d1c752c5529c8e0599",
+      "markdownHash": "67ecf60ac317e019e9205f296a618b383fbb48c2e9726eaff4043f9576475d08"
+    },
+    {
+      "id": "csharp.closed-hierarchies",
+      "stability": "stable",
+      "metadataHash": "333feb0c29bfdb3262569a5f7f3cc0bc65726e4849034146c74e88af7448aece",
+      "markdownHash": "85cac4328a687b5b56230687c437ce43b4ceab673cc7417459acf32a216677ef"
+    },
+    {
+      "id": "csharp.closed-results",
+      "stability": "stable",
+      "metadataHash": "af6b206ff4aa1a2fff808da2ee58e74362cb67a6688ba52054d18ad675b9c20b",
+      "markdownHash": "fb20c05f09ade0d109067bcc0b51849dfdb265827aeb0ac9ef4a04dd5d137ed5"
+    },
+    {
+      "id": "csharp.configure-collection-construction",
+      "stability": "stable",
+      "metadataHash": "97dbf083b9d26f4a68509c1e82a8660e5c3357d1719ba0a06c23b45f249e9d4a",
+      "markdownHash": "99fc98caa61b3c04cb7743ca3813835a9e04d3f9a6901597ccddde8d6a878b46"
+    },
+    {
+      "id": "csharp.control-nested-loops",
+      "stability": "stable",
+      "metadataHash": "018dd265983647dcc10e3a35aa394e4f3907132efc24b6e552856360e45ea315",
+      "markdownHash": "db859e269a325d56f35d3754d3982a867598ef0fdd15188a58fe5fc99f568b76"
+    },
+    {
+      "id": "csharp.index-existing-types",
+      "stability": "stable",
+      "metadataHash": "458bd1d75a48461f0beef3653a6815b8b615c9004e6e6f057e470131aa54bb22",
+      "markdownHash": "9c423e50a6b16b6a996eec4fe596eab5745176b6a7d302e0ccee1f6fbff2921f"
+    },
+    {
+      "id": "csharp.preserve-span-storage",
+      "stability": "stable",
+      "metadataHash": "d304a44eb6a7eb5e44c8f03fe831f9595e8e13f40161bc27c62a7b3d6e0f790a",
+      "markdownHash": "e6fc84c2fb171ea329e2d879a525a6a8c8abb33cc8c0b7de93d8a0d7efe74456"
+    },
+    {
+      "id": "csharp.static-interface-helpers",
+      "stability": "stable",
+      "metadataHash": "5b199bd865262bd421381682c770c1dca09a46d52e966ef2f9d8dd2757a60fdf",
+      "markdownHash": "33e60d3fb0e6900b9075f6d7a5ae615decdf3ae47bd326ba6968f9168a99a0ec"
+    },
+    {
+      "id": "fsharp.adapt-generic-operations",
+      "stability": "experimental",
+      "metadataHash": "8b0138a13b991fb129d8edfc1c458602e3f0053672630ee578cd84db29833d09",
+      "markdownHash": "67185998bacbe285e72e9d75c426306a70de6d3212adb2dff66b4e8e8becb915"
+    },
+    {
+      "id": "fsharp.adapt-opaque-callbacks",
+      "stability": "preview",
+      "metadataHash": "22d53e7bb32bb7e4a180c50cc1b52f93d3702601a054d216d8ee3275df10a226",
+      "markdownHash": "2b4dad39a3f0e407abe460c28947a717aedd3c4363775e7974359c4a259d5d27"
+    },
+    {
+      "id": "fsharp.author-runtime-async-builder",
+      "stability": "experimental",
+      "metadataHash": "74c78c1f772e889ac5311eabb87233fc70c1f7d94550d39b4301bf1d0a658914",
+      "markdownHash": "a9ec83526f31beea9df9ff486dc0782d45733cf8d32a5d938cccc84bc3a2b656"
+    },
+    {
+      "id": "fsharp.author-runtime-async-sequence",
+      "stability": "experimental",
+      "metadataHash": "d0cbb004c231a2d1f9d4e6f4ec901d9c43d12b4ea5df1c21d80baf1ca009fc91",
+      "markdownHash": "6358f0a560438af7ec4200a64c70a5c7c265467b06f955950473ade9ab01b023"
+    },
+    {
+      "id": "fsharp.bound-async-work",
+      "stability": "stable",
+      "metadataHash": "0ba9ba0563a35fe4bc568bf8e252dcb59a2d8e3d765ea7d40a8e04704676854b",
+      "markdownHash": "36da847f48cc15b460c4f9a137e64b40a0f55da9d27a5a7a50010d55be83bc7b"
+    },
+    {
+      "id": "fsharp.compose-records",
+      "stability": "stable",
+      "metadataHash": "f20a4ec5d4f4f4cec67c4c1776ca22031d0be8e461876f7c83e8a6e1add7a3ec",
+      "markdownHash": "a2c86db31b4746f1919c02e5da8ed5234d999e018be4597631fe4b266f6fe93c"
+    },
+    {
+      "id": "fsharp.configure-compiler-service-memory",
+      "stability": "preview",
+      "metadataHash": "022a3e3ed9aebb7a95ebb904574d4a94cf0cfb17a556ee9e91b78302dd7f33df",
+      "markdownHash": "ea53019465fb886d44cac6d7106ddfad8d084cd8242e584451c264a297713fc9"
+    },
+    {
+      "id": "fsharp.construct-records",
+      "stability": "experimental",
+      "metadataHash": "385668fec95dfa42d88ab73b65a373be320bc853e806ac256cbad9390307badd",
+      "markdownHash": "0d72fcb79908436e6cc040e4b5bfa60476172750942f04649c3130108eb8b660"
+    },
+    {
+      "id": "fsharp.dispose-async-resources-in-fsi",
+      "stability": "stable",
+      "metadataHash": "c13411e20c04e741a96543bd68f65bc6c3d8892a8d87ba5ca1b8e220d8fc58f6",
+      "markdownHash": "bdecf54c78e58a9f3ac27da5378b8eef47246ba53253a15b87af326dcef7f961"
+    },
+    {
+      "id": "fsharp.format-without-reflection",
+      "stability": "stable",
+      "metadataHash": "419ba647d22a00b8b56d95a6757b409e71f6aa3de64e2b785d06fc4773787c24",
+      "markdownHash": "3e2b6d827d1cf21ffe2b210c957e7cf3f67359cd3f0c75e6d2f4f8042cf90b4e"
+    },
+    {
+      "id": "fsharp.migrate-based-arrays-for-aot",
+      "stability": "stable",
+      "metadataHash": "3c01a8ec12c168cde5d38e1de05c007d243157d299f62162f5363a499600933d",
+      "markdownHash": "af822ba9ba975958e185e3b52f937ccd616fd62e499cff2b416cb7ff036bb0f2"
+    },
+    {
+      "id": "fsharp.migrate-enum-flags",
+      "stability": "stable",
+      "metadataHash": "ae462f419b9e83ee9f7ae841c888e793bad13c93fd9955116005b80d4f4532cd",
+      "markdownHash": "636b8c5c4f13b800b7d95ead415be47ec3c54bd04c711426f40a99607d040f4c"
+    },
+    {
+      "id": "fsharp.pass-methods-as-delegates",
+      "stability": "stable",
+      "metadataHash": "82525c3234143e56843da5016be73242488939bb60b0230ec18f7c12ad608bd6",
+      "markdownHash": "4797c2e33ae705aadb0894e1ee536e13d9d19b34bad2dd7f0cc216ce5f0592e3"
+    },
+    {
+      "id": "fsharp.preserve-interpolation-culture",
+      "stability": "stable",
+      "metadataHash": "2d223cbefdb15f45da12bd86d639ec372c9dcf921bc40472328fcd2d133d50ad",
+      "markdownHash": "3f9a98497091cba0b40bbe49d458164887679c1d60a0ac71e7a7c8a693503427"
+    },
+    {
+      "id": "fsharp.require-named-arguments",
+      "stability": "experimental",
+      "metadataHash": "2785d8dd9721c71b4513de1cff7f8cd89ec000105d7b7520262c03045247668c",
+      "markdownHash": "25bbd835fd1f888c6c6bf7d0a82d37aa8f63c338e20241febe581c8d6ee8a316"
+    },
+    {
+      "id": "fsharp.rethrow-in-computations",
+      "stability": "experimental",
+      "metadataHash": "f2cb1b199eefc4857cba7ff52027ce5afd8a8c1f3f475e4673c17ed2ea343878",
+      "markdownHash": "be29aa14fd0866f23994950c996d411350201e40a9d7122f645cbd8618d328f4"
+    },
+    {
+      "id": "fsharp.reuse-api-documentation",
+      "stability": "stable",
+      "metadataHash": "91ab9ea08c9980fab239547da857f0f8618cfb49ba2cf37085d407f4609b1f55",
+      "markdownHash": "59bb35905d28aa2c18071cb236a50a6fa4fe406dfb5481a7358f3834718dbbb8"
+    },
+    {
+      "id": "fsharp.start-async-on-caller",
+      "stability": "stable",
+      "metadataHash": "3fd659ec15be866e74407442ef69887ae9e14bcd4a8697e4bddba7b1e34c4951",
+      "markdownHash": "103a8e6ba3890079a4b1b7fa517a5dc5853411539d518a3f5d5606309edc77b8"
+    },
+    {
+      "id": "languages.inspect-coalescing-conversions",
+      "stability": "preview",
+      "metadataHash": "df129c347cacb733feb00a3593db2cc0c1eaab7c49b38a9b3588fe667eb4ac19",
+      "markdownHash": "36d64dad605d2286f90b46983874ef9b2f67fd374b2b6951737f9be08de93911"
+    },
+    {
+      "id": "languages.inspect-type-layout",
+      "stability": "preview",
+      "metadataHash": "b050c30ed972d9ef6e90e80cfd6beed317ae7b2e06edf49b3b8b96a24fa2c71e",
+      "markdownHash": "7ab96fc9cca5cc130b13b0bff958afc795e08faa601e65413e265ad541eb4528"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/roslyn/docs/compilers/CSharp/Compiler%20Breaking%20Changes%20-%20DotNet%2011.md",
+      "sha256": "59550471dcf1490d458abc9060f900f660892bcf4a6260a549320292a9b9d1a5"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/roslyn/src/Compilers/VisualBasic/Portable/LanguageVersion.vb",
+      "sha256": "13fd46e5cb7b1c1fa3a252f7c6e3540d10fc7575bcefd0a02f2598e97c508243"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/roslyn/src/Compilers/Core/Portable/PublicAPI.Shipped.txt",
+      "sha256": "f832eeaa743ce4512d1d7032d5818adfcd0db33b3e57f233519b358c40be5dc9"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/roslyn/src/Compilers/Core/Portable/PublicAPI.Unshipped.txt",
+      "sha256": "dcb836f9086a220b5a438756fb576c365d1335508ca36252e219224ff753eebe"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/roslyn/src/Compilers/Core/Portable/PublicAPI.Shipped.txt",
+      "sha256": "f832eeaa743ce4512d1d7032d5818adfcd0db33b3e57f233519b358c40be5dc9"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/roslyn/src/Compilers/Core/Portable/PublicAPI.Unshipped.txt",
+      "sha256": "dcb836f9086a220b5a438756fb576c365d1335508ca36252e219224ff753eebe"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/roslyn/src/Compilers/CSharp/Portable/PublicAPI.Shipped.txt",
+      "sha256": "e8418e07112ea3a93ef91edce47c2a20c7148746193a97f660a2acd59141a1cf"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/roslyn/src/Compilers/CSharp/Portable/PublicAPI.Unshipped.txt",
+      "sha256": "4a8bddbf0f05a624412170b4e93c78bdc50a5413adc1c5d82b6056542c74f35c"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/roslyn/src/Compilers/CSharp/Portable/PublicAPI.Shipped.txt",
+      "sha256": "e8418e07112ea3a93ef91edce47c2a20c7148746193a97f660a2acd59141a1cf"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/roslyn/src/Compilers/CSharp/Portable/PublicAPI.Unshipped.txt",
+      "sha256": "4a8bddbf0f05a624412170b4e93c78bdc50a5413adc1c5d82b6056542c74f35c"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/roslyn/src/Compilers/VisualBasic/Portable/PublicAPI.Shipped.txt",
+      "sha256": "1e1ea88a549648d0004789db95001bcb296f2488c83da6d4795c45a515f8e6d6"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/roslyn/src/Compilers/VisualBasic/Portable/PublicAPI.Unshipped.txt",
+      "sha256": "94cb1d9e732c187205b7c51b60c7275853b437fabe74a6d8347e5ad217d2c34a"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/roslyn/src/Compilers/VisualBasic/Portable/PublicAPI.Shipped.txt",
+      "sha256": "1e1ea88a549648d0004789db95001bcb296f2488c83da6d4795c45a515f8e6d6"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/roslyn/src/Compilers/VisualBasic/Portable/PublicAPI.Unshipped.txt",
+      "sha256": "94cb1d9e732c187205b7c51b60c7275853b437fabe74a6d8347e5ad217d2c34a"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/src/FSharp.Core/resumable.fsi",
+      "sha256": "0b9e2744af92cd845327cd5430f16fe3b2fde17e0d1bd961601db2c98c33e8c1"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/fsharp/src/FSharp.Core/resumable.fsi",
+      "sha256": "0b9e2744af92cd845327cd5430f16fe3b2fde17e0d1bd961601db2c98c33e8c1"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/src/FSharp.Core/resumable.fs",
+      "sha256": "4c722b0177edbbfd2da0dee262bd0260a2305d7925644e884f89fbf36d3806b7"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/fsharp/src/FSharp.Core/resumable.fs",
+      "sha256": "4c722b0177edbbfd2da0dee262bd0260a2305d7925644e884f89fbf36d3806b7"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/src/FSharp.Core/array2.fs",
+      "sha256": "70ffb8eb29769f93f6e117821df807e2cb5a4654ee3c93c37301c29444d72ba5"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/fsharp/src/FSharp.Core/array2.fs",
+      "sha256": "70ffb8eb29769f93f6e117821df807e2cb5a4654ee3c93c37301c29444d72ba5"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/src/FSharp.Core/array2.fsi",
+      "sha256": "590cdf2e5d47d92da0eac4e9899b888c340437abf2b9ed34b709195d27a18eaf"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/fsharp/src/FSharp.Core/array2.fsi",
+      "sha256": "590cdf2e5d47d92da0eac4e9899b888c340437abf2b9ed34b709195d27a18eaf"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/src/FSharp.Core/tasks.fsi",
+      "sha256": "ab3ac435786cc43c8f4a28f5cdfb6c62eb062d20d551357debfcff3b05f7fcbb"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/fsharp/src/FSharp.Core/tasks.fsi",
+      "sha256": "ab3ac435786cc43c8f4a28f5cdfb6c62eb062d20d551357debfcff3b05f7fcbb"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/src/Compiler/Service/service.fsi",
+      "sha256": "5bb9aa0a87895ec108f7aea013d5ca9b5faa0ba185981ebb85d3bd44135dfddc"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/fsharp/src/Compiler/Service/service.fsi",
+      "sha256": "5bb9aa0a87895ec108f7aea013d5ca9b5faa0ba185981ebb85d3bd44135dfddc"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/src/Compiler/Service/service.fs",
+      "sha256": "c7c42918447babbabcb2a39529c2682f106df22002ff190a9f66bcdcbf50f394"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/fsharp/src/Compiler/Service/service.fs",
+      "sha256": "c7c42918447babbabcb2a39529c2682f106df22002ff190a9f66bcdcbf50f394"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/src/Compiler/Facilities/LanguageFeatures.fs",
+      "sha256": "b0ff92c106dc30ac0a0e3e2f140fe1806609d89bfd6e1dbd162c9c666845018c"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/fsharp/src/Compiler/Facilities/LanguageFeatures.fs",
+      "sha256": "b0ff92c106dc30ac0a0e3e2f140fe1806609d89bfd6e1dbd162c9c666845018c"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/docs/runtime-async.md",
+      "sha256": "96f9a6262f2a76b561d7e8da2c2aaf4649a97b2d0eb698aca1665526d14d9cd1"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/fsharp/docs/runtime-async.md",
+      "sha256": "96f9a6262f2a76b561d7e8da2c2aaf4649a97b2d0eb698aca1665526d14d9cd1"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/tests/FSharp.Compiler.ComponentTests/Language/RuntimeAsync/RuntimeTaskBuilder.fs",
+      "sha256": "f9de3078996db98daf790548afe989f5e0cfe328a4b68224f9419bcdf1f1c6eb"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/fsharp/tests/FSharp.Compiler.ComponentTests/Language/RuntimeAsync/RuntimeTaskBuilder.fs",
+      "sha256": "f9de3078996db98daf790548afe989f5e0cfe328a4b68224f9419bcdf1f1c6eb"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/src/fsi/fsi.targets",
+      "sha256": "c774b28d1f655dd364bc55eb921a89cedcc94bc2c34fb177dec504a44c4991a1"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/fsharp/src/fsi/fsi.targets",
+      "sha256": "c774b28d1f655dd364bc55eb921a89cedcc94bc2c34fb177dec504a44c4991a1"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/src/Compiler/Interactive/fsi.fs",
+      "sha256": "92a9124b08b24c968b07046978533d122e2a5b8c96a508cadf1af9e9bbc2e8a9"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/fsharp/src/Compiler/Interactive/fsi.fs",
+      "sha256": "b87dae3da4861285dd483c8ca200f241c293919d611c4630de9eb17b4d638cb3"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/src/FSharp.Core/FSharp.Core.nuspec",
+      "sha256": "673f49719358e6f376ee6be7e97308b701349a43216e6656a80225bb20f25262"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/fsharp/src/FSharp.Core/FSharp.Core.nuspec",
+      "sha256": "673f49719358e6f376ee6be7e97308b701349a43216e6656a80225bb20f25262"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/src/Compiler/FSharp.Compiler.Service.nuspec",
+      "sha256": "66767b36ca75bfdab6151cd967bc33ede17510f60f723aea47ec9c95e8f039f6"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/fsharp/src/Compiler/FSharp.Compiler.Service.nuspec",
+      "sha256": "66767b36ca75bfdab6151cd967bc33ede17510f60f723aea47ec9c95e8f039f6"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/source-manifest.json",
+      "sha256": "40085527f7e20c99eeb394827f5c5fc89f86af485b9cd3789f9abc630dab4fd9"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/source-manifest.json",
+      "sha256": "7d54928f2a55507a498b5444bbbeabfc78369108b5e64b4a17e4660aca4bb236"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/src/Compiler/Driver/CompilerImports.fs",
+      "sha256": "78c6eef5555139c3df83148834a6fd6b936a033c489970e62e14f9395ce948da"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/fsharp/src/Compiler/Driver/CompilerImports.fs",
+      "sha256": "78c6eef5555139c3df83148834a6fd6b936a033c489970e62e14f9395ce948da"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/Directory.Build.targets",
+      "sha256": "01ba5b7cfa733c2c0780e898f411faa00434043878421cd47d1645442cbb3218"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/fsharp/Directory.Build.targets",
+      "sha256": "01ba5b7cfa733c2c0780e898f411faa00434043878421cd47d1645442cbb3218"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/docs/release-notes/.FSharp.Compiler.Service/11.0.100.md",
+      "sha256": "128e4f7ca1be829d648ca76af00e615a9e7d691a444b598c9c2a6504fa6034e5"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/fsharp/docs/release-notes/.FSharp.Compiler.Service/11.0.100.md",
+      "sha256": "54e927b0a9829670acfafba8066acfbd0526b43cd449ca4923956a952fa2a32e"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/tests/FSharp.Compiler.ComponentTests/Language/RuntimeAsync/RuntimeAsyncSequenceBuilder.fs",
+      "sha256": "6c95d79937597389f4000a26d59b5f51023e393d4a166c272349000d83535b65"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/fsharp/tests/FSharp.Compiler.ComponentTests/Language/RuntimeAsync/RuntimeAsyncSequenceBuilder.fs",
+      "sha256": "6c95d79937597389f4000a26d59b5f51023e393d4a166c272349000d83535b65"
+    }
+  ]
+}
