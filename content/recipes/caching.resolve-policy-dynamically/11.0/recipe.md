@@ -69,7 +69,7 @@ Save the newer files in a separate directory.
 
 ## Constraints and alternatives
 
-- Runtime/SDK/language: ASP.NET Core 11 for the provider; exact sample baselines are SDK 11.0.100-rc.3.26522.148 / C# 15 and SDK 10.0.403 / C# 14 with .NET 10.0.13. No .NET 10 route to the new provider is advertised.
+- Runtime/SDK/language: ASP.NET Core 11 for the provider; exact sample baselines are SDK 11.0.100 / C# 15 and SDK 10.0.403 / C# 14 with .NET 10.0.13. No .NET 10 route to the new provider is advertised.
 - Packages/assets: only the matching ASP.NET Core and .NET shared frameworks. The local build/package boundaries prevent inherited package settings when copied. No workload, external provider, account or experimental opt-in is required.
 - Platform/rendering: actual Windows x64 Kestrel HTTP execution. No browser, Blazor rendering mode, distributed cache, authenticated response cache, AOT, trimming or remote policy-store behavior was tested.
 - Provider lookup and cache-entry storage are separate concerns. Choosing a policy neither invalidates old entries nor provides a tenant authorization check. Frequent revisions can retain multiple entries until expiry; budget cache memory and lifetime accordingly.

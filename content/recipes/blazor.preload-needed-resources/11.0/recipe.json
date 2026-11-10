@@ -44,7 +44,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Canonical pin 11.0.100-rc.3.26522.148; matching ASP.NET/browser assets."
+            "reason": "Canonical pin 11.0.100; matching ASP.NET/browser assets."
           },
           "language": {
             "name": "C#",

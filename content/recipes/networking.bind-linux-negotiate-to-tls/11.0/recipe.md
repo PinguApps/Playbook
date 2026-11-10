@@ -8,12 +8,10 @@ with the matching binding succeeds and one bound to a different TLS endpoint is
 rejected. Binding and Policy are existing options; the change is usable Linux
 server behavior, not a new property declaration.
 
-**Security boundary:** the official .NET 11 documentation describes mismatch
-validation. Our real MIT Kerberos test accepts a client that supplies no binding,
-even with PolicyEnforcement.Always. Do not deploy this route where every client
-must prove binding presence. Keep such a service disabled or retain a separately
-verified authentication architecture until that stronger requirement passes its
-own real provider test. A launch expectation is not evidence of a future fix.
+The .NET 11 GA/MIT Kerberos check rejects both a mismatched binding and an omitted
+client binding with BadBinding under PolicyEnforcement.Always. Earlier RC omission
+results remain historical. Repeat these admission checks on the actual deployment's
+runtime and provider; the measured Linux route does not establish other providers.
 
 ## Older approach
 
@@ -33,8 +31,8 @@ Linux result and remains a different recipe.
 
 The same options compile against .NET 11. The Linux native bridge now forwards
 the binding's application data to gss_accept_sec_context. Our actual Kerberos
-exchange demonstrates mismatch rejection while retaining the omission limitation
-above. The required policy remains enabled throughout the test.
+exchange demonstrates mismatch and omission rejection on GA. The required policy
+remains enabled throughout the test.
 
 {{snippet:newer}}
 
@@ -72,9 +70,8 @@ Application authorisation remains a separate check after authentication.
 
 ## Migration
 
-1. Record the actual runtime and native mechanism/provider. Confirm the service
-   security policy permits the documented mismatch-only boundary; stop if it
-   requires rejecting every client that omits a binding.
+1. Record the actual runtime and native mechanism/provider. Verify the service's
+   required mismatch and omission rejection on that runtime/provider combination.
 2. Establish and validate TLS with the expected server name, trust chain and
    certificate. Obtain the endpoint binding from that live connection. This
    adapter supports SHA256-with-RSA only; do not apply its hash to other algorithms.
@@ -86,12 +83,12 @@ Application authorisation remains a separate check after authentication.
    do not infer security from a reference assembly, constructor or boolean alone.
 5. Test unavailable client credentials and unknown service principals. Capture
    exact native dependencies, inputs and results; rerun on provider/runtime changes.
-   Keep the optional omission-rejection gate failing until actual evidence changes.
+   Require the omission-rejection gate to pass before enabling this route.
 
 ## Constraints
 
-Canonical projects select SDK10.0.403/C#14 and SDK11.0.100-rc.3.26522.148/C#15,
-with actual .NET10.0.14 and .NET11RC3 Linux x64 execution. Both are ordinary
+Canonical projects select SDK10.0.403/C#14 and SDK11.0.100/C#15,
+with actual .NET10.0.14 and .NET11.0.0 GA Linux x64 execution. Both are ordinary
 nullable/implicit-usings console consumers using framework System.Net.Security;
 there is no NuGet package, workload, experimental diagnostic or managed-NTLM
 server opt-in. C#15 is the configured current sample mode, not a new API language
@@ -121,7 +118,7 @@ source explicitly excludes macOS because its GSS.framework accepts mismatches.
 Other GSSAPI mechanisms/providers, architectures, channel-binding kinds, native
 NTLM servers, proxies, browser token binding and HTTP.sys hardening are not
 established here. Unsupported/platform and credential failures must stay closed.
-Final GA, PIN-962 and PIN-959 retain their independent reconciliation obligations.
+Unrelated PIN-962, PIN-959 and Human approvals retain their independent obligations.
 
 ## Evidence
 
@@ -136,16 +133,13 @@ Its finally block removes the container and its KDC, tickets, keytabs and databa
 
 Observed .NET10: OSSupportsExtendedProtection=false; required policy is refused
 before the exchange. Observed .NET11: matching returns Completed/Completed with
-Kerberos; mismatched returns server BadBinding; omitted client binding returns
-Completed/Completed and is explicitly labelled UNMET for mandatory enforcement;
+Kerberos; mismatched and omitted client bindings return server BadBinding;
 an unknown service returns TargetUnknown; an absent client cache returns
 UnknownCredentials; a missing server binding throws before authentication.
 
-eng/Test-GannetBinding.ps1 -RequireMissingBindingRejection is the retained stronger
-qualification check. It intentionally exits nonzero on the measured RC3/MIT
-route. Do not suppress its result or claim it proves mandatory binding. Follow
-Pingu's official-documentation scope decision while retaining this explicit
-unavailable subgoal for launch/provider refresh.
+eng/Test-GannetBinding.ps1 -RequireMissingBindingRejection is the stronger
+qualification check. It passes on the measured GA/MIT route. Preserve that gate
+and rerun it when the runtime or native authentication provider changes.
 
 ## References
 

@@ -17,8 +17,8 @@ removed-setter migration and no forced rewrite of a working older observer.
 
 | Layer | Older comparison | Current consumer |
 | --- | --- | --- |
-| SDK / compiler / language | 10.0.403 / 5.9.0-1.26523.112 / C#14 | 11.0.100-rc.3.26522.148 / 5.12.0-1.26522.148 / C#15 |
-| Framework / ref / actual runtime | net10.0 / 10.0.14 | net11.0 / 11.0.0-rc.3.26522.148 |
+| SDK / compiler / language | 10.0.403 / 5.9.0-1.26523.112 / C#14 | 11.0.100 / 5.12.0-1.26522.148 / C#15 |
+| Framework / ref / actual runtime | net10.0 / 10.0.14 | net11.0 / 11.0.0 |
 | ObjectModel / CLI / Test.Sdk / TestHost | 18.7.0 | 18.11.0 |
 | ObjectModel compile/runtime assets | lib/net8.0 | lib/net8.0 |
 | Public event setters | private, except internal TestElement | public for all five |
@@ -76,7 +76,7 @@ The project excludes `SetterControl.cs` by default. For the offline ordinary
 consumer, omit its conditional Compile line when that authoring-only control is
 not copied. Create `global.json` beside each project with
 `{"sdk":{"version":"10.0.403","rollForward":"disable"}}` for the older directory
-or `{"sdk":{"version":"11.0.100-rc.3.26522.148","rollForward":"disable"}}` for the
+or `{"sdk":{"version":"11.0.100","rollForward":"disable"}}` for the
 current one. The explicit project fields make these copies independent of root
 tool/package settings. Copy the matching global.json into Tests as well when
 retaining the separate test project's evidence record.

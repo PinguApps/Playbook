@@ -59,7 +59,7 @@ Without discovered metadata, the Blazor fallback checks top-level properties. Mi
 
 Cross-assembly models need their own supported generator registration. This proof covers one assembly, concrete children, collections and a property opt-out, not arbitrary polymorphic graphs, external libraries or MVC/Razor Pages. Shared rule concepts remain in validation.validate-asynchronously and validation.format-localized-rules; this recipe owns graph discovery. Client coverage is separate: RC2 emitted only the root rule here while authoritative server validation rejected children.
 
-The exact baselines are SDK 10.0.403 / ASP.NET Core 10.0.13 and SDK 11.0.100-rc.3.26522.148 / ASP.NET Core 11.0.0-rc.2.26504.105, Windows x64 and Chromium 152. RC proof is not GA verification, screen-reader operation, trimming/AOT proof or a platform/browser matrix. No conditional newer-package/older-runtime route or extra .NET 10 foundation edition is advertised.
+The exact baselines are SDK 10.0.403 / ASP.NET Core 10.0.13 and SDK 11.0.100 / ASP.NET Core 11.0.0, Windows x64 and Chromium 152. RC proof is not GA verification, screen-reader operation, trimming/AOT proof or a platform/browser matrix. No conditional newer-package/older-runtime route or extra .NET 10 foundation edition is advertised.
 
 ## Evidence
 

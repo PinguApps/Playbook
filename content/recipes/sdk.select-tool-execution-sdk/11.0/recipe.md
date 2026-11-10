@@ -22,7 +22,7 @@ comparison pins SDK 10.0.403, C# 14 and runtime 10.0.14:
 
 ## Newer approach
 
-The .NET 11 comparison pins SDK 11.0.100-rc.3.26522.148, C# 15 and matching RC2
+The .NET 11 comparison pins SDK 11.0.100, C# 15 and matching RC2
 runtime:
 
 {{snippet:newer-project}}
@@ -37,7 +37,7 @@ for each. The packages intentionally share ID/version while comparing distinct
 TFM assets; never put both into one feed/cache. No package dependencies are added.
 Save the matching project as `MuseumCatalogue.csproj` and the checker as
 `Program.cs`, alongside a `global.json` pin for the stated SDK with
-`rollForward: "disable"` (and `allowPrerelease: true` for RC2). Run that
+`rollForward: "disable"` (and `allowPrerelease: false` for RC2). Run that
 installation's absolute `dotnet` executable with
 `pack ./MuseumCatalogue.csproj -c Release -o 'C:\museum proof\feed-10'`;
 use a separate `feed-11` path for the newer package. Keep environment overrides
@@ -72,7 +72,7 @@ From that museum directory, invoke the intended installation's absolute `dotnet`
 executable with arguments `--version`, then with
 `dnx Gullhaven.Museum.Catalogue@1.0.0 --configfile NuGet.Config --no-http-cache -- "east wing cards.txt" --gallery "east wing"`.
 For the older route, use the SDK 10.0.403 installation and the `feed-10` package.
-For the primary route, use the SDK 11.0.100-rc.3.26522.148 installation, the newer
+For the primary route, use the SDK 11.0.100 installation, the newer
 project and its separate `feed-11` package/cache. Both packages retain version
 1.0.0. All paths refer to your authored files; no Playbook checkout is required.
 

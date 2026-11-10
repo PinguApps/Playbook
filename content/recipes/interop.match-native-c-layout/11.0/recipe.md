@@ -93,8 +93,8 @@ from this example. No rendering integration, provider or persistent setup is nee
 The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 eng/Test-InteropSoundings.ps1 -Record -VerifySources builds/runs SDK10.0.403,
-reference/runtime10.0.14 and SDK11.0.100-rc.3.26522.148,
-reference/runtime11.0.0-rc.3.26522.148. Both actual reference hashes match the
+reference/runtime10.0.14 and SDK11.0.100,
+reference/runtime11.0.0. Both actual reference hashes match the
 runtime-security audit. Saved sample-evidence records include exact input hashes,
 commands, empty managed dependency sets, loaded CoreLib and C compiler/linker/helper
 identities. Pinned official paired contracts are in interop-soundings.sources.json.

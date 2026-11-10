@@ -25,7 +25,7 @@ EF11 requires every root primary-key component in an owned projection with ident
 
 ## Constraints
 
-Original Windows x64 comparisons: SDK10.0.403/C#14/EF10.0.13 versus SDK11.0.100-rc.3.26522.148/C#15. EF11 tooling uses RC2; Cosmos uses RC3. EF11 requires net11.0; this is not an older-runtime EF11 route or GA proof. No language-preview opt-in. Console/database guidance has no rendering mode. Keep exact locks; restore requires network access. The installed guidance is offline. No additional .NET10 foundation or recurring platform matrix is introduced.
+Original Windows x64 comparisons: SDK10.0.403/C#14/EF10.0.13 versus SDK11.0.100/C#15. EF11 tooling uses RC2; Cosmos uses RC3. EF11 requires net11.0; this is not an older-runtime EF11 route or GA proof. No language-preview opt-in. Console/database guidance has no rendering mode. Keep exact locks; restore requires network access. The installed guidance is offline. No additional .NET10 foundation or recurring platform matrix is introduced.
 
 Cosmos SDK3.63.1/Newtonsoft.Json13.0.4 and the approved digest-pinned legacy emulator are external prerequisites. Use certificate-pinned loopback HTTPS without changing host trust. Database cleanup is mandatory; do not use production accounts.
 
@@ -78,7 +78,7 @@ Independent compilation uses each SDK pin and lock. Focused SQLite tooling and C
 
 ## Exact toolchain
 
-Current EF package: 11.0.0-rc.3.26522.148; older package: 10.0.13. Tooling consumers match Design and dotnet-ef to the EF package. SDK pins are canonical below; release-family prerequisites do not relabel these RC checks as GA proof.
+Current EF package: 11.0.0; older package: 10.0.13. Tooling consumers match Design and dotnet-ef to the EF package. SDK pins are canonical below; release-family prerequisites do not relabel these RC checks as GA proof.
 
 ### .NET10 AvocetIdentity SDK pin
 

@@ -28,7 +28,7 @@ The complete sample prints both SQL shapes and vector-index DDL without executin
 
 Use one project in its own directory. Restore its locked packages with the pinned SDK, then run it only against an empty, exclusively owned disposable `playbook_` database. Supply `PLAYBOOK_SQL_CONNECTION_STRING` privately; do not put it in source or logs. The sample creates schema and synthetic data. The approved `eng/Test-DuneArchive.ps1 -Record` runner supplies this variable, creates separate databases and removes them in finally. It stops the local server afterward.
 
-Current: SDK11.0.100-rc.3.26522.148, C#15, EF SQL Server11.0.0-rc.2.26504.105, SqlClient7.1.0, Pkcs10.0.13. Previous: SDK10.0.403, C#14, EF SQL Server10.0.13, SqlClient6.1.7, Pkcs10.0.13. EF11 needs net11.0; no EF11/net10 route is offered. The previous sample is a comparison, not another .NET10 foundation.
+Current: SDK11.0.100, C#15, EF SQL Server11.0.0, SqlClient7.1.0, Pkcs10.0.13. Previous: SDK10.0.403, C#14, EF SQL Server10.0.13, SqlClient6.1.7, Pkcs10.0.13. EF11 needs net11.0; no EF11/net10 route is offered. The previous sample is a comparison, not another .NET10 foundation.
 
 EF11 uses lib/net11.0; EF10 uses lib/net10.0; the drivers select compatible net9.0 assets, with Windows runtime assets in these executions. Exact dependency closures are in the project locks and verification manifests. There are no workloads, web rendering modes, embedding services or accounts to configure. The synthetic three-dimensional vectors are test data, not a semantic model.
 

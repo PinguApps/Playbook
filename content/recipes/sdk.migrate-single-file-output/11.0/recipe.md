@@ -28,7 +28,7 @@ The corresponding independently compiled executable project is:
 
 {{snippet:newerproject}}
 
-Use an executable project targeting net11.0 and the SDK 11.0.100-rc.3.26522.148 baseline. The original diagnostic program observes the artifact directly:
+Use an executable project targeting net11.0 and the SDK 11.0.100 baseline. The original diagnostic program observes the artifact directly:
 
 {{snippet:program}}
 

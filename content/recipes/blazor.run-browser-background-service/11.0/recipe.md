@@ -26,7 +26,7 @@ OwnedBrowserLifetime.cs stops the services before disposing the renderer and ser
 
 ## Newer approach
 
-Create a separate BeaconWatch directory for .NET 11. Use these complete project/package files and a global.json with sdk.version 11.0.100-rc.3.26522.148, sdk.rollForward disable and sdk.allowPrerelease true. The canonical mode is C# 15; this example needs no C# 15-only syntax. Exact RC2 packages and matching framework/browser assets are required for the recorded proof. Hosting.Abstractions is already available through the .NET 11 reference set; adding its redundant explicit reference raises NU1510 with warnings treated as errors.
+Create a separate BeaconWatch directory for .NET 11. Use these complete project/package files and a global.json with sdk.version 11.0.100, sdk.rollForward disable and sdk.allowPrerelease false. The canonical mode is C# 15; this example needs no C# 15-only syntax. Exact RC2 packages and matching framework/browser assets are required for the recorded proof. Hosting.Abstractions is already available through the .NET 11 reference set; adding its redundant explicit reference raises NU1510 with warnings treated as errors.
 
 {{snippet:project-11}}
 

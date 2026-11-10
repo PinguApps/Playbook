@@ -70,7 +70,7 @@
             }
           ],
           "packageAssets": [
-            "Matching net11.0 managed compile/runtime assets, blazor.webassembly.js and browser-wasm runtime; sample pins 11.0.0-rc.3.26522.148"
+            "Matching net11.0 managed compile/runtime assets, blazor.webassembly.js and browser-wasm runtime; sample pins 11.0.0"
           ],
           "workloads": [],
           "providers": [],

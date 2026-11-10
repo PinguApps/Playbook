@@ -18,7 +18,7 @@ The Android-only MauiAndroidSystemBarsUseMauiChrome project opt-in matches suppo
 
 ## Constraints
 
-SDK/runtime11, C#15, Controls11.0.0-rc.2.26505.5 and matching MAUI workload are intended current pins; older comparison uses SDK10.0.402, C#14 and Controls10.0.110. Native controls, no web rendering mode, no external provider or account. Stable APIs, no experimental opt-in. No documented older-target package route.
+SDK/runtime11, C#15, Controls11.0.0 and matching MAUI workload are intended current pins; older comparison uses SDK10.0.402, C#14 and Controls10.0.110. Native controls, no web rendering mode, no external provider or account. Stable APIs, no experimental opt-in. No documented older-target package route.
 
 ## Evidence
 

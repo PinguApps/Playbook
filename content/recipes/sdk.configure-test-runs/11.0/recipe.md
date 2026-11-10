@@ -16,7 +16,7 @@ Run `dotnet test --project RunnerTests.csproj -c Release` in MTP mode. The accom
 
 For standalone C# projects, add `<ImplicitUsings>enable</ImplicitUsings>` and `<Nullable>enable</Nullable>` inside the project PropertyGroup. The canonical comparisons obtain these settings from their isolated shared sample properties; do not depend on the Playbook checkout to supply them.
 
-Under SDK 11, keep global.json's MTP selection or set DOTNET_TEST_RUNNER=Microsoft.Testing.Platform in the child process environment. A recognised environment value overrides global.json; VSTest is the other supported value. That environment override is an SDK 11 capability, separate from the test application's target. Pin the original SDK to 11.0.100-rc.3.26522.148 for reproduction.
+Under SDK 11, keep global.json's MTP selection or set DOTNET_TEST_RUNNER=Microsoft.Testing.Platform in the child process environment. A recognised environment value overrides global.json; VSTest is the other supported value. That environment override is an SDK 11 capability, separate from the test application's target. Pin the original SDK to 11.0.100 for reproduction.
 
 {{snippet:newer}}
 

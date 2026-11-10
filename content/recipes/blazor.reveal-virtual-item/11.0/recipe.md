@@ -14,8 +14,8 @@ The newer implementation uses **net11.0**, the .NET 11 Web SDK and ASP.NET Core
 11's shared-framework `Microsoft.AspNetCore.Components.Web` asset. There is no
 separate virtualization package, QuickGrid dependency, workload, database,
 external service or account. Matching SDK browser assets and `blazor.web.js`
-must be served. The actual baselines are SDK **11.0.100-rc.3.26522.148**, framework
-and Internal.Assets **11.0.0-rc.3.26522.148**, C# **15.0**. These are reproducible
+must be served. The actual baselines are SDK **11.0.100**, framework
+and Internal.Assets **11.0.0**, C# **15.0**. These are reproducible
 RC2 measurements, not GA execution. The APIs have no experimental annotation or
 required opt-in in these artifacts. C# 15-specific syntax is not required.
 

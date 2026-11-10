@@ -63,7 +63,7 @@ its observed physical notification path must not be generalized to every custom 
 
 1. Keep the same required/optional file policy. Reference
    `Microsoft.Extensions.Configuration.Json`; the checked current version is
-   `11.0.0-rc.2.26504.105`, with net11 assets. The old comparison locks 10.0.13.
+   `11.0.0`, with net11 assets. The old comparison locks 10.0.13.
 2. Create the physical file provider and the JSON provider with a reporting callback.
    Call `Load`, check required values and apply an explicit invalid-settings policy.
 3. Replace unconditional exception casts with type inspection or full exception
@@ -80,7 +80,7 @@ its observed physical notification path must not be generalized to every custom 
 ## Constraints
 
 Measured on Windows x64 NTFS with actual JSON files, SDK10.0.403/C#14/runtime10.0.14
-and SDK11.0.100-rc.3.26522.148/C#15/runtime11RC3. The full packages/selected assets
+and SDK11.0.100/C#15/runtime11RC3. The full packages/selected assets
 and compiler/reference/runtime hashes are recorded. FileExtensions and Json are
 not made available merely because some Extensions abstractions joined net11's
 shared framework. No newer-package/older-target route is taught.

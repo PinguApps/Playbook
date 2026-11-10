@@ -75,7 +75,7 @@
             }
           ],
           "packageAssets": [
-            "EF10/Design/SQLite10.0.13 and EF11/Design/SQLite11.0.0-rc.2.26504.105; Pkcs10.0.13; independently locked transitive graphs. SDK10.0.403 and SDK11 RC3. EF11 selects net11.0."
+            "EF10/Design/SQLite10.0.13 and EF11/Design/SQLite11.0.0; Pkcs10.0.13; independently locked transitive graphs. SDK10.0.403 and SDK11 RC3. EF11 selects net11.0."
           ],
           "providers": [
             "SQLite file database, Windows x64 bundled native engine."

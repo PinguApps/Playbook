@@ -35,7 +35,7 @@
         "requirements": {
           "sdk": {
             "match": "release-family",
-            "reason": "Canonical net11.0 consumer; SDK11 RC3 is the exact measured compiler baseline.",
+            "reason": "SDK11.0.100 GA is the measured compiler baseline.",
             "name": ".NET SDK",
             "version": "11.0"
           },
@@ -73,10 +73,10 @@
           "renderingModes": [],
           "optIns": [],
           "stabilityLimitations": [
-            "Actual .NET10.0.14/.NET11RC3 and native provider evidence; final-GA and mandatory omission-rejection gates remain open, with no promised future fix."
+            "Actual .NET11.0.0 GA and measured MIT provider evidence; other native providers, platforms and deployment configurations require their own checks."
           ],
           "constraints": [
-            "PolicyEnforcement.Always does not make the measured MIT provider reject a client that omits bindings; do not enable this route when mandatory client binding is required.",
+            "PolicyEnforcement.Always rejects mismatched and omitted client bindings on the measured GA/MIT route. Require the same real admission checks on the deployment provider.",
             "BadBinding can coexist with IsAuthenticated=true on this runtime: require Completed, never trust that property alone.",
             "Do not use a different certificate, accept arbitrary TLS certificates or infer Linux/macOS/managed-NTLM support from a Unix filename."
           ]
@@ -96,7 +96,7 @@
           "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/core/whats-new/dotnet-11/libraries.md"
         ],
         "selectionNotes": [
-          "Linux MIT Kerberos mismatch validation only; omitted client bindings remain accepted. Refuse this route if every client must prove binding presence."
+          "Linux MIT Kerberos on .NET11 GA: matching TLS binding accepted; mismatched and omitted client bindings rejected."
         ],
         "evidenceSamples": [
           "samples/net11.0/GannetBinding/GannetBinding.csproj"

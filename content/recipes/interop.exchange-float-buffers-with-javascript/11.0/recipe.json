@@ -58,7 +58,7 @@
             {
               "version": "11.0",
               "match": "release-family",
-              "reason": "Use a matching browser host package set; exact 11.0.0-rc.2.26504.105 dependencies are the tested artifacts.",
+              "reason": "Use a matching browser host package set; exact 11.0.0 dependencies are the tested artifacts.",
               "name": "Microsoft.AspNetCore.Components.WebAssembly"
             }
           ],

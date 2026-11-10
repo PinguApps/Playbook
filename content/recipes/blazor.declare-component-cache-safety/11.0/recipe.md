@@ -36,7 +36,7 @@ The /live route shares public markup but rerenders the live badge for each user.
 
 ## Migration
 
-1. Use Microsoft.NET.Sdk.Web, net11.0/C# 15.0, nullable and implicit usings enabled. The exact measured pins are SDK 11.0.100-rc.3.26522.148/framework and implicit Internal.Assets 11.0.0-rc.3.26522.148; the older project uses SDK 10.0.403, net10.0/C# 14.0 and framework/Internal.Assets 10.0.14. Lock the implicit dependency in packages.lock.json. No extra package, workload, native toolchain, provider service or experimental opt-in is required.
+1. Use Microsoft.NET.Sdk.Web, net11.0/C# 15.0, nullable and implicit usings enabled. The exact measured pins are SDK 11.0.100/framework and implicit Internal.Assets 11.0.0; the older project uses SDK 10.0.403, net10.0/C# 14.0 and framework/Internal.Assets 10.0.14. Lock the implicit dependency in packages.lock.json. No extra package, workload, native toolchain, provider service or experimental opt-in is required.
 2. Place the components and LibraryState in Playbook.Samples. In _Imports.razor set @namespace Playbook.Samples and import Microsoft.AspNetCore.Components, Microsoft.AspNetCore.Components.Forms, Microsoft.AspNetCore.Components.Routing, Microsoft.AspNetCore.Http and Playbook.Samples. Use this noninteractive document:
 
 {{snippet:document}}

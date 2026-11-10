@@ -80,7 +80,7 @@ Save the following files under the indicated names in a separate directory. Rest
 
 ## Constraints
 
-Application route: ASP.NET Core11 with its matching SDK; C#15 is the tested language mode; the middleware needs no C#15-only syntax and no extra NuGet library. Exact reproduction uses SDK10.0.403/framework10.0.14 versus SDK11.0.100-rc.3.26522.148/framework11.0.0-rc.3.26522.148. The source audit's Http.Features/MVC references and F# MVC template artifacts are reconciled separately from these runtime checks. Compiler, runtime, selected package assets, commands and input hashes are retained in the existing sample-evidence records.
+Application route: ASP.NET Core11 with its matching SDK; C#15 is the tested language mode; the middleware needs no C#15-only syntax and no extra NuGet library. Exact reproduction uses SDK10.0.403/framework10.0.14 versus SDK11.0.100/framework11.0.0. The source audit's Http.Features/MVC references and F# MVC template artifacts are reconciled separately from these runtime checks. Compiler, runtime, selected package assets, commands and input hashes are retained in the existing sample-evidence records.
 
 Both executables check HTTPS200 for a curator, HTTPS403 for a visitor, HTTPS401 for missing/invalid tickets, HTTP400 even with a curator ticket, and exactly one handler invocation. The older Kestrel feature lookup returns absent on all four HTTPS requests. Recompiling it against RC2 reproduces ASPDEPR010; the newer source has no obsolete lookup. The certificate is generated for the fixture and the client accepts only its exact hash; ephemeral keys, cookies and listeners do not alter machine trust or persistent configuration.
 

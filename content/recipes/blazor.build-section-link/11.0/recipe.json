@@ -67,7 +67,7 @@
             "Configure the server request PathBase before routing, static assets and component endpoints. A proxy must preserve or correctly establish the external path base.",
             "Use one base element with trailing slash. BasePath is Microsoft.AspNetCore.Components.BasePath in RC2, in the Endpoints assembly; it is for the server-rendered Blazor Web App shell.",
             "Canonical samples use net10.0/C# 14 and net11.0/C# 15 with independent global.json and locked SDK-aligned browser assets. No external provider, native workload or service account is required.",
-            "Microsoft.AspNetCore.Components.dll, Microsoft.AspNetCore.Components.Web.dll and Microsoft.AspNetCore.Components.Endpoints.dll from the .NET 11 shared/reference framework; SDK-aligned Microsoft.AspNetCore.App.Internal.Assets 11.0.0-rc.3.26522.148 supplies browser files in the measured SDK.",
+            "Microsoft.AspNetCore.Components.dll, Microsoft.AspNetCore.Components.Web.dll and Microsoft.AspNetCore.Components.Endpoints.dll from the .NET 11 shared/reference framework; SDK-aligned Microsoft.AspNetCore.App.Internal.Assets 11.0.0 supplies browser files in the measured SDK.",
             "Blazor Web App static document shell with BasePath; declarative links can be server-rendered.",
             "Interactive Server canonical routed pages and imperative event handlers; WebAssembly/Auto not executed."
           ],

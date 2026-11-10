@@ -22,7 +22,7 @@ Save Program.cs. Register framework instrumentation, then construct the provider
 
 ## Newer approach
 
-Create a separate net11 application directory. Save global.json containing exactly `{"sdk":{"version":"11.0.100-rc.3.26522.148","rollForward":"disable","allowPrerelease":true}}`. Save these project/package files. The actual framework/runtime/browser assets are 11.0.0-rc.3.26522.148; canonical language mode is C# 15, without requiring new language syntax.
+Create a separate net11 application directory. Save global.json containing exactly `{"sdk":{"version":"11.0.100","rollForward":"disable","allowPrerelease":false}}`. Save these project/package files. The actual framework/runtime/browser assets are 11.0.0; canonical language mode is C# 15, without requiring new language syntax.
 
 {{snippet:project-11}}
 

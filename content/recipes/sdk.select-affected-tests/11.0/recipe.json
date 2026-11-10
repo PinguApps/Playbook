@@ -50,7 +50,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Documented target family; sample pin 11.0.100-rc.3.26522.148 is unbuilt. Host/native/extension requirements are separate."
+            "reason": "Documented target family; sample pin 11.0.100 is unbuilt. Host/native/extension requirements are separate."
           },
           "language": {
             "name": "C#",

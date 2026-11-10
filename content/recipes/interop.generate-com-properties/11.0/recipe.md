@@ -96,7 +96,7 @@ more clearly. Validate errors and lifetimes for the real component protocol.
 The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 The sample-evidence workflow records SDK10.0.403/runtime10.0.14 and
-SDK11.0.100-rc.3.26522.148/runtime11.0.0-rc.3.26522.148, actual reference/compiler/
+SDK11.0.100/runtime11.0.0, actual reference/compiler/
 generator identities, native MSVC19.51.36260.0/linker14.51.36260.0/helper hashes,
 inputs, commands, empty managed dependency sets and observed native checks.
 eng/Test-BeaconContracts.ps1 -Record and eng/Test-BeaconDiagnostics.ps1 run the

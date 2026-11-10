@@ -9,8 +9,8 @@ the next build asks for it. Keep live resources with the operation using them.
 
 ## Requirements and tested artifacts
 
-This edition qualifies the complete Windows x64 **SDK11.0.100-rc.3.26522.148**
-installation, runtime/reference11.0.0-rc.3.26522.148 and C#15 mode, compared with
+This edition qualifies the complete Windows x64 **SDK11.0.100**
+installation, runtime/reference11.0.0 and C#15 mode, compared with
 SDK10.0.403, runtime/reference10.0.14 and C#14. These are exact tested pins,
 not a promise for every member of either release family. No workload, provider,
 account, native compiler, rendering mode or preview-language switch is needed.
@@ -105,7 +105,7 @@ Their exact older/current project settings are:
 {{snippet:settings}}
 
 Use `global.json` with `rollForward=disable`, exact SDK version above and
-`allowPrerelease=true` for11. Clear package sources in `NuGet.Config`; these
+`allowPrerelease=false` for11. Clear package sources in `NuGet.Config`; these
 projects restore no packages. The shared compile includes are canonical repository
 paths; the test fixture and artifact manifest are source inputs, not hidden
 downloaded implementations.

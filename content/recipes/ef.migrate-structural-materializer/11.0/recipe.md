@@ -70,7 +70,7 @@ EF10 already error-obsoletes IEntityMaterializerSource and EntityMaterializerSou
 
 ## Constraints
 
-Independent locked EF10.0.13/net10.0/SDK10.0.403/C#14 and EF11.0.0-rc.2.26504.105/net11.0/SDK11.0.100-rc.3.26522.148/C#15 graphs. EF11 requires .NET11; no older-runtime EF11 route. Current proof uses RC2, not GA. No experimental attribute or opt-in is required on the exercised public contracts.
+Independent locked EF10.0.13/net10.0/SDK10.0.403/C#14 and EF11.0.0/net11.0/SDK11.0.100/C#15 graphs. EF11 requires .NET11; no older-runtime EF11 route. Current proof uses RC2, not GA. No experimental attribute or opt-in is required on the exercised public contracts.
 
 Windows x64 bundled SQLite 3.53.3/3.53.4. Executed on Windows x64. SQL2025 runs in the existing Linux container. Other providers/platforms and NativeAOT are unverified. No workload or rendering mode applies. Public extension contracts remain upgrade-sensitive.
 

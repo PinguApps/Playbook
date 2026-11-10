@@ -71,7 +71,7 @@
             "Interactive Server; prerender disabled"
           ],
           "prerequisites": [
-            "Historical comparison: SDK 10.0.403, framework/reference/runtime 10.0.14, C# 14; current SDK 11.0.100-rc.3.26522.148, framework/reference/runtime 11.0.0-rc.3.26522.148, C# 15. These are test baselines, not universal exact consumer requirements.",
+            "Historical comparison: SDK 10.0.403, framework/reference/runtime 10.0.14, C# 14; current SDK 11.0.100, framework/reference/runtime 11.0.0, C# 15. These are test baselines, not universal exact consumer requirements.",
             "Use the complete files below. The implicit Microsoft.AspNetCore.App.Internal.Assets package is the only locked package on each actual project. No provider, account or external service."
           ],
           "constraints": [

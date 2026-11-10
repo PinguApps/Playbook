@@ -75,7 +75,7 @@ responses on both success and failure and avoid reusing a sent request message.
 The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 eng/Test-ProviderRequests.ps1 -Record compiles and executes both desktop consumers
-with SDK10.0.403/runtime10.0.14 and SDK11.0.100-rc.3.26522.148/runtime11 RC3.
+with SDK10.0.403/runtime10.0.14 and SDK11.0.100/runtime11 RC3.
 The real controlled loopback server checks a successful report, 503 status,
 in-flight caller cancellation and a transport disconnect. The script reconciles
 actual reference assets with the audit and records compiler/runtime identities.

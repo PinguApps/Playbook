@@ -47,7 +47,7 @@ object. Error messages are structured ValidationError entries collected by path.
 
 Use a nullable, implicit-usings net11.0/C#15 console project. The verified package
 composition is Microsoft.Extensions.Validation and
-Microsoft.Extensions.DependencyInjection 11.0.0-rc.2.26504.105. Validation brings
+Microsoft.Extensions.DependencyInjection 11.0.0. Validation brings
 Localization.Abstractions at the same version; the base framework supplies
 Options and the moved abstractions. The actual Validation archive has only a
 net11 asset; restoring it into net10 fails NU1202. Do not claim a net10 backport.
@@ -130,7 +130,7 @@ The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The
 
 `eng/Test-ExtensionMetadata.ps1 -Record -VerifySources` builds/runs both original
 ReefMaintenance consumers on Windows x64 with SDK10.0.403/runtime10.0.14/C#14
-and SDK11.0.100-rc.3.26522.148/runtime11RC3/C#15. Locked dependencies, exact
+and SDK11.0.100/runtime11RC3/C#15. Locked dependencies, exact
 commands/input hashes, compiler/CoreLib, audit-matching Validation archive,
 assembly, shipped generator and selected compile/runtime assets are retained.
 Both projects are non-web console hosts; no persistent environment, production

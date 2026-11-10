@@ -37,7 +37,7 @@
           "sdk": {
             "version": "11.0",
             "match": "release-family",
-            "reason": "SDK11.0.100-rc.3.26522.148 with matched native workloads; RC2 MAUI artifacts are preparation evidence, not GA proof.",
+            "reason": "SDK11.0.100 with matched native workloads; RC2 MAUI artifacts are preparation evidence, not GA proof.",
             "name": ".NET SDK"
           },
           "language": {
@@ -54,17 +54,17 @@
               "name": "Microsoft.Maui.Controls",
               "version": "11.0",
               "match": "release-family",
-              "reason": "Exact canonical pin 11.0.0-rc.2.26505.5; source and downloaded package assets reviewed."
+              "reason": "Exact canonical pin 11.0.0; source and downloaded package assets reviewed."
             },
             {
               "name": "Microsoft.Maui.Controls.Maps",
               "version": "11.0",
               "match": "release-family",
-              "reason": "Exact canonical pin 11.0.0-rc.2.26505.5; source and downloaded package assets reviewed."
+              "reason": "Exact canonical pin 11.0.0; source and downloaded package assets reviewed."
             }
           ],
           "packageAssets": [
-            "Microsoft.Maui.Controls.Maps 11.0.0-rc.2.26505.5: net11.0-ios27.0 library. QuayContracts compiles linked source against actual Windows assets; this does not compile the iOS application."
+            "Microsoft.Maui.Controls.Maps 11.0.0: net11.0-ios27.0 library. QuayContracts compiles linked source against actual Windows assets; this does not compile the iOS application."
           ],
           "workloads": [
             {

@@ -62,7 +62,7 @@
           "constraints": [
             "Windows x64, non-invariant system ICU (measured72.1.0.4); configure System.Globalization.Invariant=false and System.Globalization.UseNls=false. NLS/invariant/other-platform or other-data execution is unverified.",
             "Non-overlapping spans; false/zero for insufficient capacity, ArgumentException for invalid input. Ignore destination on failure. IDNA conversion is not domain authorization or spoofing prevention; AllowUnassigned=true does not guarantee acceptance.",
-            "Previous proof SDK10.0.403/C#14/ref-runtime10.0.14; current SDK11.0.100-rc.3.26522.148/C#15/ref-runtime11RC3. Exact proof pins are distinct from supported release-family prerequisites.",
+            "Previous proof SDK10.0.403/C#14/ref-runtime10.0.14; current SDK11.0.100/C#15/ref-runtime11RC3. Exact proof pins are distinct from supported release-family prerequisites.",
             "No NuGet packages/assets, providers, workloads, rendering modes or experimental opt-ins; no additional .NET10 foundation or optional older-target API route."
           ],
           "optIns": [],

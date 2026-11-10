@@ -11,7 +11,7 @@ chosen exit code; a log entry alone is not a process failure policy.
 
 Create an SDK console project with implicit usings and nullable enabled. Add
 `Microsoft.Extensions.Hosting`, pinned to **10.0.13** for net10/C#14 or
-**11.0.0-rc.2.26504.105** for net11/C#15. Full Hosting remains a package on net11;
+**11.0.0** for net11/C#15. Full Hosting remains a package on net11;
 moving some Extensions abstractions into the framework does not remove it.
 Put each complete snippet in its own `.cs` file. This original worker accepts the
 application's asynchronous import operation and records failures without replacing
@@ -111,7 +111,7 @@ describe the earlier API as incapable of throwing.
 Use the default Generic Host with Microsoft.Extensions.Hosting's actual net11
 package asset. Its dependency closure also uses framework-provided abstractions;
 exact resolved packages and assets are recorded separately. Reproduction uses
-SDK10.0.403 / C#14 / runtime-ref10.0.14 and SDK11.0.100-rc.3.26522.148 / C#15 /
+SDK10.0.403 / C#14 / runtime-ref10.0.14 and SDK11.0.100 / C#15 /
 runtime-ref11RC3, with the package pins above. Consumer requirements are the stated
 release-family SDK/runtime and package contract, not a promise that every preview
 contains the same implementation.

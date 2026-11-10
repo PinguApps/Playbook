@@ -84,7 +84,7 @@ Save these at the shown paths under an empty working directory. Keep the directo
 
 ## Constraints
 
-SDK-bundled mcpserver: no dotnet new install is needed on either measured SDK 10.0.403 or 11.0.100-rc.3.26522.148. This corrects the historical release-note implication of .NET 11 exclusivity; earliest servicing introduction was not established.
+SDK-bundled mcpserver: no dotnet new install is needed on either measured SDK 10.0.403 or 11.0.100. This corrects the historical release-note implication of .NET 11 exclusivity; earliest servicing introduction was not established.
 
 Choose --transport remote explicitly: the template defaults to local stdio. The measured route uses stateless Streamable HTTP, framework-dependent managed execution and ModelContextProtocol.AspNetCore 2.1.0. Neither AOT nor self-contained publication is claimed.
 

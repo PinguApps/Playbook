@@ -62,7 +62,7 @@
           "packages": [],
           "workloads": [],
           "packageAssets": [
-            "SDK-aligned Microsoft.AspNetCore.App.Internal.Assets browser/static assets; implicit dependency locked at 11.0.0-rc.3.26522.148 in the measured sample. No additional PackageReference."
+            "SDK-aligned Microsoft.AspNetCore.App.Internal.Assets browser/static assets; implicit dependency locked at 11.0.0 in the measured sample. No additional PackageReference."
           ],
           "providers": [],
           "platforms": [

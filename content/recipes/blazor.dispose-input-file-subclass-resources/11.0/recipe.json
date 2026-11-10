@@ -57,7 +57,7 @@
             "Only Interactive Server component removal and bounded file reading are executed; no remote upload/storage, removed stream-option migration, WebAssembly, trimming/AOT or actual-GA guarantee."
           ],
           "packageAssets": [
-            "Implicit SDK-aligned Microsoft.AspNetCore.App.Internal.Assets; measured lock pins 11.0.0-rc.3.26522.148. No additional PackageReference."
+            "Implicit SDK-aligned Microsoft.AspNetCore.App.Internal.Assets; measured lock pins 11.0.0. No additional PackageReference."
           ],
           "renderingModes": [
             "Blazor Interactive Server; sample disables prerender"
@@ -66,7 +66,7 @@
             "Use the complete original project files below with nullable and implicit usings enabled. Permit the normal local Blazor WebSocket connection and same-origin module/static asset loading."
           ],
           "stabilityLimitations": [
-            "GA-targeted 11.0 edition qualified on SDK 11.0.100-rc.3.26522.148 and framework RC2. No experimental suppression is required by the inspected API/analyzer."
+            "GA-targeted 11.0 edition qualified on SDK 11.0.100 and framework RC2. No experimental suppression is required by the inspected API/analyzer."
           ],
           "packages": [],
           "sdk": {

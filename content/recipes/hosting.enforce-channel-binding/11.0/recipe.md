@@ -56,7 +56,7 @@ Save each version's complete files in its own directory. The shared current fixt
 
 ## Migration
 
-1. Confirm Windows HTTP.sys, HTTPS and the target11 framework. Keep the prior version until migration is deliberate. Exact sample baselines are SDK10.0.403/runtime10.0.14/C#14 and SDK11.0.100-rc.3.26522.148/runtime11 RC3/C#15.
+1. Confirm Windows HTTP.sys, HTTPS and the target11 framework. Keep the prior version until migration is deliberate. Exact sample baselines are SDK10.0.403/runtime10.0.14/C#14 and SDK11.0.100/runtime11 RC3/C#15.
 2. Obtain a dedicated owner-authorized loopback certificate binding and URL reservation. Preserve all existing resources. The access runbook is repository authoring context; production guidance requires the application's own approved binding and authentication configuration.
 3. Set PLAYBOOK_HTTPS_PREFIX to the reserved HTTPS prefix and PLAYBOOK_CERTIFICATE to its exact SHA1 thumbprint for this fixture. Restore each project, build Release and execute its DLL with the matching absolute dotnet executable. The callback pins this one certificate and is not general trust or hostname validation.
 4. Expect the old HTTPS comparison to pass. Expect the new fixture to check Legacy/Medium/Strict exposure, empty/small/exact SNI buffers, no-SNI flags and invalid-property error87. These checks are Windows/x64 execution, not cross-compilation or authentication-enforcement proof.

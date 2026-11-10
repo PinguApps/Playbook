@@ -74,7 +74,7 @@
             }
           ],
           "packageAssets": [
-            "Canonical route: lib/net11.0/System.Numerics.Tensors.dll. Current compilation uses package11.0.0-rc.2.26504.105, previous execution uses10.0.13/lib/net10.0; neither proves final behavior."
+            "Canonical route: lib/net11.0/System.Numerics.Tensors.dll. Current compilation uses package11.0.0, previous execution uses10.0.13/lib/net10.0; neither proves final behavior."
           ],
           "providers": [],
           "platforms": [

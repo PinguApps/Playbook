@@ -109,7 +109,7 @@ Keep current projects in their own directories under `samples/net10.0` or
 sources. The historical project lives directly in `samples/WeatherJson` and
 explicitly compiles only WeatherChecks.cs.
 Each directory has its own central package file and SDK pin. In `global.json`,
-set `sdk.version` to **10.0.403** or **11.0.100-rc.3.26522.148**,
+set `sdk.version` to **10.0.403** or **11.0.100**,
 `sdk.rollForward` to `disable`, and `test.runner` to **VSTest**. C# mode is
 declared in the project. Use nuget.org as the explicit package source.
 
@@ -184,7 +184,7 @@ under `artifacts/json-dependencies`. It does not install a global tool or publis
 ## Constraints and alternatives
 
 The exact evidence is Windows x64, SDK 10.0.403 / 11 RC2, C# 14 / 15 and runtimes
-10.0.13 / 11.0.0-rc.2.26504.105. No C# 15 feature, provider, native compiler,
+10.0.13 / 11.0.0. No C# 15 feature, provider, native compiler,
 workload, rendering mode, device, cloud resource or Human-only step is required.
 Test.Sdk brings CodeCoverage, but these checks run a **managed custom collector**;
 they do not enable native coverage or promise every shipped native asset works.

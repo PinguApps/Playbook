@@ -57,7 +57,7 @@
           "packages": [
             {
               "name": "Microsoft.Maui.Controls.Core",
-              "version": "11.0.0-rc.2.26505.5",
+              "version": "11.0.0",
               "match": "exact",
               "reason": "Actual neutral binding-engine consumer."
             }
@@ -74,7 +74,7 @@
             "Native MAUI page; neutral executable does not render UI."
           ],
           "prerequisites": [
-            "Native RC2 preparation: SDK11.0.100-rc.2.26504.105, workload set11.0.100-rc.2.26513.2, MAUI11.0.0-rc.2.26505.5. SourceGen compiled XAML requires a matching native MAUI project."
+            "Native RC2 preparation: SDK11.0.100, workload set11.0.100, MAUI11.0.0. SourceGen compiled XAML requires a matching native MAUI project."
           ],
           "constraints": [
             "Eight .NET10 foundations unchanged; older samples are comparisons only.",

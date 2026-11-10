@@ -52,7 +52,7 @@ Use the .NET 11 .NET client and ASP.NET Core 11 server together. The final token
 
 SoundingHub.Calculate returns one Task result, not a stream. The held calculation uses WaitAsync with the supplied token so the example can prove cancellation without hoping a timer fired at the right moment. Replace it with real token-aware I/O or bounded loops that check the same token. A canceled client Task is not proof that server work has stopped: the independent HTTP observation waits for the server's cancellation branch. The subsequent Echo and successful calculation demonstrate reuse of the same live connection.
 
-Create this complete alternative file set in a separate directory. The exact SDK 11.0.100-rc.3.26522.148, SignalR.Client 11.0.0-rc.2.26504.105 and C# 15 mode reproduce RC2 evidence; they are not claims that C# 15 syntax is necessary. Run the equivalent commands with the matching SDK and `net11.0` output path. No workloads, browser, external server, account or resource provisioning are required. The server chooses an ephemeral loopback port and shuts down automatically after the checks.
+Create this complete alternative file set in a separate directory. The exact SDK 11.0.100, SignalR.Client 11.0.0 and C# 15 mode reproduce RC2 evidence; they are not claims that C# 15 syntax is necessary. Run the equivalent commands with the matching SDK and `net11.0` output path. No workloads, browser, external server, account or resource provisioning are required. The server chooses an ephemeral loopback port and shuts down automatically after the checks.
 
 #### .NET 11: `Directory.Build.props`
 

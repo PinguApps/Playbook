@@ -86,7 +86,7 @@
           ],
           "stabilityLimitations": [
             "RC2 preparation evidence; no GA verification. x:Code/C# expressions are preview, including in the companion migration sample.",
-            "Reviewed Controls and Build.Tasks 11.0.0-rc.2.26505.5 artifacts; intended SDK 11.0.100-rc.3.26522.148. The current native dependency closure was not resolved because the SDK pack is unavailable; these are preparation baselines, not required downgrades."
+            "Reviewed Controls and Build.Tasks 11.0.0 artifacts; intended SDK 11.0.100. The current native dependency closure was not resolved because the SDK pack is unavailable; these are preparation baselines, not required downgrades."
           ]
         },
         "sharedAreas": [],

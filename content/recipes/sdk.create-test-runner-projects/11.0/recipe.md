@@ -26,7 +26,7 @@ The alternative original xUnit MTP project uses its matching entry-point package
 
 {{snippet:xunit}}
 
-Choose one framework project; do not add both framework package sets to the same project merely to select a runner. With a global.json SDK pin of 11.0.100-rc.3.26522.148 and `"test": { "runner": "Microsoft.Testing.Platform" }`, run `dotnet test --project NUnitTests.csproj -c Release` or the equivalent --project RunnerTests.csproj command. These are original assertions rather than template tests:
+Choose one framework project; do not add both framework package sets to the same project merely to select a runner. With a global.json SDK pin of 11.0.100 and `"test": { "runner": "Microsoft.Testing.Platform" }`, run `dotnet test --project NUnitTests.csproj -c Release` or the equivalent --project RunnerTests.csproj command. These are original assertions rather than template tests:
 
 {{snippet:tests}}
 

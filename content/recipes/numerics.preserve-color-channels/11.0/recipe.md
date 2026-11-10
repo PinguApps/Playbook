@@ -72,7 +72,7 @@ Only byte components have the demonstrated packed uint helpers. MAUI colour
 inheritance migration and native painting remain separate goals.
 
 Exact reproduction: SDK10.0.403/C#14/reference-runtime10.0.14 versus
-SDK11.0.100-rc.3.26522.148/C#15/reference-runtime11.0.0-rc.3.26522.148.
+SDK11.0.100/C#15/reference-runtime11.0.0.
 These identify measured artifacts; the route requires the release family rather
 than that exact SDK patch. Execution was Windows x64 only. Other-platform,
 performance and final-GA execution are not claimed.

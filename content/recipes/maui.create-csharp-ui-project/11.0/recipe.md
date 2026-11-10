@@ -6,7 +6,7 @@ Use the first-party C# UI template option when screens should be authored in cod
 
 ## Constraints
 
-Current examples pin SDK11.0.100-rc.3.26522.148, C#15 and MAUI11.0.0-rc.2.26505.5. Older comparisons pin SDK10.0.403, C#14 and MAUI10.0.110. These pins are actual RC2/.NET10 evidence, not GA certification or minimum-version promises. Keep independent SDK, native platform/workload and package-asset requirements separate. No provider, account or web-server rendering mode is implied.
+Current examples pin SDK11.0.100, C#15 and MAUI11.0.0. Older comparisons pin SDK10.0.403, C#14 and MAUI10.0.110. These pins are actual RC2/.NET10 evidence, not GA certification or minimum-version promises. Keep independent SDK, native platform/workload and package-asset requirements separate. No provider, account or web-server rendering mode is implied.
 
 The fictional Quay Ledger screen counts checked crates using built-in MAUI controls. Both canonical apps implement that same screen in C#; no third-party fluent UI library is involved.
 
@@ -16,11 +16,11 @@ C# UI is already valid on .NET 10: construct the Application, Window and Content
 
 ## Newer approach
 
-With SDK11 and the matching MAUI template installed, run `dotnet new maui --name QuayLedger --ui csharp --no-restore`. Use Microsoft.Maui.Templates.net11 version 11.0.0-rc.2.26505.5 for the retained RC2 preparation baseline. A prerequisite template install is `dotnet new install Microsoft.Maui.Templates.net11::11.0.0-rc.2.26505.5`; native workload installation is separate. Select a directory containing the matching global.json before these commands.
+With SDK11 and the matching MAUI template installed, run `dotnet new maui --name QuayLedger --ui csharp --no-restore`. Use Microsoft.Maui.Templates.net11 version 11.0.0 for the retained RC2 preparation baseline. A prerequisite template install is `dotnet new install Microsoft.Maui.Templates.net11::11.0.0`; native workload installation is separate. Select a directory containing the matching global.json before these commands.
 
 The option generates App.cs, AppShell.cs and MainPage.cs and removes their screen XAML counterparts. Resources/Styles/Colors.xaml and Styles.xaml remain. C# screens do not imply deleting resource dictionaries, assets or platform startup XAML. XAML remains the default (`--ui xaml`). `--sample-content` is XAML-only: with C# UI the template warns and omits that sample content. Keep the original small crate screen rather than presenting the template's demo as an original worked example.
 
-Before restoring, replace the generated Controls $(MauiVersion) and floating Logging.Debug 11.0.0-* references with reviewed exact versions: Controls11.0.0-rc.2.26505.5 and Logging.Debug11.0.0-rc.2.26504.105. Commit a resolved lock file and pin the SDK. The original canonical samples below already pin their actual dependencies independently from the tool host. They target Windows only; the template's additional Android/Apple targets need their own matched native toolchains.
+Before restoring, replace the generated Controls $(MauiVersion) and floating Logging.Debug 11.0.0-* references with reviewed exact versions: Controls11.0.0 and Logging.Debug11.0.0. Commit a resolved lock file and pin the SDK. The original canonical samples below already pin their actual dependencies independently from the tool host. They target Windows only; the template's additional Android/Apple targets need their own matched native toolchains.
 
 {{snippet:samples-net11-0-quaycsharp-mauiprogram-cs}}
 

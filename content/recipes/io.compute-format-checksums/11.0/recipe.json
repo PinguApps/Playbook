@@ -56,11 +56,11 @@
               "name": "System.IO.Hashing",
               "match": "exact",
               "reason": "Verified prerelease dependency; pin and lock the actual selected compile/runtime asset.",
-              "version": "11.0.0-rc.2.26504.105"
+              "version": "11.0.0"
             }
           ],
           "packageAssets": [
-            "System.IO.Hashing 11.0.0-rc.2.26504.105 lib/net11.0/System.IO.Hashing.dll; comparison 10.0.13 lib/net10.0/System.IO.Hashing.dll"
+            "System.IO.Hashing 11.0.0 lib/net11.0/System.IO.Hashing.dll; comparison 10.0.13 lib/net10.0/System.IO.Hashing.dll"
           ],
           "providers": [],
           "platforms": [
@@ -74,7 +74,7 @@
           ],
           "constraints": [
             "CRC/Adler detect accidental corruption, not authentication. Exact package assets and equal input/output reflection only; optional RC2-on-net10 route is not advertised.",
-            "Previous SDK10.0.403/C#14/ref-runtime10.0.14; current SDK11.0.100-rc.3.26522.148/C#15/ref-runtime11RC3. Exact proof pins are separate from supported prerequisites.",
+            "Previous SDK10.0.403/C#14/ref-runtime10.0.14; current SDK11.0.100/C#15/ref-runtime11RC3. Exact proof pins are separate from supported prerequisites.",
             "Preserve the exact eight .NET10 foundations and existing recipe identities; comprehensive/actual-GA and existing Human gates remain open."
           ],
           "optIns": [],

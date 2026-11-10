@@ -102,7 +102,7 @@ The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The
 
 eng/Test-NetworkBuffers.ps1 -Record -VerifySources builds and executes the real
 paired consumers using SDK10.0.403/runtime10.0.14 and
-SDK11.0.100-rc.3.26522.148/runtime11.0.0-rc.3.26522.148. There are no resolved
+SDK11.0.100/runtime11.0.0. There are no resolved
 package dependencies. Saved records retain input hashes, commands, actual loaded
 CoreLib and compiler identities, audit-matching socket/name-resolution references,
 and Windows ws2_32.dll/dnsapi.dll versions and hashes.

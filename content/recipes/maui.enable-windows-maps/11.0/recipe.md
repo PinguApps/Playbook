@@ -6,7 +6,7 @@ Register an Azure Maps service key for the Windows MAUI map and standard pin sur
 
 ## Constraints
 
-The original Quay Survey app maps fictional survey stations. .NET11 uses SDK11.0.100-rc.3.26522.148, C#15 and MAUI Controls/Maps11.0.0-rc.2.26505.5. .NET10 uses C#14 and Controls/Maps10.0.110; SDK10.0.403 for QuayAtlas and the actual installed native SDK10.0.402 for QuayWindows. These are preparation baselines, not GA verification.
+The original Quay Survey app maps fictional survey stations. .NET11 uses SDK11.0.100, C#15 and MAUI Controls/Maps11.0.0. .NET10 uses C#14 and Controls/Maps10.0.110; SDK10.0.403 for QuayAtlas and the actual installed native SDK10.0.402 for QuayWindows. These are preparation baselines, not GA verification.
 
 Windows requires the WinUI MapControl from the package-selected Windows App SDK and an installed WebView2 runtime. The control uses Azure Maps through its internal WebView2; source support is not proof of rendering or service compatibility. No Blazor renderer applies.
 

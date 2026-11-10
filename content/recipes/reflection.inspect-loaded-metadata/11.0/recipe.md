@@ -18,7 +18,7 @@ A constructor's value parameters and method type parameters are different counts
 
 ## Newer approach
 
-Use the .NET 11 framework and System.Reflection.MetadataLoadContext 11.0.0-rc.2.26504.105 for the measured RC2 sample. The selected package asset is lib/net11.0. The package also contains down-level assets; their existence alone does not establish that all these APIs work on an older target. No such application route is advertised here.
+Use the .NET 11 framework and System.Reflection.MetadataLoadContext 11.0.0 for the measured RC2 sample. The selected package asset is lib/net11.0. The package also contains down-level assets; their existence alone does not establish that all these APIs work on an older target. No such application route is advertised here.
 
 {{snippet:newer}}
 

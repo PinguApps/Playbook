@@ -22,7 +22,7 @@ Save this complete `Program.cs`. The unauthenticated `/sign-in` fixture issues a
 
 ## Newer approach — .NET 11 connection callback
 
-Create the same named project in a separate directory, using this project file and `global.json` set to `{"sdk":{"version":"11.0.100-rc.3.26522.148","rollForward":"disable"}}`. The recorded browser assets are **11.0.0-rc.3.26522.148**. Match the Web SDK, reference pack, ASP.NET Core runtime and `blazor.web.js`; do not copy the newer script into an older renderer. C# 15 is the canonical language mode, although the configuration needs no new language syntax. This is pinned RC2 evidence; GA and other browser/platform behaviour are not verified.
+Create the same named project in a separate directory, using this project file and `global.json` set to `{"sdk":{"version":"11.0.100","rollForward":"disable"}}`. The recorded browser assets are **11.0.0**. Match the Web SDK, reference pack, ASP.NET Core runtime and `blazor.web.js`; do not copy the newer script into an older renderer. C# 15 is the canonical language mode, although the configuration needs no new language syntax. This is pinned RC2 evidence; GA and other browser/platform behaviour are not verified.
 
 {{snippet:project-11}}
 

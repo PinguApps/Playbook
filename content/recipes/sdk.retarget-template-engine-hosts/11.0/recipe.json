@@ -48,7 +48,7 @@
             "match": "release-family",
             "version": "11.0",
             "name": ".NET SDK",
-            "reason": "Build the host target; exact evidence uses SDK10 10.0.403 or SDK11 11.0.100-rc.3.26522.148."
+            "reason": "Build the host target; exact evidence uses SDK10 10.0.403 or SDK11 11.0.100."
           },
           "language": {
             "match": "exact",
@@ -62,19 +62,19 @@
           "packages": [
             {
               "match": "exact",
-              "version": "11.0.100-rc.3.26522.148",
+              "version": "11.0.100",
               "name": "Microsoft.TemplateEngine.Edge",
               "reason": "Actual inspected, restored and executed RC2 artifact, not an SDK-root assembly."
             },
             {
               "match": "exact",
-              "version": "11.0.100-rc.3.26522.148",
+              "version": "11.0.100",
               "name": "Microsoft.TemplateEngine.Orchestrator.RunnableProjects",
               "reason": "Actual generator component set used to instantiate the original embedded template."
             }
           ],
           "packageAssets": [
-            "TemplateEngine 11.0.100-rc.3.26522.148 lib/net11.0 selected independently for this route; NuGet 8.0.0-rc.605 uses lib/net10.0.",
+            "TemplateEngine 11.0.100 lib/net11.0 selected independently for this route; NuGet 8.0.0-rc.605 uses lib/net10.0.",
             "Historical 10.0.403 netstandard library selects lib/netstandard2.0; its actual net10 runner selects lib/net10.0. Full locks and evidence record every transitive package and hash."
           ],
           "workloads": [],
@@ -134,7 +134,7 @@
             "match": "release-family",
             "version": "10.0",
             "name": ".NET SDK",
-            "reason": "Build the host target; exact evidence uses SDK10 10.0.403 or SDK11 11.0.100-rc.3.26522.148."
+            "reason": "Build the host target; exact evidence uses SDK10 10.0.403 or SDK11 11.0.100."
           },
           "language": {
             "match": "exact",
@@ -148,19 +148,19 @@
           "packages": [
             {
               "match": "exact",
-              "version": "11.0.100-rc.3.26522.148",
+              "version": "11.0.100",
               "name": "Microsoft.TemplateEngine.Edge",
               "reason": "Actual inspected, restored and executed RC2 artifact, not an SDK-root assembly."
             },
             {
               "match": "exact",
-              "version": "11.0.100-rc.3.26522.148",
+              "version": "11.0.100",
               "name": "Microsoft.TemplateEngine.Orchestrator.RunnableProjects",
               "reason": "Actual generator component set used to instantiate the original embedded template."
             }
           ],
           "packageAssets": [
-            "TemplateEngine 11.0.100-rc.3.26522.148 lib/net10.0 selected independently for this route; NuGet 8.0.0-rc.605 uses lib/net10.0.",
+            "TemplateEngine 11.0.100 lib/net10.0 selected independently for this route; NuGet 8.0.0-rc.605 uses lib/net10.0.",
             "Historical 10.0.403 netstandard library selects lib/netstandard2.0; its actual net10 runner selects lib/net10.0. Full locks and evidence record every transitive package and hash."
           ],
           "workloads": [],

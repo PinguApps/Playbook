@@ -70,7 +70,7 @@
               "name": "Microsoft.EntityFrameworkCore.SqlServer",
               "version": "11.0",
               "match": "release-family",
-              "reason": "EF SQL Server 11.0.0-rc.2.26504.105, SqlClient 7.1.0 and Pkcs 10.0.13 are pinned; no EF11-on-net10 route."
+              "reason": "EF SQL Server 11.0.0, SqlClient 7.1.0 and Pkcs 10.0.13 are pinned; no EF11-on-net10 route."
             }
           ],
           "packageAssets": [

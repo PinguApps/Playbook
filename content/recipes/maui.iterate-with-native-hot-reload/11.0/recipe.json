@@ -51,7 +51,7 @@
             {
               "match": "release-family",
               "name": "Microsoft.Maui.Controls",
-              "reason": "Controls11 SourceGen compiler and preview incremental reload engine; sample pins 11.0.0-rc.2.26505.5.",
+              "reason": "Controls11 SourceGen compiler and preview incremental reload engine; sample pins 11.0.0.",
               "version": "11.0"
             }
           ],
@@ -63,7 +63,7 @@
               "name": "maui-android / maui-ios / maui-windows (choose target)",
               "version": "11.0",
               "match": "release-family",
-              "reason": "Install the workload matching the selected target. Reviewed set11.0.100-rc.2.26513.2 selects MAUI11.0.0-rc.2.26505.5, Android37.2.0-rc.2.84 and Apple27.0.12212-net11-rc.2."
+              "reason": "Install the workload matching the selected target. Reviewed set11.0.100 selects MAUI11.0.0, Android37.2.0-rc.2.84 and Apple27.0.12212-net11-rc.2."
             }
           ],
           "providers": [

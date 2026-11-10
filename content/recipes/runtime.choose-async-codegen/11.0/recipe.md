@@ -24,7 +24,7 @@ Add `using System;`, `using System.Threading.Tasks;`, `using System.Diagnostics;
 
 ## Migration
 
-1. Keep an ordinary async baseline and a genuinely pending operation. Select the .NET 11 SDK, `net11.0`, C# 15 and CoreCLR for this experimental route. No additional NuGet package or workload is needed. The exact verified SDK is 11.0.100-rc.3.26522.148 with runtime 11.0.0-rc.3.26522.148; these are evidence pins, not a claim of GA verification.
+1. Keep an ordinary async baseline and a genuinely pending operation. Select the .NET 11 SDK, `net11.0`, C# 15 and CoreCLR for this experimental route. No additional NuGet package or workload is needed. The exact verified SDK is 11.0.100 with runtime 11.0.0; these are evidence pins, not a claim of GA verification.
 2. Add `runtime-async=on` to `Features` for the application assembly. On this target, neither `LangVersion=preview` nor `EnablePreviewFeatures=true` is required for that flag. Rebuild dependencies separately if their generated implementation also needs changing.
 3. Inspect the method's implementation flags: bit `0x2000` (`MethodImplOptions.Async`) identifies runtime async. The comparison instead carries `AsyncStateMachineAttribute`. A successful compile against reference metadata is insufficient; execute pending success and failure on the matching runtime.
 4. Capture live diagnostics and thrown exceptions separately. In the recorded resumed survey call, live `StackTrace` output with runtime async omitted the state-machine-box frames visible with the flag off. Both exception traces retained `Survey.ReadDepth`. This bounded observation does not promise every logical parent frame, complete debugger stepping or identical exception stacks in other applications.

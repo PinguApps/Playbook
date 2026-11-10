@@ -66,7 +66,7 @@
               "name": "Microsoft.EntityFrameworkCore.SqlServer",
               "version": "11.0",
               "match": "release-family",
-              "reason": "EF11 SQL translation/defaults; actual baseline 11.0.0-rc.2.26504.105. Pin SqlClient7.1.0 and Pkcs10.0.13 as in the complete standalone project."
+              "reason": "EF11 SQL translation/defaults; actual baseline 11.0.0. Pin SqlClient7.1.0 and Pkcs10.0.13 as in the complete standalone project."
             }
           ],
           "packageAssets": [

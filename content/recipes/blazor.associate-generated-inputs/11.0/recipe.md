@@ -59,7 +59,7 @@ Generated IDs follow field expressions; they aren't random instance identifiers.
 
 A wrapping label should contain one intended labelable control. DisplayName renders text and doesn't associate it with an input. Built-in static SSR inputs are verified here; custom InputBase implementations and interactive transitions need their own checks.
 
-The exact baselines are SDK 10.0.403 / ASP.NET Core 10.0.14 and SDK 11.0.100-rc.3.26522.148 / ASP.NET Core 11.0.0-rc.3.26522.148, Windows x64 and Chromium 152. RC proof is not GA verification, screen-reader operation, trimming/AOT proof or a platform/browser matrix. No conditional newer-package/older-runtime route or extra .NET 10 foundation edition is advertised.
+The exact baselines are SDK 10.0.403 / ASP.NET Core 10.0.14 and SDK 11.0.100 / ASP.NET Core 11.0.0, Windows x64 and Chromium 152. RC proof is not GA verification, screen-reader operation, trimming/AOT proof or a platform/browser matrix. No conditional newer-package/older-runtime route or extra .NET 10 foundation edition is advertised.
 
 ## Evidence
 

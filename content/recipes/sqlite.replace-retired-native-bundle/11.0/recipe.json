@@ -63,7 +63,7 @@
               "name": "Microsoft.Data.Sqlite.Core",
               "version": "11.0",
               "match": "release-family",
-              "reason": "Use Core to avoid an automatically selected native bundle; observed pin 11.0.0-rc.2.26504.105."
+              "reason": "Use Core to avoid an automatically selected native bundle; observed pin 11.0.0."
             },
             {
               "name": "SQLitePCLRaw.provider.winsqlite3",

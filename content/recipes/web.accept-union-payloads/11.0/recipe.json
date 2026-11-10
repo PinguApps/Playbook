@@ -48,7 +48,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Actual pin 11.0.100-rc.3.26522.148; SDK CLI/template behavior is verified independently of target selection."
+            "reason": "Actual pin 11.0.100; SDK CLI/template behavior is verified independently of target selection."
           },
           "language": {
             "name": "C#",

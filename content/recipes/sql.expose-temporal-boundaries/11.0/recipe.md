@@ -84,7 +84,7 @@ No browser, rendering mode or workload is required. The EF11 sample requires net
 
 The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
-eng/Test-BeaconHistory.ps1 -Record executes the complete original projects against separate restricted databases on the authorized SQL2025 container and removes them in finally. The exact SDKs are10.0.403 and11.0.100-rc.3.26522.148; EF packages are10.0.13 and11.0.0-rc.2.26504.105. SqlClient6.1.7/7.1.0 and Pkcs10.0.13, their locked transitive packages and source hashes accompany the compilation records.
+eng/Test-BeaconHistory.ps1 -Record executes the complete original projects against separate restricted databases on the authorized SQL2025 container and removes them in finally. The exact SDKs are10.0.403 and11.0.100; EF packages are10.0.13 and11.0.0. SqlClient6.1.7/7.1.0 and Pkcs10.0.13, their locked transitive packages and source hashes accompany the compilation records.
 
 The checks require generated initial bounds, two adjacent historical periods, the original and renamed labels, and SQL Server error13537 for a direct period update. Time checks require actual wall/UTC/offset/bucket values; EF11 also checks server-local conversion, both constructors composed inside DateTrunc to force server translation, translation tokens and server grouping. These are real database checks, not mocks. Other engines and platforms, named-zone DST conversion and GA are unverified. PIN-959 and PIN-965 remain separate gates.
 

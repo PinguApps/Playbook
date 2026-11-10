@@ -83,7 +83,7 @@ Bit-preserving binary encoding stays with numerics.roundtrip-float-bits; JSON
 contracts stay with json.use-numeric-collection-contracts.
 
 Reproduction artifacts are SDK10.0.403/C#14/ref-runtime10.0.14 and
-SDK11.0.100-rc.3.26522.148/C#15/ref-runtime11.0.0-rc.3.26522.148. These are
+SDK11.0.100/C#15/ref-runtime11.0.0. These are
 exact evidence pins, separate from release-family prerequisites. Windows x64
 execution is measured; other platforms, trimming/AOT and actual GA are unverified.
 

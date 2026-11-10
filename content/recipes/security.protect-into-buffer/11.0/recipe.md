@@ -20,8 +20,8 @@ this recipe deliberately uses a class writer. Interface availability is distinct
 from a particular protector/encryptor's capability.
 
 Verification pins are SDK **10.0.403**, C# **14.0**, .NET/ASP.NET Core **10.0.13**,
-and SDK **11.0.100-rc.3.26522.148**, C# **15.0**, frameworks
-**11.0.0-rc.2.26504.105**. These identify tested artifacts, not mandatory patch
+and SDK **11.0.100**, C# **15.0**, frameworks
+**11.0.0**. These identify tested artifacts, not mandatory patch
 upgrades. Both real DataProtection assemblies' runtime paths, product versions and
 SHA-256 values are in the sample records. Their reference assemblies match the
 bounded web source audit byte-for-byte:

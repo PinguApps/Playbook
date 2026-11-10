@@ -33,9 +33,9 @@ Both libraries contain the same original `ReadingScale.cs`:
 
 {{snippet:library}}
 
-Use exact SDK **10.0.403 / 11.0.100-rc.3.26522.148** pins in `global.json`
+Use exact SDK **10.0.403 / 11.0.100** pins in `global.json`
 beside the matching project: `sdk.version` is the chosen version,
-`rollForward` is `disable`, and `allowPrerelease` is true only for RC2.
+`rollForward` is `disable`, and `allowPrerelease` is false for GA.
 Language modes are C# **14 / 15**; the restore change itself is language
 independent and was introduced in **.NET 11 RC1**. The restore checks below use
 each SDK's default analysis policy; only the separate pack recipe tests lowering
@@ -166,7 +166,7 @@ The exact-hit case also does not prove the cached bytes match a source's bytes.
 The separate cooldown/vulnerability recipes retain their own goals.
 
 Original net10/net11 libraries and consumers execute on runtimes
-10.0.13 / 11.0.0-rc.2.26504.105. No external package dependency, database/provider,
+10.0.13 / 11.0.0. No external package dependency, database/provider,
 workload, native compiler, browser or rendering mode is required. PowerShell 7
 and both SDK/runtime installations reproduce the local checks.
 

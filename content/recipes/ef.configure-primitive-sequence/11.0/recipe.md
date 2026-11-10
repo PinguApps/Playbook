@@ -37,8 +37,8 @@ EF11 used SQLitePCLRaw.bundle_e_sqlite3/config.e_sqlite3/core/provider.e_sqlite3
 EF11 selects net11.0 EF/Relational assets and net10.0 Microsoft.Data.Sqlite.Core;
 the latter asset does not make EF11 itself compatible with .NET 10.
 
-Compilation and execution used SDK 10.0.403 and 11.0.100-rc.3.26522.148 with EF
-10.0.13 and 11.0.0-rc.2.26504.105. Saved evidence records identify exact SDKs,
+Compilation and execution used SDK 10.0.403 and 11.0.100 with EF
+10.0.13 and 11.0.0. Saved evidence records identify exact SDKs,
 resolved dependencies, input hashes and executed commands. These are actual
 SQLite checks, not mocks, cross-compilation or GA proof. Server installation and
 offline guidance retrieval establish delivery separately from database behavior.

@@ -4,7 +4,7 @@
 
 Keep encoded slashes inside identifiers when direct and proxy-style request targets reach Kestrel, and remove path compensation only after real wire-level comparison.
 
-Exact reproduction uses SDK10.0.403 / framework10.0.14 / C#14 versus SDK11.0.100-rc.3.26522.148 / framework11.0.0-rc.3.26522.148 / C#15. These are tested pins, not minimum supported versions. RC2 is not actual-GA proof. The exact eight approved .NET10 foundations, stable identities, PIN-959/PIN-963/PIN-964 and unrelated Human gates remain unchanged.
+Exact reproduction uses SDK10.0.403 / framework10.0.14 / C#14 versus SDK11.0.100 / framework11.0.0 / C#15. These are tested pins, not minimum supported versions. RC2 is not actual-GA proof. The exact eight approved .NET10 foundations, stable identities, PIN-959/PIN-963/PIN-964 and unrelated Human gates remain unchanged.
 
 ## Older approach — .NET 10
 

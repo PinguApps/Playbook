@@ -47,7 +47,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Sample pin 11.0.100-rc.3.26522.148; restore/build net11.0 assets."
+            "reason": "Sample pin 11.0.100; restore/build net11.0 assets."
           },
           "language": {
             "name": "C#",
@@ -63,11 +63,11 @@
               "name": "Microsoft.AspNetCore.OpenApi",
               "version": "11.0",
               "match": "release-family",
-              "reason": "net11.0 built-in document generator; actual verification pin 11.0.0-rc.2.26504.105."
+              "reason": "net11.0 built-in document generator; actual verification pin 11.0.0."
             }
           ],
           "packageAssets": [
-            "Microsoft.AspNetCore.App net11.0; Microsoft.AspNetCore.OpenApi 11.0.0-rc.2.26504.105 and Microsoft.OpenApi 3.10.2 lib/net8.0 model assets in saved locked restore. Older comparison uses OpenApi 10.0.13 lib/net10.0 and Microsoft.OpenApi 2.12.2 lib/net8.0 on net10.0."
+            "Microsoft.AspNetCore.App net11.0; Microsoft.AspNetCore.OpenApi 11.0.0 and Microsoft.OpenApi 3.10.2 lib/net8.0 model assets in saved locked restore. Older comparison uses OpenApi 10.0.13 lib/net10.0 and Microsoft.OpenApi 2.12.2 lib/net8.0 on net10.0."
           ],
           "workloads": [],
           "providers": [

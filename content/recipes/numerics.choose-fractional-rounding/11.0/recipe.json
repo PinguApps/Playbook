@@ -61,7 +61,7 @@
               "match": "exact",
               "reason": "Only the optional BatchExport path requires this package; scalar rounding uses framework APIs.",
               "name": "System.Numerics.Tensors",
-              "version": "11.0.0-rc.2.26504.105"
+              "version": "11.0.0"
             }
           ],
           "packageAssets": [

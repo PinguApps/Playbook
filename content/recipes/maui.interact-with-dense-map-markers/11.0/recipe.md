@@ -6,7 +6,7 @@ Cluster related markers, show custom icons and inspect map interaction; JSON map
 
 ## Constraints
 
-The original Quay Survey app maps fictional survey stations. .NET11 uses SDK11.0.100-rc.3.26522.148, C#15 and MAUI Controls/Maps11.0.0-rc.2.26505.5. .NET10 uses C#14 and Controls/Maps10.0.110; SDK10.0.403 for QuayAtlas and the actual installed native SDK10.0.402 for QuayWindows. These are preparation baselines, not GA verification.
+The original Quay Survey app maps fictional survey stations. .NET11 uses SDK11.0.100, C#15 and MAUI Controls/Maps11.0.0. .NET10 uses C#14 and Controls/Maps10.0.110; SDK10.0.403 for QuayAtlas and the actual installed native SDK10.0.402 for QuayWindows. These are preparation baselines, not GA verification.
 
 The canonical iOS app uses Apple MapKit; native compilation and interaction are **not-tested** because Mac/Xcode is unavailable. Android requires its own matched target/workload, Google Play Services and an authorized Google Maps SDK key. The guarded MapStyle JSON is Android-only; it has no effect on iOS, Mac Catalyst or Windows. No Android build or service execution is claimed. Do not request user location until the app has declared the platform usage descriptions and obtained location permission. The sample leaves IsShowingUser false.
 

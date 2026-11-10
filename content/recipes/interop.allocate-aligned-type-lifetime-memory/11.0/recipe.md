@@ -90,7 +90,7 @@ The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The
 
 eng/Test-LifetimeSignatures.ps1 -Record -VerifySources builds and runs both
 TypeLedger consumers with SDK10.0.403/runtime10.0.14 and
-SDK11.0.100-rc.3.26522.148/runtime11.0.0-rc.3.26522.148. Saved records include
+SDK11.0.100/runtime11.0.0. Saved records include
 commands, exact input hashes, dependencies, compiler/CoreLib/CoreCLR identities
 and System.Runtime references matched to the source audit. Source pins separately
 qualify the public contract and native loader allocation. Both build without

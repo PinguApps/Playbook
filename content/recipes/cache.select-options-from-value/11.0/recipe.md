@@ -20,7 +20,7 @@ The documented .NET 11 overload supplies a mutable HybridCacheEntryContext to th
 
 ## Migration
 
-1. Use a net11.0 console project with C# 15.0, Nullable/ImplicitUsings enabled and FrameworkReference Microsoft.AspNetCore.App. Add Microsoft.Extensions.Caching.Hybrid pinned to 10.11.0 and Microsoft.Extensions.Caching.Abstractions pinned to 11.0.0-rc.2.26504.105. These are independently versioned packages; do not invent HybridCache package 11 from the abstraction's version.
+1. Use a net11.0 console project with C# 15.0, Nullable/ImplicitUsings enabled and FrameworkReference Microsoft.AspNetCore.App. Add Microsoft.Extensions.Caching.Hybrid pinned to 10.11.0 and Microsoft.Extensions.Caching.Abstractions pinned to 11.0.0. These are independently versioned packages; do not invent HybridCache package 11 from the abstraction's version.
 2. Import Microsoft.Extensions.Caching.Hybrid, Microsoft.Extensions.Caching.Memory and Microsoft.Extensions.DependencyInjection. Place the method inside public static class CacheExamples in your application namespace and await ValueOptionsAsync. The latter two imports support the real local-cache observation in this example.
 3. Register AddHybridCache and a dedicated size-limited MemoryCache as shown. Use the context-taking factory overload and await the entire GetOrCreateAsync operation. Keep key/value types and cache policy consistent across callers of the same key.
 4. Select both total and local lifetimes deliberately; local expiration cannot keep an item beyond the overall policy. Respect factory cancellation. Do not reuse the context outside its factory or treat per-call policy changes as retroactive changes to existing hits.

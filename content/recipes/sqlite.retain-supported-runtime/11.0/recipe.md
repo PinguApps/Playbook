@@ -36,13 +36,13 @@ net48 example below supplies actual evidence for that limited fallback.
 ## Constraints
 
 The previous and optional net10 projects pin SDK10.0.403/C#14; the current project
-pins SDK11.0.100-rc.3.26522.148/C#15. The retained net48 project uses SDK10.0.403,
+pins SDK11.0.100/C#15. The retained net48 project uses SDK10.0.403,
 C#7.3 and Microsoft.NETFramework.ReferenceAssemblies 1.0.3. Its x64 EXE was compiled
 against Framework4.8 and actually executed on Windows with Framework4.8.1
 (registry release 533509; CLR4.0.30319.42000). Newer language syntax is unnecessary
 for this example. No experimental API or experimental opt-in is used.
 
-Provider pins are 10.0.13 and 11.0.0-rc.2.26504.105. These are reproducible
+Provider pins are 10.0.13 and 11.0.0. These are reproducible
 baselines, not advice to remain on an old servicing patch indefinitely. Review
 current servicing/security support when choosing a production dependency, then
 refresh the consumer proof after any dependency change. RC2 is not actual GA

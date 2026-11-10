@@ -139,7 +139,7 @@ The original .NET10 normalization policy is compiled and executed with actual
 SDK10.0.403/C#14, runtime10.0.14 and locked System.Numerics.Tensors10.0.13/net10.
 Its sums and retained destination metadata are checked. The current policy and
 complete future shape/view/Any/native suite are compiled using actual
-SDK11.0.100-rc.3.26522.148/C#15 and tensor11.0.0-rc.2.26504.105/net11.
+SDK11.0.100/C#15 and tensor11.0.0/net11.
 Saved records identify commands, selected dependencies, inputs and compiler,
 reference and package hashes. The current record is **compile**, not compile-and-run.
 

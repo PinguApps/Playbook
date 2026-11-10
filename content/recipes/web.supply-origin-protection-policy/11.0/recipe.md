@@ -23,8 +23,8 @@ rendering mode or experimental diagnostic opt-in is needed. The actual public
 contracts have no `ExperimentalAttribute`. RC2 testing does not qualify actual GA.
 
 The measured baselines are SDK **10.0.403**, C# **14.0**, frameworks **10.0.14**,
-and SDK **11.0.100-rc.3.26522.148**, C# **15.0**, frameworks
-**11.0.0-rc.2.26504.105**. These are reproduction pins, separate from minimum
+and SDK **11.0.100**, C# **15.0**, frameworks
+**11.0.0**. These are reproduction pins, separate from minimum
 release-family prerequisites. The examples use primary constructors/collection
 expressions but require no C#15-only feature. Saved records identify actual
 Roslyn versions, reference hashes and loaded framework/CoreLib paths, product

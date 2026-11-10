@@ -51,7 +51,7 @@ finite limits, deliberately rejecting -1 instead of inheriting runtime defaults.
    depth is zero and the first array/map consumes one level.
 2. Target net11.0 and reference System.Formats.Cbor 11. Use the complete current
    codec and shared traversal in separate source files with their imports.
-   The verified package pin is 11.0.0-rc.2.26504.105, selecting lib/net11.0;
+   The verified package pin is 11.0.0, selecting lib/net11.0;
    the older consumer pins 10.0.13 and selects lib/net10.0. Generate/review the
    package lock and restore locked when reproducing the comparison.
 3. Carry over conformance, multiple-root and indefinite-encoding choices explicitly.
@@ -78,8 +78,8 @@ finite limits, deliberately rejecting -1 instead of inheriting runtime defaults.
 ## Constraints
 
 Primary route: .NET11 SDK/runtime, net11.0/C#15, System.Formats.Cbor 11
-lib/net11.0. Exact proof uses SDK11.0.100-rc.3.26522.148 and package/runtime
-11.0.0-rc.2.26504.105. The valid older route uses SDK10.0.403, net10.0/C#14,
+lib/net11.0. Exact proof uses SDK11.0.100 and package/runtime
+11.0.0. The valid older route uses SDK10.0.403, net10.0/C#14,
 runtime10.0.14 and package10.0.13 lib/net10.0. Exact SDK patches identify
 reproduction; they are not universal consumer requirements.
 

@@ -83,7 +83,7 @@ the separate settings recipe's test.
    README supports this route. No automatic pool/session adapter or MTP conversion
    is advertised. Retain a working old session-free caller unchanged when suitable.
 2. Create the directories and complete files above. Pin each global.json with
-   sdk.version=10.0.403 or11.0.100-rc.3.26522.148, rollForward=disable. Each project
+   sdk.version=10.0.403 or11.0.100, rollForward=disable. Each project
    already declares target/language/output/nullable/implicit-usings. Put the same
    SDK pin beside each nested test project too. Put LegacySession
    in a separate compiler probe, not in the current host's compilation.
@@ -110,8 +110,8 @@ the separate settings recipe's test.
 ## Constraints
 
 The measured comparison is SDK **10.0.403**, C# **14**, runtime **10.0.14**
-versus SDK **11.0.100-rc.3.26522.148**, C# **15**, runtime
-**11.0.0-rc.2.26504.105**, on Windows x64. Public platform packages are pinned
+versus SDK **11.0.100**, C# **15**, runtime
+**11.0.0**, on Windows x64. Public platform packages are pinned
 independently: **18.7.0** and **18.11.0**, with NuGet-generated locks. Both CLI
 packages actually ship a **net10.0** console, not a console TFM inferred from
 package major numbers. TranslationLayer/TestHost/ObjectModel select their actual

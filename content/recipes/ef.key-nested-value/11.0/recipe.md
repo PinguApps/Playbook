@@ -24,7 +24,7 @@ example verifies one scalar JSON path, not wildcard or collection indexing.
 ## Requirements
 
 EF Core 11 requires the .NET 11 runtime and SDK. The current consumer pins SDK
-11.0.100-rc.3.26522.148, C# 15 and EF SQL Server 11.0.0-rc.2.26504.105.
+11.0.100, C# 15 and EF SQL Server 11.0.0.
 The older consumer pins SDK 10.0.403, C# 14 and EF SQL Server 10.0.13.
 EF11 selects net11.0 EF/Relational/provider assets; net10.0 abstractions do not
 make the full provider compatible with a .NET10 application. Explicit SqlClient

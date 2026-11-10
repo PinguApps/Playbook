@@ -14,7 +14,7 @@ The .NET 10 reader consumes one contiguous input buffer, so this complete finite
 
 ## Newer approach
 
-Create the corresponding net11.0 / C# 15 project, with the same imports and implicit usings. Add System.Formats.Cbor 11.0.0-rc.2.26504.105; the verified asset is lib/net11.0.
+Create the corresponding net11.0 / C# 15 project, with the same imports and implicit usings. Add System.Formats.Cbor 11.0.0; the verified asset is lib/net11.0.
 
 Create CborReader with CborReaderOptions.ConformanceMode=Lax and isFinalBlock=false. Dispatch only complete states. When PeekState returns NeedsMoreData, retain the last BytesRemaining bytes from the current window, append the next chunk and call SlideData. Exhaustion marks the combined final window with isFinalBlock=true so truncated tokens fail. Retain the underlying byte window until it has been consumed.
 
@@ -30,7 +30,7 @@ Create CborReader with CborReaderOptions.ConformanceMode=Lax and isFinalBlock=fa
 
 Incremental mode requires Lax; Strict/Canonical modes reject a non-final initial block in RC2. NeedsMoreData means obtain a larger valid window, not retry the same read in a busy loop. SlideData must preserve unconsumed bytes; a chunk can end inside one token. This narrow parser accepts one definite/indefinite measurement array of Int32 values, rejects other states and trailing roots, and retains all decoded results in a List: it does not promise bounded total result memory. Bound incoming chunk/token size and total measurements at the application boundary for untrusted data. Lax is a conformance choice, not permission to trust malformed or unlimited input. Default nesting limits/options are a separate goal; this single-level parser does not change them.
 
-This edition targets .NET 11. It has no rendering mode, external provider, optional workload or experimental opt-in. Its additional package and exact tested asset are stated above. The sample SDK pins 10.0.403 and 11.0.100-rc.3.26522.148 are reproducibility baselines, not mandatory exact consumer SDK installations. RC2 execution is not GA verification. No .NET 10 catalogue edition or conditional older-target package route is advertised.
+This edition targets .NET 11. It has no rendering mode, external provider, optional workload or experimental opt-in. Its additional package and exact tested asset are stated above. The sample SDK pins 10.0.403 and 11.0.100 are reproducibility baselines, not mandatory exact consumer SDK installations. RC2 execution is not GA verification. No .NET 10 catalogue edition or conditional older-target package route is advertised.
 
 ## Evidence
 

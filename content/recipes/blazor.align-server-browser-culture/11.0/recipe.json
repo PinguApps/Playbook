@@ -54,13 +54,13 @@
           "packages": [
             {
               "name": "Microsoft.AspNetCore.Components.WebAssembly",
-              "version": "11.0.0-rc.3.26522.148",
+              "version": "11.0.0",
               "match": "exact",
               "reason": "Pinned browser assets and framework API baseline."
             },
             {
               "name": "Microsoft.AspNetCore.Components.WebAssembly.Server",
-              "version": "11.0.0-rc.3.26522.148",
+              "version": "11.0.0",
               "match": "exact",
               "reason": "Pinned prerendered host integration."
             },

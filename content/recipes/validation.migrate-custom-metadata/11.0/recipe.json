@@ -61,23 +61,23 @@
               "reason": "Pinned demonstrated package composition; no unverified version or backport route.",
               "name": "Microsoft.Extensions.Validation",
               "match": "exact",
-              "version": "11.0.0-rc.2.26504.105"
+              "version": "11.0.0"
             },
             {
               "reason": "Pinned demonstrated package composition; no unverified version or backport route.",
               "name": "Microsoft.Extensions.DependencyInjection",
               "match": "exact",
-              "version": "11.0.0-rc.2.26504.105"
+              "version": "11.0.0"
             },
             {
               "reason": "Pinned demonstrated package composition; no unverified version or backport route.",
               "name": "Microsoft.Extensions.Localization.Abstractions",
               "match": "exact",
-              "version": "11.0.0-rc.2.26504.105"
+              "version": "11.0.0"
             }
           ],
           "packageAssets": [
-            "Microsoft.Extensions.Validation 11.0.0-rc.2.26504.105 lib/net11.0 and its shipped generator; no net10 asset.",
+            "Microsoft.Extensions.Validation 11.0.0 lib/net11.0 and its shipped generator; no net10 asset.",
             "DependencyInjection 11 RC2 lib/net11.0; Localization.Abstractions 11 RC2 lib/net11.0; other moved abstractions from the base framework."
           ],
           "workloads": [],

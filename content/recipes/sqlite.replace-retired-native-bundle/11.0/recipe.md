@@ -126,7 +126,7 @@ NuGet native asset.
 4. From each standalone sample directory, run restore, Release build and the
    resulting application with the matching SDK/runtime. Disable first-run tools
    integration in child environments with `DOTNET_ADD_GLOBAL_TOOLS_TO_PATH=0`.
-   The canonical SDK pins are 10.0.403 and 11.0.100-rc.3.26522.148. No workload is
+   The canonical SDK pins are 10.0.403 and 11.0.100. No workload is
    required. NuGet restore may need internet access; consulting this recipe does not.
 5. Expect a committed debit from three to two after closing and reopening the
    file, a password-support rejection, and the actual loaded native path/version

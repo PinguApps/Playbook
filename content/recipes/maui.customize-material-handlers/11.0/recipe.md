@@ -6,7 +6,7 @@ Replace access to internal Material helpers with a public handler extension for 
 
 ## Constraints
 
-The fictional Marsh Survey app gives its custom station entry a native accessibility description. .NET10 uses SDK10.0.403, C#14 and Controls10.0.110; .NET11 uses SDK11.0.100-rc.3.26522.148, C#15 and Controls11.0.0-rc.2.26505.5. These are pinned preparation baselines, not GA execution evidence. No account, provider or web rendering mode is required.
+The fictional Marsh Survey app gives its custom station entry a native accessibility description. .NET10 uses SDK10.0.403, C#14 and Controls10.0.110; .NET11 uses SDK11.0.100, C#15 and Controls11.0.0. These are pinned preparation baselines, not GA execution evidence. No account, provider or web rendering mode is required.
 
 ## Scope the handler
 

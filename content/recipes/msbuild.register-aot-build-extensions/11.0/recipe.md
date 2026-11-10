@@ -22,11 +22,11 @@ container, workload or production resource is involved.
 
 | Layer | Older managed comparison | Current managed/native host |
 | --- | --- | --- |
-| SDK / Roslyn | 10.0.403 / 5.9.0-1.26523.112 | 11.0.100-rc.3.26522.148 / 5.12.0-1.26522.148 |
-| Framework, reference pack, managed runtime | net10.0 / 10.0.14 | net11.0 / 11.0.0-rc.3.26522.148 |
+| SDK / Roslyn | 10.0.403 / 5.9.0-1.26523.112 | 11.0.100 / 5.12.0-1.26522.148 |
+| Framework, reference pack, managed runtime | net10.0 / 10.0.14 | net11.0 / 11.0.0 |
 | C# compiler setting | 14.0 | 15.0; no preview-language switch |
 | Embedded MSBuild | Installed SDK 18.9.15, via Locator 1.11.2 net8.0 | Independently distributed Microsoft.Build, Framework, Utilities.Core and StringTools **18.11.0**, net11.0 assets |
-| Native compiler/runtime | No older native route claimed | ILC and NativeAOT runtime pack 11.0.0-rc.3.26522.148, win-x64 |
+| Native compiler/runtime | No older native route claimed | ILC and NativeAOT runtime pack 11.0.0, win-x64 |
 | Platform tools | Not required | Visual Studio 18 Build Tools, MSVC 14.51.36231; Windows Kit 10.0.26100.0 |
 
 These are exact tested inputs, separately from the supported prerequisites:
@@ -82,8 +82,8 @@ the current host obtains the same directory through its compiled resolver.
 
 ## Newer approach
 
-Pin `global.json` to **11.0.100-rc.3.26522.148**, with `rollForward: "disable"`
-and `allowPrerelease: true`. Use the following project under the repository's
+Pin `global.json` to **11.0.100**, with `rollForward: "disable"`
+and `allowPrerelease: false`. Use the following project under the repository's
 sample build boundary (`OutputType=Exe`, nullable and implicit usings enabled,
 warnings as errors), and this independent central-package boundary:
 

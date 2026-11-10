@@ -15,9 +15,9 @@ approach on both measured SDKs; no newer-only reader API is claimed.
 
 | Layer | Older comparison | Current example |
 | --- | --- | --- |
-| SDK | 10.0.403 | 11.0.100-rc.3.26522.148 |
+| SDK | 10.0.403 | 11.0.100 |
 | Compiler / language | 5.9.0-1.26523.112 / C#14 | 5.12.0-1.26522.148 / C#15 |
-| Target / reference and runtime | net10.0 / 10.0.14 | net11.0 / 11.0.0-rc.3.26522.148 |
+| Target / reference and runtime | net10.0 / 10.0.14 | net11.0 / 11.0.0 |
 | Reader | PowerShell7; .NET ProcessStartInfo and explicit decoder | Same existing reader APIs |
 
 The executed platform is Windows x64, with private CP1252 and CP65001 consoles,
@@ -46,7 +46,7 @@ fixture; this is not advice to relax an application's build policy.
 
 Save this project under `samples/net11.0/EstuaryEncoding`, retaining its relative
 link to the older program. Pin that directory's SDK to
-11.0.100-rc.3.26522.148 with roll-forward disabled.
+11.0.100 with roll-forward disabled.
 
 {{snippet:newer}}
 

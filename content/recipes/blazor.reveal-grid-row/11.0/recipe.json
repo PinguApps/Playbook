@@ -73,7 +73,7 @@
             "Interactive Server"
           ],
           "prerequisites": [
-            "Use the .NET 11 Web SDK/runtime, C# 15.0 and locked QuickGrid/Internal.Assets 11.0.0-rc.3.26522.148 net11.0 assets. No optional workload or service.",
+            "Use the .NET 11 Web SDK/runtime, C# 15.0 and locked QuickGrid/Internal.Assets 11.0.0 net11.0 assets. No optional workload or service.",
             "Local in-memory IQueryable with stable unique IDs and overlapping windows; no database/provider is executed.",
             "ASP.NET Core server on Windows x64 with real Chrome. Other OS and browser engines are untested.",
             "Interactive Server after rendering. Static SSR/prerender alone cannot scroll; WebAssembly/Auto are not execution evidence.",

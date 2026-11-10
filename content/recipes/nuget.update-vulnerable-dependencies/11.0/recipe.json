@@ -89,7 +89,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Verified using SDK 11.0.100-rc.3.26522.148, not GA. No publisher-designated experimental API is used; GA reconciliation remains separate."
+            "Verified using SDK 11.0.100, not GA. No publisher-designated experimental API is used; GA reconciliation remains separate."
           ]
         },
         "sourceUrls": [

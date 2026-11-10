@@ -45,13 +45,13 @@
             "name": ".NET",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Observed Windows x64 runtime 10.0.14 or runtime 11.0.0-rc.3.26522.148, separately from SDK/compiler selection."
+            "reason": "Observed Windows x64 runtime 10.0.14 or runtime 11.0.0, separately from SDK/compiler selection."
           },
           "sdk": {
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Actual sample SDK 10.0.403 and SDK 11.0.100-rc.3.26522.148; compiler versions recorded by executing their real csc.dll."
+            "reason": "Actual sample SDK 10.0.403 and SDK 11.0.100; compiler versions recorded by executing their real csc.dll."
           },
           "language": {
             "name": "C#",
@@ -100,7 +100,7 @@
           ],
           "renderingModes": [],
           "prerequisites": [
-            "PowerShell7; exact sample SDK10.0.403/runtime10.0.14 and SDK11.0.100-rc.3.26522.148/runtime11.0.0-rc.3.26522.148; public NuGet restore; no workload, native compiler, credentials, service or device.",
+            "PowerShell7; exact sample SDK10.0.403/runtime10.0.14 and SDK11.0.100/runtime11.0.0; public NuGet restore; no workload, native compiler, credentials, service or device.",
             "Isolate samples from root central packages; retain generated locks and use locked restore. Use absolute dotnet executables and DOTNET_ADD_GLOBAL_TOOLS_TO_PATH=0 for isolated CLI homes."
           ],
           "constraints": [
@@ -148,13 +148,13 @@
             "name": ".NET",
             "version": "10.0",
             "match": "release-family",
-            "reason": "Observed Windows x64 runtime 10.0.14 or runtime 11.0.0-rc.3.26522.148, separately from SDK/compiler selection."
+            "reason": "Observed Windows x64 runtime 10.0.14 or runtime 11.0.0, separately from SDK/compiler selection."
           },
           "sdk": {
             "name": ".NET SDK",
             "version": "10.0",
             "match": "release-family",
-            "reason": "Actual sample SDK 10.0.403 and SDK 11.0.100-rc.3.26522.148; compiler versions recorded by executing their real csc.dll."
+            "reason": "Actual sample SDK 10.0.403 and SDK 11.0.100; compiler versions recorded by executing their real csc.dll."
           },
           "language": {
             "name": "C#",
@@ -203,7 +203,7 @@
           ],
           "renderingModes": [],
           "prerequisites": [
-            "PowerShell7; exact sample SDK10.0.403/runtime10.0.14 and SDK11.0.100-rc.3.26522.148/runtime11.0.0-rc.3.26522.148; public NuGet restore; no workload, native compiler, credentials, service or device.",
+            "PowerShell7; exact sample SDK10.0.403/runtime10.0.14 and SDK11.0.100/runtime11.0.0; public NuGet restore; no workload, native compiler, credentials, service or device.",
             "Isolate samples from root central packages; retain generated locks and use locked restore. Use absolute dotnet executables and DOTNET_ADD_GLOBAL_TOOLS_TO_PATH=0 for isolated CLI homes."
           ],
           "constraints": [

@@ -32,7 +32,7 @@ Use the shared host/client startup, routing, document and JavaScript supplied un
 
 The .NET 11 component expresses the decision directly with EnvironmentView. It obtains IHostEnvironment from the renderer's service provider. WebApplication supplies it on the server; WebAssemblyHostBuilder registers the browser adapter. Do not manually inject a desktop test environment into the browser and treat that as client proof.
 
-Create another adjacent Host/Client pair. In BOTH directories save global.json selecting SDK 11.0.100-rc.3.26522.148 with rollForward disable and allowPrerelease true. Use runtime and packages 11.0.0-rc.3.26522.148, C# 15. Save Directory.Packages.props in BOTH directories, followed by Host/Host.csproj and Client/Client.csproj. These exact pins are the executed RC2 baseline, not evidence about future GA binaries. EnvironmentView is a stable API in that prerelease framework; no Experimental diagnostic or opt-in is declared on this API.
+Create another adjacent Host/Client pair. In BOTH directories save global.json selecting SDK 11.0.100 with rollForward disable and allowPrerelease false. Use runtime and packages 11.0.0, C# 15. Save Directory.Packages.props in BOTH directories, followed by Host/Host.csproj and Client/Client.csproj. These exact pins are the executed RC2 baseline, not evidence about future GA binaries. EnvironmentView is a stable API in that prerelease framework; no Experimental diagnostic or opt-in is declared on this API.
 
 {{snippet:new-packages}}
 

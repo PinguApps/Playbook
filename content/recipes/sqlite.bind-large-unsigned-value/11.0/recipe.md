@@ -32,9 +32,9 @@ through Int64, UInt64 or double. Parameter binding remains parameterized; do not
 interpolate the number into SQL.
 
 The tested old SDK is 10.0.403/C#14; current net11.0 is SDK
-11.0.100-rc.3.26522.148/C#15. The conditional net10.0/current-package project uses
+11.0.100/C#15. The conditional net10.0/current-package project uses
 SDK10.0.403/C#14. No C#15-only syntax or experimental opt-in is required.
-All current package pins are 11.0.0-rc.2.26504.105; these are RC2 results, not GA
+All current package pins are 11.0.0; these are RC2 results, not GA
 verification. Native Windows x64 SQLite is 3.53.3 with provider10 and 3.53.4 with
 provider11. Other native OS/architecture routes need suitable assets and their own
 checks. No web framework, renderer, workload, account or external database is used.

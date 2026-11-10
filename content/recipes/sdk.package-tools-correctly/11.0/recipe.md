@@ -20,7 +20,7 @@ The corresponding SDK-11 project retains the SDK's tool packaging contract:
 
 {{snippet:newer}}
 
-Use SDK 11.0.100-rc.3.26522.148 to reproduce this RC2 verification. Leave NuspecFile unset. SDK 11 rejects combining PackAsTool=true with a custom NuspecFile using NETSDK1235. A nuspec used for an ordinary library package is not the tool settings/layout contract. Do not work around this diagnostic by switching off PackAsTool while still expecting dotnet tool install to recognise the output.
+Use SDK 11.0.100 to reproduce this RC2 verification. Leave NuspecFile unset. SDK 11 rejects combining PackAsTool=true with a custom NuspecFile using NETSDK1235. A nuspec used for an ordinary library package is not the tool settings/layout contract. Do not work around this diagnostic by switching off PackAsTool while still expecting dotnet tool install to recognise the output.
 
 ## Migration
 

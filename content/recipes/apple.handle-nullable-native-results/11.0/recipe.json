@@ -74,7 +74,7 @@
             "Native consumer library; no browser rendering."
           ],
           "prerequisites": [
-            "RC2 preparation SDK11.0.100-rc.2.26504.105; workload set11.0.100-rc.2.26513.2. Android37.2.0-rc.2.84 or Apple27.0.12212-net11-rc.2 respectively. Apple requires Xcode27.0/macOS26.6+; no arbitrary later pairing implied."
+            "RC2 preparation SDK11.0.100; workload set11.0.100. Android37.2.0-rc.2.84 or Apple27.0.12212-net11-rc.2 respectively. Apple requires Xcode27.0/macOS26.6+; no arbitrary later pairing implied."
           ],
           "constraints": [
             "Eight .NET10 foundations unchanged; older samples are comparisons only.",

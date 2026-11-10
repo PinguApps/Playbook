@@ -91,7 +91,7 @@ The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The
 
 `eng/Test-ExtensionMetadata.ps1 -Record -VerifySources` builds/runs both original
 ArchiveStages consumers: SDK10.0.403/runtime10.0.14/C#14 and
-SDK11.0.100-rc.3.26522.148/runtime11RC3/C#15, on Windows x64. Locked package
+SDK11.0.100/runtime11RC3/C#15, on Windows x64. Locked package
 closures are empty. Records retain exact commands, input hashes, selected assets,
 compiler/CoreLib and audit-matching DiagnosticSource references. No native
 toolchain, device, account or Human action is required.

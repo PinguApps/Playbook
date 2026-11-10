@@ -60,7 +60,7 @@
           "packages": [],
           "workloads": [],
           "packageAssets": [
-            "Shared-framework Components and Server/JSInterop; SDK-resolved Microsoft.AspNetCore.App.Internal.Assets 11.0.0-rc.3.26522.148 supplies static framework assets."
+            "Shared-framework Components and Server/JSInterop; SDK-resolved Microsoft.AspNetCore.App.Internal.Assets 11.0.0 supplies static framework assets."
           ],
           "providers": [
             "ASP.NET Core Data Protection; ephemeral in-memory keys for this disposable sample only."
@@ -87,7 +87,7 @@
             "Local #pragma warning disable/restore ASPNETCORE9004 around JsonTypeInfoResolvers registrations. The API is experimental and EditorBrowsable(Never); no project-wide suppression."
           ],
           "stabilityLimitations": [
-            "Experimental API; compatibility can change. Actual evidence: SDK 10.0.403 / runtime 10.0.14 and SDK 11.0.100-rc.3.26522.148 / runtime 11.0.0-rc.3.26522.148. GA reconciliation and comprehensive publication remain open."
+            "Experimental API; compatibility can change. Actual evidence: SDK 10.0.403 / runtime 10.0.14 and SDK 11.0.100 / runtime 11.0.0. GA reconciliation and comprehensive publication remain open."
           ]
         },
         "sourceUrls": [

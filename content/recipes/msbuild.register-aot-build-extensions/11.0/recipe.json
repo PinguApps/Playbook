@@ -50,13 +50,13 @@
         "requirements": {
           "runtime": {
             "name": ".NET",
-            "version": "11.0.0-rc.2.26504.105",
+            "version": "11.0.0",
             "match": "exact",
             "reason": "Managed comparison/runtime and native runtime pack; native executable includes its runtime."
           },
           "sdk": {
             "name": ".NET SDK",
-            "version": "11.0.100-rc.3.26522.148",
+            "version": "11.0.100",
             "match": "exact",
             "reason": "Exact qualified RC2 compiler/native publish and complete SDK toolset context; global.json rollForward=disable."
           },
@@ -137,7 +137,7 @@
           ],
           "providers": [],
           "platforms": [
-            "Windows x64, actual ILC11.0.0-rc.2.26504.105, MSVC14.51.36231 cl/link and Windows Kit10.0.26100.0 libraries. No other OS/RID qualification."
+            "Windows x64, actual ILC11.0.0, MSVC14.51.36231 cl/link and Windows Kit10.0.26100.0 libraries. No other OS/RID qualification."
           ],
           "renderingModes": [],
           "prerequisites": [
@@ -154,7 +154,7 @@
             "Native missing task yields MSB4283, missing resolver MSB4282. The verified older managed alternative retains UsingTask/directory SDK loading and missing-task failure. No target10 catalogue route added."
           ],
           "optIns": [
-            "PublishAot=true and win-x64 with the exact RC2 toolchain; allowPrerelease=true in global.json.",
+            "PublishAot=true and win-x64 with the exact RC2 toolchain; allowPrerelease=false in global.json.",
             "Explicit import of the pinned public Framework package target and retained, inspected IL2026 build diagnostic. No -mt, diagnostic-ID experimental or preview-language opt-in."
           ],
           "stabilityLimitations": [

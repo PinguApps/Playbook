@@ -92,8 +92,8 @@ claimed. The previous comparison is not an additional target10 foundation.
 The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Paired SignalPipeline consumers compile and execute with SDK10.0.403/C#14 /
-runtime10.0.14 and SDK11.0.100-rc.3.26522.148/C#15 /
-runtime11.0.0-rc.3.26522.148. Shared original checks exercise finite multiplication,
+runtime10.0.14 and SDK11.0.100/C#15 /
+runtime11.0.0. Shared original checks exercise finite multiplication,
 division, reciprocal, magnitude, power and root; all named affected functions;
 NaN/infinity routing; signed zeros; and old/new failures and corrected results.
 Inputs are parsed at runtime, separating these observations from constant folding.

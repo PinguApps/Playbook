@@ -63,7 +63,7 @@
           "packages": [
             {
               "name": "Microsoft.Extensions.Hosting",
-              "version": "11.0.0-rc.2.26504.105",
+              "version": "11.0.0",
               "match": "exact",
               "reason": "Pinned actual package consumer; no newer-package-on-net10 route is claimed."
             }

@@ -30,7 +30,7 @@ The new Base64 convenience APIs return strings/character arrays/UTF-8 arrays dir
 
 This is standard Base64, not Base64Url: alphabet and padding differ. Use GetEncodedLength/GetMaxDecodedLength for destination planning, and consume only the written portion. The OperationStatus forms preserve consumed/written and isFinalBlock semantics; retain unconsumed tails across blocks. The test proves a non-final two-byte tail returns NeedMoreData with zero consumption. In the actual RC2 artifact TryDecodeFromChars throws FormatException for malformed text; Try here is not a blanket promise of nonthrowing validation. Use the OperationStatus overload for InvalidData. A short destination is a separate condition. Encoding does not encrypt, authenticate or compress the payload.
 
-This edition targets .NET 11. It has no rendering mode, external provider, optional workload or experimental opt-in. It uses framework APIs and needs no additional package or package asset. The sample SDK pins 10.0.403 and 11.0.100-rc.3.26522.148 are reproducibility baselines, not mandatory exact consumer SDK installations. RC2 execution is not GA verification. No .NET 10 catalogue edition or conditional older-target package route is advertised.
+This edition targets .NET 11. It has no rendering mode, external provider, optional workload or experimental opt-in. It uses framework APIs and needs no additional package or package asset. The sample SDK pins 10.0.403 and 11.0.100 are reproducibility baselines, not mandatory exact consumer SDK installations. RC2 execution is not GA verification. No .NET 10 catalogue edition or conditional older-target package route is advertised.
 
 ## Evidence
 

@@ -39,7 +39,7 @@ This unchanged edition serves explicitly verified .NET 10 and .NET 11 applicatio
 
 A newer SDK can build an older target. This **optional alternative** uses the .NET 11 SDK family while keeping `TargetFramework=net10.0`, `LangVersion=14.0` and the .NET 10 targeting pack/runtime. The primary .NET 10 SDK route above needs no .NET 11 installation. Playbook has not inspected the caller's environment. This route does not claim supported C# 15 syntax on .NET 10.
 
-The exact tested SDK was `11.0.100-rc.3.26522.148`; that is a reproducibility baseline, not a mandatory installation pin or an inferred minimum version. It compiled the same canonical source and ran the same checks on .NET 10. This is RC evidence, not GA verification.
+The exact tested SDK was `11.0.100`; that is a reproducibility baseline, not a mandatory installation pin or an inferred minimum version. It compiled the same canonical source and ran the same checks on .NET 10. This is RC evidence, not GA verification.
 
 ## Evidence and alternatives
 

@@ -16,9 +16,9 @@ mode, workload, public feed publication or production resource is involved.
 
 | Input or route | Older comparison | Current example |
 | --- | --- | --- |
-| SDK / Roslyn | 10.0.403 / 5.9.0-1.26523.112 | 11.0.100-rc.3.26522.148 / 5.12.0-1.26522.148 |
+| SDK / Roslyn | 10.0.403 / 5.9.0-1.26523.112 | 11.0.100 / 5.12.0-1.26522.148 |
 | Managed target/language | net10.0 / C#14.0 | net11.0 / C#15.0 |
-| Runtime/reference/ILCompiler | 10.0.14 | 11.0.0-rc.3.26522.148 |
+| Runtime/reference/ILCompiler | 10.0.14 | 11.0.0 |
 | Declared package RID | win-x64 | win-x64 |
 | Candidate defaults inspected separately | No new hook | win-x64; win-arm64 |
 | Delivered native RID | win-x64, explicit per-RID pack | win-x64, selected outer/inner pack |
@@ -51,7 +51,7 @@ Save as `samples/net10.0/SkylarkNative/SkylarkNative.csproj` and pin its
 ## Newer approach
 
 Save the current project under `samples/net11.0/SkylarkNative`, pinning
-`global.json` to **11.0.100-rc.3.26522.148**, `rollForward: "disable"`:
+`global.json` to **11.0.100**, `rollForward: "disable"`:
 
 {{snippet:newer}}
 

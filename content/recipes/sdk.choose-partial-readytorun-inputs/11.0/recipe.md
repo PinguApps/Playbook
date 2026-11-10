@@ -15,9 +15,9 @@ JIT-capable runtime and IL. This is not NativeAOT or an ELF/Mach-O demonstration
 
 | Layer | Older comparison | Current example |
 | --- | --- | --- |
-| SDK / compiler | 10.0.403 / 5.9.0-1.26523.112 | 11.0.100-rc.3.26522.148 / 5.12.0-1.26522.148 |
+| SDK / compiler | 10.0.403 / 5.9.0-1.26523.112 | 11.0.100 / 5.12.0-1.26522.148 |
 | Target / C# setting | net10.0 / 14.0 | net11.0 / 15.0 |
-| Reference/runtime packs and Crossgen2 | 10.0.14, win-x64 | 11.0.0-rc.3.26522.148, win-x64 |
+| Reference/runtime packs and Crossgen2 | 10.0.14, win-x64 | 11.0.0, win-x64 |
 
 Use complete official SDK/runtime distributions and the matching
 `Microsoft.NETCore.App.Runtime.win-x64` and
@@ -50,7 +50,7 @@ Use `global.json` version **10.0.403**, with `rollForward: "disable"`.
 ## Newer approach
 
 Save the matching project tree under `samples/net11.0/SkylarkReadyToRun`, with
-`global.json` version **11.0.100-rc.3.26522.148**, `rollForward: "disable"`:
+`global.json` version **11.0.100**, `rollForward: "disable"`:
 
 {{snippet:newer}}
 

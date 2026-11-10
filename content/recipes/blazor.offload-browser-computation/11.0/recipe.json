@@ -38,7 +38,7 @@
           },
           "sdk": {
             "match": "release-family",
-            "reason": "Use current blazorwebworker template from SDK 11.0.100-rc.3.26522.148; the actual .NET 10 SDK has no template of that name.",
+            "reason": "Use current blazorwebworker template from SDK 11.0.100; the actual .NET 10 SDK has no template of that name.",
             "name": ".NET SDK",
             "version": "11.0"
           },
@@ -55,7 +55,7 @@
             {
               "match": "exact",
               "name": "Microsoft.AspNetCore.Components.WebAssembly",
-              "version": "11.0.0-rc.3.26522.148",
+              "version": "11.0.0",
               "reason": "Pinned generated worker reference and consuming WASM app. Local DevServer is pinned to the same version in the complete project."
             }
           ],
@@ -72,7 +72,7 @@
           ],
           "prerequisites": [
             "WASM/CSR only. Generate FossilWorker with current blazorwebworker template, keep its actual WebWorkerClient and both JS assets, reference it from the standalone FossilDesk app. Use complete offline project/package/import/document files in Markdown; see E03 expansion.",
-            "SDK 11.0.100-rc.3.26522.148, runtime/packages 11.0.0-rc.3.26522.148 and C# 15. No installed wasm-tools workload or native compiler is required for interpreted WASM. AllowUnsafeBlocks and SupportedPlatform browser enable JSExport marshalling. No AOT claim.",
+            "SDK 11.0.100, runtime/packages 11.0.0 and C# 15. No installed wasm-tools workload or native compiler is required for interpreted WASM. AllowUnsafeBlocks and SupportedPlatform browser enable JSExport marshalling. No AOT claim.",
             "A native Worker-capable browser, matching fingerprinted dotnet.js/runtime assets, _content/FossilWorker scripts and permission to load a module worker are required. Use same-origin local assets; CSP must allow the application scripts, worker creation and WebAssembly compilation. No provider, account, credentials or persistence service is required.",
             "The .NET 10.0.403/C#14 comparison restores 10.0.9 WebAssembly/DevServer packages and runs JavaScript CPU work in a native worker. It is not a backported generated client or a .NET 10 applicability route."
           ],

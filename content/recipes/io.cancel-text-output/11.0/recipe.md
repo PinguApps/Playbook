@@ -76,7 +76,7 @@ pre-cancelled operation plus flush, in-flight token forwarding and the retained
 partial prefix. The Null writer exercises the subclass limitation.
 
 Exact SDK/reference/runtime pins: 10.0.403 / 10.0.14 and
-11.0.100-rc.3.26522.148 / 11.0.0-rc.2.26504.105. Compiler/CoreLib identities,
+11.0.100 / 11.0.0. Compiler/CoreLib identities,
 audit-matching reference hashes, commands, inputs and resolved dependencies (none)
 are saved. These reproduction pins are separate from release-family prerequisites.
 Pinned official TextWriter/StreamWriter sources establish availability and dispatch.

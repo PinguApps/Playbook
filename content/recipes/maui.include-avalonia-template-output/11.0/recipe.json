@@ -51,30 +51,30 @@
             {
               "match": "exact",
               "name": "Microsoft.Maui.Controls",
-              "version": "11.0.0-rc.2.26505.5",
+              "version": "11.0.0",
               "reason": "Reviewed current MAUI artifact baseline."
             },
             {
               "match": "exact",
               "name": "Avalonia.Controls.Maui",
-              "version": "11.0.0-rc.2.26287.618",
+              "version": "11.0.0",
               "reason": "Explicit third-party template integration prerequisite."
             },
             {
               "match": "exact",
               "name": "Avalonia.Controls.Maui.Desktop",
-              "version": "11.0.0-rc.2.26287.618",
+              "version": "11.0.0",
               "reason": "Explicit third-party template integration prerequisite."
             },
             {
               "match": "exact",
               "name": "Microsoft.Maui.Resizetizer",
-              "version": "11.0.0-rc.2.26505.5",
+              "version": "11.0.0",
               "reason": "Explicit neutral asset consumer prerequisite; ordinary generated UseMaui heads obtain matched asset tooling through the MAUI workload."
             },
             {
               "name": "Microsoft.Extensions.Logging.Debug",
-              "version": "11.0.0-rc.2.26504.105",
+              "version": "11.0.0",
               "match": "exact",
               "reason": "Generated logging pin compiled in the canonical neutral consumer with AddDebug."
             }

@@ -40,7 +40,7 @@ The corresponding complete ZIP readers are:
 
 ZIP CRC validation requires reading an entry through EOF; opening an archive or reading only a prefix is insufficient. TAR validates headers, not a cryptographic digest of entry payloads. CRC32 and TAR checksums detect damage and do not establish authenticity or resist deliberate tampering. Dispose readers and entry streams after failure. Extraction is not transactional; validate into staging before promoting output. Truncated/structurally invalid archives can fail earlier and may raise other documented I/O errors. No disable-validation switch is recommended. These bounded byte-array examples are not safe arbitrary-size ingestion: separately limit entry counts, expanded bytes, paths and links for untrusted input.
 
-This edition has no external provider, workload, rendering requirement or experimental opt-in. Shared Blazor applicability means server-side code; it is not browser execution proof. All sample dependencies are framework-provided. Exact SDK pins 10.0.403 and 11.0.100-rc.3.26522.148 are reproducibility baselines, not mandatory exact consumer installations. RC verification does not establish GA behaviour or every platform's behaviour.
+This edition has no external provider, workload, rendering requirement or experimental opt-in. Shared Blazor applicability means server-side code; it is not browser execution proof. All sample dependencies are framework-provided. Exact SDK pins 10.0.403 and 11.0.100 are reproducibility baselines, not mandatory exact consumer installations. RC verification does not establish GA behaviour or every platform's behaviour.
 
 ## Evidence
 

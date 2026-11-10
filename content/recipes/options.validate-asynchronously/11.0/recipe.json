@@ -61,7 +61,7 @@
           "packages": [
             {
               "name": "Microsoft.Extensions.Options",
-              "version": "11.0.0-rc.2.26504.105",
+              "version": "11.0.0",
               "match": "exact",
               "reason": "Private analyzer reference needed for the optional source-generated validator and actual SYSLIB1205 checks."
             }

@@ -64,7 +64,7 @@
           ],
           "packageAssets": [
             "Current EF/Core/Relational/Sqlite.Core lib/net11.0; Abstractions and Microsoft.Data.Sqlite.Core lib/net10.0. Previous EF10 uses lib/net10.0 and Data.Sqlite.Core lib/net8.0.",
-            "Locked actual graphs: EF10.0.13 versus EF11.0.0-rc.2.26504.105; sample packages are author-maintained and do not inherit root update permissions."
+            "Locked actual graphs: EF10.0.13 versus EF11.0.0; sample packages are author-maintained and do not inherit root update permissions."
           ],
           "providers": [
             "Microsoft.EntityFrameworkCore.Sqlite with default TimeOnly TEXT storage; real in-memory SQLite, no EF InMemory or mocks",

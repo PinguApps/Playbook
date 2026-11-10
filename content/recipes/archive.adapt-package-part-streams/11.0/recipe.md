@@ -18,7 +18,7 @@ Keep a sequential parser sequential on both versions. StreamReader owns its stre
 
 ## Newer approach
 
-Use a net11.0 / C# 15 project with System.IO.Packaging 11. The reviewed/locked sample uses 11.0.0-rc.2.26504.105. For ReadWrite packages, GetStream(FileMode.Open, FileAccess.Read) can now stream an unmodified compressed part directly. Read access does not promise seeking. Test CanSeek; retain an already-seekable stream and buffer only the parser that actually needs it:
+Use a net11.0 / C# 15 project with System.IO.Packaging 11. The reviewed/locked sample uses 11.0.0. For ReadWrite packages, GetStream(FileMode.Open, FileAccess.Read) can now stream an unmodified compressed part directly. Read access does not promise seeking. Test CanSeek; retain an already-seekable stream and buffer only the parser that actually needs it:
 
 {{snippet:adapt}}
 
@@ -42,7 +42,7 @@ Length remains available on these PackagePart streams; Seek and both Position ac
 
 The buffer bounds retained logical bytes, not total memory: allocation growth, its 4096-byte scratch block and parser overhead add cost. For large inputs, design a bounded temporary-file adapter with quotas and cleanup, or choose a sequential parser. Neither alternative is implemented or measured here. Do not open a part for writing merely to force allocation.
 
-The exact packaging baselines are 10.0.13 and 11.0.0-rc.2.26504.105; SDKs are 10.0.403 / 11.0.100-rc.3.26522.148, with runtime/reference packs 10.0.14 / 11.0.0-rc.3.26522.148. These are reproducibility pins, separate from the release-family requirements in applicability. The RC2 package's real net10 consumer selects lib/net10.0 and keeps the old compressed ReadWrite behavior: NET11_0_OR_GREATER controls the implementation. No older-target route is advertised by this target11 edition.
+The exact packaging baselines are 10.0.13 and 11.0.0; SDKs are 10.0.403 / 11.0.100, with runtime/reference packs 10.0.14 / 11.0.0. These are reproducibility pins, separate from the release-family requirements in applicability. The RC2 package's real net10 consumer selects lib/net10.0 and keeps the old compressed ReadWrite behavior: NET11_0_OR_GREATER controls the implementation. No older-target route is advertised by this target11 edition.
 
 There is no workload, provider, rendering mode or experimental opt-in. This is desktop/server file processing; shared Blazor applicability means server code, not browser proof. APIs are not marked experimental on the inspected artifacts; RC2 execution still needs GA reconciliation.
 

@@ -53,13 +53,13 @@
         "requirements": {
           "runtime": {
             "name": ".NET",
-            "version": "11.0.0-rc.2.26504.105",
+            "version": "11.0.0",
             "match": "exact",
             "reason": "Exact runtime used by the SDK-bound logger/replay consumer; actual GA remains unqualified."
           },
           "sdk": {
             "name": ".NET SDK",
-            "version": "11.0.100-rc.3.26522.148",
+            "version": "11.0.100",
             "match": "exact",
             "reason": "The actual bundled MSBuild18.12 event producer/reader and compiler/dependency/resolver closure are hash qualified together."
           },
@@ -81,7 +81,7 @@
           ],
           "renderingModes": [],
           "prerequisites": [
-            "Complete .NET11 RC3 SDK installation, rollForward=disable and allowPrerelease=true; original controlled strong-named assembly graph and trusted project inputs.",
+            "Complete .NET11 RC3 SDK installation, rollForward=disable and allowPrerelease=false; original controlled strong-named assembly graph and trusted project inputs.",
             "SDK10.0.403/runtime+ref10.0.14 and C#14 additionally reproduce the older fallback. Exact installed artifacts are recorded separately in the sample pin manifest.",
             "PowerShell7 for sample evidence/installed inspection. No external provider, rendering mode, workload, optional native compiler or device is required."
           ],

@@ -123,7 +123,7 @@ The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The
 eng/Test-InteropSoundings.ps1 -Record -VerifySources captures exact builds,
 resolved dependency sets, canonical inputs, compiler/reference/generator/generated
 stub hashes and deployed JS/wasm identities. Compilation uses SDK10.0.403 with
-10.0.13 packages/runtime and SDK11.0.100-rc.3.26522.148 with matching RC2 packages/runtime.
+10.0.13 packages/runtime and SDK11.0.100 with matching RC2 packages/runtime.
 The framework reference hashes match the original runtime-security asset audit.
 Paired official contracts and generator source are pinned in
 interop-soundings.sources.json; source alone is not browser proof.

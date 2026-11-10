@@ -40,7 +40,7 @@ release-family requirement for descriptor order. Only Windows x64 execution is
 qualified. No packages, extra workloads, provider service, browser or rendering
 mode is needed. The SDK's own static-web-assets task is used; no internal assets
 package is added. SDK 10.0.403 uses C#14 and framework10.0.14; SDK
-11.0.100-rc.3.26522.148 uses C#15 and framework11.0.0-rc.3.26522.148.
+11.0.100 uses C#15 and framework11.0.0.
 The feature needs no experimental switch, and uses no C#15-specific syntax.
 RC2 proof is not GA proof; PIN-959/PIN-963/PIN-964 and other Human gates stay open.
 

@@ -57,7 +57,7 @@
           "frameworks": [],
           "packages": [],
           "packageAssets": [
-            "Microsoft.NETCore.App.Crossgen2.win-x64 and Microsoft.NETCore.App.Runtime.win-x64 11.0.0-rc.3.26522.148; exact restored assets recorded."
+            "Microsoft.NETCore.App.Crossgen2.win-x64 and Microsoft.NETCore.App.Runtime.win-x64 11.0.0; exact restored assets recorded."
           ],
           "workloads": [],
           "providers": [],
@@ -66,7 +66,7 @@
           ],
           "renderingModes": [],
           "prerequisites": [
-            "Complete SDK/runtime installations; tested SDK10 10.0.403/runtime10.0.14 and SDK11 11.0.100-rc.3.26522.148/runtime11.0.0-rc.3.26522.148.",
+            "Complete SDK/runtime installations; tested SDK10 10.0.403/runtime10.0.14 and SDK11 11.0.100/runtime11.0.0.",
             "PowerShell 7 for the authoring checks. Restore setup may need nuget.org; served guidance is embedded offline."
           ],
           "constraints": [

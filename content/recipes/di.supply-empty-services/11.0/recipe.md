@@ -89,7 +89,7 @@ scope-owned resources or registered rules; this goal is separate from startup DI
 The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 `eng/Test-ExtensionContracts.ps1 -Record -VerifySources` builds/runs MuseumServices
-with SDK10.0.403/runtime10.0.14 and SDK11.0.100-rc.3.26522.148/runtime11RC3.
+with SDK10.0.403/runtime10.0.14 and SDK11.0.100/runtime11RC3.
 Application requirements are release-family SDK/runtime11; exact pins describe
 observed evidence. Both use empty locked package closures, no native toolchains,
 external providers, UI/rendering modes or experimental opt-ins. The audited

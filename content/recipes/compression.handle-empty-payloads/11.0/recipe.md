@@ -40,7 +40,7 @@ For the finite trusted payloads in this example, restore with the matching forma
 
 The exact two-byte raw Deflate and twenty-byte GZip outputs are measured baselines, not a protocol promise about all settings/future encoders. Deflate, ZLib and GZip use different framing and are not interchangeable; Brotli and Zstandard are separate formats too. This change concerns no writes at all; do not infer every stream operation from that case. Use decompressed content length or an explicit application envelope to distinguish empty payload from missing data. Flush alone does not finish a frame. leaveOpen retains ownership of the underlying stream; disposing the compressor still finalises its frame.
 
-This edition has no external provider, workload, rendering requirement or experimental opt-in. Shared Blazor applicability means server-side code; it is not browser execution proof. All sample dependencies are framework-provided. Exact SDK pins 10.0.403 and 11.0.100-rc.3.26522.148 are reproducibility baselines, not mandatory exact consumer installations. RC verification does not establish GA behaviour or every platform's behaviour.
+This edition has no external provider, workload, rendering requirement or experimental opt-in. Shared Blazor applicability means server-side code; it is not browser execution proof. All sample dependencies are framework-provided. Exact SDK pins 10.0.403 and 11.0.100 are reproducibility baselines, not mandatory exact consumer installations. RC verification does not establish GA behaviour or every platform's behaviour.
 
 ## Evidence
 

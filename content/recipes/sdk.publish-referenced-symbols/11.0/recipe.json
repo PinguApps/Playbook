@@ -73,7 +73,7 @@
           ],
           "renderingModes": [],
           "prerequisites": [
-            "Complete SDK/runtime/ref installations. Tested SDK10.0.403, runtime/ref10.0.14, C#14; SDK11.0.100-rc.3.26522.148, runtime/ref11RC3, C#15.",
+            "Complete SDK/runtime/ref installations. Tested SDK10.0.403, runtime/ref10.0.14, C#14; SDK11.0.100, runtime/ref11RC3, C#15.",
             "PowerShell7 for the reproducible checks. Original local package setup uses no remote source; installed guidance is embedded offline."
           ],
           "constraints": [

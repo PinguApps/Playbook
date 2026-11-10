@@ -62,14 +62,10 @@ Declare the exact custom element/attribute pair on a public class named
 AssetPathAttributes. This declares compiler metadata; the example does not need
 a browser custom-element implementation because it inspects the emitted attribute.
 
-**Measured RC2 restriction:** default source generation expands the component
-parameter but leaves both HTML attributes literal. The verified complete route
-below sets the documented UseRazorSourceGenerator property to false, using the
-SDK's task compiler. Its generated C# expands the component, custom element and
-built-in img through Assets. If changing the build path is unsuitable, preserve
-explicit lookup. This is not a general recommendation to disable source generation
-or a claim about IDE/Hot Reload. The saved negative compiler control prevents this
-limitation being silently forgotten.
+SDK 11.0.100 GA expands the annotated component parameter, custom HTML attribute
+and built-in image source with the default Razor source generator. No compiler
+route override is required. Inspect the generated C# and published URLs; this
+does not establish IDE or Hot Reload behavior.
 
 Unknown `~/images/unknown.svg` becomes lookup of `images/unknown.svg` and falls
 back to that key; a real request returns 404. Unmarked `~/` strings, a bare path
@@ -121,7 +117,7 @@ strings nor guarantees an asset exists.
 1. Keep each complete comparison in its own directory and build with its matching SDK/compiler and framework. Put real image bytes under wwwroot/images.
 2. Preserve explicit Assets lookup on .NET 10, or when the current compiler route is unsuitable. Do not replace bare paths or arbitrary string values globally.
 3. On .NET 11 annotate only the intended string Parameter with AssetPath, and declare custom HTML metadata on the public AssetPathAttributes class. Use complete static `~/` literals at the opted-in locations.
-4. For the measured RC2 HTML route, keep UseRazorSourceGenerator=false in the compiling project. Verify the emitted obj/Release/net11.0/Razor/App.razor.g.cs uses Assets for both the parameter and custom attribute. Default source generation is an explicitly failing HTML control.
+4. Keep default Razor source generation enabled. Verify the emitted App_razor.g.cs under obj/Release/net11.0/generated uses Assets for the component parameter, custom attribute and built-in image source.
 5. Register Razor components, MapStaticAssets and antiforgery as shown. Align UsePathBase("/museum") with base href="/museum/" so relative fingerprinted URLs resolve beneath the mounted app.
 6. Publish each actual project with its matching dotnet executable using `publish -c Release -o <fresh-output>`. Run MaritimeGallery.dll from that output with `--urls http://127.0.0.1:5080` and request `/museum/`.
 7. Inspect the restore manifest and published staticwebassets.endpoints.json; fetch the rendered fingerprinted URL and compare its bytes. Check the unmarked string, bare path, arbitrary string and unknown-key 404 controls. Metadata presence or compilation alone is insufficient.
@@ -130,7 +126,7 @@ strings nor guarantees an asset exists.
 
 Only complete static ~/ literals expand; [AssetPath] requires a string Parameter. Ordinary string parameters, bare paths and unrelated attributes are not inferred.
 
-On the measured RC3 SDK, default source generation expands component parameters but leaves custom and built-in HTML ~/ paths literal. The executed HTML route uses documented UseRazorSourceGenerator=false. Retain explicit @Assets lookup if that route is unsuitable.
+SDK 11.0.100 GA expands component parameters and opted-in custom and built-in HTML attributes with the default source generator. Retain explicit @Assets lookup where values are not opted in.
 
 The public AssetPathAttributes convention class declares [AcceptsAssetPath("museum-image", "source")]. This annotates compiler input; it does not implement or register a browser custom element.
 
@@ -139,8 +135,8 @@ An unknown ~/ key lowers to Assets["key"]; the collection returns the unmapped k
 Verified static SSR and published fingerprinted URLs under /museum/. No interactive rendering, IDE/Hot Reload, arbitrary build host, runtime rewriting or older-target package route is claimed.
 
 The exact test pins are SDK 10.0.403 / framework and packages 10.0.14 / C# 14,
-and SDK 11.0.100-rc.3.26522.148 / framework and packages
-11.0.0-rc.3.26522.148 / C# 15. Runtime/framework/package/SDK requirements are
+and SDK 11.0.100 / framework and packages
+11.0.0 / C# 15. Runtime/framework/package/SDK requirements are
 separate from these measured baselines. No optional workload or native compilation
 is required. Public metadata is not an experimental designation; no experimental
 suppression is used. No net10-plus-new-package compatibility route is advertised.

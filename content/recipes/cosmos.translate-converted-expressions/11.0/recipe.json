@@ -63,7 +63,7 @@
             }
           ],
           "packageAssets": [
-            "Exact current EF package 11.0.0-rc.3.26522.148; older EF10.0.13. SDK10.0.403/C#14/net10.0 and SDK11.0.100-rc.3.26522.148/C#15/net11.0. Independent locks retain all provider/native/transitive package identities; no EF11-on-net10 route."
+            "Exact current EF package 11.0.0; older EF10.0.13. SDK10.0.403/C#14/net10.0 and SDK11.0.100/C#15/net11.0. Independent locks retain all provider/native/transitive package identities; no EF11-on-net10 route."
           ],
           "providers": [
             "Approved isolated legacy Cosmos emulator, gateway mode."

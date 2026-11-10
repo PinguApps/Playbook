@@ -121,7 +121,7 @@ The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The
 `eng/Record-GridTransform.ps1 -VerifySources` verifies ten immutable source hashes,
 executes the original ownership/Try false controls with SDK10.0.403, C#14,
 runtime/ref10.0.14 and tensor10.0.13/lib/net10.0, and compiles the full current
-suite using SDK11.0.100-rc.3.26522.148, C#15, runtime/ref11RC3 and locked
+suite using SDK11.0.100, C#15, runtime/ref11RC3 and locked
 tensor11RC2/lib/net11.0. A supplementary `--policy-only` execution checks safe
 ownership and Try false controls on the current artifacts; it does not run the
 expected-release storage contract. Commands, inputs, logical values, dependency closure and

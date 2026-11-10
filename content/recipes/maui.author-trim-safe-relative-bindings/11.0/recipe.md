@@ -27,7 +27,7 @@ An ancestor deriving from Element selects FindAncestor; a non-Element ancestor t
 
 ## Constraints
 
-This edition targets .NET11 MAUI and Controls11 assets for the selected native platform, with the SourceGen build analyzer. The canonical project pins SDK11 RC3, C#15 and Controls11.0.0-rc.2.26505.5. Platform bindings, deployment floors and exact intended workload composition are in Applicability and the canonical project. Android needs its SDK/JDK and a device/emulator; iOS requires a Mac, matching Xcode, signing where needed and a simulator/device. Windows has a separate WinUI host. There is no web rendering mode or external provider.
+This edition targets .NET11 MAUI and Controls11 assets for the selected native platform, with the SourceGen build analyzer. The canonical project pins SDK11 RC3, C#15 and Controls11.0.0. Platform bindings, deployment floors and exact intended workload composition are in Applicability and the canonical project. Android needs its SDK/JDK and a device/emulator; iOS requires a Mac, matching Xcode, signing where needed and a simulator/device. Windows has a separate WinUI host. There is no web rendering mode or external provider.
 
 Typed C# bindings remain useful when runtime ancestor selection is unnecessary. Preserve intentional runtime bindings on supported untrimmed paths rather than describing all older applications as broken. This recipe's bindings are stable framework guidance prepared from RC2; it makes no GA or AOT execution claim.
 

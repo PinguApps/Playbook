@@ -68,7 +68,7 @@
           "renderingModes": [],
           "workloads": [],
           "prerequisites": [
-            "Previous comparison SDK10.0.403/C#14/runtime-reference10.0.14; current SDK11.0.100-rc.3.26522.148/C#15/runtime-reference11RC3. Evidence values describe actual observations except explicitly intended source-only pins."
+            "Previous comparison SDK10.0.403/C#14/runtime-reference10.0.14; current SDK11.0.100/C#15/runtime-reference11RC3. Evidence values describe actual observations except explicitly intended source-only pins."
           ],
           "constraints": [
             "Actual Windows x64 and digest-pinned Linux x64 old/new execution; current handle types, four pipe-end flag combinations, ownership, EOF, regular-file async reads, SendPacketsElement constructor guards and Unix 0600 shared-path ratchet. Same-user only; RC2 is not GA proof.",

@@ -49,7 +49,7 @@ disposes the provider and never opens a named or production key container.
    then reverse the direction for **both** flag values. Compare recovered plaintext,
    not ciphertext equality: encryption is randomized. Keep wire transport/base64
    encoding and any negotiated padding metadata unchanged.
-4. Check wrong-padding and damaged-ciphertext rejection. A CryptographicException
+4. Check that wrong-padding and damaged-ciphertext controls cannot recover the original reading. Decryption can throw or return different bytes; do not treat it as authentication. Also verify oversized-ciphertext rejection. A CryptographicException
    is a failed operation; do not return partial plaintext or retry using a different
    padding. At a service boundary return a uniform failure, keeping diagnostics
    internal rather than exposing a padding oracle.
@@ -84,7 +84,7 @@ the exact eight foundations and existing recipe/edition identities.
 The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Record-SignaturePadding.ps1 captures actual SDK10.0.403/C#14/reference-runtime10.0.14
-and SDK11.0.100-rc.3.26522.148/C#15/reference-runtime11RC3. Saved records contain
+and SDK11.0.100/C#15/reference-runtime11RC3. Saved records contain
 exact commands, input hashes, no resolved dependencies/workloads, compiler and
 cryptography reference/implementation hashes, CoreLib and Windows native library
 versions/hashes. Requirements above are separate from those reproduction pins.

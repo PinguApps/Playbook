@@ -50,12 +50,12 @@
             {
               "match": "exact",
               "name": "Microsoft.Maui.Controls",
-              "version": "11.0.0-rc.2.26505.5",
+              "version": "11.0.0",
               "reason": "Reviewed current MAUI artifact baseline."
             }
           ],
           "packageAssets": [
-            "Microsoft.Maui.Controls/Core 11.0.0-rc.2.26505.5 Windows assets; canonical target net11.0-windows10.0.20348.0."
+            "Microsoft.Maui.Controls/Core 11.0.0 Windows assets; canonical target net11.0-windows10.0.20348.0."
           ],
           "workloads": [
             {

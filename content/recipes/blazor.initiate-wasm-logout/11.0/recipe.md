@@ -123,7 +123,7 @@ Use this local verification page for the same invalid/missing/default checks on 
 
 ## Constraints
 
-- Current proof: SDK **11.0.100-rc.3.26522.148**, **net11.0**, C# **15**, WASM/Authentication/browser runtime **11.0.0-rc.3.26522.148**. Previous proof: SDK **10.0.403**, **net10.0**, C# **14**, matching packages/browser runtime **10.0.14**. Exact test pins and full locked dependencies are separate from release-family consumer requirements.
+- Current proof: SDK **11.0.100**, **net11.0**, C# **15**, WASM/Authentication/browser runtime **11.0.0**. Previous proof: SDK **10.0.403**, **net10.0**, C# **14**, matching packages/browser runtime **10.0.14**. Exact test pins and full locked dependencies are separate from release-family consumer requirements.
 - Browser-hosted interactive WASM only. No server cookie logout, server-side Identity, static SSR execution, authorization enforcement, new authentication system or production resources.
 - Stable supported replacement APIs; no experimental warning or preview-language opt-in. RC2 proof does not establish GA. No older-target/newer-package route or ninth .NET 10 foundation is added.
 - One loopback oidc-provider 9.5.1 runs real discovery, code/PKCE, signed ID tokens, provider sessions and RP-initiated logout, with a fixed fictional account and ephemeral in-memory state/keys. HTTP is bound to loopback only. This is not production identity infrastructure, external-provider verification or a security assessment. A fake remote service could establish only component branching and is not the logout proof used here.

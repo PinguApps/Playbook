@@ -77,7 +77,7 @@ Use Rules.csproj in rules-source and Plugin.csproj in plugin-source:
    SDK10 source audit's setter differs from package18.7; do not silently mix its DLL
    into a current TestHost closure. Keep the old SDK comparison in its own process.
 2. Create the projects/sources above. Pin the parent sample global.json to10.0.403
-   or11.0.100-rc.3.26522.148 with rollForward=disable, and copy that pin beside
+   or11.0.100 with rollForward=disable, and copy that pin beside
    each nested resolver project. Set LEGACY_PLATFORM only on the
    old SDK resolver project. Restore/build each resolver in Release and retain its
    generated lock. Current projects obtain the complete locked TestHost/ObjectModel
@@ -102,8 +102,8 @@ Use Rules.csproj in rules-source and Plugin.csproj in plugin-source:
 ## Constraints
 
 The measured comparison is SDK **10.0.403**, C# **14**, runtime **10.0.14**
-versus SDK **11.0.100-rc.3.26522.148**, C# **15**, runtime
-**11.0.0-rc.2.26504.105**, on Windows x64. Public platform packages are pinned
+versus SDK **11.0.100**, C# **15**, runtime
+**11.0.0**, on Windows x64. Public platform packages are pinned
 independently: **18.7.0** and **18.11.0**, with NuGet-generated locks. Both CLI
 packages actually ship a **net10.0** console, not a console TFM inferred from
 package major numbers. TranslationLayer/TestHost/ObjectModel select their actual

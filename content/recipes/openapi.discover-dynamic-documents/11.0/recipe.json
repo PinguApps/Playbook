@@ -46,7 +46,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Sample pin 11.0.100-rc.3.26522.148; restore/build net11.0 assets."
+            "reason": "Sample pin 11.0.100; restore/build net11.0 assets."
           },
           "language": {
             "name": "C#",
@@ -59,20 +59,20 @@
           ],
           "packages": [
             {
-              "reason": "net11.0 compile/runtime API exposes AddOpenApiCore and the singular IAdditionalOpenApiDocumentNameResolver; tested with 11.0.0-rc.2.26504.105.",
+              "reason": "net11.0 compile/runtime API exposes AddOpenApiCore and the singular IAdditionalOpenApiDocumentNameResolver; tested with 11.0.0.",
               "match": "release-family",
               "version": "11.0",
               "name": "Microsoft.AspNetCore.OpenApi"
             },
             {
-              "reason": "Required for the build-time path; actual pinned build/tool assets 11.0.0-rc.2.26504.105.",
+              "reason": "Required for the build-time path; actual pinned build/tool assets 11.0.0.",
               "match": "release-family",
               "version": "11.0",
               "name": "Microsoft.Extensions.ApiDescription.Server"
             }
           ],
           "packageAssets": [
-            "Current OpenApi 11.0.0-rc.2.26504.105 selects lib/net11.0; previous OpenApi 10.0.13 selects lib/net10.0. Microsoft.OpenApi 3.10.2 and 2.12.2 respectively both select lib/net8.0. ApiDescription.Server contributes build props/targets and GetDocument tools, not a runtime library: current 11.0.0-rc.2.26504.105, previous 10.0.0. Separate locked graphs, selected assets and ZIP hashes are retained. The audit's metadata-only previous ApiDescription.Server 10.0.13 is not asserted byte-identical to the executed 10.0.0 baseline."
+            "Current OpenApi 11.0.0 selects lib/net11.0; previous OpenApi 10.0.13 selects lib/net10.0. Microsoft.OpenApi 3.10.2 and 2.12.2 respectively both select lib/net8.0. ApiDescription.Server contributes build props/targets and GetDocument tools, not a runtime library: current 11.0.0, previous 10.0.0. Separate locked graphs, selected assets and ZIP hashes are retained. The audit's metadata-only previous ApiDescription.Server 10.0.13 is not asserted byte-identical to the executed 10.0.0 baseline."
           ],
           "workloads": [],
           "providers": [

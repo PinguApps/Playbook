@@ -24,8 +24,8 @@
           "Experimental -mt requires an explicit opt-in; the ordinary host remains a verified alternative. The attribute is a thread-safety promise, not enforcement."
         ],
         "requirements": {
-          "runtime": {"name": ".NET", "version": "11.0.0-rc.2.26504.105", "match": "exact", "reason": "Qualified task execution host and runtime closure for the RC2 task assembly; actual GA remains unqualified."},
-          "sdk": {"name": ".NET SDK", "version": "11.0.100-rc.3.26522.148", "match": "exact", "reason": "Direct SDK assembly references require the exact artifact-qualified MSBuild 18.12.0-1.26504.105 binding and construction implementation."},
+          "runtime": {"name": ".NET", "version": "11.0.0", "match": "exact", "reason": "Qualified task execution host and runtime closure for the RC2 task assembly; actual GA remains unqualified."},
+          "sdk": {"name": ".NET SDK", "version": "11.0.100", "match": "exact", "reason": "Direct SDK assembly references require the exact artifact-qualified MSBuild 18.12.0-1.26504.105 binding and construction implementation."},
           "language": {"name": "C#", "version": "15.0", "match": "exact", "reason": "Pinned language mode of the compiled typed-task example; no newer language feature is a separate task-binding requirement."},
           "frameworks": [],
           "packages": [],
@@ -35,7 +35,7 @@
           "platforms": ["Windows x64 with the exact .NET-hosted SDK/runtime/reference assets; other hosts and OSes are not qualified by these runs."],
           "renderingModes": [],
           "prerequisites": [
-            "Use the exact SDK global.json pin with rollForward=disable and allowPrerelease=true; inspect effective shared build/package configuration.",
+            "Use the exact SDK global.json pin with rollForward=disable and allowPrerelease=false; inspect effective shared build/package configuration.",
             "Use trusted project inputs, absolute task assembly paths and separate report directories per project. No optional native tools or device are needed.",
             "PowerShell 7 for repository capture/inspection; SDK 10.0.403 with .NET 10.0.13 is additionally required to reproduce the older comparison. Build/run the net10.0 sample before the net11.0 proof, which loads the older compatibility DLL."
           ],

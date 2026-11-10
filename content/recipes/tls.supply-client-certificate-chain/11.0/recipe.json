@@ -72,7 +72,7 @@
           ],
           "constraints": [
             "Actual Linux x64 OpenSSL execution in pinned Azure Linux containers, with separate Windows compilation. Private loopback mutual TLS; no Windows TLS, online revocation or final-GA claim.",
-            "Previous comparison: SDK10.0.403/C#14/runtime10.0.14. Current: SDK11.0.100-rc.3.26522.148/C#15/runtime11RC3. These are measured verification pins, separate from supported release-family prerequisites.",
+            "Previous comparison: SDK10.0.403/C#14/runtime10.0.14. Current: SDK11.0.100/C#15/runtime11RC3. These are measured verification pins, separate from supported release-family prerequisites.",
             "Framework APIs only: no NuGet dependency, workload, rendering mode, experimental opt-in, public service or production resource. Preserve eight foundations, other recipe identities and existing comprehensive/GA/Human gates."
           ],
           "optIns": [],

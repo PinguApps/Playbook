@@ -48,7 +48,7 @@ The host fixes this desk's request policy to en-GB formatting and fr-FR translat
 
 Use the parameterless AddInteractiveWebAssemblyComponents registration shown below. The cumulative release notes' former public WebAssemblyComponentsOptions.UseCultureFromServer callback was removed during Preview 7. Do not recreate that obsolete API or configure the internal options class. These original samples follow the actual pinned artifact/source route.
 
-Create a separate CultureHarbour directory for .NET 11 with the same Host/Client structure. Use SDK 11.0.100-rc.3.26522.148, matching ASP.NET/browser assets 11.0.0-rc.3.26522.148 and C# 15. Both Host/global.json and Client/global.json contain exactly this JSON: {"sdk":{"version":"11.0.100-rc.3.26522.148","rollForward":"disable","allowPrerelease":true}}.
+Create a separate CultureHarbour directory for .NET 11 with the same Host/Client structure. Use SDK 11.0.100, matching ASP.NET/browser assets 11.0.0 and C# 15. Both Host/global.json and Client/global.json contain exactly this JSON: {"sdk":{"version":"11.0.100","rollForward":"disable","allowPrerelease":false}}.
 
 The client Localization implementation is deliberately pinned to 10.0.14 in both comparisons. Its .NET 11 resolved abstractions/dependencies follow the WebAssembly RC2 graph; the committed locks and compilation records state that exact closure. No native workload, provider, credential or account is required. These APIs carry no reviewed Experimental diagnostic; prerelease RC3 execution does not establish GA behavior.
 

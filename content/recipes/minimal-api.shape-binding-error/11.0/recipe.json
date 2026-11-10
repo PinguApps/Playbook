@@ -73,7 +73,7 @@
             "Server HTTP endpoints; no Blazor rendering mode required"
           ],
           "prerequisites": [
-            "Create every file below in a standalone ParcelIntake directory for the chosen target. Empty Directory files isolate surrounding build/package rules. Restore the matching framework packs once; installed guidance itself remains offline. SDK 10.0.403 / 11.0.100-rc.3.26522.148 and C# 14.0 / 15.0 reproduce actual evidence, not minimum language-feature requirements."
+            "Create every file below in a standalone ParcelIntake directory for the chosen target. Empty Directory files isolate surrounding build/package rules. Restore the matching framework packs once; installed guidance itself remains offline. SDK 10.0.403 / 11.0.100 and C# 14.0 / 15.0 reproduce actual evidence, not minimum language-feature requirements."
           ],
           "constraints": [
             "Set RouteHandlerOptions.ThrowOnBadRequest=false explicitly in Development. Otherwise BadHttpRequestException leaves binding before a filter can shape the failure. This setting is the normal non-Development default; it does not suppress arbitrary handler exceptions.",

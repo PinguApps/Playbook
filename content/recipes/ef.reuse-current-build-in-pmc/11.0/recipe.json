@@ -62,25 +62,25 @@
               "name": "Microsoft.EntityFrameworkCore.Sqlite",
               "version": "11.0",
               "match": "release-family",
-              "reason": "Canonical pin 11.0.0-rc.2.26504.105; historical comparison 10.0.13."
+              "reason": "Canonical pin 11.0.0; historical comparison 10.0.13."
             },
             {
               "name": "Microsoft.EntityFrameworkCore.Design",
               "version": "11.0",
               "match": "release-family",
-              "reason": "Canonical pin 11.0.0-rc.2.26504.105; historical comparison 10.0.13."
+              "reason": "Canonical pin 11.0.0; historical comparison 10.0.13."
             },
             {
               "name": "Microsoft.EntityFrameworkCore.Tools",
               "version": "11.0",
               "match": "release-family",
-              "reason": "Canonical pin 11.0.0-rc.2.26504.105; historical comparison 10.0.13."
+              "reason": "Canonical pin 11.0.0; historical comparison 10.0.13."
             },
             {
               "name": "dotnet-ef",
               "version": "11.0",
               "match": "release-family",
-              "reason": "Canonical pin 11.0.0-rc.2.26504.105; historical comparison 10.0.13."
+              "reason": "Canonical pin 11.0.0; historical comparison 10.0.13."
             }
           ],
           "packageAssets": [
@@ -103,7 +103,7 @@
             "Save, restore and build after model/package changes and after scaffolding before Update-Database."
           ],
           "prerequisites": [
-            "Exact SDK10.0.403 and SDK11 11.0.100-rc.3.26522.148 with matching locked EF packages.",
+            "Exact SDK10.0.403 and SDK11 11.0.100 with matching locked EF packages.",
             "Matching local dotnet-ef; run eng/Test-CanalDesign.ps1 -Record.",
             "Visual Studio with NuGet PMC and matching Microsoft.EntityFrameworkCore.Tools package loaded."
           ],

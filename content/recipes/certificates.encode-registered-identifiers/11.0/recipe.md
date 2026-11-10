@@ -86,7 +86,7 @@ verification; PIN-962 retains that reconciliation and PIN-959 stays open.
 
 The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
-SDK 10.0.403/runtime 10.0.14 and SDK 11.0.100-rc.3.26522.148/runtime 11RC3 compile and
+SDK 10.0.403/runtime 10.0.14 and SDK 11.0.100/runtime 11RC3 compile and
 run the real consumers with no package dependencies and warnings as errors.
 Both export/reload certificates and assert the SAN OID 2.5.29.17, noncritical flag,
 primitive [2]/[8] tags, unchanged DNS label, three exact OIDs (including a very

@@ -60,13 +60,13 @@
               "name": "Microsoft.EntityFrameworkCore.SqlServer",
               "version": "11.0",
               "match": "release-family",
-              "reason": "Pinned 11.0.0-rc.2.26504.105; historical comparison10.0.13."
+              "reason": "Pinned 11.0.0; historical comparison10.0.13."
             },
             {
               "name": "Microsoft.EntityFrameworkCore.Design",
               "version": "11.0",
               "match": "release-family",
-              "reason": "Pinned 11.0.0-rc.2.26504.105; historical comparison10.0.13."
+              "reason": "Pinned 11.0.0; historical comparison10.0.13."
             },
             {
               "version": "10.0.13",
@@ -76,7 +76,7 @@
             },
             {
               "version": "11.0",
-              "reason": "Local CLI11.0.0-rc.2.26504.105; historical10.0.13; no global install.",
+              "reason": "Local CLI11.0.0; historical10.0.13; no global install.",
               "name": "dotnet-ef",
               "match": "release-family"
             }

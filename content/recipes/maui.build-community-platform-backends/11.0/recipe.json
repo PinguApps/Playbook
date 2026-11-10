@@ -54,13 +54,13 @@
             {
               "match": "exact",
               "name": "Microsoft.Maui.Controls.Core",
-              "version": "11.0.0-rc.2.26505.5",
+              "version": "11.0.0",
               "reason": "Reviewed current MAUI artifact baseline."
             },
             {
               "match": "exact",
               "name": "Microsoft.AspNetCore.Components.WebView.Maui",
-              "version": "11.0.0-rc.2.26505.5",
+              "version": "11.0.0",
               "reason": "Public custom Blazor handler registration contract."
             }
           ],

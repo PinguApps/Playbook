@@ -76,7 +76,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Actual evidence: .NET 10.0.13 / SDK 10.0.403 and .NET 11.0.0-rc.2.26504.105 / SDK 11.0.100-rc.3.26522.148. GA reconciliation and comprehensive publication gates remain open."
+            "Actual evidence: .NET 10.0.13 / SDK 10.0.403 and .NET 11.0.0 / SDK 11.0.100. GA reconciliation and comprehensive publication gates remain open."
           ]
         },
         "sourceUrls": [

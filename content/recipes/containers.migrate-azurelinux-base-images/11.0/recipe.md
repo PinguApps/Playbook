@@ -18,10 +18,10 @@ bounded selection and require their own actual artifact/runtime checks.
 
 | Layer | Older | Current |
 | --- | --- | --- |
-| SDK / C# compiler / language | 10.0.403 / 5.9.0-1.26523.112 / 14.0 | 11.0.100-rc.3.26522.148 / 5.12.0-1.26522.148 / 15.0 |
-| Framework / reference pack | net10.0 / 10.0.13 | net11.0 / 11.0.0-rc.2.26504.105 |
-| Runtime image tag | 10.0.13-azurelinux3.0 | 11.0.0-rc.2-azurelinux4.0 |
-| Runtime / OS | .NET10.0.13 / Azure Linux3.0 | .NET11.0.0-rc.2.26504.105 / Azure Linux4.0 Beta |
+| SDK / C# compiler / language | 10.0.403 / 5.9.0-1.26523.112 / 14.0 | 11.0.100 / 5.12.0-1.26522.148 / 15.0 |
+| Framework / reference pack | net10.0 / 10.0.13 | net11.0 / 11.0.0 |
+| Runtime image tag | 10.0.13-azurelinux3.0 | 11.0.0-azurelinux4.0 |
+| Runtime / OS | .NET10.0.13 / Azure Linux3.0 | .NET11.0.0 / Azure Linux4.0 Beta |
 
 Compilation uses the exact Windows x64 SDK/compiler/reference assets pinned in
 the sample record. The compiled portable IL is then executed on the actual Linux
@@ -64,7 +64,7 @@ In a standalone copy, add `OutputType=Exe`, `ImplicitUsings=enable` and
 `Nullable=enable` to each project; those three settings come from the repository's
 sample boundary here. Save `global.json` beside each project with
 `{"sdk":{"version":"10.0.403","rollForward":"disable"}}` for the older directory,
-or `{"sdk":{"version":"11.0.100-rc.3.26522.148","rollForward":"disable"}}` for the
+or `{"sdk":{"version":"11.0.100","rollForward":"disable"}}` for the
 current directory. Use the matching complete SDK executable. The required source
 and configuration are provided above; no generated sample or remote guide is needed.
 

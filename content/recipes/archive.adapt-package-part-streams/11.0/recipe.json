@@ -79,7 +79,7 @@
           ],
           "renderingModes": [],
           "prerequisites": [
-            "A net11.0 console project; implicit usings and System.IO.Packaging. Add System.IO.Packaging 11 and review its selected asset. Exact tested package: 11.0.0-rc.2.26504.105. No Open XML SDK."
+            "A net11.0 console project; implicit usings and System.IO.Packaging. Add System.IO.Packaging 11 and review its selected asset. Exact tested package: 11.0.0. No Open XML SDK."
           ],
           "constraints": [
             "Use a freshly opened Read stream. Sequential readers need no copy. Do not depend on Position or Seek unless CanSeek is true. Length remains available for the tested PackagePart streams.",

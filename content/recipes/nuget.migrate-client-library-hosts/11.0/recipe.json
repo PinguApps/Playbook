@@ -96,7 +96,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Verified with SDK 11.0.100-rc.3.26522.148 (RC2), not GA. No publisher-designated experimental API; GA reconciliation remains separate."
+            "Verified with SDK 11.0.100 (RC2), not GA. No publisher-designated experimental API; GA reconciliation remains separate."
           ]
         },
         "sourceUrls": [
@@ -176,7 +176,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Verified with SDK 11.0.100-rc.3.26522.148 (RC2), not GA. No publisher-designated experimental API; GA reconciliation remains separate."
+            "Verified with SDK 11.0.100 (RC2), not GA. No publisher-designated experimental API; GA reconciliation remains separate."
           ]
         },
         "sourceUrls": [

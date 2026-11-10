@@ -90,7 +90,7 @@ The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The
 eng/Test-ProviderRequests.ps1 -Record verifies immutable official sources,
 audit-matching reference hashes and compiler identities, and records existing
 sample-evidence receipts. Paired SDK10.0.403/runtime10.0.14 and
-SDK11.0.100-rc.3.26522.148/runtime11.0.0-rc.3.26522.148 consumers compile on
+SDK11.0.100/runtime11.0.0 consumers compile on
 Windows; the OpenSSL consumers execute in a network-none, pinned Linux container.
 The fixture generates a fresh disposable RSA2048 PEM key, verifies signatures
 and tamper rejection, missing provider/key, independent safe-handle ownership,

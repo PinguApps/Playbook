@@ -65,7 +65,7 @@
               "name": "Microsoft.Data.Sqlite",
               "version": "11.0",
               "match": "release-family",
-              "reason": "The direct provider's new target boundary is verified at 11.0.0-rc.2.26504.105."
+              "reason": "The direct provider's new target boundary is verified at 11.0.0."
             }
           ],
           "packageAssets": [
@@ -145,7 +145,7 @@
               "name": "Microsoft.Data.Sqlite",
               "version": "11.0",
               "match": "release-family",
-              "reason": "The direct provider's new target boundary is verified at 11.0.0-rc.2.26504.105."
+              "reason": "The direct provider's new target boundary is verified at 11.0.0."
             }
           ],
           "packageAssets": [

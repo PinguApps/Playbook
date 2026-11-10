@@ -88,7 +88,7 @@ The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The
 
 eng/Test-ProxyResponses.ps1 -Record -VerifySources compiles and runs both real
 CairnRelay consumers on SDK10.0.403/runtime10.0.14 and
-SDK11.0.100-rc.3.26522.148/runtime11.0.0-rc.3.26522.148, with zero warnings/errors.
+SDK11.0.100/runtime11.0.0, with zero warnings/errors.
 The source manifest pins the actual paired SocksHelper implementations. The
 recorder matches framework references to the runtime/security audit and records
 compiler/CoreLib hashes, exact commands, inputs and runtime identity.

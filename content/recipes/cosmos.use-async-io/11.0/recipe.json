@@ -61,7 +61,7 @@
               "match": "release-family",
               "version": "11.0",
               "name": "Microsoft.EntityFrameworkCore.Cosmos",
-              "reason": "Exact 11.0.0-rc.2.26504.105 baseline; comparison 10.0.13."
+              "reason": "Exact 11.0.0 baseline; comparison 10.0.13."
             },
             {
               "name": "Microsoft.Azure.Cosmos",

@@ -82,7 +82,7 @@
             "Local #pragma warning disable/restore ASP0032 around SetAttributeValue, with BL0006 confined to intentional frame/Renderer boundaries. Never suppress these project-wide."
           ],
           "stabilityLimitations": [
-            "Experimental API; compatibility can change. Actual evidence: SDK 10.0.403 / runtime 10.0.13 and SDK 11.0.100-rc.3.26522.148 / runtime 11.0.0-rc.2.26504.105. GA reconciliation and comprehensive publication remain open."
+            "Experimental API; compatibility can change. Actual evidence: SDK 10.0.403 / runtime 10.0.13 and SDK 11.0.100 / runtime 11.0.0. GA reconciliation and comprehensive publication remain open."
           ]
         },
         "sourceUrls": [

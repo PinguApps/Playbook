@@ -12,7 +12,7 @@ identity and strict trust policy, then use that same platform digest in the buil
 The verification client is Notation **1.3.2**, with ORAS **1.3.6** for registry
 discovery and copying test fixtures. Both are independently versioned native tools;
 verification itself needs no .NET SDK/runtime. The companion managed worker uses
-SDK10.0.403/C#14/ref10.0.13 or SDK11.0.100-rc.3.26522.148/C#15/ref11 RC2, compiled
+SDK10.0.403/C#14/ref10.0.13 or SDK11.0.100/C#15/ref11 RC2, compiled
 on Windows x64 and executed on Linux x64. No package, provider account, optional
 workload, UI rendering mode, system trust-store change or signing credential is
 required. Public MCR/certificate access is required for verification/setup;
@@ -22,7 +22,7 @@ verification or actual-GA qualification.
 | Selection | Index digest | Executed linux/amd64 digest |
 | --- | --- | --- |
 | runtime:10.0.13-azurelinux3.0 | sha256:5e6d01ac0f7860e7cf22ac0b0b5aebb3d72854b2e3dbcb7729a76aab9c1ce32c | sha256:e454ed02b8c903dff0d7fd40a63451e55f16c186463d168a78e584738244f939 |
-| runtime:11.0.0-rc.2-azurelinux4.0 | sha256:fef3cd3bd18e61d14dd7e66289e1a537d6a48fdc2d266e009744e299571c6afe | sha256:3b52667dbaff185a1ddd4cefb16d9517e6945f6e61257faa2e57e6040877d95b |
+| runtime:11.0.0-azurelinux4.0 | sha256:fef3cd3bd18e61d14dd7e66289e1a537d6a48fdc2d266e009744e299571c6afe | sha256:3b52667dbaff185a1ddd4cefb16d9517e6945f6e61257faa2e57e6040877d95b |
 
 All references above use repository `mcr.microsoft.com/dotnet/runtime`.
 Azure Linux4 remains **Beta** under the reviewed official notes; successful
@@ -68,7 +68,7 @@ is added to Windows, Linux or the user's ordinary Notation configuration.
    `https://github.com/oras-project/oras/releases/download/v1.3.6/oras_1.3.6_windows_amd64.zip`,
    SHA256 **ec3d19f386d5d2f0892288772d7b242475a05332aafa64b6773378ca771d76d3**.
    Invoke it by absolute path. Neither tool needs a global installation.
-2. Resolve the tag once with `oras manifest fetch mcr.microsoft.com/dotnet/runtime:11.0.0-rc.2-azurelinux4.0 --descriptor`.
+2. Resolve the tag once with `oras manifest fetch mcr.microsoft.com/dotnet/runtime:11.0.0-azurelinux4.0 --descriptor`.
    Fetch that index by its returned immutable digest. Read the `manifests` entry
    whose platform is linux/amd64; reject an absent or ambiguous selection. Compare
    both values with the reviewed table. Tags can change: a different result needs

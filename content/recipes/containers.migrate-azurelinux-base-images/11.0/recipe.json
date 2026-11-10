@@ -67,7 +67,7 @@
           ],
           "renderingModes": [],
           "prerequisites": [
-            "Complete SDK10.0.403/ref10.0.13/C#14 and SDK11.0.100-rc.3.26522.148/ref11 RC2/C#15 for paired sample reproduction.",
+            "Complete SDK10.0.403/ref10.0.13/C#14 and SDK11.0.100/ref11 RC2/C#15 for paired sample reproduction.",
             "Public MCR access for image acquisition; a working Linux amd64 Docker engine. Installed guidance is embedded offline.",
             "Selected Azure Linux3/4 runtime images must provide glibc, zlib libz.so.1 and ICU; InvariantGlobalization=false. No native compiler."
           ],

@@ -107,7 +107,7 @@ exact eight .NET10 foundations and other existing identities.
 The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Record-SignaturePadding.ps1 captures SDK10.0.403/C#14/reference-runtime10.0.14 and
-SDK11.0.100-rc.3.26522.148/C#15/reference-runtime11RC3, commands, input hashes,
+SDK11.0.100/C#15/reference-runtime11RC3, commands, input hashes,
 empty dependency/workload closures and compiler/reference/managed/native Windows
 artifact identities. The versioned source manifest qualifies the old/current
 macOS dispatch and removal independently of those Windows artifacts.

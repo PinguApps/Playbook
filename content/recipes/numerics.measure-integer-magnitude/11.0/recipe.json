@@ -60,7 +60,7 @@
           ],
           "constraints": [
             "Nonnegative integer batch policy: zero has width one, negatives throw. Integer Log10 returns an exponent; width is an application rule.",
-            "Previous SDK10.0.403/C#14/ref-runtime10.0.14; current SDK11.0.100-rc.3.26522.148/C#15/ref-runtime11RC3. Exact proof pins are separate from supported prerequisites.",
+            "Previous SDK10.0.403/C#14/ref-runtime10.0.14; current SDK11.0.100/C#15/ref-runtime11RC3. Exact proof pins are separate from supported prerequisites.",
             "Preserve the exact eight .NET10 foundations and existing recipe identities; comprehensive/actual-GA and existing Human gates remain open."
           ],
           "optIns": [],

@@ -17,8 +17,8 @@ Every generated application still targets **net10.0**.
 | Consumer | Actual packages and selected assets | Bounded result |
 | --- | --- | --- |
 | Historical `netstandard2.0` library, executed by a net10 runner | Template packages 10.0.402 select `lib/netstandard2.0` while compiling the library. The runner independently selects their `lib/net10.0` runtime assets. | Library compiles; real engine creates the template; generated application builds and runs. |
-| Current ordinary net10 host — preferred when the host can stay on .NET 10 | Template packages 11.0.100-rc.2.26504.105 select `lib/net10.0`; NuGet 8.0.0-rc.605 selects `lib/net10.0`. | Independent SDK 10.0.403 restore/build/execution, including template creation. |
-| Current net11 host | The same template package versions select `lib/net11.0`; NuGet dependencies still select `lib/net10.0`. | Independent SDK 11.0.100-rc.3.26522.148 restore/build/execution, including template creation. |
+| Current ordinary net10 host — preferred when the host can stay on .NET 10 | Template packages 11.0.100 select `lib/net10.0`; NuGet 8.0.0-rc.605 selects `lib/net10.0`. | Independent SDK 10.0.403 restore/build/execution, including template creation. |
+| Current net11 host | The same template package versions select `lib/net11.0`; NuGet dependencies still select `lib/net10.0`. | Independent SDK 11.0.100 restore/build/execution, including template creation. |
 | Current packages in netstandard2.0 | No compatible .NET Standard asset. Default SDK fallback may choose Framework assets and issue NU1701; strict restore without that fallback fails NU1202. | Do not mistake a warning or a suppressed warning for compatibility. |
 
 The target-10 catalogue route is conditional on explicitly adopting the newer
@@ -32,7 +32,7 @@ the source audit. **Each** old package below was independently referenced and bu
 by a real netstandard2.0 consumer. **Each** corresponding RC2 package failed a
 strict netstandard2.0 restore with NU1202.
 
-| Exact package ID | 10.0.402 ZIP frameworks | 11.0.100-rc.2.26504.105 ZIP frameworks |
+| Exact package ID | 10.0.402 ZIP frameworks | 11.0.100 ZIP frameworks |
 | --- | --- | --- |
 | Microsoft.TemplateEngine.Abstractions | netstandard2.0, net8.0, net10.0, net472 | net10.0, net11.0, net472 |
 | Microsoft.TemplateEngine.Core | netstandard2.0, net8.0, net10.0, net472 | net10.0, net11.0, net472 |
@@ -171,7 +171,7 @@ browser or rendering mode is required for this local managed template scenario.
    configuration above. Keep packages isolated from unrelated central package
    policies. For reproduction, pin `global.json` to SDK `10.0.402` with
    `rollForward: disable` for both net10 projects and the historical library/runner;
-   pin the net11 host to `11.0.100-rc.2.26504.105` with the same policy. The JSON is
+   pin the net11 host to `11.0.100` with the same policy. The JSON is
    `{"sdk":{"version":"10.0.402","rollForward":"disable"}}` for the former;
    substitute only the version for the latter. These are measured toolchains,
    not a general claim that all future package patches are compatible.

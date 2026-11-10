@@ -22,7 +22,7 @@ Save Program.cs in both applications with these three imports before the program
 
 ## Newer approach
 
-Create a separate empty net11 directory. Save global.json containing exactly `{"sdk":{"version":"11.0.100-rc.3.26522.148","rollForward":"disable","allowPrerelease":true}}`. The actual newer framework/browser assets are 11.0.0-rc.3.26522.148, with C# 15. No external PackageReference, provider, native toolchain or optional workload is required. The SDK resolves its matching Microsoft.AspNetCore.App.Internal.Assets; standalone restore produces packages.lock.json. Repository captures use reviewed locked closure.
+Create a separate empty net11 directory. Save global.json containing exactly `{"sdk":{"version":"11.0.100","rollForward":"disable","allowPrerelease":false}}`. The actual newer framework/browser assets are 11.0.0, with C# 15. No external PackageReference, provider, native toolchain or optional workload is required. The SDK resolves its matching Microsoft.AspNetCore.App.Internal.Assets; standalone restore produces packages.lock.json. Repository captures use reviewed locked closure.
 
 Save TernLedger.csproj and Program.cs:
 

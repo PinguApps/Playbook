@@ -77,7 +77,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Verified with SDK 11.0.100-rc.3.26522.148; RC2 execution is not GA verification."
+            "Verified with SDK 11.0.100; RC2 execution is not GA verification."
           ]
         },
         "sourceUrls": [

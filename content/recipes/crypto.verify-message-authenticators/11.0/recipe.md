@@ -78,7 +78,7 @@ when the caller must distinguish availability from an invalid tag.
 ## Constraints
 
 Primary route: .NET11 SDK/runtime, net11.0/C#15, framework cryptography assets.
-Exact proof uses SDK11.0.100-rc.3.26522.148 and ref/runtime11.0.0-rc.3.26522.148;
+Exact proof uses SDK11.0.100 and ref/runtime11.0.0;
 the older consumer uses SDK10.0.403, net10.0/C#14 and ref/runtime10.0.14. No
 additional NuGet package, experimental diagnostic opt-in, workload or rendering
 mode is required. SDK patch pins identify reproduction rather than universal

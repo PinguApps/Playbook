@@ -25,7 +25,7 @@ EF11 reports an older snapshot when pending differences exist. Inspect the model
 
 ## Constraints
 
-Original Windows x64 comparisons: SDK10.0.403/C#14/EF10.0.13 versus SDK11.0.100-rc.3.26522.148/C#15. EF11 tooling uses RC2; Cosmos uses RC3. EF11 requires net11.0; this is not an older-runtime EF11 route or GA proof. No language-preview opt-in. Console/database guidance has no rendering mode. Keep exact locks; restore requires network access. The installed guidance is offline. No additional .NET10 foundation or recurring platform matrix is introduced.
+Original Windows x64 comparisons: SDK10.0.403/C#14/EF10.0.13 versus SDK11.0.100/C#15. EF11 tooling uses RC2; Cosmos uses RC3. EF11 requires net11.0; this is not an older-runtime EF11 route or GA proof. No language-preview opt-in. Console/database guidance has no rendering mode. Keep exact locks; restore requires network access. The installed guidance is offline. No additional .NET10 foundation or recurring platform matrix is introduced.
 
 SQLite uses the actual bundled native Windows x64 engines. Matching EF/Design/dotnet-ef and patched Pkcs10.0.13 are tooling dependencies. Other platforms, encrypted engines, PMC and NativeAOT are not established.
 
@@ -110,7 +110,7 @@ Independent compilation uses each SDK pin and lock. Focused SQLite tooling and C
 
 ## Exact toolchain
 
-Current EF package: 11.0.0-rc.2.26504.105; older package: 10.0.13. Tooling consumers match Design and dotnet-ef to the EF package. SDK pins are canonical below; release-family prerequisites do not relabel these RC checks as GA proof.
+Current EF package: 11.0.0; older package: 10.0.13. Tooling consumers match Design and dotnet-ef to the EF package. SDK pins are canonical below; release-family prerequisites do not relabel these RC checks as GA proof.
 
 ### .NET10 AvocetSnapshot SDK pin
 

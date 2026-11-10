@@ -63,7 +63,7 @@
           "packages": [
             {
               "name": "Microsoft.AspNetCore.Server.Kestrel.Transport.DirectTls",
-              "version": "11.0.0-rc.1.26425.128",
+              "version": "11.0.0",
               "match": "exact",
               "reason": "Exact reviewed package; availability and compile status are disclosed in Evidence, not an assertion of runtime support."
             }

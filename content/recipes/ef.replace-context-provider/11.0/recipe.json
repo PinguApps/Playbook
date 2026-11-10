@@ -59,7 +59,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Build the net11.0 consumer; measured SDK 11.0.100-rc.3.26522.148 is RC2 evidence, not GA proof."
+            "reason": "Build the net11.0 consumer; measured SDK 11.0.100 is RC2 evidence, not GA proof."
           },
           "language": {
             "name": "C#",
@@ -86,7 +86,7 @@
           ],
           "packageAssets": [
             "EF Core, Relational and InMemory lib/net11.0; Microsoft.Data.Sqlite.Core lib/net10.0; actual resolved graph and content hashes pinned in packages.lock.json",
-            "Previous consumer: EF/SQLite 10.0.13 on net10.0, SDK 10.0.403, C# 14.0; current consumer: EF/SQLite 11.0.0-rc.2.26504.105 on net11.0, SDK 11.0.100-rc.3.26522.148, C# 15.0"
+            "Previous consumer: EF/SQLite 10.0.13 on net10.0, SDK 10.0.403, C# 14.0; current consumer: EF/SQLite 11.0.0 on net11.0, SDK 11.0.100, C# 15.0"
           ],
           "providers": [
             "Microsoft.EntityFrameworkCore.Sqlite and Microsoft.EntityFrameworkCore.InMemory; both execute isolated CRUD, only SQLite establishes the demonstrated relational unique-index failure",

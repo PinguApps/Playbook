@@ -105,7 +105,7 @@ Nullable and ImplicitUsings are enabled in the complete project blocks. Both pro
 SDK-aligned Microsoft.AspNetCore.App.Internal.Assets dependency. No explicit
 NuGet package reference, workload, browser asset or native toolchain is needed
 for these plain static forms. global.json pins 10.0.403 for the older capture and
-11.0.100-rc.3.26522.148 for the current capture; these are test baselines, not
+11.0.100 for the current capture; these are test baselines, not
 mandatory exact consumer SDK installations.
 
 net11.0/Program.cs registrations:
@@ -146,7 +146,7 @@ net10.0/global.json:
 
 net11.0/global.json:
 
-{"sdk":{"version":"11.0.100-rc.3.26522.148","rollForward":"disable"}}
+{"sdk":{"version":"11.0.100","rollForward":"disable"}}
 
 ## Constraints
 
@@ -187,7 +187,7 @@ or replay prevention. Use application storage when that stronger guarantee matte
 The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Original samples compile as net10.0/C# 14.0 using SDK 10.0.403 and
-net11.0/C# 15.0 using SDK 11.0.100-rc.3.26522.148. The saved records are **compile**
+net11.0/C# 15.0 using SDK 11.0.100. The saved records are **compile**
 evidence. The separate real Kestrel HTTP report follows a 302, checks the first
 and second reads under both newer providers, and compares the valid older MVC
 bridge. A held streaming response proves a fresh session cookie arrives before

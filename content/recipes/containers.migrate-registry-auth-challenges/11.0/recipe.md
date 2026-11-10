@@ -16,8 +16,8 @@ containerize tool requirement.
 
 | Layer | Older comparison | Current example |
 | --- | --- | --- |
-| SDK / compiler language | 10.0.403 / C#14 | 11.0.100-rc.3.26522.148 / C#15 |
-| Target / runtime | net10.0 / 10.0.13 | net11.0 / 11.0.0-rc.2.26504.105 |
+| SDK / compiler language | 10.0.403 / C#14 | 11.0.100 / C#15 |
+| Target / runtime | net10.0 / 10.0.13 | net11.0 / 11.0.0 |
 | Executed platform | Linux x64 Docker SDK image | Linux x64 Docker SDK image |
 | Published base variant | Azure Linux3 runtime10.0.13 | Azure Linux4 **Beta** runtime11RC2 |
 | Registry / copy helper | Distribution3.1.2; ORAS1.3.6 | Same disposable backend and helper |
@@ -50,7 +50,7 @@ an unsafe realm.
 ## Newer approach
 
 Save the same program beside this current project. Select
-SDK11.0.100-rc.3.26522.148 using `global.json`, `rollForward: "disable"`.
+SDK11.0.100 using `global.json`, `rollForward: "disable"`.
 
 {{snippet:newer}}
 

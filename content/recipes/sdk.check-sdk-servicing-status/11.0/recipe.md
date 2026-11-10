@@ -17,9 +17,9 @@ Windows x64 is the executed platform; other platforms need their own qualificati
 
 | Layer | Older comparison | Current example |
 | --- | --- | --- |
-| SDK | 10.0.403 | 11.0.100-rc.3.26522.148 |
+| SDK | 10.0.403 | 11.0.100 |
 | C# compiler / language setting | 5.9.0-1.26523.112 / 14.0 | 5.12.0-1.26522.148 / 15.0 |
-| Framework, reference pack and runtime | net10.0 / 10.0.14 | net11.0 / 11.0.0-rc.3.26522.148 |
+| Framework, reference pack and runtime | net10.0 / 10.0.14 | net11.0 / 11.0.0 |
 | Build task | No SDK vulnerability target/task | Inbox Microsoft.NET.Build.Tasks and SdkVulnerabilityCheck.targets |
 
 These exact test pins do not mean a future SDK is automatically qualified. The
@@ -41,7 +41,7 @@ Save this project as `SkylarkServicing.csproj` under `samples/net10.0/SkylarkSer
 
 ## Newer approach
 
-Use SDK **11.0.100-rc.3.26522.148**, `rollForward: "disable"`, the supported C#15
+Use SDK **11.0.100**, `rollForward: "disable"`, the supported C#15
 setting and the original dispatch program below. Save the project under
 `samples/net11.0/SkylarkServicing`. Both projects link the same source at
 `samples/net10.0/SkylarkServicing/Program.cs`.

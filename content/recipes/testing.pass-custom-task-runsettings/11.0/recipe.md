@@ -109,7 +109,7 @@ must fail its selected settings test with the explicit missing-Tern error.
    stays separate. Both task types expose the changed property, although the real
    invocation here uses VSTestTask; VSTestTask2 runtime execution is not claimed.
 2. Create the package boundaries and test projects above. Pin each parent global.json
-   to10.0.403 or11.0.100-rc.3.26522.148 with rollForward=disable; copy the pin
+   to10.0.403 or11.0.100 with rollForward=disable; copy the pin
    beside each nested test project. Create the shown
    common sources. Restore/build Tests/TernTests.csproj in Release, retain the actual
    packages.lock.json and then use locked restore. TestSdk brings matching TestHost.
@@ -137,8 +137,8 @@ must fail its selected settings test with the explicit missing-Tern error.
 ## Constraints
 
 The measured comparison is SDK **10.0.403**, C# **14**, runtime **10.0.14**
-versus SDK **11.0.100-rc.3.26522.148**, C# **15**, runtime
-**11.0.0-rc.2.26504.105**, on Windows x64. Public platform packages are pinned
+versus SDK **11.0.100**, C# **15**, runtime
+**11.0.0**, on Windows x64. Public platform packages are pinned
 independently: **18.7.0** and **18.11.0**, with NuGet-generated locks. Both CLI
 packages actually ship a **net10.0** console, not a console TFM inferred from
 package major numbers. TranslationLayer/TestHost/ObjectModel select their actual

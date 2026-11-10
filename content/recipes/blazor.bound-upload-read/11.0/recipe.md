@@ -150,8 +150,8 @@ read; IOException is reported as rejection or transfer failure without processin
 Cancellation is cooperative and does not undo already performed external effects;
 this example performs none before EOF.
 
-The current sample pins SDK 11.0.100-rc.3.26522.148, net11.0/C# 15 and
-ASP.NET Core/runtime 11.0.0-rc.3.26522.148. The previous sample pins SDK 10.0.403,
+The current sample pins SDK 11.0.100, net11.0/C# 15 and
+ASP.NET Core/runtime 11.0.0. The previous sample pins SDK 10.0.403,
 net10.0/C# 14 and ASP.NET Core/runtime 10.0.14. These are exact verification
 baselines, distinct from the release-family consumer prerequisites above.
 Microsoft.NET.Sdk.Web implicitly resolves the matching

@@ -115,7 +115,7 @@ Use the default injector when its normal keyed/unkeyed behavior already meets th
 ## Build and exercise
 
 The older pin is SDK 10.0.403 / C# 14 / ASP.NET Core 10.0.14. The newer pin is
-SDK 11.0.100-rc.3.26522.148 / C# 15 / ASP.NET Core 11.0.0-rc.3.26522.148.
+SDK 11.0.100 / C# 15 / ASP.NET Core 11.0.0.
 Microsoft.NET.Sdk.Web supplies the implicit Internal.Assets package at the
 matching framework version; no explicit PackageReference is needed. The shared
 framework supplies the server/provider/interop assemblies. Restore needs NuGet

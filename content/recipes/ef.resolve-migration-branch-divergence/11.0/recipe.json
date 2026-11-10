@@ -62,13 +62,13 @@
               "name": "Microsoft.EntityFrameworkCore.Sqlite",
               "version": "11.0",
               "match": "release-family",
-              "reason": "Pinned 11.0.0-rc.2.26504.105; historical comparison10.0.13."
+              "reason": "Pinned 11.0.0; historical comparison10.0.13."
             },
             {
               "name": "Microsoft.EntityFrameworkCore.Design",
               "version": "11.0",
               "match": "release-family",
-              "reason": "Pinned 11.0.0-rc.2.26504.105; historical comparison10.0.13."
+              "reason": "Pinned 11.0.0; historical comparison10.0.13."
             }
           ],
           "packageAssets": [

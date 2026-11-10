@@ -14,8 +14,8 @@ utility itself targets net11.0; this edition advertises only that host route.
 
 ## Requirements and measured artifacts
 
-The qualified newer route uses SDK **11.0.100-rc.3.26522.148**, runtime/reference
-pack **11.0.0-rc.2.26504.105**, C# **15.0** and the SDK's MSBuild
+The qualified newer route uses SDK **11.0.100**, runtime/reference
+pack **11.0.0**, C# **15.0** and the SDK's MSBuild
 **18.12.0-1.26504.105**. The comparison uses SDK **10.0.403**, runtime/reference
 pack **10.0.13**, C# **14.0**, and MSBuild **18.9.15**. Assembly version
 `15.1.0.0` identifies neither product build. These are exact tested Windows x64

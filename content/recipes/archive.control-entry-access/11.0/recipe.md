@@ -30,7 +30,7 @@ Open(FileAccess.Write) in Update mode discards existing content. Use Read for a 
 
 Read archives accept only Read. Create accepts Write and ReadWrite, but both are write-only. Update accepts all three: Write truncates, ReadWrite retains content, and Read cannot write. Incompatible combinations throw InvalidOperationException; invalid enum values throw ArgumentOutOfRangeException. Parameterless Open keeps its previous inference. Create entries can only be written once. Update buffers entry data, so limit trusted input sizes before opening it. CompressionMethod is inspection, not a setter; Deflate64 can be read by the runtime but is not produced by this example. The byte-array helpers deliberately handle small trusted archives; they are not a bounded untrusted extraction service.
 
-This edition has no external provider, workload, rendering requirement or experimental opt-in. Shared Blazor applicability means server-side code; it is not browser execution proof. All sample dependencies are framework-provided. Exact SDK pins 10.0.403 and 11.0.100-rc.3.26522.148 are reproducibility baselines, not mandatory exact consumer installations. RC verification does not establish GA behaviour or every platform's behaviour.
+This edition has no external provider, workload, rendering requirement or experimental opt-in. Shared Blazor applicability means server-side code; it is not browser execution proof. All sample dependencies are framework-provided. Exact SDK pins 10.0.403 and 11.0.100 are reproducibility baselines, not mandatory exact consumer installations. RC verification does not establish GA behaviour or every platform's behaviour.
 
 ## Evidence
 

@@ -28,7 +28,7 @@ The project below sets OpenApiGenerateDocuments=false so ordinary sample checks 
 
 Build-time generation launches application startup with the framework's mock server. Route registration and transformers execute; external service calls or other startup side effects can execute too. Keep startup independent of unavailable production resources. This fixture detects GetDocument.Insider only to keep its loopback test runner out of the tool's mock host; it leaves all route and transformer registration intact. No production resource or account is used.
 
-OpenApiGenerationEnvironment requires the supported .NET 11 build/tool assets, pinned here to 11.0.0-rc.2.26504.105. The .NET 10 comparison uses ApiDescription.Server 10.0.0 with OpenApi 10.0.13. The newer property is checked while both ambient environment variables say Production, so the Development result demonstrates selection by the actual property. An arbitrary property value accepted by MSBuild alone proves nothing. This goal does not cover dynamic document-name discovery, deployment configuration, secrets or Native AOT. No experimental opt-in is used; final GA reconciliation remains separate.
+OpenApiGenerationEnvironment requires the supported .NET 11 build/tool assets, pinned here to 11.0.0. The .NET 10 comparison uses ApiDescription.Server 10.0.0 with OpenApi 10.0.13. The newer property is checked while both ambient environment variables say Production, so the Development result demonstrates selection by the actual property. An arbitrary property value accepted by MSBuild alone proves nothing. This goal does not cover dynamic document-name discovery, deployment configuration, secrets or Native AOT. No experimental opt-in is used; final GA reconciliation remains separate.
 
 ## Evidence
 

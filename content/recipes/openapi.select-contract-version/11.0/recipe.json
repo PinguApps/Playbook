@@ -43,7 +43,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Sample pin 11.0.100-rc.3.26522.148; restore/build net11.0 assets."
+            "reason": "Sample pin 11.0.100; restore/build net11.0 assets."
           },
           "language": {
             "name": "C#",
@@ -56,20 +56,20 @@
           ],
           "packages": [
             {
-              "reason": "net11.0 server generation, pinned RC2 11.0.0-rc.2.26504.105 in the canonical sample.",
+              "reason": "net11.0 server generation, pinned RC2 11.0.0 in the canonical sample.",
               "match": "release-family",
               "version": "11.0",
               "name": "Microsoft.AspNetCore.OpenApi"
             },
             {
-              "reason": "Required for the build-time path; actual pinned build/tool assets 11.0.0-rc.2.26504.105.",
+              "reason": "Required for the build-time path; actual pinned build/tool assets 11.0.0.",
               "match": "release-family",
               "version": "11.0",
               "name": "Microsoft.Extensions.ApiDescription.Server"
             }
           ],
           "packageAssets": [
-            "Newer: Microsoft.AspNetCore.OpenApi and Microsoft.Extensions.ApiDescription.Server 11.0.0-rc.2.26504.105, Microsoft.OpenApi 3.10.2, net11.0. Older comparison: OpenApi 10.0.13, ApiDescription.Server 10.0.0, Microsoft.OpenApi 2.12.2, net10.0. Locked resolved graphs are saved independently. NSwag.ConsoleCore 14.7.1/NJsonSchema 11.6.1 verifies the selected OpenAPI 3.0 client document; it is not a server or Playbook dependency."
+            "Newer: Microsoft.AspNetCore.OpenApi and Microsoft.Extensions.ApiDescription.Server 11.0.0, Microsoft.OpenApi 3.10.2, net11.0. Older comparison: OpenApi 10.0.13, ApiDescription.Server 10.0.0, Microsoft.OpenApi 2.12.2, net10.0. Locked resolved graphs are saved independently. NSwag.ConsoleCore 14.7.1/NJsonSchema 11.6.1 verifies the selected OpenAPI 3.0 client document; it is not a server or Playbook dependency."
           ],
           "workloads": [],
           "providers": [

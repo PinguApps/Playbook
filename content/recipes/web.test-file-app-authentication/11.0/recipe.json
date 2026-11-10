@@ -46,7 +46,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Actual pin 11.0.100-rc.3.26522.148; SDK CLI/template behavior is verified independently of target selection."
+            "reason": "Actual pin 11.0.100; SDK CLI/template behavior is verified independently of target selection."
           },
           "language": {
             "name": "C#",
@@ -60,7 +60,7 @@
           "packages": [
             {
               "name": "Microsoft.AspNetCore.Authentication.JwtBearer",
-              "version": "11.0.0-rc.2.26504.105",
+              "version": "11.0.0",
               "match": "exact",
               "reason": "Actual authoring dependency; inspect package assets and lock file before updating."
             }

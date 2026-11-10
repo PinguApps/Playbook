@@ -94,7 +94,7 @@
           ],
           "optIns": [],
           "prerequisites": [
-            "Use the complete Host/Client projects, explicit Razor imports, namespaces, document, CSS and boot JavaScript below. Actual baseline: SDK 11.0.100-rc.3.26522.148, runtime/packages 11.0.0-rc.3.26522.148, C# 15. No wasm-tools workload or AOT is required; WasmBuildNative=false.",
+            "Use the complete Host/Client projects, explicit Razor imports, namespaces, document, CSS and boot JavaScript below. Actual baseline: SDK 11.0.100, runtime/packages 11.0.0, C# 15. No wasm-tools workload or AOT is required; WasmBuildNative=false.",
             "WebApplication supplies server IHostEnvironment. WebAssemblyHostBuilder registers its real browser environment and IHostEnvironment adapter. The browser demonstration defaults to Review independently of the server; the query switch is public test setup only."
           ]
         },

@@ -52,7 +52,7 @@
             {
               "match": "exact",
               "name": "Microsoft.AspNetCore.Components.WebView.Maui",
-              "version": "11.0.0-rc.2.26505.5",
+              "version": "11.0.0",
               "reason": "Contains the actual policy callback API."
             }
           ],

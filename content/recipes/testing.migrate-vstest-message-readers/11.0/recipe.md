@@ -43,8 +43,8 @@ stable custom-serializer extension API or make internal converters supported.
 Do not copy SDK-root DLLs, add an imaginary CommunicationUtilities NuGet package,
 or mix platform release sets. Keep the complete resolved runtime closure.
 
-The new .NET 11 project uses SDK **11.0.100-rc.3.26522.148**, C# **15** and runtime
-**11.0.0-rc.2.26504.105**. CommunicationUtilities/ObjectModel still select their
+The new .NET 11 project uses SDK **11.0.100**, C# **15** and runtime
+**11.0.0**. CommunicationUtilities/ObjectModel still select their
 actual **lib/net8.0** compile and runtime assets:
 
 {{snippet:newer-project}}

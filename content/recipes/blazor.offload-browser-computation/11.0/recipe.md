@@ -32,9 +32,9 @@ Use the complete shared document and observer below too. The observer only recor
 
 ## Newer approach
 
-Use SDK 11.0.100-rc.3.26522.148 with runtime/packages 11.0.0-rc.3.26522.148. Create adjacent FossilDesk and FossilWorker directories. From a directory with that SDK selected, run dotnet new blazorwebworker -n FossilWorker -o FossilWorker --no-restore. The generated artifact has WebWorkerClient.cs, WorkerMethods.cs and both wwwroot/dotnet-web-worker scripts. Keep the generated client/transport; replace only its starter method and apply the explicit project/package pins below. The complete generated files are also included offline later in this body.
+Use SDK 11.0.100 with runtime/packages 11.0.0. Create adjacent FossilDesk and FossilWorker directories. From a directory with that SDK selected, run dotnet new blazorwebworker -n FossilWorker -o FossilWorker --no-restore. The generated artifact has WebWorkerClient.cs, WorkerMethods.cs and both wwwroot/dotnet-web-worker scripts. Keep the generated client/transport; replace only its starter method and apply the explicit project/package pins below. The complete generated files are also included offline later in this body.
 
-In BOTH directories add global.json with sdk.version 11.0.100-rc.3.26522.148, sdk.rollForward disable and sdk.allowPrerelease true. Set Directory.Packages.props to the following identical contents. The packages and SDK are author-maintained RC3 pins, not a promise about a future GA template.
+In BOTH directories add global.json with sdk.version 11.0.100, sdk.rollForward disable and sdk.allowPrerelease false. Set Directory.Packages.props to the following identical contents. The packages and SDK are author-maintained RC3 pins, not a promise about a future GA template.
 
 {{snippet:packages-11}}
 
@@ -107,7 +107,7 @@ The page import map resolves fingerprinted dotnet.js before passing its URL into
 
 The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
-Actual SDK 10.0.403/C#14 compiles the older standalone WASM application. Actual SDK 11.0.100-rc.3.26522.148/C#15 compiles the consuming app and generated worker library independently with locked dependencies. These records are compilation, not desktop execution or cross-compilation. No mocked worker/client substitutes for the runtime.
+Actual SDK 10.0.403/C#14 compiles the older standalone WASM application. Actual SDK 11.0.100/C#15 compiles the consuming app and generated worker library independently with locked dependencies. These records are compilation, not desktop execution or cross-compilation. No mocked worker/client substitutes for the runtime.
 
 Separate foreground Chrome/native-Worker execution checks rendering and a counter update while the 1200 ms worker calculation is still running, value/void exports and per-worker state, creation timeout and cancellation, invocation timeout and cancellation, and explicit disposal during pending CPU work. The creation cancellation probe temporarily holds the REAL worker's init message to make the race deterministic; after cancellation it releases the message, observes successful real .NET boot, then terminates that intentionally orphaned worker. Neither a held init message nor source review is labelled normal unscheduled timing evidence. The generated invocation path itself is unmodified. Sent Report messages precede the timed/cancelled Score results, proving the caller's wait ended before actual CPU completion.
 

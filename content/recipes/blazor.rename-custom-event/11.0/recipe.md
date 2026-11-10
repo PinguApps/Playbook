@@ -144,7 +144,7 @@ manually. Registration belongs to application startup, not each component render
    `& 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' build -c Release`
    for .NET 11 (substitute your installed executable locations).
    The pinned SDK resolves Microsoft.AspNetCore.App.Internal.Assets 10.0.14 or
-   11.0.0-rc.3.26522.148; it is implicit in Microsoft.NET.Sdk.Web.
+   11.0.0; it is implicit in Microsoft.NET.Sdk.Web.
 4. Set process-only `$env:ASPNETCORE_ENVIRONMENT='Development'` and
    `$env:DOTNET_ENVIRONMENT='Development'` so build-output static assets load.
    Run the matching executable with
@@ -172,8 +172,8 @@ handler. Server-side handlers need a connected circuit; the input remains a
 normal browser input. There is no persistence, deduplication or delivery guarantee.
 
 Runtime/SDK family 11 and matching browser assets are required for this changed
-guard. Samples pin SDK 10.0.403/C# 14 and SDK 11.0.100-rc.3.26522.148/C# 15,
-ASP.NET Core/runtime 10.0.14 and 11.0.0-rc.3.26522.148 respectively. There are no
+guard. Samples pin SDK 10.0.403/C# 14 and SDK 11.0.100/C# 15,
+ASP.NET Core/runtime 10.0.14 and 11.0.0 respectively. There are no
 external packages, providers or required workloads. The Web SDK implicitly resolves
 the matching Internal.Assets package; preserve the generated lock file after the
 first restore for a repeatable local build. An empty workload requirement is not a

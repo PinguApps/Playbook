@@ -47,7 +47,7 @@
           "sdk": {
             "version": "11.0",
             "match": "release-family",
-            "reason": "Exact recorded pin 11.0.100-rc.3.26522.148; older sample 10.0.403.",
+            "reason": "Exact recorded pin 11.0.100; older sample 10.0.403.",
             "name": ".NET SDK"
           },
           "language": {
@@ -115,7 +115,7 @@
           "sdk": {
             "version": "11.0",
             "match": "release-family",
-            "reason": "Exact recorded pin 11.0.100-rc.3.26522.148; older sample 10.0.403.",
+            "reason": "Exact recorded pin 11.0.100; older sample 10.0.403.",
             "name": ".NET SDK"
           },
           "language": {

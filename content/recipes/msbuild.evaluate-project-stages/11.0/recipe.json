@@ -50,13 +50,13 @@
         "requirements": {
           "runtime": {
             "name": ".NET",
-            "version": "11.0.0-rc.2.26504.105",
+            "version": "11.0.0",
             "match": "exact",
             "reason": "Exact qualified external MSBuild host runtime. Actual GA remains unqualified."
           },
           "sdk": {
             "name": ".NET SDK",
-            "version": "11.0.100-rc.3.26522.148",
+            "version": "11.0.100",
             "match": "exact",
             "reason": "Compile and execute against the complete matching installed SDK/MSBuild 18.12.0-1.26504.105 closure and SDK resolver."
           },
@@ -86,7 +86,7 @@
           ],
           "renderingModes": [],
           "prerequisites": [
-            "Install the complete exact SDK/runtime from official .NET distributions; a lone DLL is insufficient. Use exact global.json with rollForward=disable and allowPrerelease=true.",
+            "Install the complete exact SDK/runtime from official .NET distributions; a lone DLL is insufficient. Use exact global.json with rollForward=disable and allowPrerelease=false.",
             "Launch the host DLL through the matching absolute dotnet executable; the bootstrap derives the SDK path from that executable. Register Locator before loading MSBuild types, and use one SDK per disposable process.",
             "Use trusted project/import inputs. PowerShell7 is needed for repository evidence/inspection; Node22.19+ and SDK10 are additionally needed for packed-tool inspection. Inspect inherited build/package configuration."
           ],

@@ -124,7 +124,7 @@ Synchronous DataAnnotations validation of a public same-assembly request model b
 
 Validation is not authorization, duplicate detection, stock reservation or a database transaction. Malformed JSON is rejected by binding, independently of annotations. Unknown JSON properties are ignored by default; AddValidation does not supply a strict JSON contract. Configure JSON unmapped-member handling separately if that is your requirement. Error wording may vary; the fixture asserts status, field keys and handler counts instead of localized text.
 
-The top-level AddValidation API and built-in filter are stable. Some .NET 10 low-level validation resolver/attribute APIs are experimental; none are used here and there is no broad suppression. The samples require C# 13/SDK 9.0.319, C# 14/SDK 10.0.403 and C# 15/SDK 11.0.100-rc.3.26522.148 respectively. Only targets 10 and 11 are catalogue routes; .NET 9 is the canonical historical comparison, not a new catalogue target. Requirements, exact test pins and language mode remain separate.
+The top-level AddValidation API and built-in filter are stable. Some .NET 10 low-level validation resolver/attribute APIs are experimental; none are used here and there is no broad suppression. The samples require C# 13/SDK 9.0.319, C# 14/SDK 10.0.403 and C# 15/SDK 11.0.100 respectively. Only targets 10 and 11 are catalogue routes; .NET 9 is the canonical historical comparison, not a new catalogue target. Requirements, exact test pins and language mode remain separate.
 
 ## Evidence
 

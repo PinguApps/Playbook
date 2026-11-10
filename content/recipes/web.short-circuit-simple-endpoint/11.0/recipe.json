@@ -73,7 +73,7 @@
             "Server HTTP endpoints; no Blazor rendering mode required"
           ],
           "prerequisites": [
-            "Create every file below in a standalone SignalCabin directory for the chosen target. Empty Directory files isolate surrounding build/package rules. Restore the matching framework packs once; installed guidance itself remains offline. SDK 10.0.403 / 11.0.100-rc.3.26522.148 and C# 14.0 / 15.0 reproduce actual evidence, not minimum language-feature requirements."
+            "Create every file below in a standalone SignalCabin directory for the chosen target. Empty Directory files isolate surrounding build/package rules. Restore the matching framework packs once; installed guidance itself remains offline. SDK 10.0.403 / 11.0.100 and C# 14.0 / 15.0 reproduce actual evidence, not minimum language-feature requirements."
           ],
           "constraints": [
             "Use only for a deliberately public, self-contained response that does not need skipped authentication, CORS, antiforgery, rate limiting, session, telemetry enrichment or any other downstream middleware. Audit default/fallback policies and custom checks too: the framework cannot discover every application-specific dependency.",

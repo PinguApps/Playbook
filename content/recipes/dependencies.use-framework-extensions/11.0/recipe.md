@@ -42,7 +42,7 @@ Logging.Abstractions, Options and Primitives (all names have the
 Microsoft.Extensions prefix). This is a closed list. Hosting.Abstractions does
 not include the Hosting implementation; FileProviders.Abstractions does not
 include PhysicalFileProvider. The checked implementation control retains
-`Microsoft.Extensions.FileProviders.Physical` `[11.0.0-rc.2.26504.105]`, selects
+`Microsoft.Extensions.FileProviders.Physical` `[11.0.0]`, selects
 its and FileSystemGlobbing's lib/net11.0 assets, and reads its own
 assembly's file entry. Removing that implementation reference prevents compilation.
 
@@ -83,7 +83,7 @@ assembly's file entry. Removing that implementation reference prevents compilati
    for multitarget libraries; review selection per TFM rather than assuming a
    net11-only warning or deleting the older dependency.
 5. Compare an intentional override with the actual framework version. The checked
-   `Microsoft.Extensions.Logging.Abstractions` `[11.0.0-rc.3.26522.148]` reference
+   `Microsoft.Extensions.Logging.Abstractions` `[11.0.0]` reference
    now matches the RC3 framework. Restore retains its exact package entry and
    reports NU1510; execution loads the framework assembly. The isolated control
    allows that specific warning to demonstrate the result. It no longer proves
@@ -103,7 +103,7 @@ assembly's file entry. Removing that implementation reference prevents compilati
 
 Application requirements are SDK/runtime11 for the base-framework route, and a
 compatible language/project system. Exact SDK10.0.403/runtime10.0.14 and
-SDK11.0.100-rc.3.26522.148/runtime11RC3 identify the measured consumers; C#14/15
+SDK11.0.100/runtime11RC3 identify the measured consumers; C#14/15
 are their declared language modes, not a new syntax requirement for project edits.
 The primary net11 consumer has an empty NuGet closure. Samples retain isolated
 package/build boundaries and exact locks; no root update permission is broadened.

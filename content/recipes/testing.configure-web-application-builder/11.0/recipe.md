@@ -17,8 +17,8 @@ app.Run; WebApplicationFactory discovers the entrypoint and supplies TestServer.
 No mocked builder, external service, browser or package-native asset is used.
 
 Exact previous pins: SDK10.0.403/framework10.0.14/C#14 and Mvc.Testing/TestHost/
-DependencyModel10.0.13. Current pins: SDK11.0.100-rc.3.26522.148, framework and
-matching packages11.0.0-rc.2.26504.105, C#15. These identify reproduction, not
+DependencyModel10.0.13. Current pins: SDK11.0.100, framework and
+matching packages11.0.0, C#15. These identify reproduction, not
 minimum servicing versions. Windows x64 is the executed lane. The newer hook
 targets the .NET11 framework/package family with no experimental opt-in or
 C#15-specific syntax; actual-GA reconciliation remains open.

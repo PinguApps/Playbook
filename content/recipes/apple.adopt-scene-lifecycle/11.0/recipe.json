@@ -61,7 +61,7 @@
           ],
           "packages": [
             {
-              "version": "11.0.0-rc.2.26505.5",
+              "version": "11.0.0",
               "name": "Microsoft.Maui.Controls",
               "match": "exact",
               "reason": "MAUI variant only; base UIKit variant has no MAUI package."
@@ -77,8 +77,8 @@
           ],
           "packageAssets": [
             "Microsoft.iOS.Ref.net11.0_27.0/27.0.12212-net11-rc.2 ref/net11.0/Microsoft.iOS.dll",
-            "Microsoft.Maui.Core/11.0.0-rc.2.26505.5 lib/net11.0-ios27.0/Microsoft.Maui.dll",
-            "Microsoft.Maui.Controls.Core/11.0.0-rc.2.26505.5 lib/net11.0-ios27.0/Microsoft.Maui.Controls.dll"
+            "Microsoft.Maui.Core/11.0.0 lib/net11.0-ios27.0/Microsoft.Maui.dll",
+            "Microsoft.Maui.Controls.Core/11.0.0 lib/net11.0-ios27.0/Microsoft.Maui.Controls.dll"
           ],
           "providers": [
             "No external service or account"

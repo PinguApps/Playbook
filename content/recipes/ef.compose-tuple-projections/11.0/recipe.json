@@ -67,7 +67,7 @@
             }
           ],
           "packageAssets": [
-            "Audit SDK10.0.402/11 RC2 pins remain historical. Consumers use SDK10.0.403/C#14 and SDK11.0.100-rc.3.26522.148/C#15. EF10.0.13 selects net10.0, EF11 selects net11.0. Direct Data.Sqlite.Core10 selects net8.0; version11 selects net10.0. No EF11-on-net10 route. Exact restored graphs are locked separately."
+            "Audit SDK10.0.402/11 RC2 pins remain historical. Consumers use SDK10.0.403/C#14 and SDK11.0.100/C#15. EF10.0.13 selects net10.0, EF11 selects net11.0. Direct Data.Sqlite.Core10 selects net8.0; version11 selects net10.0. No EF11-on-net10 route. Exact restored graphs are locked separately."
           ],
           "providers": [
             "Windows x64 SQLite3.53.3/3.53.4 via actual bundled e_sqlite3 native assets. No InMemory or mock evidence."

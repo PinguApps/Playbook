@@ -94,7 +94,7 @@ The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The
 
 eng/Test-NetworkBuffers.ps1 -Record -VerifySources compiles and runs actual
 net10.0/C#14 and net11.0/C#15 consumers using SDK10.0.403/runtime10.0.14 and
-SDK11.0.100-rc.3.26522.148/runtime11.0.0-rc.3.26522.148, without packages. It
+SDK11.0.100/runtime11.0.0, without packages. It
 compares System.Net.Primitives/System.Runtime reference hashes to the original
 runtime/security audit, records compiler and loaded CoreLib identities, exact
 commands, inputs and fresh behaviour output through the existing evidence workflow.

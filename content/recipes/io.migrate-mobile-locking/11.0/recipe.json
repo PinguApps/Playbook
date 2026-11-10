@@ -64,7 +64,7 @@
           "renderingModes": [],
           "workloads": [],
           "prerequisites": [
-            "Previous comparison SDK10.0.403/C#14/runtime-reference10.0.14; current SDK11.0.100-rc.3.26522.148/C#15/runtime-reference11RC3. Evidence values describe actual observations except explicitly intended source-only pins."
+            "Previous comparison SDK10.0.403/C#14/runtime-reference10.0.14; current SDK11.0.100/C#15/runtime-reference11RC3. Evidence values describe actual observations except explicitly intended source-only pins."
           ],
           "constraints": [
             "Portable .NET10/11 helpers compile/run on Windows x64; current single-instance concurrent writes and cancellation verified. iOS/tvOS native compilation, FileShare enforcement, background suspension and compatibility-switch execution are not-tested under PIN-699.",

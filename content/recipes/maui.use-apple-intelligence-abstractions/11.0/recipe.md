@@ -12,7 +12,7 @@ The .NET 10 comparison uses the already-published experimental Essentials.AI 10.
 
 {{snippet:samples-net11-0-heronnotes-notes-cs}}
 
-The current sample uses Essentials.AI 11.0.0-preview.6.26360.8 and its actual net11.0-ios26.5 asset. The local pragma acknowledges MAUIAI0001 and restores the warning afterward. The assembly remains experimental even though the API is shipped. The method owns/disposes its client; an app using a shared injected IChatClient should instead let that service's owner dispose it. Propagate cancellation from page/workflow lifetime and prevent overlapping submissions in the surrounding UI.
+The current sample uses Essentials.AI 11.0.0 and its actual net11.0-ios26.5 asset. The local pragma acknowledges MAUIAI0001 and restores the warning afterward. The assembly remains experimental even though the API is shipped. The method owns/disposes its client; an app using a shared injected IChatClient should instead let that service's owner dispose it. Propagate cancellation from page/workflow lifetime and prevent overlapping submissions in the surrounding UI.
 
 An OS version alone does not establish Apple Intelligence availability. Require eligible hardware, Apple Intelligence enabled, a downloaded model and a supported language/region. This pinned client's public surface does not expose the newer GetModelStatusAsync helper: do not copy that call from newer package documentation into this sample. The host must offer an unavailable/error state when native generation fails and retain manual editing. Do not silently upload notes to a cloud model. Never log prompt/response content by default.
 

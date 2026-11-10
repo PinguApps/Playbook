@@ -16,9 +16,9 @@ separate verification baselines, not mandatory patch upgrades for every consumer
 
 | Layer | Older consumer | Current consumer |
 | --- | --- | --- |
-| SDK | 10.0.403 | 11.0.100-rc.3.26522.148 |
+| SDK | 10.0.403 | 11.0.100 |
 | C# compiler / language setting | 5.9.0-1.26523.112 / 14.0 | 5.12.0-1.26522.148 / 15.0 |
-| Framework / ref / runtime | net10.0 / 10.0.14 | net11.0 / 11.0.0-rc.3.26522.148 |
+| Framework / ref / runtime | net10.0 / 10.0.14 | net11.0 / 11.0.0 |
 | Bundled NuGet | 7.9.0-rc.611 | 8.0.0-rc.605 |
 | MSBuild product | 18.9.15 | 18.12.0-1.26504.105 |
 
@@ -64,7 +64,7 @@ Save `Imports/Night.props`:
 
 Create `global.json` beside `Imports`, with
 `{"sdk":{"version":"10.0.403","rollForward":"disable"}}` for the older copy or
-`{"sdk":{"version":"11.0.100-rc.3.26522.148","rollForward":"disable"}}` for the
+`{"sdk":{"version":"11.0.100","rollForward":"disable"}}` for the
 current copy. Use that matching complete SDK executable. No NuGet package or
 restore is needed for these evaluation queries; the companion compiled evidence
 application has a separate local-only original package closure.

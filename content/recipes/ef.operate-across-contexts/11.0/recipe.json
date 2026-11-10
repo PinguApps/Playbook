@@ -62,25 +62,25 @@
               "name": "Microsoft.EntityFrameworkCore.Sqlite",
               "version": "11.0",
               "match": "release-family",
-              "reason": "Canonical pin 11.0.0-rc.2.26504.105; historical comparison 10.0.13."
+              "reason": "Canonical pin 11.0.0; historical comparison 10.0.13."
             },
             {
               "name": "Microsoft.EntityFrameworkCore.Design",
               "version": "11.0",
               "match": "release-family",
-              "reason": "Canonical pin 11.0.0-rc.2.26504.105; historical comparison 10.0.13."
+              "reason": "Canonical pin 11.0.0; historical comparison 10.0.13."
             },
             {
               "name": "Microsoft.EntityFrameworkCore.Tools",
               "version": "11.0",
               "match": "release-family",
-              "reason": "Canonical pin 11.0.0-rc.2.26504.105; historical comparison 10.0.13."
+              "reason": "Canonical pin 11.0.0; historical comparison 10.0.13."
             },
             {
               "name": "dotnet-ef",
               "version": "11.0",
               "match": "release-family",
-              "reason": "Canonical pin 11.0.0-rc.2.26504.105; historical comparison 10.0.13."
+              "reason": "Canonical pin 11.0.0; historical comparison 10.0.13."
             }
           ],
           "packageAssets": [
@@ -103,7 +103,7 @@
             "Wildcard script concatenates SQL; use explicit per-context scripts for separate databases."
           ],
           "prerequisites": [
-            "SDK10.0.403 / SDK11 11.0.100-rc.3.26522.148; EF10.0.13 / EF11.0.0-rc.2.26504.105.",
+            "SDK10.0.403 / SDK11 11.0.100; EF10.0.13 / EF11.0.0.",
             "Restore packages and install the matching dotnet-ef from NuGet online before running the checks. Setup is separate from offline Playbook retrieval; no provisioned service or account is required."
           ],
           "optIns": [],

@@ -64,7 +64,7 @@
             },
             {
               "name": "Microsoft.Extensions.Caching.Abstractions",
-              "version": "11.0.0-rc.2.26504.105",
+              "version": "11.0.0",
               "match": "exact",
               "reason": "The explicit RC2 abstraction pin exposes the mutable factory context; its net11 empty asset defers to the shared framework."
             }

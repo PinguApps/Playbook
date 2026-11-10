@@ -59,7 +59,7 @@
           "packages": [
             {
               "name": "Microsoft.Extensions.Logging.Abstractions",
-              "version": "11.0.0-rc.2.26504.105",
+              "version": "11.0.0",
               "match": "exact",
               "reason": "The verified sample's private analyzer reference supplies the logging source generator; runtime types come from the framework."
             }

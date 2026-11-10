@@ -102,7 +102,7 @@ The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The
 
 eng/Test-RuntimeCalls.ps1 -Record -VerifySources builds and runs actual
 net10.0/C#14 and net11.0/C#15 consumers using SDK10.0.403/runtime10.0.14 and
-SDK11.0.100-rc.3.26522.148/runtime11.0.0-rc.3.26522.148. Saved compilation records
+SDK11.0.100/runtime11.0.0. Saved compilation records
 include exact commands, inputs, empty resolved package sets, compiler and loaded
 CoreLib identities, and audit-matching System.Runtime, Reflection.Emit.ILGeneration
 and Reflection.Emit.Lightweight reference hashes. Paired official contracts and

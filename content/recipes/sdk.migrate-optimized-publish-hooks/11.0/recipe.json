@@ -33,7 +33,7 @@
         "usage": "primary",
         "selectionNotes": [
           "Real Windows x64 ILC/link/PE/native execution and matched binlog replay; default/false/true legacy versus migrated publish hooks, NoBuild refresh/repeat and missing/wrong sidecar failures.",
-          "Exact RC2 evidence is distinct from supported prerequisites and actual-GA qualification. Older examples are comparisons inside this target11 edition."
+          "SDK 11.0.100 GA defaults optimized publishing off; explicit true exercises the shorter publish path. Older examples remain comparisons."
         ],
         "requirements": {
           "runtime": {
@@ -46,7 +46,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "SDK family supplying the authored build contract; exact RC2 build is recorded evidence, not GA qualification."
+            "reason": "SDK 11.0.100 GA supplies the measured opt-in optimized publish contract."
           },
           "language": {
             "name": "C#",
@@ -57,7 +57,7 @@
           "frameworks": [],
           "packages": [],
           "packageAssets": [
-            "Microsoft.DotNet.ILCompiler, runtime.win-x64.Microsoft.DotNet.ILCompiler and Microsoft.NET.ILLink.Tasks 11.0.0-rc.2.26504.105; locked actual closure"
+            "Microsoft.DotNet.ILCompiler, runtime.win-x64.Microsoft.DotNet.ILCompiler and Microsoft.NET.ILLink.Tasks 11.0.0; locked actual closure"
           ],
           "workloads": [],
           "providers": [],
@@ -66,16 +66,18 @@
           ],
           "renderingModes": [],
           "prerequisites": [
-            "Complete SDK11 and matching native package closure. Measured SDK10.0.403 versus SDK11.0.100-rc.3.26522.148.",
+            "Complete SDK 11.0.100 GA and matching native package closure; SDK 10.0.403 supplies the preserved comparison.",
             "MSVC link14.51.36260.0, MSVC14.51.36231 x64 libs and Windows SDK10.0.26100.0 UM/UCRT libraries; absolute paths avoid PATH changes."
           ],
           "constraints": [
             "Real Windows x64 ILC/link/PE/native execution and matched binlog replay; default/false/true legacy versus migrated publish hooks, NoBuild refresh/repeat and missing/wrong sidecar failures.",
-            "No arbitrary plugin/registry, other-platform, production or actual-GA guarantee. Exact eight foundations and PIN-959/PIN-963/Human gates remain open."
+            "No arbitrary plugin, other-platform or production guarantee. Existing Human gates remain open."
           ],
-          "optIns": [],
+          "optIns": [
+            "UseOptimizedPublish=true selects the shorter SDK11 publish path; GA defaults false."
+          ],
           "stabilityLimitations": [
-            "Evidence is .NET 11 RC2. Reconcile actual GA artifacts separately under PIN-963; no API taught here is designated experimental."
+            "Native evidence covers the measured Windows x64 toolchain."
           ]
         },
         "sourceUrls": [

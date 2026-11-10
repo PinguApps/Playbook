@@ -21,7 +21,7 @@ The .NET 10 comparison uses SDK 10.0.403, C# 14, hostfxr and runtime 10.0.14:
 
 ## Newer approach
 
-The .NET 11 version uses SDK 11.0.100-rc.3.26522.148, C# 15 and matching RC2
+The .NET 11 version uses SDK 11.0.100, C# 15 and matching RC2
 hostfxr/runtime. These exact pins reproduce the evidence; they are separate from
 the feature requirement, .NET 11's host behavior introduced in Preview 6.
 
@@ -47,7 +47,7 @@ not a magic filename the host reads automatically:
 
 Create a directory containing the matching project, `Program.cs`,
 `development.json` and a `global.json` pin for the stated SDK
-(`rollForward: "disable"`, `allowPrerelease: true` for RC2). From that directory,
+(`rollForward: "disable"`, `allowPrerelease: false` for RC2). From that directory,
 invoke the matching installation's absolute `dotnet` executable with arguments
 `build TidalDiagnostics.csproj -c Release`. Copy `development.json` to
 `bin/Release/net10.0/TidalDiagnostics.runtimeconfig.dev.json` for the older
@@ -120,7 +120,7 @@ This target-11 edition retains an actual .NET 10 comparison; it adds no historic
 with no NuGet dependencies, provider, browser/rendering mode or native compiler.
 The example's C# modes are sample pins, not language requirements for host merging.
 Execution evidence is Windows x64, SDK 10.0.403 / 11 RC2, hostfxr/CoreCLR
-10.0.13 / 11.0.0-rc.2.26504.105. Other platforms need their own artifact check.
+10.0.13 / 11.0.0. Other platforms need their own artifact check.
 No API here is experimental; RC3 evidence is not GA verification.
 
 ## Evidence

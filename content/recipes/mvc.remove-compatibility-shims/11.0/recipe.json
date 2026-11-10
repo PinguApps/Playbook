@@ -83,7 +83,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Stable framework migration; .NET 11 compilation and execution evidence uses 11.0.100-rc.3.26522.148. GA reconciliation remains separate."
+            "Stable framework migration; .NET 11 compilation and execution evidence uses 11.0.100. GA reconciliation remains separate."
           ]
         },
         "sourceUrls": [

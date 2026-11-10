@@ -44,10 +44,10 @@ byte-for-byte equivalence for arbitrary inputs.
 ## Complete setup
 
 Use Microsoft.NET.Sdk.Web, net11.0 and C# 15.0; the comparison uses net10.0 and
-C# 14.0. Enable nullable and implicit usings. Pin SDK 11.0.100-rc.3.26522.148 or
+C# 14.0. Enable nullable and implicit usings. Pin SDK 11.0.100 or
 10.0.403 independently for reproducing the samples. These APIs come from the
 ASP.NET Core shared/reference framework. The measured Web SDK supplies aligned
-Internal.Assets browser files 11.0.0-rc.3.26522.148 or 10.0.14; no additional API
+Internal.Assets browser files 11.0.0 or 10.0.14; no additional API
 package, provider, native workload or account is required.
 
 {{snippet:startup}}

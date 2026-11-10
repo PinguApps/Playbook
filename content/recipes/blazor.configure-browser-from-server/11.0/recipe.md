@@ -56,7 +56,7 @@ five attempts at 3000 ms to three at 1000 ms, while retaining the dialog ID and
 two-minute inactivity value. PreserveDom=true emits disableDomPreservation=false.
 
 Create the same two sibling directories. In **both**, use global.json
-`{"sdk":{"version":"11.0.100-rc.3.26522.148","rollForward":"disable"}}`.
+`{"sdk":{"version":"11.0.100","rollForward":"disable"}}`.
 The project files declare the namespace, language, nullability, implicit usings,
 package lock creation and browser asset composition. They do not require a
 repository build file, optional workload, external service or database provider.

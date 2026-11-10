@@ -63,7 +63,7 @@
           ],
           "packages": [
             {
-              "version": "11.0.0-rc.2.26504.105",
+              "version": "11.0.0",
               "name": "Microsoft.AspNetCore.SignalR.Client",
               "match": "exact",
               "reason": "Exact tested RC2 client baseline with non-streaming cancellation; matching server capability is also required."
@@ -84,7 +84,7 @@
             "Non-streaming server hub invocation from a .NET client; no Blazor rendering mode required"
           ],
           "prerequisites": [
-            "Both client and server must support non-streaming invocation cancellation. The canonical complete consumers pin SDK 10.0.403 / 11.0.100-rc.3.26522.148, C# 14 / 15 and client packages 10.0.13 / 11.0.0-rc.2.26504.105. Restore matching packs/packages before offline sample use; Playbook itself is offline."
+            "Both client and server must support non-streaming invocation cancellation. The canonical complete consumers pin SDK 10.0.403 / 11.0.100, C# 14 / 15 and client packages 10.0.13 / 11.0.0. Restore matching packs/packages before offline sample use; Playbook itself is offline."
           ],
           "constraints": [
             "Non-streaming invocation; matched new client/server capabilities. No .NET 10 target route is declared. Tested mixed pairs retain only local wait cancellation until the connection is stopped.",

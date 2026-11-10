@@ -39,7 +39,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Exact authoring pin is 11.0.100-rc.3.26522.148."
+            "reason": "Exact authoring pin is 11.0.100."
           },
           "language": {
             "name": "C#",
@@ -53,7 +53,7 @@
           "packages": [
             {
               "name": "Microsoft.Maui.Essentials.AI",
-              "version": "11.0.0-preview.6.26360.8",
+              "version": "11.0.0",
               "match": "exact",
               "reason": "Exact inspected sample asset baseline."
             }

@@ -88,7 +88,7 @@ eng/Test-NativeBoundaries.ps1 -Lane Windows -Record builds both independently
 pinned consumers and runs real Windows x86 .NET10.0.13 and .NET11 RC2. Evidence
 records retain commands, inputs, actual compiler/reference/runtime identities,
 configured limit, bounded retained bytes, RSS and observed OOM/control outcomes.
-The records distinguish actual SDK10.0.403 and SDK11.0.100-rc.3.26522.148 from
+The records distinguish actual SDK10.0.403 and SDK11.0.100 from
 application prerequisites. No actual GA or other-platform execution is claimed.
 The pinned GC configuration documentation establishes decimal JSON versus
 hexadecimal environment values but still describes a 64-bit-only restriction.

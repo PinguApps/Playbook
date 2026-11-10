@@ -44,7 +44,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Build the net11.0 application with an SDK supporting that target; sample pin is 11.0.100-rc.3.26522.148."
+            "reason": "Build the net11.0 application with an SDK supporting that target; sample pin is 11.0.100."
           },
           "language": {
             "name": "C#",
