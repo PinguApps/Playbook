@@ -63,6 +63,7 @@ jobs:
           dotnet-version: |
             9.0.319
             11.0.100-rc.3.26522.148
+            11.0.100
 
       - name: Identify dependency policy changes
         id: dependency_changes
