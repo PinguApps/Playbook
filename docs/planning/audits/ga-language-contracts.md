@@ -182,13 +182,14 @@ $host10 = 'V:\_worktrees\Playbook\t3-1ead8027\artifacts\dotnet10\dotnet.exe'
 $ids = @(Get-ChildItem ./content/recipes -Directory -Filter 'fsharp.*' |
   Where-Object Name -notin @('fsharp.adapt-opaque-callbacks','fsharp.configure-compiler-service-memory') |
   Select-Object -ExpandProperty Name)
+$ids += 'json.serialize-fsharp-unions'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 -RecipeId $ids -Query '' `
   -RecipeEdition 11.0 -TargetVersion 11.0 -PackageVersion 0.0.0-preview.1288 `
   -Dotnet $host10 -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory ./artifacts/pin-1288/inspection
 ```
 
-Expect sixteen ID/title/goal entries, complete canonical Markdown and applicability,
+Expect seventeen ID/title/goal entries (sixteen F# recipes plus the shared JSON union consumer), complete canonical Markdown and applicability,
 including experimental gates and retained cleanup/upcast limitations. The harness
 installs the actual local artifact and calls list/get through stdio from an
 unrelated directory. This proves served guidance, not other-platform execution.
