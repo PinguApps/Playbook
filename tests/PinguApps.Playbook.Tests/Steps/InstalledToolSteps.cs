@@ -280,7 +280,7 @@ public sealed class InstalledToolSteps : IDisposable
             Assert.NotEmpty(actual.GetProperty("inputs").EnumerateObject());
             Assert.Contains("Build succeeded.", actual.GetProperty("output").GetString(), StringComparison.Ordinal);
             string sample = declaration.GetProperty("sample").GetString()!;
-            string recordPath = sample[..sample.LastIndexOf('/')] + "/verification-evidence.json";
+            string recordPath = sample[..sample.LastIndexOf('/', StringComparison.Ordinal)] + "/verification-evidence.json";
             using JsonDocument record = JsonDocument.Parse(await ReadSdkInputAsync(recordPath).ConfigureAwait(false));
             foreach (JsonProperty property in record.RootElement.EnumerateObject())
             {
@@ -354,7 +354,7 @@ public sealed class InstalledToolSteps : IDisposable
             Assert.NotEmpty(actual.GetProperty("inputs").EnumerateObject());
             Assert.Contains("Build succeeded.", actual.GetProperty("output").GetString(), StringComparison.Ordinal);
             string sample = declaration.GetProperty("sample").GetString()!;
-            string recordPath = sample[..sample.LastIndexOf('/')] + "/verification-evidence.json";
+            string recordPath = sample[..sample.LastIndexOf('/', StringComparison.Ordinal)] + "/verification-evidence.json";
             using JsonDocument record = JsonDocument.Parse(await ReadSdkInputAsync(recordPath).ConfigureAwait(false));
             foreach (JsonProperty property in record.RootElement.EnumerateObject())
             {
@@ -1137,7 +1137,7 @@ public sealed class InstalledToolSteps : IDisposable
                     Assert.True(JsonElement.DeepEquals(property.Value, actual.GetProperty(property.Name)), $"Declared evidence {id}/{property.Name}");
                 }
 
-                string directory = sample[..sample.LastIndexOf('/')];
+                string directory = sample[..sample.LastIndexOf('/', StringComparison.Ordinal)];
                 using JsonDocument saved = JsonDocument.Parse(await ReadSdkInputAsync($"{directory}/verification-evidence.json").ConfigureAwait(false));
                 foreach (JsonProperty property in saved.RootElement.EnumerateObject().Where(property => property.Name != "scope"))
                 {
@@ -1176,7 +1176,7 @@ public sealed class InstalledToolSteps : IDisposable
                     Assert.True(JsonElement.DeepEquals(property.Value, actual.GetProperty(property.Name)), $"Declared Quay evidence {sample}/{property.Name}");
                 }
 
-                string directory = sample[..sample.LastIndexOf('/')];
+                string directory = sample[..sample.LastIndexOf('/', StringComparison.Ordinal)];
                 using JsonDocument saved = JsonDocument.Parse(await ReadSdkInputAsync($"{directory}/verification-evidence.json").ConfigureAwait(false));
                 foreach (JsonProperty property in saved.RootElement.EnumerateObject().Where(property => property.Name != "scope"))
                 {
@@ -1231,7 +1231,7 @@ public sealed class InstalledToolSteps : IDisposable
                     Assert.True(JsonElement.DeepEquals(property.Value, actual.GetProperty(property.Name)), $"Authored endpoint evidence {sample}/{property.Name}");
                 }
 
-                string directory = sample[..sample.LastIndexOf('/')];
+                string directory = sample[..sample.LastIndexOf('/', StringComparison.Ordinal)];
                 using JsonDocument saved = JsonDocument.Parse(await ReadSdkInputAsync($"{directory}/verification-evidence.json").ConfigureAwait(false));
                 foreach (JsonProperty property in saved.RootElement.EnumerateObject().Where(property => property.Name != "scope"))
                 {
@@ -1268,7 +1268,7 @@ public sealed class InstalledToolSteps : IDisposable
                 Assert.True(JsonElement.DeepEquals(property.Value, actual.GetProperty(property.Name)), $"SignalR evidence declaration {sample}/{property.Name}");
             }
 
-            string directory = sample[..sample.LastIndexOf('/')];
+            string directory = sample[..sample.LastIndexOf('/', StringComparison.Ordinal)];
             using JsonDocument saved = JsonDocument.Parse(await ReadSdkInputAsync($"{directory}/verification-evidence.json").ConfigureAwait(false));
             foreach (JsonProperty property in saved.RootElement.EnumerateObject().Where(property => property.Name != "scope"))
             {
@@ -1410,7 +1410,7 @@ public sealed class InstalledToolSteps : IDisposable
                 Assert.True(JsonElement.DeepEquals(property.Value, actual.GetProperty(property.Name)), $"Authored navigation evidence {sample}/{property.Name}");
             }
 
-            string directory = sample[..sample.LastIndexOf('/')];
+            string directory = sample[..sample.LastIndexOf('/', StringComparison.Ordinal)];
             using JsonDocument saved = JsonDocument.Parse(await ReadSdkInputAsync($"{directory}/verification-evidence.json").ConfigureAwait(false));
             foreach (JsonProperty property in saved.RootElement.EnumerateObject().Where(property => property.Name != "scope"))
             {
@@ -2733,7 +2733,7 @@ public sealed class InstalledToolSteps : IDisposable
         string runtimeConfig = Directory.GetFiles(Path.Combine(_directory, "tool", ".store"), "PinguApps.Playbook.runtimeconfig.json", SearchOption.AllDirectories).Single();
         using JsonDocument configuration = JsonDocument.Parse(await File.ReadAllTextAsync(runtimeConfig).ConfigureAwait(false));
         JsonElement runtime = configuration.RootElement.GetProperty("runtimeOptions");
-        Assert.Equal("net10.0", runtime.GetProperty("tfm").GetString());
+        Assert.Equal("net11.0", runtime.GetProperty("tfm").GetString());
         Assert.Equal("Major", runtime.GetProperty("rollForward").GetString());
         Assert.Equal("Microsoft.NETCore.App", runtime.GetProperty("framework").GetProperty("name").GetString());
         await using ZipArchive archive = await ZipFile.OpenReadAsync(package).ConfigureAwait(false);

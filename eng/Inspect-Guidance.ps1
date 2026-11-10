@@ -17,7 +17,7 @@ Push-Location -LiteralPath $root
 try {
   $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH = '0'
   if (-not $NoBuild) { & $Dotnet build ./src/PinguApps.Playbook -c Release }
-  $server = (Resolve-Path ./src/PinguApps.Playbook/bin/Release/net10.0/PinguApps.Playbook.dll).Path
+  $server = (Resolve-Path ./src/PinguApps.Playbook/bin/Release/net11.0/PinguApps.Playbook.dll).Path
   $inspectorRoot = Join-Path $root 'artifacts/inspector'
   $inspector = Join-Path $inspectorRoot 'node_modules/@modelcontextprotocol/inspector/clients/launcher/build/index.js'
   if (-not (Test-Path -LiteralPath $inspector)) {

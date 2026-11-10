@@ -56,7 +56,7 @@ For a new, moved, retargeted or otherwise modified project:
    versions. Record the policy decision and verification in the project-change PR.
 
 An unknown project outside `samples/`, a changed root consumer/package boundary,
-a root target other than .NET 10, or a tool/test lock file fails the inventory
+a root target other than .NET 11, or a tool/test lock file fails the inventory
 check until its policy is reviewed. This guards conventional project inheritance;
 custom MSBuild imports/conditions still require actual evaluated consumer checks.
 

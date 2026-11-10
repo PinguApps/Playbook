@@ -25,13 +25,13 @@ try {
   & $dotnet pack src/PinguApps.Playbook --configuration Release --no-build "-p:PackageVersion=$PackageVersion" --output $artifacts
   $env:PLAYBOOK_TEST_PACKAGE = Join-Path $artifacts "PinguApps.Playbook.$PackageVersion.nupkg"
   $env:PLAYBOOK_TEST_VERSION = $PackageVersion
-  $env:PLAYBOOK_TEST_RUNTIME_MAJOR = '10'
+  $env:PLAYBOOK_TEST_RUNTIME_MAJOR = '11'
   $env:PLAYBOOK_TEST_EVIDENCE_DIRECTORY = Join-Path $results 'runtime'
   $hash = Get-FileHash -Algorithm SHA256 -LiteralPath $env:PLAYBOOK_TEST_PACKAGE
   "$($hash.Hash.ToLowerInvariant())  $([IO.Path]::GetFileName($env:PLAYBOOK_TEST_PACKAGE))" |
     Set-Content -LiteralPath (Join-Path $artifacts 'package.sha256') -Encoding ascii
   New-Item -ItemType Directory -Path $results -Force | Out-Null
-  & $dotnet exec tests/PinguApps.Playbook.Tests/bin/Release/net10.0/PinguApps.Playbook.Tests.dll `
+  & $dotnet exec tests/PinguApps.Playbook.Tests/bin/Release/net11.0/PinguApps.Playbook.Tests.dll `
     -noLogo -failSkips -trait 'Category=HostSmoke' -result-trx (Join-Path $results 'smoke.trx')
   [xml]$trx = Get-Content -LiteralPath (Join-Path $results 'smoke.trx')
   $counts = $trx.TestRun.ResultSummary.Counters
