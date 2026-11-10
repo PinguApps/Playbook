@@ -124,7 +124,7 @@
     },
     {
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "sample": "samples/net11.0/EnclosingLoops/EnclosingLoops.csproj",
       "scope": "Actual builds and executions of identical checks for batch skipping, early termination, ordinary/empty traversal and ordered finally/using cleanup. No mocks or cross-compilation; exact commands, inputs and output are retained in the saved records.",

@@ -41,4 +41,6 @@ Exhaustiveness diagnoses omitted known cases; it does not validate payload prope
 
 ## Evidence
 
-The original .NET 10/C# 14 and .NET 11 RC2/C# 15 projects compile and execute the same case/payload, null/default and JSON ambiguity checks. The .NET 11 consumer probe omits a union case and requires CS8509, promoted to an error. Evidence records retain exact SDKs, dependencies, inputs and actual output. No mocks, Native AOT publishing, GA execution or UI/client matrix is represented as proof. Portable execution needs no targeted Human proof.
+The original .NET 10/C# 14 and .NET 11 GA/C# 15 projects compile and execute the same case/payload, null/default and JSON ambiguity checks. The .NET 11 consumer probe omits a union case and requires CS8509, promoted to an error. Evidence records retain exact SDKs, dependencies, inputs and actual output. No mocks, Native AOT publishing or UI/client matrix is represented as proof. Portable execution needs no targeted Human proof.
+
+GA refresh (PIN-1287): the declared .NET 11 sample was rebuilt and executed with SDK 11.0.100 and runtime 11.0.0. Earlier RC observations above remain historical; this refresh does not establish broader platform or API behavior.

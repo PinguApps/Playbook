@@ -51,7 +51,7 @@
       "target": "net11.0",
       "scope": "Actual positional reads, node replacement, preserved sequence/length and null/negative/past-end rejection, including unchanged state after rejected writes.",
       "kind": "compile-and-run",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0"
     }
   ],

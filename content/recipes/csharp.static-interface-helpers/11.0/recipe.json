@@ -141,7 +141,7 @@
       "scope": "Original static interface helper: identical label and validation rules; real method metadata is static, non-abstract and non-virtual. Separate consumer builds/execution and access/dispatch rejection checks run in eng/Test-StaticInterfaceHelpers.ps1; no legacy-runtime or GA proof is claimed.",
       "language": "15.0",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "kind": "compile-and-run",
       "sample": "samples/net11.0/StaticInterfaceHelpers/StaticInterfaceHelpers.csproj"
     }

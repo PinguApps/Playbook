@@ -57,7 +57,7 @@
       "target": "net11.0",
       "scope": "Actual comparer-sensitive lookup/addition, list order/duplicates and capacity, custom configured/default builder overloads, escaped with invocation and indexer read/write/rejection checks.",
       "kind": "compile-and-run",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0"
     }
   ],

@@ -48,7 +48,7 @@ try {
   $sets = @(
     @{ Name = 'baseline'; Dotnet = $BaselineDotnet; Sdk = '10.0.100'; Ref = '10.0.0'; Target = 'net10.0'; Language = '14.0'; Runtime = '10.0.0' },
     @{ Name = 'previous'; Dotnet = $Dotnet; Sdk = '10.0.403'; Ref = '10.0.14'; Target = 'net10.0'; Language = '14.0'; Runtime = '10.0.14' },
-    @{ Name = 'current'; Dotnet = $Net11Dotnet; Sdk = '11.0.100-rc.3.26522.148'; Ref = '11.0.0-rc.3.26522.148'; Target = 'net11.0'; Language = '15.0'; Runtime = '11.0.0-rc.3.26522.148' }
+    @{ Name = 'current'; Dotnet = $Net11Dotnet; Sdk = '11.0.100'; Ref = '11.0.0'; Target = 'net11.0'; Language = '15.0'; Runtime = '11.0.0' }
   )
   foreach ($set in $sets) {
     $set.Dotnet = [IO.Path]::GetFullPath($set.Dotnet)
