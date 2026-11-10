@@ -1,5 +1,5 @@
 {
-  "reviewed": "2026-10-21",
+  "reviewed": "2026-11-10",
   "evidenceKind": "Downloaded ZIP directory, nuspec and selected entry hashes; no consumer compilation or execution",
   "packages": [
     {
@@ -46,19 +46,19 @@
     },
     {
       "id": "Microsoft.TemplateEngine.Abstractions",
-      "version": "11.0.100-rc.2.26504.105",
-      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.templateengine.abstractions/11.0.100-rc.2.26504.105/microsoft.templateengine.abstractions.11.0.100-rc.2.26504.105.nupkg",
-      "sha256": "001339d56eff6a1abbd9db5c1b310a44b7e38b786a9c6f038633843787d09113",
+      "version": "11.0.100",
+      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.templateengine.abstractions/11.0.100/microsoft.templateengine.abstractions.11.0.100.nupkg",
+      "sha256": "afeb9de9230fb73cf88c5d5ff364b190c52e1aa47167ca06a38d2b2906d42d02",
       "libFrameworks": [
         "net10.0",
         "net11.0",
         "net472"
       ],
       "dependencies": [
-        "Microsoft.Bcl.AsyncInterfaces/11.0.0-rc.2.26504.105",
-        "Microsoft.Extensions.DependencyInjection.Abstractions/11.0.0-rc.2.26504.105",
-        "Microsoft.Extensions.Logging.Abstractions/11.0.0-rc.2.26504.105",
-        "System.Diagnostics.DiagnosticSource/11.0.0-rc.2.26504.105"
+        "Microsoft.Bcl.AsyncInterfaces/11.0.0",
+        "Microsoft.Extensions.DependencyInjection.Abstractions/11.0.0",
+        "Microsoft.Extensions.Logging.Abstractions/11.0.0",
+        "System.Diagnostics.DiagnosticSource/11.0.0"
       ],
       "entries": []
     },
@@ -86,23 +86,23 @@
     },
     {
       "id": "Microsoft.TemplateEngine.Core",
-      "version": "11.0.100-rc.2.26504.105",
-      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.templateengine.core/11.0.100-rc.2.26504.105/microsoft.templateengine.core.11.0.100-rc.2.26504.105.nupkg",
-      "sha256": "585e8dece96b61320541e9f72ce89cf9755aea6997fa69a9a8fd11837fb21575",
+      "version": "11.0.100",
+      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.templateengine.core/11.0.100/microsoft.templateengine.core.11.0.100.nupkg",
+      "sha256": "f0c3ac5cacfc38224594468d7e385524782397eee513504ba4ad248503110798",
       "libFrameworks": [
         "net10.0",
         "net11.0",
         "net472"
       ],
       "dependencies": [
-        "Microsoft.Bcl.AsyncInterfaces/11.0.0-rc.2.26504.105",
-        "Microsoft.Extensions.DependencyInjection.Abstractions/11.0.0-rc.2.26504.105",
-        "Microsoft.Extensions.Logging.Abstractions/11.0.0-rc.2.26504.105",
-        "Microsoft.TemplateEngine.Abstractions/11.0.100-rc.2.26504.105",
-        "Microsoft.TemplateEngine.Core.Contracts/11.0.100-rc.2.26504.105",
-        "Microsoft.TemplateEngine.Utils/11.0.100-rc.2.26504.105",
-        "System.Diagnostics.DiagnosticSource/11.0.0-rc.2.26504.105",
-        "System.Text.Json/11.0.0-rc.2.26504.105"
+        "Microsoft.Bcl.AsyncInterfaces/11.0.0",
+        "Microsoft.Extensions.DependencyInjection.Abstractions/11.0.0",
+        "Microsoft.Extensions.Logging.Abstractions/11.0.0",
+        "Microsoft.TemplateEngine.Abstractions/11.0.100",
+        "Microsoft.TemplateEngine.Core.Contracts/11.0.100",
+        "Microsoft.TemplateEngine.Utils/11.0.100",
+        "System.Diagnostics.DiagnosticSource/11.0.0",
+        "System.Text.Json/11.0.0"
       ],
       "entries": []
     },
@@ -127,20 +127,20 @@
     },
     {
       "id": "Microsoft.TemplateEngine.Core.Contracts",
-      "version": "11.0.100-rc.2.26504.105",
-      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.templateengine.core.contracts/11.0.100-rc.2.26504.105/microsoft.templateengine.core.contracts.11.0.100-rc.2.26504.105.nupkg",
-      "sha256": "c707d7db0fb41aa1bd7d311438e9c30958fe6777e817183710171e672ec65057",
+      "version": "11.0.100",
+      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.templateengine.core.contracts/11.0.100/microsoft.templateengine.core.contracts.11.0.100.nupkg",
+      "sha256": "744298033a0da9d340ff4a5caa82c46e47c80d59c67ebbae43ab54f0c8d1e26f",
       "libFrameworks": [
         "net10.0",
         "net11.0",
         "net472"
       ],
       "dependencies": [
-        "Microsoft.Bcl.AsyncInterfaces/11.0.0-rc.2.26504.105",
-        "Microsoft.Extensions.DependencyInjection.Abstractions/11.0.0-rc.2.26504.105",
-        "Microsoft.Extensions.Logging.Abstractions/11.0.0-rc.2.26504.105",
-        "Microsoft.TemplateEngine.Abstractions/11.0.100-rc.2.26504.105",
-        "System.Diagnostics.DiagnosticSource/11.0.0-rc.2.26504.105"
+        "Microsoft.Bcl.AsyncInterfaces/11.0.0",
+        "Microsoft.Extensions.DependencyInjection.Abstractions/11.0.0",
+        "Microsoft.Extensions.Logging.Abstractions/11.0.0",
+        "Microsoft.TemplateEngine.Abstractions/11.0.100",
+        "System.Diagnostics.DiagnosticSource/11.0.0"
       ],
       "entries": []
     },
@@ -174,33 +174,33 @@
     },
     {
       "id": "Microsoft.TemplateEngine.Edge",
-      "version": "11.0.100-rc.2.26504.105",
-      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.templateengine.edge/11.0.100-rc.2.26504.105/microsoft.templateengine.edge.11.0.100-rc.2.26504.105.nupkg",
-      "sha256": "e5674f3ac85ccfbf7fd0adab255e525f2be163dade6f71f63be062bcfe1c4a0e",
+      "version": "11.0.100",
+      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.templateengine.edge/11.0.100/microsoft.templateengine.edge.11.0.100.nupkg",
+      "sha256": "9fc84751d99eebd85ca3f6897c85ca393b75d534a71fbcfa5aab4cf59aef5cd5",
       "libFrameworks": [
         "net10.0",
         "net11.0",
         "net472"
       ],
       "dependencies": [
-        "Microsoft.Bcl.AsyncInterfaces/11.0.0-rc.2.26504.105",
-        "Microsoft.Extensions.DependencyInjection.Abstractions/11.0.0-rc.2.26504.105",
-        "Microsoft.Extensions.Logging.Abstractions/11.0.0-rc.2.26504.105",
-        "Microsoft.TemplateEngine.Abstractions/11.0.100-rc.2.26504.105",
-        "Microsoft.TemplateEngine.Utils/11.0.100-rc.2.26504.105",
+        "Microsoft.Bcl.AsyncInterfaces/11.0.0",
+        "Microsoft.Extensions.DependencyInjection.Abstractions/11.0.0",
+        "Microsoft.Extensions.Logging.Abstractions/11.0.0",
+        "Microsoft.TemplateEngine.Abstractions/11.0.100",
+        "Microsoft.TemplateEngine.Utils/11.0.100",
         "Newtonsoft.Json/13.0.4",
-        "NuGet.Common/8.0.0-rc.605",
-        "NuGet.Configuration/8.0.0-rc.605",
-        "NuGet.Credentials/8.0.0-rc.605",
-        "NuGet.Frameworks/8.0.0-rc.605",
-        "NuGet.Packaging/8.0.0-rc.605",
-        "NuGet.Protocol/8.0.0-rc.605",
-        "NuGet.Versioning/8.0.0-rc.605",
-        "System.Diagnostics.DiagnosticSource/11.0.0-rc.2.26504.105",
-        "System.Formats.Asn1/11.0.0-rc.2.26504.105",
-        "System.Security.Cryptography.Pkcs/11.0.0-rc.2.26504.105",
-        "System.Security.Cryptography.ProtectedData/11.0.0-rc.2.26504.105",
-        "System.Text.Json/11.0.0-rc.2.26504.105"
+        "NuGet.Common/8.0.0-rc.53118",
+        "NuGet.Configuration/8.0.0-rc.53118",
+        "NuGet.Credentials/8.0.0-rc.53118",
+        "NuGet.Frameworks/8.0.0-rc.53118",
+        "NuGet.Packaging/8.0.0-rc.53118",
+        "NuGet.Protocol/8.0.0-rc.53118",
+        "NuGet.Versioning/8.0.0-rc.53118",
+        "System.Diagnostics.DiagnosticSource/11.0.0",
+        "System.Formats.Asn1/11.0.0",
+        "System.Security.Cryptography.Pkcs/11.0.0",
+        "System.Security.Cryptography.ProtectedData/11.0.0",
+        "System.Text.Json/11.0.0"
       ],
       "entries": []
     },
@@ -236,35 +236,35 @@
     },
     {
       "id": "Microsoft.TemplateEngine.IDE",
-      "version": "11.0.100-rc.2.26504.105",
-      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.templateengine.ide/11.0.100-rc.2.26504.105/microsoft.templateengine.ide.11.0.100-rc.2.26504.105.nupkg",
-      "sha256": "2f0836a5c75a2f07d1ea55c0421073288caeb5408afd460c6c316210fc665c3e",
+      "version": "11.0.100",
+      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.templateengine.ide/11.0.100/microsoft.templateengine.ide.11.0.100.nupkg",
+      "sha256": "2a9149ca63437126ab4464660cacfaa62680b5e294efe06e0389bf4e1712a832",
       "libFrameworks": [
         "net10.0",
         "net11.0",
         "net472"
       ],
       "dependencies": [
-        "Microsoft.Bcl.AsyncInterfaces/11.0.0-rc.2.26504.105",
-        "Microsoft.Extensions.DependencyInjection.Abstractions/11.0.0-rc.2.26504.105",
-        "Microsoft.Extensions.Logging.Abstractions/11.0.0-rc.2.26504.105",
-        "Microsoft.TemplateEngine.Abstractions/11.0.100-rc.2.26504.105",
-        "Microsoft.TemplateEngine.Edge/11.0.100-rc.2.26504.105",
-        "Microsoft.TemplateEngine.Orchestrator.RunnableProjects/11.0.100-rc.2.26504.105",
-        "Microsoft.TemplateEngine.Utils/11.0.100-rc.2.26504.105",
+        "Microsoft.Bcl.AsyncInterfaces/11.0.0",
+        "Microsoft.Extensions.DependencyInjection.Abstractions/11.0.0",
+        "Microsoft.Extensions.Logging.Abstractions/11.0.0",
+        "Microsoft.TemplateEngine.Abstractions/11.0.100",
+        "Microsoft.TemplateEngine.Edge/11.0.100",
+        "Microsoft.TemplateEngine.Orchestrator.RunnableProjects/11.0.100",
+        "Microsoft.TemplateEngine.Utils/11.0.100",
         "Newtonsoft.Json/13.0.4",
-        "NuGet.Common/8.0.0-rc.605",
-        "NuGet.Configuration/8.0.0-rc.605",
-        "NuGet.Credentials/8.0.0-rc.605",
-        "NuGet.Frameworks/8.0.0-rc.605",
-        "NuGet.Packaging/8.0.0-rc.605",
-        "NuGet.Protocol/8.0.0-rc.605",
-        "NuGet.Versioning/8.0.0-rc.605",
-        "System.Diagnostics.DiagnosticSource/11.0.0-rc.2.26504.105",
-        "System.Formats.Asn1/11.0.0-rc.2.26504.105",
-        "System.Security.Cryptography.Pkcs/11.0.0-rc.2.26504.105",
-        "System.Security.Cryptography.ProtectedData/11.0.0-rc.2.26504.105",
-        "System.Text.Json/11.0.0-rc.2.26504.105"
+        "NuGet.Common/8.0.0-rc.53118",
+        "NuGet.Configuration/8.0.0-rc.53118",
+        "NuGet.Credentials/8.0.0-rc.53118",
+        "NuGet.Frameworks/8.0.0-rc.53118",
+        "NuGet.Packaging/8.0.0-rc.53118",
+        "NuGet.Protocol/8.0.0-rc.53118",
+        "NuGet.Versioning/8.0.0-rc.53118",
+        "System.Diagnostics.DiagnosticSource/11.0.0",
+        "System.Formats.Asn1/11.0.0",
+        "System.Security.Cryptography.Pkcs/11.0.0",
+        "System.Security.Cryptography.ProtectedData/11.0.0",
+        "System.Text.Json/11.0.0"
       ],
       "entries": []
     },
@@ -291,22 +291,22 @@
     },
     {
       "id": "Microsoft.TemplateEngine.Orchestrator.RunnableProjects",
-      "version": "11.0.100-rc.2.26504.105",
-      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.templateengine.orchestrator.runnableprojects/11.0.100-rc.2.26504.105/microsoft.templateengine.orchestrator.runnableprojects.11.0.100-rc.2.26504.105.nupkg",
-      "sha256": "a6ebcd9e86a9b3db5f09e514cb876ee3f252ca39fb1f28abb46b4cd1f55a5b01",
+      "version": "11.0.100",
+      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.templateengine.orchestrator.runnableprojects/11.0.100/microsoft.templateengine.orchestrator.runnableprojects.11.0.100.nupkg",
+      "sha256": "3664d52f66c6edf9b8c69d2390a74bcd1f892b4c62f4a4676799408f9a9ee98b",
       "libFrameworks": [
         "net10.0",
         "net11.0",
         "net472"
       ],
       "dependencies": [
-        "Microsoft.Bcl.AsyncInterfaces/11.0.0-rc.2.26504.105",
-        "Microsoft.Extensions.DependencyInjection.Abstractions/11.0.0-rc.2.26504.105",
-        "Microsoft.Extensions.Logging.Abstractions/11.0.0-rc.2.26504.105",
-        "Microsoft.TemplateEngine.Core.Contracts/11.0.100-rc.2.26504.105",
-        "Microsoft.TemplateEngine.Core/11.0.100-rc.2.26504.105",
-        "System.Diagnostics.DiagnosticSource/11.0.0-rc.2.26504.105",
-        "System.Text.Json/11.0.0-rc.2.26504.105"
+        "Microsoft.Bcl.AsyncInterfaces/11.0.0",
+        "Microsoft.Extensions.DependencyInjection.Abstractions/11.0.0",
+        "Microsoft.Extensions.Logging.Abstractions/11.0.0",
+        "Microsoft.TemplateEngine.Core.Contracts/11.0.100",
+        "Microsoft.TemplateEngine.Core/11.0.100",
+        "System.Diagnostics.DiagnosticSource/11.0.0",
+        "System.Text.Json/11.0.0"
       ],
       "entries": []
     },
@@ -335,22 +335,22 @@
     },
     {
       "id": "Microsoft.TemplateEngine.TemplateLocalizer.Core",
-      "version": "11.0.100-rc.2.26504.105",
-      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.templateengine.templatelocalizer.core/11.0.100-rc.2.26504.105/microsoft.templateengine.templatelocalizer.core.11.0.100-rc.2.26504.105.nupkg",
-      "sha256": "8634ea2dca6bd05c92a081a439e06db5b5c1ee750dc2255e625668a55e5f9a51",
+      "version": "11.0.100",
+      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.templateengine.templatelocalizer.core/11.0.100/microsoft.templateengine.templatelocalizer.core.11.0.100.nupkg",
+      "sha256": "8affcd19003498f4cfd9451d6c7faf5430f894bbcc5658a9ffb9a542fc227a08",
       "libFrameworks": [
         "net10.0",
         "net11.0",
         "net472"
       ],
       "dependencies": [
-        "Microsoft.Bcl.AsyncInterfaces/11.0.0-rc.2.26504.105",
-        "Microsoft.Extensions.DependencyInjection.Abstractions/11.0.0-rc.2.26504.105",
-        "Microsoft.Extensions.Logging.Abstractions/11.0.0-rc.2.26504.105",
-        "Microsoft.Extensions.Logging.Console/11.0.0-rc.2.26504.105",
-        "Microsoft.Extensions.Logging/11.0.0-rc.2.26504.105",
-        "System.Diagnostics.DiagnosticSource/11.0.0-rc.2.26504.105",
-        "System.Text.Json/11.0.0-rc.2.26504.105"
+        "Microsoft.Bcl.AsyncInterfaces/11.0.0",
+        "Microsoft.Extensions.DependencyInjection.Abstractions/11.0.0",
+        "Microsoft.Extensions.Logging.Abstractions/11.0.0",
+        "Microsoft.Extensions.Logging.Console/11.0.0",
+        "Microsoft.Extensions.Logging/11.0.0",
+        "System.Diagnostics.DiagnosticSource/11.0.0",
+        "System.Text.Json/11.0.0"
       ],
       "entries": []
     },
@@ -376,21 +376,21 @@
     },
     {
       "id": "Microsoft.TemplateEngine.Utils",
-      "version": "11.0.100-rc.2.26504.105",
-      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.templateengine.utils/11.0.100-rc.2.26504.105/microsoft.templateengine.utils.11.0.100-rc.2.26504.105.nupkg",
-      "sha256": "e129d154dbafdef54e4e8f8fe7f7713363e54061c90c14831ee2d38851dc1cc3",
+      "version": "11.0.100",
+      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.templateengine.utils/11.0.100/microsoft.templateengine.utils.11.0.100.nupkg",
+      "sha256": "fed11b30cd385d1d44473e26854b0f36a248914098518b68c162c8e557c6a7d2",
       "libFrameworks": [
         "net10.0",
         "net11.0",
         "net472"
       ],
       "dependencies": [
-        "Microsoft.Bcl.AsyncInterfaces/11.0.0-rc.2.26504.105",
-        "Microsoft.Extensions.DependencyInjection.Abstractions/11.0.0-rc.2.26504.105",
-        "Microsoft.Extensions.Logging.Abstractions/11.0.0-rc.2.26504.105",
-        "Microsoft.TemplateEngine.Abstractions/11.0.100-rc.2.26504.105",
-        "System.Diagnostics.DiagnosticSource/11.0.0-rc.2.26504.105",
-        "System.Text.Json/11.0.0-rc.2.26504.105"
+        "Microsoft.Bcl.AsyncInterfaces/11.0.0",
+        "Microsoft.Extensions.DependencyInjection.Abstractions/11.0.0",
+        "Microsoft.Extensions.Logging.Abstractions/11.0.0",
+        "Microsoft.TemplateEngine.Abstractions/11.0.100",
+        "System.Diagnostics.DiagnosticSource/11.0.0",
+        "System.Text.Json/11.0.0"
       ],
       "entries": []
     },
@@ -539,26 +539,26 @@
     }
   ],
   "inspectedSdk": {
-    "version": "11.0.100-rc.3.26522.148",
+    "version": "11.0.100",
     "platform": "win-x64",
-    "vmrCommit": "5254d8bcf59917edc1e1abc33bdf2442b77b1c70",
+    "vmrCommit": "297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
     "evidenceKind": "Installed SDK file hashes and deps.json review, not test execution; replay only when Net11SdkDirectory is supplied",
     "files": [
       {
         "file": ".version",
-        "sha256": "0c5e90cad5281608afe604b3c0b944f7a180267eac2cb25fe2c3f1a723488647"
+        "sha256": "e9daa3682619d69828caedfc4da8a2c29a35474c3dee8a0bb9cd61f1a9811146"
       },
       {
         "file": "dotnet.deps.json",
-        "sha256": "4d7e290c423d4ac7be4d1c5074139c8f59cd6c07b3200f2a2a2936e799fc1f70"
+        "sha256": "bec677e3b6412f792a13f7e9721e4420e2d01ee217350b50b93b3508cdcc9d01"
       },
       {
         "file": "vstest.console.deps.json",
-        "sha256": "3a0fd8dbed1c0cbf6d11ea06c211316de9d8c977e0f1f8714125cc42b2e95484"
+        "sha256": "7467fad0708d2aefb39e68b20d681ca213d1c0e3170f4870a492a95fd44609bb"
       },
       {
         "file": "testhost.deps.json",
-        "sha256": "25c09cdc31dcb9d0409c36d26caee310d57cfb88a67a233505468dd6ce85539e"
+        "sha256": "237b7072f01a51b39eb4f04a98bd8762e5e3fd4d7ca1fc8539cb6691162d7891"
       }
     ]
   }

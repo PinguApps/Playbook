@@ -22,7 +22,7 @@ internal static class MuseumChecks
                 File.Copy(Path.Combine(AppContext.BaseDirectory, name), Path.Combine(directory, name));
             File.WriteAllText(Path.Combine(directory, "global.json"), JsonSerializer.Serialize(new
             {
-                sdk = new { version = sdkVersion, rollForward = "disable", allowPrerelease = true }
+                sdk = new { version = sdkVersion, rollForward = "disable", allowPrerelease = false }
             }));
             string projectPath = Path.Combine(directory, "Museum.csproj");
             CheckEvaluation(projectPath, sdkDirectory);

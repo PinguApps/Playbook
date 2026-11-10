@@ -48,12 +48,19 @@ foreach ((string scenario, ChannelBinding? binding, string target) in new[]
             if (serverStatus != NegotiateAuthenticationStatusCode.ContinueNeeded) break;
         }
         Console.WriteLine($"{scenario}: client={clientStatus}; server={serverStatus}; authenticated={server.IsAuthenticated}; mechanism={server.Package}");
+#if NET11_0_OR_GREATER
+        bool expected = !noCredentials && scenario == "matching";
+#else
         bool expected = !noCredentials && scenario is "matching" or "missing-client";
+#endif
         bool accepted = serverStatus == NegotiateAuthenticationStatusCode.Completed && server.IsAuthenticated && client.IsAuthenticated;
         if (scenario == "missing-client" && accepted) missingBindingAccepted = true;
-        if (accepted != expected || (expected && server.Package != "Kerberos")) throw new InvalidOperationException("Authentication expectation failed.");
+        if (accepted != expected || (expected && server.Package != "Kerberos")) throw new InvalidOperationException($"Authentication expectation failed: {scenario}; expected={expected}; accepted={accepted}; client={clientStatus}; server={serverStatus}; runtime={RuntimeInformation.FrameworkDescription}.");
         if (accepted && (!server.IsEncrypted || !server.IsSigned || !client.IsEncrypted || !client.IsSigned)) throw new AuthenticationException("Required message protection absent.");
         if (!noCredentials && scenario == "mismatched" && serverStatus != NegotiateAuthenticationStatusCode.BadBinding) throw new AuthenticationException("Expected actual mismatch rejection.");
+#if NET11_0_OR_GREATER
+        if (!noCredentials && scenario == "missing-client" && serverStatus != NegotiateAuthenticationStatusCode.BadBinding) throw new AuthenticationException("Expected GA missing-binding rejection.");
+#endif
     }
     catch (PlatformNotSupportedException) when (!ExtendedProtectionPolicy.OSSupportsExtendedProtection)
     {

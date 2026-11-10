@@ -67,7 +67,9 @@
     {
       "id": "apple-known-issues",
       "url": "https://raw.githubusercontent.com/wiki/dotnet/macios/Known-issues-in-.NET11.md",
-      "sha256": "f33f98785a83a1e30aa452b0a8301c55993b3743ed887b29174f982bcf37a297"
+      "sha256": "6dddd92d3067ac137f4325654756da5455312c0170ac5270651c8fc0313cf534",
+      "reviewed": "2026-11-10",
+      "reviewNotes": "Current page identifies larger CoreCLR app sizes (issue 26707) and unstripped simulator native symbols (issue 26455), with NoSymbolStrip=false as a size/deployment tradeoff. Historical RC2 composition references and native execution exclusions remain separate."
     },
     {
       "id": "ai-chat",

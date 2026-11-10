@@ -24,13 +24,13 @@
     "sha256": "b2af4d89e3dde1324d7e7d3f2775fbd62108beef01da5aad6e279a841879a990"
   },
   {
-    "sha256": "6bf5df79dee185660dfa166cfdbbfc55462c6d962c96ea327bf5f643fb2e02f6",
-    "url": "https://api.nuget.org/v3-flatcontainer/microsoft.ios.sdk.net11.0_27.0/27.0.12212-net11-rc.2/microsoft.ios.sdk.net11.0_27.0.27.0.12212-net11-rc.2.nupkg",
+    "sha256": "c1eb5b989fc315c2bb1f577299c95cef61654de64ebcd4eed7ab8401180f5063",
+    "url": "https://api.nuget.org/v3-flatcontainer/microsoft.ios.sdk.net11.0_27.2/27.2.11039/microsoft.ios.sdk.net11.0_27.2.27.2.11039.nupkg",
     "archive": "sdk"
   },
   {
-    "sha256": "566683bad91183e13bd5528ed35e9d20708f97e9045acf2645a3d1a6c87643c8",
-    "url": "https://api.nuget.org/v3-flatcontainer/microsoft.ios.ref.net11.0_27.0/27.0.12212-net11-rc.2/microsoft.ios.ref.net11.0_27.0.27.0.12212-net11-rc.2.nupkg",
+    "sha256": "d6d05831fdd51d8eccf7eb6330a592b966b6ea65d582938cf87183dbdd77d919",
+    "url": "https://api.nuget.org/v3-flatcontainer/microsoft.ios.ref.net11.0_27.2/27.2.11039/microsoft.ios.ref.net11.0_27.2.27.2.11039.nupkg",
     "archive": "reference"
   }
 ]

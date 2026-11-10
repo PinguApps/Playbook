@@ -25,7 +25,7 @@ try {
     $directory = Join-Path $temporary $baseline.Target
     $null = New-Item -ItemType Directory -Path $directory
     # Outside the checkout: no inherited build, package or SDK policy.
-    @{ sdk = @{ version = $baseline.Sdk; rollForward = 'disable'; allowPrerelease = $true } } |
+    @{ sdk = @{ version = $baseline.Sdk; rollForward = 'disable'; allowPrerelease = $false } } |
       ConvertTo-Json -Depth 3 | Set-Content -LiteralPath (Join-Path $directory 'global.json')
     @"
 <Project Sdk="Microsoft.NET.Sdk">

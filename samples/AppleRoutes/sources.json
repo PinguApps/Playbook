@@ -25,8 +25,8 @@
     "url": "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/dotnet/targets/Xamarin.Shared.Sdk.props"
   },
   {
-    "url": "https://api.nuget.org/v3-flatcontainer/microsoft.maccatalyst.ref.net11.0_27.0/27.0.12212-net11-rc.2/microsoft.maccatalyst.ref.net11.0_27.0.27.0.12212-net11-rc.2.nupkg",
-    "sha256": "90202970a90521ffd5543e593f003674e1776fa5adc1f04833c7e9fccc371f67",
+    "url": "https://api.nuget.org/v3-flatcontainer/microsoft.maccatalyst.ref.net11.0_27.2/27.2.11039/microsoft.maccatalyst.ref.net11.0_27.2.27.2.11039.nupkg",
+    "sha256": "c29af9c7e3903d3439526db8b265391660b7f4df90da9b65e87619d3af62b681",
     "asset": "ref/net11.0/Microsoft.MacCatalyst.dll"
   }
 ]

@@ -3,7 +3,7 @@
   "sdk": {
     "version": "10.0.403",
     "rollForward": "disable",
-    "allowPrerelease": true
+    "allowPrerelease": false
   }
 }
 // endsnippet:n10-global-json

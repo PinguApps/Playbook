@@ -1,8 +1,8 @@
 {
-  "id": "Microsoft.iOS.Ref.net11.0_27.0",
-  "url": "https://api.nuget.org/v3-flatcontainer/microsoft.ios.ref.net11.0_27.0/27.0.12212-net11-rc.2/microsoft.ios.ref.net11.0_27.0.27.0.12212-net11-rc.2.nupkg",
-  "sha256": "566683bad91183e13bd5528ed35e9d20708f97e9045acf2645a3d1a6c87643c8",
-  "version": "27.0.12212-net11-rc.2",
+  "id": "microsoft.ios.ref.net11.0_27.2",
+  "url": "https://api.nuget.org/v3-flatcontainer/microsoft.ios.ref.net11.0_27.2/27.2.11039/microsoft.ios.ref.net11.0_27.2.27.2.11039.nupkg",
+  "sha256": "d6d05831fdd51d8eccf7eb6330a592b966b6ea65d582938cf87183dbdd77d919",
+  "version": "27.2.11039",
   "assets": [
     "ref/net11.0/Microsoft.iOS.dll"
   ]

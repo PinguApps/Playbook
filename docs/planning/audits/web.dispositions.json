@@ -1,6 +1,13 @@
 {
   "groups": [
     {
+      "id": "iis-authentication-display-nullability",
+      "assetPattern": "^framework/Microsoft\\.AspNetCore\\.Server\\.IIS\\.dll$",
+      "pattern": "^(?:type Microsoft\\.AspNetCore\\.Builder\\.IISServerOptions |(?:method|property) Microsoft\\.AspNetCore\\.Builder\\.IISServerOptions::(?:get_|set_)?AuthenticationDisplayName\\b)",
+      "owner": ".NET 11 GA reconciliation",
+      "disposition": "Reviewed the type and authentication display-name nullability attributes in the GA reference assembly. The member remains present; this metadata change adds no recipe or runtime behaviour claim."
+    },
+    {
       "id": "data-protection-span",
       "pattern": " Microsoft\\.AspNetCore\\.DataProtection\\.(ISpanDataProtector|AuthenticatedEncryption\\.ISpanAuthenticatedEncryptor)",
       "owner": "W01 / PIN-1171; security.protect-into-buffer/11.0",

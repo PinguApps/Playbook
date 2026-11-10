@@ -32,14 +32,14 @@
       ]
     },
     {
-      "sha256": "4a93f0a4a127e897cc50685a8b6051c47ea6bd9db8594699e262bb806be01f5e",
-      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.maui.controls.maps/11.0.0-rc.2.26505.5/microsoft.maui.controls.maps.11.0.0-rc.2.26505.5.nupkg",
+      "sha256": "5d67da8281fd0b147f6e9fdf750e059e8489df72a5b7e6e8aa5ce2e1368996b5",
+      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.maui.controls.maps/11.0.0/microsoft.maui.controls.maps.11.0.0.nupkg",
       "assets": [
         "lib/net11.0/Microsoft.Maui.Controls.Maps.dll",
         "lib/net11.0-windows10.0.19041/Microsoft.Maui.Controls.Maps.dll",
         "lib/net11.0-ios27.0/Microsoft.Maui.Controls.Maps.dll"
       ],
-      "repositoryCommit": "d32b79928709cf53b671336dabd0caef5a679fc2",
+      "repositoryCommit": "4e6582f7397a5736bc85984228c549d09a85a1de",
       "apiChecks": [
         {
           "asset": "lib/net11.0/Microsoft.Maui.Controls.Maps.dll",
@@ -94,9 +94,9 @@
         "lib/net11.0/Microsoft.Maui.Maps.dll",
         "lib/net11.0-windows10.0.19041/Microsoft.Maui.Maps.dll"
       ],
-      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.maui.maps/11.0.0-rc.2.26505.5/microsoft.maui.maps.11.0.0-rc.2.26505.5.nupkg",
-      "sha256": "55a65b2096698bdc2a623b7e0f6daef14cc6ef4dd00d85509ad53962e0d199f6",
-      "repositoryCommit": "d32b79928709cf53b671336dabd0caef5a679fc2",
+      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.maui.maps/11.0.0/microsoft.maui.maps.11.0.0.nupkg",
+      "sha256": "ab7820262ece2192904eb134ab0d0d810bdbd4c5ec920495705802874789bd91",
+      "repositoryCommit": "4e6582f7397a5736bc85984228c549d09a85a1de",
       "apiChecks": [
         {
           "asset": "lib/net11.0/Microsoft.Maui.Maps.dll",

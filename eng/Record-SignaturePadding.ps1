@@ -117,7 +117,7 @@ try {
     $record.kind = 'compile-and-run'
     $record.command += "; $commands"
     $record.output += "`n$execution"
-    $record.scope = 'Actual Windows CAPI provider24 ephemeral RSA2048 key exported only to private temporary fixture: old Boolean/current explicit cross-decryption in both directions for false/Pkcs1 and true/OaepSHA1, canonical/explicit equivalence on each runtime, wrong-padding/zeroed-ciphertext rejection and same-provider OAEP-SHA256 encrypt/decrypt failure. Current unchanged old-source SYSLIB0064 probe fails without suppression; supported consumer warnings-as-errors. No production key/container, stronger-provider redesign, other-platform or GA claim.'
+    $record.scope = 'Actual Windows CAPI provider24 ephemeral RSA2048 key exported only to private temporary fixture: old Boolean/current explicit cross-decryption in both directions for false/Pkcs1 and true/OaepSHA1, canonical/explicit equivalence on each runtime, wrong-padding/zeroed-ciphertext rejection or plaintext mismatch, oversized-ciphertext rejection and same-provider OAEP-SHA256 encrypt/decrypt failure. Current unchanged old-source SYSLIB0064 probe fails without suppression; supported consumer warnings-as-errors. No production key/container, stronger-provider redesign, other-platform or GA claim.'
     $record.output += "`nCLEANUP private key/ciphertext/diagnostic fixture removed and absence checked; no persistent/named container created"
     [IO.File]::WriteAllText($recordPath, ($record | ConvertTo-Json -Depth 40).Replace("`r`n","`n") + "`n")
   }

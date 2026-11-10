@@ -3,7 +3,7 @@
   "sdk": {
     "version": "10.0.403",
     "rollForward": "disable",
-    "allowPrerelease": true
+    "allowPrerelease": false
   }
 }
 // endsnippet:host-global-json
@@ -13,7 +13,7 @@
   "sdk": {
     "version": "10.0.403",
     "rollForward": "disable",
-    "allowPrerelease": true
+    "allowPrerelease": false
   }
 }
 // endsnippet:client-global-json

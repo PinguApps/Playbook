@@ -1,10 +1,10 @@
 #Requires -Version 7.3
 [CmdletBinding()]
-param([switch]$Record)
+param([switch]$Record,
+    [string]$Dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source)
 $ErrorActionPreference = 'Stop'
 $PSNativeCommandUseErrorActionPreference = $true
 $root = Split-Path $PSScriptRoot -Parent
-$dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source
 $saved = @{}
 foreach ($key in 'TEMP','TMP','DOTNET_ADD_GLOBAL_TOOLS_TO_PATH') { $saved[$key] = [Environment]::GetEnvironmentVariable($key) }
 $paths = @{}

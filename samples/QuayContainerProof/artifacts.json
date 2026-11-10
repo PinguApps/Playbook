@@ -1,13 +1,39 @@
 {
-  "notation": {"version":"1.3.2","url":"https://github.com/notaryproject/notation/releases/download/v1.3.2/notation_1.3.2_windows_amd64.zip","sha256":"014f25a530eee17520c8e1eb7380e4bd02ff6fc04479a07a890954e3b7ddfdc7"},
-  "oras": {"version":"1.3.6","url":"https://github.com/oras-project/oras/releases/download/v1.3.6/oras_1.3.6_windows_amd64.zip","sha256":"ec3d19f386d5d2f0892288772d7b242475a05332aafa64b6773378ca771d76d3"},
+  "notation": {
+    "version": "1.3.2",
+    "url": "https://github.com/notaryproject/notation/releases/download/v1.3.2/notation_1.3.2_windows_amd64.zip",
+    "sha256": "014f25a530eee17520c8e1eb7380e4bd02ff6fc04479a07a890954e3b7ddfdc7"
+  },
+  "oras": {
+    "version": "1.3.6",
+    "url": "https://github.com/oras-project/oras/releases/download/v1.3.6/oras_1.3.6_windows_amd64.zip",
+    "sha256": "ec3d19f386d5d2f0892288772d7b242475a05332aafa64b6773378ca771d76d3"
+  },
   "certificates": [
-    {"file":"supply-chain.crt","type":"ca","sha256":"23ffe2b8bdb9a1711515d4cffda04bc7f793d513c76c243f1020507d8669b7db","url":"https://www.microsoft.com/pkiops/certs/Microsoft%20Supply%20Chain%20RSA%20Root%20CA%202022.crt"},
-    {"file":"timestamp.crt","type":"tsa","sha256":"df545bf919a2439c36983b54cdfc903dfa4f37d3996d8d84b4c31eec6f3c163e","url":"https://www.microsoft.com/pki/certs/MicRooCerAut_2010-06-23.crt"}
+    {
+      "file": "supply-chain.crt",
+      "type": "ca",
+      "sha256": "23ffe2b8bdb9a1711515d4cffda04bc7f793d513c76c243f1020507d8669b7db",
+      "url": "https://www.microsoft.com/pkiops/certs/Microsoft%20Supply%20Chain%20RSA%20Root%20CA%202022.crt"
+    },
+    {
+      "file": "timestamp.crt",
+      "type": "tsa",
+      "sha256": "df545bf919a2439c36983b54cdfc903dfa4f37d3996d8d84b4c31eec6f3c163e",
+      "url": "https://www.microsoft.com/pki/certs/MicRooCerAut_2010-06-23.crt"
+    }
   ],
   "images": {
-    "10": {"tag":"10.0.14-azurelinux3.0","index":"sha256:ffd2a6bc65b06f31fc61ba60e70c12250e1da4816d1069961a25342d6cca93f8","amd64":"sha256:6b0cde57a2d55aa6ef5b9c9eafbc156e3c0e0b7c114134111103bc0a3e474517"},
-    "11": {"tag":"11.0.0-rc.3-azurelinux4.0","index":"sha256:d8235d0f69afc582c94082a622dc31fe60e466ddbc1fef509ebcc8725827b6a3","amd64":"sha256:811515cabb3edf04bbbef8da41adbd51beb7f973716046d80de77822d2c1dece"}
+    "10": {
+      "tag": "10.0.14-azurelinux3.0",
+      "index": "sha256:ffd2a6bc65b06f31fc61ba60e70c12250e1da4816d1069961a25342d6cca93f8",
+      "amd64": "sha256:6b0cde57a2d55aa6ef5b9c9eafbc156e3c0e0b7c114134111103bc0a3e474517"
+    },
+    "11": {
+      "amd64": "sha256:dd668717849c0a887c646b2ea3d3282277631273e5748de42e12b3a5c5ffdf9d",
+      "tag": "11.0.0-azurelinux4.0",
+      "index": "sha256:a3e3e6c9170b9c076848d2c8b678d499df7088939be51b2a0db66d99859b2d39"
+    }
   },
-  "registry":"registry@sha256:ddf754342cfc8acc51a56d5d0ab6af06826461864460636d8bd5c546dab2a7b8"
+  "registry": "registry@sha256:ddf754342cfc8acc51a56d5d0ab6af06826461864460636d8bd5c546dab2a7b8"
 }

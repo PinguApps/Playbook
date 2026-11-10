@@ -1,5 +1,7 @@
 [CmdletBinding()]
-param([switch]$Record)
+param([switch]$Record,
+ [string]$Net10Dotnet=(Get-Command dotnet -CommandType Application | Select-Object -First 1).Source,
+ [string]$Net11Dotnet=$Net10Dotnet)
 $ErrorActionPreference='Stop'
 $PSNativeCommandUseErrorActionPreference=$true
 $root=Split-Path $PSScriptRoot -Parent
@@ -27,20 +29,20 @@ try {
    Write-Output "SOURCE provider overloads=$expected unsupported=android,browser,ios,tvos,windows sha256=$($source.sha256)"
   }
  }
- $archive=Join-Path $root 'artifacts/provider-keys/runtime11-rc3.tar.gz'
+ $archive=Join-Path $root 'artifacts/provider-keys/runtime11-ga.tar.gz'
  $null=New-Item -ItemType Directory (Split-Path $archive) -Force
  if(!(Test-Path $archive)){Invoke-WebRequest 'https://builds.dotnet.microsoft.com/dotnet/Runtime/11.0.0/dotnet-runtime-11.0.0-linux-x64.tar.gz' -OutFile $archive}
  # Microsoft's versioned archive .sha512: check both cached and newly downloaded bytes before extraction.
- $expectedArchiveHash='3b059283f689d4338a2dee33e1b433f2218f9d754e25b96821ff68281ea5d0f354d4f284bba00d8b594cf2c166531593b538e3f8308a349ca6e844ee74c03ebb'
+ $expectedArchiveHash='d0846e7ad4a6b07fe3fb7c033a381e6938ec16afbe0b7f7454ff2f9b58247cbbc35758cc785af424385c4572c801060cbd656a822ef624f4907d3cc10a16a080'
  if((Get-FileHash $archive -Algorithm SHA512).Hash.ToLowerInvariant() -cne $expectedArchiveHash){throw 'Runtime archive SHA512 mismatch; no extraction performed.'}
  Write-Output "RUNTIME_ARCHIVE verified SHA512=$expectedArchiveHash"
  $image='mcr.microsoft.com/dotnet/sdk@sha256:9c7b6b263d9d4c2e4718e16dae6d75cd8f4b5ccf206f1e7d48a98eb429981b03'
  & $docker run --pull never -d --name $container --network none --mount "type=bind,source=$root,target=/src,readonly" $image sleep 1800
- $native=(& $docker exec $container sh -ec 'mkdir /proof /runtime11; tar -xzf /src/artifacts/provider-keys/runtime11-rc3.tar.gz -C /runtime11; openssl version -a; openssl list -providers -provider default -provider base; sha256sum /usr/lib/x86_64-linux-gnu/libcrypto.so.3 /usr/lib/x86_64-linux-gnu/libssl.so.3 /runtime11/shared/Microsoft.NETCore.App/*/libSystem.Security.Cryptography.Native.OpenSsl.so; openssl genpkey -algorithm RSA -pkeyopt rsa_keygen_bits:2048 -out /proof/rookery.pem 2>/dev/null' | Out-String)
+ $native=(& $docker exec $container sh -ec 'mkdir /proof /runtime11; tar -xzf /src/artifacts/provider-keys/runtime11-ga.tar.gz -C /runtime11; openssl version -a; openssl list -providers -provider default -provider base; sha256sum /usr/lib/x86_64-linux-gnu/libcrypto.so.3 /usr/lib/x86_64-linux-gnu/libssl.so.3 /runtime11/shared/Microsoft.NETCore.App/*/libSystem.Security.Cryptography.Native.OpenSsl.so; openssl genpkey -algorithm RSA -pkeyopt rsa_keygen_bits:2048 -out /proof/rookery.pem 2>/dev/null' | Out-String)
  $native+="IMAGE $image`nRUNTIME_ARCHIVE sha256=$((Get-FileHash $archive).Hash)"
  $audit=Get-Content docs/planning/audits/runtime-security.assets.json -Raw|ConvertFrom-Json
  foreach($major in 10,11){
-  $dn=if($major -eq 10){(Get-Command dotnet -CommandType Application | Select-Object -First 1).Source}else{(Get-Command dotnet -CommandType Application | Select-Object -First 1).Source}
+  $dn=if($major -eq 10){$Net10Dotnet}else{$Net11Dotnet}
   foreach($name in 'RookeryKeys','RookeryProperty','MoorlandReports'){
    $sample="samples/net$major.0/$name/$name.csproj"
    $kind=if($name -eq 'RookeryKeys'){'compile'}else{'compile-and-run'}

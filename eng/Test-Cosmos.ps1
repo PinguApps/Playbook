@@ -20,7 +20,7 @@ try {
   )) {
     $directory = Join-Path $temporary $baseline.Target
     $null = New-Item -ItemType Directory -Path $directory
-    @{ sdk = @{ version = $baseline.Sdk; rollForward = 'disable'; allowPrerelease = $true } } |
+    @{ sdk = @{ version = $baseline.Sdk; rollForward = 'disable'; allowPrerelease = $false } } |
       ConvertTo-Json -Depth 3 | Set-Content -LiteralPath (Join-Path $directory 'global.json')
     @"
 <Project Sdk="Microsoft.NET.Sdk">

@@ -8,10 +8,10 @@
       "base": "mcr.microsoft.com/dotnet/runtime@sha256:6b0cde57a2d55aa6ef5b9c9eafbc156e3c0e0b7c114134111103bc0a3e474517"
     },
     "11": {
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
-      "sdkImage": "mcr.microsoft.com/dotnet/sdk@sha256:9fc2f44fba54c579b9b650f6feea29beff050fb030d797eac697de85a94ad77f",
-      "base": "mcr.microsoft.com/dotnet/runtime@sha256:811515cabb3edf04bbbef8da41adbd51beb7f973716046d80de77822d2c1dece"
+      "sdkImage": "mcr.microsoft.com/dotnet/sdk@sha256:65f3c7c6a25a239ab3e6719f2896147e7b68242ff2d8818dd70498bde6ef8bea",
+      "base": "mcr.microsoft.com/dotnet/runtime@sha256:3fe5f5495141c97986a49d3a4e76061f6225c3f93f94e8a7e522781376193863"
     }
   },
   "oras": {

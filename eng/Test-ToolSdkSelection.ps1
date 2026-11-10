@@ -116,7 +116,7 @@ try {
     $null = New-Item -ItemType Directory -Path $scratch
     try {
       foreach ($sdkPin in '9.0.319','10.0.403','11.0.100') {
-        @{sdk=@{version=$sdkPin;rollForward='disable';allowPrerelease=$true}} | ConvertTo-Json -Depth 5 | Set-Content -LiteralPath (Join-Path $museum 'global.json')
+        @{sdk=@{version=$sdkPin;rollForward='disable';allowPrerelease=$false}} | ConvertTo-Json -Depth 5 | Set-Content -LiteralPath (Join-Path $museum 'global.json')
         Assert-Text (Invoke-Sdk $dotnet $museum @('--version')) $sdkPin
         $toolArgs = @('Gullhaven.Museum.Catalogue@1.0.0','--configfile',$config,'--no-http-cache','--',$cards,'--gallery','east wing')
         if ($sdkPin -eq '9.0.319') {

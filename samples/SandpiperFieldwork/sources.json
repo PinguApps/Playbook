@@ -8,23 +8,23 @@
     "sha256": "a6e1687d5e4d3cde4f386f8027e34a3a0a92e9cd67bc84ed8611908e8968a68a"
   },
   {
-    "url": "https://api.nuget.org/v3-flatcontainer/microsoft.android.templates/37.2.0-rc.2.84/microsoft.android.templates.37.2.0-rc.2.84.nupkg",
-    "sha256": "fe1e0ab990ed350928ad2a2f56d530cd2dd4b014679e012bc0d02c95e44e3c75"
+    "url": "https://api.nuget.org/v3-flatcontainer/microsoft.android.templates/37.2.29/microsoft.android.templates.37.2.29.nupkg",
+    "sha256": "a77233742ec22aeed948b8044fb76af539e8abc44358da766a46171dca7e97d2"
   },
   {
-    "url": "https://api.nuget.org/v3-flatcontainer/microsoft.ios.templates/27.0.12212-net11-rc.2/microsoft.ios.templates.27.0.12212-net11-rc.2.nupkg",
-    "sha256": "43a0f0bf17e7f8ba6e879ce3db991ef8975b10f27244d8c521f369a8471c4b95"
+    "url": "https://api.nuget.org/v3-flatcontainer/microsoft.ios.templates/27.2.11039/microsoft.ios.templates.27.2.11039.nupkg",
+    "sha256": "7da2ce7c54d1c04bc73dfa5679cd517b25a71c5918c047d7f21fc3c45d8fad8b"
   },
   {
-    "url": "https://api.nuget.org/v3-flatcontainer/microsoft.tvos.templates/27.0.12212-net11-rc.2/microsoft.tvos.templates.27.0.12212-net11-rc.2.nupkg",
-    "sha256": "8747bbdc90de13a35304d50f9c9df50ad9a7204f36f8b372378aff9601d3c2c4"
+    "url": "https://api.nuget.org/v3-flatcontainer/microsoft.tvos.templates/27.2.11039/microsoft.tvos.templates.27.2.11039.nupkg",
+    "sha256": "f5a1e33a64c411aabddbf073103258cf3e4b217c9070ff73c632afad99a1488d"
   },
   {
-    "url": "https://api.nuget.org/v3-flatcontainer/microsoft.macos.templates/27.0.12212-net11-rc.2/microsoft.macos.templates.27.0.12212-net11-rc.2.nupkg",
-    "sha256": "5be1288b5e2d45ee9f3655cbf54cdedaa3069edd019927b1e486f6949677df64"
+    "url": "https://api.nuget.org/v3-flatcontainer/microsoft.macos.templates/27.2.11039/microsoft.macos.templates.27.2.11039.nupkg",
+    "sha256": "1a3d69ff8808db77ae4b0b1bb2a346a09b157a2d151a9adbadf06320bcede291"
   },
   {
-    "url": "https://api.nuget.org/v3-flatcontainer/microsoft.maccatalyst.templates/27.0.12212-net11-rc.2/microsoft.maccatalyst.templates.27.0.12212-net11-rc.2.nupkg",
-    "sha256": "d96cf84d9e910d8bc3fce65fe06925556cf91e853023cd1cb2a0dd0c0751448c"
+    "url": "https://api.nuget.org/v3-flatcontainer/microsoft.maccatalyst.templates/27.2.11039/microsoft.maccatalyst.templates.27.2.11039.nupkg",
+    "sha256": "dc23c3293912a231048b2a395fa9d1579bcb4bb843558323bc0518ab09faef2e"
   }
 ]
