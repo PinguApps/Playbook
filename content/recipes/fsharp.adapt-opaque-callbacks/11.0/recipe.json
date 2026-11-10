@@ -57,7 +57,7 @@
           "packages": [
             {
               "name": "FSharp.Core",
-              "reason": "Measured package containing the parameter attribute; keep pinned until deliberate GA reconciliation.",
+              "reason": "Measured package containing the parameter attribute; keep pinned until deliberate package reconciliation.",
               "version": "11.0.101",
               "match": "exact"
             }

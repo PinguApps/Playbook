@@ -36,7 +36,7 @@ Add `open System`, `open FSharp.Compiler.CodeAnalysis` and `open FSharp.Compiler
 
 Sharing reduces duplicate imports for compatible workloads; benchmark savings are workload-specific. This recipe promises neither a percentage nor a hard upper memory bound and adds no benchmark suite. Default sharing is an automatic benefit; the authored decision here is the explicit hosted policy and correctness boundary.
 
-The primary edition targets .NET 11; its conditional .NET 10 route uses the **new** FCS/Core pair on an older host, not the historical previous-release sample. Exact package matching is necessary because of the declared dependency contract. Exact SDK patch numbers are verification baselines. This recipe covers this first-party release change, not arbitrary FCS releases. No workload, provider, rendering mode, UI or native toolchain is needed. Managed execution was verified on Windows x64; other platforms require their own proof.
+The primary edition targets .NET 11; its conditional .NET 10 route uses the **new** FCS/Core pair on an older host, not the historical previous-release sample. Exact package matching is necessary because of the declared dependency contract. Exact SDK patch numbers are verification baselines. This recipe covers this first-party release change, not arbitrary FCS releases. No workload, provider, rendering mode, UI or native toolchain is needed. Managed execution was verified on Windows x64; other platforms require their own proof. PIN-967 remains the stable-readiness gate.
 
 ## Evidence
 

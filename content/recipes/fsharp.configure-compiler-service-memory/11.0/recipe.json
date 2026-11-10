@@ -79,7 +79,7 @@
           },
           "workloads": [],
           "stabilityLimitations": [
-            "Actual GA package and host execution; historical RC evidence remains in Git."
+            "Actual GA package and host execution; historical RC evidence remains in Git. PIN-967 remains the stable-readiness gate."
           ],
           "renderingModes": [],
           "optIns": [],
@@ -157,7 +157,7 @@
           },
           "workloads": [],
           "stabilityLimitations": [
-            "Actual GA package and host execution; historical RC evidence remains in Git."
+            "Actual GA package and host execution; historical RC evidence remains in Git. PIN-967 remains the stable-readiness gate."
           ],
           "renderingModes": [],
           "optIns": [],
