@@ -1,7 +1,7 @@
 {
   "id": "fsharp.configure-compiler-service-memory",
   "edition": "11.0",
-  "title": "Choose imported-assembly sharing in an F# compiler host (preview package)",
+  "title": "Choose imported-assembly sharing in an F# compiler host",
   "goal": "Choose default imported-assembly sharing or a deliberate checker opt-out when hosting FCS, while preserving each project reference closure and diagnostics.",
   "areas": [
     "fsharp"
@@ -23,12 +23,12 @@
     "10.0",
     "11.0"
   ],
-  "stability": "preview",
+  "stability": "stable",
   "applicability": {
     "routes": [
       {
         "selectionNotes": [
-          "New preview FCS package; default sharing is already enabled. Exact FCS/Core pair; .NET 10 host route is separately verified."
+          "GA FCS package; default sharing is already enabled. Exact FCS/Core pair; .NET 10 host route is separately verified."
         ],
         "usage": "primary",
         "sharedAreas": [
@@ -43,9 +43,9 @@
         ],
         "conditional": false,
         "sourceUrls": [
-          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/src/Compiler/Service/service.fsi",
-          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/src/Compiler/Service/service.fs",
-          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/src/Compiler/Driver/CompilerImports.fs"
+          "https://github.com/dotnet/dotnet/blob/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/fsharp/src/Compiler/Service/service.fsi",
+          "https://github.com/dotnet/dotnet/blob/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/fsharp/src/Compiler/Service/service.fs",
+          "https://github.com/dotnet/dotnet/blob/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/fsharp/src/Compiler/Driver/CompilerImports.fs"
         ],
         "requirements": {
           "packageAssets": [
@@ -79,7 +79,7 @@
           },
           "workloads": [],
           "stabilityLimitations": [
-            "Actual RC2 evidence; final GA reconciliation is separate."
+            "Actual GA package and host execution; historical RC evidence remains in Git. PIN-967 remains the stable-readiness gate."
           ],
           "renderingModes": [],
           "optIns": [],
@@ -90,13 +90,13 @@
           "packages": [
             {
               "match": "exact",
-              "version": "43.13.101-rc2.26504.105",
-              "reason": "Initial verified preview API contract; later releases require reconciliation.",
+              "version": "43.13.101",
+              "reason": "Verified GA package contract; later releases require reconciliation.",
               "name": "FSharp.Compiler.Service"
             },
             {
               "match": "exact",
-              "version": "11.0.101-rc2.26504.105",
+              "version": "11.0.101",
               "reason": "The FCS package declares this exact dependency.",
               "name": "FSharp.Core"
             }
@@ -106,7 +106,7 @@
       },
       {
         "selectionNotes": [
-          "New preview FCS package; default sharing is already enabled. Exact FCS/Core pair; .NET 10 host route is separately verified."
+          "GA FCS package; default sharing is already enabled. Exact FCS/Core pair; .NET 10 host route is separately verified."
         ],
         "usage": "primary",
         "sharedAreas": [
@@ -121,9 +121,9 @@
         ],
         "conditional": true,
         "sourceUrls": [
-          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/src/Compiler/Service/service.fsi",
-          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/src/Compiler/Service/service.fs",
-          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/src/Compiler/Driver/CompilerImports.fs"
+          "https://github.com/dotnet/dotnet/blob/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/fsharp/src/Compiler/Service/service.fsi",
+          "https://github.com/dotnet/dotnet/blob/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/fsharp/src/Compiler/Service/service.fs",
+          "https://github.com/dotnet/dotnet/blob/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/fsharp/src/Compiler/Driver/CompilerImports.fs"
         ],
         "requirements": {
           "packageAssets": [
@@ -157,7 +157,7 @@
           },
           "workloads": [],
           "stabilityLimitations": [
-            "Actual RC2 evidence; final GA reconciliation is separate."
+            "Actual GA package and host execution; historical RC evidence remains in Git. PIN-967 remains the stable-readiness gate."
           ],
           "renderingModes": [],
           "optIns": [],
@@ -168,13 +168,13 @@
           "packages": [
             {
               "match": "exact",
-              "version": "43.13.101-rc2.26504.105",
-              "reason": "Initial verified preview API contract; later releases require reconciliation.",
+              "version": "43.13.101",
+              "reason": "Verified GA package contract; later releases require reconciliation.",
               "name": "FSharp.Compiler.Service"
             },
             {
               "match": "exact",
-              "version": "11.0.101-rc2.26504.105",
+              "version": "11.0.101",
               "reason": "The FCS package declares this exact dependency.",
               "name": "FSharp.Core"
             }
@@ -187,15 +187,15 @@
   "sources": [
     {
       "title": "Matching public contract",
-      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/src/Compiler/Service/service.fsi"
+      "url": "https://github.com/dotnet/dotnet/blob/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/fsharp/src/Compiler/Service/service.fsi"
     },
     {
       "title": "Matching implementation",
-      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/src/Compiler/Service/service.fs"
+      "url": "https://github.com/dotnet/dotnet/blob/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/fsharp/src/Compiler/Service/service.fs"
     },
     {
       "title": "Matching constraints",
-      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/src/Compiler/Driver/CompilerImports.fs"
+      "url": "https://github.com/dotnet/dotnet/blob/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/fsharp/src/Compiler/Driver/CompilerImports.fs"
     }
   ],
   "evidence": [
@@ -211,7 +211,7 @@
       "scope": "Actual restored dependencies, compilation and managed execution on Windows x64. Focused emitted-code/lifetime/compiler/host checks are documented in docs/verification/runtime-async.md; no mocks, cross-compilation, native/AOT, debugger integration or GA proof.",
       "kind": "compile-and-run",
       "language": "11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "sample": "samples/net11.0/FSharpCompilerHost/FSharpCompilerHost.fsproj",
       "target": "net11.0"
     },

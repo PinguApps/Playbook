@@ -23,7 +23,7 @@
   "supportedTargets": [
     "11.0"
   ],
-  "stability": "preview",
+  "stability": "stable",
   "applicability": {
     "routes": [
       {
@@ -32,14 +32,14 @@
         "usage": "primary",
         "selectionNotes": [
           "Adapt a supplied curried callback once before an inline batch loop when it is not a known lambda, preserving results, effects and exception propagation.",
-          "Pinned prerelease artifacts; no experimental API suppression or preview language switch is needed."
+          "Pinned GA artifacts; no experimental API suppression or preview language switch is needed."
         ],
         "requirements": {
           "runtime": {
             "name": ".NET",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Run the declared net11.0 consumer. Measured RC2 artifacts are separate from final GA support."
+            "reason": "Run the declared net11.0 consumer. GA SDK and Core assets are verified."
           },
           "sdk": {
             "name": ".NET SDK",
@@ -57,8 +57,8 @@
           "packages": [
             {
               "name": "FSharp.Core",
-              "reason": "Measured package containing the parameter attribute; keep pinned until deliberate GA reconciliation.",
-              "version": "11.0.101-rc2.26504.105",
+              "reason": "Measured package containing the parameter attribute; keep pinned until deliberate package reconciliation.",
+              "version": "11.0.101",
               "match": "exact"
             }
           ],
@@ -82,13 +82,13 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "RC2 package/compiler verification is not actual GA verification. PIN-959 and PIN-961 remain open. No blanket performance or interop guarantee."
+            "GA SDK/Core execution is verified. PIN-967 remains open. No blanket performance or interop guarantee."
           ]
         },
         "sourceUrls": [
-          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/src/Compiler/Facilities/LanguageFeatures.fs",
-          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/tests/FSharp.Compiler.ComponentTests/EmittedIL/OptimizeClosureIfNotInlined.fs",
-          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/src/FSharp.Core/prim-types.fsi"
+          "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/fsharp/src/Compiler/Facilities/LanguageFeatures.fs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/fsharp/tests/FSharp.Compiler.ComponentTests/EmittedIL/OptimizeClosureIfNotInlined.fs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/fsharp/src/FSharp.Core/prim-types.fsi"
         ],
         "evidenceSamples": [
           "samples/net11.0/SeedFold/SeedFold.fsproj"
@@ -99,15 +99,15 @@
   "sources": [
     {
       "title": "LanguageFeatures.fs",
-      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/src/Compiler/Facilities/LanguageFeatures.fs"
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/fsharp/src/Compiler/Facilities/LanguageFeatures.fs"
     },
     {
       "title": "OptimizeClosureIfNotInlined.fs",
-      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/tests/FSharp.Compiler.ComponentTests/EmittedIL/OptimizeClosureIfNotInlined.fs"
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/fsharp/tests/FSharp.Compiler.ComponentTests/EmittedIL/OptimizeClosureIfNotInlined.fs"
     },
     {
       "title": "prim-types.fsi",
-      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/src/FSharp.Core/prim-types.fsi"
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/fsharp/src/FSharp.Core/prim-types.fsi"
     }
   ],
   "evidence": [
@@ -128,7 +128,7 @@
       "kind": "compile"
     },
     {
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "11.0",
       "sample": "samples/net11.0/SeedFold/SeedFold.fsproj",
       "scope": "Adapt a supplied curried callback once before an inline batch loop when it is not a known lambda, preserving results, effects and exception propagation.",
@@ -136,7 +136,7 @@
       "kind": "compile-and-run"
     },
     {
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "11.0",
       "sample": "samples/net11.0/SeedFoldLibrary/SeedFoldLibrary.fsproj",
       "scope": "Adapt a supplied curried callback once before an inline batch loop when it is not a known lambda, preserving results, effects and exception propagation.",
@@ -144,7 +144,7 @@
       "kind": "compile"
     },
     {
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "11.0",
       "sample": "samples/net11.0/SeedFold/SeedFold.fsproj",
       "scope": "Actual optimized IL: one Adapt before the opaque loop, no InvokeFast there, repeated InvokeFast in the control, no Adapt for literal; FS3350/FS3916 and newer compiler F#8-mode imported metadata execution.",

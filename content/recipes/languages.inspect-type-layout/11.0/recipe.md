@@ -22,7 +22,7 @@ The older project does not define `CURRENT`. Its real public-attribute fallback 
 
 ## Newer approach
 
-Use a separate directory with the same four filenames. Pin SDK11.0.100-rc.3.26522.148 in `global.json`; actual execution uses matching11 RC2 reference/runtime assets and C#15. Restore the pinned Microsoft.CodeAnalysis.CSharp5.12.0-1.26522.148 from Microsoft's `dotnet-tools` feed using this mapping. It resolves Common5.12.0-1.26522.148 and Analyzers5.12.0-1.26465.4. Package version support is independent of the host target number.
+Use a separate directory with the same four filenames. Pin SDK11.0.100 in `global.json`; actual execution uses GA11.0.0 reference/runtime assets and C#15. Restore the pinned Microsoft.CodeAnalysis.CSharp5.12.0-1.26504.105 from Microsoft's `dotnet-tools` feed using this mapping. It resolves Common5.12.0-1.26504.105 and Analyzers5.12.0-1.26465.4. Package version support is independent of the host target number.
 
 {{snippet:project-11-packetlayout}}
 
@@ -46,7 +46,7 @@ Use a separate directory with the same four filenames. Pin SDK11.0.100-rc.3.2652
 
 Only target11/edition11 is served. The valid net10 comparison adds no foundation. `introducedIn:11.0` identifies the measured release-family route; no exact first-nightly claim is made. Selected Common/CSharp assets are `lib/net10.0`; no older-target support is inferred merely from that label or from netstandard assets. No provider, rendering mode, native dependency, optional workload or experimental opt-in is required. C# is canonical for this shared symbol API; no separate VB route is needed to explain the same property. Real execution was Windows x64, with no runtime-layout or other-platform execution claim.
 
-The5.12 package identifies VMR820230c386db5b0106c5430b3e5aee92a7826bf5. Its public source definition agrees with the measured property and types. The earlier Roslyn-main5.13 audit is not relabelled as RC2. All artifacts here are pre-GA; PIN-959 coverage and PIN-961 actual-GA reconciliation stay open.
+The5.12 package identifies VMR820230c386db5b0106c5430b3e5aee92a7826bf5. Its public source definition agrees with the measured property and types. The earlier Roslyn-main5.13 audit is not relabelled as RC2. The retained Roslyn package is preview; GA SDK execution does not promote it to stable. PIN-967 remains the stable-readiness gate.
 
 ## Evidence
 

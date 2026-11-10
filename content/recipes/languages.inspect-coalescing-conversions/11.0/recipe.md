@@ -46,7 +46,7 @@ The `CURRENT` branches are intentionally excluded by these older projects. All t
 
 ## Newer approach
 
-Use SDK11.0.100-rc.3.26522.148 with its matching11 RC2 runtime/reference pack for the measured route. Pin that exact SDK in `global.json` as above. The declared C#15/VB16.9 modes require no `preview` switch. Restore Microsoft.CodeAnalysis.CSharp and VisualBasic **5.12.0-1.26522.148**, which resolve Common at the same version and Analyzers5.12.0-1.26465.4. These prerelease packages are available on Microsoft's `dotnet-tools` feed; the exact source mapping below keeps CodeAnalysis packages on that feed. NuGet.org's observed5.9.0 ceiling is not an alternative source for this pin.
+Use SDK11.0.100 with its matching11.0.0 runtime/reference pack for the measured route. Pin that exact SDK in `global.json` as above. The declared C#15/VB16.9 modes require no `preview` switch. Restore Microsoft.CodeAnalysis.CSharp and VisualBasic **5.12.0-1.26504.105**, which resolve Common at the same version and Analyzers5.12.0-1.26465.4. These prerelease packages are available on Microsoft's `dotnet-tools` feed; the exact source mapping below keeps CodeAnalysis packages on that feed. NuGet.org's observed5.9.0 ceiling is not an alternative source for this pin.
 
 Use separate directories from the older comparison, keeping the same filenames. The public signatures are `CSharpExtensions.GetValueConversion(ICoalesceOperation) -> Microsoft.CodeAnalysis.CSharp.Conversion` and `VisualBasicExtensions.GetValueConversion(ICoalesceOperation) -> Microsoft.CodeAnalysis.VisualBasic.Conversion`. Fully qualify their declaring namespaces: similarly named extension classes also exist in the common namespace.
 
@@ -97,7 +97,7 @@ The integer-nullable/long-fallback case reports numeric conversion for the non-n
 
 The served edition targets11 only;10 remains an executed comparison, preserving the exact eight foundations. `introducedIn:11.0` identifies this qualified release-family route, not a claim about the first nightly build or a new VB language version. Actual net11 hosts select package `lib/net10.0` assets. Their labels and the netstandard assets do not alone establish an older-target route; none is advertised here. No provider, rendering mode, workload, native toolchain, reflection, private casts or experimental suppression is needed. These public APIs were exercised on Windows x64; no recurring OS matrix is introduced.
 
-The package's repository metadata identifies dotnet/dotnet VMR820230c386db5b0106c5430b3e5aee92a7826bf5. The audit's Roslyn-main5.13 source is a separate snapshot, not these package bytes. RC2 package evidence is not actual GA proof. PIN-959 qualifying coverage and PIN-961 final language reconciliation remain open.
+The package's repository metadata identifies dotnet/dotnet VMR820230c386db5b0106c5430b3e5aee92a7826bf5. The audit's Roslyn-main5.13 source is a separate snapshot, not these package bytes. The retained RC2 package executes on the GA host; this does not establish a stable public NuGet equivalent. PIN-967 remains the stable-readiness gate.
 
 ## Evidence
 

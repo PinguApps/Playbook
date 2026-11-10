@@ -4,18 +4,18 @@
     "net10.0": {
       "FSharp.Compiler.Service": {
         "type": "Direct",
-        "requested": "[43.13.101-rc2.26504.105, 43.13.101-rc2.26504.105]",
-        "resolved": "43.13.101-rc2.26504.105",
-        "contentHash": "v1mzELTbkNm/X4J2hRkA/MgccZ1NxxKf69dPBbaYyNSzu/d8jcgPqLSgAGvKj6RIKN9WAI2m6sEukSLecz0H7w==",
+        "requested": "[43.13.101, 43.13.101]",
+        "resolved": "43.13.101",
+        "contentHash": "3lOIwtUG85qbGzTBht8Ui2DJaGaGwzPDi4Mb7OVPQsQBG1EZ0yZo+Lz9iwBsZyo1dTTxYYi8JcE0ZmBrK/6qRw==",
         "dependencies": {
-          "FSharp.Core": "[11.0.101-rc2.26504.105]"
+          "FSharp.Core": "[11.0.101]"
         }
       },
       "FSharp.Core": {
         "type": "Direct",
-        "requested": "[11.0.101-rc2.26504.105, 11.0.101-rc2.26504.105]",
-        "resolved": "11.0.101-rc2.26504.105",
-        "contentHash": "NJaoH+GoLUpgQnuzZ7Ll13mxXNNIRfy5c6HGcTD+9uJmobGqDmZ1nmJXpV79sg2Fc1tNMTN5X+cURpF/Bho0og=="
+        "requested": "[11.0.101, 11.0.101]",
+        "resolved": "11.0.101",
+        "contentHash": "XL1wfb0gujXAtnJfO7rYfxKgwufCiT8aOKqGoqKB83oxRAZ9+yiNWXinHO4x9StYuunTl/AH8eERc0hv7UXJVQ=="
       }
     }
   }

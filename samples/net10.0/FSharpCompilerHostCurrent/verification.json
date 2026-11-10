@@ -7,8 +7,8 @@
   "nativeToolchains": [],
   "workloads": [],
   "dependencies": [
-    "FSharp.Compiler.Service/43.13.101-rc2.26504.105",
-    "FSharp.Core/11.0.101-rc2.26504.105"
+    "FSharp.Compiler.Service/43.13.101",
+    "FSharp.Core/11.0.101"
   ],
   "buildArguments": []
 }
