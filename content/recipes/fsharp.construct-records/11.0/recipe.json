@@ -73,11 +73,11 @@
             "name": "F#",
             "version": "preview",
             "match": "exact",
-            "reason": "RC2 still gates record constructor calls behind preview."
+            "reason": "The GA F# 11 compiler still gates record constructor calls behind preview."
           },
           "workloads": [],
           "stabilityLimitations": [
-            "Verified using .NET 11 RC2 artifacts only; GA reconciliation remains required.",
+            "Verified using SDK 11.0.100 and runtime 11.0.0; PIN-967 remains the global stable-readiness gate.",
             "Experimental compiler syntax can change; stable record expressions remain available."
           ],
           "renderingModes": [],

@@ -85,7 +85,7 @@
           },
           "workloads": [],
           "stabilityLimitations": [
-            "Actual GA SDK 11.0.100/runtime 11.0.0 execution; experimental opt-ins remain required."
+            "Actual GA SDK 11.0.100/runtime 11.0.0 execution; Native AOT uses PublishAot=true without a preview-language opt-in."
           ],
           "renderingModes": [],
           "optIns": [
