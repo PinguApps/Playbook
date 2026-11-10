@@ -124,7 +124,7 @@
     {
       "sample": "samples/net11.0/FSharpModels/FSharpModels.fsproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "11.0",
       "kind": "compile-and-run",
       "scope": "Original json comparison: real compilation and execution of all assertions in FSharpModels. Separate compiler and ordinary formatting probes run in eng/Test-FSharpGuidance.ps1. No mocks, native publish or GA execution claimed."

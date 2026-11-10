@@ -29,7 +29,7 @@
     "routes": [
       {
         "selectionNotes": [
-          "Experimental inline support; RC2 preview required. Pending generic Task upcast to Task is not supported by this bounded route."
+          "Experimental inline support; GA still requires preview. Pending generic Task upcast to Task is not supported by this bounded route."
         ],
         "usage": "primary",
         "sharedAreas": [
@@ -44,9 +44,9 @@
         ],
         "conditional": false,
         "sourceUrls": [
-          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/docs/runtime-async.md",
-          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/src/FSharp.Core/resumable.fsi",
-          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/src/Compiler/Facilities/LanguageFeatures.fs"
+          "https://github.com/dotnet/dotnet/blob/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/fsharp/docs/runtime-async.md",
+          "https://github.com/dotnet/dotnet/blob/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/fsharp/src/FSharp.Core/resumable.fsi",
+          "https://github.com/dotnet/dotnet/blob/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/fsharp/src/Compiler/Facilities/LanguageFeatures.fs"
         ],
         "requirements": {
           "packageAssets": [
@@ -79,7 +79,7 @@
           },
           "workloads": [],
           "stabilityLimitations": [
-            "Actual RC2 evidence; final GA reconciliation is separate."
+            "Actual GA SDK 11.0.100/runtime 11.0.0 execution; experimental opt-ins remain required."
           ],
           "renderingModes": [],
           "optIns": [
@@ -105,20 +105,20 @@
   "sources": [
     {
       "title": "Matching public contract",
-      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/docs/runtime-async.md"
+      "url": "https://github.com/dotnet/dotnet/blob/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/fsharp/docs/runtime-async.md"
     },
     {
       "title": "Matching implementation",
-      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/src/FSharp.Core/resumable.fsi"
+      "url": "https://github.com/dotnet/dotnet/blob/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/fsharp/src/FSharp.Core/resumable.fsi"
     },
     {
       "title": "Matching constraints",
-      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/src/Compiler/Facilities/LanguageFeatures.fs"
+      "url": "https://github.com/dotnet/dotnet/blob/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/fsharp/src/Compiler/Facilities/LanguageFeatures.fs"
     }
   ],
   "evidence": [
     {
-      "scope": "Actual restored dependencies, compilation and managed execution on Windows x64. Focused emitted-code/lifetime/compiler/host checks are documented in docs/verification/runtime-async.md; no mocks, cross-compilation, native/AOT, debugger integration or GA proof.",
+      "scope": "Actual restored dependencies, compilation and managed execution on Windows x64. Focused emitted-code/lifetime/compiler/host checks are documented in docs/verification/runtime-async.md; no mocks, cross-compilation, native/AOT, debugger integration or all-platform proof.",
       "kind": "compile-and-run",
       "language": "10.0",
       "sdk": "10.0.403",
@@ -126,10 +126,10 @@
       "target": "net10.0"
     },
     {
-      "scope": "Actual restored dependencies, compilation and managed execution on Windows x64. Focused emitted-code/lifetime/compiler/host checks are documented in docs/verification/runtime-async.md; no mocks, cross-compilation, native/AOT, debugger integration or GA proof.",
+      "scope": "Actual restored dependencies, compilation and managed execution on Windows x64. Focused emitted-code/lifetime/compiler/host checks are documented in docs/verification/runtime-async.md; no mocks, cross-compilation, native/AOT, debugger integration or all-platform proof.",
       "kind": "compile-and-run",
       "language": "preview",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "sample": "samples/net11.0/FSharpRuntime/FSharpRuntime.fsproj",
       "target": "net11.0"
     }
@@ -153,6 +153,6 @@
   },
   "humanProof": {
     "status": "not-required",
-    "scope": "Bounded managed/compiler/host claims execute automatically. Native/AOT, debugger UI and GA support are not claimed."
+    "scope": "Bounded managed/compiler/host claims execute automatically. Native/AOT, debugger UI and universal runtime support are not claimed."
   }
 }

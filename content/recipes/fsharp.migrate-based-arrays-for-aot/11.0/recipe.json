@@ -49,8 +49,8 @@
         ],
         "conditional": false,
         "sourceUrls": [
-          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/src/FSharp.Core/array2.fsi",
-          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/src/FSharp.Core/array2.fs",
+          "https://github.com/dotnet/dotnet/blob/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/fsharp/src/FSharp.Core/array2.fsi",
+          "https://github.com/dotnet/dotnet/blob/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/fsharp/src/FSharp.Core/array2.fs",
           "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc2/fsharp.md"
         ],
         "requirements": {
@@ -85,7 +85,7 @@
           },
           "workloads": [],
           "stabilityLimitations": [
-            "Actual RC2 evidence; final GA reconciliation is separate."
+            "Actual GA SDK 11.0.100/runtime 11.0.0 execution; experimental opt-ins remain required."
           ],
           "renderingModes": [],
           "optIns": [
@@ -111,11 +111,11 @@
   "sources": [
     {
       "title": "Matching official src/FSharp.Core/array2.fsi",
-      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/src/FSharp.Core/array2.fsi"
+      "url": "https://github.com/dotnet/dotnet/blob/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/fsharp/src/FSharp.Core/array2.fsi"
     },
     {
       "title": "Matching official src/FSharp.Core/array2.fs",
-      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/src/FSharp.Core/array2.fs"
+      "url": "https://github.com/dotnet/dotnet/blob/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/fsharp/src/FSharp.Core/array2.fs"
     },
     {
       "title": "Canonical RC2 F# release notes",
@@ -136,8 +136,8 @@
       "target": "net11.0",
       "language": "11.0",
       "kind": "compile-and-run",
-      "sdk": "11.0.100-rc.3.26522.148",
-      "scope": "Actual .NET 11 dependency restore and compilation, Windows x64 Native AOT publish/run without warning suppression, plus separate managed execution of zero-based coordinate translation and array helpers. Supplemental native PE/toolchain identity and IL3050 probes are in docs/verification/fsharp-lifetimes.md. RC2 is not GA proof."
+      "sdk": "11.0.100",
+      "scope": "Actual .NET 11 dependency restore and compilation, Windows x64 Native AOT publish/run without warning suppression, plus separate managed execution of zero-based coordinate translation and array helpers. Supplemental native PE/toolchain identity and IL3050 probes are in docs/verification/fsharp-lifetimes.md. Historical RC evidence remains available separately."
     }
   ],
   "snippets": {
@@ -154,6 +154,6 @@
   },
   "humanProof": {
     "status": "not-required",
-    "scope": "Automated JIT comparisons and one actual Windows x64 Native AOT publish/run establish the bounded array claims. Other native platforms and GA proof are not claimed."
+    "scope": "Automated JIT comparisons and one actual Windows x64 Native AOT publish/run establish the bounded array claims. Other native platforms and all-platform proof are not claimed."
   }
 }
