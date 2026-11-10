@@ -147,7 +147,7 @@
       "kind": "compile-and-run",
       "sample": "samples/net11.0/PermitManifest/PermitManifest.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "scope": "Actual Windows x64 CNG RSA2048/SHA256 fixtures, default100/101 and strict8/9 SignedInfo/SignedXml parsing and signature checks, old fixed100/application policy, malformed/tamper/wrong-key rejection, late cached and invalid configuration in separate processes. No authorization, other-provider/platform or GA proof."
     }

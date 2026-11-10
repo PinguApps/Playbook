@@ -86,6 +86,8 @@ For request-derived application bases retrieve blazor.render-application-base/11
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Canonical old/new applications compile with their actual pinned SDKs. Real browser checks separately observe enhanced HTTP requests, stable document identity, exact hint/resource URLs, module evaluation on demand, no-hint control and warm-cache/full-navigation behavior. Compilation is labelled compile, not execution; source review, browser behavior and packed-tool retrieval are distinct. docs/verification/navigation-resource-hints.md records exact input/artifact/payload hashes and reconstruction solely from installed expanded Markdown. No mocks, source-only substitution, cross-compilation, GA or universal preload requirement is asserted.
 
 Official references are included in metadata and served offline with this body. The pinned guide is reconciled against actual selected serviced framework sources rather than silently treating every .NET 10 release as historical behavior.

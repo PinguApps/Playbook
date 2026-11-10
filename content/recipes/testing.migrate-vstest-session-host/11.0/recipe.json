@@ -318,7 +318,7 @@
       "kind": "compile-and-run",
       "sample": "samples/net11.0/TernHost/TernHost.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "scope": "Real old/current platform consumers with locked artifacts; Test-TernTesting.ps1 verifies removed-contract compilation, discovery/results/cancel/cleanup, real plugin dependency resolution and effective settings/semicolon boundaries."
     },
@@ -326,7 +326,7 @@
       "kind": "compile-and-run",
       "sample": "samples/net11.0/TernHost/Tests/TernTests.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "scope": "Real old/current platform consumers with locked artifacts; Test-TernTesting.ps1 verifies removed-contract compilation, discovery/results/cancel/cleanup, real plugin dependency resolution and effective settings/semicolon boundaries."
     }

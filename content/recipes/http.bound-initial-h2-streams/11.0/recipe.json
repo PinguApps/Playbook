@@ -115,7 +115,7 @@
       "language": "14.0"
     },
     {
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "scope": "Real cleartext HTTP/2 peer with delayed SETTINGS: two initial HEADERS, peer limit three respected, six completions; older gate stays two; RC2 rejects zero.",
       "sample": "samples/net11.0/HttpCapacity/HttpCapacity.csproj",
       "target": "net11.0",

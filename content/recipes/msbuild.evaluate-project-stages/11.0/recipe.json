@@ -162,7 +162,7 @@
       "language": "14.0"
     },
     {
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "scope": "Actual SDK11 RC3 host/Locator1.11.2: all partial stages, property-set/import equality, item values/metadata/counts versus Full, omitted/default Full, unavailable state failures, all three mutable factories rejecting every partial stage and undefined enum failure. Real CLI property/item outputs and explicit target control, actual SDK imports and complete loaded assembly closure. Exact artifact hashes checked. Windows x64 preview; no speed, down-level partial or actual-GA claim.",
       "target": "net11.0",
       "sample": "samples/net11.0/MuseumInventory/MuseumInventory.csproj",

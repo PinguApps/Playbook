@@ -48,6 +48,8 @@ design, runtime-remapping or label all R8 usage experimental.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 The .NET10 Android app builds. A separate real R8 classfile run of the canonical
 Java input preserves Beacon's constructor and private signal method while removing
 unused. This proves those rules on that optimizer input, not the .NET11 packaging

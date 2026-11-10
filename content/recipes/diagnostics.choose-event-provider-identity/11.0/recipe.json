@@ -120,7 +120,7 @@
       "kind": "compile-and-run",
       "sample": "samples/net11.0/BorealSignals/BorealSignals.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "scope": "Actual Windows x64 .NET10/.NET11 RC2 managed consumers, exact reference/compiler/runtime/package identities. Both explicit constructors versus name-derived identity; real EventListener payload, Name/Guid, settings/traits, disable/dispose, duplicate active identity and observed construction/write errors. No ETW/EventPipe collection, other-platform or final-GA execution."
     }

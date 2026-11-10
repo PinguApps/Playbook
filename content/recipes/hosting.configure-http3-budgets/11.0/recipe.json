@@ -128,7 +128,7 @@
     {
       "sample": "samples/net11.0/EstuaryBudgets/EstuaryBudgets.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "kind": "compile-and-run",
       "scope": "Real Windows x64 Kestrel HTTP/3: two concurrent requests and queued third on one connection, three inbound unidirectional protocol streams and cancelled fourth open, slow 16MiB upload/download pause and resume. Actual MsQuic module/version/hash, audited references, compiler and runtime hashes. No exact memory/quota/other-OS/GA claim."

@@ -153,6 +153,8 @@ It is an optional dependency upgrade, not evidence that EF Core11 runs on .NET10
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 All three actual SDK/target/provider graphs compiled and ran against real SQLite
 on Windows x64. Each sample's saved evidence records input hashes, exact resolved
 locked dependencies, commands, runtime/native version and observed PASS output.

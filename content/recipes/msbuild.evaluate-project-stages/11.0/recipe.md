@@ -189,6 +189,8 @@ recipe/edition identities are retained.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Both actual host dependency sets compile and execute through
 `eng/Record-Evidence.ps1` and their saved `verification-evidence.json` records.
 The proof uses the original imported SDK project, compares property sets/imports,

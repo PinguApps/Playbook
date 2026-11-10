@@ -89,4 +89,6 @@ Windows x64 and the approved digest-pinned Cosmos emulator in gateway mode were 
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Independent locked builds and real focused execution were recorded on Windows x64 with SDK10.0.403 and SDK11 RC3. Compilation, service execution and installed offline retrieval establish separate claims. Review the embedded evidence entries for exact inputs, dependencies and command outputs; freshness describes package-build inputs, not the consumer machine or GA. Cosmos uses the approved loopback emulator; cloud parity remains unverified.

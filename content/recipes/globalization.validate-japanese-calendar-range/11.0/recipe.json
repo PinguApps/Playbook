@@ -118,7 +118,7 @@
       "kind": "compile-and-run",
       "scope": "Actual paired calendar operations, queried minima, all four historical boundaries, explicit routing without clamping, stored-value preservation, measured ICU/globalization mode and invariant-mode refusal. Exact compiler/reference/runtime hashes; Windows x64 only, no NLS/other-platform/GA proof.",
       "sample": "samples/net11.0/HistoryImport/HistoryImport.csproj",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "target": "net11.0"
     }

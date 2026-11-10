@@ -128,7 +128,7 @@
     {
       "language": "15.0",
       "sample": "samples/net11.0/CurlewMappings/CurlewMappings.csproj",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "target": "net11.0",
       "kind": "compile",
       "scope": "Pinned real SQLite compilation and execution; no GA or other-platform claim."
@@ -136,7 +136,7 @@
     {
       "language": "15.0",
       "sample": "samples/net11.0/CurlewMappings/CurlewMappings.csproj",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "target": "net11.0",
       "kind": "execution",
       "record": "samples/net11.0/CurlewMappings/behavior.evidence.json",

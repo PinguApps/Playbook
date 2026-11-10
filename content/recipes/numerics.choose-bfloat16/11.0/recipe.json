@@ -103,7 +103,7 @@
     },
     {
       "scope": "Exact and nearest-even conversions; large/small magnitudes, signed zero/infinity/NaN, underflow/overflow, generic arithmetic and per-reading/mean error budgets.",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "target": "net11.0",
       "kind": "compile-and-run",
       "sample": "samples/net11.0/SensorArchive/SensorArchive.csproj",

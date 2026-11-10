@@ -132,7 +132,7 @@
       "sample": "samples/net11.0/EstuaryParcels/EstuaryParcels.csproj",
       "kind": "compile",
       "scope": "Run eng/Test-EstuaryProviders.ps1 -Record. Fresh compilation and real isolated provider checks; saved behavior.evidence.json includes actual outcomes. Installed ordinary tool retrieval separately proves offline discovery and complete canonical body. No Azure cloud, Entra, other-platform or actual GA proof.",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "target": "net11.0"
     },
     {
@@ -140,7 +140,7 @@
       "sample": "samples/net11.0/EstuaryParcels/EstuaryParcels.csproj",
       "kind": "execution",
       "scope": "Run eng/Test-EstuaryProviders.ps1 -Record. Fresh compilation and real isolated provider checks; saved behavior.evidence.json includes actual outcomes. Installed ordinary tool retrieval separately proves offline discovery and complete canonical body. No Azure cloud, Entra, other-platform or actual GA proof.",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "target": "net11.0",
       "record": "samples/net11.0/EstuaryParcels/behavior.evidence.json"
     }

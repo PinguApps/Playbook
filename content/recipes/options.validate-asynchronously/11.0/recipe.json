@@ -137,7 +137,7 @@
     {
       "sample": "samples/net11.0/OptionsStartup/OptionsStartup.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "kind": "compile-and-run",
       "scope": "Real DI/generic/async startup, named dual and generated validators; seeded caches, synchronous access/reload failures. Separate script checks real SYSLIB1205 failing/fixed builds."

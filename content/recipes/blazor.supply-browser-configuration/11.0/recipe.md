@@ -109,6 +109,8 @@ Open /?profile=Testing&duplicate=1: expect two environment providers, the second
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Both complete original projects compile using their actual declared SDKs and locked dependencies. Those records are compilation only. Separate real Chrome WASM execution verifies two profiles on unchanged assets, actual rendered IConfiguration values/provider order, the .NET 10 explicit-provider control and .NET 11 duplicate-provider migration. Exact inputs, artifacts, evaluated verifier identity and limits are recorded in docs/verification/browser-configuration.md. Source review, compilation and browser execution remain distinct; there are no configuration-host mocks or newer-SDK cross-compilation claims.
 
 The existing packed-tool harness independently reconstructs this full body from canonical sources, checks all nested applicability properties, edition, current compilation evidence and target-10 rejection via real stdio list/get from an isolated feed/cache and unrelated working directory with networking disabled. Standalone reconstruction uses the expanded returned Markdown, not checkout imports. No required Human-only proof remains for the local fixture route.

@@ -127,7 +127,7 @@
       "kind": "compile-and-run",
       "scope": "Measured Windows x64 local NTFS only. Same-volume regular files; no Unix, network-share, unsupported-filesystem or cross-volume outcome is claimed.",
       "sample": "samples/net11.0/SurveyExport/SurveyExport.csproj",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "target": "net11.0"
     }

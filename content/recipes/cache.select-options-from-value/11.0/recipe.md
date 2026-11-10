@@ -36,4 +36,6 @@ There is no distributed backend in this workload. Local expiration causes a new 
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Actual .NET 10 and .NET 11 RC2 projects compile and execute the same original value/expiration goal. The newer path verifies a local hit, no duplicate factory call for that hit, another load after local expiry, and the explicit requested-24/observed-12 LocalSize discrepancy. Exact packages, resolved assets, SDK/framework baseline and source hashes are saved. The documented custom LocalSize contract remains unverified on the selected RC implementation, still owed at GA. No GA, external backend or native execution is claimed.

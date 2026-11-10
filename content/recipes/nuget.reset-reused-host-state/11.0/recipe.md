@@ -145,6 +145,8 @@ that such a bug surfaces and is removed in `finally`.
 
 ## Evidence and limits
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 `eng/Record-PackageWorkshop.ps1` uses the existing sample-evidence workflow.
 Both actual SDK consumers reproduce `moor-A` leaking into build2 expecting
 `moor-B` with reset disabled, then produce correct `quay-A`/`quay-B` receipts in

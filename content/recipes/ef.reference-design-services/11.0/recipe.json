@@ -136,7 +136,7 @@
       "scope": "Locked canonical compilation and sample execution. CLI checks recorded separately; no GA or cross-platform claim.",
       "language": "15.0",
       "sample": "samples/net11.0/FleetDesign/FleetDesign.csproj",
-      "sdk": "11.0.100-rc.3.26522.148"
+      "sdk": "11.0.100"
     },
     {
       "target": "net10.0",
@@ -151,7 +151,7 @@
       "target": "net11.0",
       "sample": "samples/net11.0/FleetDesign/FleetDesign.csproj",
       "language": "15.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "record": "samples/net11.0/FleetDesign/behavior.evidence.json",
       "scope": "EF11 actual Tools dependency consumer: missing direct Design build exit 1; explicit Design restores real service registration. No Tasks/PMC/GA execution.",
       "kind": "execution"

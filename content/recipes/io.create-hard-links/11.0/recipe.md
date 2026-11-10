@@ -75,6 +75,8 @@ or performance claim. TAR archive link representation belongs to a separate reci
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 `eng/Record-CertificateLinks.ps1 -VerifySources` compiles and runs the actual
 SDK10.0.403/C#14/runtime10.0.14 native consumer and SDK11RC3/C#15/runtime11RC3 managed
 consumer on Windows x64, local C: NTFS. Saved records identify exact reference

@@ -132,7 +132,7 @@
       "sample": "samples/net11.0/ReefIdentity/ReefIdentity.csproj",
       "language": "15.0",
       "scope": "Actual default/compatibility composite-ID reachability, collision, legal-key persistence and IsDefined/CoalesceUndefined execution. Undefined exception observations are RC evidence only; documented consistency requires GA retest.",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "target": "net11.0",
       "kind": "compile-and-run"
     }

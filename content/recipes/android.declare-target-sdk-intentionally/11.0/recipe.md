@@ -26,6 +26,8 @@ Those tests depend on the actual app; a manifest assertion cannot establish them
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 The .NET10 Release build produces minimum24/target36 and an ARM64 APK. The .NET11
 native build reports NETSDK1147 and its target37 generation is **not-tested**.
 Device behavior for both samples is not-tested under PIN-699. RC2 source/artifact

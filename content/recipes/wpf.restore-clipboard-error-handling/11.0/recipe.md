@@ -75,6 +75,8 @@ Windows desktop, STA execution, SDK10.0.403/C#14 and SDK11.0.100-rc.3.26522.148/
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Both canonical projects compile and execute on Windows x64 with runtime10.0.14 or runtime11RC3. Saved verification-evidence.json records exact inputs and commands. See metadata for each sample's actual scope. No global Windows settings are changed. No external clipboard-owner failure, pixel-level rendering, High Contrast transition, Designer round trip or GA behavior is claimed. Existing Human and final-release gates remain open.
 
 ## References

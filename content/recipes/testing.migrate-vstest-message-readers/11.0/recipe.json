@@ -250,7 +250,7 @@
     {
       "kind": "compile-and-run",
       "sample": "samples/net11.0/LaboratoryBridge/LaboratoryBridge.csproj",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "scope": "Actual audited 18.7/18.11 advanced-host closures, independent framework-dependent deployments, typed laboratory platform graphs, protocol 1/2 foreign wires, null/malformed/header/version failures, every removed public symbol, retained serializer operations and a real old-binary/new-platform ABI control. Concrete statistics limitation retained.",
       "target": "net11.0",
       "language": "15.0"

@@ -156,6 +156,8 @@ No other provider, optimizer plan, throughput or actual GA claim is made.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Both canonical projects compile and execute against real SQL Server. Saved
 verification-evidence.json records retain source/configuration hashes, exact
 SDKs, resolved dependencies, commands and output. This is neither mocked

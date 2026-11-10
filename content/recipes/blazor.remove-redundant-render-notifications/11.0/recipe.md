@@ -168,6 +168,8 @@ To reproduce the original diagnostics, stop the host and rebuild with `-t:Rebuil
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Both actual dependency sets compile with fresh sample evidence. The authoring check builds before, after and missing-timer-render variants on both matching runtimes and uses installed Chrome through Playwright. It checks framework-event updates and the necessary external-timer render; the shared harness also exercises the loop and interop controls. RC2 analyzer and Razor compiler hashes are recorded alongside runtime identities. The saved records retain their capture commit and dirty state; freshness binds their exact input hashes, rather than requiring the capture commit to equal the current Git HEAD. The ordinary package is separately installed from a local-only feed/cache; real offline stdio list/get must preserve ID, title, goal, edition, full canonical files, applicability and current evidence. Browser and package checks prove different claims.
 
 ## References

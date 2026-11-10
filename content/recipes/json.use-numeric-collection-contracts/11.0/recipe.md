@@ -32,4 +32,6 @@ Uses framework System.Text.Json and System.Numerics on net11.0, SDK 11 / C# 15; 
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Actual .NET 10/11 builds and executions verify the declared numeric representations, all four new converters, Decimal64 number-handling and dictionary-key round trips, duplicate set removal, generated read-only-set contracts, initialized extension-data merge/overwrite and JsonObject flattening. The pinned serialization asset audit establishes the net10/net11 converter difference. Installed offline MCP tests retrieve this complete body, requirements and edition. No mock execution, cross-compilation or required Human proof; .NET 11 is measured RC2 evidence.

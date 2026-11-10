@@ -111,6 +111,8 @@ The pinned AG-UI client can append a synthetic rejected-tool result after a subs
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 The exact SDKs, inputs and resolved dependencies are captured by each sample's compilation record. Focused execution uses the actual package AgentContext and the actual AG-UI client over loopback Kestrel/SSE. The scripted provider checks declarations before returning a tool call, checks request identity before accepting a decision, and only mutates its ledger after approval. Real Chrome interaction separately checks waiting/completed tool UI and denial/approval continuation. Source review and compilation alone do not establish any browser or remote-provider claim.
 
 ## References

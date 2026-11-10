@@ -154,7 +154,7 @@
       "record": "samples/net10.0/TypedDns/linux.evidence.json"
     },
     {
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "scope": "Real Windows authoritative UDP records/TTLs, NODATA/NXDOMAIN/SOA absence, server override and pre/in-flight cancellation. Windows RC2 DnsQueryEx drops the SOA and returns negative TTL zero; separate Linux evidence measures 45 when the SOA is present and zero when absent.",
       "sample": "samples/net11.0/TypedDns/TypedDns.csproj",
       "target": "net11.0",
@@ -162,7 +162,7 @@
       "language": "15.0"
     },
     {
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "scope": "Actual network-none Linux x64 authoritative UDP records, exact fields/TTLs, negative SOA TTL 45 versus absent SOA zero, two custom-port server overrides, pre/in-flight cancellation and removed container.",
       "sample": "samples/net11.0/TypedDns/TypedDns.csproj",
       "target": "net11.0",

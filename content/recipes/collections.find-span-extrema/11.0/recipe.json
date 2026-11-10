@@ -110,7 +110,7 @@
     },
     {
       "scope": "Value/reference/nullable inputs, default and explicit comparers, ignored/all-null values, empty non-nullable exceptions and nullable/reference null results, generic static and extension overloads.",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "target": "net11.0",
       "kind": "compile-and-run",
       "sample": "samples/net11.0/ObservatoryBatch/ObservatoryBatch.csproj",

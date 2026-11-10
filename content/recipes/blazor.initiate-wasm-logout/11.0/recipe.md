@@ -131,6 +131,8 @@ Use this local verification page for the same invalid/missing/default checks on 
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Both actual target/package sets compile with zero warnings/errors. Compilation and execution records use the existing input-hash/freshness workflow. No mock, source review or cross-compilation is substituted for actual execution.
 
 Chromium exercises .NET 10 legacy session logout, supported navigation on both, the no-explicit-return overload, invalid non-null state on both, missing-state rejection on .NET 10 and missing-state provider logout on RC2. It records history, sign-out session operations, request shapes, callback and public return, without retaining token/code/cookie values. Accepted logout requires a fresh provider interaction on the next sign-in.

@@ -112,7 +112,7 @@
       "kind": "compile-and-run",
       "target": "net11.0-windows",
       "sample": "samples/net11.0/FenBatch/FenBatch.csproj",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0"
     }
   ],

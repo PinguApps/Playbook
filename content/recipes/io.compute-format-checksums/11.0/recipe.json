@@ -147,7 +147,7 @@
     },
     {
       "scope": "Independent Adler32/CRC32C/CRC64-NVME/custom MPEG2 vectors and wire order; empty/fictional/20KB inputs, one-shot/segmented Append, reset isolation and short destination checks; actual locked package assets.",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "target": "net11.0",
       "kind": "compile-and-run",
       "sample": "samples/net11.0/TelemetryFrames/TelemetryFrames.csproj",

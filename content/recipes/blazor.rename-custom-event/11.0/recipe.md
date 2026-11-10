@@ -187,6 +187,8 @@ complete offline, without advertising an untested older-target route.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Both original projects compile with their own pinned SDK. Separate real Chrome
 checks exercise a trusted native `beforeinput`, actual Interactive Server handlers,
 payload values and counts. They compare the served framework asset bytes with

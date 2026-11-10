@@ -198,7 +198,7 @@
       "sample": "samples/net11.0/QuayBackend/QuayBackend.csproj",
       "kind": "compile-and-run",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "scope": "Actual neutral contract consumer; screenshot double and rendering exclusions apply."
     },
@@ -206,7 +206,7 @@
       "sample": "samples/net11.0/QuayAvalonia/QuayAvalonia.csproj",
       "kind": "compile",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "scope": "See recipe scope; output records only the commands actually performed."
     }

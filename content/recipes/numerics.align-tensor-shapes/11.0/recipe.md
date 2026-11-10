@@ -133,6 +133,8 @@ successful verification and does not waive the pending gate.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 The original .NET10 normalization policy is compiled and executed with actual
 SDK10.0.403/C#14, runtime10.0.14 and locked System.Numerics.Tensors10.0.13/net10.
 Its sums and retained destination metadata are checked. The current policy and

@@ -35,4 +35,6 @@ The canonical C# managed projects require no provider, rendering mode, package o
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Actual SDK-10/11 publish commands with ambient Debug produce Release/Debug respectively. Both run commands honour an explicit -c Debug even under ambient Release or whitespace. The published assemblies are executed and report their compiled configurations as JSON. Saved compilation and command records plus installed full-body/applicability checks keep the documented distinction traceable.

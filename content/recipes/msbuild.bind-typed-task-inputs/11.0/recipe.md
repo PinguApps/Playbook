@@ -154,6 +154,8 @@ compatibility with arbitrary package replacements, older hosts or other platform
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 The saved compile-and-run records use the existing sample-evidence workflow.
 The executable harness creates two actual project files in a disposable tree,
 drives real MSBuild processes, checks content and metadata round-trips, then

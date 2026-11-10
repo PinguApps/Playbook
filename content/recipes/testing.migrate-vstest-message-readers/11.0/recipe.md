@@ -194,6 +194,8 @@ the existing verification.json/verification-evidence.json workflow.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Saved compile-and-run records cover the old-net10, current-net10 and current-net11
 projects with exact dependency locks and input hashes. The compiler, published
 runtime and foreign-wire commands actually ran through the platform assemblies.

@@ -309,7 +309,7 @@
     {
       "sample": "samples/net11.0/QuaySeals/QuaySeals.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "kind": "compile-and-run",
       "scope": "Real Windows x64 file-backed SQLite: parameterized apostrophe-containing value, committed insert, rolled-back update, exact value after connection reopen and database cleanup; package asset inspected by Record-SqliteRuntime.ps1."

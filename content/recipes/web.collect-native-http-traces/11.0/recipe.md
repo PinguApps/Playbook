@@ -79,6 +79,8 @@ For the successful route, the measured native route is `Station/Index/{id?}`; fo
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Both actual projects compile and run with their declared locked dependencies. Real successful and unhandled-error MVC requests flow through OpenTelemetry processors and a concrete exporter. Each run asserts exactly two distinct exported server spans, source identity, application enrichment, route format and relevant status/tags. The newer default run also launches a fresh-process switch control, avoiding an invalid attempt to reset static framework initialization in one process.
 
 This is managed server/export execution, not mocked listener input, cross-compilation or a remote telemetry-service test. The older instrumentation already leaves exception descriptions empty; the newer native pipeline provides `error.type` without an exception event. Those measured conditions bound the migration advice.

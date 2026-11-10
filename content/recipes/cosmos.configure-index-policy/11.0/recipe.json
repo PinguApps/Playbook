@@ -134,7 +134,7 @@
       "sample": "samples/net11.0/HarbourIndexes/HarbourIndexes.csproj",
       "language": "15.0",
       "scope": "Actual new-container policy creation and independent policy read-back, including nested object/collection paths; no index query execution or performance claim.",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "target": "net11.0",
       "kind": "compile-and-run"
     }

@@ -134,7 +134,7 @@
     {
       "sample": "samples/net11.0/CacheEntries/CacheEntries.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "kind": "compile-and-run",
       "scope": "Real built-in cache statistics/four metrics and value-derived Hybrid local expiry; LocalSize remains a known requested-24/observed-12 RC gap."

@@ -215,7 +215,7 @@
       "sample": "samples/net11.0/JettyItems/JettyItems.csproj",
       "kind": "official-review",
       "target": "net11.0-ios27.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "scope": "Official source/artifact review; native compilation and execution not-tested under PIN-699."
     },
@@ -223,7 +223,7 @@
       "sample": "samples/net11.0/JettyWindows/JettyWindows.csproj",
       "kind": "official-review",
       "target": "net11.0-windows10.0.20348.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "scope": "Official source/artifact review; native compilation and execution not-tested under PIN-699."
     }

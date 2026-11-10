@@ -287,7 +287,7 @@
       "sample": "samples/net11.0/HarbourAndroid/HarbourAndroid.csproj",
       "kind": "official-review",
       "target": "net11.0-android37.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "scope": "Pinned official source review only; unavailable native toolchain. No compilation or execution."
     },
@@ -303,7 +303,7 @@
       "sample": "samples/net11.0/JettyApple/JettyApple.csproj",
       "kind": "official-review",
       "target": "net11.0-ios27.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "scope": "Pinned official source/artifact review; Apple compilation and native lifecycle behavior not-tested under PIN-699."
     }

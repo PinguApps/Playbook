@@ -53,6 +53,8 @@ the default controls as well as the custom ones.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 The paired projects pin SDK10.0.403/Controls10.0.110/C#14 versus SDK11 RC3
 11.0.100-rc.3.26522.148/Controls11.0.0-rc.2.26505.5/C#15. Native iOS26/27
 and Windows19041/20348 assets require their matching workloads; iOS minimum18.2

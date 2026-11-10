@@ -146,7 +146,7 @@
       "kind": "compile-and-run",
       "sample": "samples/net11.0/ParcelKeys/ParcelKeys.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "scope": "Real Windows x64 CNG AES-GCM/CCM 16/24/32-byte keys, roundtrip/tamper/invalid-length/disposal checks; loaded native identities. No other-provider/platform or GA proof."
     }

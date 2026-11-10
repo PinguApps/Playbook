@@ -91,6 +91,8 @@ still pending.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Both actual Web SDK projects compile at their declared target/language pins.
 Real HTTP requests load overview, notes, checklist and browser assets below
 /atlas/. Chromium follows the rendered sibling link, the imperative button and

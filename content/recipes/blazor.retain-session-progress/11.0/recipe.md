@@ -210,6 +210,8 @@ current RC3 evidence is not GA verification.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Actual net10.0/C# 14.0 and net11.0/C# 15.0 Web SDK projects compile with their
 declared SDKs and locked assets. Saved compilation evidence is separate from
 the real Kestrel request report. That report submits two steps, reads each

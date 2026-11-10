@@ -32,6 +32,8 @@ This is native MAUI guidance, with no Blazor rendering mode, service, provider, 
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 The actual .NET10 Windows example builds in Release. Exact dependency/input identities are in its saved compilation record. Current Windows native compilation is not-tested because the installed SDK11 root lacks its MAUI SDK pack. Apple compilation and all native interaction/rendering checks are not-tested on this Windows-only authoring host; no Android hardware or Apple toolchain is assumed or requested. Under PIN-699 and Pingu's 4 November clarification these are exclusions, not pending Human obligations.
 
 The pinned implementation and downloaded Controls.Core RC2 package establish member availability, Fill/Color precedence and the sealed Color contract. Source review is not sample execution. Packed stdio list/get independently checks offline guidance, edition and applicability, not the visual result.

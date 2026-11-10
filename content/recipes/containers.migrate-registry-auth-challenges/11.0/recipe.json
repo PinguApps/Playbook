@@ -114,7 +114,7 @@
       "language": "14.0"
     },
     {
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "target": "net11.0",
       "sample": "samples/net11.0/EstuaryRegistry/EstuaryRegistry.csproj",
       "scope": "Real isolated Linux x64 original worker build/run, Distribution3.1.2 TLS and local HTTP token exchanges, image push/run and SDK11 invalid-realm refusal before token requests; child-only trust and generated fixture credentials.",

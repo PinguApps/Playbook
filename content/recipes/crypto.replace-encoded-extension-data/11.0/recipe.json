@@ -131,7 +131,7 @@
       "kind": "compile-and-run",
       "scope": "Measured Windows x64 CoreCLR; one Basic Constraints extension type, no network/native fixture. Other derived types and final GA are not verified.",
       "sample": "samples/net11.0/LaboratoryInspector/LaboratoryInspector.csproj",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "target": "net11.0"
     }

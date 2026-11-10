@@ -135,7 +135,7 @@
       "sample": "samples/net11.0/ReefMaterialization/ReefMaterialization.csproj",
       "language": "15.0",
       "scope": "Real empty/nonempty owned-list and optional-reference round-trips; positive/negative int, long and decimal projections and explicit rounding.",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "target": "net11.0",
       "kind": "compile-and-run"
     }

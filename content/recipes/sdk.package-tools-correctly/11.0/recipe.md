@@ -37,4 +37,6 @@ The canonical consumers target net10.0/C#14 and net11.0/C#15 under their corresp
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Both original project targets compile; each real package is packed, installed through a fresh local-only feed/cache, then executed by absolute path outside the checkout. The newer negative pack actually returns NETSDK1235 for a custom NuspecFile. The older baseline demonstrates the supported SDK route, not a claim that an arbitrary historical custom nuspec was installable. The existing packed Playbook harness separately retrieves this recipe over real stdio, including its full body, canonical projects, goal and target-11 applicability. No mock install, external publication or GA claim is used.

@@ -31,6 +31,8 @@ Current intended pins: SDK11 RC3, C#15, MAUI Controls/Resizetizer11 RC2 and matc
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 The actual .NET10 Android Release app compiled and generated its baseline assets with AOT disabled. Current .NET11 build failed NETSDK1147. Android device/emulator and Apple/Xcode are unavailable: current app compilation/packaging, themed launcher/startup, sampling appearance, Apple compilation and bundle appearance are explicitly not-tested under PIN-699. The real RC2 Resizetizer task assembly also executed on Windows with SDK10.0.403, without a MAUI workload: monochrome XML/PNG, distinct light/dark splash colors/PNGs and resized images were generated from canonical assets. This tests the task pipeline, not Android app compilation, packaging or visual quality. Exact task/input/output identities are retained in samples/TernGuidance/asset-task-results.json. Run the standalone project below with the pinned package DLL supplied as ResizetizerAssembly; no native workload is inferred from its success. Packed MCP retrieval establishes offline delivery, not native output quality.
 
 ## Canonical inputs

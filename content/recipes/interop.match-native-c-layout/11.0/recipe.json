@@ -127,7 +127,7 @@
     },
     {
       "scope": "Actual Windows x64 native size/alignment/offset checks, canonical struct and both union-member round trips, packed-layout rejection; exact MSVC/helper/runtime identities.",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "kind": "compile-and-run",
       "target": "net11.0",
       "sample": "samples/net11.0/NativeSoundings/NativeSoundings.csproj",

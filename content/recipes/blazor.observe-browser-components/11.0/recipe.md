@@ -99,4 +99,6 @@ This route is browser WebAssembly. Preserve public runtime switches, package ass
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Both canonical applications compile with their matching SDKs. Separate actual Windows Chrome WASM execution through OpenTelemetry 1.20.1 and the official loopback collector receives the five framework instruments and correlated spans above. Compilation evidence is labelled compile, not compile-and-run: an installed tool does not launch these applications. Source review, evaluated/boot settings, compilation, subscription and collector receipt are distinct evidence. Exact artifact/input/payload fingerprints and independent reconstruction from installed Markdown are recorded in docs/verification/browser-telemetry.md. No mocks, source-only execution substitute, cross-compilation, Server/SSR/Auto, AOT, other-browser/OS, production performance or GA guarantee is asserted.

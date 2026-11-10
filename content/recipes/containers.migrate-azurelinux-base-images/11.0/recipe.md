@@ -120,6 +120,8 @@ relabel these exact Beta/RC artifacts as actual-GA evidence.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 `eng/Test-QuayWorker.ps1 -Record` checks exact SDK/native-host/compiler/reference
 hashes, builds both real projects, compares Dockerfile pins with the reviewed
 artifact manifest, builds actual images and runs them on Linux x64 with network

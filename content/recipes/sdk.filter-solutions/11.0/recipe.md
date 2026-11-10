@@ -33,4 +33,6 @@ These are SDK commands, separate from the application's target runtime. This edi
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Both declared project targets compile. Real SDK commands create/add/list/remove the newer filter, and both SDKs build only the selected fixture while the full solution hits the intentional unselected-project error. Actual installed stdio retrieval checks discovery goals, full Markdown and the selected target edition. SDK 11 proof uses RC2 artifacts.

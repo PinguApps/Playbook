@@ -34,6 +34,8 @@ Framework APIs only; no NuGet package, native workload, rendering mode or experi
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 `eng/Record-NativeBoundaries.ps1 -VerifySources` compiles real SDK 10.0.403/C# 14/ref-runtime10.0.14 and SDK 11RC3/C# 15/ref-runtime11RC3 consumers on Windows x64 build26200. CNG HKDF opens successfully; the exact current implementation's selection field is true. Native bcrypt version/hash, compiler/reference/runtime hashes and deterministic input construction are saved through ordinary sample evidence.
 
 Raw DeriveKey IKM and Expand PRK at 2,048/2,049 bytes execute on both releases. At 2,048, both match independently calculated HMAC-SHA256 results and each other. At 2,049, older calls succeed, current CNG calls reject and the new protocol boundary returns false/null. All accepted inputs, salt and context remain unchanged. RFC5869 case1's 42-byte output is checked separately. Managed Extract matches independent HMAC at both sizes. These observations do not establish every hash, Windows version, provider or GA artifact.

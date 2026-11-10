@@ -132,7 +132,7 @@
       "scope": "Actual built-in MVC and Minimal discovery (eight routes), authored extension invocation, constraints/defaults/optional/catch-all and lossy displayed-path/null controls; 18 real loopback HTTP success/404 checks and route-value comparisons. Records identify compiler, audited reference hashes and loaded runtime artifacts. Windows x64, no package/native dependencies, no GA or universal-provider proof.",
       "language": "15.0",
       "kind": "compile-and-run",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "sample": "samples/net11.0/MarineRoutes/MarineRoutes.csproj",
       "target": "net11.0"
     }

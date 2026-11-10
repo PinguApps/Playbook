@@ -79,6 +79,8 @@ The independently pinned .NET11 consumer records the actual RC boundary.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Pingu authorized official-documentation guidance on 5 November 2026 despite missing RC behavior. EF11 RC2 and RC3 direct DTO/anonymous projections throw on unmatched rows, including grouped DTO/default struct. Nullable struct composition fails translation. The explicit nullable marker returns -1 and 12 on both editions. Intended direct semantics and final artifact behavior remain pending; compilation and recorded failures are not successful execution proof.
 
 ## Constraints

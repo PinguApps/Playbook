@@ -126,7 +126,7 @@
       "kind": "compile-and-run",
       "sample": "samples/net11.0/CrashEvidence/CrashEvidence.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "scope": "Actual Linux x64 child FailFast under each pinned SDK/runtime; report includes the original DispatchFailure frame. .NET 10 createdump versus .NET 11 in-process report. No production, Apple, mobile or NativeAOT execution."
     }

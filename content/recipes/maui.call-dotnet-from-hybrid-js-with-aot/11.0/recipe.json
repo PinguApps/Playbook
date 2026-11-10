@@ -145,12 +145,12 @@
       "sample": "samples/net11.0/MarshBridge/MarshBridge.csproj",
       "kind": "official-review",
       "target": "net11.0-ios27.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "scope": "Pinned official source and package contract review; native runtime behaviour not tested."
     },
     {
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "sample": "samples/net11.0/MarshDispatch/MarshDispatch.csproj",
       "language": "15.0",
       "scope": "Actual neutral MAUI package generated invocation and JSON executed as a Windows x64 NativeAOT executable; no iOS or native WebView execution.",

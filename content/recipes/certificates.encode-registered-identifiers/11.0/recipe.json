@@ -136,7 +136,7 @@
       "language": "14.0"
     },
     {
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "scope": "Real Windows certificate export/reload, primitive SAN tags/OIDs/DNS, identical manual/new DER and invalid inputs; no trust validation.",
       "sample": "samples/net11.0/RegisteredIdentifiers/RegisteredIdentifiers.csproj",
       "target": "net11.0",

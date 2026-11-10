@@ -155,7 +155,7 @@
     },
     {
       "scope": "Arrays/maps, definite/indefinite encoding, accepted depths0/1/7/8 and rejection9, separate failures, default64/1000, zero, sentinel-1 and below-1; actual old reader backport and complete writer1001.",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "target": "net11.0",
       "kind": "compile-and-run",
       "sample": "samples/net11.0/CalibrationGroups/CalibrationGroups.csproj",

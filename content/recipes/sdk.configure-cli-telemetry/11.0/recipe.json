@@ -134,7 +134,7 @@
       "sample": "samples/net11.0/CliTelemetry/CliTelemetry.csproj",
       "record": "samples/net11.0/CliTelemetry/source-review.evidence.json",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "scope": "Official-source review and original sample authoring only. SDK/target/language values describe intended inputs, not observed compilation. No compilation, cross-compilation, mock, execution, artifact or installed MCP proof."
     },
@@ -152,7 +152,7 @@
       "sample": "samples/net11.0/CliTelemetry/CliTelemetry.csproj",
       "record": "samples/net11.0/CliTelemetry/verification-evidence.json",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "scope": "Actual locked compilation of this canonical project on Windows. This is not composed-host, provider, telemetry, archive, engine or final-GA behavior proof; .cs.txt integration inputs are not compiled."
     }

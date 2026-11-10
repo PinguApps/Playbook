@@ -32,6 +32,8 @@ net11.0, EF11 RC2 and the matching tool are required here. EF10.0.13/net10.0 is 
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Test-FleetTooling builds both actual locked projects in disposable directories. Explicit scripts execute against fresh SQLite databases. On EF11 it reproduces the list error, checks combined script output for both model tables, updates both configured database files and drops both. A separate stdout script executes without filtering; diagnostics remain on stderr. These are real Windows x64 CLI operations, not mocks or cross-compilation. Other providers/platforms and successful wildcard list are unverified.
 
 ## Complete canonical sources

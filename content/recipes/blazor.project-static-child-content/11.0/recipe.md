@@ -59,4 +59,6 @@ Cross-render-mode static content; not delegate serialization or arbitrary live c
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Both actual Web SDK projects compile against their declared SDK, language and locked browser assets. Separate real HTTP execution verifies original rendered text, .NET 10 direct-fragment refusal, and .NET 11 generic/delegate, disabled-prerender and unused-fragment failures. Real Chromium 152 Interactive Server execution verifies both comparison counters, preservation of heading/body across interactive rerenders and a skipped parent-owned captured click handler. There is no mock renderer or cross-compilation substitute for those checks. Pinned framework source supports the other skipped-frame restrictions; those are source review, not separate executed cases. Saved reports and exact artifact/input hashes are documented in the repository's PIN-778 verification record; the complete implementation and requirements needed to apply the recipe are above.

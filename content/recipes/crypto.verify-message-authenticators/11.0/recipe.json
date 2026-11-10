@@ -151,7 +151,7 @@
     },
     {
       "scope": "Actual paired HMAC/KMAC known answers, wrong key/data/customization, protocol lengths, stream cancellation after prefix, and incremental preserve/reset on success and mismatch. Windows CNG native identity recorded.",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "target": "net11.0",
       "kind": "compile-and-run",
       "sample": "samples/net11.0/HarbourPackets/HarbourPackets.csproj",

@@ -256,7 +256,7 @@
     {
       "sample": "samples/net11.0/ArchiveTemplateHost/ArchiveTemplateHost.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "kind": "compile-and-run",
       "scope": "Independent actual net11 host and RC2 closure instantiate the same net10 template; generated application builds/runs with SDK/runtime10."

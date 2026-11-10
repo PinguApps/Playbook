@@ -115,6 +115,8 @@ other OS/toolchain closures are not qualified here.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 `eng/Test-BeaconBuild.ps1 -Record` compiles/runs both accompanying real applications
 and separately invokes each matching actual CLI on this fixture. It checks SDK and
 nested parents, optional metadata, unset/false, conditional plus-one, repeated order,

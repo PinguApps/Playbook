@@ -135,7 +135,7 @@
       "kind": "compile-and-run",
       "sample": "samples/net11.0/ArchiveContracts/ArchiveContracts.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "scope": "Real .NET 10/11 compilation and loopback execution: actual QUERY JSON body/search result; .NET 10 POST fallback and omitted QUERY; .NET 11 native 3.2 QUERY and 3.0/3.1 extension, required body properties and 200 response."
     }

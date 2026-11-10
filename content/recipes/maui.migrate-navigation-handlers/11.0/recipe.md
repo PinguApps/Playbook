@@ -34,6 +34,8 @@ This edition covers Android only. Use matching Android build tools and the MAUI 
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Canonical previous/current projects use SDK10.0.403/C#14/Controls10.0.110 with net10.0-android36.0 and SDK11.0.100-rc.3.26522.148/C#15/Controls11.0.0-rc.2.26505.5 with net11.0-android37.0. Minimum Android API24 is declared explicitly. Matching native SDK/workloads and Android build tools are required; CoreCLR is the normal runtime, with no NativeAOT claim. This is native rendering with no provider, account or preview-language opt-in. Stable API guidance uses RC2 evidence, not GA verification.
 
 The older Android project built in Release with the actual installed Android36.1.118 and MAUI10.0.110 toolchain. It was not deployed to a device. The current Android sample is official-review only: the SDK11 installation lacks Microsoft.Maui.Sdk. Current Android compilation and all device behavior are not-tested. This exclusion follows PIN-699 and creates no obligation to acquire another environment. No separately ticketed Human proof is linked to these targets. The source manifest retains exact reviewed source identities; real installed-tool list/get checks establish guidance delivery only. No package, account or resource publication/provisioning is performed.

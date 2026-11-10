@@ -171,6 +171,8 @@ The dispatcher uses one entry URL while routing remains configurable. The browse
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 All six actual old/new projects have matching-SDK compilation records and exact restored dependency closures. The real Chrome verifier checks the rendered client, increments the real backend counter, confirms path/query/header preservation, checks 404 boundaries and observes the generated RC2 initializer/configuration/service-discovery requests. Direct deep link, client navigation and deep-link reload are checked on both releases. Artifact/input hashes and the separate packed stdio/reconstructed-consumer evidence are recorded in docs/verification/browser-gateway.md. Dirty authoring captures are labelled as such and are not relabelled clean-head execution.
 
 ## References

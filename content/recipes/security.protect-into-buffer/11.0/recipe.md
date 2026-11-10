@@ -132,6 +132,8 @@ array/envelope path in that integration instead of assuming a universal cast.
 
 ## Evidence: complete real-framework check program
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Save the following as the shared `Program.cs`. Each provider owns a fresh
 directory below a GUID-named temporary directory. All providers are disposed
 before final cleanup. Randomized large plaintext need not produce deterministic

@@ -126,7 +126,7 @@
       "kind": "compile-and-run",
       "sample": "samples/net11.0/HarbourEncoding/HarbourEncoding.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "scope": "Actual Windows x64 .NET 11 RC2 compilation/execution: raw zstd/gzip response negotiation and decompressed body equality, quality weighting/q=0, identity and unsupported fallback; real zstd/gzip uploads, unsupported/stacked 415 and decompressed 1024-byte limit returning 413 for both codecs. No browser/proxy/HTTPS or third-party peer test."
     }

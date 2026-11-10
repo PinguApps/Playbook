@@ -37,4 +37,6 @@ Windows uses DnsQueryEx. Custom servers must all use one address family, and por
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Actual .NET 10 and RC2 executables query a controlled UDP DNS server bound only to loopback (127.0.0.1:53 on Windows; an ephemeral port elsewhere). It returns the original collector.harbour.test record with port 4719, priority 7, weight 11 and TTL 90. Unique query names avoid stale cross-run cache answers. Both checks assert every projected field, distinguish NXDOMAIN/NODATA and check cancellation; the Windows RC2 run also checks custom-port rejection. No system resolver settings, hosts entries, accounts or external zones are changed. This is a real resolver/wire exchange, not a mock, external DNS proof, endpoint-connection test or GA reconciliation.

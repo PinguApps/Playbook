@@ -78,6 +78,8 @@ edition11.0 guidance; final-GA reconciliation remains open under PIN-962/PIN-959
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Run eng/Test-GannetGateway.ps1 -Record -VerifySources from the repository root
 using the pinned SDK installations. It compiles both real dependency sets,
 verifies the immutable publisher-source hashes, and captures the existing sample

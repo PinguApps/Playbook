@@ -82,6 +82,8 @@ No network or registry lookup occurs in these demonstrated framework table calls
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 eng/Test-AttachmentFacts.ps1 -Record -VerifySources compiles and runs
 AttachmentLabels with SDK10.0.403/runtime10.0.14 and
 SDK11.0.100-rc.3.26522.148/runtime11.0.0-rc.3.26522.148. Both actual consumers use

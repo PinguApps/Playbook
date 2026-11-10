@@ -82,4 +82,6 @@ C# 15; Blazor/Razor; distinguish static fragments and JSON-compatible values.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Both actual Web SDK projects compile with their declared SDKs, locked assets and language modes. Focused HTTP execution checks literal/bound text and original fragment output, plus actual component rejection of fragment persistence and union-wrapped fragment boundary transfer. Real Chrome activation checks both data cases restored from prerendered state, both JavaScript echo round trips and rejected fragment interop. No mocked JS runtime or renderer substitutes for these checks. Canonical compilation records and exact artifact/input hashes are retained in the repository PIN-779 verification record. Official release notes support literal inference and stabilization; serializer/framework sources support the general boundary restrictions. Broader classification rules are source review, not a claim that every permutation ran.

@@ -37,4 +37,6 @@ The shared edition is verified unchanged on .NET 11 / C# 15. .NET 9 is compariso
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Actual SDK 9.0.319, 10.0.403 and 11.0.100-rc.3.26522.148 builds execute against their own .NET 9.0.21, 10.0.13 and 11 RC2 runtimes. Checks retain a left-only A, a right-only C and all four pairs from two B rows on each side, including empty-input cases. .NET 10/11 checks also execute Queryable using EnumerableQuery and real asynchronous feeds. That is managed execution, not a mock or database integration check. Installed stdio list/get compares this entire body and canonical snippets offline. RC2 is not GA proof; no Human action is required for these bounded claims.

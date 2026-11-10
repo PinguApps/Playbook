@@ -34,4 +34,6 @@ Build with `dotnet build slots.cs -c Release`; generated output normally lives i
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Actual net9.0 project and net10.0/net11.0 file applications were compiled and executed. The command check runs the original sources with nondefault inputs and verifies rejected negative counts. Saved compilation records hash the source, effective shared configuration and capture helper; the installed-tool scenario checks complete canonical Markdown and target selection. .NET 11 evidence is RC2, not GA verification.

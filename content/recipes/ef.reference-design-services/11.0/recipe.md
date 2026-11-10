@@ -31,6 +31,8 @@ This edition is for net11.0 with EF11 RC2; the historical net10.0 comparison use
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Test-FleetDesign copies each actual project to a disposable directory, removes its direct Design dependency, then builds. EF10 succeeds through Tools; EF11 fails with the missing Design surface. Restoring the direct reference compiles and runs real service registration. No mocks or Visual Studio execution are involved. Sample compilation records separately identify the exact packages and source inputs. Tasks dependency removal is an official package contract; this test exercises the Tools consumer path.
 
 ## Complete canonical sources

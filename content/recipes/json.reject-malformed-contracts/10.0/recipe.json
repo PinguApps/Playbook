@@ -177,7 +177,7 @@
     {
       "sample": "samples/net11.0/JsonImport/JsonImport.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "scope": "Real managed builds and claim-specific serializer checks; exact input hashes, runtime output and limitations accompany the recipe. No mocks or AOT publication.",
       "language": "15.0",
       "kind": "compile-and-run"

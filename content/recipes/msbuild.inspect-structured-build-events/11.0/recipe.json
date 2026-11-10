@@ -166,7 +166,7 @@
       "kind": "compile-and-run"
     },
     {
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "target": "net11.0",
       "sample": "samples/net11.0/DepotEventReader/DepotEventReader.csproj",
       "scope": "Actual strong-named graph emits typed warning, non-warning dependency details and failed searches; matched binlog replay preserves victor/victim/loss/dependee/source/search fields. Actual Spawned/Reused same owned PID, requested no-reuse NotUsed reason, disabled absence; warning promotion fails with MSB3277. Event/text constructor controls and owned-handle cleanup; exact complete SDK closure. Windows x64 RC2 only.",

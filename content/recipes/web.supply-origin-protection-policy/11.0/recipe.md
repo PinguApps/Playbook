@@ -96,6 +96,8 @@ Human gates stay open. This comparison adds no ninth .NET10 foundation.
 
 ## Evidence: observed comparison
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 The target is `http://localhost:6180`; the partner is `http://localhost:6181`.
 `localhost:6183` is an untrusted same-site control and `127.0.0.1:6181` is a
 cross-site control. Actual Chrome headers were `same-origin`, `same-site` and

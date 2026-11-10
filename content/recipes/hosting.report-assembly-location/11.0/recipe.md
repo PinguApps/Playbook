@@ -52,6 +52,8 @@ The hook is process-wide and irreversible for the process lifetime. A logical la
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Actual net10.0 and net11.0 MetadataInspection projects load the built module from a stream. The old runtime location is empty while the host reporting function returns the logical label. The newer Assembly.Location returns that label, unrelated core-library locations are preserved, and a second process-wide registration is rejected.
 
 Separately labelled DeploymentInspection records publish/run Windows x64 single-file and Native AOT apps, both with caller fallbacks. Native runs cover stack traces enabled and disabled; a separate ordinary CoreCLR publication disables stack traces while retaining a physical assembly file. Each unavailable-location assertion is independent of the caller result.

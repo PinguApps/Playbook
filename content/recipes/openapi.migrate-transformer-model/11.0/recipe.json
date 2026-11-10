@@ -131,7 +131,7 @@
       "language": "15.0",
       "kind": "compile-and-run",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "scope": "Actual declared .NET 10/11 SDK compilation and loopback Kestrel execution: raw/authored Obsolete operation/type/property flags with current controls; document/operation/schema transformers, inline traversal, response reference and override, object/scalar JSON extensions; exact empty/non-empty PathBase server fixtures, optional root-slash transform and composed HTTP requests. No mock, cross-compilation or third-party generated-client claim.",
       "sample": "samples/net11.0/FenContracts/FenContracts.csproj"
     }

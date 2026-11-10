@@ -50,6 +50,8 @@ Start anchoring keeps new arrivals visible when already at the start. Away from 
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Both actual pinned Web SDK consumers compile with warnings as errors, separately from browser execution. Real Chrome Interactive Server checks measure rendered row identity, bounding rectangles, uniform 32px heights, a bounded virtualized window, initial/programmatic positioning and anchor retention through fresh-object reload, prepend and append. The T3 preview's standalone IntersectionObserver did not fire and its snapshot timed out; its failed synthetic moves are not application execution proof. Chrome is the rendered proof. No mock, calculated offset alone or cross-compilation substitutes for it.
 
 Saved compilation records and browser reports bind exact sources, package assets and built artifacts. The existing packed-tool harness retrieves the complete canonical comparison and applicability over real stdio with an isolated local feed/cache and unrelated directory. Other OS, assistive technology, remote providers, WebAssembly/Auto, additional anchor modes and GA execution are not claimed. No required Human-only check is outstanding for the stated sample behavior.

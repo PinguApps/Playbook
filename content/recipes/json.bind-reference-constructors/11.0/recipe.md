@@ -32,4 +32,6 @@ Requires framework System.Text.Json on net11.0, SDK 11 / C# 15. No package, work
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Actual previous/current examples compile and execute. RC2 verifies in/ref/ref readonly and out on both generated and reflection paths, including missing out input versus an explicit writable-property value. Saved input/toolchain records are distinct from source-reviewed general limitations. Installed MCP checks exact canonical code, full body, edition and applicability offline. No mocks, cross-compilation, GA or required Human proof.

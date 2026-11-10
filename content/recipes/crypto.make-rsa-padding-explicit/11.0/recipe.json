@@ -128,7 +128,7 @@
       "scope": "Windows paired compile/run with real ephemeral CAPI RSA2048: both legacy mappings cross-decrypt between runtimes in both directions; explicit overload equivalence, wrong padding/zeroed ciphertext and OAEP-SHA256 failure. Current old-source SYSLIB0064 probe and warning-free supported consumer; no other-platform/GA claim.",
       "sample": "samples/net11.0/InstrumentGateway/InstrumentGateway.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0"
     }
   ],

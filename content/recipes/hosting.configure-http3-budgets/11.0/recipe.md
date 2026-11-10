@@ -147,6 +147,8 @@ Copy every file below at its relative path into an independent directory.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Run eng/Test-WebResourceRecipes.ps1 -RecordEvidence from the task worktree to
 refresh the six actual consumers, diagnostic controls and audited artifact hashes.
 The saved sample records include exact commands, locked assets, native identities,

@@ -142,7 +142,7 @@
       "target": "net11.0",
       "language": "15.0",
       "kind": "compile-and-run",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "scope": "Actual isolated SQL2025/170 queries: missing/null/empty nested fields, numeric containment, explicit LIKE mode, missing path/SQL NULL results, non-null primitive membership and nullable column membership. EF10 custom built-in mappings and OPENJSON; EF11 built-in APIs and JSON_CONTAINS with nullable OPENJSON fallback. eng/Test-JsonDocuments.ps1 -Record owns setup and cleanup; RC2 is not GA."
     }
   ],

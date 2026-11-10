@@ -127,7 +127,7 @@
       "sdk": "10.0.403"
     },
     {
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "scope": "Canonical invocation/location report and bounded help aliases; actual selected runtime and compiler/ref artifacts.",
       "target": "net11.0",
       "kind": "compile-and-run",
@@ -141,7 +141,7 @@
       "language": "15.0",
       "scope": "Real Windows x64 ordinary absolute/relative/symlink apphosts and dotnet DLL; framework-dependent single-file absolute/relative/symlink apphosts. Exact launch spelling and unavailable bundled Location.",
       "sample": "samples/net11.0/QuarryMaintenance/QuarryMaintenance.csproj",
-      "sdk": "11.0.100-rc.3.26522.148"
+      "sdk": "11.0.100"
     }
   ],
   "snippets": {

@@ -32,4 +32,6 @@ Uses framework System.Text.Json on net11.0 with SDK 11 / C# 15. No additional pa
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Real .NET 10/11 builds and executions inspect all three exact schema properties and round-trip distinct byte sequences through each representation. Previous schema uses the explicit transform; RC2 uses built-in output. Saved input/artifact records and the installed list/get harness check canonical code, complete offline guidance and target safety. No mocks, cross-compilation, GA or required Human proof.

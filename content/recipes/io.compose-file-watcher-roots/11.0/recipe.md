@@ -88,6 +88,8 @@ rendering mode or experimental opt-in is needed. RC proof remains GA-pending.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 `eng/Record-FileChain.ps1 -VerifySources` runs both overloads, null/invalid roots,
 unrelated and prefix siblings, old construction boundaries and real supported
 layouts. Current relative, empty and deferred layouts produce matching tokens;

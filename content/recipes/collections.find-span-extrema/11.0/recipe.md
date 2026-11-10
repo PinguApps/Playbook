@@ -76,6 +76,8 @@ no floating-specific/NaN, other-platform, performance or final-GA behavior claim
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 `eng/Test-ChannelExtrema.ps1 -Record -VerifySources` compiles/runs both original
 ObservatoryBatch consumers against actual artifacts. Checks cover value inputs,
 reference objects, null comparer/default and explicit reverse/ordinal/load ordering,

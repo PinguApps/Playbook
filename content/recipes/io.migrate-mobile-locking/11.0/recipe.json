@@ -115,7 +115,7 @@
       "kind": "compile-and-run",
       "sample": "samples/net11.0/MobileJournal/MobileJournal.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "scope": "Portable .NET10/11 helpers compile/run on Windows x64; current single-instance concurrent writes and cancellation verified. iOS/tvOS native compilation, FileShare enforcement, background suspension and compatibility-switch execution are not-tested under PIN-699."
     }

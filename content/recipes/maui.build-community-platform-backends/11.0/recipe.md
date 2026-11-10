@@ -36,6 +36,8 @@ For neutral SingleProject builds, contribute MauiPlatformSpecificFolder with Bac
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 The actual MAUI11 neutral assemblies compile and execute service, registration and screenshot-dispatch contracts. SingleProject selection uses the actual package targets, with both active and inactive results checked. These are contract checks with a declared screenshot double, not native rendering or device evidence. The Avalonia raw-asset consumer compiles separately. No external service, credentials, account or Human approval is required for this agreed scope. No third-party backend package is published or provisioned.
 
 ## Canonical sources

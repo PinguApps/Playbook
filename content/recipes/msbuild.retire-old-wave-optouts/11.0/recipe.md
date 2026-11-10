@@ -36,4 +36,6 @@ The original XML wrapper is language-neutral. The verification projects' C# mode
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Actual SDK-10 runs produce the dispatch artifact without MSB4272 for the four tested values. Actual SDK-11 RC2 runs produce MSB4272 and identify 18.4 for all four, while preserving those file contents. Both migrated/default runs succeed; the default RC2 run has no retired-wave warning. The original older/newer C# harnesses compile and execute on Windows x64. These checks establish the diagnostic and dispatch contract, not every internal feature behind each wave. Installed offline list/get checks separately retain the full comparison and applicability. GA reconciliation remains separate.

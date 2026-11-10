@@ -133,7 +133,7 @@
       "sample": "samples/net11.0/ReefDocuments/ReefDocuments.csproj",
       "language": "15.0",
       "scope": "Real EF10 save preserves an unmapped field; EF11 save removes it. Complete-document replacement preserves it and rejects a stale ETag.",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "target": "net11.0",
       "kind": "compile-and-run"
     }

@@ -139,6 +139,8 @@ array/JSON behavior remain separate concerns.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Both canonical projects compiled and ran against actual SQLite with locked dependencies. Their verification-evidence.json records pin source/configuration hashes, SDKs, resolved packages, host and captured PASS output. Installed stdio list/get checks separately verify complete canonical Markdown and applicability. These Windows x64 RC2 results establish neither other-provider behavior nor GA readiness.
 
 ## Official references

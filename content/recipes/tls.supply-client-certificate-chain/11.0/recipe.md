@@ -99,6 +99,8 @@ from Linux's separate issuer-fetch budget.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 `eng/Record-CertificateLinks.ps1 -VerifySources` first compiles both real consumers,
 capturing compiler/reference/CoreLib hashes and empty package dependencies. It then
 executes four fresh digest-pinned runtime containers per release. Loaded libssl/

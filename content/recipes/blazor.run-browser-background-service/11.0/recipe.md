@@ -86,6 +86,8 @@ Registration places startup and stop beside the host's lifecycle instead of a pa
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Both complete canonical projects are built with their actual SDKs and locked dependencies. Those captures are compilation only. Separate real Chrome WebAssembly execution checks compare .NET 10 registration-only inactivity and manual startup with .NET 11 automatic startup, advancing ticks and a working counter, then stop-requested, cancelled, stopped and root-disposed events, awaited disposal and no further ticks in the still-loaded document. Exact inputs and executed browser artifact hashes are recorded in docs/verification/browser-service-lifetime.md. No desktop .NET host mocks or cross-compilation substitute for browser execution.
 
 The existing installed-tool harness retrieves this entire body, every canonical snippet, complete nested applicability, edition and current compilation evidence through the actual locally packed tool with an isolated feed/cache, unrelated working directory and no network. Consumer browser policies, mobile suspension, AOT, hosted/Auto composition and GA remain outside the executed evidence. No Human-only proof or resource provisioning is required for this local route.

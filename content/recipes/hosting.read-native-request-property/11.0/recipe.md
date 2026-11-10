@@ -69,4 +69,6 @@ No external NuGet packages, database, account, optional workload or rendering mo
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 The official HTTP_REQUEST_PROPERTY reference defines SNI and its native structure; the managed TryGetRequestProperty reference in the source metadata defines buffer handling and exceptions. Saved sample evidence records exact compilation/execution commands and input hashes; they establish only the claims described above.

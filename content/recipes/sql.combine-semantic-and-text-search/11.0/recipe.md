@@ -80,6 +80,8 @@ EF11 models the catalog and index, generates migration commands from the model d
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Both canonical projects compile and execute on Windows x64 against the authorized Linux Docker SQL2025 CU10 17.0.5035.5 instance. They create full-text structures, wait for actual population, execute both ranked functions and one combined query, assert literal and semantic-only results, and remove the schema. The current sample executes generated forward/reverse model migration commands. These are real database checks, not SQL-string-only assertions or mocks. Input-hashed records retain exact SDKs, dependencies and output. Actual older SQL engines, other client platforms and EF11 GA remain unverified.
 
 

@@ -152,7 +152,7 @@
     {
       "sample": "samples/net11.0/CanalDesign/CanalDesign.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "kind": "compile-and-run",
       "scope": "Canonical compilation, real sync/async empty-migration behavior and external-owner SQLite read; no PMC or GA proof."
@@ -160,7 +160,7 @@
     {
       "sample": "samples/net11.0/CanalDesign/CanalDesign.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "kind": "execution",
       "scope": "Real dotnet-ef context selection from a nested working directory; configured relative paths and explicit context override; EF10 explicit options.",

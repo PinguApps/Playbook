@@ -184,6 +184,8 @@ or replay prevention. Use application storage when that stronger guarantee matte
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Original samples compile as net10.0/C# 14.0 using SDK 10.0.403 and
 net11.0/C# 15.0 using SDK 11.0.100-rc.3.26522.148. The saved records are **compile**
 evidence. The separate real Kestrel HTTP report follows a 302, checks the first

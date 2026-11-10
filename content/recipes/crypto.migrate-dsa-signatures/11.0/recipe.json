@@ -145,7 +145,7 @@
       "scope": "Windows paired compile/run: imported DSA fixture and real ECDSA P256/SHA256/DER signing, certificate and SPKI verification, tampering/encoding/unrelated-key/algorithm rejection and explicit unsupported legacy routing. macOS execution, DSA certificate boundaries and native assets not-tested under PIN-699.",
       "sample": "samples/net11.0/CoastalReports/CoastalReports.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0"
     }
   ],

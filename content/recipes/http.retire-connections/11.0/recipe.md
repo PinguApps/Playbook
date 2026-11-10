@@ -35,4 +35,6 @@ The callback is not a deadline, forced abort, DNS monitor or guarantee of immedi
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 The .NET 10 and RC2 projects use a real keep-alive TCP HTTP/1.1 peer which identifies each accepted transport in its response. Two healthy requests reuse the same connection. The older run waits beyond its finite lifetime; the newer run changes the shared flag and performs bounded requests until a different transport is observed. No HttpMessageHandler mock or DNS change is substituted for pool behavior. This proves idle retirement/reconnection, not a hard eviction latency, active-request abort or actual production DNS migration. Active-request completion semantics and context concurrency are source-reviewed official contracts.

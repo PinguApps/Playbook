@@ -40,4 +40,6 @@ The fixture targets managed net10.0/net11.0 with no packages, providers, UI/rend
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Both original generated applications compile and execute. Real isolated installs show default stable selection, SDK-10 exact-preview selection, SDK-11 unversioned prerelease selection and an exact stable pin winning over --prerelease. Installed Playbook retrieval remains offline and returns the entire canonical body and requirements; it does not require this template feed at retrieval time.

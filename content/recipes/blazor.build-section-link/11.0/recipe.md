@@ -85,6 +85,8 @@ requires GA reconciliation later.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Both actual apps compile at their declared SDK/language pins. Chromium follows
 packing links on both apps below /atlas/ and on the same newer binary below
 /museum/. It starts with ?sort=date#previous, verifies replacement/preservation,

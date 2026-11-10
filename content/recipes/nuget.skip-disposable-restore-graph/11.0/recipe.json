@@ -122,7 +122,7 @@
       "kind": "compile-and-run",
       "sample": "samples/net11.0/BeaconBuild/BeaconBuild.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "scope": "Original package pack and fresh local-only locked restores with true/false/default, exact package hash and equal selected compile/runtime assets; all build/run, default incremental repeat and missing-package failure. Windows x64 only."
     }

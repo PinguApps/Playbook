@@ -48,4 +48,6 @@ File applications inherit shared build/target, package and NuGet configuration. 
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Actual older/newer file builds and the SDK-11/net10.0 route have separate saved records. The command check executes source, project and DLL routes, reference add/list/remove, invalid capacities, matching/conflicting directives and inherited CPM. It uses the actual files and library, not a simulated SDK parser. The packed-tool harness compares the entire rendered body with these canonical sources and verifies applicability. No Native AOT or transitive DLL deployment claim is made.

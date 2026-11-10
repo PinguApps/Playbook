@@ -48,4 +48,6 @@ The Open button stops propagation so its click opens the record once. Without th
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Both actual pinned Web SDK consumers compile with zero warnings/errors. Separate real browser checks activate Interactive Server, click first/last data cells, verify the selected record and description, exercise the accessible button and its single-call propagation rule, and confirm the static control remains inert. Saved execution reports bind source inputs and built assemblies to those checks. Compilation, official source review and browser execution are distinct evidence; no mock or cross-compilation stands in for the row event. The existing packed-tool harness retrieves this entire comparison and applicability over real stdio from an unrelated directory with an isolated local feed/cache. Other operating systems, assistive technologies, WebAssembly/Auto and GA execution are unverified.

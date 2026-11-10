@@ -43,6 +43,8 @@ No extra NuGet package/assets, provider, workload or rendering mode is required.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 The actual .NET 10 and 11 SupportedInstructions projects compile and run on Windows x64, with AVX2=True and all inspected SVE families and AVX-VNNI-512=False on .NET 11. Both selected AVX2 operations agree with independently computed scalar results for lengths 0, 1, 7, 8, 9, 31, 32, 33 and 79, including negative values, overflow and tails. A forced-disabled run checks the scalar branches. SDK 10.0.403 / C# 14 and SDK 11.0.100-rc.3.26522.148 / C# 15 records retain exact input hashes, actual runtimes, commands and output.
 
 **Not tested:** no SVE/SVE2-capable or AVX-VNNI-512-capable host is available. The native branches compile but have not executed, and their required-mode checks fail explicitly on this machine. PR delivery is authorized with this explicit CPU limitation. Package publication and release readiness are separate decisions. The not-tested status, exact samples and scope accompany the offline recipe. This declared hardware exclusion does not block publication; compilation and fallback execution do not verify those native branches. No mocks, native cross-compilation or GA proof are claimed.

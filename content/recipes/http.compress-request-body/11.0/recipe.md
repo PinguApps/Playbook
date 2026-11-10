@@ -35,4 +35,6 @@ The receiver must decode the declared encoding and enforce limits on decompresse
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Both actual .NET 10/11 projects post through SocketsHttpHandler to a real TCP HTTP/1.1 receiver. It reads Content-Encoding and Content-Type, handles chunked or length framing, decompresses the transmitted bytes, verifies exact original text and checks that this repetitive fixture shrinks. The .NET 11 run exercises all three codecs; .NET 10 exercises gzip/br. This is real loopback protocol execution, not a mock or proof of support at an external server, proxy, TLS endpoint or every HTTP version. Exact artifacts and input hashes are served with the recipe.

@@ -121,7 +121,7 @@
       "scope": "Actual SQLite execution: ValueTuple/Tuple grouped keys, ValueTuple joined key, one-element arity and nested Rest. EF10 rejects these shapes; anonymous grouped key works. Arbitrary record constructors, all tuple arities, other providers and GA are excluded."
     },
     {
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "target": "net11.0",
       "kind": "compile-and-run",
       "language": "15.0",

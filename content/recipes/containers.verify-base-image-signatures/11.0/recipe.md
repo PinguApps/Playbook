@@ -110,6 +110,8 @@ claim malicious-registry isolation, layer scanning or production registry change
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 `eng/Test-QuayWorker.ps1 -Record` compiles both actual consumers and runs them on
 the pinned Azure Linux runtime images. `eng/Test-QuaySignatures.ps1 -Record` checks
 tool ZIP/certificate identities, resolves index-to-platform membership, discovers

@@ -145,7 +145,7 @@
     },
     {
       "kind": "compile-and-run",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "sample": "samples/net11.0/EndpointLedger/EndpointLedger.csproj",
       "scope": "Actual Windows x64 IPv4/IPv6 endpoint spans, port limits/defaults, malformed/UTF8 failures, exact/large/short output and guards; current byte Parse/char format/generic interfaces. No allocation/performance/GA claim.",
       "target": "net11.0",

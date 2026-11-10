@@ -44,4 +44,6 @@ These samples target net10.0/C#14 and net11.0/C#15 respectively, with independen
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 The harness creates both SDK-11 templates with --no-restore inside an isolated global.json boundary and checks the generated runner contracts. The independently authored projects then compile and execute real assertions through their declared runners: older NUnit VSTest, xUnit MTP on both targets, and newer NUnit MTP. The template's default assertions are not presented as original verification. Actual packed-tool retrieval compares all canonical source snippets and the complete offline narrative with target-11 applicability. No F#/VB, mobile or GA execution claim is made.

@@ -42,4 +42,6 @@ These are shared DataAnnotations APIs. They do not register Minimal API validati
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Actual .NET 10 and .NET 11 projects compile and execute the same goal. Task barriers prove validation remains pending until a verdict; real cancellation reaches the service; rejection retains the Permit member; Required and IOException propagation remain observable. en-GB/fr-FR culture flows through completion. RC2 additionally runs all six Validator families, rejects the synchronous path, and executes IAsyncValidatableObject without calling Validate. Exact SDKs, dependencies, outputs and input hashes accompany the recipe. RC3 evidence is not GA or web integration evidence.

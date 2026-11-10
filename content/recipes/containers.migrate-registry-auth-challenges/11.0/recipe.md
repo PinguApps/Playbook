@@ -125,6 +125,8 @@ own qualification. The current selected Azure Linux4 base remains Beta.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 `eng/Test-EstuaryRegistry.ps1 -Record` seeds exact base manifests/blobs using ORAS,
 starts the disposable Distribution backend, and runs both pinned SDK containers
 on an internal network. Only the backend also has a host-loopback seeding port;

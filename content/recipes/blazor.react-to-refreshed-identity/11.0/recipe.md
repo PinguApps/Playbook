@@ -104,4 +104,6 @@ The complete current consumer uses the new refresh or notification contract.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 The saved evidence names the exact commands, inputs, SDKs, resolved packages and actual execution. `eng/Record-LiveIdentity.ps1` captures the real .NET/TypeScript and browser checks. Installed stdio inspection verifies delivery separately; it does not prove production identity-provider support.

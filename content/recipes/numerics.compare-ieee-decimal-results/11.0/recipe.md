@@ -33,6 +33,8 @@ The same actual consumer executed with RC1 and RC2 observes Acos(1-1e-34) change
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Current route: net11.0 framework, SDK 11 and C# 15 sample mode; import System.Numerics. Framework-managed functions need no extra package, provider, workload, native platform or rendering context and no experimental opt-in. Older comparison: independent net10.0 SDK 10/C# 14 consumer using Math/double. Exact SDK/runtime pins identify measured artifacts rather than consumer minimums.
 
 Canonical projects are samples/net10.0/ObservatoryResults and samples/net11.0/ObservatoryResults. Both compile/run through Record-Evidence.ps1. Current checks include cancellation-sensitive Acos, alternate 0.5/0.5000 inputs, ordinary Decimal32/64 controls, explicit-base Log, signed zero/nonfinite policy, rejected stale expectation and versioned disposable rollback. RC1 observation runs the same compiled consumer with an explicitly selected actual RC1 runtime, not a separate RC1 compilation claim. RC1 download hash, runtime identities and comparison output accompany the release evidence. GA reconciliation remains separate.

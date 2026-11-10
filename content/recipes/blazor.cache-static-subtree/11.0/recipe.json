@@ -155,7 +155,7 @@
     {
       "sample": "samples/net11.0/QuarryLedger/QuarryLedger.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "kind": "compile",
       "scope": "Actual newer Web SDK compilation. Separate real SSR checks prove complete cache hits, skipped lifecycle, identity/query/permission variation, revision invalidation, expiry, concurrent misses, bypass and a negative leak fixture with both memory providers.",
       "language": "15.0"

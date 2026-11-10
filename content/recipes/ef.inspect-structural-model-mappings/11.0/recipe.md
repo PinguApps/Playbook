@@ -78,6 +78,8 @@ SQLite rejects indexing the whole non-JSON complex property in the executed nega
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Independent SDK10.0.403 / C#14 / EF10.0.13 and SDK11 RC3 / C#15 / EF11 RC2 graphs. SQLite3.53.3/3.53.4 are the measured bundled engines. Compilation and execution records identify inputs and locked dependencies. This is RC preparation evidence, not GA proof. No rendering mode or experimental opt-in is involved. No older-runtime EF11 route is supported. PIN-959 and PIN-965 remain separate gates.
 
 ## References

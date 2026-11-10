@@ -33,6 +33,8 @@ SDK/runtime11, C#15 and MAUI11 RC2 assets plus matching native workload are requ
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 The actual .NET10 Android Release application compiled with RunAOTCompilation=false; no AOT success is claimed. .NET11 build failed NETSDK1147 before compilation. Android devices/emulators and Apple/Xcode are unavailable: permission prompts, iOS authorization and actual location updates are explicitly not-tested under PIN-699. Immutable permission/location implementation review supports the described ownership and metadata semantics; it is not sensor execution.
 
 ## Canonical inputs

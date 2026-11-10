@@ -85,6 +85,8 @@ native provider behavior. No unsafe switch or experimental opt-in is needed.
 
 ## Evidence and limits
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 eng/Test-ProviderRequests.ps1 -Record verifies immutable official sources,
 audit-matching reference hashes and compiler identities, and records existing
 sample-evidence receipts. Paired SDK10.0.403/runtime10.0.14 and

@@ -146,6 +146,8 @@ Advanced DI only. The inherited public properties, Microsoft DI keyed lookup and
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 API stability is stable in discovery/detail; the measured artifact is RC2, not GA.
 Compilation records preserve exact inputs, SDK, target, language, dependencies and
 source dirty state. Browser execution is separate from compilation. The focused

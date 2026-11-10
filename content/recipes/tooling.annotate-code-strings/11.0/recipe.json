@@ -113,7 +113,7 @@
     {
       "sample": "samples/net11.0/ContentDescriptions/ContentDescriptions.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "kind": "compile-and-run",
       "scope": "Real compilation/execution checks C#/F#/Visual Basic attribute identifiers, unchanged invalid source, five exact video media types, data versus HTTPS addresses and rejected relative/unknown-format inputs. No editor UI, payload parsing or media playback is claimed."

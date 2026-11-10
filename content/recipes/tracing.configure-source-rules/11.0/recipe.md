@@ -32,4 +32,6 @@ Rules filter; sampling still decides whether an activity is created/recorded. Ac
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 The actual .NET 10 listener and .NET 11 factory/rules produce only the intended stopped Ship record, exclude Heartbeat and another source, and mark the sampled activity Recorded. RC2 excludes a global same-name source, applies false/true/false configuration changes to an existing factory source, and executes manual RefreshSources attach/detach. These are real in-process tracing callbacks, separate from source review of matching rules and from unclaimed exporter behavior. Exact release projects and hashed evidence accompany the recipe.

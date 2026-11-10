@@ -150,7 +150,7 @@
     },
     {
       "kind": "compile-and-run",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "sample": "samples/net11.0/RelayDial/RelayDial.csproj",
       "scope": "Actual Windows x64 loopback TCP: checked dual-family DNS answers, both/either/neither listeners, selected peer/payload, event completion, cancellation/draining and cleanup. No fixed latency/WAN/DNS-outage/GA claim.",
       "target": "net11.0",

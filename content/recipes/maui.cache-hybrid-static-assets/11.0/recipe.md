@@ -32,6 +32,8 @@ Return null, empty or whitespace to retain the framework default. Malformed URIs
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 The real neutral net10 and net11 package consumers compile and run. The newer consumer tests the callback allow-list, not native response headers, disk persistence or reload flicker. Native .NET 11 WebView interaction is explicitly not-tested because its required MAUI SDK pack is unavailable on this Windows authoring machine. Apple/Android/device paths are also not-tested under PIN-699. No native cache-hit claim or Human approval is fabricated.
 
 ## Canonical sources

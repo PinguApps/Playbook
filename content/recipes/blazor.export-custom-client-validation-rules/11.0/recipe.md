@@ -65,4 +65,6 @@ Requirements describe the .NET 11 release family; exact pins describe measured R
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Four enhanced/plain browser runs across the two releases exercise six invalid shapes, valid acceptance, correct document preservation/navigation, and a bypass rejected by the server. Four corresponding direct-request sets exercise seven values with real antiforgery tokens. RC2 checks additionally inspect the actual custom rule mapping and execute per-form/global opt-outs. Canonical compile and separate execution records bind the actual inputs; browser/request tests are real, not metadata-only or mocked. Installed-package list/get checks verify the full offline body and snippet identity separately.

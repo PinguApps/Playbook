@@ -112,11 +112,11 @@
       "kind": "compile-and-run",
       "target": "net11.0-windows",
       "sample": "samples/net11.0/FenStatus/FenStatus.csproj",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0"
     },
     {
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "kind": "execution",
       "scope": "PIN-897: owner-reported visual check and actual AccentColor/HighContrast notifications with Net11 -> Classic -> Net11, restoring High Contrast to its initial disabled state. No automated pixel, broad accessibility or GA verification.",

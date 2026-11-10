@@ -71,6 +71,8 @@ attribute, not a substitute for checking the extension's decoded meaning.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 `eng/Record-CertificateLinks.ps1 -VerifySources` records SDK10.0.403/C#14 with
 reference/runtime10.0.14, and SDK11.0.100-rc.3.26522.148/C#15 with reference/runtime
 11RC2. Compiler, reference and CoreLib identities/hashes, no resolved dependencies,

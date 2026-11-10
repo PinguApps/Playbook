@@ -108,7 +108,7 @@
     {
       "sample": "samples/net11.0/UnicodeText/UnicodeText.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "kind": "compile-and-run",
       "scope": "Actual UnicodeText compilation and focused execution on Windows. No mocks, cross-compilation, native deployment or GA proof."

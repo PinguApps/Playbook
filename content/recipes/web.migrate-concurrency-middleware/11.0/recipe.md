@@ -77,6 +77,8 @@ Save the newer files separately. There is no replacement NuGet dependency: the m
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Both complete projects were restored, compiled and executed through `eng/Record-Evidence.ps1`. The older dependency lock and saved input hashes identify the actual package. Four actual loopback HTTP requests establish one running handler plus one waiting caller, one 503 rejection during saturation, completion of the queued request after release, and successful later recovery with maximum concurrency one. No sleep determines admission and no mock limiter substitutes for middleware execution.
 
 The existing actual packed-tool harness checks complete canonical Markdown, full applicability, fresh evidence, discovery title/goal and target-11 edition through real stdio list/get after isolated feed/cache installation outside the checkout. Target 10.0 does not select this edition. Stable identity: `web.migrate-concurrency-middleware` / WEB-084.

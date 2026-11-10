@@ -175,7 +175,7 @@
     {
       "sample": "samples/net11.0/AquariumVolunteers/AquariumVolunteers.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "kind": "compile-and-run",
       "scope": "Real matching-dependency build/run: 16 new registrations across packaged/original UI, password/external and three individual requirements plus allowed control. Fresh SQLite rows, redirects, application/external cookies, new-request principal, confirmed/denied later sign-in and request guards. Older packaged email/phone bypass is a measured negative comparison, never the recommended route."
@@ -183,7 +183,7 @@
     {
       "sample": "samples/net11.0/AquariumVolunteers/AquariumVolunteers.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "kind": "execution",
       "record": "samples/net11.0/AquariumVolunteers/artifacts.evidence.json",

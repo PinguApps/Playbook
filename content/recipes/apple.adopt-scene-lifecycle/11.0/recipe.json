@@ -158,7 +158,7 @@
       "scope": "Actual Windows compilation; no native execution."
     },
     {
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "sample": "samples/net11.0/PuffinScenes/PuffinScenes.csproj",
       "language": "15.0",
       "target": "net11.0-ios27.0",
@@ -166,7 +166,7 @@
       "scope": "Pinned official source and artifact review; native compilation/execution not-tested."
     },
     {
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "sample": "samples/net11.0/PuffinMaui/PuffinMaui.csproj",
       "language": "15.0",
       "target": "net11.0-ios27.0",

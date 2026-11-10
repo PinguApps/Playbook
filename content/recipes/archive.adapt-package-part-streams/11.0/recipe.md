@@ -48,6 +48,8 @@ There is no workload, provider, rendering mode or experimental opt-in. This is d
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 All three real consumers create, close and reopen original packages and record CanSeek, Seek, both Position accessors, Length and exact sequential bytes for the four access cases. They run the sequential and end/start parsers, prove rewound buffer identity, reject an oversized part without reading it, exercise a separate instrumented growth-guard control, and close handles before deleting the isolated directory. The matrix itself uses real PackagePart streams. Saved evidence includes actual assembly TFM/version/SHA256, exact commands, dependency locks and input hashes.
 
 Ordinary package build/pack validates freshness. Installed stdio inspection checks ID/title/goal, full canonical Markdown, explicit target11/edition11 applicability and evidence; target10 retrieval is refused. The eight foundations, comprehensive coverage and actual-GA gates remain unchanged.

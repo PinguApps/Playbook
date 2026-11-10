@@ -127,7 +127,7 @@
       "kind": "compile",
       "scope": "Actual Linux x64 OpenSSL execution in pinned Azure Linux containers; separate Windows compilation. Private offline test root only; no TLS/online-revocation/GA claim.",
       "sample": "samples/net11.0/ArchiveManifest/ArchiveManifest.csproj",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "target": "net11.0"
     },
@@ -136,7 +136,7 @@
       "record": "samples/net11.0/ArchiveManifest/linux.evidence.json",
       "scope": "Actual Linux x64 OpenSSL execution in pinned Azure Linux containers; separate Windows compilation. Private offline test root only; no TLS/online-revocation/GA claim.",
       "sample": "samples/net11.0/ArchiveManifest/ArchiveManifest.csproj",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "target": "net11.0"
     }

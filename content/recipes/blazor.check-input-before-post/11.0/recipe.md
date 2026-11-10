@@ -66,4 +66,6 @@ The exact baselines are SDK 10.0.403 / ASP.NET Core 10.0.14 and SDK 11.0.100-rc.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Both apps compile. The real browser blocks invalid submissions without increasing the server post count, accepts valid enhanced/plain posts and preserves a window sentinel only for enhanced posting. A formnovalidate bypass still produces server errors for a nested address and second diver. Actual HTTP tests additionally check per-form/global opt-outs. Compilation records and browser/HTTP reports are separate; none is a mocked consumer.

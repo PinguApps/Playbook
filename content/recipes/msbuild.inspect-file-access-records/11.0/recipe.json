@@ -141,7 +141,7 @@
       "sample": "samples/net11.0/BuildAccessObserver/BuildAccessObserver.csproj",
       "record": "samples/net11.0/BuildAccessObserver/source-review.evidence.json",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "scope": "Official documentation/source review and original examples only. Intended sample inputs are uncompiled. No composed consumer, native capture or experimental execution proof."
     },
@@ -159,7 +159,7 @@
       "sample": "samples/net11.0/BuildAccessObserver/BuildAccessObserver.csproj",
       "record": "samples/net11.0/BuildAccessObserver/verification-evidence.json",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "scope": "Actual locked compilation of this canonical project on Windows. This is not composed-host, provider, telemetry, archive, engine or final-GA behavior proof; .cs.txt integration inputs are not compiled."
     }

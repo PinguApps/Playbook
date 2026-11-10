@@ -117,7 +117,7 @@
     {
       "sample": "samples/net11.0/Archives/Archives.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "kind": "compile-and-run",
       "scope": "ZIP access/replacement round trips, Stored metadata, incompatible Create/Read combinations, Create ReadWrite capabilities and actual OpenAsync(Read) execution. Actual Windows compilation/execution; no mocks, cross-compilation or GA proof."

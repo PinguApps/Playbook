@@ -42,4 +42,6 @@ PermitRegister is a real asynchronous in-process policy, not proof of an externa
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Both actual release projects run supported Generic Host startup, acceptance and rejection. RC2 additionally executes IAsyncStartupValidator, named dual validation, seeded default/monitor caches, synchronous pre-start/snapshot/factory failures, an async-only plus succeeding synchronous validator collection, and configuration-driven monitor reload failure with zero notifications. The Options package's real generator builds the valid model, rejects the conflicting explicit implementation with SYSLIB1205, and builds/runs again after restoration. Exact artifacts and input hashes are saved. These managed checks are distinct from the source-only custom-factory/legacy-precedence restrictions; no GA, external-service or browser proof is claimed.

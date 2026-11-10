@@ -31,6 +31,8 @@ The verified downstream route is a single ordinary JSON model and operation. NSw
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Actual .NET 10/11 builds and Kestrel requests check the generated version fields. The saved compile-and-run records also cover typed SSE versus raw JSON and runtime metadata. The separate contracts.evidence.json records capture Development/Production build commands, actual documents, NSwag generation, independent .NET 10 compilation and a real typed client request against each running server. Compilation, execution and the build tool's mock hosting server are identified separately. The independent client is created outside repository/shared-build inheritance and is not a mock.
 
 The existing installed-tool harness retrieves discovery and complete canonical body/applicability/evidence offline using an isolated local feed/cache and unrelated working directory. It checks the 11.0 edition and rejects target 10.0 for this new recipe. The older sample is comparison evidence, not a new foundation or conditional route. Comprehensive coverage and GA reconciliation remain open.

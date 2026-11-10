@@ -78,6 +78,8 @@ Save the newer files separately.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Both actual pinned projects compiled and ran through `eng/Record-Evidence.ps1`. Real Kestrel requests check zstd/gzip/identity response selection, quality weighting and q=0, unsupported response fallback, supported upload body equality, unsupported and stacked upload 415, and expanded-body 413. .NET 10 explicitly lacks Zstandard; its positive upload route is gzip. No mock middleware or cross-compilation is counted as execution.
 
 The existing isolated packed-tool harness retrieves full canonical Markdown, complete applicability, discovery title/goal and target edition 11.0 over actual stdio list/get outside the checkout. Target 10.0 does not advertise this edition. Stable identity: `web.negotiate-zstandard-content`, covering WEB-075 and WEB-096 without treating automatic defaults as a separate feature.

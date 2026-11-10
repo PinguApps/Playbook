@@ -36,4 +36,6 @@ Keep reports private: stacks, modules, exception messages and memory diagnostics
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Two network-disabled disposable Linux x64 containers compile the actual canonical projects under SDK 10.0.403 and 11.0.100-rc.3.26522.148. A real child FailFast exits 134. The .NET 10 log identifies createdump and its report; RC2 identifies the in-process reporter, managed DispatchFailure frame and module list. The generated report file, rather than stderr alone, contains DispatchFailure. The helper records exact output/artifacts and removes the temporary crash directory. This is real capture, not a mock or cross-compilation. Other platforms, full memory dumps and production failure modes are not executed; GA reconciliation remains required.

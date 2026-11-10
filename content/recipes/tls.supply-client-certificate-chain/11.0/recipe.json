@@ -128,7 +128,7 @@
       "kind": "compile",
       "scope": "Actual Linux x64 OpenSSL execution in pinned Azure Linux containers, with separate Windows compilation. Private loopback mutual TLS; no Windows TLS, online revocation or final-GA claim.",
       "sample": "samples/net11.0/RehearsalRoom/RehearsalRoom.csproj",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "target": "net11.0"
     },
@@ -136,7 +136,7 @@
       "kind": "execution",
       "scope": "Actual Linux x64 OpenSSL execution in pinned Azure Linux containers, with separate Windows compilation. Private loopback mutual TLS; no Windows TLS, online revocation or final-GA claim.",
       "sample": "samples/net11.0/RehearsalRoom/RehearsalRoom.csproj",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "target": "net11.0",
       "record": "samples/net11.0/RehearsalRoom/linux.evidence.json"

@@ -58,6 +58,8 @@ Create `wwwroot/session.js`. The observer shows connection state and suppresses 
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Open `/sign-in` on the selected loopback port. Immediately relay a note: the receipt must advance and the returned text must match. In browser network tools, negotiation must advertise only WebSockets, the circuit must upgrade with HTTP **101**, and a Long Polling attempt must return **404**, `LongPolling transport not supported by this end point type`. `/policy` reports the configured 8,192/16,384-byte thresholds on the mapped dispatcher metadata.
 
 The original real Chrome check relays `Westmere-` repeated 3,072 times: **27,648 characters** arrive through a component change event and return in an actual render. Success above both thresholds demonstrates that they are not message-size caps. It does **not** measure peak memory, throughput, slow-reader backpressure or capacity under load. Those need workload-specific tests.

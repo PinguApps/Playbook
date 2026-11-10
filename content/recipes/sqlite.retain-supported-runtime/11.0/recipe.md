@@ -232,6 +232,8 @@ of execution: the EXE was also launched directly, recorded separately.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 The authoring check `eng/Record-SqliteRuntime.ps1` builds and executes all four
 real consumers and checks the managed asset selected by each restore. It records
 three compile-and-run results plus separate net48 compilation and EXE execution.

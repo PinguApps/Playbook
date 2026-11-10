@@ -99,6 +99,8 @@ The exact RC3 native Windows MAUI route fails NETSDK1147 (maui-tizen) before com
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 eng/Test-QuayMaps.ps1 checks exact official source hashes, artifact repository commits and actual assembly metadata for present/absent APIs, plus downloaded Maps package assets in samples/QuayMaps/sources.json. QuayContracts links the canonical MauiProgram.cs files and compiles both releases against real Windows dependencies; it does not execute them. The actual .NET10 Windows map/pin app and placeholder registration compile with installed SDK10.0.402; it was not launched against the service. iOS native builds and interaction are not-tested (Mac/Xcode unavailable); .NET11 Windows MAUI build fails NETSDK1147 with SDK11 RC3. Rendering and service calls have not run. Evidence records retain input freshness; no GA or map execution proof is claimed. Packed-tool list/get verifies offline delivery only.
 
 ## Official references

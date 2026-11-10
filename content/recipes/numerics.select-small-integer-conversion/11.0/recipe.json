@@ -112,7 +112,7 @@
       "kind": "compile-and-run",
       "scope": "Actual all-five-destination double/float matrix and representative Half values: fractions, both bounds and adjacent overflow, infinities/NaN, checked overflow, ConvertToInteger and native observations; explicit intermediate policies and real bounded buffer write/rejection. Exact compiler/reference/runtime hashes and measured Windows x64 CoreCLR JIT; legacy/native results are observations, not portable historical contracts. No interpreter/Native AOT/Mono or GA execution.",
       "sample": "samples/net11.0/RecordOffsets/RecordOffsets.csproj",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "target": "net11.0"
     }

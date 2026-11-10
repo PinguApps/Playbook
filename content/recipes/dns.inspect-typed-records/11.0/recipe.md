@@ -111,6 +111,8 @@ exist in the reviewed RC2 contract; GA reconciliation remains PIN-962's work.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 SDK 10.0.403/runtime 10.0.14 with DnsClient 1.8.0 and SDK 11RC3/runtime 11RC3 with
 framework-only APIs compile and execute against actual authoritative loopback UDP
 fixtures. They verify two A addresses (TTL 91), two AAAA addresses (TTL 118),

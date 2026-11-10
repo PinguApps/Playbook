@@ -33,6 +33,8 @@ Typed C# bindings remain useful when runtime ancestor selection is unnecessary. 
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 The original .NET10 Windows sample compiles in Release with zero warnings/errors. The .NET11 Windows attempt, restricted to that target, fails NETSDK1147 before compilation because this SDK root has no MAUI SDK pack. Android/iOS toolchains and devices are unavailable. Under PIN-699, current sample compilation, actual generated typed paths, negative diagnostics and trimmed/native execution are explicitly **not-tested**, rather than pending Human work. No upstream tests were executed. Official source tests and exact reviewed source hashes support the expected compiler behavior; they do not prove this sample ran.
 
 Canonical inputs and freshness are recorded in verification.json/verification-evidence.json. Sources are pinned in samples/SignalDeck/sources.json; the mobile composition audit supplies exact reviewed package assets. Packed-tool inspection independently verifies complete offline Markdown and applicability. No service provisioning or public publication is part of this recipe.

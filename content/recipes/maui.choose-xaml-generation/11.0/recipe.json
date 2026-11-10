@@ -159,7 +159,7 @@
     {
       "language": "15.0",
       "sample": "samples/net11.0/QuayBoard/QuayBoard.csproj",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "target": "net11.0-windows10.0.20348.0",
       "kind": "official-review",
       "scope": "Pinned official SourceGen source reviewed; build failed NETSDK1147 before compilation. No generated-output or execution proof."

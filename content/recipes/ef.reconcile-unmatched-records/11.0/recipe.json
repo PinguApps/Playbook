@@ -132,7 +132,7 @@
       "target": "net11.0",
       "language": "15.0",
       "kind": "compile-and-run",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "scope": "Real SQL Server execution: deterministic tied winner IDs12/21 and related names, plus matched B/B, left-only A/null and right-only null/C. Previous EF10 uses anti-existence winner selection and left join plus right-only concatenation; EF11 uses GroupBy/First followed by navigation and translated FullJoin. Exact SDK/package closure retained in sample evidence; RC2 is not GA proof."
     }
   ],

@@ -180,7 +180,7 @@
     },
     {
       "language": "15.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "sample": "samples/net11.0/GannetBinding/GannetBinding.csproj",
       "kind": "compile",
       "scope": "Actual Windows compiler/reference set; Linux behavior is a separate execution receipt.",
@@ -188,7 +188,7 @@
     },
     {
       "language": "15.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "record": "samples/net11.0/GannetBinding/behavior.evidence.json",
       "sample": "samples/net11.0/GannetBinding/GannetBinding.csproj",
       "kind": "execution",

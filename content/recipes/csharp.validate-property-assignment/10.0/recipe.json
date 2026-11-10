@@ -239,7 +239,7 @@
       "kind": "compile-and-run",
       "sample": "samples/net10.0/PropertyAssignmentSdk11/PropertyAssignment.csproj",
       "target": "net10.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "14.0",
       "scope": "Actual .NET 11 RC SDK compilation of the net10.0 / C# 14 sample and execution on the .NET 10 runtime; not .NET 11 GA evidence. Saved by eng/Record-Evidence.ps1; portable checks rerun by eng/Verify.ps1."
     },
@@ -247,7 +247,7 @@
       "kind": "compile-and-run",
       "sample": "samples/net11.0/PropertyAssignment/PropertyAssignment.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "14.0",
       "scope": "Actual .NET 11 RC target compilation and execution of the original property sample. The same checks cover .NET 9/10. Not GA verification. Saved by eng/Record-Evidence.ps1; portable checks rerun by eng/Verify.ps1."
     }

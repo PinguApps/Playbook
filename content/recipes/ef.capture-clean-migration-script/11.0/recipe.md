@@ -30,6 +30,8 @@ This stream behavior is for dotnet-ef11 scripting, not arbitrary application log
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Test-FleetTooling captures a real verbose EF11 migrations script with separate stdout/stderr, requires nonempty diagnostics and executes the unfiltered stdout payload against fresh SQLite. The expected model table is present. EF10's output-file script also executes. Canonical projects compile under their declared locked releases; these checks execute real CLI and database artifacts on Windows x64. Installed retrieval separately verifies the packaged full guidance offline. No deployment is performed.
 
 ## Complete canonical sources

@@ -119,6 +119,8 @@ publication authority.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 `eng/Test-SkylarkBuild.ps1 -Record` compiles/runs both actual managed projects,
 uses real ILC and MSVC-link to pack native executables, checks package counts and
 identities/RID JSON, installs into an isolated local tool directory and executes

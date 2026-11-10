@@ -118,7 +118,7 @@
       "language": "14.0"
     },
     {
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "scope": "Actual original library compilation with no external dependency. Consumer behavior is recorded separately.",
       "sample": "samples/net11.0/WildlifeTags/WildlifeTags.csproj",
       "kind": "compile",
@@ -126,7 +126,7 @@
       "language": "15.0"
     },
     {
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "scope": "Actual SDK 10/11 pack, Unicode NU5052 and analysis-level/warnings-as-errors controls; ASCII underscore acceptance, legacy repeated/mixed punctuation failures, archive identity/assets and compiled/executed direct plus repacked transitive consumers.",
       "sample": "samples/net11.0/WildlifeTags/WildlifeTags.csproj",
       "kind": "execution",

@@ -137,6 +137,8 @@ routes and the exact eight .NET10 foundations.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Run eng/Test-TernTesting.ps1 with -Record and the two absolute dotnet executable
 paths to capture fresh verification-evidence.json records. The helper uses the
 existing Evidence.ps1 input-hash/dependency workflow, fresh isolated CLI homes and

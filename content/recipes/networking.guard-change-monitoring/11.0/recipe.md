@@ -37,6 +37,8 @@ IsSupported is not permission, adapter availability or reachability. Subscriptio
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 eng/Record-SupportPaths.ps1 -Record captures paired pinned builds and real Windows console, Linux Docker and single-thread Mono Chromium checks. The isolated Linux test attaches an internal network after subscribing, observes a real address event, disposes and detaches that network, then verifies no callback for the second change. It changes no host adapter and removes its container/networks. Browser consumers select manual refresh; RC2's initially observed throwing getter required the explicit exclusion above.
 
 Exact inputs, locked dependencies, commands and behavior records accompany the samples. The source manifest pins paired official contracts and implementations. Installed package inspection must verify offline discovery, Markdown, target11.0/edition11.0, applicability and canonical snippets. The eight .NET10 foundations are unchanged. PIN-959 and PIN-962 remain open; no publication, performance or GA verification is implied.

@@ -127,7 +127,7 @@
       "kind": "compile-and-run",
       "scope": "Actual paired nongeneric Complex arithmetic, named multiply/divide, zero divisors, reciprocal/magnitude/power, elementary/trigonometric/hyperbolic/inverse cases, component bits and signed-zero controls; finite controls and application classification. Exact SDK/reference/runtime identities and inputs/results recorded. Windows x64 CoreCLR JIT; no other engine/platform or GA proof.",
       "sample": "samples/net11.0/SignalPipeline/SignalPipeline.csproj",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "target": "net11.0"
     }

@@ -129,7 +129,7 @@
       "kind": "compile-and-run",
       "sample": "samples/net11.0/BeaconBuild/BeaconBuild.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "scope": "Actual CLI evaluation and target execution on paired SDKs; SDK/nested paths, parent/Sdk metadata, unset/false controls, conditional closure, repeated ordering and duplicate MSB4011 suppression. No XML-list emulation."
     }

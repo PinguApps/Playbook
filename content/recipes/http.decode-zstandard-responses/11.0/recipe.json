@@ -152,7 +152,7 @@
       "kind": "compile-and-run",
       "sample": "samples/net11.0/CairnReports/CairnReports.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "scope": "Real Windows x64 HTTP/1.1 negotiation, zstd/gzip/deflate/br/identity body and headers, both stacked orders, unsupported/malformed encoding and stalled-body cancellation; framework automatic decoder, bounded reader. No other native-handler/platform, hostile-codec resource guarantee or GA proof."
     }

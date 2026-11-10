@@ -129,7 +129,7 @@
       "scope": "Osprey gauges measure finite half-precision values. Microsoft.Data.Sqlite11 binds boxed Half and GetFieldValue<Half> reads it; EF11 maps nullable Half directly. EF10 uses an explicit double parameter/read cast and an explicit expression converter. The generic HasConversion<double>() call alone does not supply this older Half converter. Actual zero, rounded 1.1, extrema, minimum subnormal and NULL round-trip; a fresh EF context reads the same nullable values. SQLite stores non-null parameters as REAL and nulls as NULL. Half is a 16-bit CLR type, not a promise of two-byte SQLite disk storage. Precision is already lost when converting 1.1 to Half; REAL cannot recover it. Reading 100000.0 into Half overflows to positive infinity, so validate the finite range before accepting wider values. This example teaches finite scalar columns only. JSON mapping, NaN payload preservation, signed-zero bit identity and encryption are not established by these checks and are not taught as supported routes.",
       "target": "net11.0",
       "language": "15.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "kind": "compile-and-run",
       "sample": "samples/net11.0/OspreyReadings/OspreyReadings.csproj"
     }

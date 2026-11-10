@@ -78,6 +78,8 @@ Save the newer files in a separate directory.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Both complete pinned projects compiled and executed with real loopback requests through `eng/Record-Evidence.ps1`. Each recorded eleven requests and seven handler executions, including hits for two stations, cache bypass while disabled, a fresh entry after a revision change, the unaffected station's retained hit, and two uncached unknown-station requests. One rule read per request establishes snapshot selection across cache stages. These are local runtime checks, not mocks, cross-compilation or external-provider evidence.
 
 The existing packed-tool harness checks complete canonical Markdown, discovery title/goal, full applicability and edition 11.0 over real stdio list/get after an isolated local-feed/cache installation outside the checkout. Target 10.0 has no applicable edition. The stable identity is `caching.resolve-policy-dynamically` / WEB-072.

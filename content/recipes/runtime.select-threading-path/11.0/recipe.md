@@ -37,6 +37,8 @@ The sample checks cancellation before/between work and before returning; it does
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 eng/Record-SupportPaths.ps1 -Record captures paired SDK10.0.403/runtime10.0.14 and SDK11RC3/runtime11RC3 consumers. Windows/Linux execute the threaded branch; actual Mono Chromium consumers report threads=False and use the sequential branch. Both produce score48 and propagate pre-cancellation. The browser path contains no unsupported scheduling; platform annotations alone are not used as execution evidence.
 
 The sample-evidence workflow records exact inputs, dependencies and commands, with separate real behavior receipts. Paired pinned official sources qualify the new property. Installed stdio retrieval must verify the complete offline Markdown and explicit target11.0/edition11.0 applicability. The eight .NET10 foundations and the separate PIN-959/PIN-962 gates remain unchanged. No final-GA, performance or in-flight browser cancellation claim is made.

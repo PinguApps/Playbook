@@ -69,4 +69,6 @@ No external NuGet packages, database, account, optional workload or rendering mo
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 The official HTTP.sys breaking-change and HttpAuthenticationHardeningLevel references in the source metadata define token exposure and security modes. Saved sample evidence records exact compilation/execution commands and input hashes; they establish only the claims described above.

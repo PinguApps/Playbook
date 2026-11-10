@@ -152,6 +152,8 @@ execution is claimed. PIN-812's passkey denial remains a separate goal.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 The saved compile-and-run records contain fresh execution of 16 registrations per
 target, plus denied/confirmed later sign-in and request guards. Separate artifact
 records retain the full selected dependency assets, package ZIP/reference hashes

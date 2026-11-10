@@ -123,7 +123,7 @@
       "language": "14.0"
     },
     {
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "scope": "Real keep-alive HTTP/1.1 transport identity: healthy reuse then finite-lifetime (.NET 10) or callback-driven (RC2) idle retirement/reconnection; no active-abort or DNS migration claim.",
       "sample": "samples/net11.0/HttpCapacity/HttpCapacity.csproj",
       "target": "net11.0",

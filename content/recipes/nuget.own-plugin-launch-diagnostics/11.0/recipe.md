@@ -144,6 +144,8 @@ cache proof only; `CourierLauncher` itself needs neither.
 
 ## Evidence and limits
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 `eng/Record-PackageWorkshop.ps1` captures the paired consumers through the
 existing sample-evidence workflow. Both fixed projects compile with zero
 warnings. The isolated old-call probe has no CS0618 on SDK10 and the exact

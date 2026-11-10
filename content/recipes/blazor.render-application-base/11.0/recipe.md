@@ -84,6 +84,8 @@ execution uses RC2, with final GA reconciliation pending.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 The actual .NET 10 and .NET 11 apps compile independently. Real HTTP requests
 return the generated base and all three nested routes plus blazor.web.js beneath
 /atlas/. The same .NET 11 binary emits /museum/ when only host configuration

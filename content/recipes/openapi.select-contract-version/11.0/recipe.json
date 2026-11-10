@@ -159,7 +159,7 @@
       "scope": "Actual compilation and loopback execution: default/explicit document versions, two typed SSE frames with payload/name/id, raw async-enumerable JSON and runtime environment metadata. .NET 11 additionally checks itemSchema payload references and the older-spec extension.",
       "sample": "samples/net11.0/SkyLedger/SkyLedger.csproj",
       "kind": "compile-and-run",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "target": "net11.0",
       "language": "15.0"
     },
@@ -168,7 +168,7 @@
       "record": "samples/net11.0/SkyLedger/contracts.evidence.json",
       "scope": "Real Development/Production build-time documents and endpoint/transformer differences, using the older process environment and newer supported MSBuild property. Actual selected 3.0 document generates a typed NSwag 14.7.1 C# client, independently compiled on .NET 10 and executed against this server. No 3.2/SSE generator support claim.",
       "language": "15.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "sample": "samples/net11.0/SkyLedger/SkyLedger.csproj",
       "target": "net11.0"
     }

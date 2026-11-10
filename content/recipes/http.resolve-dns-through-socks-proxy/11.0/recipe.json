@@ -121,7 +121,7 @@
       "kind": "compile-and-run",
       "sample": "samples/net11.0/CairnRelay/CairnRelay.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "scope": "Real Windows x64 SOCKS5 hostname CONNECT, actual loopback target response, authentication success/failure, no acceptable method, refused CONNECT and cancelled negotiation; local negative DNS and old alias rejection. No global DNS privacy, production proxy, other-platform or GA proof."
     }

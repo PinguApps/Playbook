@@ -116,7 +116,7 @@
       "kind": "compile-and-run",
       "sample": "samples/net11.0/CelestialSchedule/CelestialSchedule.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "scope": "Actual Windows x64 .NET10/.NET11 RC3 managed consumers, exact reference/compiler/runtime/package identities. Restore-selected assets, missing-reference failure, exact/minimum direct references and NU1510, multitarget library consumer, retained implementation package, matching-version RC3 reference, framework-dependent publish/deps/runtime resolution. No self-contained/single-file/native/AOT/other-platform/GA deployment proof."
     }

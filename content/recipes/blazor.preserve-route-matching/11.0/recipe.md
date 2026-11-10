@@ -63,6 +63,8 @@ The exact verification pins are SDK 10.0.403 / framework and browser assets 10.0
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Both original TidalStations projects compiled with their own SDK pin, language mode, matching framework references and locked browser asset dependency. Saved compilation records include input hashes, exact commands and dependencies. Separate freshness-checked execution records contain actual static HTTP responses and Chromium 153 navigation through both routes with prerender disabled and a same-document marker retained.
 
 `eng/Record-RemovedBlazorBehavior.ps1` runs the real built applications through `eng/Test-RemovedBlazorConsumers.mjs`; its `behavior.evidence.json` records distinguish execution from compilation-only asset calls. The bounded API audit was rerun and matched both original reference-asset hashes/signatures. Installed-package checks retrieve the complete canonical body, discovery goal, applicability and evidence over real stdio outside the checkout, with explicit target 11.0.

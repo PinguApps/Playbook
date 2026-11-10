@@ -89,6 +89,8 @@ The independently pinned .NET11 consumer records the actual RC boundary.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Real Windows x64 framework-dependent SQLite migration bundles; matching Design/tool versions, inherited CPM and non-CPM control. SDK10.0.403 / EF10.0.13 versus SDK11 RC3 / EF11 RC2. No self-contained, NativeAOT, multi-context, encrypted provider, other-platform or GA claim.
 
 ## Constraints

@@ -61,6 +61,8 @@ Windows x64 with the approved legacy Linux emulator2.14.28.0 is the execution ro
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Canonical samples execute real queries and persistence against the disposable emulator. Their verification records identify exact inputs, dependencies, SDKs and execution output. Installed stdio list/get checks content delivery separately from provider behaviour. RC evidence is not GA proof; proxy blocking alone is not network isolation.
 
 ## References

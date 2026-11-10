@@ -31,6 +31,8 @@ The sample's case-sensitive schema checks follow its actual System.Text.Json web
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Both actual SDK/package sets compiled and executed. The .NET 11 check resolves itemSchema's payload reference, checks the integer exposure type and envelope fields, and confirms the 3.1 extension distinction. Both servers deliver two real frames with expected payload/name/id and a separate raw JSON array. This is actual local execution, not source review, cross-compilation or a mock HTTP response. Saved verification-evidence.json records identify exact inputs, resolved dependencies, commands and runtime output. The build generator itself uses the framework's mock hosting server; those build documents are separate evidence from Kestrel/SSE execution.
 
 Shared contracts.evidence.json records cover two build environments and the selected ordinary generated consumer. The installed package scenario checks complete canonical Markdown, discovery ID/title/goal, exact applicability, target edition and fresh evidence through real stdio list/get in an isolated feed/cache outside the checkout. These are focused recipe checks, not comprehensive catalogue, native-platform or GA readiness claims.

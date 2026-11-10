@@ -31,6 +31,8 @@ The new recipe is a .NET 11 edition only. The .NET 10 example is a historical co
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Real .NET 10/11 compilation and loopback execution: all four Minimal API/MVC buffered/streamed file contracts resolved as string/binary in OpenAPI 3.1 and matched to 200 ZIP responses, filename and exact bytes. Both projects compiled and executed with their declared SDKs and locked package graphs; no mocks or cross-compilation substitute for those checks. Sample verification-evidence.json records retain exact input hashes, commands, dependencies and runtime output.  Offline delivery is checked through the actual locally packed/installed tool over stdio, in an isolated feed/cache and unrelated directory; canonical body equality, applicability, evidence and target edition are checked. These checks establish the authored slice, not comprehensive catalogue or GA release readiness.
 
 Official references: [Official file-response metadata and older Stream route](https://github.com/dotnet/AspNetCore.Docs/blob/main/aspnetcore/fundamentals/minimal-apis/responses.md); [ASP.NET Core 11 canonical release notes](https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/preview4/aspnetcore.md); [OpenAPI generation and explicit version selection](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/openapi/aspnetcore-openapi?view=aspnetcore-11.0).

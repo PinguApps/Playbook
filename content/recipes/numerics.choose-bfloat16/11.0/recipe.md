@@ -89,6 +89,8 @@ execution is measured; other platforms, trimming/AOT and actual GA are unverifie
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 eng/Test-PrecisionDepth.ps1 -Record -VerifySources builds and executes both
 SensorArchive consumers using the existing recorder. Assertions cover exact and
 deliberately rounded values, magnitude/range, signed zero/infinity/NaN, generic

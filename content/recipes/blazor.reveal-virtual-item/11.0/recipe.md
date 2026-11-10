@@ -122,6 +122,8 @@ In `_Imports.razor`, import `Microsoft.AspNetCore.Components`, its `Routing`,
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Both actual Web SDK projects compiled with zero warnings/errors at the exact
 baselines above. Saved compilation evidence is separate from real Windows Chrome
 155 Interactive Server execution. The canonical browser fixture held the real

@@ -116,7 +116,7 @@
     {
       "sample": "samples/net11.0/Compression/Compression.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "kind": "compile-and-run",
       "scope": "Actual .NET 10 stream and RC2 span implementations round-trip empty, short, repetitive 8192-byte and subsequent independent payloads in all three formats. GZip checks additionally observe DestinationTooSmall for encode/decode and NeedMoreData for a partial header. Actual Windows compilation/execution; no mocks, cross-compilation or GA proof."

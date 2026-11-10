@@ -127,7 +127,7 @@
       "kind": "compile-and-run",
       "scope": "Paired real float/decimal scalar and per-element clamp executions, reversed/equal/ordered bounds at lengths 1/3/33, invalid final pair, lengths/capacity/NaN, untouched rejected output and correct successful values/tail. Exact compiler/reference/runtime/package assets; Windows x64 CoreCLR JIT only, no older-target/newer-package or actual-GA proof.",
       "sample": "samples/net11.0/CalibrationImport/CalibrationImport.csproj",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "target": "net11.0"
     }

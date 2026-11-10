@@ -132,6 +132,8 @@ on net10.0 is advertised: the async DataAnnotations prerequisite is .NET 11.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Both real projects compile at their declared SDK/language pins. Real static form
 posts accept an open pass and reject a closed one. Chromium drives both actual
 Interactive Server apps: a held field check is canceled on the next edit without

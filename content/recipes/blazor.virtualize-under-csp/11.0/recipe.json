@@ -62,7 +62,7 @@
   ],
   "evidence": [
     {"sample": "samples/net10.0/BeaconReadings/BeaconReadings.csproj", "target": "net10.0", "sdk": "10.0.403", "language": "14.0", "kind": "compile", "scope": "Actual pinned Web SDK build. Separate real Chrome execution compares the explicit attribute exception with the enforced strict failure, visible distant IDs and attribute/element/CSSOM controls; no mocks."},
-    {"sample": "samples/net11.0/BeaconReadings/BeaconReadings.csproj", "target": "net11.0", "sdk": "11.0.100-rc.3.26522.148", "language": "15.0", "kind": "compile", "scope": "Actual pinned Web SDK build. Separate real Chrome execution checks strict response header, actual visible distant rows, bounded DOM window, return scrolling and enforced attribute/element controls without virtualization exceptions; no mocks."}
+    {"sample": "samples/net11.0/BeaconReadings/BeaconReadings.csproj", "target": "net11.0", "sdk": "11.0.100", "language": "15.0", "kind": "compile", "scope": "Actual pinned Web SDK build. Separate real Chrome execution checks strict response header, actual visible distant rows, bounded DOM window, return scrolling and enforced attribute/element controls without virtualization exceptions; no mocks."}
   ],
   "snippets": {
     "older": {"path": "samples/net10.0/BeaconReadings/Program.cs", "region": "host", "language": "csharp"},

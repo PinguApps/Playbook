@@ -247,6 +247,8 @@ Inspect the real enforcing Content-Security-Policy header and securitypolicyviol
 
 ## Evidence: source reconciliation and execution boundaries
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 The accepted migration guide and the actual RC2 template are not byte-identical. The guide currently describes a global page handler; the pinned template wraps the menu in a custom element and adds/removes a scoped listener with its connection lifetime. The installed 11.0.0-rc.3.26522.148 template and pinned ASP.NET source commit 4a70870818bf5662f21b0c28f9a8c267dccb77f0 agree on that lifecycle capability. The actual .NET 10.0.14 template contains its older inline click handler and no collocated NavMenu module. The source location includes `BlazorWeb-CSharp/BlazorWebCSharp.1`; a different guessed directory is not evidence. Bracken's original markup, handler, module and trails are not copied guide examples.
 
 Four real pinned host/client projects compile. Separate local Chrome 155 execution checks actual app initialization, both module path shapes under a non-root base, real links/content, enhanced static updates, checked-menu behavior, connection cleanup and enforcing policy controls. The older matching-hash, strict-negative and module-backport cases remain distinct. No mocks, cross-compilation or source-only assertions replace browser execution. Source archive hashes and exact execution artifacts are recorded separately from compilation.

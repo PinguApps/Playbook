@@ -139,6 +139,8 @@ The workload-free MarshDispatch consumer uses the actual neutral MAUI assemblies
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Official source hashes are retained in samples/MarshInterop/sources.json and checked by eng/Test-MarshInterop.ps1. Evidence records distinguish source review from compilation. iOS compilation, trimming, NativeAOT publication and WebView interaction excluded: Mac/Xcode unavailable. No native execution or GA verification is claimed. Installed-package list/get verifies offline content delivery only. No verified older-target route is declared for this edition.
 
 ## Official references

@@ -24,6 +24,8 @@ SDK/runtime11, C#15, Controls11.0.0-rc.2.26505.5 and matching MAUI workload are 
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Actual RC2 package XML and immutable implementation reviewed; the current native build and all native interactions are not-tested under PIN-699. The .NET10 Android Release app compiled with the existing system SDK10.0.402 and MAUI10 toolchain, with RunAOTCompilation=false. This does not establish AOT success. SDK11 build failed NETSDK1147 before compilation. Packed MCP retrieval proves content delivery only. No GA proof or new Human gate.
 
 ## Migration

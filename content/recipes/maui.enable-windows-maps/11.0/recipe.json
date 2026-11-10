@@ -305,7 +305,7 @@
       "sample": "samples/net11.0/QuayWindows/QuayWindows.csproj",
       "kind": "official-review",
       "target": "net11.0-windows10.0.19041.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "scope": "Pinned source/artifact review; native compilation and interaction not-tested under PIN-699."
     },
@@ -320,7 +320,7 @@
     {
       "target": "net11.0-windows10.0.19041.0",
       "language": "15.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "kind": "compile",
       "scope": "Workload-free Windows library compilation of the linked canonical MauiProgram.cs files, including placeholder registration; no native app build, rendering or service execution.",
       "sample": "samples/net11.0/QuayContracts/QuayContracts.csproj"

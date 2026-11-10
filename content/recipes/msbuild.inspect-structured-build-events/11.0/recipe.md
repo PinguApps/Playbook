@@ -169,6 +169,8 @@ exercise that failure and check its stable error code.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Run `eng/Record-DepotEvents.ps1` with absolute paths to the two complete SDK
 executables. It uses the existing sample-evidence workflow to compile and execute
 both actual dependency sets, record input hashes and SDK/language/dependency

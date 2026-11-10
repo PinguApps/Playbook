@@ -40,6 +40,8 @@ Applicability records runtime, SDK, C# version, packages, workloads, provider, p
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Run eng/Test-WhimbrelGuidance.ps1 for older Android selected compile/runtime assets and actual old/current MAUI engine checks. Older Apple library compilation is recorded separately. Pinned mobile source/reference review uses eng/Inspect-MobileApiGaps.ps1. Native exclusions apply only to the named samples and conditions; no mock is labelled device evidence. Installed stdio list/get proves offline delivery, not native behavior. PIN-959 and PIN-966 remain open for their own qualifying coverage/GA criteria.
 
 ## References

@@ -152,7 +152,7 @@
       "kind": "compile-and-run",
       "sample": "samples/net11.0/HeronSignals/HeronSignals.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "scope": "Actual SQLite native version/source ID/DLL hash; eleven exact stored TEXT/null boundary and fractional inputs; tick round-trip; seven executed parameter-safe server filters with exact IDs and strftime SQL. EF11 translates all three component predicates and rejects unsupported Millisecond before any command."
     }

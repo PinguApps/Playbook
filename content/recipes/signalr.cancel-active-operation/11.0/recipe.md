@@ -110,6 +110,8 @@ The proof's singleton registry, HTTP controls, two parallel invocation slots, un
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Both original consumers compile against their declared SDK, target, language and locked package assets. The saved compile records identify every input and resolved dependency. `eng/Test-Soundings.ps1` separately executes actual .NET clients against actual ephemeral Kestrel servers for all four .NET 10/11 client/server pairs. The matching new pair observes server cancellation and continued connection use; each missing-capability control observes still-running work before proving the disconnect fallback. The normal new invocation completes after explicit release. No mocked transport or server decision substitutes for execution.
 
 The recipe preserves edition 11.0 and stable goal identity. The .NET 10 code is a comparison, not a ninth curated foundation. Stable cancellation APIs were exercised on .NET 11 RC2; this does not establish GA behavior or other platforms, transports, clients or hosting providers. See `docs/verification/invocation-cancellation.md` for exact artifact hashes, execution and packed offline list/get proof. No required Human proof is outstanding for this local managed scope.

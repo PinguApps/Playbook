@@ -77,6 +77,8 @@ Supported current route requires .NET/SDK11 and matching EF11 SQLite packages. M
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Run eng/Test-WrenTracking.ps1 to execute both locked graphs; -Record refreshes sample verification-evidence.json. Records contain exact commands, SDK/runtime details, resolved dependencies, input hashes, host, SQLite version/source ID, executed SQL and PASS checks. This is actual compilation and SQLite execution, not mocks, metadata or cross-compilation. State checks cover stale/current states, all flags/defaults, scan counts and persisted insert/update/delete. Scalar checks cover partial SELECT, UPDATE omission, fresh reload, re-enable/default write and loaded update. Pool checks cover shared configuration, disposal/reuse, EF tracking and explicit RequestLabel reset, unsaved-mutation exclusion and persisted save. Other application fields and async interaction are not independently exercised. Ordinary installed-tool inspection separately checks ID/title/goal, complete canonical Markdown, target11/edition11, applicability and evidence over real stdio from an unrelated directory with unusable proxies. That proves embedded retrieval, not OS network isolation. PIN-959 comprehensive coverage, PIN-965 actual GA and existing Human gates remain open. Each M(3) retains its focused correctness/lifecycle and consumer proof scope; no recurring platform/client matrix is added.
 
 ## Official references

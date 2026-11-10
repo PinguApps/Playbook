@@ -131,7 +131,7 @@
       "kind": "compile-and-run",
       "sample": "samples/net11.0/TypeLedger/TypeLedger.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "scope": "Actual Windows x64 alignment1/8/16/64/256, 257 initialized bytes across GC, collectible owner release, invalid size/alignment and raw current type/zero-size contracts. No post-release access, exact native reclamation timing, other-runtime or GA proof."
     }

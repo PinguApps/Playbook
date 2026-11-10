@@ -40,4 +40,6 @@ This managed console route needs no provider, rendering mode, native workload or
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Actual .NET 10/11 programs report their process inputs as JSON. The real commands distinguish inherited and profile variables, the SDK 11 command-line override, evaluated AssemblyName expansion and literal arguments after --. Both projects compile independently. Installed stdio checks compare full canonical Markdown and applicability; these checks do not infer compatibility from SDK presence alone.

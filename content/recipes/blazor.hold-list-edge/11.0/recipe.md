@@ -190,6 +190,8 @@ The source-disposition register maps WEB-015/016 to this single stable goal.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Both actual pinned applications compile; separate saved real Chrome/Windows
 Interactive Server measurements exercise variable-height prepend/append/expand,
 identity and overscan. The browser script marks user-scroll intent before moving

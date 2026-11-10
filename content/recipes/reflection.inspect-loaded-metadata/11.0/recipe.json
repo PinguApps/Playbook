@@ -146,7 +146,7 @@
     {
       "sample": "samples/net11.0/MetadataInspection/MetadataInspection.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "kind": "compile-and-run",
       "scope": "Real CoreCLR compilation/execution checks metadata-only context ownership, nullable Int32, one constructor value parameter and zero method type parameters, a stream-loaded assembly and process-wide logical location reporting. Untrimmed file-based host; no Native AOT or editor claims. Also executes a direct custom Type inheriting the new virtual (NotSupportedException on .NET 11) and the explicit non-nullable override; TypeDelegator is not substituted for this regression."
@@ -163,7 +163,7 @@
     {
       "sample": "samples/net11.0/DeploymentInspection/DeploymentInspection.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "kind": "compile-and-run",
       "record": "samples/net11.0/DeploymentInspection/deployment.evidence.json",

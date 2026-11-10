@@ -119,7 +119,7 @@
       "scope": "Real Windows x64 framework-dependent SQLite migration bundles; matching Design/tool versions, inherited CPM and non-CPM control. SDK10.0.403 / EF10.0.13 versus SDK11 RC3 / EF11 RC2. No self-contained, NativeAOT, multi-context, encrypted provider, other-platform or GA claim."
     },
     {
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "target": "net11.0",
       "kind": "compile",
       "language": "15.0",
@@ -136,7 +136,7 @@
       "scope": "Real Windows x64 framework-dependent SQLite migration bundles; matching Design/tool versions, inherited CPM and non-CPM control. SDK10.0.403 / EF10.0.13 versus SDK11 RC3 / EF11 RC2. No self-contained, NativeAOT, multi-context, encrypted provider, other-platform or GA claim."
     },
     {
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "target": "net11.0",
       "kind": "execution",
       "language": "15.0",

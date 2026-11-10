@@ -147,6 +147,8 @@ Satellite selection happens before the first interactive render. Late OnAfterRen
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 The two original Host and Client pairs compile with their declared SDKs and actual locked dependencies. Those records are compilation only. Separate actual Chrome 155 WASM runs verify all four edition/policy combinations: real HTTP SSR, different en-US startup, matching server cultures or explicit de-DE opt-out, localized resource text, date/number, actual French/German satellite response before first render, native WASM assets and a working confirmation handler.
 
 Browser records retain precise fetched artifact hashes, initial-document content and performance timestamps. Input and verifier hashes, dirty-capture provenance and later artifact-equality checks are recorded in docs/verification/browser-culture.md. There are no desktop-host mocks, cross-compilation substitutes, remote-provider assumptions or required Human-only checks. Local interpreted development proof is not production or GA proof.

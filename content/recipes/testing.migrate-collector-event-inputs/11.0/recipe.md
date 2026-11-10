@@ -153,6 +153,8 @@ real test run. No approval to rewrite results follows from a public setter.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 `eng/Test-QuayCollector.ps1 -Record` locks/restores/builds both actual dependency
 sets, verifies the independently audited CLI ZIP, locked-restore dependency SHA512
 content hashes and SDK/compiler/ref/runtime hashes, checks

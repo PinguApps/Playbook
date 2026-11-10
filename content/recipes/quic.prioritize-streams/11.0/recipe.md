@@ -36,4 +36,6 @@ The peer must read each stream until end of stream, and the sender must complete
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Both pinned release projects establish a real loopback QUIC connection and exchange the two original messages on bidirectional streams. RC2 verifies default priority 127, sets 240/16, checks the configured values and exercises 0/255. Windows loads MsQuic 2.5.11.159415436. This tests the actual property/native call and successful transfers, not wire scheduling order, congestion, packet loss, fairness or production throughput. No mock connection or additional CI platform matrix is used. RC2 verification is not GA proof.

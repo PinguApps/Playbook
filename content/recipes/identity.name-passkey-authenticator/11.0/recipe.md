@@ -161,6 +161,8 @@ Stable API surface; actual .NET 11 evidence uses RC2, not GA. No experimental op
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Saved compile-and-run records identify the exact SDKs, dependencies, source hashes and actual runtime output. The real request path covers confirmation through RequireConfirmedAccount, RequireConfirmedEmail and RequireConfirmedPhoneNumber; future lockout; wrong-origin rejection; absence of an application cookie on refusals; and cookie issuance after valid confirmation. Rename is exercised through the rendered form and actual antiforgery-protected POST, with saved-name and cross-owner checks. The store is an explicit fixture; Identity is not mocked.
 
 The actual SDK 11 RC3 web template archive SHA-256 is 419395f52fdb5648d36e5224e44da952f4de3b97fa74688d21d089efff038b75. eng/Test-PasskeyTemplate.ps1 extracts its licensed PasskeyAuthenticators implementation into ignored temporary output, adds the original fleet entry and compiles/runs known Windows Hello, custom fleet, explicit-name precedence, missing/malformed and unknown-identifier checks. It tests the real mapping code, not a reimplementation. The canonical HTTP consumer separately proves the rename fallback. Neither is evidence of physical authenticator interoperability.

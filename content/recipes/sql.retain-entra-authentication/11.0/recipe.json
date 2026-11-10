@@ -145,7 +145,7 @@
     },
     {
       "sample": "samples/net11.0/MarshAccess/MarshAccess.csproj",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "kind": "compile-and-run",
       "language": "15.0",
       "scope": "Actual compilation/configuration execution plus PIN-958 real driver-managed Active Directory Default certificate authentication: EF SQL connection and distributed-cache write/read/remove. Exact source/lock/runner hashes and dependency graphs in docs/verification/entra-sql.json; repeat with eng/Test-MarshEntra.ps1. Windows x64 only; no mocks or GA proof.",

@@ -132,7 +132,7 @@
       "kind": "compile-and-run",
       "scope": "Windows NTFS x64 real file notifications. Current equal/ancestor/descendant/empty/relative/deferred layouts; no polling, browser or symlink-security claim.",
       "sample": "samples/net11.0/GardenObservations/GardenObservations.csproj",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "target": "net11.0"
     }

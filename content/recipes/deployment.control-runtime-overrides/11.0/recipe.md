@@ -125,6 +125,8 @@ No API here is experimental; RC3 evidence is not GA verification.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 `eng/Test-RuntimeOverrides.ps1` compiles detached consumers in an isolated cache,
 runs all cases above and records host identity and copy/generation observations.
 Its `-Record` mode saves execution evidence through the existing sample input

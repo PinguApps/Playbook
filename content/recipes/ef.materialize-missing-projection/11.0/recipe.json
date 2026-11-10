@@ -122,7 +122,7 @@
       "scope": "Pingu authorized official-documentation guidance on 5 November 2026 despite missing RC behavior. EF11 RC2 and RC3 direct DTO/anonymous projections throw on unmatched rows, including grouped DTO/default struct. Nullable struct composition fails translation. The explicit nullable marker returns -1 and 12 on both editions. Intended direct semantics and final artifact behavior remain pending; compilation and recorded failures are not successful execution proof."
     },
     {
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "target": "net11.0",
       "kind": "compile-and-run",
       "language": "15.0",

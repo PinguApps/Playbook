@@ -110,6 +110,8 @@ Requirements are the .NET/ASP.NET Core 11 server runtime and a compatible SDK. E
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 The saved verification records capture actual builds and two real HTTP requests per project, including MVC and Razor Pages output and HTML encoding. Historical RuntimeCompilation assets and transitive packages are locked and measured; the replacement has no runtime-compilation dependency. This is execution evidence, not a mock or cross-compilation. Browser rendering, a live Hot Reload edit, custom file providers and F# publishing were not tested and are not claimed. The .NET 11 run uses RC2; GA reconciliation remains open.
 
 Official sources: [RC2 overload diagnostics](https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/rc2/aspnetcore.md), [obsoletion](https://learn.microsoft.com/en-us/aspnet/core/breaking-changes/10/razor-runtime-compilation-obsolete?view=aspnetcore-10.0), [Razor compilation](https://learn.microsoft.com/en-us/aspnet/core/mvc/views/view-compilation?view=aspnetcore-11.0), [Hot Reload](https://learn.microsoft.com/en-us/aspnet/core/test/hot-reload?view=aspnetcore-11.0), [historical package](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation/10.0.13).

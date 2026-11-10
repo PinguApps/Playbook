@@ -147,7 +147,7 @@
       "kind": "compile-and-run",
       "sample": "samples/net11.0/QuarryCalls/QuarryCalls.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "scope": "Actual Windows x64 CoreCLR DynamicMethod managed and native MulDiv calls, arguments/results, direct typed-pointer comparison, safe failure sentinels and signature rejection. Injected false guard only; no AOT/x86/other-platform/GA execution claim."
     }

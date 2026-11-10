@@ -123,7 +123,7 @@
     {
       "language": "15.0",
       "sample": "samples/net11.0/TernPatches/TernPatches.csproj",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "target": "net11.0",
       "kind": "compile",
       "scope": "eng/Test-TernExtensions.ps1 -Record: real compilation and bounded provider execution with cleanup. No GA/NativeAOT/other-platform guarantee."
@@ -131,7 +131,7 @@
     {
       "language": "15.0",
       "sample": "samples/net11.0/TernPatches/TernPatches.csproj",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "target": "net11.0",
       "kind": "execution",
       "record": "samples/net11.0/TernPatches/behavior.evidence.json",

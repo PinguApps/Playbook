@@ -184,6 +184,8 @@ need their own registration/service checks; none is advertised here.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 The canonical sample `verification-evidence.json` records contain fresh actual
 build/run commands, SDK/runtime output, exact resolved dependencies, input hashes,
 host, SQLite version/source ID and all PASS lines. They cover eight replacement

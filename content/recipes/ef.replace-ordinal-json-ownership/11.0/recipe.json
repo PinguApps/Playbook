@@ -140,7 +140,7 @@
       "sample": "samples/net11.0/TrailCards/TrailCards.csproj",
       "target": "net11.0",
       "kind": "compile-and-run",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "scope": "Actual EF10 SQLite file consumed by EF11 complex collection; old mapping diagnostic, complex metadata, no pre-edit rewrite, duplicate/order/empty preservation, remove/edit/append with fresh reload, existing schema retained and different generated NOT NULL DDL. Not a production migration."
     }
   ],

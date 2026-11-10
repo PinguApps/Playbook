@@ -44,6 +44,8 @@ Exact test artifacts are SDK 10.0.403 / 11.0.100-rc.3.26522.148, C# 14 / 15, fra
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 QuarryMaintenance compiles/runs on both actual dependency sets. Separate deployment records capture fourteen real child launches: ordinary absolute, relative and symlink apphosts plus dotnet DLL, then absolute, relative and symlink single-file apphosts, for each runtime. Assertions check exact RC2 invocation spelling, older resolved identity, real alias help selection, unchanged dotnet DLL behavior, existing executable/ordinary assembly files and empty bundled Location normalized to unavailable. Commands include working directory, runtime selection, publication assets and apphost SHA256; compiler/ref/runtime hashes accompany ordinary compilation.
 
 These are real apphost/publish/OS executions with a real symlink, not mocks or cross-compilation. Installed ordinary-tool inspection checks complete offline canonical Markdown, explanatory discovery, target11/edition11 and evidence freshness; target10 remains comparison-only. The existing hosting.report-assembly-location ID and the eight .NET 10 foundations are unchanged. PIN-959 comprehensive coverage and PIN-962 actual-GA reconciliation remain open.

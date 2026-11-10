@@ -88,6 +88,8 @@ The supplied SQL2025 build rejected JSON_CONTAINS over nvarchar(max) with SQL811
 
 ## Evidence and limitations
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 `eng/Test-JsonDocuments.ps1 -Record` compiles and executes both locked consumers against real SQL2025/170. Each query checks actual returned IDs as well as translation shape. Saved records identify runtime, SDK, dependency closure and source hashes. No mocks, older-engine execution, cross-compilation, throughput or actual-GA result is claimed. SQL2022 support for presence is official-source evidence; the executable was run on SQL2025. Complete installed stdio list/get checks prove offline content delivery separately from database behavior.
 
 ## Official references

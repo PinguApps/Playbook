@@ -134,7 +134,7 @@
       "scope": "Actual pinned Web SDK/Razor compilation and locked implicit browser assets; execution is separate.",
       "kind": "compile",
       "language": "15.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "sample": "samples/net11.0/RestorationBench/RestorationBench.csproj",
       "target": "net11.0"
     },
@@ -143,7 +143,7 @@
       "kind": "execution",
       "language": "15.0",
       "record": "samples/net11.0/RestorationBench/behavior.evidence.json",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "sample": "samples/net11.0/RestorationBench/RestorationBench.csproj",
       "target": "net11.0"
     }

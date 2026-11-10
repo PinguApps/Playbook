@@ -130,6 +130,8 @@ The ordinary MVC token filter and automatic Razor Page filter remain token-based
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Actual .NET 10/11 consumers compile with their declared SDKs. Seventy real Kestrel HTTP checks cover same-origin/cross-origin forms on all four paths, missing tokens, valid token pairs, rejected additional data, Fetch Metadata precedence, headerless automatic requests, named CORS trust and unchanged JSON. Those HTTP probes deliberately supply Origin headers; separate real Chrome form clicks establish actual browser submissions.
 
 Browser checks cover automatic SSR/Minimal API/MVC, the retained Page, token-enabled old/new consumers, rejected missing/custom-data tokens and the allowed CORS origin. Chrome replaces some empty MVC/Page 400 responses with ERR_BLOCKED_BY_CLIENT; matching Kestrel status lines retain the actual rejection evidence. No security interstitial was bypassed. See docs/verification/streaming-and-form-protection.md for exact artifacts, receipts and limitations.

@@ -148,7 +148,7 @@
     {
       "sample": "samples/net11.0/CanalDesign/CanalDesign.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "kind": "compile-and-run",
       "scope": "Canonical compilation, real sync/async empty-migration behavior and external-owner SQLite read; no PMC or GA proof."
@@ -156,7 +156,7 @@
     {
       "sample": "samples/net11.0/CanalDesign/CanalDesign.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "kind": "execution",
       "record": "samples/net11.0/CanalDesign/pmc.evidence.json",

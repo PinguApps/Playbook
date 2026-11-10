@@ -124,7 +124,7 @@
     {
       "sample": "samples/net11.0/NumericGuidance/NumericGuidance.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "kind": "compile-and-run",
       "scope": "Real executions check a lost Decimal32 increment, retained Decimal64 and Decimal128 increments, 0.07 + 0.13, IEEE infinity/NaN and older decimal division failure. Actual managed execution; no mocks, cross-compilation or GA verification."

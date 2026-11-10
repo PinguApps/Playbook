@@ -162,7 +162,7 @@
       "sample": "samples/net11.0/ReedPermits/ReedPermits.csproj",
       "target": "net11.0",
       "kind": "compile-and-run",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "scope": "Four isolated full/configuration-only SQLite/InMemory replacements, descriptor and resolved lifetime checks, original callback/flags/connection exclusion, CRUD across scopes, SQLite unique-index failure versus InMemory acceptance; retained/mixed configuration controls. Current-only immutable WithoutExtension and extension-author RemoveExtension/no-op use real InMemory writes/reads; older route uses fresh options."
     }
   ],

@@ -115,7 +115,7 @@
     {
       "sample": "samples/net11.0/QuayTransfer/QuayTransfer.csproj",
       "target": "net11.0-windows",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "scope": "Controlled COM IDataObject failure through public WPF DataObject; no shared clipboard content replaced or read. No real external clipboard owner failure claimed.",
       "kind": "compile-and-run"

@@ -128,7 +128,7 @@
       "scope": "Osprey survey readings use nullable JSON integer lists and nullable binary signals. EF11 translates Exists to EXISTS over json_each or OPENJSON, and binary Any to length or DATALENGTH. Explicit null guards exclude nulls; empty collections yield no match. The populated row alone matches. EF10 rejects these direct predicates before sending a command; it does not silently evaluate these filters on the client. List.Any remains valid. Use the fixed SQL length query for binary values: EF10 rewrites the apparent Length > 0 alternative to unsupported Any. Keep user values parameterized. No index-use, query-plan or performance claim follows.",
       "target": "net11.0",
       "language": "15.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "kind": "compile-and-run",
       "sample": "samples/net11.0/OspreyReadings/OspreyReadings.csproj"
     }

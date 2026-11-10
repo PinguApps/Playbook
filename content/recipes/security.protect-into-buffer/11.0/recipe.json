@@ -135,7 +135,7 @@
       "kind": "compile-and-run",
       "sample": "samples/net11.0/MuseumBuffer/MuseumBuffer.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "scope": "Actual isolated framework key rings: token/empty/1MiB round trips, array capability-hiding fallback, wrong purpose/key ring and tampering rejection, input/AAD overlap refusal, insufficient capacity and entire-buffer disposal/failed-output clearing. Actual framework key encryptor additionally verifies matching AAD and rejected mismatched AAD/tampering on all payload sizes."
     }

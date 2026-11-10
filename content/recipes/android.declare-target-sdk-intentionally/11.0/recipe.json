@@ -151,7 +151,7 @@
       "kind": "official-review",
       "sample": "samples/net11.0/CoastalProbe/CoastalProbe.csproj",
       "target": "net11.0-android37.2",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "scope": "RC2 source and actual reference metadata; RC3 build fails NETSDK1147. No native compile or execution."
     }

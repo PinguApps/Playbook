@@ -98,6 +98,8 @@ a production relay. No persistent DNS, hosts-file or route edit is required.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 eng/Test-NetworkBuffers.ps1 -Record -VerifySources builds and executes the real
 paired consumers using SDK10.0.403/runtime10.0.14 and
 SDK11.0.100-rc.3.26522.148/runtime11.0.0-rc.3.26522.148. There are no resolved

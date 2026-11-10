@@ -123,7 +123,7 @@
       "kind": "compile-and-run",
       "sample": "samples/net11.0/SkylarkReadyToRun/SkylarkReadyToRun.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "scope": "Real build/run and full/selected publishing, R2R header/partial/exclusion inspection, ordinary and forced-JIT execution and current invalid-format failure; Windows x64 only."
     }

@@ -31,6 +31,8 @@ Experimental package contracts can change independently of the .NET runtime. Exa
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Both real native build attempts stop at NETSDK1147 (ios workload unavailable). Immutable package-provenance source and actual native assembly documentation support the constructor and IChatClient method contract. These are official-review records, not compilation or successful generation. Both exact sample paths are not-tested for native compilation/execution under PIN-699. PIN-937 is canceled and has not executed; it creates no future hardware obligation. No GA or Apple model execution claim is made.
 
 ## Canonical inputs

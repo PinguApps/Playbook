@@ -171,7 +171,7 @@
     },
     {
       "scope": "Both locked actual services compile/run. The old adapter produces a nonempty OpenAPI3 document with RPC/message/field comments; the new pinned generator produces Swagger2.0 with corresponding GET operation, path parameter and response schema/comments. Real gRPC and transcoded JSON return station willow, heightCm142 and observedAt2026-10-01T06:30:00Z. The checks resolve each actual document response reference and compare all returned wire-field types, int32 format and comments; unknown station is gRPC NotFound/JSON404, wrong method405 and wrong path404. Native protoc/gRPC C# plugin and independent generator hashes are retained. This proves the bounded primitive mapping, not all Google annotation patterns or generated-client interoperability.",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "sample": "samples/net11.0/TideSurvey/TideSurvey.csproj",
       "kind": "compile-and-run",
       "language": "15.0",
@@ -180,7 +180,7 @@
     {
       "scope": "Actual selected managed/native/tool/package/compiler/reference qualification and published behavior where applicable; no mock, cross-compilation or source review substitutes for execution.",
       "record": "samples/net11.0/TideSurvey/artifacts.evidence.json",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "sample": "samples/net11.0/TideSurvey/TideSurvey.csproj",
       "kind": "execution",
       "language": "15.0",

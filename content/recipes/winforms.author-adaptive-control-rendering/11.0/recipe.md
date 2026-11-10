@@ -86,6 +86,8 @@ Windows desktop and STA execution are required. Current C# uses language15; prev
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Real control handle, renderer selection, inherited requested mode and paint. Pingu separately executed the Contrast-theme change/restoration recorded in owner-settings.evidence.json; visual judgment is owner-reported. Exact SDK pins, locked dependency closure and input hashes are recorded beside each sample. The older build is a comparison, not a new .NET10 foundation. Windows x64 RC2 proof is not GA or other-platform proof. No service account, remote provider, workload installation or package publication is required.
 
 ## References

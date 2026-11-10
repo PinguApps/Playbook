@@ -139,7 +139,7 @@
       "kind": "official-review",
       "sample": "samples/net11.0/ShoreCalibration/ShoreCalibration.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "scope": "Experimental CoreCLR browser-wasm route: exact .NET11RC2 official SDK/relink sources reviewed, Emscripten6.0.2 intended. Current native compilation/relink/browser invocation not-tested: matching packs/toolchain unavailable; existing Mono labels/assets are insufficient."
     }

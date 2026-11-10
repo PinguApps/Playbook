@@ -114,7 +114,7 @@
       "sample": "samples/net11.0/WhimbrelTrail/WhimbrelTrail.csproj",
       "language": "15.0",
       "target": "net11.0-android37.2",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "scope": "Pinned official source review; native compilation and execution not-tested."
     }
   ],

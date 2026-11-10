@@ -203,6 +203,8 @@ the evidence uses RC artifacts and does not certify final GA behaviour.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 The .NET10 samples compile on Windows. Current native builds fail NETSDK1147;
 source/artifact review is separate from native compilation. Current canonical C# files also pass direct compilation against pinned real reference assemblies; that check excludes native build targets, manifest processing, packaging and execution. Android device and
 Apple Xcode execution are not-tested under PIN-699. No Human execution or GA proof

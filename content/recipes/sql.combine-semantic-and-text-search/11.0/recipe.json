@@ -127,7 +127,7 @@
       "target": "net11.0",
       "language": "15.0",
       "kind": "compile-and-run",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "scope": "Real SQL2025 CU10 full-text creation, CONTAINSTABLE/FREETEXTTABLE ranking, combined exact cosine-distance weighted query retaining semantic-only rows, and reverse cleanup. EF11 additionally generates forward/reverse migration commands from its model. No mocks or cross-compilation."
     }
   ],

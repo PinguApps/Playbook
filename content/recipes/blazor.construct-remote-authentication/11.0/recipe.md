@@ -132,6 +132,8 @@ Create a separate .NET 11 directory with these files. The stable replacement alr
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Both actual target/package sets compile with zero warnings/errors. Compilation and execution records use the existing input-hash/freshness workflow. No mock, source review or cross-compilation is substituted for actual execution.
 
 Chromium resolves real DI aliases, maps night-observer to club:badge and exercises successful versus requiresRedirect requests with observations.read and the intended return URL. It observes JS initialization/logger flags: the legacy four-argument service lacks logging; the .NET 10 supported alternative and current service preserve it. These are controlled-integration observations, not external-provider proof.

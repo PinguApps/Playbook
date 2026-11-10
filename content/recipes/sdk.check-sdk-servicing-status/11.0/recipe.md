@@ -101,6 +101,8 @@ PIN-959/PIN-963 remain separate gates.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 `eng/Test-SkylarkBuild.ps1 -Record` compiles and executes both real projects with
 their actual reference/runtime sets. It runs actual restore/build against the six
 controlled cache states. Current vulnerable/stale cases warn NETSDK1238, EOL warns

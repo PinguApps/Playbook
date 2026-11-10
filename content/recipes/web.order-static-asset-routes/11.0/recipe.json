@@ -150,7 +150,7 @@
     },
     {
       "sample": "samples/net11.0/AmberGallery/AmberGallery.csproj",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "kind": "compile-and-run",
       "target": "net11.0",
       "language": "15.0",

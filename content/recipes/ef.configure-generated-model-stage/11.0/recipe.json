@@ -148,7 +148,7 @@
     {
       "language": "15.0",
       "kind": "compile",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "scope": "Ordinary source compilation with both generation stages explicitly disabled. No generated-artifact, build/publish generation, runtime or NativeAOT success claimed.",
       "sample": "samples/net11.0/FernGeneration/FernGeneration.csproj",
       "target": "net11.0"

@@ -69,6 +69,8 @@ There is no older-target Log10 route or additional .NET 10 foundation.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 `eng/Test-IntegerFormats.ps1 -Record -VerifySources` compiles/runs both actual
 dependency sets. Independent BigInteger-generated inputs surround every power
 of ten from 10 through 10^38, with exact conversions back to the original value.

@@ -59,7 +59,7 @@
       "target": "net11.0",
       "scope": "Actual computed observation on empty/add/clear operations and null receiver rejection; net9 uses method syntax and net10/net11 use C# 14 extension properties.",
       "kind": "compile-and-run",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "14.0"
     }
   ],

@@ -119,6 +119,8 @@ dependency. Review intervening behavioural changes when upgrading old packages.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 `eng/Test-ExtensionIdentity.ps1 -Record -VerifySources` runs the actual old/new
 consumers, missing-reference compile control, exact/minimum reference controls,
 multitarget library/consumer, retained implementation and newer override. It

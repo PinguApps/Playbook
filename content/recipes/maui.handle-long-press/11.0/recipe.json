@@ -160,7 +160,7 @@
       "sample": "samples/net11.0/BeaconBoard/BeaconBoard.csproj",
       "kind": "official-review",
       "target": "net11.0-windows10.0.20348.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "scope": "Pinned source/artifact review only; native toolchain unavailable. No compilation or execution."
     },
@@ -168,7 +168,7 @@
       "sample": "samples/net11.0/BeaconBoardiOS/BeaconBoardiOS.csproj",
       "kind": "official-review",
       "target": "net11.0-ios27.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "scope": "Pinned source/artifact review only; native toolchain unavailable. No compilation or execution."
     }

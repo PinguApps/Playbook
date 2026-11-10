@@ -143,7 +143,7 @@
       "sample": "samples/net11.0/DuneArchive/DuneArchive.csproj",
       "target": "net11.0",
       "language": "15.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "kind": "compile-and-run",
       "scope": "Real local SQL2025: JSON index/query, exact VectorDistance, entity SQL projection and persisted vector read. Current vector index/search DDL and SQL generation only; no EF11 VectorSearch execution or recall proof."
     }

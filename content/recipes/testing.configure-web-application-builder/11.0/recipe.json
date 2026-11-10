@@ -144,7 +144,7 @@
     {
       "sample": "samples/net11.0/StrataTests/StrataTests.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "kind": "compile-and-run",
       "scope": "Separate actual entry assembly, TestServer HTTP checks for early/late configuration order, observable test singleton, unchanged production control and awaited async service disposal. .NET 11 rejects actual IHostBuilder/IWebHostBuilder paths. Actual Mvc.Testing/TestHost ZIPs and compile assets match source audit; matching DependencyModel closure qualified by runtime discovery. No network transport/GA claim."

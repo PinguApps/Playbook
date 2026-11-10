@@ -111,7 +111,7 @@
     {
       "sample": "samples/net11.0/ConfigurationLifecycle/ConfigurationLifecycle.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "kind": "compile-and-run",
       "scope": "Real ignored property and serialized Func<Task> callbacks, coalescing, caught async failure, synchronous propagation and completion after disposal."

@@ -105,6 +105,8 @@ The page import map resolves fingerprinted dotnet.js before passing its URL into
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Actual SDK 10.0.403/C#14 compiles the older standalone WASM application. Actual SDK 11.0.100-rc.3.26522.148/C#15 compiles the consuming app and generated worker library independently with locked dependencies. These records are compilation, not desktop execution or cross-compilation. No mocked worker/client substitutes for the runtime.
 
 Separate foreground Chrome/native-Worker execution checks rendering and a counter update while the 1200 ms worker calculation is still running, value/void exports and per-worker state, creation timeout and cancellation, invocation timeout and cancellation, and explicit disposal during pending CPU work. The creation cancellation probe temporarily holds the REAL worker's init message to make the race deterministic; after cancellation it releases the message, observes successful real .NET boot, then terminates that intentionally orphaned worker. Neither a held init message nor source review is labelled normal unscheduled timing evidence. The generated invocation path itself is unmodified. Sent Report messages precede the timed/cancelled Score results, proving the caller's wait ended before actual CPU completion.

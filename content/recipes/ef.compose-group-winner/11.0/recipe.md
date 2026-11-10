@@ -87,6 +87,8 @@ The stable API contract is prepared from RC2 evidence with no experimental opt-i
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 The original paired MarshSurvey projects declare SDK10.0.403/EF10.0.13/SqlClient6.1.7 and SDK11.0.100-rc.3.26522.148/EF11.0.0-rc.2.26504.105/SqlClient7.1.0; both pin Pkcs10.0.13. Their locks/manifests retain the complete dependency closures. Saved compile-and-run records hash the actual sources and effective inputs.
 
 eng/Test-MarshSurvey.ps1 -Record executes each standalone consumer on Windows x64 against unique SQL Server2025 17.0.5035.5 databases in the authorized local Docker route, then removes its databases/logins and stops the server. Assertions compare actual winner records and related names plus all three reconciliation outcomes. These are provider executions, not mocks, cross-compilation or SQL-only checks. Installed packed-tool inspection compares full canonical Markdown, applicability and selected edition with unusable retrieval proxies; proxy independence is not operating-system network isolation. No other provider, platform, GA release or comprehensive catalogue closure is established.

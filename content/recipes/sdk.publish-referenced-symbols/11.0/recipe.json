@@ -127,7 +127,7 @@
       "kind": "compile-and-run",
       "sample": "samples/net11.0/BeaconBuild/BeaconBuild.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "scope": "Actual true/false/default/incorrect-singular publishes, DLL and portable PDB byte checks, application-versus-reference symbol control, snupkg boundary and execution of every published app. Windows x64 framework-dependent folders only."
     }

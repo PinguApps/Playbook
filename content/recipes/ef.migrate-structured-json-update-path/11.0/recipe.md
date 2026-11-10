@@ -80,6 +80,8 @@ SQL Server2025 17.0.5035.5 compatibility170; approved isolated Docker route. Exe
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 The saved compilation and execution records identify exact commands, inputs and dependency graphs. Run eng/Test-TernExtensions.ps1 -Record to refresh them. PIN-959 comprehensive coverage and PIN-965 GA reconciliation remain open. No new .NET10 foundation is added.
 
 ## References

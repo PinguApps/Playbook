@@ -32,6 +32,8 @@ Use .NET11 SDK/runtime and matching native MAUI assets. Intended sample baseline
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 The .NET10 Windows comparison builds in Release with zero warnings/errors. The .NET11 project cannot compile on this host: SDK11 lacks MAUI SDK packs (NETSDK1147), and Android/iOS native toolchains/devices are unavailable. Current sample compilation, target selection/device picker interaction, live-instance state retention, engine opt-out behavior and iOS simulator/device execution are **not-tested** under PIN-699. No Human approval is pending and no native installation is requested by this exclusion. Official source/target and RC2 artifact review supports the instructions and preview/default declarations; it is not execution evidence. Neither this older build nor an installed MCP response proves Hot Reload occurred.
 
 verification.json/verification-evidence.json preserve exact source inputs, source-review classification and freshness. samples/SignalDeck/sources.json retains official source hashes and the precise upstream iOS resolution. Packed installation/list/get checks prove offline delivery of the full recipe, applicability and target edition, with unusable proxies rather than network isolation. No new native test matrix, provisioning or public publication is authorized.

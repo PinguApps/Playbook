@@ -169,6 +169,8 @@ validated range predicate rather than treating a component as an interval.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Both real native engines stored and read the following original fixture. Null
 components remain SQL NULL and are excluded by the explicit non-null predicate.
 The three `%H`/`%M`/`%S` outputs were checked against the listed whole time.

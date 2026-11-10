@@ -119,7 +119,7 @@
     {
       "sample": "samples/net11.0/NumericGuidance/NumericGuidance.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "kind": "compile-and-run",
       "scope": "Real older/newer runs compare double bit patterns for 19.375, negative zero, smallest subnormal, maximum finite and a negative fraction. Newer execution also checks float/Half hex, raw BFloat16 payloads, byte order, native BitConverter pairing, short buffers and observed NaN normalization. Actual managed execution; no mocks, cross-compilation or GA verification."

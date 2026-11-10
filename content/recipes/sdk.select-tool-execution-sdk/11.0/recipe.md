@@ -153,6 +153,8 @@ Child homes disable automatic global-tools PATH integration.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 `eng/Test-ToolSdkSelection.ps1` reproduces the actual local package/SDK cases and
 its `-Record` mode saves fresh execution records after compilation capture.
 Exact SDK/framework/package hashes and commands are verification baselines,

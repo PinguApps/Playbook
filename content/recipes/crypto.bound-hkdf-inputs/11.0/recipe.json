@@ -115,7 +115,7 @@
       "kind": "compile-and-run",
       "sample": "samples/net11.0/TelemetryKeys/TelemetryKeys.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "scope": "Executed Windows x64 build26200, bcrypt10.0.26100.1, SHA-256 only: raw and canonical IKM/PRK 2048/2049, independent HMAC outputs, RFC5869 vector and preserved inputs; no all-hash/all-Windows or final-GA claim."
     }

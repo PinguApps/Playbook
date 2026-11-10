@@ -128,7 +128,7 @@
       "sample": "samples/net11.0/EstuaryMarkers/EstuaryMarkers.csproj",
       "target": "net11.0",
       "kind": "compile-and-run",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "scope": "Actual model facets and column name, SQLite TEXT schema creation, insert/read/update across fresh contexts. SQLite does not enforce HasMaxLength."
     }
   ],

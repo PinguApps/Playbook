@@ -134,7 +134,7 @@
       "kind": "compile",
       "language": "15.0",
       "sample": "samples/net11.0/EstuaryBoard/EstuaryBoard.csproj",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "scope": "Actual RC3 SDK compilation only. Separate real Chrome WASM checks prove default provider, two public profiles on unchanged assets and duplicate-registration precedence regression. Exact hashes/provenance/limits: docs/verification/browser-configuration.md."
     }
   ],

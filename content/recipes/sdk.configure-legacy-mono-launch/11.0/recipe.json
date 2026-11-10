@@ -106,7 +106,7 @@
     },
     {
       "kind": "compile-and-run",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "sample": "samples/net11.0/ObservatoryImporter/ObservatoryImporter.csproj",
       "language": "7.3",
       "target": "net472",

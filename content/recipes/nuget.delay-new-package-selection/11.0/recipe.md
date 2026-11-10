@@ -38,4 +38,6 @@ The served configuration is language-neutral; no application C# upgrade is neede
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Both real SDK consumers compile and execute. A temporary loopback V3 fixture supplies original nupkgs, registration publication timestamps and audit metadata to actual SDK commands with separate package/HTTP caches. The SDK-11 run checks both add and update select 1.1.0, explicit fresh restore succeeds, both floating forms fail with NU1020 and zero removes the setting. An unrelated disabled source retains its endpoint and disabled flag throughout these commands. These are real NuGet command results against **controlled synthetic metadata**, not production-feed or dependency-security proof. Windows x64 SDKs are 10.0.403 and 11.0.100-rc.3.26522.148. Offline packed-tool retrieval verifies the full body, applicability and target-11 edition; it performs no package selection itself. GA verification remains separate.

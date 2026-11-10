@@ -90,6 +90,8 @@ Save this as `samples/net11.0/HarbourBodies/BodyChecks.cs` shared by both target
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 The exact SDK, language and package inputs are recorded with the samples. The saved compile-and-run records execute the real request runner. No mocks or cross-compilation are used. Installed-package checks independently compare the entire expanded body and applicability over stdio from an unrelated directory; that delivery check does not replace the runtime checks. GA reconciliation and comprehensive product publication gates remain outstanding.
 
 - [ASP.NET Core union boundaries and serializer differences](https://devblogs.microsoft.com/dotnet/unions-and-closed-hierarchies-in-aspnetcore/)

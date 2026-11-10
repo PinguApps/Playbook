@@ -38,6 +38,8 @@ The query is fixed and deliberately small. Runtime-composed queries and differen
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 SDK10.0.403/EF10.0.13 and SDK11 RC3/EF11 RC2 sources compile with both stage selectors explicitly overridden to none in verification.json. This is ordinary compilation only. Clean EF11 RC2 and isolated RC3 generation attempts failed because the output DLL did not yet exist. A later RC2 publish probe emitted query interceptors but failed generated-source compilation; that is not successful generation or execution evidence. No generated model/query or NativeAOT route is certified.
 
 Pingu authorized documentation-based delivery on 4 November 2026 after official-source confirmation. Pending proof remains visible and retains the existing stable-release packaging gate. Refresh actual build/publish artifacts and exact dependency/toolchain evidence on a working release before upgrading these claims.

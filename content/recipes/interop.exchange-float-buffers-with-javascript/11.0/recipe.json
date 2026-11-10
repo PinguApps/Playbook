@@ -150,7 +150,7 @@
     },
     {
       "scope": "Actual browser application compilation, resolved dependencies, matching audit references and inspected generated import/export conversion directions.",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "kind": "compile",
       "target": "net11.0",
       "sample": "samples/net11.0/FloatSoundings/FloatSoundings.csproj",
@@ -160,7 +160,7 @@
       "target": "net11.0",
       "sample": "samples/net11.0/FloatSoundings/FloatSoundings.csproj",
       "record": "samples/net11.0/FloatSoundings/browser.evidence.json",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "scope": "Real published Mono browser execution: array copies and special values, span and segment offsets, reentrant generated exports, span expiry, retained segment mutation/disposal and rejected disposed access.",
       "language": "15.0",
       "kind": "execution"

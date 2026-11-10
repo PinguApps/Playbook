@@ -113,7 +113,7 @@
       "language": "14.0"
     },
     {
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "target": "net11.0",
       "sample": "samples/net11.0/EstuaryNative/EstuaryNative.csproj",
       "scope": "Real Windows x64 ILC/link/PE/native execution and matched binlog replay; default/false/true legacy versus migrated publish hooks, NoBuild refresh/repeat and missing/wrong sidecar failures.",

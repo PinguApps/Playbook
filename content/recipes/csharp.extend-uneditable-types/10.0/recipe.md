@@ -32,4 +32,6 @@ This computed observation is not synchronization: another thread may change a mu
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 The actual net9.0/C# 13, net10.0/C# 14 and net11.0/C# 14 ExtensionProperties projects compile and execute the same empty/add/clear/null checks. Saved records retain SDK 9.0.319, 10.0.403 and 11.0.100-rc.3.26522.148, actual runtime output, canonical source/configuration hashes and build/run commands. Execution proves recomputation after mutation; official reference review supports the broader declaration and lookup restrictions. No C# 15 functionality, native checks, mocks, cross-compilation or GA execution is claimed. The complete comparison is available offline, including to an explicitly .NET 10 caller.

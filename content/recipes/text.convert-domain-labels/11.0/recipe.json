@@ -129,7 +129,7 @@
     },
     {
       "scope": "Real Windows system ICU Unicode/ASCII round trips, exact/short/empty destinations, malformed/disallowed labels, strict/relaxed STD3 and both AllowUnassigned choices; current span overlap rejection.",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "target": "net11.0",
       "kind": "compile-and-run",
       "sample": "samples/net11.0/OrchardRoutes/OrchardRoutes.csproj",

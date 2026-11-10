@@ -178,7 +178,7 @@
     {
       "language": "15.0",
       "sample": "samples/net11.0/SignalDeck/SignalDeck.csproj",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "target": "net11.0-windows10.0.20348.0",
       "kind": "official-review",
       "scope": "Intended SDK/target. NETSDK1147 prevents compilation; pinned official binding tests, reload targets and release notes reviewed. No generated-output, trim or execution proof."
@@ -186,7 +186,7 @@
     {
       "language": "15.0",
       "sample": "samples/net11.0/SignalDeckAndroid/SignalDeckAndroid.csproj",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "target": "net11.0-android37.2",
       "kind": "official-review",
       "scope": "Intended target/SDK. Official review only; matching native workload and device unavailable. No compilation or live reload observed."
@@ -194,7 +194,7 @@
     {
       "language": "15.0",
       "sample": "samples/net11.0/SignalDeckiOS/SignalDeckiOS.csproj",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "target": "net11.0-ios27.0",
       "kind": "official-review",
       "scope": "Intended target/SDK. Official review only; matching native workload and device unavailable. No compilation or live reload observed."

@@ -32,4 +32,6 @@ Use framework System.Text.Json, SDK/runtime 11 and C# 15 for this route. No pack
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Real .NET 10.0.13 and .NET 11 RC2 builds/executions check exact LF bytes, read-back values, cancellation and a gated producer. The gate opens only after the destination has parsed the first complete scan, before the producer can finish. This proves incremental visibility on the measured stream, not a network latency guarantee. Saved records contain exact input hashes and toolchain output; installed MCP tests verify this complete body offline. RC2 execution is not GA proof. No mocks or required Human proof are used.

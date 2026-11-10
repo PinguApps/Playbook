@@ -104,6 +104,8 @@ The in-view history belongs to one Interactive Server circuit with prerendering 
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Both canonical consumers compile under their actual .NET 10/11 SDKs with zero warnings/errors. The real Windows Chrome renderer was observed at first-held, first-complete, second-held and second-complete states. The new assistant block changes Active to Inactive without changing survey-1's identity; the second stream retains the first turn and receives three input messages. Encoded text creates no script descendant.
 
 Compilation evidence is separate from the real browser receipts in docs/verification/streaming-and-form-protection.md. The existing packed-tool harness independently expands these canonical snippets and compares the entire installed Markdown, discovery goal, experimental stability, exact edition and nested applicability while the server runs from an unrelated directory without network access. No mock renderer, live model or GA test is represented as execution.

@@ -152,7 +152,7 @@
       "sample": "samples/net11.0/FenStore/FenStore.csproj",
       "target": "net11.0",
       "language": "15.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "kind": "compile-and-run",
       "scope": "Real SQL Server TPT scalar/JSON, TPC scalar and concrete-subtype JSON round-trips; nested scalar key/index, physical JSON index, LINQ identity resolution and duplicate rejection. Inherited-base TPC JSON and nested-key FindAsync are failing excluded RC2 paths."
     }

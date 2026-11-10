@@ -54,6 +54,8 @@ automatic redirect/disposal fixes as independent migration steps.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 The .NET10 app compiles with the actual Android workload. Pinned RC2 handler source
 supports the exception mapping and cancellation-aware body stream. Android device
 execution, the controlled-endpoint cases above and .NET11 native compilation are

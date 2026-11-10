@@ -153,7 +153,7 @@
       "kind": "compile",
       "scope": "Actual SDK11 RC3/locked tensor11RC2 net11 compilation of complete expected-release storage checks, plus bounded --policy-only execution of ownership and Try false controls. No successful current layout rejection, permitted-overlap or Array/covariance execution; final proof pending under PIN-962.",
       "sample": "samples/net11.0/GridTransform/GridTransform.csproj",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "target": "net11.0"
     }

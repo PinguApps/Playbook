@@ -134,7 +134,7 @@
       "scope": "Pinned RC2 source contracts; RC3 native compilation unavailable.",
       "kind": "official-review",
       "target": "net11.0-android37.2",
-      "sdk": "11.0.100-rc.3.26522.148"
+      "sdk": "11.0.100"
     },
     {
       "scope": "Actual R8 classfile optimization; javap confirms exact kept method and unused method removal. Not device or current workload execution.",

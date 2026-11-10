@@ -128,7 +128,7 @@
     {
       "sample": "samples/net11.0/TracingLogging/TracingLogging.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "kind": "compile-and-run",
       "scope": "Real sampled/stopped records, excluded operation/source/global scope, existing-source false/true/false configuration reload and raw RefreshSources attach/detach."

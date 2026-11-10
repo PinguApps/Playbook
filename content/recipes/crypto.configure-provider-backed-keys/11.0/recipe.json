@@ -166,7 +166,7 @@
       "kind": "compile",
       "sample": "samples/net11.0/RookeryKeys/RookeryKeys.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "scope": "Paired Windows compilation; real Linux x64 OpenSSL provider execution recorded separately."
     },
@@ -174,7 +174,7 @@
       "kind": "execution",
       "sample": "samples/net11.0/RookeryKeys/RookeryKeys.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "scope": "Real Linux x64 OpenSSL default/base RSA sign/verify/tamper, provider/key failures, handle ownership/disposal; .NET11 ordered provider lists and property-query success/rejection. No FIPS/HSM/custom-provider/GA proof.",
       "record": "samples/net11.0/RookeryKeys/provider.evidence.json"
@@ -183,7 +183,7 @@
       "kind": "compile-and-run",
       "sample": "samples/net11.0/RookeryProperty/RookeryProperty.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "scope": "Real Windows CngProperty constructor/getter copy checks; array10 versus span11, no native key operation."
     }

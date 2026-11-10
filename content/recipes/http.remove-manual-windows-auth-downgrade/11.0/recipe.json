@@ -132,7 +132,7 @@
       "scope": "Actual Windows x64 Kestrel HTTPS/HTTP2 with current Windows NTLM identity: paired manual and automatic authentication, strict HTTP2 and anonymous 401, public HTTP2, denied403 and wrong-name TLS rejection. No Kerberos/domain identity, proxy, other-platform, Linux security or final-GA proof."
     },
     {
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "kind": "compile-and-run",
       "sample": "samples/net11.0/GannetGateway/GannetGateway.csproj",

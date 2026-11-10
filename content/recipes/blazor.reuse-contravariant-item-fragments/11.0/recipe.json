@@ -116,7 +116,7 @@
     {
       "sample": "samples/net11.0/AsterObservatory/AsterObservatory.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "kind": "compile-and-run",
       "scope": "Real HtmlRenderer execution: derived-item content, HTML encoding and explicit null policy. Unsafe reverse assignment and older direct assignment are rejected separately by eng/Test-ArchiveFragments.ps1."

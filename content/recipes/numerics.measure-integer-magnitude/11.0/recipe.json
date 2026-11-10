@@ -123,7 +123,7 @@
     },
     {
       "scope": "Exact power-of-ten boundaries through 10^38, Int128/UInt128 maxima, zero/one/negative/minimum, generic and current concrete reachability.",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "target": "net11.0",
       "kind": "compile-and-run",
       "sample": "samples/net11.0/BatchEncoder/BatchEncoder.csproj",

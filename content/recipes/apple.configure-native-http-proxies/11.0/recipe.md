@@ -91,6 +91,8 @@ The selected runtime, native toolchain and route policy must match applicability
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 The canonical net11 proxy C# compiles against the pinned RC2 iOS reference assembly via eng/Test-AppleRoutes.ps1 -CompileReference. This is reference compilation, not a native workload build or execution.
 
 

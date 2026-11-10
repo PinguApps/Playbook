@@ -59,6 +59,8 @@ Requires EF Cosmos11 on net11.0, C#15 mode, SDK11; the comparison uses EF10.0.13
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Actual new-container policy creation and independent policy read-back, including nested object/collection paths; no index query execution or performance claim. Exact SDK/package pins, input hashes and actual execution output are retained in each sample's verification evidence. RC2 is not GA proof. The isolated installed-tool harness must retrieve full Markdown and applicability offline; proxy blocking does not establish OS network isolation.
 
 ## References

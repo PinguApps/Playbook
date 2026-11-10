@@ -141,6 +141,8 @@ The new warning is not experimental; actual RC2 proof is not GA proof.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 `eng/Test-NuGetMigration.ps1` checks both real SDKs, explicit analysis levels,
 warnings-as-errors, underscores, repeated/mixed punctuation, package contents,
 direct consumers and old/new transitive dependency identities. Compilation and

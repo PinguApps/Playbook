@@ -72,6 +72,8 @@ distinct. The old Data key is an application convention, not a framework propert
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 `eng/Test-TextBoundaries.ps1 -SampleNames SeedImports -Record -VerifySources`
 executes real missing-parent read, directory enumeration and deletion under two
 UI cultures, successful import, normalized attempted input, wrapper/inner retention

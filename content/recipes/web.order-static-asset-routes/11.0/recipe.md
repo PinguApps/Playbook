@@ -217,6 +217,8 @@ Copy every file at its relative path, preserving both physical assets.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Saved compilation-and-run records use `eng/Record-Evidence.ps1` independently
 with each sample project and its pinned SDK executable. The current consumer
 executes eleven scenarios (ten real GET/HEAD pairs plus numeric JSON rejection);

@@ -34,6 +34,8 @@ The wholly original QuayAvalonia consumer below deliberately isolates the neutra
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Real template generation and exact option/dependency inspection passed. The original neutral desktop package consumer compiles, with the actual bootstrap and raw-asset conversion targets. The canonical consumer also references Logging.Debug11.0.0-rc.2.26504.105 and compiles AddDebug, verifying the generated logging pin against its actual resolved dependency closure. No desktop window, native embedding, visual behavior or target-platform matrix was executed for it. Generated native heads retain the unavailable SDK11 MAUI boundary; compilation/interaction there is not-tested under PIN-699. No standalone third-party feature or production support guarantee is added.
 
 ## Canonical sources

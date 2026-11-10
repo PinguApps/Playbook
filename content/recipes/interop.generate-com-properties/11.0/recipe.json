@@ -130,7 +130,7 @@
     {
       "sample": "samples/net11.0/BeaconContracts/BeaconContracts.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "kind": "compile-and-run",
       "scope": "Real Windows x64 C vtable get/set and UTF16 ownership; separate actual compiler/generator diagnostics."

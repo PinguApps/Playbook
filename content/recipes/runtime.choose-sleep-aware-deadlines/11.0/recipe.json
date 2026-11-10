@@ -129,7 +129,7 @@
       "scope": "Real consumer: UTC past/future checks, ordinary unsignaled OS wait and tick observations; separately deterministic forward/backward clock-jump and expiry-boundary checks. No physical suspend.",
       "sample": "samples/net11.0/InspectionDeadline/InspectionDeadline.csproj",
       "kind": "compile-and-run",
-      "sdk": "11.0.100-rc.3.26522.148"
+      "sdk": "11.0.100"
     }
   ],
   "snippets": {

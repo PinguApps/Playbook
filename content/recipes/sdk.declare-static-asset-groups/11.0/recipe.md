@@ -61,4 +61,6 @@ Target net11.0/C#15 and the .NET 11 Static Web Assets SDK are the declared route
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Both actual project targets compile and publish from clean generated-output states. SDK 11 produces Audience=crew metadata and the captured-stem crew endpoint; changing the selection removes the grouped endpoints while retaining compiled JavaScript. The older explicit discovery hook produces its intended files too. Both hosts also publish the actual RCL-generated deck.js through a project reference. The TypeScript code is actually compiled by the pinned package, not copied from a handwritten JavaScript stub. Evidence records exact SDK, compiler package and Node.js baseline. Real installed stdio list/get verifies full body, canonical project/host/TypeScript, applicability and target-11 edition offline. No NuGet RCL-package-consumer, browser, native-platform, mock or GA execution claim follows.

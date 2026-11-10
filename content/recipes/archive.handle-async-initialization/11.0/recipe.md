@@ -40,6 +40,8 @@ The exact proof baselines are SDK 10.0.403 / 11.0.100-rc.3.26522.148, C# 14 / 15
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 WeatherImport checks execute both actual consumers. Two original fixtures retain a valid end record but alter a central signature or entry count: .NET 10 rejects at Entries; RC2 rejects at the awaited factory. Both reject a missing end record at initialization. Checks cover the canonical successful/rejected results, real async-only reads, pre-cancellation, successful leaveOpen ownership, caller cleanup after failure and complete reads of structurally valid damaged Stored data. Trackers instrument real ZipArchive processing, not a mocked archive.
 
 Saved input-hashed compilation/execution records identify exact compiler/ref/runtime assemblies and fixture hashes. The ordinary packed/installed tool serves this full canonical text and target11/edition11 applicability offline, while target10 is a comparison rather than another foundation. Existing archive access and full-corruption goals retain their IDs. PIN-959 qualifying coverage and PIN-962 actual-GA reconciliation remain open.

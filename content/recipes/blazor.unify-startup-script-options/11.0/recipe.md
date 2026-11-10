@@ -206,6 +206,8 @@ consumer validation.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Open /legacy-server, /web-server and /web-wasm on each host, and / on the
 standalone client. Click Dispatch parcel: count must change from 0 to 1.
 Server pages invoke configureSignalR exactly once and observe timeout 45000.

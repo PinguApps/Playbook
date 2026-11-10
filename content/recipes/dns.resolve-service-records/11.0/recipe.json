@@ -136,7 +136,7 @@
       "language": "14.0"
     },
     {
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "scope": "Real loopback UDP DNS: original SRV target/port/priority/weight/TTL, NXDOMAIN, NODATA, pre-cancellation; Windows RC2 rejects custom port. No system DNS changes.",
       "sample": "samples/net11.0/DnsServices/DnsServices.csproj",
       "target": "net11.0",

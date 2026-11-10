@@ -40,6 +40,8 @@ Whitespace styles are the supported style family here, not timezone interpretati
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 `samples/net10.0/BookingImport/BookingReader.cs` is the canonical complete implementation. `BookingChecks.cs` executes both actual frameworks' raw APIs and the same configured importer, checking valid values, alternate formats, whitespace, malformed and missing fields, configuration rejection and array ownership. The fresh saved records include exact commands, input hashes, empty package closures, compiler/reference hashes and actual runtime assembly hashes. Both executions use the invariant provider on Windows x64 with ordinary globalization enabled; current UI culture is recorded separately. No mock, cross-compilation, native, provider or browser result substitutes for those executions.
 
 Verification pins are SDK 10.0.403 / runtime and references 10.0.14, and SDK 11.0.100-rc.3.26522.148 / runtime and references 11.0.0-rc.3.26522.148. These reproduce the observation; they are not universal installation requirements. The selected APIs carry no experimental opt-in. RC2 proof is not actual-GA proof; comprehensive coverage, final artifact reconciliation and existing Human gates remain open.

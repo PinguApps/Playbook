@@ -114,7 +114,7 @@
     {
       "sample": "samples/net11.0/BitCollections/BitCollections.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "kind": "compile-and-run",
       "scope": "Actual builds and managed execution check copied span storage, exact bit positions/counts, logical tails, key equality/hash consistency, null/default/case-sensitive keys and explicit ordering. No mocks, cross-compilation, providers or GA verification."

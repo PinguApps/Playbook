@@ -195,7 +195,7 @@
       "language": "15.0",
       "sample": "samples/net11.0/RepositoryUtility/slots.cs",
       "kind": "compile-and-run",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "target": "net11.0"
     }
   ],

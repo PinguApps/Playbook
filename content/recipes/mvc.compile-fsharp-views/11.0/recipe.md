@@ -110,6 +110,8 @@ Server-rendered MVC HTML and model encoding through real HTTP. No browser, Blazo
 
 ## Evidence and local verification
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Fresh sample records contain actual paired compilation/rendering, exact artifact qualification and the .NET11 clean published-consumer controls. The positive page renders encoded model data; the fresh disabled-compilation publish observes the specific missing-view exception. A build-only result would not satisfy this claim.
 
 From each complete sample directory, use its matching absolute dotnet executable to restore, build in Release and run the resulting DLL. The default execution performs real request checks and exits. Retain the initial lock and use restore --locked-mode for later checks.

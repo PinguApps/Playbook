@@ -139,7 +139,7 @@
       "kind": "compile",
       "language": "15.0",
       "sample": "samples/net11.0/TernLedger/TernLedger.csproj",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "scope": "Actual matching SDK build; separate real browser enhanced fetch/header/document identity, hint/control resource requests, deferred module evaluation and warm-cache checks. Exact source/artifacts/payloads and installed-body reconstruction: docs/verification/navigation-resource-hints.md. No mock, cross-compilation, universal request count or GA claim."
     }
   ],

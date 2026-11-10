@@ -84,6 +84,8 @@ The newer fixture sends malformed bytes without a high-level client's header nor
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Each original program was built and run using its actual pinned SDK/runtime and locked restore. Counters assert 23 accepted requests on .NET 10 and 15 on RC2: three HTTP/1.1 handler invocations, corrected HTTP/2 and HTTP/3 controls, plus only the older release's eight tolerated malformed requests. No mock protocol parser or client-side rejection stands in for server execution.
 
 Saved sample records identify commands, native library version in output, dependencies and input hashes. The installed `LanternTransport` scenario separately retrieves the entire body and applicability through real offline stdio list/get with isolated package feed/cache and an unrelated working directory. It verifies edition 11.0 and absence from target 10.0 discovery. These checks do not establish final GA or arbitrary production-proxy compatibility.

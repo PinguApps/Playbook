@@ -34,6 +34,8 @@ This edition targets .NET 11. It has no rendering mode, external provider, optio
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 The original BinaryData projects compile and run against their declared .NET 10/11 SDKs and locked matching CBOR packages. Checks round-trip the original payload through characters and UTF-8, verify short destinations and non-final Base64 tails, exercise every CBOR split plus one-byte chunks, reject a truncated final token and reject trailing roots. The RC2 malformed-Try exception is explicitly checked.
 
 Saved evidence includes exact input hashes, source commit/dirty marker, SDK/runtime host, commands, dependencies and output. No mocks or cross-compilation substitute for execution. Consult the embedded records for what actually ran; no complete-catalogue, native-deployment or product-publication readiness is implied.

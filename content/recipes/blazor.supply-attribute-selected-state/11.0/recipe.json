@@ -130,7 +130,7 @@
     {
       "sample": "samples/net11.0/ReedArchive/ReedArchive.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "kind": "compile-and-run",
       "scope": "Real HtmlRenderer execution: attribute/named selection, independent DI scopes and rendered updates; current custom subscriptions dispose once on child removal and scoped teardown fallback."

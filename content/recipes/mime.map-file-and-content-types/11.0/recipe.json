@@ -125,7 +125,7 @@
       "kind": "compile-and-run",
       "sample": "samples/net11.0/AttachmentLabels/AttachmentLabels.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "scope": "Real paired Windows x64 string/span curated/framework mappings, case/unknown/null/path/query/whitespace/parameter cases and reverse ambiguity. No file-content validation, upload safety, other-platform or GA proof."
     }

@@ -84,6 +84,8 @@ refer to the same object. A build or mocked lock cannot establish these claims.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Saved sample-evidence records contain actual Linux .NET10.0.12, .NET10.0.13 and
 .NET11.0.0-rc.2.26504.105 observations, exact image/archive hashes, build/run
 commands, UIDs, scope inputs and cleanup. Same-session process tests verify the

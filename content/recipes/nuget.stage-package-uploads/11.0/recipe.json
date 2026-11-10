@@ -144,7 +144,7 @@
     {
       "scope": "Actual audited SDK NuGet8 closure and original nupkg/snupkg; real service-index discovery and exact endpoint/PUT/chunked multipart bytes/routes/filenames/content types; group present/null/empty, key present/absent, 201, HTTP400, distinct absent/unsupported resource, HTTP refusal, loopback/default origin guards, URI-only host/port/scheme controls, real malformed header/chunk/length cleanup, received cancellation/request-timeout. Local protocol conformance, no hosted interoperability/TLS/GA proof.",
       "language": "15.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "target": "net11.0",
       "sample": "samples/net11.0/FoundryPublisher/FoundryPublisher.csproj",
       "kind": "compile-and-run"

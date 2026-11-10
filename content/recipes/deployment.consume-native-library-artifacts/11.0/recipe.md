@@ -78,6 +78,8 @@ rendering mode or workload is involved. RC2 evidence does not establish GA.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 `eng/Test-TideAndMono.ps1 -Record` captures both actual Linux builds, default and
 opt-out artifacts, symbol inspection, exact-old-name failure, packaged contents
 and C invocation. Saved sample records retain input hashes, dependency closures,

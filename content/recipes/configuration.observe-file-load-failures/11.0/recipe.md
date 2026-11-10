@@ -95,6 +95,8 @@ There is no required workload, rendering mode or experimental opt-in.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 `eng/Record-FileChain.ps1 -VerifySources` captures paired real initial/explicit/
 automatic operations, exception types, Ignore, dictionary state and pre-operation
 tokens. Real Windows `FileShare.None` proves IO failure and recovery. The custom

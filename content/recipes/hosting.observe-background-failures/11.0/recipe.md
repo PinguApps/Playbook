@@ -126,6 +126,8 @@ OperationCanceledException as success regardless of its token or lifecycle.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 The sample executes 35 actual child processes per release: seven boundaries times
 five scenarios. Both real dependency sets compile/run. Checks capture exact thrown
 type/reference identity, aggregate membership, separate host failure logs, OS child

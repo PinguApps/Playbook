@@ -143,6 +143,8 @@ suppression is used. No net10-plus-new-package compatibility route is advertised
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Both actual targets compile with locked resolved dependencies through
 eng/Record-Evidence.ps1. Their selected behavior.evidence.json records retain
 inputs, actual commands, browser results and measured Razor compiler hashes.

@@ -158,7 +158,7 @@
       "kind": "compile-and-run",
       "sample": "samples/net11.0/BuoyPipes/BuoyPipes.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "scope": "Actual Windows x64 and digest-pinned Linux x64 old/new execution; current handle types, four pipe-end flag combinations, ownership, EOF, regular-file async reads, SendPacketsElement constructor guards and Unix 0600 shared-path ratchet. Same-user only; RC2 is not GA proof."
     },
@@ -175,7 +175,7 @@
       "kind": "execution",
       "sample": "samples/net11.0/BuoyPipes/BuoyPipes.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "scope": "Actual Windows x64 and digest-pinned Linux x64 old/new execution; current handle types, four pipe-end flag combinations, ownership, EOF, regular-file async reads, SendPacketsElement constructor guards and Unix 0600 shared-path ratchet. Same-user only; RC2 is not GA proof.",
       "record": "samples/net11.0/BuoyPipes/linux.evidence.json"

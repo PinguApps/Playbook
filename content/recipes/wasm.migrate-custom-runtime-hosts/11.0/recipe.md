@@ -116,6 +116,8 @@ separate findings; do not blanket-delete the old Mono contract.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 eng/Test-LanternHosts.ps1 compiles the canonical TypeScript against all three actual
 packaged declarations, checks rejected legacy fields/provider spellings, builds
 and publishes each real managed/native dependency set, then runs Chromium through

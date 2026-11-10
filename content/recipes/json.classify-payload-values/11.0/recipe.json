@@ -127,7 +127,7 @@
     },
     {
       "scope": "Actual paired value-based type/payload, order, malformed/no-match and reference-null execution; current registration/global errors and generated candidates.",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "target": "net11.0",
       "kind": "compile-and-run",
       "sample": "samples/net11.0/TideOffsets/TideOffsets.csproj",

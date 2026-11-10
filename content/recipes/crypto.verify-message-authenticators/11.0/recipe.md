@@ -96,6 +96,8 @@ never silently substitute one algorithm for another in an existing wire contract
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 eng/Test-ClassifierAuthentication.ps1 -Record -VerifySources executes both real
 consumers and requires positive local KMAC support. Checks cover known answers,
 valid/bad/empty/truncated tags, wrong keys/data, actual stream completion and

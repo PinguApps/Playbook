@@ -242,7 +242,7 @@
       "target": "net10.0"
     },
     {
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "scope": "Actual Windows x64 non-web custom metadata, valid/invalid/nested type and parameter execution, required service, awaited completion/failure/cancellation. Current sync/property/structured errors, generated metadata, LocalizerProvider and isolated ASP0033/ASP0035/ASP0038 failing/fixed builds; old bases fail on current package and current package rejects net10. No endpoint/AOT/GA proof.",
       "kind": "compile-and-run",

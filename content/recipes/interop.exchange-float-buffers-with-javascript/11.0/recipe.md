@@ -118,6 +118,8 @@ other-browser/OS, CoreCLR-browser, AOT or final-GA claim is made.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 eng/Test-InteropSoundings.ps1 -Record -VerifySources captures exact builds,
 resolved dependency sets, canonical inputs, compiler/reference/generator/generated
 stub hashes and deployed JS/wasm identities. Compilation uses SDK10.0.403 with

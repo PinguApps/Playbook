@@ -34,4 +34,6 @@ The actual package/analyzer pin is separate from runtime/SDK families. No newer-
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Both actual projects compile their generated implementations and execute event 71 through an in-process recording ILogger sink, asserting message, event ID, typed Berth/Count fields, disabled no-record behavior and zero expensive delegate calls while disabled. This sink is application-owned test instrumentation, not a production exporter or remote logging service. RC2 generated source retains TBerth in its state; that source inspection is distinct from runtime counts. The bounded authoring script builds deliberately invalid allows-ref-struct and expensive-argument branches, observes SYSLIB1011/CA1873, then restores a successful ordinary build. Exact packages, SDKs, output and input hashes are retained; GA reconciliation remains outstanding.

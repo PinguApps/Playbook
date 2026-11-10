@@ -30,4 +30,6 @@ Arm64 is separate: Linux retains an armv8.0-a baseline while the R2R target adds
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Both pinned projects compile and execute on the actual Windows x64 host, recording CPUID and runtime versions. The RC2 check independently clears each newly required bit and verifies policy rejection; these synthetic register cases do not emulate or execute an old CPU. The same newer Baseline.cs is also compiled and run under the .NET 10 inventory tool in the focused authoring check. No unavailable hardware, Arm64, cross-compilation, NativeAOT deployment or startup-time benchmark is claimed. Minimum/R2R consequences are source-reviewed against official documentation and exact RC2 source; final GA reconciliation is pending.

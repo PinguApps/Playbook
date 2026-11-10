@@ -88,6 +88,8 @@ No browser rendering or browser support claimed. Real HttpClient requests over T
 
 ## Evidence and local verification
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Fresh sample records contain actual compilation and the five real request outcomes on both runtime sets. The newer record also includes the isolated ASPDEPR010 diagnostic control; metadata inspection alone is not the authentication proof.
 
 From each complete sample directory, use its matching absolute dotnet executable to restore, build in Release and run the resulting DLL. The default execution performs real request checks and exits. Retain the initial lock and use restore --locked-mode for later checks.

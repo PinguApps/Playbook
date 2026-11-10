@@ -70,4 +70,6 @@ The 11.0 edition is GA-targeted guidance prepared from RC2, not actual-GA verifi
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Actual cookie authentication and repeated SSR GETs execute on Windows x64, with no mock renderer. The old consumer records one public-data build and three live badge initializations. The new consumer records three live badge initializations, one public-subtree build for /live, one per user for /guarded, and two guarded initializations before refusal. Refusal returns 500 and increments the guarded initialization count to three, confirming its timing limitation. Both users' displayed names and captured/live ticket values are asserted. Separate canonical compilation and execution records plus installed offline list/get checks retain distinct claims.

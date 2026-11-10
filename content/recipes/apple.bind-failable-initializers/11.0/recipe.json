@@ -155,7 +155,7 @@
       "sample": "samples/net11.0/OystercatcherBinding/OystercatcherBinding.csproj",
       "language": "15.0",
       "target": "net11.0-ios27.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "scope": "Pinned source/artifact review; real RC2 plist/strip task output and generated nullable factory/consumer reference compilation. No native workload compilation/execution or GA claim."
     }
   ],

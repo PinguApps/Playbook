@@ -135,7 +135,7 @@
     {
       "sample": "samples/net11.0/SurveyForms/SurveyForms.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "kind": "compile",
       "scope": "Actual Web SDK compilation with framework validation generator and locked aligned browser assets. Separate real browser/HTTP execution: docs/verification/form-graphs.md. Compilation output alone is not runtime proof."

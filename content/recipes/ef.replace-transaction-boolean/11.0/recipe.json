@@ -134,7 +134,7 @@
       "sample": "samples/net11.0/AlderQueries/AlderQueries.csproj",
       "kind": "compile",
       "scope": "Run eng/Test-AlderQueries.ps1 -Record with the approved SQL2025 Docker route. It compiles both independent locked graphs, records fresh input hashes/dependencies/SDK/runtime, creates unique restricted databases, runs real SQL and native SQLite checks, and removes owned databases/logins in finally. behavior.evidence.json retains SQL, parameter values, runtime checks and compile-only diagnostics. verification-evidence.json retains compilation. Never execute DiagnosticProbe: it deliberately contains insecure compiler controls. Actual installed offline stdio inspection separately verifies discovery, full canonical body, target11/edition11, applicability and evidence. Unusable retrieval proxies prove proxy independence, not OS network isolation. PIN-959/PIN-965 and existing Human gates remain open.",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "target": "net11.0"
     },
     {
@@ -151,7 +151,7 @@
       "sample": "samples/net11.0/AlderQueries/AlderQueries.csproj",
       "kind": "execution",
       "scope": "Run eng/Test-AlderQueries.ps1 -Record with the approved SQL2025 Docker route. It compiles both independent locked graphs, records fresh input hashes/dependencies/SDK/runtime, creates unique restricted databases, runs real SQL and native SQLite checks, and removes owned databases/logins in finally. behavior.evidence.json retains SQL, parameter values, runtime checks and compile-only diagnostics. verification-evidence.json retains compilation. Never execute DiagnosticProbe: it deliberately contains insecure compiler controls. Actual installed offline stdio inspection separately verifies discovery, full canonical body, target11/edition11, applicability and evidence. Unusable retrieval proxies prove proxy independence, not OS network isolation. PIN-959/PIN-965 and existing Human gates remain open.",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "target": "net11.0",
       "record": "samples/net11.0/AlderQueries/behavior.evidence.json"
     }

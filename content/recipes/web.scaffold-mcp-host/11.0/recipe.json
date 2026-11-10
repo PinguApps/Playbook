@@ -139,7 +139,7 @@
       "kind": "compile",
       "sample": "samples/net11.0/BerthTools/BerthTools.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "scope": "Actual canonical sample compilation only. eng/Test-WebTooling.ps1 separately executes SDK-bundled generation and real HTTP MCP initialize/list/call on the generated project. No mocks, AOT or publication."
     }

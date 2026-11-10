@@ -148,7 +148,7 @@
       "scope": "Locked canonical compilation and sample execution. CLI checks recorded separately; no GA or cross-platform claim.",
       "language": "15.0",
       "sample": "samples/net11.0/FleetTooling/FleetTooling.csproj",
-      "sdk": "11.0.100-rc.3.26522.148"
+      "sdk": "11.0.100"
     },
     {
       "target": "net10.0",
@@ -163,7 +163,7 @@
       "target": "net11.0",
       "sample": "samples/net11.0/FleetTooling/FleetTooling.csproj",
       "language": "15.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "record": "samples/net11.0/FleetTooling/behavior.evidence.json",
       "scope": "PASS EF11 script/update/drop and clean stdout/stderr; wildcard list RC2 failure reproduced.",
       "kind": "execution"

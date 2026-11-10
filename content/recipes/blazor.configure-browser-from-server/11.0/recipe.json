@@ -148,7 +148,7 @@
     {
       "sample": "samples/net11.0/TideDesk/TideDesk.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "kind": "compile",
       "scope": "Actual Web host and referenced browser client; separate real HTTP/browser reports cover generated options, startup and reconnect. Not cross-compilation or a mocked connection."
@@ -156,7 +156,7 @@
     {
       "sample": "samples/net11.0/TideDesk.Client/TideDesk.Client.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "kind": "compile",
       "scope": "Actual browser-WASM client and SDK runtime assets, without AOT/native workload; browser execution is recorded separately."

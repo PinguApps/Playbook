@@ -152,6 +152,8 @@ legacy text to prove no implicit fallback occurs.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Use the matching SDK installation from each sample directory. Disable first-run
 PATH integration before using an isolated .NET home. These commands restore the
 framework inputs during setup, build and execute locally; the sample opens only

@@ -132,7 +132,7 @@
       "kind": "compile-and-run",
       "scope": "Windows NTFS x64 real IO and notifications; custom-provider stream/GetFileInfo faults are separately synthetic.",
       "sample": "samples/net11.0/PlanetariumSchedule/PlanetariumSchedule.csproj",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "target": "net11.0"
     }

@@ -82,6 +82,8 @@ security or per-instance-lifetime mechanism. Actual RC3 evidence is not GA proof
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 eng/Test-NativeBoundaries.ps1 -Lane Windows -Record builds real SDK10.0.403 / ILC
 10.0.13 and SDK11.0.100-rc.3.26522.148 / ILC11 RC2 artifacts. It captures locked
 dependencies, MSVC/linker/SDK identities, audit-matching references, export tables,

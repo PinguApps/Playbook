@@ -43,4 +43,6 @@ RC2 Read requires destination space for the entire decrypted record: an undersiz
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 The actual .NET 10 project compiles and runs a TCP SslStream echo. The RC2 project compiles and runs two real TLS state machines, fragmented handshakes, bidirectional encrypted messages, 50,000-byte multi-record transfer, wrong-host certificate rejection and close_notify. There is no fake TLS provider or mock handshake. In-memory ciphertext transfer establishes caller-owned I/O, not socket readiness, throughput or other-provider support. SYSLIB5007 is explicitly opted in; experimental stability persists independently of GA. Exact SDK/runtime records accompany the recipe; GA reconciliation remains required.

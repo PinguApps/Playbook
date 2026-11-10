@@ -127,7 +127,7 @@
       "sample": "samples/net11.0/KilnReadings/KilnReadings.csproj",
       "target": "net11.0",
       "kind": "compile-and-run",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "scope": "Actual model collection/scalar classification, SQLite JSON array/TEXT versus BLOB storage, fresh-context insert/read/update, sequence order and duplicates, and EF10/11 Property classification control."
     }
   ],

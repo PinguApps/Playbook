@@ -76,6 +76,8 @@ Save the complete newer files in a separate directory. Restore with the declared
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Both actual pinned projects were restored, compiled and executed through `eng/Record-Evidence.ps1`; each has its own saved input hashes and resolved dependency inventory. This is real TLS and HTTP execution, not mocked feature data or cross-compilation. The older path proves ClientHello inspection and client rejection; the newer path additionally asserts exactly one retained server-side failure and two observed ClientHellos.
 
 The installed-package `LanternTransport` scenario checks full canonical Markdown, discovery title/goal, complete applicability, fresh sample evidence and edition 11.0 through real stdio list/get from an unrelated directory. Target 10.0 does not return this edition. Package retrieval proves delivery, separately from the TLS execution records. The original inventory identity remains `hosting.inspect-tls-handshake` / WEB-077.

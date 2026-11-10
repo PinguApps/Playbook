@@ -131,7 +131,7 @@
       "kind": "compile",
       "language": "15.0",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "scope": "Independent pinned build; not GA or NativeAOT evidence.",
       "sample": "samples/net11.0/CurlewFile/Marsh.cs"
     },
@@ -139,7 +139,7 @@
       "language": "15.0",
       "scope": "Real migration generation/list/script/update and SQLite persisted row; current routes include the mixed startup-file route approved by Pingu.",
       "sample": "samples/net11.0/CurlewFile/Marsh.cs",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "target": "net11.0",
       "record": "samples/net11.0/CurlewFile/behavior.evidence.json",
       "kind": "execution"
@@ -148,7 +148,7 @@
       "kind": "compile",
       "language": "15.0",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "scope": "Independent pinned build; not GA or NativeAOT evidence.",
       "sample": "samples/net11.0/CurlewFileModel/CurlewFileModel.csproj"
     },
@@ -156,7 +156,7 @@
       "kind": "compile",
       "language": "15.0",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "scope": "Independent pinned build; not GA or NativeAOT evidence.",
       "sample": "samples/net11.0/CurlewStartup/Startup.cs"
     },
@@ -164,7 +164,7 @@
       "language": "15.0",
       "scope": "Real migration generation/list/script/update and SQLite persisted row; current routes include the mixed startup-file route approved by Pingu.",
       "sample": "samples/net11.0/CurlewStartup/Startup.cs",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "target": "net11.0",
       "record": "samples/net11.0/CurlewStartup/behavior.evidence.json",
       "kind": "execution"

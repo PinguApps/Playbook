@@ -253,7 +253,7 @@
     {
       "target": "net11.0",
       "kind": "compile-and-run",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "sample": "samples/net11.0/ReedStation/ReedStation.csproj",
       "scope": "Actual pinned Windows compilation and network subscription/disposal; real Linux events and browser fallback execute in the separate behavior receipt.",
       "language": "15.0"
@@ -262,7 +262,7 @@
       "kind": "execution",
       "target": "net11.0",
       "scope": "Real paired Linux address-change event and unsubscription, plus Mono Chromium manual-refresh fallback. No reachability, queued-callback-draining, other-platform or GA claim.",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "sample": "samples/net11.0/ReedStation/ReedStation.csproj",
       "record": "samples/net11.0/ReedStation/behavior.evidence.json",
       "language": "15.0"
@@ -270,7 +270,7 @@
     {
       "target": "net11.0",
       "kind": "compile",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "sample": "samples/net11.0/ReedStationBrowser/ReedStationBrowser.csproj",
       "scope": "Actual pinned Mono browser compilation; guarded manual-refresh fallback executes in the separate behavior receipt.",
       "language": "15.0"
@@ -279,7 +279,7 @@
       "kind": "execution",
       "target": "net11.0",
       "scope": "Real paired Linux address-change event and unsubscription, plus Mono Chromium manual-refresh fallback. No reachability, queued-callback-draining, other-platform or GA claim.",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "sample": "samples/net11.0/ReedStationBrowser/ReedStationBrowser.csproj",
       "record": "samples/net11.0/ReedStationBrowser/behavior.evidence.json",
       "language": "15.0"

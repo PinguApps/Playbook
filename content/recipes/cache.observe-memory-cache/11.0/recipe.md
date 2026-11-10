@@ -32,4 +32,6 @@ The eviction count is not a count of every removal. In the pinned implementation
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Actual .NET 10/11 RC2 projects compile and execute real MemoryCache/MeterListener workloads. The newer path checks hit=1, miss=1, entries=1, estimated_size=12 rows, name/result tags and compaction evictions=1. This establishes managed cache behavior, not an exporter/dashboard or exact process memory measurement. Canonical snippets, exact artifacts and fresh input hashes are bundled; GA reconciliation remains required.

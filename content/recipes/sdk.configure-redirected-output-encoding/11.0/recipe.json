@@ -112,7 +112,7 @@
       "language": "14.0"
     },
     {
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "target": "net11.0",
       "sample": "samples/net11.0/EstuaryEncoding/EstuaryEncoding.csproj",
       "scope": "Real paired Windows x64 build/run, raw non-ASCII diagnostic bytes under private CP1252/65001 consoles; default/false/true and source opt-out controls, explicit UTF-8 decode, mismatched reader corruption and actual failed builds. No working legacy producer opt-out is qualified.",

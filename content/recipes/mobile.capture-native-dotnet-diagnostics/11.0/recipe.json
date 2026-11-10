@@ -167,7 +167,7 @@
       "sample": "samples/net11.0/SandpiperCrashAndroid/SandpiperCrashAndroid.csproj",
       "language": "15.0",
       "target": "net11.0-android37.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "scope": "Pinned RC2 source/artifact review and actual template generation; native compilation/execution not-tested."
     },
     {
@@ -175,7 +175,7 @@
       "sample": "samples/net11.0/SandpiperCrashApple/SandpiperCrashApple.csproj",
       "language": "15.0",
       "target": "net11.0-ios27.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "scope": "Pinned RC2 source/artifact review and actual template generation; native compilation/execution not-tested."
     }
   ],

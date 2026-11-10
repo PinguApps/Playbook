@@ -196,6 +196,8 @@ browser or rendering mode is required for this local managed template scenario.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Requires PowerShell 7, the two SDK/runtime installations and public feeds during
 setup. It uses distinct old/current caches and CLI homes, independent consumer
 directories, absolute child executable paths, and disables first-run global-tools

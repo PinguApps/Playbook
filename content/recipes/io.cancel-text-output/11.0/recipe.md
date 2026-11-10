@@ -67,6 +67,8 @@ before cleanup. Do not promise universal interruption or automatic rollback.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 `eng/Test-TextBoundaries.ps1 -SampleNames MooringReport -Record -VerifySources`
 captures both successful consumers with the existing evidence workflow. Real
 StreamWriter checks cover complete text/newline output, no bytes after a

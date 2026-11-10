@@ -151,7 +151,7 @@
       "kind": "compile",
       "sample": "samples/net11.0/WebAssets/WebAssets.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "scope": "Actual declared build; only compile-and-run entries execute the managed assembly. Separate execution records contain runner, install and publish behavior. Windows x64, not GA or native-platform proof."
     },
@@ -160,7 +160,7 @@
       "sample": "samples/net11.0/WebAssets/WebAssets.csproj",
       "record": "samples/net11.0/WebAssets/commands.evidence.json",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "scope": "Real bounded SDK commands and artifacts on Windows x64; no mocks, container deployment, mobile or GA claim."
     },
@@ -186,11 +186,11 @@
       "kind": "compile",
       "scope": "Actual Razor SDK library compilation; parent WebAssets execution evidence publishes its real compiled TypeScript through the project reference.",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "sample": "samples/net11.0/RclAssets/RclAssets.csproj"
     },
     {
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "record": "samples/net11.0/RclAssets/commands.evidence.json",
       "target": "net11.0",

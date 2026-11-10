@@ -130,7 +130,7 @@
       "kind": "compile-and-run",
       "sample": "samples/net11.0/StationFlags/StationFlags.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "scope": "Actual Windows x64 paired enum/CAS contention, prior-value chains and unrelated-bit preservation; current supported integer/enum sizes, high bits and unsupported-type rejection. No multi-field transaction, performance or GA claim."
     }

@@ -31,4 +31,6 @@ File-app formatting and --framework are SDK 11 routes here. The previous SDK rem
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 The real command check compares changed and untouched file bytes, verifies idempotence, formats an actual file application and loads a multi-target workspace with --framework net11.0. Both canonical projects compile. Full served Markdown, applicability and target selection are compared through the installed tool. This is actual formatting execution, not source-only validation; SDK 11 is the pinned RC2.

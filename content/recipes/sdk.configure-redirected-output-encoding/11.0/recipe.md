@@ -112,6 +112,8 @@ performance change, production setting or recurring OS matrix is introduced.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 `eng/Test-EstuaryWindows.ps1 -Record` builds both actual target/SDK sets and captures
 non-ASCII diagnostics under private CP1252/65001 consoles. Default, false, true and
 the source-level control must all yield the observed UTF-8 bytes; a mismatched

@@ -113,7 +113,7 @@
       "target": "net10.0"
     },
     {
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "scope": "Independent locked compilation and focused checks in canonical sample/runner; RC evidence only.",
       "sample": "samples/net11.0/BitternConversions/BitternConversions.csproj",
       "kind": "compile-and-run",

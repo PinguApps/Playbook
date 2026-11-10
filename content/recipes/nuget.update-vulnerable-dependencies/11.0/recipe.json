@@ -125,7 +125,7 @@
       "kind": "compile-and-run",
       "sample": "samples/net11.0/PackagePolicies/PackagePolicies.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "scope": "Actual compilation and execution of the original SDK behavior checks on Windows x64. Package tests use controlled loopback V3 metadata and synthetic advisories with real NuGet commands, not a production feed/security validation. Build tests verify XML outputs and wave diagnostics, not all historical wave internals."
     }

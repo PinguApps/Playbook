@@ -163,6 +163,8 @@ This edition is selected only for target 11.0; it adds no .NET 10 foundation.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Fresh compile records retain the commands, exact resolved assets and input
 hashes for both canonical projects. The pinned source/API audit was rerun against
 the actual local reference assets; its artifact hashes and signatures match.

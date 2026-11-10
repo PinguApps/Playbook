@@ -128,7 +128,7 @@
       "kind": "compile-and-run",
       "sample": "samples/net11.0/HarbourBodies/HarbourBodies.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "scope": "Real compilation and execution of both delivery shapes and invalid bodies through loopback Minimal API, MVC and SignalR JSON WebSockets. No mocks or cross-compilation."
     }

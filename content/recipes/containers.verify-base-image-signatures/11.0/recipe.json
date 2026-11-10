@@ -132,7 +132,7 @@
       "kind": "compile-and-run",
       "sample": "samples/net11.0/QuayWorker/QuayWorker.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "scope": "Actual paired worker compilation and pinned Linux runtime execution; OS/native/globalization/missing-library failure. Real strict index/platform signature verification with wrong-root/scope/missing/tampered rejection controls.",
       "record": "samples/net11.0/QuayWorker/signatures.evidence.json"

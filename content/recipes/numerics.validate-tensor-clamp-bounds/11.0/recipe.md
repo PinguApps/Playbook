@@ -82,6 +82,8 @@ annotation and require no opt-in. Sample dependencies remain author-maintained.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Both actual packages compile and execute scalar/per-element float and decimal
 controls at lengths 1/3/33. Reversed/equal/ordered pairs, an invalid final pair,
 wrong lengths, short output and NaN bound checks assert untouched rejected output,

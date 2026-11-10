@@ -40,4 +40,6 @@ This language-neutral project policy requires no application-language migration.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Real SDK-10/11 builds execute a loopback V3 fixture with synthetic vulnerability information and actual package payloads. Both reproduce strict NU1903 restore failure. SDK 10 requires the demonstrated temporary exception; RC2 updates without it. Both reach 1.1.0, restore with strict policy afterwards, and stop on a missing unrelated package while retaining 1.0.0. This is execution against controlled metadata, not a mocked CLI or production security proof. Exact baselines are SDK 10.0.403 and 11.0.100-rc.3.26522.148 on Windows x64. The actual packed-tool scenario separately verifies complete offline guidance, applicability and edition safety. GA reconciliation remains separate.

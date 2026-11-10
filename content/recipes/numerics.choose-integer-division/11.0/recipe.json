@@ -123,7 +123,7 @@
     },
     {
       "scope": "Five signed modes for int/long/Int128/BigInteger, sign and exact cases, widened identity, zero/overflow/invalid modes; raw current generic operations and uint truncation.",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "target": "net11.0",
       "kind": "compile-and-run",
       "sample": "samples/net11.0/CoordinateTiles/CoordinateTiles.csproj",

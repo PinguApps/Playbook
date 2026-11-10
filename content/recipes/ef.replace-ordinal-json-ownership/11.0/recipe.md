@@ -176,6 +176,8 @@ Dependency restore is online setup; installed Playbook guidance remains offline.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 The canonical EF10 executable creates the actual SQLite file consumed by the
 canonical EF11 executable. `eng/Test-TrailCards.ps1 -Record` captures compilation
 and execution with exact dependency/input hashes through the existing evidence

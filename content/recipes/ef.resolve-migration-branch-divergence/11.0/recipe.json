@@ -133,7 +133,7 @@
     {
       "sample": "samples/net11.0/BeaconMigrations/BeaconMigrations.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "kind": "compile",
       "scope": "Actual canonical authoring project compilation; separate scaffolding execution record."
@@ -141,7 +141,7 @@
     {
       "sample": "samples/net11.0/BeaconMigrations/BeaconMigrations.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "kind": "execution",
       "scope": "Actual competing scaffolds, snapshot latest IDs, re-scaffolding, no pending changes and SQLite application.",

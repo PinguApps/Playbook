@@ -43,6 +43,8 @@ The exact tested SDK was `11.0.100-rc.3.26522.148`; that is a reproducibility ba
 
 ## Evidence and alternatives
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 The original projects use independent SDK pins and compile against their actual target frameworks. Their shared executable checks cover construction, normalization, null/blank/length rejection and preservation of the previous value. Run `eng/Verify.ps1` to rerun these checks. Compilation and these local execution checks establish only the demonstrated behavior, not application integration or concurrent safety.
 
 Application requirements are under each route's `requirements`. Exact SDK, language, runtime output, dependencies and workload baselines are retained in `evidence`, linked by `evidenceSamples`; they do not require upgrading the application to those exact test versions. The normal .NET 10 route was tested with SDK `10.0.403` and C# `14.0`. No unlisted target release or future SDK compatibility is implied.

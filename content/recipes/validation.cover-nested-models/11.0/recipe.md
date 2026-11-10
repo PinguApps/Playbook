@@ -63,4 +63,6 @@ The exact baselines are SDK 10.0.403 / ASP.NET Core 10.0.13 and SDK 11.0.100-rc.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Actual HTTP posts reject root, child and collection failures, accept valid graphs with invalid skipped reference data, and expose the undiscovered-root boundary. Further posts verify global client opt-out. Real browser submissions repeat child/collection rejection after bypassing client checks in enhanced/plain forms. Both model versions compile; .NET 11 has no obsolete experimental suppression. Exact command/output and separate execution reports accompany the proof.

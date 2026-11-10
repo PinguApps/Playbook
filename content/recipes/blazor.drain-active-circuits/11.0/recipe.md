@@ -109,6 +109,8 @@ For server-directed pause, cancellation of request is not guaranteed completed s
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Both original TideCharts projects compile with zero warnings/errors under SDK 10.0.403/C# 14 and SDK 11.0.100-rc.3.26522.148/C# 15. Saved compilation records contain exact inputs, dependencies and commands. Compilation is separate from browser/server execution.
 
 Actual Chrome extension tests switch native tabs with focus emulation disabled. No document.hidden/visibilityState override or synthetic visibility event is used. RC2 idle execution observes down/closed, old-resource disposal, automatic return into a new circuit/resource and the original readings/sheet. A brief return before the delay prevents pause. A real held JS call keeps the resource alive beyond the delay; release allows pause. Enabled=false preserves a hidden circuit.

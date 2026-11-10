@@ -190,7 +190,7 @@
       "scope": "Immutable source/artifact review. Native build attempted and failed NETSDK1147; compilation and execution not-tested under PIN-699.",
       "sample": "samples/net11.0/TernAssets/TernAssets.csproj",
       "kind": "official-review",
-      "sdk": "11.0.100-rc.3.26522.148"
+      "sdk": "11.0.100"
     }
   ],
   "humanProof": {

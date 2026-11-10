@@ -140,7 +140,7 @@
     },
     {
       "sample": "samples/net11.0/MuseumCatalogue/MuseumCatalogue.csproj",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "scope": "Actual independently compiled net10/net11 checker, no external dependencies; dnx behavior is in the separate execution record.",
       "kind": "compile-and-run",
@@ -149,7 +149,7 @@
     {
       "sample": "samples/net11.0/MuseumCatalogue/MuseumCatalogue.csproj",
       "record": "samples/net11.0/MuseumCatalogue/commands.evidence.json",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "scope": "Real local package execution with SDK 9 negative pin, serviced 10.0.403 and RC2 pins, both shipped wrappers, actual SDK traces/tool runtimes, quoted forwarding and exit 7; Windows x64.",
       "kind": "execution",

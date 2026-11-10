@@ -116,7 +116,7 @@
     {
       "language": "15.0",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "kind": "compile",
       "sample": "samples/net11.0/AvocetStartup/AvocetStartup.csproj",
       "scope": "Independent locked compilation; runtime behavior requires separate recorded checks."
@@ -133,7 +133,7 @@
     {
       "language": "15.0",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "kind": "execution",
       "sample": "samples/net11.0/AvocetStartup/AvocetStartup.csproj",
       "scope": "Combined EF10/EF11 focused runner output; this entry identifies its independent compilation baseline. Actual Windows x64 tooling/schema/persistence controls; RC artifacts only.",
@@ -150,7 +150,7 @@
     {
       "language": "15.0",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "kind": "compile",
       "sample": "samples/net11.0/AvocetStore/AvocetStore.csproj",
       "scope": "Independent target-model library compilation; real startup consumption is verified separately."

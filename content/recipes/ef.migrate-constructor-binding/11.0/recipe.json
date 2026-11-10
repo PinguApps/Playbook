@@ -122,7 +122,7 @@
     {
       "language": "15.0",
       "sample": "samples/net11.0/LarkBindings/LarkBindings.csproj",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "target": "net11.0",
       "kind": "compile",
       "scope": "eng/Test-LarkContracts.ps1 -Record: pinned real compilation and provider checks. No GA, NativeAOT or other-platform claim."
@@ -130,7 +130,7 @@
     {
       "language": "15.0",
       "sample": "samples/net11.0/LarkBindings/LarkBindings.csproj",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "target": "net11.0",
       "kind": "execution",
       "record": "samples/net11.0/LarkBindings/behavior.evidence.json",

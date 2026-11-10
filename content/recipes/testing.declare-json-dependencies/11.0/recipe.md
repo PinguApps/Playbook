@@ -216,6 +216,8 @@ reconciliation remain open; the exact eight .NET 10 foundations are unchanged.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 All seven project closures have fresh compilation/execution records. Three real
 runner/test-host lanes each produce exactly one passed rainfall test, a successful
 discovery and collector initialization. Separate fresh consumers demonstrate
