@@ -19,9 +19,9 @@ $persistent = @{}
 foreach ($scope in 'User','Machine') { $persistent[$scope] = [Environment]::GetEnvironmentVariables($scope) | ConvertTo-Json -Compress }
 $previous = @{}
 foreach ($name in 'QUAY_MSBUILD_SDK','DOTNET_ADD_GLOBAL_TOOLS_TO_PATH','NUGET_PACKAGES') { $previous[$name] = [Environment]::GetEnvironmentVariable($name) }
-$nativeTools = @('MSVC/14.51.36231','WindowsSDK/10.0.26100.0','ILCompiler/11.0.0-rc.3.26522.148')
+$nativeTools = @('MSVC/14.51.36231','WindowsSDK/10.0.26100.0','ILCompiler/11.0.0')
 $sdk10 = Join-Path (Split-Path $Net10Dotnet) 'sdk/10.0.403'
-$sdk11 = Join-Path (Split-Path $Net11Dotnet) 'sdk/11.0.100-rc.3.26522.148'
+$sdk11 = Join-Path (Split-Path $Net11Dotnet) 'sdk/11.0.100'
 
 function Invoke-Child([string]$Executable, [string[]]$Arguments, [string]$Directory, [hashtable]$Environment = @{}) {
   $start = [Diagnostics.ProcessStartInfo]::new($Executable)

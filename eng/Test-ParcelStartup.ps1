@@ -11,7 +11,7 @@ $root = Split-Path $PSScriptRoot -Parent
 $sample = Join-Path $root "samples/net$Version.0/ParcelStartup"
 $assets = Get-Content (Join-Path $sample 'Host/obj/project.assets.json') -Raw | ConvertFrom-Json -AsHashtable
 $packageRoot = @($assets.packageFolders.Keys)[0]
-$assetVersion = if ($Version -eq 10) { '10.0.13' } else { '11.0.0-rc.2.26504.105' }
+$assetVersion = if ($Version -eq 10) { '10.0.13' } else { '11.0.0' }
 $client = [Net.Http.HttpClient]::new()
 function Hash-Bytes([byte[]]$Bytes) { [Convert]::ToHexString([Security.Cryptography.SHA256]::HashData($Bytes)).ToLowerInvariant() }
 try {

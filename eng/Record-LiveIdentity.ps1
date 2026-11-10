@@ -53,13 +53,13 @@ try {
       if ($case.Count -ne 1) { throw 'Missing real execution.' }
       $record.kind = 'execution'
       $record.command = "& '$PSCommandPath' -Playwright '$Playwright' -Chromium '$Chromium' -Dotnet '$Dotnet' -Node '$Node'"
-      $record.scope = if ($name -eq 'CopperRidgeHub') { 'Actual pinned first-party TypeScript source compilation and real old reconnect/current direct and redirected Kestrel WebSocket accept/reject/events. .NET behavior in compile-and-run record. Manual refresh; no Azure, expiry scheduling or production identity-provider proof.' } else { 'Real Chromium Interactive Server grant/revoke with two authentication-state notifications, reloaded user content and unchanged circuit/navigation. Old comparison explicitly refreshes its view. Local circuit-scoped provider, not cookie/JWT propagation or server-data authorization proof.' }
+      $record.scope = if ($name -eq 'CopperRidgeHub') { 'Actual published SignalR 10/11 TypeScript clients and real old reconnect/current direct and redirected Kestrel WebSocket accept/reject/events. .NET behavior in compile-and-run record. Manual refresh; no Azure, expiry scheduling or production identity-provider proof.' } else { 'Real Chromium Interactive Server grant/revoke with two authentication-state notifications, reloaded user content and unchanged circuit/navigation. Old comparison explicitly refreshes its view. Local circuit-scoped provider, not cookie/JWT propagation or server-data authorization proof.' }
       $record.recordedAt = [DateTimeOffset]::UtcNow.ToString('O')
       $files = @()
       if ($name -eq 'CopperRidgeHub') {
-        $files = @('generated/aspnetcore.tar.gz','generated/client/HubConnection.js','generated/client/HttpConnection.js','node_modules/typescript/package.json') | ForEach-Object { Join-Path $root "artifacts/identity-tooling/ts/$_" }
+        $files = @('node_modules/@microsoft/signalr/package.json','node_modules/@microsoft/signalr/dist/cjs/HubConnection.js','node_modules/@microsoft/signalr/dist/cjs/HttpConnection.js','node_modules/signalr-previous/package.json','node_modules/typescript/package.json') | ForEach-Object { Join-Path $root "artifacts/identity-tooling/ts/$_" }
       } else {
-        $pack = if ($major -eq 10) { '10.0.14' } else { '11.0.0-rc.3.26522.148' }
+        $pack = if ($major -eq 10) { '10.0.14' } else { '11.0.0' }
         $files = @(Join-Path (Split-Path $Dotnet) "packs/Microsoft.AspNetCore.App.Ref/$pack/analyzers/dotnet/cs/Microsoft.AspNetCore.Components.Analyzers.dll")
       }
       $tooling = @($files | ForEach-Object { @{ file=$_; sha256=(Get-FileHash -LiteralPath $_).Hash.ToLowerInvariant() } })

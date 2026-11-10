@@ -35,7 +35,7 @@ try {
             await page.waitForFunction(() => globalThis.proof, undefined, { timeout: 60000 });
             const proof = await page.evaluate(() => globalThis.proof);
             assert.ok(!proof.error, JSON.stringify({ proof, messages: messages.slice(0, 5) }));
-            assert.ok(proof.result.startsWith('PASS FloatSoundings: .NET ' + (target === 'net10.0' ? '10.0.14' : '11.0.0-rc.3.26522.148')));
+            assert.ok(proof.result.startsWith('PASS FloatSoundings: .NET ' + (target === 'net10.0' ? '10.0.14' : '11.0.0')));
             assert.equal(proof.arrayType, target === 'net10.0' ? 'Float64Array' : 'Float32Array');
             results.push({ target, ...proof, messages });
             console.log(target, proof);

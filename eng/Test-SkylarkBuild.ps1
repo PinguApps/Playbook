@@ -81,9 +81,9 @@ function Read-Pe([string]$File) {
 try {
   foreach ($major in '10','11') {
     $currentDotnet = if ($major -eq '10') { $Net10Dotnet } else { $Net11Dotnet }
-    $sdk = if ($major -eq '10') { '10.0.403' } else { '11.0.100-rc.3.26522.148' }
+    $sdk = if ($major -eq '10') { '10.0.403' } else { '11.0.100' }
     $language = if ($major -eq '10') { '14.0' } else { '15.0' }
-    $runtimeVersion = if ($major -eq '10') { '10.0.14' } else { '11.0.0-rc.3.26522.148' }
+    $runtimeVersion = if ($major -eq '10') { '10.0.14' } else { '11.0.0' }
     Write-Lf (Join-Path $scratch 'global.json') ('{"sdk":{"version":"' + $sdk + '","rollForward":"disable"}}')
     $lane = Join-Path $root "samples/net$major.0/SkylarkServicing"
     Assert-Text (Invoke-Skylark $currentDotnet $lane @('--version')) $sdk

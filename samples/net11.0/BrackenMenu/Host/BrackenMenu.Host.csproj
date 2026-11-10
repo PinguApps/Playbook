@@ -5,6 +5,6 @@
     <RootNamespace>BrackenMenu.Host</RootNamespace><OutputType>Exe</OutputType>
 
   </PropertyGroup>
-  <ItemGroup><PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="[11.0.0-rc.3.26522.148]" /><ProjectReference Include="../Client/BrackenMenu.Client.csproj" /></ItemGroup>
+  <ItemGroup><PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="[11.0.0]" /><ProjectReference Include="../Client/BrackenMenu.Client.csproj" /></ItemGroup>
 </Project>
 <!-- endsnippet:project -->

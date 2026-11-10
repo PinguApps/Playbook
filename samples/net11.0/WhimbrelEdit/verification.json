@@ -7,13 +7,13 @@
     "samples/WhimbrelGuidance/sources.json"
   ],
   "dependencies": [
-    "Microsoft.Extensions.Configuration/11.0.0-rc.1.26425.128",
-    "Microsoft.Extensions.DependencyInjection/11.0.0-rc.1.26425.128",
-    "Microsoft.Extensions.Logging/11.0.0-rc.1.26425.128",
-    "Microsoft.Maui.Controls.Core/11.0.0-rc.2.26505.5",
-    "Microsoft.Maui.Core/11.0.0-rc.2.26505.5",
-    "Microsoft.Maui.Essentials/11.0.0-rc.2.26505.5",
-    "Microsoft.Maui.Graphics/11.0.0-rc.2.26505.5"
+    "Microsoft.Extensions.Configuration/11.0.0",
+    "Microsoft.Extensions.DependencyInjection/11.0.0",
+    "Microsoft.Extensions.Logging/11.0.0",
+    "Microsoft.Maui.Controls.Core/11.0.0",
+    "Microsoft.Maui.Core/11.0.0",
+    "Microsoft.Maui.Essentials/11.0.0",
+    "Microsoft.Maui.Graphics/11.0.0"
   ],
   "workloads": []
 }

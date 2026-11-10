@@ -28,12 +28,12 @@ try {
         [IO.File]::WriteAllBytes("$scratch/reference.zip", $bytes)
         Expand-Archive "$scratch/reference.zip" "$scratch/reference" -Force
         $dotnetRoot = Split-Path (Get-Item -LiteralPath $Dotnet).FullName -Parent
-        $compiler = "$dotnetRoot/sdk/11.0.100-rc.3.26522.148/Roslyn/bincore/csc.dll"
-        $referenceDirectory = "$dotnetRoot/packs/Microsoft.NETCore.App.Ref/11.0.0-rc.3.26522.148/ref/net11.0"
+        $compiler = "$dotnetRoot/sdk/11.0.100/Roslyn/bincore/csc.dll"
+        $referenceDirectory = "$dotnetRoot/packs/Microsoft.NETCore.App.Ref/11.0.0/ref/net11.0"
         if (-not (Test-Path $compiler) -or -not (Test-Path $referenceDirectory)) {
             throw 'Reference compilation requires the pinned RC3 SDK and reference pack; pass -Dotnet with that installation executable.'
         }
-        $references = @(Get-ChildItem "$dotnetRoot/packs/Microsoft.NETCore.App.Ref/11.0.0-rc.3.26522.148/ref/net11.0/*.dll") + @(Get-Item "$scratch/reference/ref/net11.0/Microsoft.iOS.dll")
+        $references = @(Get-ChildItem "$dotnetRoot/packs/Microsoft.NETCore.App.Ref/11.0.0/ref/net11.0/*.dll") + @(Get-Item "$scratch/reference/ref/net11.0/Microsoft.iOS.dll")
         [IO.File]::WriteAllText("$scratch/GlobalUsings.cs", 'global using System;')
         $arguments = @('/noconfig','/nostdlib+','/target:library','/nullable:enable','/langversion:15.0',"/out:$scratch/TernProxy.dll") + @($references | ForEach-Object { '/reference:' + $_.FullName }) + @("$root/samples/net11.0/TernProxy/Route.cs", "$scratch/GlobalUsings.cs")
         & $Dotnet $compiler @arguments
@@ -56,7 +56,7 @@ try {
             $receipt = [ordered]@{
                 kind='official-review'; sample=$sample
                 target=if($name -eq 'TernPublish'){'net11.0-maccatalyst27.0'}else{'net11.0-ios27.0'}
-                sdk='11.0.100-rc.3.26522.148'; language='15.0'
+                sdk='11.0.100'; language='15.0'
                 command='eng/Test-AppleRoutes.ps1 -Record'
                 scope='Exact RC2 Apple handler/build source review. Native compilation and execution not-tested under PIN-699; no native publish output or endpoint observation.'
                 recordedAt=[DateTimeOffset]::UtcNow.ToString('O')

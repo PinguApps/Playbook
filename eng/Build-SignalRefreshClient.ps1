@@ -18,4 +18,4 @@ $npm = Join-Path (Split-Path $Node) 'node_modules/npm/bin/npm-cli.js'
 & $Node $npm ci --prefix $OutputDirectory --ignore-scripts --no-audit --no-fund
 & (Join-Path $OutputDirectory 'Build-Client.ps1') -Node $Node
 & $Node (Join-Path $OutputDirectory 'node_modules/typescript/bin/tsc') --project (Join-Path $OutputDirectory 'tsconfig.json')
-Write-Host "PASS: canonical TypeScript and pinned first-party client built in $OutputDirectory"
+Write-Host "PASS: canonical TypeScript compiled against published SignalR clients in $OutputDirectory"

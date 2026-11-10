@@ -1,6 +1,6 @@
 {
   "dependencies": [
-    "System.Formats.Cbor/11.0.0-rc.2.26504.105"
+    "System.Formats.Cbor/11.0.0"
   ],
   "workloads": [],
   "additionalInputs": [

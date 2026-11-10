@@ -50,8 +50,8 @@ try {
   foreach ($release in '10','11') {
     $dotnet = if ($release -eq '10') { $Net10Dotnet } else { $Net11Dotnet }
     $dotnet = (Get-Command $dotnet -CommandType Application).Source
-    $runtime = if ($release -eq '10') { '10.0.14' } else { '11.0.0-rc.3.26522.148' }
-    $sdk = if ($release -eq '10') { '10.0.403' } else { '11.0.100-rc.3.26522.148' }
+    $runtime = if ($release -eq '10') { '10.0.14' } else { '11.0.0' }
+    $sdk = if ($release -eq '10') { '10.0.403' } else { '11.0.100' }
     $sample = "samples/net$release.0/TidalDiagnostics/TidalDiagnostics.csproj"
     $source = Split-Path (Join-Path $root $sample)
     $inputs = Get-EvidenceInputs $root $sample

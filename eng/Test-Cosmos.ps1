@@ -16,7 +16,7 @@ try {
   & $route -Action Test -Docker $Docker
   foreach ($baseline in @(
     @{ Target = 'net10.0'; Sdk = '10.0.403'; Provider = '10.0.13'; Dotnet = $Net10Dotnet },
-    @{ Target = 'net11.0'; Sdk = '11.0.100-rc.3.26522.148'; Provider = '11.0.0-rc.2.26504.105'; Dotnet = $Net11Dotnet }
+    @{ Target = 'net11.0'; Sdk = '11.0.100'; Provider = '11.0.0'; Dotnet = $Net11Dotnet }
   )) {
     $directory = Join-Path $temporary $baseline.Target
     $null = New-Item -ItemType Directory -Path $directory

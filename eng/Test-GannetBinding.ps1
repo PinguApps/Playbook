@@ -15,7 +15,7 @@ try {
   $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH='0'; $env:DOTNET_GENERATE_ASPNET_CERTIFICATE='false'; $env:DOTNET_CLI_TELEMETRY_OPTOUT='1'; $env:MSBUILDUSESERVER='0'; $env:UseSharedCompilation='false'
   $archive=Join-Path $root 'artifacts/authentication/runtime11.tar.gz'
   $null=New-Item -ItemType Directory (Split-Path $archive) -Force
-  if(!(Test-Path $archive)){Invoke-WebRequest 'https://builds.dotnet.microsoft.com/dotnet/Runtime/11.0.0-rc.3.26522.148/dotnet-runtime-11.0.0-rc.3.26522.148-linux-x64.tar.gz' -OutFile $archive}
+  if(!(Test-Path $archive)){Invoke-WebRequest 'https://builds.dotnet.microsoft.com/dotnet/Runtime/11.0.0/dotnet-runtime-11.0.0-linux-x64.tar.gz' -OutFile $archive}
   if((Get-FileHash $archive -Algorithm SHA512).Hash.ToLowerInvariant() -cne $hash){throw 'Runtime archive differs from publisher release-metadata/11.0/releases.json SHA512.'}
   & $Docker run --pull never -d --name $container --hostname station.gannet.test --mount "type=bind,source=$root,target=/src,readonly" $image /bin/sleep 900
   & $Docker exec $container /bin/sh /src/eng/Prepare-GannetRealm.sh

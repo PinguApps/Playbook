@@ -9,10 +9,10 @@
   ],
   "dependencies": [
     "CultureHarbour.Client/1.0.0",
-    "Microsoft.AspNetCore.App.Internal.Assets/11.0.0-rc.3.26522.148",
-    "Microsoft.AspNetCore.Components.WebAssembly.Server/11.0.0-rc.3.26522.148",
-    "Microsoft.AspNetCore.Components.WebAssembly/11.0.0-rc.3.26522.148",
-    "Microsoft.JSInterop.WebAssembly/11.0.0-rc.3.26522.148"
+    "Microsoft.AspNetCore.App.Internal.Assets/11.0.0",
+    "Microsoft.AspNetCore.Components.WebAssembly.Server/11.0.0",
+    "Microsoft.AspNetCore.Components.WebAssembly/11.0.0",
+    "Microsoft.JSInterop.WebAssembly/11.0.0"
   ],
   "workloads": [],
   "nativeToolchains": [],

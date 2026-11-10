@@ -8,6 +8,6 @@
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
   </PropertyGroup>
-  <ItemGroup><PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="11.0.0-rc.2.26504.105" /></ItemGroup>
+  <ItemGroup><PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="11.0.0" /></ItemGroup>
 </Project>
 <!-- endsnippet:complete -->

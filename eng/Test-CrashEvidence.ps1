@@ -2,7 +2,7 @@
 param(
   [string]$Docker = 'C:/Program Files/Docker/Docker/resources/bin/docker.exe',
   [string]$Net10Image = 'mcr.microsoft.com/dotnet/sdk@sha256:9c7b6b263d9d4c2e4718e16dae6d75cd8f4b5ccf206f1e7d48a98eb429981b03',
-  [string]$Net11Image = 'mcr.microsoft.com/dotnet/sdk@sha256:9fc2f44fba54c579b9b650f6feea29beff050fb030d797eac697de85a94ad77f'
+  [string]$Net11Image = 'mcr.microsoft.com/dotnet/sdk@sha256:65f3c7c6a25a239ab3e6719f2896147e7b68242ff2d8818dd70498bde6ef8bea'
 )
 
 $ErrorActionPreference = 'Stop'

@@ -26,9 +26,9 @@ try {
                     [IO.File]::WriteAllBytes("$scratch/android.zip", $bytes)
                     Expand-Archive "$scratch/android.zip" "$scratch/android" -Force
                     $dotnetRoot = 'C:/Users/pingu/AppData/Local/dotnetup/dotnet'
-                    $references = @(Get-ChildItem "$dotnetRoot/packs/Microsoft.NETCore.App.Ref/11.0.0-rc.3.26522.148/ref/net11.0/*.dll") + @(Get-ChildItem "$scratch/android/ref/net11.0/*.dll")
+                    $references = @(Get-ChildItem "$dotnetRoot/packs/Microsoft.NETCore.App.Ref/11.0.0/ref/net11.0/*.dll") + @(Get-ChildItem "$scratch/android/ref/net11.0/*.dll")
                     $arguments = @('/noconfig','/nostdlib+','/target:library','/nullable:enable','/langversion:15.0',"/out:$scratch/SkuaBack.dll") + @($references | ForEach-Object { '/reference:' + $_.FullName }) + @("$root/samples/net11.0/SkuaBack/MainActivity.cs")
-                    & "$dotnetRoot/dotnet.exe" "$dotnetRoot/sdk/11.0.100-rc.3.26522.148/Roslyn/bincore/csc.dll" @arguments
+                    & "$dotnetRoot/dotnet.exe" "$dotnetRoot/sdk/11.0.100/Roslyn/bincore/csc.dll" @arguments
                     if ($LASTEXITCODE -ne 0) { throw 'Canonical Android reference compilation failed' }
                     Write-Host 'PASS canonical .NET11 Android reference compilation; CS1701 unifies Java.Interop System.Runtime10 reference. No manifest generation or device execution.'
                 }
@@ -58,13 +58,13 @@ try {
     }
     if ($CompileAppleReference) {
         $dotnetRoot = 'C:/Users/pingu/AppData/Local/dotnetup/dotnet'
-        $frameworkReferences = @(Get-ChildItem "$dotnetRoot/packs/Microsoft.NETCore.App.Ref/11.0.0-rc.3.26522.148/ref/net11.0/*.dll")
+        $frameworkReferences = @(Get-ChildItem "$dotnetRoot/packs/Microsoft.NETCore.App.Ref/11.0.0/ref/net11.0/*.dll")
         [IO.File]::WriteAllText("$scratch/GlobalUsings.cs", 'global using System;')
         foreach ($name in 'PuffinScenes','PuffinMaui') {
             $references = $frameworkReferences + $appleReferences
             if ($name -eq 'PuffinScenes') { $references = $frameworkReferences + @($appleReferences | Where-Object Name -eq 'Microsoft.iOS.dll') }
             $arguments = @('/noconfig','/nostdlib+','/target:library','/nullable:enable','/langversion:15.0',"/out:$scratch/$name.dll") + @($references | ForEach-Object { '/reference:' + $_.FullName }) + @(Get-ChildItem "$root/samples/net11.0/$name/*.cs" | ForEach-Object FullName) + @("$scratch/GlobalUsings.cs")
-            & "$dotnetRoot/dotnet.exe" "$dotnetRoot/sdk/11.0.100-rc.3.26522.148/Roslyn/bincore/csc.dll" @arguments
+            & "$dotnetRoot/dotnet.exe" "$dotnetRoot/sdk/11.0.100/Roslyn/bincore/csc.dll" @arguments
             if ($LASTEXITCODE -ne 0) { throw "Canonical Apple reference compilation failed: $name" }
         }
         Write-Host 'PASS canonical .NET11 UIKit and MAUI reference compilation. No native build targets, manifest processing, signing, Xcode or scene execution.'
@@ -75,7 +75,7 @@ try {
             $receipt = [ordered]@{
                 kind='official-review'; sample=$sample
                 target=if($name -eq 'SkuaBack'){'net11.0-android37.2'}else{'net11.0-ios27.0'}
-                sdk='11.0.100-rc.3.26522.148'; language='15.0'
+                sdk='11.0.100'; language='15.0'
                 command='eng/Test-LifecycleGuidance.ps1 -Record'
                 scope='Pinned official scene implementation/template and Android reference metadata review. Native build NETSDK1147; current native compilation/execution not-tested under PIN-699.'
                 recordedAt=[DateTimeOffset]::UtcNow.ToString('O')

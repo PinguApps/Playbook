@@ -2,7 +2,7 @@
   "buildArguments": [],
   "workloads": [],
   "dependencies": [
-    "System.IO.Hashing/11.0.0-rc.2.26504.105"
+    "System.IO.Hashing/11.0.0"
   ],
   "additionalInputs": [
     "samples/TelemetryFrames/ChecksumChecks.cs",

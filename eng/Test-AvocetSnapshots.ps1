@@ -20,7 +20,7 @@ New-Item -ItemType Directory $lane|Out-Null
 $source=Join-Path $root "samples/net$r.0/AvocetSnapshot"
 Get-ChildItem $source -File|Where-Object{$_.Extension -notin '.db' -and $_.Name -notlike '*evidence.json'}|Copy-Item -Destination $lane
 Copy-Item "$source/Migrations" "$lane/Migrations" -Recurse
-$expected=if($r -eq '10'){'10.0.13'}else{'11.0.0-rc.2.26504.105'}
+$expected=if($r -eq '10'){'10.0.13'}else{'11.0.0'}
 $tools=@(Get-ChildItem "$root/artifacts/ef$r" -Filter dotnet-ef.dll -Recurse | Where-Object {$_.FullName.Contains($expected,[StringComparison]::Ordinal)})
 if($tools.Count -ne 1){throw "Install dotnet-ef $expected under artifacts/ef$r before running this check."}
 $tool=$tools[0].FullName

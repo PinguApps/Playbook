@@ -98,8 +98,13 @@ Require((Half)half == (Half)5, "previous intermediate Half midpoint");
 #endif
 Require((double)(-scale) == -(double)scale && (float)(-narrow) == -(float)narrow && (Half)(-half) == -(Half)half, "decimal negative symmetry");
 decimal veryCloseHalf = ReadDecimal("5.001953125000000000000000001");
+#if NET11_0_OR_GREATER
+Require((Half)veryCloseHalf == Half.BitIncrement((Half)5), "GA decimal Half rounds above the near midpoint");
+Console.WriteLine("GA: Decimal 5.001953125000000000000000001 -> Half 4501; direct rounding retains the above-midpoint value.");
+#else
 Require((Half)veryCloseHalf == (Half)5, "measured double-intermediate limitation remains near a Half midpoint");
-Console.WriteLine("LIMIT: Decimal 5.001953125000000000000000001 -> Half 4500 on both artifacts; no universal single-rounding claim.");
+Console.WriteLine("LIMIT: Decimal 5.001953125000000000000000001 -> Half 4500 on .NET 10; intermediate rounding loses the above-midpoint value.");
+#endif
 
 BigInteger count64 = (BigInteger.One << 90) + (BigInteger.One << 37) + 1;
 BigInteger count32 = (BigInteger.One << 70) + (BigInteger.One << 46) + 1;

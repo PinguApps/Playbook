@@ -32,8 +32,8 @@ try {
   }
   foreach ($variant in 'net10.0','net11.0') {
     $dotnet = if ($variant -eq 'net10.0') { $Net10Dotnet } else { $Net11Dotnet }
-    $sdk = if ($variant -eq 'net10.0') { '10.0.403' } else { '11.0.100-rc.3.26522.148' }
-    $ref = if ($variant -eq 'net10.0') { '10.0.14' } else { '11.0.0-rc.3.26522.148' }
+    $sdk = if ($variant -eq 'net10.0') { '10.0.403' } else { '11.0.100' }
+    $ref = if ($variant -eq 'net10.0') { '10.0.14' } else { '11.0.0' }
     foreach ($name in 'CoastalReports','InstrumentGateway') {
       $sample = "samples/$variant/$name/$name.csproj"
       $kind = if ($name -eq 'InstrumentGateway') { 'compile' } else { 'compile-and-run' }
@@ -96,7 +96,7 @@ try {
   foreach ($mode in 'old-send','new-exchange','old-receive') {
     $variant = if ($mode -eq 'new-exchange') { 'net11.0' } else { 'net10.0' }
     $dotnet = if ($variant -eq 'net10.0') { $Net10Dotnet } else { $Net11Dotnet }
-    $runtime = if ($variant -eq 'net10.0') { '10.0.14' } else { '11.0.0-rc.3.26522.148' }
+    $runtime = if ($variant -eq 'net10.0') { '10.0.14' } else { '11.0.0' }
     $dll = Join-Path $root "samples/$variant/InstrumentGateway/bin/Release/$variant/InstrumentGateway.dll"
     $commands += "$dotnet $dll $mode $fixture`n"
     $output = (& $dotnet $dll $mode $fixture | Out-String).Trim()

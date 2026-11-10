@@ -117,7 +117,7 @@ try {
   Add-Type -Path (Join-Path $Net10Root 'sdk/10.0.403/System.Reflection.MetadataLoadContext.dll')
   $baselines = @(
     @{ root=$Net10Root; sdk='10.0.403'; version='10.0.13'; runtime='10.0.14'; target='net10.0' },
-    @{ root=$Net11Root; sdk='11.0.100-rc.3.26522.148'; version='11.0.0-rc.2.26504.105'; runtime='11.0.0-rc.3.26522.148'; target='net11.0' }
+    @{ root=$Net11Root; sdk='11.0.100'; version='11.0.0'; runtime='11.0.0'; target='net11.0' }
   )
   $results = @()
   foreach ($baseline in $baselines) {
@@ -131,7 +131,7 @@ try {
     if ($baseline.target -eq 'net11.0') { $ids += @('microsoft.aspnetcore.components.ai','microsoft.aspnetcore.components.server.autopause','microsoft.aspnetcore.components.gateway','microsoft.aspnetcore.components.gateway.cli','microsoft.extensions.ai.abstractions','microsoft.extensions.dependencyinjection.abstractions') }
     foreach ($id in $ids) {
       $version = switch ($id) {
-        'microsoft.aspnetcore.components.ai' { '11.0.0-preview.7.26425.128' }
+        'microsoft.aspnetcore.components.ai' { '11.0.0' }
         'microsoft.extensions.ai.abstractions' { '10.6.0' }
         'microsoft.extensions.dependencyinjection.abstractions' { '10.0.0' }
         'microsoft.aspnetcore.razor.language' { '6.0.0' }

@@ -1,7 +1,7 @@
 {
   "dependencies": [
-    "Microsoft.Data.Sqlite.Core/11.0.0-rc.2.26504.105",
-    "Microsoft.Data.Sqlite/11.0.0-rc.2.26504.105",
+    "Microsoft.Data.Sqlite.Core/11.0.0",
+    "Microsoft.Data.Sqlite/11.0.0",
     "SQLite/3.53.4",
     "SQLitePCLRaw.bundle_e_sqlite3/3.0.5",
     "SQLitePCLRaw.config.e_sqlite3/3.0.5",

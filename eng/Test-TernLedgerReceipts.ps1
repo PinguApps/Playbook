@@ -27,7 +27,7 @@ for ($index = 0; $index -lt 2; $index++) {
   if ($run.hintedAfter.state.evaluations.Count -ne 1 -or $run.controlAfter.state.evaluations.Count -ne 2 -or $run.warmAfter.state.evaluations.Count -ne 2) { throw 'Unexpected module evaluation lifetime.' }
   if ($run.full.state.documentId -ceq $document -or $run.full.state.enhancedLoads -ne 0 -or $run.full.state.evaluations.Count) { throw 'Full-navigation opt-out did not replace the document.' }
   $requests = $networkRuns["$port"].full.requests
-  $runtime = if ($index -eq 0) { '.NET 10.0.14' } else { '.NET 11.0.0-rc.3.26522.148' }
+  $runtime = if ($index -eq 0) { '.NET 10.0.14' } else { '.NET 11.0.0' }
   if ($networkRuns["$port"].full.runtime -cne $runtime) { throw 'Wrong executed runtime.' }
   foreach ($route in @('/ledger/hinted', '/ledger/control')) {
     if (-not @($requests | Where-Object { $_.path -ceq $route -and $_.enhanced -eq $true -and $_.accept -ceq 'text/html; blazor-enhanced-nav=on' -and $_.destination -ceq 'empty' }).Count) { throw "Missing actual enhanced fetch for $route" }

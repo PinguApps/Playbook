@@ -25,7 +25,7 @@ try {
   }
   foreach($major in '10','11') {
     $dotnet=if($major -eq '10'){$Net10Dotnet}else{$Net11Dotnet}
-    $sdk=if($major -eq '10'){'10.0.403'}else{'11.0.100-rc.3.26522.148'}
+    $sdk=if($major -eq '10'){'10.0.403'}else{'11.0.100'}
     $language=if($major -eq '10'){'14.0'}else{'15.0'}
     foreach($pin in (Get-Content (Join-Path $root 'samples/EstuarySdk/artifacts.json') -Raw|ConvertFrom-Json).artifacts|Where-Object sdk -CEQ $sdk){
       $file=Join-Path (Split-Path $dotnet) $pin.path
@@ -70,7 +70,7 @@ try {
       $text=Invoke-Estuary $dotnet $directory $arguments
       $targets=Invoke-Estuary $dotnet $directory @($binReader,$binlog)
       $log.Add("BINLOG $case`n$targets")
-      $broken=$major -eq '11' -and $hook -eq 'legacy' -and $case -ne 'legacy-false'
+      $broken=$major -eq '11' -and $hook -eq 'legacy' -and $case -eq 'legacy-true'
       $executable=Join-Path $publish 'EstuaryNative.exe'
       $stream=[IO.File]::OpenRead($executable);$pe=[Reflection.PortableExecutable.PEReader]::new($stream)
       try {if($null -ne $pe.PEHeaders.CorHeader -or $pe.PEHeaders.CoffHeader.Machine.ToString() -ne 'Amd64'){throw 'Not a native x64 PE'}}finally{$pe.Dispose();$stream.Dispose()}

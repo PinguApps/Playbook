@@ -129,9 +129,9 @@
       "url": "https://builds.dotnet.microsoft.com/dotnet/Runtime/10.0.14/dotnet-runtime-10.0.14-win-x86.zip"
     },
     {
-      "name": "win-x86-net11-rc3",
-      "sha256": "4cac3d6d1d50b8e21800345e6b0a471df4b677f79dbf6513bcc107db74bc1244",
-      "url": "https://builds.dotnet.microsoft.com/dotnet/Runtime/11.0.0-rc.3.26522.148/dotnet-runtime-11.0.0-rc.3.26522.148-win-x86.zip"
+      "name": "win-x86-net11-ga",
+      "sha256": "8fb41d7ec817ef8ffcce31d9c2a1d5bbfdd717ab2a696e661c934f4cdf657c54",
+      "url": "https://builds.dotnet.microsoft.com/dotnet/Runtime/11.0.0/dotnet-runtime-11.0.0-win-x86.zip"
     }
   ]
 }

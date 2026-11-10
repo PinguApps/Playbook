@@ -1,7 +1,7 @@
 // snippet:complete
 import { strict as assert } from 'assert';
-import * as current from './generated/client/index';
-import * as previous from '@microsoft/signalr';
+import * as current from '@microsoft/signalr';
+import * as previous from 'signalr-previous';
 
 async function check(address: string, newer: boolean): Promise<void> {
     let ticket = 'mara:visitor';
@@ -28,7 +28,7 @@ async function check(address: string, newer: boolean): Promise<void> {
             for (const token of ['mara:suspended', 'mara:', 'mara:unknown', 'other:surveyor']) {
                 ticket = token;
                 await assert.rejects(connection.refreshAuthentication(), (error: unknown) =>
-                    error instanceof current.HttpError && error.statusCode === 403);
+                    error instanceof Error && /Unexpected status code returned from authentication refresh '403'/.test(error.message));
                 assert.deepEqual(await connection.invoke('Read'), updated);
             }
             assert.deepEqual([accepted, rejected, hubEvents], [1, 4, 1]);

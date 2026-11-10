@@ -98,7 +98,7 @@ try{
   if($Record){
     foreach($major in 10,11){
       $sample="samples/net$major.0/QuayWorker/QuayWorker.csproj"
-      $sdk=if($major -eq 10){'10.0.403'}else{'11.0.100-rc.3.26522.148'}
+      $sdk=if($major -eq 10){'10.0.403'}else{'11.0.100'}
       $expected=@{sample=$sample;kind='compile-and-run';target="net$major.0";sdk=$sdk;language=$(if($major -eq 10){'14.0'}else{'15.0'});scope='Previously observed, fresh paired worker compilation/execution.'}
       $workerRecord=Read-VerificationEvidence $root $expected
       $workerRecord.Remove('freshness');$workerRecord.command='eng/Test-QuayWorker.ps1 -Record; eng/Test-QuaySignatures.ps1 -Record'

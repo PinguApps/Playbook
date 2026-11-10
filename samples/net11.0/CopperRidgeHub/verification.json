@@ -1,9 +1,9 @@
 {
   "nativeToolchains": [],
   "dependencies": [
-    "Microsoft.AspNetCore.Http.Connections.Client/11.0.0-rc.2.26504.105",
-    "Microsoft.AspNetCore.SignalR.Client.Core/11.0.0-rc.2.26504.105",
-    "Microsoft.AspNetCore.SignalR.Client/11.0.0-rc.2.26504.105"
+    "Microsoft.AspNetCore.Http.Connections.Client/11.0.0",
+    "Microsoft.AspNetCore.SignalR.Client.Core/11.0.0",
+    "Microsoft.AspNetCore.SignalR.Client/11.0.0"
   ],
   "workloads": [],
   "buildArguments": [],

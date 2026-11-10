@@ -4,9 +4,9 @@
     "net11.0": {
       "Microsoft.AspNetCore.JsonPatch.SystemTextJson": {
         "type": "Direct",
-        "requested": "[11.0.0-rc.2.26504.105, 11.0.0-rc.2.26504.105]",
-        "resolved": "11.0.0-rc.2.26504.105",
-        "contentHash": "mBH39wJwBPoBeh0+2bBF2YrgdsKAYyfRSMELcBZKn37H3N6WCAyhqO4SPUqe8OOr/WFaJCc6zMFylP6+aRcOPQ=="
+        "requested": "[11.0.0, 11.0.0]",
+        "resolved": "11.0.0",
+        "contentHash": "1Sj4q5O2kcCMbHRC4OgHn0QgKOEZtrUAU0Rzb3fnuY4Y26lP8HzCrcmfQYLbExxT8tnO4f/b7mFx5hWKMe19xA=="
       }
     }
   }

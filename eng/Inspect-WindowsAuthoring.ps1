@@ -103,7 +103,7 @@ try {
   Write-Input (Join-Path $work 'Directory.Packages.props') '<Project />'
   foreach ($baseline in @(
     @{ target = 'net10.0'; sdk = '10.0.403'; dotnet = $Net10Dotnet; maui = '10.0.110' },
-    @{ target = 'net11.0'; sdk = '11.0.100-rc.3.26522.148'; dotnet = $Net11Dotnet; maui = '11.0.0-preview.6.26360.8' }
+    @{ target = 'net11.0'; sdk = '11.0.100'; dotnet = $Net11Dotnet; maui = '11.0.0' }
   )) {
     foreach ($framework in @('Wpf', 'WinForms', 'Maui')) {
       $directory = Join-Path $work "$($baseline.target)/$framework"

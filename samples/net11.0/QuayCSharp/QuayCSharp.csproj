@@ -11,7 +11,7 @@
     <RuntimeIdentifier>win-x64</RuntimeIdentifier><SelfContained>false</SelfContained>
     <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
   </PropertyGroup>
-  <ItemGroup><PackageReference Include="Microsoft.Maui.Controls" Version="11.0.0-rc.2.26505.5" /></ItemGroup>
+  <ItemGroup><PackageReference Include="Microsoft.Maui.Controls" Version="11.0.0" /></ItemGroup>
   <ItemGroup><MauiIcon Include="Resources/AppIcon/quay.svg" /></ItemGroup>
 </Project>
 <!-- endsnippet:complete -->

@@ -4,9 +4,9 @@
     "net11.0": {
       "System.Reflection.MetadataLoadContext": {
         "type": "Direct",
-        "requested": "[11.0.0-rc.2.26504.105, )",
-        "resolved": "11.0.0-rc.2.26504.105",
-        "contentHash": "1s2mq+1j5FCVbrAEab+qRVuOdeyuOo140+oo7kmY86WNm4hN5kkOGmf19q5XXZw5nP3FUS26MfTqKfnGFMLotg=="
+        "requested": "[11.0.0, )",
+        "resolved": "11.0.0",
+        "contentHash": "IixPUjMvqADBklO1Cz9OiEcfxIwFptmAwnm02DVTmW5JW4k06HU76boTVxPMChOvalE6FFJH3H82gO8+sgDhwQ=="
       }
     }
   }

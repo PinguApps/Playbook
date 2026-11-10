@@ -7,8 +7,8 @@ $root = Split-Path $PSScriptRoot -Parent
 $manifest = Get-Content (Join-Path $root 'samples/MarshInterop/sources.json') -Raw | ConvertFrom-Json
 $client = [Net.Http.HttpClient]::new()
 try {
-    $package = $client.GetByteArrayAsync('https://api.nuget.org/v3-flatcontainer/microsoft.maui.core/11.0.0-rc.2.26505.5/microsoft.maui.core.11.0.0-rc.2.26505.5.nupkg').GetAwaiter().GetResult()
-    if ([Convert]::ToHexString([Security.Cryptography.SHA256]::HashData($package)).ToLowerInvariant() -cne '47915931c89820f3623d287c46763308b8eb730f74c731c872eb666c62b300bc') { throw 'MAUI Core artifact changed.' }
+    $package = $client.GetByteArrayAsync('https://api.nuget.org/v3-flatcontainer/microsoft.maui.core/11.0.0/microsoft.maui.core.11.0.0.nupkg').GetAwaiter().GetResult()
+    if ([Convert]::ToHexString([Security.Cryptography.SHA256]::HashData($package)).ToLowerInvariant() -cne '2daa6350a186a98b647f46e6b048cdf25e93a75bdc8c62b5ed4a4387177b0976') { throw 'MAUI Core artifact changed.' }
     $zip = [IO.Compression.ZipArchive]::new([IO.MemoryStream]::new($package))
     try {
         $stream = [IO.MemoryStream]::new()

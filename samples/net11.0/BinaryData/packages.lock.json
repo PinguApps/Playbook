@@ -4,9 +4,9 @@
     "net11.0": {
       "System.Formats.Cbor": {
         "type": "Direct",
-        "requested": "[11.0.0-rc.2.26504.105, )",
-        "resolved": "11.0.0-rc.2.26504.105",
-        "contentHash": "GEjkSB0ADeT23qA1CzUg8VgqD9RRWgQme72TgmXZP6iRejb6N1oxSWYdSZ6TmB43QGwPppDnxtgSiOMf9A3RBg=="
+        "requested": "[11.0.0, )",
+        "resolved": "11.0.0",
+        "contentHash": "2ULEPU67LRt4YVwBnCk1OhjsJspIBzg1JlDkN2hnZm9im3fC9bSbVQorLraOIcLMlA6/8eWQG1fjTpurHkIFZw=="
       }
     }
   }

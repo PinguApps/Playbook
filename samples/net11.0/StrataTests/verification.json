@@ -8,9 +8,9 @@
   ],
   "buildArguments": [],
   "dependencies": [
-    "Microsoft.AspNetCore.Mvc.Testing/11.0.0-rc.2.26504.105",
-    "Microsoft.AspNetCore.TestHost/11.0.0-rc.2.26504.105",
-    "Microsoft.Extensions.DependencyModel/11.0.0-rc.2.26504.105",
+    "Microsoft.AspNetCore.Mvc.Testing/11.0.0",
+    "Microsoft.AspNetCore.TestHost/11.0.0",
+    "Microsoft.Extensions.DependencyModel/11.0.0",
     "StrataApi/1.0.0"
   ],
   "workloads": [],

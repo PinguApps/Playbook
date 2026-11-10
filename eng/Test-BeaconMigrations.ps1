@@ -16,7 +16,7 @@ try {
     $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH = '0'
     foreach ($release in '10','11') {
         $dotnet = if ($release -eq '10') { $Net10Dotnet } else { $Net11Dotnet }
-        $version = if ($release -eq '10') { '10.0.13' } else { '11.0.0-rc.2.26504.105' }
+        $version = if ($release -eq '10') { '10.0.13' } else { '11.0.0' }
         $source = Join-Path $root "samples/net$release.0/BeaconMigrations"
         $sample = "samples/net$release.0/BeaconMigrations/BeaconMigrations.csproj"
         $before = Get-EvidenceInputs $root $sample

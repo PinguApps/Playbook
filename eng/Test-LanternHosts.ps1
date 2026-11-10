@@ -19,7 +19,7 @@ try {
   & $Node (Join-Path (Split-Path $Node) 'node_modules/npm/bin/npm-cli.js') install --prefix "$root/artifacts/host-types" --ignore-scripts --no-audit --no-fund typescript@5.9.3
  }
  $audit=Get-Content docs/planning/audits/runtime-security.assets.json -Raw | ConvertFrom-Json
- $routes=@(@('net10.0','Mono','10.0.14',$Net10Dotnet),@('net11.0','Mono','11.0.0-rc.3.26522.148',$Net11Dotnet),@('net11.0','CoreCLR','11.0.0-rc.3.26522.148',$Net11Dotnet))
+ $routes=@(@('net10.0','Mono','10.0.14',$Net10Dotnet),@('net11.0','Mono','11.0.0',$Net11Dotnet),@('net11.0','CoreCLR','11.0.0',$Net11Dotnet))
  foreach($route in $routes) {
   $target,$flavor,$version,$dotnet=$route
   $name="LanternHost$flavor";$directory=Join-Path $root "samples/$target/$name";$project="$directory/$name.csproj"

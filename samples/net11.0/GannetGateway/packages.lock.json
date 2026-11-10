@@ -4,17 +4,17 @@
     "net11.0": {
       "Microsoft.AspNetCore.Authentication.Negotiate": {
         "type": "Direct",
-        "requested": "[11.0.0-rc.3.26522.148, )",
-        "resolved": "11.0.0-rc.3.26522.148",
-        "contentHash": "S889fAo5Fhl8kpJJNuZih1iUxemTyyRHvkymej03EOcy6ekkFxpB23iEfgtGwOSmWR60iPH1eHEkfs94ZrkieQ==",
+        "requested": "[11.0.0, )",
+        "resolved": "11.0.0",
+        "contentHash": "otPI2STwnoRv7qGgSAMnjYfZpOFbtC2Xx0aFfBsROCB9xXI3b6dJaLN5im7iWJ7CRVjkt7UYrbb0GiFwpZ2C4A==",
         "dependencies": {
-          "System.DirectoryServices.Protocols": "11.0.0-rc.3.26522.148"
+          "System.DirectoryServices.Protocols": "11.0.0"
         }
       },
       "System.DirectoryServices.Protocols": {
         "type": "Transitive",
-        "resolved": "11.0.0-rc.3.26522.148",
-        "contentHash": "42QzonPgMCyOs3P3rqLAlpwSyjZ3oRP6Hr0qdKIp6nO7FEgCuP33dNgBH+QwRgEIBEHTb06P57qHv0yDBiv0og=="
+        "resolved": "11.0.0",
+        "contentHash": "gmes+wSLYzyp0lh05nIox1qhWAHt71GKWHycDRhkwgULlaSRh5icX9SuGMooLQ9N95Bn21iJkPFy3mqfBvPUrw=="
       }
     }
   }

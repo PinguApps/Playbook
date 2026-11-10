@@ -7,7 +7,7 @@ using System.Xml.Linq;
 // Real MSBuild subprocess proof; no synthetic binding or CreateWithProjectDirectoryAndEnvironment.
 string dotnet = Environment.ProcessPath!;
 #if NET11_0
-const string sdk = "11.0.100-rc.3.26522.148";
+const string sdk = "11.0.100";
 bool typed = true;
 #else
 const string sdk = "10.0.403";
@@ -100,7 +100,7 @@ void RunPair(string mode, bool threaded, string? reportOverride = null, string? 
         string sdkRoot = Path.Combine(Path.GetDirectoryName(dotnet)!, "sdk", sdk);
         Require(string.Equals(observation.GetProperty("frameworkPath").GetString(), Path.Combine(sdkRoot, "Microsoft.Build.Framework.dll"), StringComparison.OrdinalIgnoreCase), "Unexpected loaded Framework assembly");
         Require(string.Equals(observation.GetProperty("utilitiesPath").GetString(), Path.Combine(sdkRoot, "Microsoft.Build.Utilities.Core.dll"), StringComparison.OrdinalIgnoreCase), "Unexpected loaded Utilities assembly");
-        string expectedRuntime = typed ? "11.0.0-rc.3.26522.148" : "10.0.14";
+        string expectedRuntime = typed ? "11.0.0" : "10.0.14";
         Require(string.Equals(observation.GetProperty("runtimeDirectory").GetString()!.TrimEnd(Path.DirectorySeparatorChar), Path.Combine(Path.GetDirectoryName(dotnet)!, "shared", "Microsoft.NETCore.App", expectedRuntime), StringComparison.OrdinalIgnoreCase), "Unexpected loaded runtime");
         if (typed) Require(observation.GetProperty("constructor").GetString() == "injected", "Missing constructor injection");
         Console.WriteLine($"OBSERVATION {mode}/{project} {observation.GetRawText()}");

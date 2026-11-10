@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 using Microsoft.Build.Locator;
 
 #if NET11_0
-const string sdkVersion = "11.0.100-rc.3.26522.148";
+const string sdkVersion = "11.0.100";
 #else
 const string sdkVersion = "10.0.403";
 #endif

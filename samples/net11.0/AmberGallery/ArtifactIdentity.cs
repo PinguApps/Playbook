@@ -9,10 +9,10 @@ internal static class ArtifactIdentity
 {
     public static void Verify()
     {
-        const string sdk = "11.0.100-rc.3.26522.148";
-        const string framework = "11.0.0-rc.3.26522.148";
+        const string sdk = "11.0.100";
+        const string framework = "11.0.0";
         const string target = "net11.0";
-        const string auditedReference = "054e2ef856a185c1317685f8e5dc7166d5f1bade6129920750b9602522746b1e";
+        const string auditedReference = "ca4502121752a28609fdd617d1274f77551c82f98fd2dd6d4a7511462b4940ee";
         var assembly = typeof(StaticAssetDescriptor).Assembly;
         var installation = Directory.GetParent(Path.GetDirectoryName(assembly.Location)!)!.Parent!.Parent!.FullName;
         foreach (var loaded in new[] { typeof(object).Assembly, assembly })

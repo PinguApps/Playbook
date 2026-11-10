@@ -11,7 +11,7 @@
     <RazorCompileOnPublish>true</RazorCompileOnPublish>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="FSharp.Core" Version="11.0.101-rc2.26504.105" />
+    <PackageReference Include="FSharp.Core" Version="11.0.101" />
     <Compile Include="NightController.fs" />
     <Compile Include="SurveyViews.fs" />
     <Compile Include="Program.fs" />

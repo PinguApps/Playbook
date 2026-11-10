@@ -8,7 +8,7 @@
   ],
   "buildArguments": [],
   "dependencies": [
-    "Microsoft.AspNetCore.JsonPatch.SystemTextJson/11.0.0-rc.2.26504.105"
+    "Microsoft.AspNetCore.JsonPatch.SystemTextJson/11.0.0"
   ],
   "workloads": [],
   "nativeToolchains": []

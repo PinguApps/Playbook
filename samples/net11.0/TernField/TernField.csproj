@@ -8,6 +8,6 @@
     <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile><ApplicationVersion>1</ApplicationVersion><ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
     <SupportedOSPlatformVersion>24.0</SupportedOSPlatformVersion>
   </PropertyGroup>
-  <ItemGroup><PackageReference Include="Microsoft.Maui.Controls" Version="11.0.0-rc.2.26505.5" /></ItemGroup>
+  <ItemGroup><PackageReference Include="Microsoft.Maui.Controls" Version="11.0.0" /></ItemGroup>
 </Project>
 <!-- endsnippet:complete -->

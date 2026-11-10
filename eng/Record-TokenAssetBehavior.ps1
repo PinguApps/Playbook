@@ -23,7 +23,7 @@ try {
       $records += $record
     }
   }
-  # Preserve the actual RC2 source-generator limitation as a negative compiler control.
+  # GA source generation expands both component and opted-in HTML asset values.
   $gallery11 = Join-Path $root 'samples/net11.0/MaritimeGallery'
   Push-Location -LiteralPath $gallery11
   try {
@@ -31,12 +31,11 @@ try {
     $negativeOutput = & $Net11Dotnet build -c Release --no-restore -p:UseRazorSourceGenerator=true | Out-String
     $generated = Get-ChildItem -LiteralPath (Join-Path $gallery11 'obj/Release/net11.0/generated') -Recurse -Filter 'App_razor.g.cs' | Select-Object -First 1
     $code = Get-Content -LiteralPath $generated.FullName -Raw
-    if ($code -notmatch 'Assets\[@"images/sounding.svg"\]' -or
-        $code -notmatch 'museum-image[^\r\n]*source=(?:\\"|"")~/images/sounding.svg' -or
-        $code -notmatch '<img[^\r\n]*src=(?:\\"|"")~/images/sounding.svg') {
-      throw 'RC2 source-generator control changed: reconcile the route before recapturing evidence.'
+    if (@([regex]::Matches($code, 'Assets\[@"images/sounding.svg"\]')).Count -lt 3 -or
+        $code -notmatch 'Assets\[@"images/unknown.svg"\]') {
+      throw 'GA source generation did not expand the component, custom HTML and built-in HTML asset values.'
     }
-    $negativeOutput += "`nPASS: component parameter expands; custom and built-in HTML remain literal ~/ paths with source generation."
+    $negativeOutput += "`nPASS: GA source generation expands component parameters, custom HTML and built-in HTML; unknown asset keys retain lookup fallback."
   }
   finally { Pop-Location }
   $publishOutput = @{}
@@ -63,7 +62,6 @@ try {
     $dotnet = if ($version -eq '10.0') { $Net10Dotnet } else { $Net11Dotnet }
     $sdkDirectory = Join-Path (Split-Path $dotnet -Parent) "sdk/$($record.sdk)"
     $compilerFiles = @('Sdks/Microsoft.NET.Sdk.Razor/source-generators/Microsoft.CodeAnalysis.Razor.Compiler.dll')
-    if ($name -eq 'MaritimeGallery' -and $version -eq '11.0') { $compilerFiles += 'Sdks/Microsoft.NET.Sdk.Razor/tools/Microsoft.CodeAnalysis.Razor.Compiler.dll' }
     $tooling = foreach ($relative in $compilerFiles) {
       $file = Join-Path $sdkDirectory $relative
       if (-not (Test-Path -LiteralPath $file)) { throw "Missing measured compiler: $file" }
@@ -71,7 +69,7 @@ try {
     }
     $record.kind = 'execution'
     $record.command = "& '$PSScriptRoot/Record-TokenAssetBehavior.ps1' -Playwright '$Playwright' -Net10Dotnet '$Net10Dotnet' -Net11Dotnet '$Net11Dotnet' -Node '$Node'"
-    $record.scope = if ($name -eq 'HydrophoneArchive') { 'Real WASM token-result consumers and browser history state; controlled IAccessTokenProvider boundary only. No provider issuance or authorized API/download claim.' } else { 'Actual generated C#, restored dependencies, published endpoint manifest, non-root fingerprinted asset HTTP retrieval and literal/unknown controls. RC2 task route; source-generator limitation retained.' }
+    $record.scope = if ($name -eq 'HydrophoneArchive') { 'Real WASM token-result consumers and browser history state; controlled IAccessTokenProvider boundary only. No provider issuance or authorized API/download claim.' } else { 'Actual generated C#, restored dependencies, published endpoint manifest, non-root fingerprinted asset HTTP retrieval and literal/unknown controls. GA source-generator route; component and HTML asset expansion verified.' }
     $record.output = "PASS: Chromium $($report.browser)`n" + ($execution[0] | ConvertTo-Json -Depth 20) + "`n" + ($tooling -join "`n")
     if ($name -eq 'MaritimeGallery') {
       $record.output += "`n$($publishOutput[$version])"
@@ -82,7 +80,7 @@ try {
     $record.sourceDirty = [bool](& (Get-Command git -CommandType Application).Source -C $root status --porcelain)
     [IO.File]::WriteAllText((Join-Path $directory 'behavior.evidence.json'), ($record | ConvertTo-Json -Depth 40).Replace("`r`n","`n") + "`n")
   }
-  Write-Host 'PASS: four fresh real execution records; compiler pins and source-generator limitation retained.'
+  Write-Host 'PASS: four fresh real execution records; compiler pins and GA source-generator expansion verified.'
 }
 finally {
   $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH = $previous

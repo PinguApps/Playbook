@@ -9,7 +9,7 @@ internal static class RuntimeIdentity
 {
     public static void Assert()
     {
-        string expected = Environment.Version.Major == 10 ? "10.0.14" : "11.0.0-rc.3.26522.148";
+        string expected = Environment.Version.Major == 10 ? "10.0.14" : "11.0.0";
         string path = typeof(object).Assembly.Location;
         string product = FileVersionInfo.GetVersionInfo(path).ProductVersion!;
         if (RuntimeInformation.FrameworkDescription != ".NET " + expected || Path.GetFileName(Path.GetDirectoryName(path)) != expected)

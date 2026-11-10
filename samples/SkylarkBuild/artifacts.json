@@ -33,39 +33,39 @@
       "sha256": "1bc65b8d45474b19adf3ca85ce881087aff599ffc72b2c1a323e878227757b65"
     },
     {
-      "product": "5.12.0-1.26522.148+5254d8bcf59917edc1e1abc33bdf2442b77b1c70",
-      "path": "sdk/11.0.100-rc.3.26522.148/Roslyn/bincore/csc.dll",
-      "sdk": "11.0.100-rc.3.26522.148",
-      "sha256": "a3c6fcd1fb9ae921a985e7d55f79ce921eee79a5a61a11f6d8ce9776baf81172"
+      "product": "5.12.0-1.26529.118+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "path": "sdk/11.0.100/Roslyn/bincore/csc.dll",
+      "sdk": "11.0.100",
+      "sha256": "f468d8dc285bccf5ea3b7fbb415aa6d8b42a6bf80be9a91d5e91530a40f274eb"
     },
     {
       "product": null,
-      "path": "sdk/11.0.100-rc.3.26522.148/Sdks/Microsoft.NET.Sdk/targets/Microsoft.NET.CrossGen.targets",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "path": "sdk/11.0.100/Sdks/Microsoft.NET.Sdk/targets/Microsoft.NET.CrossGen.targets",
+      "sdk": "11.0.100",
       "sha256": "30013015a2895b330a059108c1431d3f7e869d7b96ae9ebc3c60a003179ffd91"
     },
     {
       "product": null,
-      "path": "sdk/11.0.100-rc.3.26522.148/Sdks/Microsoft.NET.Sdk/targets/Microsoft.NET.PackTool.targets",
-      "sdk": "11.0.100-rc.3.26522.148",
-      "sha256": "2a4bc3665cc46195c60ff993fdf675fcc5b00022ec2f3558ef55101a30489c5b"
+      "path": "sdk/11.0.100/Sdks/Microsoft.NET.Sdk/targets/Microsoft.NET.PackTool.targets",
+      "sdk": "11.0.100",
+      "sha256": "988b3dd62d12eb0b3e1de2eddeb6ca5ca7d661eba6a883b9b43fa46aa4269811"
     },
     {
-      "product": "11.0.0-rc.3.26522.148+5254d8bcf59917edc1e1abc33bdf2442b77b1c70",
-      "path": "packs/Microsoft.NETCore.App.Ref/11.0.0-rc.3.26522.148/ref/net11.0/System.Runtime.dll",
-      "sdk": "11.0.100-rc.3.26522.148",
-      "sha256": "ea358813fe5a242da6941ca041575ee0dab159028f533ec37786dd54e64618b4"
+      "product": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "path": "packs/Microsoft.NETCore.App.Ref/11.0.0/ref/net11.0/System.Runtime.dll",
+      "sdk": "11.0.100",
+      "sha256": "bf6f2f2426dc1d43078c1aa0310264459c9d3d115f55eb7ec15027381816f46e"
     },
     {
-      "product": "11,0,26,52348 @Commit: 5254d8bcf59917edc1e1abc33bdf2442b77b1c70",
-      "path": "shared/Microsoft.NETCore.App/11.0.0-rc.3.26522.148/coreclr.dll",
-      "sdk": "11.0.100-rc.3.26522.148",
-      "sha256": "46a09d97ad8dd30d400a86c90af707bee7593b585d3ccb8586c4fffca404d1e2"
+      "product": "11,0,26,53018 @Commit: 297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "path": "shared/Microsoft.NETCore.App/11.0.0/coreclr.dll",
+      "sdk": "11.0.100",
+      "sha256": "606465533979071e8a38855ca5a7cb581dd02c810b77879857920250b063ac7b"
     },
     {
       "product": null,
-      "path": "sdk/11.0.100-rc.3.26522.148/Sdks/Microsoft.NET.Sdk/targets/Microsoft.NET.SdkVulnerabilityCheck.targets",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "path": "sdk/11.0.100/Sdks/Microsoft.NET.Sdk/targets/Microsoft.NET.SdkVulnerabilityCheck.targets",
+      "sdk": "11.0.100",
       "sha256": "c7806094567fca5a14084b7b9ea1d77c7d6ef4b8c5cece5a485c3f3af839ef3c"
     },
     {
@@ -75,10 +75,10 @@
       "path": "sdk/10.0.403/Sdks/Microsoft.NET.Sdk/tools/net10.0/Microsoft.NET.Build.Tasks.dll"
     },
     {
-      "sdk": "11.0.100-rc.3.26522.148",
-      "sha256": "9f38739a6784afa1a8af159f4a7e5e54a8cd889953fec0f35bd479149512c8d9",
-      "product": "11.0.100-rc.3.26522.148+5254d8bcf59917edc1e1abc33bdf2442b77b1c70",
-      "path": "sdk/11.0.100-rc.3.26522.148/Sdks/Microsoft.NET.Sdk/tools/net11.0/Microsoft.NET.Build.Tasks.dll"
+      "sdk": "11.0.100",
+      "sha256": "603db2c897c7dd4ae1e68691497f88665992e703a8d61472f3a5871b869da290",
+      "product": "11.0.100-rtm.26529.118+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "path": "sdk/11.0.100/Sdks/Microsoft.NET.Sdk/tools/net11.0/Microsoft.NET.Build.Tasks.dll"
     }
   ]
 }

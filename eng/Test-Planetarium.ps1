@@ -100,7 +100,7 @@ try {
         $output.Add("Package $library SHA256=$((Get-FileHash -LiteralPath $package).Hash.ToLowerInvariant())")
       }
       $sdkRoot = Split-Path $hostDotnet -Parent
-      $framework = if ($release -eq '10') { '10.0.14' } else { '11.0.0-rc.3.26522.148' }
+      $framework = if ($release -eq '10') { '10.0.14' } else { '11.0.0' }
       $sdk = $compile.sdk
       $compiler = (& $hostDotnet (Join-Path $sdkRoot "sdk/$sdk/Roslyn/bincore/csc.dll") -version | Out-String).Trim()
       $output.Add("Compiler=$compiler; LangVersion=$($compile.language); framework=$framework; no native/workload assets required.")

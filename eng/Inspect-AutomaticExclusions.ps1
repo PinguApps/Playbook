@@ -29,7 +29,7 @@ try {
   if (-not $framework.Count) { throw 'Install the declared .NET 10 reference pack.' }
   $assets = @(
     @{ identity = 'SDK 10.0.403'; asset = 'FSharp/FSharp.Core.dll'; file = (Join-Path $sdk 'FSharp/FSharp.Core.dll') },
-    @{ identity = 'SDK 11.0.100-rc.3.26522.148'; asset = 'FSharp/FSharp.Core.dll'; file = (Join-Path $Net11Root 'sdk/11.0.100-rc.3.26522.148/FSharp/FSharp.Core.dll') }
+    @{ identity = 'SDK 11.0.100'; asset = 'FSharp/FSharp.Core.dll'; file = (Join-Path $Net11Root 'sdk/11.0.100/FSharp/FSharp.Core.dll') }
   )
   foreach ($package in $inputs.packages) {
     $archive = Join-Path $scratch "$($package.id).$($package.version).nupkg"

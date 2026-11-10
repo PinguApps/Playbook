@@ -13,8 +13,6 @@
     <EnableSourceControlManagerQueries>false</EnableSourceControlManagerQueries>
     <EnableSourceLink>false</EnableSourceLink>
     <EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
-    <!-- RC2 source generation expands component parameters but misses HTML metadata. -->
-    <UseRazorSourceGenerator>false</UseRazorSourceGenerator>
   </PropertyGroup>
 </Project>
 <!-- endsnippet:complete -->

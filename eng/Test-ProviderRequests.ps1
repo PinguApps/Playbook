@@ -29,7 +29,7 @@ try {
  }
  $archive=Join-Path $root 'artifacts/provider-keys/runtime11-rc3.tar.gz'
  $null=New-Item -ItemType Directory (Split-Path $archive) -Force
- if(!(Test-Path $archive)){Invoke-WebRequest 'https://builds.dotnet.microsoft.com/dotnet/Runtime/11.0.0-rc.3.26522.148/dotnet-runtime-11.0.0-rc.3.26522.148-linux-x64.tar.gz' -OutFile $archive}
+ if(!(Test-Path $archive)){Invoke-WebRequest 'https://builds.dotnet.microsoft.com/dotnet/Runtime/11.0.0/dotnet-runtime-11.0.0-linux-x64.tar.gz' -OutFile $archive}
  # Microsoft's versioned archive .sha512: check both cached and newly downloaded bytes before extraction.
  $expectedArchiveHash='3b059283f689d4338a2dee33e1b433f2218f9d754e25b96821ff68281ea5d0f354d4f284bba00d8b594cf2c166531593b538e3f8308a349ca6e844ee74c03ebb'
  if((Get-FileHash $archive -Algorithm SHA512).Hash.ToLowerInvariant() -cne $expectedArchiveHash){throw 'Runtime archive SHA512 mismatch; no extraction performed.'}

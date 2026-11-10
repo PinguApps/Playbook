@@ -38,8 +38,8 @@ try {
   }
   foreach ($variant in 'net10.0','net11.0') {
     $dotnet = if ($variant -eq 'net10.0') { $Net10Dotnet } else { $Net11Dotnet }
-    $sdk = if ($variant -eq 'net10.0') { '10.0.403' } else { '11.0.100-rc.3.26522.148' }
-    $ref = if ($variant -eq 'net10.0') { '10.0.14' } else { '11.0.0-rc.3.26522.148' }
+    $sdk = if ($variant -eq 'net10.0') { '10.0.403' } else { '11.0.100' }
+    $ref = if ($variant -eq 'net10.0') { '10.0.14' } else { '11.0.0' }
     foreach ($name in $SampleNames) {
       $sample = "samples/$variant/$name/$name.csproj"
       $kind = if ($name -eq 'ArchiveManifest') { 'compile' } else { 'compile-and-run' }
@@ -87,7 +87,7 @@ try {
       if ($name -eq 'ArchiveManifest') {
         $image = if ($variant -eq 'net10.0') {
           'mcr.microsoft.com/dotnet/runtime@sha256:6b0cde57a2d55aa6ef5b9c9eafbc156e3c0e0b7c114134111103bc0a3e474517'
-        } else { 'mcr.microsoft.com/dotnet/runtime@sha256:811515cabb3edf04bbbef8da41adbd51beb7f973716046d80de77822d2c1dece' }
+        } else { 'mcr.microsoft.com/dotnet/runtime@sha256:3fe5f5495141c97986a49d3a4e76061f6225c3f93f94e8a7e522781376193863' }
         $docker = 'C:/Program Files/Docker/Docker/resources/bin/docker.exe'
         $beforeInputs = Get-EvidenceInputs $root $sample
         $record.kind = 'execution'; $record.output = ''; $record.command = ''

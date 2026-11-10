@@ -2,8 +2,8 @@
   "10.0.403": [
     {
       "path": "../../dotnet.exe",
-      "sha256": "d443bda8c97450ab5d90ba48376414170068dc7da82ce2b3dfa0b32ef2dd3476",
-      "product": "11.0.0-rc.3.26522.148 @Commit: 5254d8bcf59917edc1e1abc33bdf2442b77b1c70"
+      "sha256": "56428a0bbb054f1b4a9d4fb221aa3c008b1a7579090d14a246294107f05acb66",
+      "product": "11.0.0 @Commit: 297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f"
     },
     {
       "path": "../../host/fxr/10.0.14/hostfxr.dll",
@@ -76,65 +76,65 @@
       "sha256": "4b9a70125e6a5fc8bbd5ed6d535a5bac885b0face4ed1052eacbc23035bea818"
     }
   ],
-  "11.0.100-rc.3.26522.148": [
+  "11.0.100": [
     {
       "path": "../../dotnet.exe",
-      "sha256": "d443bda8c97450ab5d90ba48376414170068dc7da82ce2b3dfa0b32ef2dd3476",
-      "product": "11.0.0-rc.3.26522.148 @Commit: 5254d8bcf59917edc1e1abc33bdf2442b77b1c70"
+      "sha256": "56428a0bbb054f1b4a9d4fb221aa3c008b1a7579090d14a246294107f05acb66",
+      "product": "11.0.0 @Commit: 297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f"
     },
     {
-      "path": "../../host/fxr/11.0.0-rc.3.26522.148/hostfxr.dll",
-      "sha256": "5cab1c94d75f7b1d709bf18684a46f9cc0788059b745594e44fb1d521ca2d111",
-      "product": "11.0.0-rc.3.26522.148 @Commit: 5254d8bcf59917edc1e1abc33bdf2442b77b1c70"
+      "path": "../../host/fxr/11.0.0/hostfxr.dll",
+      "sha256": "be21f1cb81f19454f7e5f5d599e69bc240e8087e3c527a453b2caf2af96814d2",
+      "product": "11.0.0 @Commit: 297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f"
     },
     {
-      "path": "../../packs/Microsoft.NETCore.App.Ref/11.0.0-rc.3.26522.148/ref/net11.0/System.Runtime.dll",
-      "sha256": "ea358813fe5a242da6941ca041575ee0dab159028f533ec37786dd54e64618b4",
-      "product": "11.0.0-rc.3.26522.148+5254d8bcf59917edc1e1abc33bdf2442b77b1c70"
+      "path": "../../packs/Microsoft.NETCore.App.Ref/11.0.0/ref/net11.0/System.Runtime.dll",
+      "sha256": "bf6f2f2426dc1d43078c1aa0310264459c9d3d115f55eb7ec15027381816f46e",
+      "product": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f"
     },
     {
-      "path": "../../shared/Microsoft.NETCore.App/11.0.0-rc.3.26522.148/coreclr.dll",
-      "sha256": "46a09d97ad8dd30d400a86c90af707bee7593b585d3ccb8586c4fffca404d1e2",
-      "product": "11,0,26,52348 @Commit: 5254d8bcf59917edc1e1abc33bdf2442b77b1c70"
+      "path": "../../shared/Microsoft.NETCore.App/11.0.0/coreclr.dll",
+      "sha256": "606465533979071e8a38855ca5a7cb581dd02c810b77879857920250b063ac7b",
+      "product": "11,0,26,53018 @Commit: 297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f"
     },
     {
-      "path": "../../shared/Microsoft.NETCore.App/11.0.0-rc.3.26522.148/hostpolicy.dll",
-      "sha256": "4a24f6bf63c024520a8121e4e82b5003cf81ce61f3f48f2a4b84976f27aca055",
-      "product": "11.0.0-rc.3.26522.148 @Commit: 5254d8bcf59917edc1e1abc33bdf2442b77b1c70"
+      "path": "../../shared/Microsoft.NETCore.App/11.0.0/hostpolicy.dll",
+      "sha256": "8ed8431eec0d2f299af81ad2a61f46ac8a2f6fd2ea6506ad8117cb2cff250797",
+      "product": "11.0.0 @Commit: 297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f"
     },
     {
       "path": "Microsoft.Build.dll",
-      "sha256": "b77b9eab540ee37d6838d42a05345b9ddf6f595b9016d3a7c89ab788954caaa5",
-      "product": "18.12.0-1.26522.148+5254d8bcf59917edc1e1abc33bdf2442b77b1c70"
+      "sha256": "3718f3e1e9d7ab120ffd5c83ad805391f76fed60833fc75cfa2d41f110dd9438",
+      "product": "18.12.2-1.26529.118+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f"
     },
     {
       "path": "Microsoft.CodeAnalysis.CSharp.dll",
-      "sha256": "25ed04eabedf0b2acf994d4606f4fd40328379106156c028aeb7d4a75154f442",
-      "product": "5.12.0-1.26522.148+5254d8bcf59917edc1e1abc33bdf2442b77b1c70"
+      "sha256": "4caaec68ef7d6648d913dfe64131e939f1b8cb8ba66d79df7641803c3c774735",
+      "product": "5.12.0-1.26529.118+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f"
     },
     {
       "path": "NuGet.Build.Tasks.dll",
-      "sha256": "f2033fa96bf48a49eb1b4911f42c311428c1a09f80629ab35f642a7d82ab095d",
-      "product": "8.0.0-rc.2448+5254d8bcf59917edc1e1abc33bdf2442b77b1c70.5254d8bcf59917edc1e1abc33bdf2442b77b1c70"
+      "sha256": "de25414eb20a0139b59c20dea49bffa15c4df9cdffce3a48e833fc019c3766e7",
+      "product": "8.0.0-rc.53118+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f.297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f"
     },
     {
       "path": "NuGet.Commands.dll",
-      "sha256": "ea800a71d4d8403c59de647e7c3d5032d55bf0c45f9f0468d5f19900a3f0474c",
-      "product": "8.0.0-rc.2448+5254d8bcf59917edc1e1abc33bdf2442b77b1c70.5254d8bcf59917edc1e1abc33bdf2442b77b1c70"
+      "sha256": "a16eaf9aac5e58cf87215781e0d3119d8186ad131d45a34f0d5d91f730857fc6",
+      "product": "8.0.0-rc.53118+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f.297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f"
     },
     {
       "path": "NuGet.ProjectModel.dll",
-      "sha256": "0fb1753b53881a0592bf2b1b59f096a00b4cf0d1e5492dd902196897ef8cf823",
-      "product": "8.0.0-rc.2448+5254d8bcf59917edc1e1abc33bdf2442b77b1c70.5254d8bcf59917edc1e1abc33bdf2442b77b1c70"
+      "sha256": "91ad20d1f4755990c2d09496dc87e2be1d1aa8ae1fd30c012a12cbcd77394bcf",
+      "product": "8.0.0-rc.53118+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f.297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f"
     },
     {
-      "product": "5.12.0-1.26522.148+5254d8bcf59917edc1e1abc33bdf2442b77b1c70",
-      "sha256": "a3c6fcd1fb9ae921a985e7d55f79ce921eee79a5a61a11f6d8ce9776baf81172",
+      "product": "5.12.0-1.26529.118+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "f468d8dc285bccf5ea3b7fbb415aa6d8b42a6bf80be9a91d5e91530a40f274eb",
       "path": "Roslyn/bincore/csc.dll"
     },
     {
-      "product": "5.12.0-1.26522.148+5254d8bcf59917edc1e1abc33bdf2442b77b1c70",
-      "sha256": "25ed04eabedf0b2acf994d4606f4fd40328379106156c028aeb7d4a75154f442",
+      "product": "5.12.0-1.26529.118+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "4caaec68ef7d6648d913dfe64131e939f1b8cb8ba66d79df7641803c3c774735",
       "path": "Roslyn/bincore/Microsoft.CodeAnalysis.CSharp.dll"
     },
     {
@@ -143,7 +143,7 @@
       "product": null
     },
     {
-      "sha256": "0b8eb8ac02a4812dbffdd86d7ef4d183f5b3021ffced98869e2d7cf1122452e5",
+      "sha256": "91278a03c4dbcadc5213db18587084daef918378efa1e12cc3e75205e7446660",
       "path": "Sdks/Microsoft.NET.Sdk/targets/Microsoft.NET.Publish.targets",
       "product": null
     },

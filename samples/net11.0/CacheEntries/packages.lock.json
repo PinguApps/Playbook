@@ -4,9 +4,9 @@
     "net11.0": {
       "Microsoft.Extensions.Caching.Abstractions": {
         "type": "Direct",
-        "requested": "[11.0.0-rc.2.26504.105, )",
-        "resolved": "11.0.0-rc.2.26504.105",
-        "contentHash": "HD/8Zn9A5LpGdmXwN/yF+vGx5wJG+OckstR1kIhh1lmLcGD73Yojka65amBHXKG+213WOeJ9kec1QnTTKHk0RA=="
+        "requested": "[11.0.0, )",
+        "resolved": "11.0.0",
+        "contentHash": "L+eahU5QGaFaCau3Y9qqY7WThUsR18sHASVDD1KuaSx2dy73NOY9U5Qz5eOe6bJOF3wHzkEaCl2LZhgwtlClyw=="
       },
       "Microsoft.Extensions.Caching.Hybrid": {
         "type": "Direct",

@@ -1,6 +1,6 @@
 {
   "dependencies": [
-    "Microsoft.Extensions.Options/11.0.0-rc.2.26504.105"
+    "Microsoft.Extensions.Options/11.0.0"
   ],
   "workloads": [],
   "buildArguments": [],

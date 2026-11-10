@@ -14,7 +14,7 @@ try {
     $run = Join-Path $root ('artifacts/plover-bundles-' + [guid]::NewGuid().ToString('N'))
     New-Item -ItemType Directory $run -Force | Out-Null
     foreach ($release in '10','11') {
-        $version = if ($release -eq '10') { '10.0.13' } else { '11.0.0-rc.2.26504.105' }
+        $version = if ($release -eq '10') { '10.0.13' } else { '11.0.0' }
         $proof = @()
         if ($Record) { & "$PSScriptRoot/Record-Evidence.ps1" -Sample "samples/net$release.0/PloverBundle/PloverBundle.csproj" -Dotnet $dotnet -Kind compile }
         $tools = Join-Path $run "tools$release"

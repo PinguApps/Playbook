@@ -1,7 +1,7 @@
 {
   "dependencies": [
-    "System.Security.Cryptography.Pkcs/11.0.0-rc.2.26504.105",
-    "System.Security.Cryptography.Xml/11.0.0-rc.2.26504.105"
+    "System.Security.Cryptography.Pkcs/11.0.0",
+    "System.Security.Cryptography.Xml/11.0.0"
   ],
   "additionalInputs": [
     "samples/PermitManifest/SignatureChecks.cs",

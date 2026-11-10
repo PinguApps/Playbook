@@ -20,7 +20,7 @@ $integration = $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH
 # The map is batch-wide; each sample's independent lock/manifest graph is checked
 # before compilation or evidence capture in both operating modes.
 $additionalPackages = @{}
-foreach ($version in '10.0.13','11.0.0-rc.2.26504.105') {
+foreach ($version in '10.0.13','11.0.0') {
   foreach ($id in @('Microsoft.Data.Sqlite.Core','Microsoft.EntityFrameworkCore.Abstractions',
       'Microsoft.EntityFrameworkCore.Analyzers','Microsoft.EntityFrameworkCore.Relational',
       'Microsoft.EntityFrameworkCore.Sqlite.Core','Microsoft.EntityFrameworkCore.Sqlite',
@@ -162,8 +162,8 @@ try {
             & $dotnetHost build -c Release --no-restore
           }
         }
-        $framework = if ($release -eq '10') { '10.0.14' } else { '11.0.0-rc.3.26522.148' }
-        $sdk = if ($release -eq '10') { '10.0.403' } else { '11.0.100-rc.3.26522.148' }
+        $framework = if ($release -eq '10') { '10.0.14' } else { '11.0.0' }
+        $sdk = if ($release -eq '10') { '10.0.403' } else { '11.0.100' }
         $installation = Split-Path $dotnetHost -Parent
         foreach ($assembly in 'Microsoft.AspNetCore.Server.Kestrel.Core.dll','Microsoft.AspNetCore.Http.Abstractions.dll') {
           $file = Join-Path $installation "packs/Microsoft.AspNetCore.App.Ref/$framework/ref/net$release.0/$assembly"

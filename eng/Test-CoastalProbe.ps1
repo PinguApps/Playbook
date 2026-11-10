@@ -56,7 +56,7 @@ try {
         $sample = 'samples/net11.0/CoastalProbe/CoastalProbe.csproj'
         $receipt = [ordered]@{
             kind='official-review'; sample=$sample; target='net11.0-android37.2'
-            sdk='11.0.100-rc.3.26522.148'; language='15.0'
+            sdk='11.0.100'; language='15.0'
             command='eng/Test-CoastalProbe.ps1 -Record'
             scope='Exact pinned sources and Android RC2 manifest/reference artifact hashes; actual JavaFinalize obsolete metadata. Native compilation/execution not-tested under PIN-699.'
             recordedAt=[DateTimeOffset]::UtcNow.ToString('O')

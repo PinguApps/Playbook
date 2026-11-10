@@ -82,7 +82,7 @@ try {
   $cases = @(
     @{Path='LaboratoryMessages';Target='net10.0';Sdk='10.0.403';Language='14.0';Version='18.7.0';Dotnet=$Net10Dotnet;Name='old10'},
     @{Path='net10.0/LaboratoryBridge';Target='net10.0';Sdk='10.0.403';Language='14.0';Version='18.11.0';Dotnet=$Net10Dotnet;Name='current10'},
-    @{Path='net11.0/LaboratoryBridge';Target='net11.0';Sdk='11.0.100-rc.3.26522.148';Language='15.0';Version='18.11.0';Dotnet=$Net11Dotnet;Name='current11'}
+    @{Path='net11.0/LaboratoryBridge';Target='net11.0';Sdk='11.0.100';Language='15.0';Version='18.11.0';Dotnet=$Net11Dotnet;Name='current11'}
   )
   $captures = @()
   foreach ($case in $cases) {

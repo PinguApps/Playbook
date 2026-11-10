@@ -14,7 +14,7 @@
     <Compile Remove="App/**/*.cs" />
     <Content Remove="App/**" />
     <ProjectReference Include="App/StrataApi.csproj" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="[11.0.0-rc.2.26504.105]" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="[11.0.0]" />
   </ItemGroup>
 </Project>
 <!-- endsnippet:complete -->

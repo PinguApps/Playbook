@@ -12,9 +12,9 @@
     <EnableSourceLink>false</EnableSourceLink>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="[11.0.0-rc.2.26504.105]" />
-    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="[11.0.0-rc.2.26504.105]" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="[11.0.0-rc.2.26504.105]" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="[11.0.0]" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="[11.0.0]" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="[11.0.0]" />
   </ItemGroup>
 </Project>
 <!-- endsnippet:complete -->

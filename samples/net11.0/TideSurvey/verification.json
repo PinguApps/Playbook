@@ -18,7 +18,7 @@
     "Grpc.Net.ClientFactory/2.64.0",
     "Grpc.Net.Common/2.64.0",
     "Grpc.Tools/2.64.0",
-    "Microsoft.AspNetCore.Grpc.JsonTranscoding/11.0.0-rc.2.26504.105"
+    "Microsoft.AspNetCore.Grpc.JsonTranscoding/11.0.0"
   ],
   "nativeToolchains": [
     "protoc/26.1",

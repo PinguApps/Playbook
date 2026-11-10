@@ -10,7 +10,8 @@
     <PackageReference Include="xunit.v3.mtp-off" />
     <PackageReference Include="xunit.runner.visualstudio" PrivateAssets="all" />
   </ItemGroup>
-  <Target Name="RequireGaSdk" BeforeTargets="PrepareForBuild;GenerateNuspec">
+  <Target Name="RequireGaSdk" BeforeTargets="PrepareForBuild;GenerateNuspec"
+          Condition="'$(MSBuildProjectName)' == 'PinguApps.Playbook' or '$(MSBuildProjectName)' == 'PinguApps.Playbook.Tests'">
     <Error Condition="'$(NETCoreSdkVersion)' != '11.0.100'" Text="Playbook builds and packages require the .NET 11 GA SDK 11.0.100 exactly." />
   </Target>
 </Project>

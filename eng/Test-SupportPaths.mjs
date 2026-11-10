@@ -36,7 +36,7 @@ try {
             await page.waitForFunction(() => globalThis.proof, undefined, { timeout: 60000 });
             const proof = await page.evaluate(() => globalThis.proof);
             assert.ok(!proof.error, JSON.stringify({ proof, messages: messages.slice(0, 5) }));
-            assert.ok(proof.result.startsWith('PASS ReedStation: .NET ' + (target === 'net10.0' ? '10.0.14' : '11.0.0-rc.3.26522.148')));
+            assert.ok(proof.result.startsWith('PASS ReedStation: .NET ' + (target === 'net10.0' ? '10.0.14' : '11.0.0')));
             assert.ok(proof.result.includes('threads=False; score=48; cancellation=passed; manualRefresh=1'));
                         const artifacts = [];
             const framework = resolve(directory, '_framework');
