@@ -1,6 +1,6 @@
 # F# lifetimes evidence
 
-Historical October 2026 authoring observations. Follow the [evidence reuse policy](../contributing.md#choose-the-check-and-retain-its-result).
+Historical October 2026 authoring observations. Current GA commands, asset identities and retained limitations are in the [GA refresh audit](../planning/audits/ga-language-contracts.md#f-ga-refresh). Follow the [evidence reuse policy](../contributing.md#choose-the-check-and-retain-its-result).
 [Original capture and detailed provenance](https://github.com/PinguApps/Playbook/blob/e60419660a082da40dfc1bd8f0667401677c53f3/docs/verification/PIN-982-984.md).
 
 ## Matching source and actual assets

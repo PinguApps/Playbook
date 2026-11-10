@@ -29,10 +29,12 @@ F# 11 string-typed interpolation uses invariant formatting for ordinary holes. P
 - Ordinary and .NET-formatted interpolation holes use the new lowering; printf-format holes such as %A{value} retain the printf path and must not be used to claim reflection-free behavior.
 - Explicit scalar formatting does not give arbitrary nested objects the requested culture. Format their members yourself or provide an appropriate formatter.
 
-No provider, workload or rendering mode is required. The declared samples run on Windows with .NET 10 and .NET 11 RC2; other .NET-supported platforms require their normal runtime and globalization support. No older-target SDK/package route is advertised.
+No provider, workload or rendering mode is required. The declared samples run on Windows with .NET 10 and .NET 11 GA; other .NET-supported platforms require their normal runtime and globalization support. No older-target SDK/package route is advertised.
 
 ## Evidence
 
-The exact SDK pins, resolved FSharp.Core dependencies, input hashes, build commands and actual execution output accompany this recipe. The saved records cover the .NET 10 and .NET 11 samples. The separate compiler probe confirms stable spreads, preview constructor rejection/acceptance and ordinary culture formatting. Reflection-free diagnostics use their own --reflectionfree executable; ordinary formatting is not substituted for that evidence. No trimmed or Native AOT publish/run, cross-compilation or mocks are claimed. RC3 evidence is not GA verification.
+The exact SDK pins, resolved FSharp.Core dependencies, input hashes, build commands and actual execution output accompany this recipe. The saved records cover the .NET 10 and .NET 11 samples. The separate compiler probe confirms stable spreads, preview constructor rejection/acceptance and ordinary culture formatting. Reflection-free diagnostics use their own --reflectionfree executable; ordinary formatting is not substituted for that evidence. No trimmed or Native AOT publish/run, cross-compilation or mocks are claimed. Fresh GA records replace the retained historical RC records.
 
 Official sources: [F# 11 interpolation lowering and invariant culture](https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/rc1/fsharp.md); [Culture-aware formatting contract](https://learn.microsoft.com/en-us/dotnet/standard/base-types/formatting-types).
+
+GA refresh: SDK 11.0.100, runtime 11.0.0 and FSharp.Core 11.0.101 were used for the newer consumer. Historical RC observations remain in Git at 307dc932. Experimental language modes remain required. See docs/planning/audits/ga-language-contracts.md for the bounded checks and exclusions.

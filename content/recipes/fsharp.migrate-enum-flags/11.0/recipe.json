@@ -74,7 +74,7 @@
           },
           "workloads": [],
           "stabilityLimitations": [
-            "RC2 evidence; GA reconciliation pending."
+            "GA SDK 11.0.100 execution; experimental language gates remain explicit."
           ],
           "renderingModes": [],
           "optIns": [],
@@ -88,7 +88,7 @@
               "name": "FSharp.Core",
               "version": "11.0",
               "match": "release-family",
-              "reason": "FSharp.Core 11 is the library dependency for this edition; the exact compiled RC2 version is recorded separately in evidence."
+              "reason": "FSharp.Core 11 is the library dependency for this edition; the exact compiled GA version is recorded separately in evidence."
             }
           ]
         },
@@ -113,15 +113,15 @@
       "sdk": "10.0.403",
       "language": "10.0",
       "kind": "compile-and-run",
-      "scope": "Actual FSharpFlags compilation and managed execution including flags assertions; separate compiler/external-consumer probes in eng/Test-FSharpBoundaries.ps1. No mocks, cross-compilation, native/AOT deployment or GA execution claimed."
+      "scope": "Actual FSharpFlags compilation and managed execution including flags assertions; separate compiler/external-consumer probes in eng/Test-FSharpBoundaries.ps1. No mocks, cross-compilation, native/AOT deployment or all-platform execution claimed."
     },
     {
       "sample": "samples/net11.0/FSharpFlags/FSharpFlags.fsproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "11.0",
       "kind": "compile-and-run",
-      "scope": "Actual FSharpFlags compilation and managed execution including flags assertions; separate compiler/external-consumer probes in eng/Test-FSharpBoundaries.ps1. No mocks, cross-compilation, native/AOT deployment or GA execution claimed."
+      "scope": "Actual FSharpFlags compilation and managed execution including flags assertions; separate compiler/external-consumer probes in eng/Test-FSharpBoundaries.ps1. No mocks, cross-compilation, native/AOT deployment or all-platform execution claimed."
     }
   ],
   "snippets": {
@@ -138,6 +138,6 @@
   },
   "humanProof": {
     "status": "not-required",
-    "scope": "Managed compiler/runtime and emitted XML claims need no provider or UI. IDE rendering, native deployment and GA verification are not claimed."
+    "scope": "Managed compiler/runtime and emitted XML claims need no provider or UI. IDE rendering, native deployment and all-platform verification are not claimed."
   }
 }

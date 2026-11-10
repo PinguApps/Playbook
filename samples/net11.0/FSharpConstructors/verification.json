@@ -7,7 +7,7 @@
     "eng/Test-FSharpGuidance.ps1"
   ],
   "dependencies": [
-    "FSharp.Core/11.0.101-rc2.26504.105"
+    "FSharp.Core/11.0.101"
   ],
   "nativeToolchains": []
 }

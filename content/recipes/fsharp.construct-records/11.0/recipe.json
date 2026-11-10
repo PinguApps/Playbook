@@ -94,7 +94,7 @@
               "name": "FSharp.Core",
               "version": "11.0",
               "match": "release-family",
-              "reason": "FSharp.Core 11 is the library dependency for this edition; the exact compiled RC2 version is recorded separately in evidence."
+              "reason": "FSharp.Core 11 is the library dependency for this edition; the exact compiled GA version is recorded separately in evidence."
             }
           ]
         },
@@ -119,15 +119,15 @@
       "sdk": "10.0.403",
       "language": "10.0",
       "kind": "compile-and-run",
-      "scope": "Original construct comparison: real compilation and execution of all assertions in FSharpConstructors. Separate compiler and ordinary formatting probes run in eng/Test-FSharpGuidance.ps1. No mocks, native publish or GA execution claimed."
+      "scope": "Original construct comparison: real compilation and execution of all assertions in FSharpConstructors. Separate compiler and ordinary formatting probes run in eng/Test-FSharpGuidance.ps1. No mocks, native publish or all-platform execution claimed."
     },
     {
       "sample": "samples/net11.0/FSharpConstructors/FSharpConstructors.fsproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "preview",
       "kind": "compile-and-run",
-      "scope": "Original construct comparison: real compilation and execution of all assertions in FSharpConstructors. Separate compiler and ordinary formatting probes run in eng/Test-FSharpGuidance.ps1. No mocks, native publish or GA execution claimed."
+      "scope": "Original construct comparison: real compilation and execution of all assertions in FSharpConstructors. Separate compiler and ordinary formatting probes run in eng/Test-FSharpGuidance.ps1. No mocks, native publish or all-platform execution claimed."
     }
   ],
   "snippets": {

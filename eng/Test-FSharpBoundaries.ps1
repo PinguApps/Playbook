@@ -22,7 +22,7 @@ try {
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors><DisableImplicitFSharpCoreReference>true</DisableImplicitFSharpCoreReference>
     <DisableImplicitLibraryPacksFolder>true</DisableImplicitLibraryPacksFolder><RestorePackagesPath>$packages</RestorePackagesPath>
   </PropertyGroup>
-  <ItemGroup><PackageReference Include="FSharp.Core" Version="11.0.101-rc2.26504.105" />
+  <ItemGroup><PackageReference Include="FSharp.Core" Version="11.0.101" />
     <ProjectReference Include="$reference" /><Compile Include="Probe.fs" />
   </ItemGroup>
 </Project>

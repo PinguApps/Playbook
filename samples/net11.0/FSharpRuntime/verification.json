@@ -1,12 +1,12 @@
 {
   "dependencies": [
-    "FSharp.Core/11.0.101-rc2.26504.105"
+    "FSharp.Core/11.0.101"
   ],
   "buildArguments": [],
   "additionalInputs": [
     "eng/Record-Evidence.ps1",
     "eng/Evidence.ps1",
-    "eng/Test-RuntimeAsync.ps1"
+    "eng/Test-FSharpRuntimeGa.ps1"
   ],
   "workloads": [],
   "nativeToolchains": []

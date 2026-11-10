@@ -114,3 +114,82 @@ Compiler migration controls preserve the SDK10.0.100 accepted Span escape and
 legacy dynamic binder failures, then require CS8352/CS7083 on serviced .NET 10
 and GA .NET 11. No fabricated references or new historical foundation is added.
 PIN-967 remains the global stable-readiness gate; this refresh does not close it.
+
+## F# GA refresh
+
+PIN-1288 refreshes sixteen edition 11 recipes and their twelve .NET 11 consumers.
+The two FCS/package-host recipes remain with PIN-1289. Historical RC pins,
+receipts and failures remain available at `307dc932a162370fd4c7166152a31a1e03c5a8ef`;
+the original contract/source manifests above are retained unchanged.
+
+Actual SDK 11.0.100/runtime 11.0.0 and restored FSharp.Core 11.0.101
+(`lib/net10.0/FSharp.Core.dll`) compile and execute the newer consumers.
+Record constructors, extension SRTP, named arguments, computation rethrow and
+runtime async still require preview; GA does not promote those language gates.
+The supplied named-argument attribute is still required: the GA BCL lacks it.
+External SRTP calls with the defining module open pass; ordinary F#11 and a
+missing module still fail FS0193. An inline forwarding call in separate FSI
+fragments also passes, assessing the witness-preservation/FSI cache source delta
+without claiming exhaustive compiler regression coverage or adding a new recipe.
+
+Actual pending Task/ValueTask waits, failure identity, asynchronous builder cleanup,
+sequence cancellation, early/exhaustion/nested disposal and exception precedence
+pass. The separately reproduced pending Task<int>-to-Task upcast still raises
+InvalidProgramException on GA; the bounded builder keeps its real non-generic Task
+route. FSI loads the SDK net10 Core (SHA256
+`48d8d12b8b0e7b7b24d132d24a8f0460cdd20806c06e410c0c16bc4c378913b8`):
+all four gated cleanup cases complete exactly once. Ordinary task Using still loses
+a pending cleanup exception; the unchanged explicit cleanup alternative propagates
+it. These retained RC limitations are not silently declared fixed.
+
+Windows x64 native publish/run passes with ILCompiler/linker 11.0.0, MSVC
+14.51.36231 and WindowsSDK 10.0.26100.0. All three Based calls fail IL3050,
+including literal-zero bases; the migrated native executable reports dynamic
+code=False. Linux/macOS native execution is not-tested; no cross-platform,
+runtime-async AOT or debugger claim is made. Older .NET 10 pins remain unchanged;
+records depending on changed probe scripts were refreshed with SDK10.0.403.
+PIN-967 remains the global stable gate. No release/package publication is authorized.
+
+Focused commands (PowerShell7; native compiler prerequisites as above):
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-1ead8027'
+$env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH = '0'
+$ga = 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe'
+& ./eng/Test-FSharpGuidance.ps1 -Net11Dotnet $ga
+& ./eng/Test-FSharpBoundaries.ps1 -Net11Dotnet $ga
+& ./eng/Test-FSharpRuntimeGa.ps1 -Net11Dotnet $ga
+& ./eng/Test-FSharpGaInterop.ps1 -Net11Dotnet $ga
+& ./eng/Test-FSharpLifetimes.ps1 -Net11Dotnet $ga
+```
+
+Each command must exit successfully. Expected negative diagnostics are printed as
+PASS controls. The original shared runtime-async runner reached its F# controls,
+then failed on an incomplete RC SDK used by its unrelated C# section; the focused
+GA runner avoids that dependency. The root SDK10.0.403 installation was also
+incomplete; an untracked portable installation under ignored artifacts restored
+build capability without changing PATH. User/machine PATH comparisons passed.
+
+Installed discovery/detail reproduction (the inspected local package is never published):
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-1ead8027'
+$env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH = '0'
+& 'C:\Users\pingu\.dotnetup\dotnetup.exe' install 10.0.403 --install-path 'V:\_worktrees\Playbook\t3-1ead8027\artifacts\dotnet10' --untracked --no-progress
+$host10 = 'V:\_worktrees\Playbook\t3-1ead8027\artifacts\dotnet10\dotnet.exe'
+& $host10 build ./src/PinguApps.Playbook -c Release -p:Version=0.0.0-preview.1288
+& $host10 pack ./src/PinguApps.Playbook -c Release --no-build -p:PackageVersion=0.0.0-preview.1288 --output ./artifacts
+$ids = @(Get-ChildItem ./content/recipes -Directory -Filter 'fsharp.*' |
+  Where-Object Name -notin @('fsharp.adapt-opaque-callbacks','fsharp.configure-compiler-service-memory') |
+  Select-Object -ExpandProperty Name)
+$ids += 'json.serialize-fsharp-unions'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 -RecipeId $ids -Query '' `
+  -RecipeEdition 11.0 -TargetVersion 11.0 -PackageVersion 0.0.0-preview.1288 `
+  -Dotnet $host10 -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory ./artifacts/pin-1288/inspection
+```
+
+Expect seventeen ID/title/goal entries (sixteen F# recipes plus the shared JSON union consumer), complete canonical Markdown and applicability,
+including experimental gates and retained cleanup/upcast limitations. The harness
+installs the actual local artifact and calls list/get through stdio from an
+unrelated directory. This proves served guidance, not other-platform execution.

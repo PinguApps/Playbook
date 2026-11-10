@@ -19,7 +19,7 @@ try {
   Copy-Item (Join-Path $root 'NuGet.Config') $scratch
   Push-Location $scratch
   try {
-    $core = Join-Path $root 'artifacts/fsharp-packages/fsharp.core/11.0.101-rc2.26504.105/lib/net10.0/FSharp.Core.dll'
+    $core = Join-Path $root 'artifacts/fsharp-packages/fsharp.core/11.0.101/lib/net10.0/FSharp.Core.dll'
     $cases = @(
       @{ Name = 'sequence preview gate'; Target = 'net11.0'; Language = '11.0'; Pattern = 'FS3350'; Body = 'let values () = __runtimeAsyncSequence (fun () -> seq { yield 31 })' },
       @{ Name = 'sequence runtime reference gate'; Target = 'net9.0'; Language = 'preview'; Pattern = 'FS3351'; Body = 'let values () = __runtimeAsyncSequence (fun () -> seq { yield 31 })' },

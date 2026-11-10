@@ -22,7 +22,7 @@ Inside the computation handler, return reraise () preserves the failure and orig
 2. Keep necessary logging or cleanup without replacing the exception with raise error, which can reset its stack. Preserve the result type with return reraise () here.
 3. Await both paths and inspect the exception at the outer boundary. Retain ExceptionDispatchInfo where preview is unsuitable.
 
-Use .NET 11 SDK, net11.0 and FSharp.Core 11; exact evidence pins are SDK 11.0.100-rc.3.26522.148 and FSharp.Core 11.0.101-rc2.26504.105, selecting lib/net10.0. The comparison pins SDK 10.0.403 and FSharp.Core 10.1.402 (lib/netstandard2.1). Set LangVersion to preview for the newer example and 10.0 for the comparison.
+Use .NET 11 SDK, net11.0 and FSharp.Core 11; exact evidence pins are SDK 11.0.100 and FSharp.Core 11.0.101, selecting lib/net10.0. The comparison pins SDK 10.0.403 and FSharp.Core 10.1.402 (lib/netstandard2.1). Set LangVersion to preview for the newer example and 10.0 for the comparison.
 
 ## Constraints
 
@@ -33,6 +33,8 @@ No provider, workload or rendering mode is required. This edition supports net11
 
 ## Evidence
 
-Saved records contain exact build/run commands, actual outputs, resolved packages, authoring host and input hashes for both canonical projects. The real installed-tool harness checks full Markdown and applicability offline. Compiler and external-consumer checks run separately in eng/Test-FSharpBoundaries.ps1. This is actual managed execution on the recorded host, not a mock or cross-compilation. No IDE tooltip, trimmed/Native AOT publish, UI framework, all-platform or GA verification is claimed. RC2 evidence must be reconciled at GA.
+Saved records contain exact build/run commands, actual outputs, resolved packages, authoring host and input hashes for both canonical projects. The real installed-tool harness checks full Markdown and applicability offline. Compiler and external-consumer checks run separately in eng/Test-FSharpBoundaries.ps1. This is actual managed execution on the recorded host, not a mock or cross-compilation. No IDE tooltip, trimmed/Native AOT publish, UI framework, all-platform verification is claimed. GA compilation and bounded execution are recorded; historical RC evidence remains in Git.
 
 Official sources: [Official F# release contract](https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/rc2/fsharp.md); [F# implementation and tests](https://github.com/dotnet/fsharp/pull/20405).
+
+GA refresh: SDK 11.0.100, runtime 11.0.0 and FSharp.Core 11.0.101 were used for the newer consumer. Historical RC observations remain in Git at 307dc932. Experimental language modes remain required. See docs/planning/audits/ga-language-contracts.md for the bounded checks and exclusions.
