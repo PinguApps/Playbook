@@ -88,3 +88,29 @@ Expected: PASS after exact retained artifact/source/catalogue comparison, 29 edi
 and FCS release-note deltas. Source hashes and installed product identities are
 recorded, not asserted to be fresh execution evidence. No build, FSI behavior,
 Native AOT, GA package-host restore or installed MCP check is claimed here.
+
+## C# GA compiler refresh
+
+PIN-1287 retains the RC audit and historical receipts in Git at
+`0d455e8759b6a7181f79568e8da5d294f5c9171b`; new receipts record actual GA runs.
+SDK 11.0.100 (Roslyn 5.12.0-1.26529.118), runtime and reference pack 11.0.0
+were used for the nine C# recipes. The shared ClosedOutcomes consumer also
+requires the two JSON recipes' evidence SDK declarations to follow its pin.
+ReadonlyMetadata follows the same compiler-migration runner and GA artifact set.
+Older .NET 10 pins and language modes remain unchanged. Refreshed .NET 10
+receipts account for the runner/input hash changes rather than claiming GA there.
+
+The GA breaking notes' C# 16 wording does not establish a released language
+version: the actual GA compiler rejects updated memory-safety syntax in C# 15
+with CS8652 and accepts the explicit preview/updated-memory-safety-rules route.
+The unsafe caller/body checks, accessibility, metadata markers, pointer-only
+relaxation and pointer-span constructor controls still pass. Pointer-span
+construction requires an unsafe context (CS9362); unsafe syntax still needs
+AllowUnsafeBlocks (CS0227). This remains experimental guidance.
+
+The CollectionLike consumer executes configured/default builder overloads and
+escaped `@with` calls; ClosedOutcomes checks escaped `@closed`/`@union` names.
+Compiler migration controls preserve the SDK10.0.100 accepted Span escape and
+legacy dynamic binder failures, then require CS8352/CS7083 on serviced .NET 10
+and GA .NET 11. No fabricated references or new historical foundation is added.
+PIN-967 remains the global stable-readiness gate; this refresh does not close it.

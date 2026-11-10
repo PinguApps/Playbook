@@ -51,7 +51,7 @@
       "target": "net11.0",
       "scope": "Actual positional reads, node replacement, preserved sequence/length and null/negative/past-end rejection, including unchanged state after rejected writes.",
       "kind": "compile-and-run",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0"
     }
   ],
@@ -120,7 +120,7 @@
             "reason": "The canonical sample declares this stabilized language mode explicitly."
           },
           "stabilityLimitations": [
-            "Verified using .NET 11 RC2 artifacts only; GA reconciliation is pending."
+            "Verified using SDK 11.0.100 and runtime 11.0.0; comprehensive readiness remains open."
           ],
           "prerequisites": [
             "Target net11.0 with LangVersion 15.0; enable ImplicitUsings or include the System and System.Collections.Generic imports shown in the instructions."

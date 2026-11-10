@@ -6,7 +6,7 @@ Use this recipe when reviewing a low-level API whose caller must guarantee memor
 
 ## Requirements and stability
 
-This edition targets **net11.0**, SDK **11.0**, and **C# preview**, with `Features=$(Features);updated-memory-safety-rules` and `AllowUnsafeBlocks=true`. The measured baseline is SDK **11.0.100-rc.3.26522.148**. These are experimental rules, not ordinary C# 15 behavior or GA verification. No newer-SDK/older-target route is offered. Use the declared compiler mode in both the library and consumers that need caller checking.
+This edition targets **net11.0**, SDK **11.0**, and **C# preview**, with `Features=$(Features);updated-memory-safety-rules` and `AllowUnsafeBlocks=true`. The measured baseline is SDK **11.0.100**. These are experimental rules, not ordinary C# 15 behavior; the GA compiler still requires preview. No newer-SDK/older-target route is offered. Use the declared compiler mode in both the library and consumers that need caller checking.
 
 No NuGet package, package asset, provider, workload, rendering mode, account or native service is needed. The console examples run on a platform supported by their .NET runtime. The safe wrapper is equally usable by framework code; it does not establish browser, native UI or AOT behavior.
 
@@ -52,9 +52,9 @@ For the older comparison, use the .NET 10 implementation, target `net10.0`, set 
 
 ## Resolve the AllowUnsafeBlocks conflict
 
-The library overview suggests pointer-API annotation removal removes the project setting even when `unsafe` syntax remains. **Do not apply that instruction to this verified baseline.** A forced RC2 rebuild rejects unsafe syntax without `/unsafe` (`CS0227`); keep `AllowUnsafeBlocks=true` for the code above. Pointer declarations, address-taking and pinning alone compile without that setting in preview. Memory access still needs an unsafe context (`CS9360`).
+The library overview suggests pointer-API annotation removal removes the project setting even when `unsafe` syntax remains. **Do not apply that instruction to this verified baseline.** A forced GA rebuild rejects unsafe syntax without `/unsafe` (`CS0227`); keep `AllowUnsafeBlocks=true` for the code above. Pointer declarations, address-taking and pinning alone compile without that setting in preview. Memory access still needs an unsafe context (`CS9360`).
 
-The actual RC2 `ReadOnlySpan<byte>(void*, int)` call also requires an unsafe context (`CS9362`), and succeeds when explicitly acknowledged. This is separate from C# accessibility. One constructor check does not establish the annotation state of every API listed in the overview. Recheck changed reference assemblies/compiler artifacts before widening this finding. Current-main C# 16 compatibility notes are not a stable C# 15 contract; this edition describes only reproduced RC2 preview behavior.
+The actual GA `ReadOnlySpan<byte>(void*, int)` call also requires an unsafe context (`CS9362`), and succeeds when explicitly acknowledged. This is separate from C# accessibility. One constructor check does not establish the annotation state of every API listed in the overview. Recheck changed reference assemblies/compiler artifacts before widening this finding. Current-main C# 16 compatibility notes are not a stable C# 15 contract; SDK 11.0.100 reproduces these experimental preview rules; C# 15 rejects them with CS8652.
 
 ## Migration
 
@@ -65,6 +65,8 @@ The actual RC2 `ReadOnlySpan<byte>(void*, int)` call also requires an unsafe con
 
 ## Evidence and limits
 
-The canonical .NET 10 and .NET 11 projects compile and execute identical checks for byte order, boundary readings, unchanged input and truncated frames. Saved records report exact SDKs, language modes, inputs, commands and runtime output. `eng/Test-UnsafeBoundaries.ps1` separately rebuilds real consumers to check emitted contracts, accessibility, preview gating, missing body/caller contexts, pointer-only relaxation, pointer span construction and legacy-rule limitations. These are compilation and actual execution checks, not mocks or cross-compilation. No native resource, external account or required Human proof is involved. Broader API annotation removal and final GA behavior remain outside the measured claim.
+The canonical .NET 10 and .NET 11 projects compile and execute identical checks for byte order, boundary readings, unchanged input and truncated frames. Saved records report exact SDKs, language modes, inputs, commands and runtime output. `eng/Test-UnsafeBoundaries.ps1` separately rebuilds real consumers to check emitted contracts, accessibility, preview gating, missing body/caller contexts, pointer-only relaxation, pointer span construction and legacy-rule limitations. These are compilation and actual execution checks, not mocks or cross-compilation. No native resource, external account or required Human proof is involved. Broader API annotation removal and broader GA API behavior remain outside the measured claim.
 
 Official sources are included with the recipe response. Essential steps and code above are complete offline; references provide provenance rather than missing implementation.
+
+GA refresh (PIN-1287): the declared .NET 11 sample was rebuilt and executed with SDK 11.0.100 and runtime 11.0.0. Earlier RC observations above remain historical; this refresh does not establish broader platform or API behavior.

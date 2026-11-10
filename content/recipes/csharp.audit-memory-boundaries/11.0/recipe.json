@@ -47,7 +47,7 @@
           "Experimental: enable LangVersion=preview, updated-memory-safety-rules and AllowUnsafeBlocks=true in projects using unsafe syntax.",
           "public/internal/private still govern declaration accessibility; unsafe grants no access to private members.",
           "Opted-in callers must acknowledge unsafe members; the member body separately needs an unsafe context. Legacy callers do not enforce pointer-free obligations.",
-          "RC2 pointer span construction still requires unsafe; the overview's project-setting removal claim is not reproduced."
+          "GA pointer span construction still requires unsafe; the overview's project-setting removal claim is not reproduced."
         ],
         "requirements": {
           "runtime": {
@@ -60,7 +60,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Use a .NET 11 compiler with the documented preview and updated-memory-safety-rules switches; exact RC2 proof is recorded separately."
+            "reason": "Use a .NET 11 compiler with the documented preview and updated-memory-safety-rules switches; exact GA compiler proof is recorded separately."
           },
           "language": {
             "name": "C#",
@@ -95,8 +95,8 @@
             "AllowUnsafeBlocks=true"
           ],
           "stabilityLimitations": [
-            "Experimental RC2 compiler behavior, not stable C# 15 or GA proof; exact flags and metadata may change.",
-            "Actual RC2 pointer span construction contradicts the cumulative annotation-removal headline; do not omit AllowUnsafeBlocks for unsafe syntax."
+            "Experimental GA compiler behavior, not stable C# 15; exact flags and metadata may change.",
+            "Actual GA pointer span construction contradicts the cumulative annotation-removal headline; do not omit AllowUnsafeBlocks for unsafe syntax."
           ]
         },
         "sourceUrls": [
@@ -147,9 +147,9 @@
       "kind": "compile-and-run",
       "sample": "samples/net11.0/UnsafeBoundaries/UnsafeBoundaries.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "preview",
-      "scope": "Same real frame checks with experimental member/body/caller boundaries on RC2. Separate forced-rebuild consumer, attribute, accessibility, AllowUnsafeBlocks, pointer span and preview/legacy checks run through eng/Test-UnsafeBoundaries.ps1; its input bytes are hashed, but those compiler results are documented separately."
+      "scope": "Same real frame checks with experimental member/body/caller boundaries on GA SDK 11.0.100. Separate forced-rebuild consumer, attribute, accessibility, AllowUnsafeBlocks, pointer span and preview/legacy checks run through eng/Test-UnsafeBoundaries.ps1; its input bytes are hashed, but those compiler results are documented separately."
     }
   ],
   "snippets": {

@@ -33,7 +33,7 @@ For example, `Outcome value = OutcomeWorkflow.Receipt("C-24");` followed by `Out
 
 ## Constraints
 
-This route needs .NET 11 runtime/reference assemblies and the .NET 11 SDK with C# 15. No preview language flag, extra package, workload, provider, UI framework or rendering mode is used. No supported down-level C# 15 route is claimed. The verification baseline is RC2, not GA verification.
+This route needs .NET 11 runtime/reference assemblies and the .NET 11 SDK with C# 15. No preview language flag, extra package, workload, provider, UI framework or rendering mode is used. No supported down-level C# 15 route is claimed. The verification baseline is GA SDK 11.0.100/runtime 11.0.0.
 
 A declared union stores object-backed state; value-type payloads box. It supplies neither record equality nor a domain-specific empty case. `default(Outcome)` has null Value; JSON null maps to that default when no case accepts null. Nullable wrapper absence and empty underlying storage can both match null. Do not rely on a nullability annotation to make default impossible. Union declarations cannot add instance fields, auto-properties, field-like events or public single-parameter constructors. Custom union implementations must obey the compiler's soundness and access rules; this recipe uses the generated representation.
 
@@ -41,4 +41,6 @@ Exhaustiveness diagnoses omitted known cases; it does not validate payload prope
 
 ## Evidence
 
-The original .NET 10/C# 14 and .NET 11 RC2/C# 15 projects compile and execute the same case/payload, null/default and JSON ambiguity checks. The .NET 11 consumer probe omits a union case and requires CS8509, promoted to an error. Evidence records retain exact SDKs, dependencies, inputs and actual output. No mocks, Native AOT publishing, GA execution or UI/client matrix is represented as proof. Portable execution needs no targeted Human proof.
+The original .NET 10/C# 14 and .NET 11 GA/C# 15 projects compile and execute the same case/payload, null/default and JSON ambiguity checks. The .NET 11 consumer probe omits a union case and requires CS8509, promoted to an error. Evidence records retain exact SDKs, dependencies, inputs and actual output. No mocks, Native AOT publishing or UI/client matrix is represented as proof. Portable execution needs no targeted Human proof.
+
+GA refresh (PIN-1287): the declared .NET 11 sample was rebuilt and executed with SDK 11.0.100 and runtime 11.0.0. Earlier RC observations above remain historical; this refresh does not establish broader platform or API behavior.

@@ -10,7 +10,7 @@ This original failure fixture compiles with SDK10.0.100, compiler5.0 and the act
 
 {{snippet:escape}}
 
-Include `using System;` and `namespace Playbook.Samples;`. Both SDK10.0.403/compiler5.9 and SDK11 RC3/compiler5.12 reject the assignment with:
+Include `using System;` and `namespace Playbook.Samples;`. Both SDK10.0.403/compiler5.9 and SDK11.0.100/compiler5.12 reject the assignment with:
 
 `error CS8352: Cannot use variable 'parcelNumbers' in this context because it may expose referenced variables outside of their declaration scope`
 
@@ -40,4 +40,6 @@ The served route is .NET11/SDK11/C#15. It uses framework APIs only: no package, 
 
 ## Evidence
 
-`eng/Test-CompilerMigrations.ps1 -Record` compiles the original Span and ReadOnlySpan fixtures with the actual SDK10.0.100/ref10.0.0, SDK10.0.403/ref10.0.14 and SDK11.0.100-rc.3.26522.148/ref11 RC3 sets. It requires old acceptance and exact CS8352 failures in both newer compilers. Paired corrected projects build and run; they check independent arrays, independent enclosing spans and deliberate shared-buffer aliasing. Saved compilation and execution records retain commands, hashed inputs, exact artifact identities and outputs. SDK10.0.100 is a historical reproducer only, not a recommended development prerequisite. RC2 proof is not GA verification; the comprehensive and GA reconciliation gates remain open.
+`eng/Test-CompilerMigrations.ps1 -Record` compiles the original Span and ReadOnlySpan fixtures with the actual SDK10.0.100/ref10.0.0, SDK10.0.403/ref10.0.14 and SDK11.0.100/ref11.0.0 sets. It requires old acceptance and exact CS8352 failures in both newer compilers. Paired corrected projects build and run; they check independent arrays, independent enclosing spans and deliberate shared-buffer aliasing. Saved compilation and execution records retain commands, hashed inputs, exact artifact identities and outputs. SDK10.0.100 is a historical reproducer only, not a recommended development prerequisite. The refreshed GA proof covers this compiler migration; comprehensive readiness remains open.
+
+GA refresh (PIN-1287): the declared .NET 11 sample was rebuilt and executed with SDK 11.0.100 and runtime 11.0.0. Earlier RC observations above remain historical; this refresh does not establish broader platform or API behavior.

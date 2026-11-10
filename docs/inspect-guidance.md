@@ -4709,3 +4709,31 @@ with RunAOTCompilation=false; no AOT success is claimed. Current SDK11 MAUI
 compilation and all native device behavior are not-tested under PIN-699.
 No gallery write, permission approval, process recreation or visual contrast is
 proved by MCP retrieval. No new native matrix, Human gate or GA claim is added.
+
+## C# guidance with the GA compiler
+
+From any directory, with PowerShell 7, SDK 10.0.403 and 11.0.100, runtime/ref
+11.0.0, and Node installed at the paths below. The portable SDK10 path is the
+hash-verified local test installation; substitute another complete installation
+if reproducing elsewhere. No package is published.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-0e547a59'
+$env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH = '0'
+$env:DOTNET_GENERATE_ASPNET_CERTIFICATE = 'false'
+$ids = @('csharp.audit-memory-boundaries','csharp.bind-dynamic-conditions','csharp.closed-hierarchies','csharp.closed-results','csharp.configure-collection-construction','csharp.control-nested-loops','csharp.index-existing-types','csharp.preserve-span-storage','csharp.static-interface-helpers')
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 -RecipeId $ids -Query '' `
+  -RecipeEdition '11.0' -TargetVersion '11.0' -PackageVersion '0.0.0-pin1287' `
+  -BuildAndPack -Dotnet 'V:\_worktrees\Playbook\t3-0e547a59\artifacts\tools\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' -OutputDirectory './artifacts/pin1287/inspection'
+```
+
+Expect nine IDs/titles/goals, full canonical Markdown with generated snippets,
+applicability and GA sample receipts from the exact locally packed/installed
+server. Unusable retrieval proxies establish offline delivery, not OS network
+isolation. Experimental memory safety retains preview and feature opt-ins;
+C# 15 emits CS8652. PIN-967 remains the global readiness gate. Run
+`eng/Test-UnsafeBoundaries.ps1`, `eng/Test-ClosedOutcomes.ps1`,
+`eng/Test-StaticInterfaceHelpers.ps1` and `eng/Test-CompilerMigrations.ps1`
+with the corresponding complete SDK installations for separate compiler controls.
+Historical RC receipts remain in Git at `0d455e8759b6a7181f79568e8da5d294f5c9171b`.
