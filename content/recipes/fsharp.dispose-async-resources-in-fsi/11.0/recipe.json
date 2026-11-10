@@ -27,7 +27,7 @@
     "routes": [
       {
         "selectionNotes": [
-          "Ordinary task binding, no preview requirement; pending cleanup failures are lost in the measured RC2 binding. Use the explicit alternative to propagate them."
+          "Ordinary task binding, no preview requirement; pending cleanup failures are lost in the measured RC2 and GA binding. Use the explicit alternative to propagate them."
         ],
         "usage": "primary",
         "sharedAreas": [
@@ -83,7 +83,7 @@
           "optIns": [],
           "providers": [],
           "constraints": [
-            "Ordinary task binding, no preview requirement; pending cleanup failures are lost in the measured RC2 binding. Use the explicit alternative to propagate them."
+            "Ordinary task binding, no preview requirement; pending cleanup failures are lost in the measured RC2 and GA binding. Use the explicit alternative to propagate them."
           ],
           "packages": []
         },
@@ -120,7 +120,7 @@
       "language": "11.0",
       "kind": "compile-and-run",
       "sdk": "11.0.100",
-      "scope": "Actual .NET 11 dependency restore and runner compilation; real dotnet fsi --exec execution records loaded FSharp.Core identity, four gated ordinary-binding lifetime/error cases and the explicit cleanup alternative. Cleanup finishes exactly once; the measured RC2 binding loses pending cleanup failures while the explicit alternative propagates them. No Native AOT or all-platform proof."
+      "scope": "Actual .NET 11 dependency restore and runner compilation; real dotnet fsi --exec execution records loaded FSharp.Core identity, four gated ordinary-binding lifetime/error cases and the explicit cleanup alternative. Cleanup finishes exactly once; the measured RC2 and GA binding loses pending cleanup failures while the explicit alternative propagates them. No Native AOT or all-platform proof."
     }
   ],
   "snippets": {
