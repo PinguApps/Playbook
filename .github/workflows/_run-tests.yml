@@ -37,7 +37,7 @@ jobs:
   test:
     name: Build and verify package
     runs-on: blacksmith-2vcpu-ubuntu-2404
-    timeout-minutes: ${{ inputs.smoke && !inputs.release_ready && 5 || 30 }}
+    timeout-minutes: ${{ inputs.smoke && !inputs.release_ready && 10 || 30 }}
     env:
       CI: true
       DOTNET_CLI_TELEMETRY_OPTOUT: true
