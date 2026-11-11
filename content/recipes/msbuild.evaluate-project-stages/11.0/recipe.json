@@ -27,7 +27,7 @@
   "supportedTargets": [
     "11.0"
   ],
-  "stability": "preview",
+  "stability": "stable",
   "applicability": {
     "routes": [
       {
@@ -58,7 +58,7 @@
             "name": ".NET SDK",
             "version": "11.0.100",
             "match": "exact",
-            "reason": "Compile and execute against the complete matching installed SDK/MSBuild 18.12.0-1.26504.105 closure and SDK resolver."
+            "reason": "Compile and execute against the complete matching installed SDK/MSBuild 18.12.2-1.26529.118 closure and SDK resolver."
           },
           "language": {
             "name": "C#",
@@ -98,7 +98,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Exact GA preview evidence is limited to the recorded checks. PIN-959/PIN-963 and unrelated Human gates remain open.",
+            "Exact GA artifact evidence is limited to the recorded checks. PIN-959/PIN-963 and unrelated Human gates remain open.",
             "The API is not labelled experimental and needs no -mt switch. Preview7 target-count prose is superseded by actual GA getter guards."
           ]
         },

@@ -8,7 +8,7 @@ then runs one known task and checks its output through a known logger. The nativ
 image contains that task, resolver and logger. Installing another DLL beside it
 does not extend its allowed set.
 
-**This is a bounded preview route with a retained IL2026 diagnostic.** It is not
+**This is a bounded GA route with a retained IL2026 diagnostic.** It is not
 an analyzer-clean build or a claim that MSBuild, arbitrary tasks, SDK projects,
 property functions or plugins are generally NativeAOT-safe. Keep the verified
 managed alternative when a project needs anything outside the compiled set.
@@ -22,7 +22,7 @@ container, workload or production resource is involved.
 
 | Layer | Older managed comparison | Current managed/native host |
 | --- | --- | --- |
-| SDK / Roslyn | 10.0.403 / 5.9.0-1.26523.112 | 11.0.100 / 5.12.0-1.26522.148 |
+| SDK / Roslyn | 10.0.403 / 5.9.0-1.26523.112 | 11.0.100 / 5.12.0-1.26529.118 |
 | Framework, reference pack, managed runtime | net10.0 / 10.0.14 | net11.0 / 11.0.0 |
 | C# compiler setting | 14.0 | 15.0; no preview-language switch |
 | Embedded MSBuild | Installed SDK 18.9.15, via Locator 1.11.2 net8.0 | Independently distributed Microsoft.Build, Framework, Utilities.Core and StringTools **18.11.0**, net11.0 assets |
@@ -39,7 +39,7 @@ runtime/SDK context. The native executable includes its runtime, but this exampl
 still selects the installed SDK11 toolset context through `MSBUILD_EXE_PATH`.
 
 Do not confuse product builds with assembly version `15.1.0.0`. The audited SDK11
-bundles MSBuild **18.12.0-1.26504.105**, VMR `820230c3…`; the chosen public NuGet
+bundles MSBuild **18.12.2-1.26529.118**, VMR `297acf93…`; the chosen public NuGet
 package **18.11.0** contains product **18.11.0-1.26512.6**, source commit
 `1b17a019a34ed35480e479aaf42fa3a7835cf45f`. They are different artifacts. The
 package's public registration contract and real consumer, rather than a bundled
@@ -214,10 +214,10 @@ effects even with a fixed task set. No arbitrary tasks, workload SDKs, solution
 builds, package restore in the hosted project, server reuse, project-cache
 plugins, forwarding loggers, other OS/architecture or speed claim is made.
 
-The .NET11 toolchain/registration integration remains preview-qualified, including
-the retained RUC boundary and explicit package-target import. No experimental
+The .NET11 toolchain/registration integration is GA-qualified, retaining
+the RUC boundary and explicit package-target import. No experimental
 diagnostic-ID opt-in, `-mt` or preview language feature is required. Requalify the
-actual GA assets separately. The exact eight .NET10 foundations, existing recipe
+other assets separately. The exact eight .NET10 foundations, existing recipe
 identities, PIN-959 qualifying coverage/evidence, PIN-963/actual-GA reconciliation
 and unrelated Human gates remain unchanged and open.
 

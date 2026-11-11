@@ -16,7 +16,7 @@ approach on both measured SDKs; no newer-only reader API is claimed.
 | Layer | Older comparison | Current example |
 | --- | --- | --- |
 | SDK | 10.0.403 | 11.0.100 |
-| Compiler / language | 5.9.0-1.26523.112 / C#14 | 5.12.0-1.26522.148 / C#15 |
+| Compiler / language | 5.9.0-1.26523.112 / C#14 | 5.12.0-1.26529.118 / C#15 |
 | Target / reference and runtime | net10.0 / 10.0.14 | net11.0 / 11.0.0 |
 | Reader | PowerShell7; .NET ProcessStartInfo and explicit decoder | Same existing reader APIs |
 

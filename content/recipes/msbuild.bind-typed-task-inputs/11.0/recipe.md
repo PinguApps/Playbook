@@ -11,7 +11,7 @@ the filter and exposure text; projects never share an output file.
 ## Choose the host before changing the task
 
 This edition targets .NET 11 and uses **SDK 11.0.100**,
-**MSBuild 18.12.0-1.26504.105**, **C# 15.0**, and the matching .NET 11 GA runtime
+**MSBuild 18.12.2-1.26529.118**, **C# 15.0**, and the matching .NET 11 GA runtime
 and reference pack. `-mt` is experimental and explicitly opt-in. This is GA
 evidence, not an actual-GA qualification. The older comparison uses SDK
 **10.0.403**, MSBuild **18.9.15**, C# **14.0**, runtime/reference pack **10.0.14**.

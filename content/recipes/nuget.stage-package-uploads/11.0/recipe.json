@@ -28,7 +28,7 @@
   "supportedTargets": [
     "11.0"
   ],
-  "stability": "preview",
+  "stability": "stable",
   "applicability": {
     "routes": [
       {
@@ -59,7 +59,7 @@
             "name": ".NET SDK",
             "version": "11.0.100",
             "match": "exact",
-            "reason": "Complete SDK supplies audited NuGet8.0.0-rc.605 public API and compatible closure, compiler/ref/runtime/native-host pins."
+            "reason": "Complete SDK supplies audited NuGet8.0.0-rc.53118 public API and compatible closure, compiler/ref/runtime/native-host pins."
           },
           "language": {
             "name": "C#",
@@ -82,7 +82,7 @@
           ],
           "renderingModes": [],
           "prerequisites": [
-            "Complete SDK11.0.100/runtime+ref11RC3; rollForward=disable, allowPrerelease=false. Launch via the matching absolute dotnet executable.",
+            "Complete SDK11.0.100/runtime+ref11.0.0; rollForward=disable, allowPrerelease=false. Launch via the matching absolute dotnet executable.",
             "SDK10.0.403/runtime+ref10.0.14 and C#14 reproduce the valid ordinary publication comparison. Exact file/product/hash pins and actual loaded identities are retained separately.",
             "Original SDK-packed library and portable-PDB snupkg; a compatible authorized provider or the disposable local protocol fixture. PowerShell7 for evidence; no account, real key, native compiler, workload, device or UI/rendering mode."
           ],
@@ -98,7 +98,7 @@
             "GA SDK disables preview selection. No experimental API suppression or preview-language switch is required."
           ],
           "stabilityLimitations": [
-            "Exact-artifact preview qualification, not a public hosted-service standard/support guarantee or actual GA.",
+            "Exact GA artifact qualification; this does not establish a public hosted-service standard/support guarantee.",
             "Eight approved .NET10 foundations, PIN-959 qualifying coverage/evidence, PIN-963 actual-GA and unrelated Human gates remain open."
           ]
         },

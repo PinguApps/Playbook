@@ -16,10 +16,10 @@ separate verification baselines, not mandatory patch upgrades for every consumer
 | Layer | Older consumer | Current consumer |
 | --- | --- | --- |
 | SDK | 10.0.403 | 11.0.100 |
-| C# compiler / language setting | 5.9.0-1.26523.112 / 14.0 | 5.12.0-1.26522.148 / 15.0 |
+| C# compiler / language setting | 5.9.0-1.26523.112 / 14.0 | 5.12.0-1.26529.118 / 15.0 |
 | Framework / ref / runtime | net10.0 / 10.0.14 | net11.0 / 11.0.0 |
-| Bundled NuGet | 7.9.0-rc.611 | 8.0.0-rc.605 |
-| MSBuild product | 18.9.15 | 18.12.0-1.26504.105 |
+| Bundled NuGet | 7.9.0-rc.611 | 8.0.0-rc.53118 |
+| MSBuild product | 18.9.15 | 18.12.2-1.26529.118 |
 
 `artifact-pins.json` records and checks exact SDK/tooling/compiler/ref/runtime
 hashes and product builds, including the native runtime host; no optional native

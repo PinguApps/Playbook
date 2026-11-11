@@ -15,7 +15,8 @@
     "eng/Evidence.ps1",
     "eng/Test-VSTestMessages.ps1",
     "docs/planning/audits/sdk-package-hosts.assets.json",
-    "docs/planning/audits/sdk-package-hosts.sources.json"
+    "docs/planning/audits/sdk-package-hosts.sources.json",
+    "docs/planning/audits/ga-sdk-contracts.sources.json"
   ],
   "nativeToolchains": []
 }

@@ -217,10 +217,10 @@ the actual host runtime separately. Temporary commands and caches are disposable
 ## Constraints
 
 The baseline uses C# 14 on SDK 10.0.403 and C# 15 on SDK 11 GA. The host logic
-does not need a C# 15-only feature. Current dependencies are **GA**;
+does not need a C# 15-only feature. The template packages are **GA**, but their selected NuGet 8.0.0-rc.605 dependencies remain prerelease;
 there is no experimental-API opt-in or stability guarantee for future NuGet-client
-APIs. Exact pins and explicit prerelease source selection are deliberate choices.
-Do not present GA evidence as final GA verification.
+APIs. Exact pins and explicit package source selection are deliberate choices.
+Do not extend the recorded GA checks to untested integrations.
 
 Execution was on Windows x64 with the actual managed dependency closure. Other
 operating systems, Framework, remote template installation, IDE integration,

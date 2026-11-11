@@ -16,7 +16,7 @@ mode, workload, public feed publication or production resource is involved.
 
 | Input or route | Older comparison | Current example |
 | --- | --- | --- |
-| SDK / Roslyn | 10.0.403 / 5.9.0-1.26523.112 | 11.0.100 / 5.12.0-1.26522.148 |
+| SDK / Roslyn | 10.0.403 / 5.9.0-1.26523.112 | 11.0.100 / 5.12.0-1.26529.118 |
 | Managed target/language | net10.0 / C#14.0 | net11.0 / C#15.0 |
 | Runtime/reference/ILCompiler | 10.0.14 | 11.0.0 |
 | Declared package RID | win-x64 | win-x64 |

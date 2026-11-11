@@ -1,5 +1,41 @@
 # GA SDK and package-authoring reconciliation
 
+## Catalogue dispositions after PIN-1302
+
+The [per-contract register](ga-sdk-dispositions.json) records all 56 original
+edition IDs, previous/final stability, official contract sources, selected
+independent packages, existing consumer evidence and current content hashes.
+The original PIN-963 register remains historical evidence, rather than being
+rewritten to suggest that it inspected these corrections.
+
+Final classification is 50 stable, three preview and three experimental.
+Twelve of the fourteen original preview labels describe GA SDK contracts or
+independently stable packages. Azure Linux4 retains its Beta qualification;
+TemplateEngine retains preview qualification because its actual selected NuGet
+dependencies are 8.0.0-rc.605. The previously stable-labelled NuGet client host
+also becomes preview for that independently distributed RC package. SDK GA
+does not graduate those packages. The affected-test preview package pins and
+both experimental MSBuild contracts remain unchanged.
+
+Measured current SDK identities are Roslyn 5.12.0-1.26529.118, MSBuild
+18.12.2-1.26529.118 and bundled NuGet 8.0.0-rc.53118 at GA VMR 297acf93.
+These come from the saved actual artifact pins and GA tooling register; the
+portable GA compiler also prints that exact Roslyn version. SDK-bundled NuGet
+is distinct from the independently restored 8.0.0-rc.605 package. Requirements
+tables now distinguish these identities. This is a content correction, not a
+recapture or relabelling of historical execution. Unchanged sample inputs retain
+their existing proof; native exclusions, pending Human checks, eight historical
+foundations and PIN-967 remain intact.
+
+PIN-1301 retains the independent 18.11.0 package under Pingu's explicit decision: an actual independent TestHost
+18.11.0 consumer retains the synthetic Password value in Message.ToString(),
+whereas an isolated probe of the actual GA SDK assemblies preserves RawMessage
+and redacts that Password value in ToString(). The SDK probe is artifact
+diagnosis, not a supported SDK-DLL acquisition route for the recipe. No logging
+guarantee for arbitrary payloads follows from either observation. The original laboratory harness now includes explicit old/current independent
+package controls and a separate hashed SDK diagnostic probe. The final stable
+gate remains PIN-967; this correction does not authorize release.
+
 PIN-963, 11 November 2026. Bounded source/artifact release decision register.
 This does not close PIN-967 or authorize publication.
 

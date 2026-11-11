@@ -18,7 +18,7 @@ bounded selection and require their own actual artifact/runtime checks.
 
 | Layer | Older | Current |
 | --- | --- | --- |
-| SDK / C# compiler / language | 10.0.403 / 5.9.0-1.26523.112 / 14.0 | 11.0.100 / 5.12.0-1.26522.148 / 15.0 |
+| SDK / C# compiler / language | 10.0.403 / 5.9.0-1.26523.112 / 14.0 | 11.0.100 / 5.12.0-1.26529.118 / 15.0 |
 | Framework / reference pack | net10.0 / 10.0.13 | net11.0 / 11.0.0 |
 | Runtime image tag | 10.0.13-azurelinux3.0 | 11.0.0-azurelinux4.0 |
 | Runtime / OS | .NET10.0.13 / Azure Linux3.0 | .NET11.0.0 / Azure Linux4.0 Beta |

@@ -1,0 +1,1240 @@
+{
+  "scope": "PIN-1302 per-contract catalogue dispositions; source/artifact classification does not extend execution evidence",
+  "baseline": "ga-sdk-contracts.sources.json",
+  "gaSource": "297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+  "contracts": [
+    {
+      "id": "containers.migrate-azurelinux-base-images",
+      "previousStability": "preview",
+      "stability": "preview",
+      "disposition": "Retain preview: Azure Linux4 Beta; GA runtime does not qualify the OS.",
+      "sources": [
+        "https://github.com/dotnet/dotnet-docker/blob/6f6b955b9c5046cf1f31d8ff3237c53c6673c110/documentation/image-signatures.md",
+        "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview6/containers.md",
+        "https://github.com/notaryproject/notation/blob/v1.3.2/cmd/notation/main.go"
+      ],
+      "packages": [],
+      "evidence": [
+        "samples/net10.0/QuayWorker/QuayWorker.csproj",
+        "samples/net11.0/QuayWorker/QuayWorker.csproj"
+      ],
+      "metadataSha256": "4bd38f303e401f4e9fbb07d065cde98b231abfc0c481f82ccbec2ac9754c927c",
+      "markdownSha256": "f729cf3c5813160d9a4ae204ad560ebf77d1253ae59d23d605f598daf7dfa19f"
+    },
+    {
+      "id": "containers.verify-base-image-signatures",
+      "previousStability": "stable",
+      "stability": "stable",
+      "disposition": "Retain stable bounded authoring contract; historical comparisons and independent package identities remain explicit.",
+      "sources": [
+        "https://github.com/dotnet/dotnet-docker/blob/6f6b955b9c5046cf1f31d8ff3237c53c6673c110/documentation/image-signatures.md",
+        "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview6/containers.md",
+        "https://github.com/notaryproject/notation/blob/v1.3.2/cmd/notation/main.go"
+      ],
+      "packages": [],
+      "evidence": [
+        "samples/net10.0/QuayWorker/QuayWorker.csproj",
+        "samples/net11.0/QuayWorker/QuayWorker.csproj"
+      ],
+      "metadataSha256": "4f78e4aba9a1738da22a3ddf2c27389396c264b31563a8b3550d4b007af90083",
+      "markdownSha256": "83c9934b48d94cc959f1b1bd301b2a31c2b483f702d959c2f5c592b9d3230501"
+    },
+    {
+      "id": "deployment.control-runtime-overrides",
+      "previousStability": "stable",
+      "stability": "stable",
+      "disposition": "Retain stable bounded authoring contract; historical comparisons and independent package identities remain explicit.",
+      "sources": [
+        "https://learn.microsoft.com/en-us/dotnet/core/compatibility/deployment/11/runtimeconfigdev-configproperties-precedence",
+        "https://learn.microsoft.com/en-us/dotnet/core/runtime-config/",
+        "https://learn.microsoft.com/en-us/dotnet/core/project-sdk/msbuild-props#generateruntimeconfigurationfiles"
+      ],
+      "packages": [],
+      "evidence": [
+        "samples/net10.0/TidalDiagnostics/TidalDiagnostics.csproj",
+        "samples/net10.0/TidalDiagnostics/TidalDiagnostics.csproj",
+        "samples/net11.0/TidalDiagnostics/TidalDiagnostics.csproj",
+        "samples/net11.0/TidalDiagnostics/TidalDiagnostics.csproj"
+      ],
+      "metadataSha256": "44f3a5e7189f23442b15095804d55b1b09399b9b668bb0b55c874485a7297233",
+      "markdownSha256": "e6f9272325d72c5ac5dc74992933be1e6c94b45ca6737cc20c914f72552f862d"
+    },
+    {
+      "id": "msbuild.archive-build-artifacts",
+      "previousStability": "stable",
+      "stability": "stable",
+      "disposition": "Retain stable bounded authoring contract; historical comparisons and independent package identities remain explicit.",
+      "sources": [
+        "https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/rc1/msbuild.md",
+        "https://learn.microsoft.com/en-us/dotnet/api/system.formats.tar.tarfile.createfromdirectory?view=net-10.0",
+        "https://learn.microsoft.com/en-us/dotnet/api/system.formats.tar.tarfile.extracttodirectory?view=net-10.0"
+      ],
+      "packages": [],
+      "evidence": [
+        "samples/net10.0/BuildArtifacts/BuildArtifacts.csproj",
+        "samples/net11.0/BuildArtifacts/BuildArtifacts.csproj",
+        "samples/net10.0/BuildArtifacts/BuildArtifacts.csproj",
+        "samples/net11.0/BuildArtifacts/BuildArtifacts.csproj"
+      ],
+      "metadataSha256": "bd05a1ef430b50b49476123ea202bee98a52e591c105757de8ddc8b4281881f0",
+      "markdownSha256": "2710ba4eaf302e93a6f50f0777b3bce17f2af5dc1364679541b017c2fff31f5d"
+    },
+    {
+      "id": "msbuild.bind-typed-task-inputs",
+      "previousStability": "experimental",
+      "stability": "experimental",
+      "disposition": "Retain experimental typed task contract and opt-in.",
+      "sources": [
+        "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview7/msbuild.md",
+        "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/msbuild/src/Framework/TaskEnvironment.cs",
+        "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/msbuild/src/Framework/TaskItem_T.cs",
+        "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/msbuild/documentation/specs/multithreading/multithreaded-msbuild.md"
+      ],
+      "packages": [],
+      "evidence": [
+        "samples/net10.0/ObservatoryTasks/ObservatoryTasks.csproj",
+        "samples/net11.0/ObservatoryTasks/ObservatoryTasks.csproj"
+      ],
+      "metadataSha256": "0de9a11df6a1aecdc5ec778612b64ece4e219ce67118430deee2f0f0921a6dd9",
+      "markdownSha256": "971a56ae4235568f1c8c56781d0f381cbed63d6b3a1a9738a19654f51e05fa0b"
+    },
+    {
+      "id": "msbuild.evaluate-project-stages",
+      "previousStability": "preview",
+      "stability": "stable",
+      "disposition": "Stable GA SDK or separately pinned stable package contract; retain bounded evidence, exclusions and Human gates.",
+      "sources": [
+        "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview7/msbuild.md",
+        "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/msbuild/src/Build/Definition/ProjectEvaluationStage.cs",
+        "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/msbuild/src/Build/Definition/ProjectOptions.cs",
+        "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/msbuild/src/Build/Instance/ProjectInstance.cs",
+        "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/msbuild/src/Build/Definition/Project.cs",
+        "https://www.nuget.org/packages/Microsoft.Build.Locator/1.11.2",
+        "https://github.com/microsoft/MSBuildLocator/blob/89a9d0858a83930f5066e4fa0bf0d154e24095d7/README.md",
+        "https://github.com/microsoft/MSBuildLocator/blob/89a9d0858a83930f5066e4fa0bf0d154e24095d7/src/MSBuildLocator/MSBuildLocator.cs"
+      ],
+      "packages": [
+        "Microsoft.Build.Locator/1.11.2"
+      ],
+      "evidence": [
+        "samples/net10.0/MuseumInventory/MuseumInventory.csproj",
+        "samples/net11.0/MuseumInventory/MuseumInventory.csproj"
+      ],
+      "metadataSha256": "13c99353afd1b2c37b22cd06380c50a26ecd7b03dde9587b03d67c56a27b6477",
+      "markdownSha256": "7a2e043248cd2fc6a4d4a5fbd2c2d14d33d94c2fd4396649f6a8bd271810cb2e"
+    },
+    {
+      "id": "msbuild.inspect-file-access-records",
+      "previousStability": "experimental",
+      "stability": "experimental",
+      "disposition": "Retain experimental file-access contract and opt-in.",
+      "sources": [
+        "https://github.com/dotnet/msbuild/blob/main/documentation/specs/project-cache.md",
+        "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/msbuild/src/Build/FileAccess/FileAccessData.cs",
+        "https://github.com/dotnet/dotnet/blob/a8dd0577c5c13f43a2f57fe33b4ff11b90f6371e/src/msbuild/src/Build/FileAccess/FileAccessData.cs",
+        "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/msbuild/src/Build/BackEnd/Components/ProjectCache/ProjectCachePluginBase.cs"
+      ],
+      "packages": [],
+      "evidence": [
+        "samples/net10.0/BuildAccessObserver/BuildAccessObserver.csproj",
+        "samples/net11.0/BuildAccessObserver/BuildAccessObserver.csproj",
+        "samples/net10.0/BuildAccessObserver/BuildAccessObserver.csproj",
+        "samples/net11.0/BuildAccessObserver/BuildAccessObserver.csproj"
+      ],
+      "metadataSha256": "d4ca639249500e91561bc62c7de306f3131c2c1b09d700c4ced0b2b79cf2fd54",
+      "markdownSha256": "e026d3d2898f9b309dd573f44fb89dcd6727398f6194124fd115ab49aade7a63"
+    },
+    {
+      "id": "msbuild.inspect-import-tree",
+      "previousStability": "stable",
+      "stability": "stable",
+      "disposition": "Retain stable bounded authoring contract; historical comparisons and independent package identities remain explicit.",
+      "sources": [
+        "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview6/msbuild.md",
+        "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/msbuild/src/Build/Evaluation/Evaluator.cs",
+        "https://learn.microsoft.com/en-us/visualstudio/msbuild/evaluate-items-and-properties?view=visualstudio"
+      ],
+      "packages": [],
+      "evidence": [
+        "samples/net10.0/BeaconBuild/BeaconBuild.csproj",
+        "samples/net11.0/BeaconBuild/BeaconBuild.csproj"
+      ],
+      "metadataSha256": "3e226d0f7de36a0f8db4945555e62c148921d8e23e17c0b19bb568af78501591",
+      "markdownSha256": "34261e4e6a35c351bb3f939004745e495e0172e8b007998b2bf0c2803c2716b9"
+    },
+    {
+      "id": "msbuild.inspect-item-globs",
+      "previousStability": "stable",
+      "stability": "stable",
+      "disposition": "Retain stable bounded authoring contract; historical comparisons and independent package identities remain explicit.",
+      "sources": [
+        "https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/rc1/msbuild.md",
+        "https://learn.microsoft.com/en-us/visualstudio/msbuild/xmlpeek-task?view=visualstudio"
+      ],
+      "packages": [],
+      "evidence": [
+        "samples/net10.0/BuildArtifacts/BuildArtifacts.csproj",
+        "samples/net11.0/BuildArtifacts/BuildArtifacts.csproj",
+        "samples/net10.0/BuildArtifacts/BuildArtifacts.csproj",
+        "samples/net11.0/BuildArtifacts/BuildArtifacts.csproj"
+      ],
+      "metadataSha256": "1684e06f5cd00f8d0bdf7ee071926547345d7aae3f83836e40487a5a4879f42f",
+      "markdownSha256": "548def875fe71bf30fa40ad18e443ae220dffb3703e1fc59b76f9461d0f28bb6"
+    },
+    {
+      "id": "msbuild.inspect-structured-build-events",
+      "previousStability": "preview",
+      "stability": "stable",
+      "disposition": "Stable GA SDK or separately pinned stable package contract; retain bounded evidence, exclusions and Human gates.",
+      "sources": [
+        "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/msbuild/src/Framework/AssemblyReferenceConflictEventArgs.cs",
+        "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/msbuild/src/Framework/AssemblyResolutionSearchTraceEventArgs.cs",
+        "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/msbuild/src/Framework/MSBuildServerLifecycleEventArgs.cs",
+        "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/msbuild/src/Tasks/AssemblyDependency/ResolveAssemblyReference.cs",
+        "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/msbuild/src/Build/BackEnd/BuildManager/BuildManager.cs",
+        "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/msbuild/src/MSBuild/XMake.cs",
+        "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/msbuild/documentation/MSBuild-Server.md",
+        "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/msbuild/src/Framework/BackEnd/Handshake.cs",
+        "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/msbuild/src/Framework/BackEnd/ServerNodeHandshake.cs"
+      ],
+      "packages": [],
+      "evidence": [
+        "samples/net10.0/DepotEventReader/DepotEventReader.csproj",
+        "samples/net11.0/DepotEventReader/DepotEventReader.csproj"
+      ],
+      "metadataSha256": "532036ce96bc6510b376768136213a7519b7aaf3411e6c002a4e55661a7c52ab",
+      "markdownSha256": "69f88470f01089a4a477fbff46257724b908ad9a9ea7889a0511e97fabe60d3c"
+    },
+    {
+      "id": "msbuild.migrate-xml-inputs",
+      "previousStability": "stable",
+      "stability": "stable",
+      "disposition": "Retain stable bounded authoring contract; historical comparisons and independent package identities remain explicit.",
+      "sources": [
+        "https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/rc1/msbuild.md",
+        "https://learn.microsoft.com/en-us/visualstudio/msbuild/xmlpeek-task?view=visualstudio"
+      ],
+      "packages": [],
+      "evidence": [
+        "samples/net10.0/BuildCompatibility/BuildCompatibility.csproj",
+        "samples/net11.0/BuildCompatibility/BuildCompatibility.csproj"
+      ],
+      "metadataSha256": "2c9b2c15dbd3e50e6f78e49cc0e99fdbbd6058a7bf18d9f9514f9d1708602de7",
+      "markdownSha256": "14e5dd55a905b53e5e055e16e57b0ab494c3656155e4ee21577919629cbf8878"
+    },
+    {
+      "id": "msbuild.register-aot-build-extensions",
+      "previousStability": "preview",
+      "stability": "stable",
+      "disposition": "Stable GA SDK or separately pinned stable package contract; retain bounded evidence, exclusions and Human gates.",
+      "sources": [
+        "https://github.com/dotnet/msbuild/blob/1b17a019a34ed35480e479aaf42fa3a7835cf45f/src/Utilities/Task.cs",
+        "https://github.com/dotnet/msbuild/blob/1b17a019a34ed35480e479aaf42fa3a7835cf45f/src/Framework/Sdk/SdkResolver.cs",
+        "https://github.com/dotnet/msbuild/blob/1b17a019a34ed35480e479aaf42fa3a7835cf45f/src/Build/Definition/ProjectCollection.cs",
+        "https://github.com/dotnet/msbuild/blob/1b17a019a34ed35480e479aaf42fa3a7835cf45f/src/Build/BackEnd/BuildManager/BuildManager.cs",
+        "https://github.com/dotnet/msbuild/blob/1b17a019a34ed35480e479aaf42fa3a7835cf45f/documentation/aot/follow-up-work.md",
+        "https://github.com/dotnet/msbuild/blob/1b17a019a34ed35480e479aaf42fa3a7835cf45f/src/Framework/buildTransitive/Microsoft.Build.Framework.targets",
+        "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/sdk/src/Cli/dotnet-aot/AotDependencies.props",
+        "https://www.nuget.org/packages/Microsoft.Build/18.11.0",
+        "https://learn.microsoft.com/dotnet/core/deploying/native-aot/",
+        "https://learn.microsoft.com/dotnet/core/deploying/native-aot/fixing-warnings",
+        "https://github.com/microsoft/MSBuildLocator/blob/89a9d0858a83930f5066e4fa0bf0d154e24095d7/README.md",
+        "https://github.com/dotnet/msbuild/blob/1b17a019a34ed35480e479aaf42fa3a7835cf45f/src/Utilities/TaskItem.cs"
+      ],
+      "packages": [
+        "Microsoft.Build.Framework/18.11.0",
+        "Microsoft.Build.Utilities.Core/18.11.0",
+        "Microsoft.Build/18.11.0",
+        "Microsoft.NET.StringTools/18.11.0",
+        "Microsoft.VisualStudio.SolutionPersistence/1.0.52",
+        "NuGet.Frameworks/7.9.0",
+        "System.Configuration.ConfigurationManager/10.0.10",
+        "System.Diagnostics.EventLog/10.0.10",
+        "System.Reflection.MetadataLoadContext/10.0.10",
+        "System.Security.Cryptography.ProtectedData/10.0.10"
+      ],
+      "evidence": [
+        "samples/net10.0/NorthQuayBuildHost/NorthQuayBuildHost.csproj",
+        "samples/net11.0/NorthQuayBuildHost/NorthQuayBuildHost.csproj",
+        "samples/net11.0/NorthQuayBuildHost/NorthQuayBuildHost.csproj"
+      ],
+      "metadataSha256": "556abc4a91eb2419928ec59c1223776ec7fe1fb59c2f11c9d2d49cac8ca13bb8",
+      "markdownSha256": "e8545362446291cb128feab2f4a35a8ea07094b5ec8af868ac75b3ea18ef15f8"
+    },
+    {
+      "id": "msbuild.retire-old-wave-optouts",
+      "previousStability": "stable",
+      "stability": "stable",
+      "disposition": "Retain stable bounded authoring contract; historical comparisons and independent package identities remain explicit.",
+      "sources": [
+        "https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/rc1/msbuild.md",
+        "https://learn.microsoft.com/en-us/visualstudio/msbuild/change-waves?view=visualstudio"
+      ],
+      "packages": [],
+      "evidence": [
+        "samples/net10.0/BuildCompatibility/BuildCompatibility.csproj",
+        "samples/net11.0/BuildCompatibility/BuildCompatibility.csproj"
+      ],
+      "metadataSha256": "1aa81bf16ae6f9076079e580c39960fe97b08625ba89d1243f3fe92cb8ce28a1",
+      "markdownSha256": "097da00d20e9a778fb2bf6712cda13eb0b9fe301f62fa6d44ca32c34cd145f47"
+    },
+    {
+      "id": "nuget.delay-new-package-selection",
+      "previousStability": "stable",
+      "stability": "stable",
+      "disposition": "Retain stable bounded authoring contract; historical comparisons and independent package identities remain explicit.",
+      "sources": [
+        "https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/rc2/nuget.md",
+        "https://learn.microsoft.com/en-us/nuget/reference/nuget-config-file"
+      ],
+      "packages": [],
+      "evidence": [
+        "samples/net10.0/PackagePolicies/PackagePolicies.csproj",
+        "samples/net11.0/PackagePolicies/PackagePolicies.csproj"
+      ],
+      "metadataSha256": "73aab47e6a08c8afefb8bc50ce2c226dd0262d359b6f99d249aa980cd7cbe822",
+      "markdownSha256": "7d741be57c589fe34c90e7321074d8f2d4bd25487a43348566bc7aa4d10dacb9"
+    },
+    {
+      "id": "nuget.inspect-analyzer-assets",
+      "previousStability": "preview",
+      "stability": "stable",
+      "disposition": "Stable GA SDK or separately pinned stable package contract; retain bounded evidence, exclusions and Human gates.",
+      "sources": [
+        "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/nuget-client/src/NuGet.Core/NuGet.Commands/RestoreCommand/Utility/LockFileUtils.cs",
+        "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/sdk/src/Tasks/Microsoft.NET.Build.Tasks/ResolvePackageAssets.cs",
+        "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/nuget-client/src/NuGet.Core/NuGet.Build.Tasks/NuGet.targets"
+      ],
+      "packages": [],
+      "evidence": [
+        "samples/net10.0/GannetWorkshop/GannetWorkshop.csproj",
+        "samples/net11.0/GannetWorkshop/GannetWorkshop.csproj"
+      ],
+      "metadataSha256": "3f317ebee640cbf833861e089f1bae18b4c49366374694018baa2736713d5f1a",
+      "markdownSha256": "fc0150b04ba7c3530e28a86db6ceec21c3098f3df170d1112d6a760a4380213b"
+    },
+    {
+      "id": "nuget.make-package-timestamps-reproducible",
+      "previousStability": "stable",
+      "stability": "stable",
+      "disposition": "Retain stable bounded authoring contract; historical comparisons and independent package identities remain explicit.",
+      "sources": [
+        "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc1/nuget.md",
+        "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/nuget-client/src/NuGet.Core/NuGet.Packaging/PackageCreation/Authoring/PackageBuilder.cs",
+        "https://github.com/NuGet/NuGet.Client/pull/7652"
+      ],
+      "packages": [],
+      "evidence": [
+        "samples/net10.0/PackageTimestamps/PackageTimestamps.csproj",
+        "samples/net11.0/PackageTimestamps/PackageTimestamps.csproj"
+      ],
+      "metadataSha256": "a79ab2bdf6ebfab937d64fb4ae3bc6b61e1bb4b31a91fb6f7d6ef8708fec8fc8",
+      "markdownSha256": "d0e19d5d9334dea913f404db2a64cd966d7ec1b0d5936b685b8ca42c681ace69"
+    },
+    {
+      "id": "nuget.migrate-client-library-hosts",
+      "previousStability": "stable",
+      "stability": "preview",
+      "disposition": "Correct to preview: independent NuGet.Packaging 8.0.0-rc.605 from dotnet-tools remains prerelease.",
+      "sources": [
+        "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc1/nuget.md",
+        "https://github.com/NuGet/NuGet.Client/pull/7657"
+      ],
+      "packages": [
+        "NuGet.Packaging/8.0.0-rc.605",
+        "System.Security.Cryptography.Pkcs/8.0.2"
+      ],
+      "evidence": [
+        "samples/net10.0/NuGetClientHost/NuGetClientHost.csproj",
+        "samples/net11.0/NuGetClientHost/NuGetClientHost.csproj",
+        "samples/net10.0/NuGetClientCurrent/NuGetClientCurrent.csproj"
+      ],
+      "metadataSha256": "550b50d1472680ddc00707ddab4fd75bd1ad645da64ebd2a567ac3b4c56ddaba",
+      "markdownSha256": "a89368e60ff6538ea7b90ab4218e78756e6838449ceb7750c3dc91d7f3378bc3"
+    },
+    {
+      "id": "nuget.migrate-package-identities",
+      "previousStability": "stable",
+      "stability": "stable",
+      "disposition": "Retain stable bounded authoring contract; historical comparisons and independent package identities remain explicit.",
+      "sources": [
+        "https://learn.microsoft.com/en-us/dotnet/core/compatibility/sdk/11/nuget-pack-nu5052-packageid",
+        "https://github.com/NuGet/NuGet.Client/blob/623454983addd9cad23a4c16a28c8faf458c7546/src/NuGet.Core/NuGet.Packaging/PackageCreation/Utility/PackageIdValidator.cs"
+      ],
+      "packages": [],
+      "evidence": [
+        "samples/net10.0/WildlifeTags/WildlifeTags.csproj",
+        "samples/net10.0/WildlifeTags/WildlifeTags.csproj",
+        "samples/net11.0/WildlifeTags/WildlifeTags.csproj",
+        "samples/net11.0/WildlifeTags/WildlifeTags.csproj"
+      ],
+      "metadataSha256": "d6f8f0d0620fd301fae25a66f5eff505bd70b36f84fa2f212a827a9892082c3e",
+      "markdownSha256": "1a396f724bb378a72dbffe6a1be13034f5bbc095cbce0739ee03c2e127314f34"
+    },
+    {
+      "id": "nuget.own-plugin-launch-diagnostics",
+      "previousStability": "preview",
+      "stability": "stable",
+      "disposition": "Stable GA SDK or separately pinned stable package contract; retain bounded evidence, exclusions and Human gates.",
+      "sources": [
+        "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/nuget-client/src/NuGet.Core/NuGet.Credentials/PluginException.cs"
+      ],
+      "packages": [],
+      "evidence": [
+        "samples/net10.0/GannetWorkshop/GannetWorkshop.csproj",
+        "samples/net11.0/GannetWorkshop/GannetWorkshop.csproj"
+      ],
+      "metadataSha256": "6f3654f9f406e411d159cb610c6af2f73480052bd07af1b0d11746b12c35a3cc",
+      "markdownSha256": "7131ff4da267c4f956c3ab917665b8edb1026f031779573540ed83a5eb9f45b9"
+    },
+    {
+      "id": "nuget.reset-reused-host-state",
+      "previousStability": "preview",
+      "stability": "stable",
+      "disposition": "Stable GA SDK or separately pinned stable package contract; retain bounded evidence, exclusions and Human gates.",
+      "sources": [
+        "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/nuget-client/src/NuGet.Core/NuGet.Common/StaticState.cs",
+        "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/msbuild/src/Build/BackEnd/BuildManager/BuildManager.cs",
+        "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/msbuild/src/Build/Instance/HostServices.cs"
+      ],
+      "packages": [],
+      "evidence": [
+        "samples/net10.0/GannetWorkshop/GannetWorkshop.csproj",
+        "samples/net11.0/GannetWorkshop/GannetWorkshop.csproj"
+      ],
+      "metadataSha256": "e48d12076d98c98e40b7de344dc22a9848bedc856be8de66cb1e84a1baac88ac",
+      "markdownSha256": "b40fb4c569a0d40463436f75d31c20ef4b670a71285636a2b3f063abd89e5734"
+    },
+    {
+      "id": "nuget.restore-from-declared-sources",
+      "previousStability": "stable",
+      "stability": "stable",
+      "disposition": "Retain stable bounded authoring contract; historical comparisons and independent package identities remain explicit.",
+      "sources": [
+        "https://learn.microsoft.com/en-us/dotnet/core/compatibility/sdk/11/restore-global-packages-folder-version-search",
+        "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/nuget-client/src/NuGet.Core/NuGet.Commands/RestoreCommand/SourceRepositoryDependencyProvider.cs",
+        "https://learn.microsoft.com/en-us/nuget/reference/errors-and-warnings/nu1601",
+        "https://learn.microsoft.com/en-us/nuget/reference/errors-and-warnings/nu1603",
+        "https://learn.microsoft.com/en-us/nuget/consume-packages/package-references-in-project-files#nuget-dependency-resolver"
+      ],
+      "packages": [],
+      "evidence": [
+        "samples/net10.0/StationReadings/StationReadings.csproj",
+        "samples/net10.0/StationReadings/StationReadings.csproj",
+        "samples/net11.0/StationReadings/StationReadings.csproj",
+        "samples/net11.0/StationReadings/StationReadings.csproj"
+      ],
+      "metadataSha256": "00798891895b9b2400b92a6674b31abc8394b04ff36661b1ea6edb7fed6b678a",
+      "markdownSha256": "1b4ce3d2eda351e4ac3563a3efacfbcb5c28461e394eea7999ddc97cbad4a289"
+    },
+    {
+      "id": "nuget.skip-disposable-restore-graph",
+      "previousStability": "stable",
+      "stability": "stable",
+      "disposition": "Retain stable bounded authoring contract; historical comparisons and independent package identities remain explicit.",
+      "sources": [
+        "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview4/nuget.md",
+        "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/nuget-client/src/NuGet.Core/NuGet.Build.Tasks/NuGet.targets"
+      ],
+      "packages": [],
+      "evidence": [
+        "samples/net10.0/BeaconBuild/BeaconBuild.csproj",
+        "samples/net11.0/BeaconBuild/BeaconBuild.csproj"
+      ],
+      "metadataSha256": "587f8d5fa25c10bc3e9bf82a6d22d77917c4ca2ed9c2034fe9a2346b2959e9a8",
+      "markdownSha256": "61127cc093b565d70cf4606f03ee415e859d490b87050c9da8e3a3132f908c4b"
+    },
+    {
+      "id": "nuget.stage-package-uploads",
+      "previousStability": "preview",
+      "stability": "stable",
+      "disposition": "Stable GA SDK or separately pinned stable package contract; retain bounded evidence, exclusions and Human gates.",
+      "sources": [
+        "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/nuget-client/src/NuGet.Core/NuGet.Protocol/Resources/PackageStagingResourceV3.cs",
+        "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/nuget-client/src/NuGet.Core/NuGet.Protocol/Providers/PackageStagingResourceV3Provider.cs",
+        "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/nuget-client/src/NuGet.Core/NuGet.Protocol/ServiceTypes.cs",
+        "https://github.com/dotnet/dotnet/blob/a8dd0577c5c13f43a2f57fe33b4ff11b90f6371e/src/nuget-client/src/NuGet.Core/NuGet.Protocol/Resources/PackageUpdateResource.cs"
+      ],
+      "packages": [],
+      "evidence": [
+        "samples/net10.0/FoundryPublisher/FoundryPublisher.csproj",
+        "samples/net11.0/FoundryPublisher/FoundryPublisher.csproj"
+      ],
+      "metadataSha256": "4691ed58b363e24e321428a49c5c858e099c634967bc5bfea3080c727c173b9a",
+      "markdownSha256": "966e2c5bd16ff11a6c29e63ee2c6dc6be47f92a72244cf31f3ecc85884f45428"
+    },
+    {
+      "id": "nuget.update-vulnerable-dependencies",
+      "previousStability": "stable",
+      "stability": "stable",
+      "disposition": "Retain stable bounded authoring contract; historical comparisons and independent package identities remain explicit.",
+      "sources": [
+        "https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/rc1/nuget.md",
+        "https://learn.microsoft.com/en-us/nuget/concepts/auditing-packages"
+      ],
+      "packages": [],
+      "evidence": [
+        "samples/net10.0/PackagePolicies/PackagePolicies.csproj",
+        "samples/net11.0/PackagePolicies/PackagePolicies.csproj"
+      ],
+      "metadataSha256": "379adde9db34cb9c0ddb7cd21b89d1f885474474f6389269cba9fe0d153a934d",
+      "markdownSha256": "9ed20e5cd86e6c3d5b86ff25db2c7073152fa0b9360ead953bd29962197774ac"
+    },
+    {
+      "id": "sdk.check-sdk-servicing-status",
+      "previousStability": "stable",
+      "stability": "stable",
+      "disposition": "Retain stable bounded authoring contract; historical comparisons and independent package identities remain explicit.",
+      "sources": [
+        "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/sdk/src/Tasks/Microsoft.NET.Build.Tasks/CheckSdkVulnerabilities.cs",
+        "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/sdk/src/Tasks/Microsoft.NET.Build.Tasks/targets/Microsoft.NET.SdkVulnerabilityCheck.targets",
+        "https://learn.microsoft.com/en-us/dotnet/core/tools/global-json",
+        "https://dotnet.microsoft.com/en-us/platform/support/policy/dotnet-core"
+      ],
+      "packages": [],
+      "evidence": [
+        "samples/net10.0/SkylarkServicing/SkylarkServicing.csproj",
+        "samples/net11.0/SkylarkServicing/SkylarkServicing.csproj"
+      ],
+      "metadataSha256": "21fadf6501ecb3033426e6e811d450f2cefc3be19c6e6b4721a4dc6f1fcee383",
+      "markdownSha256": "95d9b0ef1f240e852d7741efa578a31fc84594a73c0325177f5b4c2af74c3b10"
+    },
+    {
+      "id": "sdk.choose-partial-readytorun-inputs",
+      "previousStability": "stable",
+      "stability": "stable",
+      "disposition": "Retain stable bounded authoring contract; historical comparisons and independent package identities remain explicit.",
+      "sources": [
+        "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/sdk/src/Tasks/Microsoft.NET.Build.Tasks/targets/Microsoft.NET.CrossGen.targets",
+        "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/sdk/src/Tasks/Microsoft.NET.Build.Tasks/PrepareForReadyToRunCompilation.cs",
+        "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/sdk/src/Tasks/Microsoft.NET.Build.Tasks/RunReadyToRunCompiler.cs",
+        "https://learn.microsoft.com/en-us/dotnet/core/deploying/ready-to-run"
+      ],
+      "packages": [],
+      "evidence": [
+        "samples/net10.0/SkylarkReadyToRun/SkylarkReadyToRun.csproj",
+        "samples/net11.0/SkylarkReadyToRun/SkylarkReadyToRun.csproj"
+      ],
+      "metadataSha256": "d51853330e8bdd6dc7f9f9e40f37f57b402d4595d4ab7be7e2c2fc2806f1521d",
+      "markdownSha256": "43afe99cb6c40b79bfcaabcec7437722d21e7691061331a4a5e68c868d0dd1c5"
+    },
+    {
+      "id": "sdk.compose-file-apps",
+      "previousStability": "stable",
+      "stability": "stable",
+      "disposition": "Retain stable bounded authoring contract; historical comparisons and independent package identities remain explicit.",
+      "sources": [
+        "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/sdk",
+        "https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/rc1/sdk.md",
+        "https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/rc2/sdk.md",
+        "https://learn.microsoft.com/en-us/dotnet/core/sdk/file-based-apps",
+        "https://learn.microsoft.com/en-us/dotnet/core/porting/versioning-sdk-msbuild-vs#down-level-targeting-support",
+        "https://www.nuget.org/packages/System.CommandLine/2.0.1"
+      ],
+      "packages": [
+        "System.CommandLine/2.0.1"
+      ],
+      "evidence": [
+        "samples/net10.0/ComposedUtility/slots.cs",
+        "samples/net11.0/ComposedUtility/slots.cs",
+        "samples/net10.0/ComposedUtilitySdk11/slots.cs",
+        "samples/net10.0/SdkWorkflows/SdkWorkflows.csproj",
+        "samples/net10.0/SdkWorkflows/SdkWorkflows.csproj",
+        "samples/net11.0/SdkWorkflows/SdkWorkflows.csproj",
+        "samples/net11.0/SdkWorkflows/SdkWorkflows.csproj"
+      ],
+      "metadataSha256": "d935a16904d53dba3c818aae566d0dc15a4d9fe68a4ef48a07475292029f8809",
+      "markdownSha256": "205ae3e146b6683663718f5e6ae46600483b37d46db5beaf88df022290498bac"
+    },
+    {
+      "id": "sdk.configure-cli-telemetry",
+      "previousStability": "stable",
+      "stability": "stable",
+      "disposition": "Retain stable bounded authoring contract; historical comparisons and independent package identities remain explicit.",
+      "sources": [
+        "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/sdk",
+        "https://learn.microsoft.com/en-us/dotnet/core/tools/telemetry",
+        "https://github.com/dotnet/sdk/blob/main/src/Cli/dotnet/Telemetry/TelemetryClient.cs",
+        "https://opentelemetry.io/docs/specs/otel/protocol/exporter/"
+      ],
+      "packages": [],
+      "evidence": [
+        "samples/net10.0/CliTelemetry/CliTelemetry.csproj",
+        "samples/net11.0/CliTelemetry/CliTelemetry.csproj",
+        "samples/net10.0/CliTelemetry/CliTelemetry.csproj",
+        "samples/net11.0/CliTelemetry/CliTelemetry.csproj"
+      ],
+      "metadataSha256": "9f0da0bd4fe124905c0d831840c93e2ec3b2d356ad2d8b0327a9f2224f052c37",
+      "markdownSha256": "1cb1e4b8071e546f66cb7509c88198d6532db1b017e5526da454e06638a1ba2d"
+    },
+    {
+      "id": "sdk.configure-legacy-mono-launch",
+      "previousStability": "stable",
+      "stability": "stable",
+      "disposition": "Retain stable bounded authoring contract; historical comparisons and independent package identities remain explicit.",
+      "sources": [
+        "https://learn.microsoft.com/en-us/dotnet/core/compatibility/sdk/11/mono-launch-target-removed"
+      ],
+      "packages": [],
+      "evidence": [
+        "samples/net10.0/ObservatoryImporter/ObservatoryImporter.csproj",
+        "samples/net11.0/ObservatoryImporter/ObservatoryImporter.csproj"
+      ],
+      "metadataSha256": "addc8ed47c575675530765cae540d4f632475194700d24334cf475cf9ee4abcf",
+      "markdownSha256": "c1fbffedc2b547d70c7e0cdec96c63b2c9d49aae3aca6454667a611f8a36e71f"
+    },
+    {
+      "id": "sdk.configure-redirected-output-encoding",
+      "previousStability": "stable",
+      "stability": "stable",
+      "disposition": "Retain stable bounded authoring contract; historical comparisons and independent package identities remain explicit.",
+      "sources": [
+        "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview1/sdk.md",
+        "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/sdk/src/Cli/dotnet/Program.cs",
+        "https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-environment-variables"
+      ],
+      "packages": [],
+      "evidence": [
+        "samples/net10.0/EstuaryEncoding/EstuaryEncoding.csproj",
+        "samples/net11.0/EstuaryEncoding/EstuaryEncoding.csproj"
+      ],
+      "metadataSha256": "0cbfe090a5179c4cd067ebd38448185ed56d98085c265741ce57356cd9e42d92",
+      "markdownSha256": "c18e9377ddb6c2e0c7c1c6844d9fdee64300aaad7bba3bc67ae40c106073b90c"
+    },
+    {
+      "id": "sdk.configure-test-runs",
+      "previousStability": "stable",
+      "stability": "stable",
+      "disposition": "Retain stable bounded authoring contract; historical comparisons and independent package identities remain explicit.",
+      "sources": [
+        "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/sdk",
+        "https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-test-mtp",
+        "https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-test-vstest",
+        "https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/rc1/sdk.md",
+        "https://github.com/microsoft/MSBuildSdks/tree/main/src/Traversal"
+      ],
+      "packages": [
+        "Microsoft.Build.Traversal/4.1.82",
+        "NUnit/4.6.1",
+        "NUnit3TestAdapter/6.2.0",
+        "xunit.v3.mtp-v2/3.2.2"
+      ],
+      "evidence": [
+        "samples/net10.0/RunnerTests/RunnerTests.csproj",
+        "samples/net10.0/RunnerTests/RunnerTests.csproj",
+        "samples/net10.0/NUnitTests/NUnitTests.csproj",
+        "samples/net10.0/NUnitTests/NUnitTests.csproj",
+        "samples/net11.0/RunnerTests/RunnerTests.csproj",
+        "samples/net11.0/RunnerTests/RunnerTests.csproj",
+        "samples/net11.0/NUnitTests/NUnitTests.csproj",
+        "samples/net11.0/NUnitTests/NUnitTests.csproj"
+      ],
+      "metadataSha256": "20a919f61f346475e446526e8c0e3add60a5f039bf11c562363918af5424d98f",
+      "markdownSha256": "8c3f461ab888d700883dcbcd206387f29b3eb9a89d30f721e6960a8c492034ca"
+    },
+    {
+      "id": "sdk.create-test-runner-projects",
+      "previousStability": "stable",
+      "stability": "stable",
+      "disposition": "Retain stable bounded authoring contract; historical comparisons and independent package identities remain explicit.",
+      "sources": [
+        "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/sdk",
+        "https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-new-sdk-templates",
+        "https://docs.nunit.org/articles/vs-test-adapter/NUnit-And-Microsoft-Test-Platform.html",
+        "https://xunit.net/docs/getting-started/v3/microsoft-testing-platform"
+      ],
+      "packages": [
+        "NUnit/4.6.1",
+        "NUnit3TestAdapter/6.2.0",
+        "xunit.v3.mtp-v2/3.2.2"
+      ],
+      "evidence": [
+        "samples/net10.0/RunnerTests/RunnerTests.csproj",
+        "samples/net10.0/RunnerTests/RunnerTests.csproj",
+        "samples/net10.0/NUnitTests/NUnitTests.csproj",
+        "samples/net10.0/NUnitTests/NUnitTests.csproj",
+        "samples/net11.0/RunnerTests/RunnerTests.csproj",
+        "samples/net11.0/RunnerTests/RunnerTests.csproj",
+        "samples/net11.0/NUnitTests/NUnitTests.csproj",
+        "samples/net11.0/NUnitTests/NUnitTests.csproj"
+      ],
+      "metadataSha256": "d3caebb0ae5ff60f4f881fc9b09c278f07b0eb58be982d10814e916d19993770",
+      "markdownSha256": "316debcdb853ad45247951b093ad79dc39a8ad133b128ad79fa6e5c26b810abc"
+    },
+    {
+      "id": "sdk.customize-native-tool-package-rids",
+      "previousStability": "stable",
+      "stability": "stable",
+      "disposition": "Retain stable bounded authoring contract; historical comparisons and independent package identities remain explicit.",
+      "sources": [
+        "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/sdk/src/Tasks/Microsoft.NET.Build.Tasks/targets/Microsoft.NET.PackTool.targets",
+        "https://learn.microsoft.com/en-us/dotnet/core/deploying/native-aot/",
+        "https://learn.microsoft.com/en-us/dotnet/core/tools/global-tools-how-to-create"
+      ],
+      "packages": [],
+      "evidence": [
+        "samples/net10.0/SkylarkNative/SkylarkNative.csproj",
+        "samples/net11.0/SkylarkNative/SkylarkNative.csproj"
+      ],
+      "metadataSha256": "9fd341c14a18d5d04faf06952229cf637096a2e67f51e98b5d94720ce0b58663",
+      "markdownSha256": "7ac99410bae5b26504450618bb19e647e5bf8467713a6d41bdc24cd35bc9ce34"
+    },
+    {
+      "id": "sdk.declare-static-asset-groups",
+      "previousStability": "stable",
+      "stability": "stable",
+      "disposition": "Retain stable bounded authoring contract; historical comparisons and independent package identities remain explicit.",
+      "sources": [
+        "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/sdk",
+        "https://github.com/dotnet/sdk/blob/main/src/StaticWebAssetsSdk/Tasks/DefineStaticWebAssets.cs",
+        "https://github.com/dotnet/sdk/blob/main/src/StaticWebAssetsSdk/Tasks/FilterStaticWebAssetGroups.cs",
+        "https://github.com/dotnet/sdk/blob/main/src/StaticWebAssetsSdk/Targets/Microsoft.NET.Sdk.StaticWebAssets.TypeScript.targets",
+        "https://learn.microsoft.com/en-us/aspnet/core/razor-pages/ui-class?view=aspnetcore-11.0"
+      ],
+      "packages": [
+        "Microsoft.TypeScript.MSBuild/5.9.3"
+      ],
+      "evidence": [
+        "samples/net10.0/WebAssets/WebAssets.csproj",
+        "samples/net10.0/WebAssets/WebAssets.csproj",
+        "samples/net11.0/WebAssets/WebAssets.csproj",
+        "samples/net11.0/WebAssets/WebAssets.csproj",
+        "samples/net10.0/RclAssets/RclAssets.csproj",
+        "samples/net10.0/RclAssets/RclAssets.csproj",
+        "samples/net11.0/RclAssets/RclAssets.csproj",
+        "samples/net11.0/RclAssets/RclAssets.csproj"
+      ],
+      "metadataSha256": "6bae9579d5d0964f4531ddccb1c5247ff082362f07fa704817211e3cd6290a8e",
+      "markdownSha256": "709d2a73f165b322bc8f2abc0a0d26540a7cbad57e4d1ab0606d70d88b333995"
+    },
+    {
+      "id": "sdk.filter-solutions",
+      "previousStability": "stable",
+      "stability": "stable",
+      "disposition": "Retain stable bounded authoring contract; historical comparisons and independent package identities remain explicit.",
+      "sources": [
+        "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/sdk",
+        "https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/rc1/sdk.md",
+        "https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/rc2/sdk.md",
+        "https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-sln"
+      ],
+      "packages": [],
+      "evidence": [
+        "samples/net10.0/SdkWorkflows/SdkWorkflows.csproj",
+        "samples/net11.0/SdkWorkflows/SdkWorkflows.csproj",
+        "samples/net10.0/SdkWorkflows/SdkWorkflows.csproj",
+        "samples/net11.0/SdkWorkflows/SdkWorkflows.csproj"
+      ],
+      "metadataSha256": "7463033767e7c2c97bc7f052dc20b9c2f9f5cbc2355a2700e13a033f3eac5c2a",
+      "markdownSha256": "84bf0d32b91c1df0aaadb8c038fc83041a34bbfba695e3b28b93ab12cc63436a"
+    },
+    {
+      "id": "sdk.format-targeted-code",
+      "previousStability": "stable",
+      "stability": "stable",
+      "disposition": "Retain stable bounded authoring contract; historical comparisons and independent package identities remain explicit.",
+      "sources": [
+        "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/sdk",
+        "https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/rc1/sdk.md",
+        "https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/rc2/sdk.md",
+        "https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-format"
+      ],
+      "packages": [],
+      "evidence": [
+        "samples/net10.0/SdkWorkflows/SdkWorkflows.csproj",
+        "samples/net11.0/SdkWorkflows/SdkWorkflows.csproj",
+        "samples/net10.0/SdkWorkflows/SdkWorkflows.csproj",
+        "samples/net11.0/SdkWorkflows/SdkWorkflows.csproj"
+      ],
+      "metadataSha256": "966db1827ec85a4d93b63c226cbc59d4bcff995c9170767553404d30019b631e",
+      "markdownSha256": "910925503d6d543d2cb9dff5174d017106854568c528d0c2f989819e1df40d40"
+    },
+    {
+      "id": "sdk.install-preview-templates",
+      "previousStability": "stable",
+      "stability": "stable",
+      "disposition": "Retain stable bounded authoring contract; historical comparisons and independent package identities remain explicit.",
+      "sources": [
+        "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/sdk",
+        "https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/rc1/sdk.md",
+        "https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/rc2/sdk.md",
+        "https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-new-install"
+      ],
+      "packages": [],
+      "evidence": [
+        "samples/net10.0/SdkWorkflows/SdkWorkflows.csproj",
+        "samples/net11.0/SdkWorkflows/SdkWorkflows.csproj",
+        "samples/net10.0/SdkWorkflows/SdkWorkflows.csproj",
+        "samples/net11.0/SdkWorkflows/SdkWorkflows.csproj"
+      ],
+      "metadataSha256": "dae580611d68c060820b8651a948084b9357a04cf00cdd5bd2b44239ab711a71",
+      "markdownSha256": "c1b1b2461fe7854474f115378365811c3f9488d047ff61115d1416a1a7611037"
+    },
+    {
+      "id": "sdk.keep-build-configuration-explicit",
+      "previousStability": "stable",
+      "stability": "stable",
+      "disposition": "Retain stable bounded authoring contract; historical comparisons and independent package identities remain explicit.",
+      "sources": [
+        "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/sdk",
+        "https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/rc1/sdk.md",
+        "https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/rc2/sdk.md",
+        "https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-publish"
+      ],
+      "packages": [],
+      "evidence": [
+        "samples/net10.0/SdkWorkflows/SdkWorkflows.csproj",
+        "samples/net11.0/SdkWorkflows/SdkWorkflows.csproj",
+        "samples/net10.0/SdkWorkflows/SdkWorkflows.csproj",
+        "samples/net11.0/SdkWorkflows/SdkWorkflows.csproj"
+      ],
+      "metadataSha256": "bcb132f46b451830c02c7117e69332e0df4c19e675ce114bed376a3855c88602",
+      "markdownSha256": "7c19f3296d36b32e994bc6454413d6623b9860086293a4e808172cfbdb6759eb"
+    },
+    {
+      "id": "sdk.migrate-optimized-publish-hooks",
+      "previousStability": "stable",
+      "stability": "stable",
+      "disposition": "Retain stable bounded authoring contract; historical comparisons and independent package identities remain explicit.",
+      "sources": [
+        "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/sdk/src/Tasks/Microsoft.NET.Build.Tasks/targets/Microsoft.NET.Publish.targets",
+        "https://learn.microsoft.com/en-us/visualstudio/msbuild/how-to-extend-the-visual-studio-build-process?view=visualstudio",
+        "https://learn.microsoft.com/en-us/dotnet/core/deploying/native-aot/"
+      ],
+      "packages": [],
+      "evidence": [
+        "samples/net10.0/EstuaryNative/EstuaryNative.csproj",
+        "samples/net11.0/EstuaryNative/EstuaryNative.csproj"
+      ],
+      "metadataSha256": "89e0d0b53a11d24129260eac7124a2fb2f650ecc76b0b43d45df29718158943a",
+      "markdownSha256": "da15d7b0ae80e64080c19756f19d312101dcd58b5fafce675511ec5776a5c251"
+    },
+    {
+      "id": "sdk.migrate-single-file-output",
+      "previousStability": "stable",
+      "stability": "stable",
+      "disposition": "Retain stable bounded authoring contract; historical comparisons and independent package identities remain explicit.",
+      "sources": [
+        "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/sdk",
+        "https://learn.microsoft.com/en-us/dotnet/core/tools/global-tools-how-to-create",
+        "https://learn.microsoft.com/en-us/dotnet/core/deploying/single-file/overview",
+        "https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/rc1/sdk.md"
+      ],
+      "packages": [],
+      "evidence": [
+        "samples/net10.0/DeliveryTool/DeliveryTool.csproj",
+        "samples/net10.0/DeliveryTool/DeliveryTool.csproj",
+        "samples/net11.0/DeliveryTool/DeliveryTool.csproj",
+        "samples/net11.0/DeliveryTool/DeliveryTool.csproj"
+      ],
+      "metadataSha256": "1facdc360bca1b2d16e3c1b6c184ea6e5a7ad40bfceb92565ec25532859da1d1",
+      "markdownSha256": "a198ad55564323b0492a48ceb38e351e102e0de32f76d294c8120a0b2b66e4e0"
+    },
+    {
+      "id": "sdk.package-tools-correctly",
+      "previousStability": "stable",
+      "stability": "stable",
+      "disposition": "Retain stable bounded authoring contract; historical comparisons and independent package identities remain explicit.",
+      "sources": [
+        "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/sdk",
+        "https://learn.microsoft.com/en-us/dotnet/core/tools/global-tools-how-to-create",
+        "https://learn.microsoft.com/en-us/dotnet/core/deploying/single-file/overview",
+        "https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/rc1/sdk.md"
+      ],
+      "packages": [],
+      "evidence": [
+        "samples/net10.0/DeliveryTool/DeliveryTool.csproj",
+        "samples/net10.0/DeliveryTool/DeliveryTool.csproj",
+        "samples/net11.0/DeliveryTool/DeliveryTool.csproj",
+        "samples/net11.0/DeliveryTool/DeliveryTool.csproj"
+      ],
+      "metadataSha256": "46e3b0e8c58a559f9ed70a6051029abc0f1516e9e59067f8de55531746dde815",
+      "markdownSha256": "244878ff4bcb1a89094848e589db4d0363dc03cecc9d25127ad8983d3f42636a"
+    },
+    {
+      "id": "sdk.pass-launch-settings",
+      "previousStability": "stable",
+      "stability": "stable",
+      "disposition": "Retain stable bounded authoring contract; historical comparisons and independent package identities remain explicit.",
+      "sources": [
+        "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/sdk",
+        "https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/rc1/sdk.md",
+        "https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/rc2/sdk.md",
+        "https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-run"
+      ],
+      "packages": [],
+      "evidence": [
+        "samples/net10.0/SdkWorkflows/SdkWorkflows.csproj",
+        "samples/net11.0/SdkWorkflows/SdkWorkflows.csproj",
+        "samples/net10.0/SdkWorkflows/SdkWorkflows.csproj",
+        "samples/net11.0/SdkWorkflows/SdkWorkflows.csproj"
+      ],
+      "metadataSha256": "2eafe84380886d6a5e43811339698848a736dc80c607371bac12b6dc6ba0e70b",
+      "markdownSha256": "ee267af2f6d23fa840e048e309ad40941ef8f55feb633448621b13a5c3c0e23d"
+    },
+    {
+      "id": "sdk.publish-multiarch-with-podman",
+      "previousStability": "stable",
+      "stability": "stable",
+      "disposition": "Retain stable bounded authoring contract; historical comparisons and independent package identities remain explicit.",
+      "sources": [
+        "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/sdk",
+        "https://learn.microsoft.com/en-us/dotnet/core/containers/publish-configuration",
+        "https://github.com/dotnet/sdk/blob/main/src/Containers/Microsoft.NET.Build.Containers/LocalDaemons/KnownLocalRegistryTypes.cs"
+      ],
+      "packages": [],
+      "evidence": [
+        "samples/net10.0/ContainerPublishing/ContainerPublishing.csproj",
+        "samples/net11.0/ContainerPublishing/ContainerPublishing.csproj",
+        "samples/net10.0/ContainerPublishing/ContainerPublishing.csproj",
+        "samples/net11.0/ContainerPublishing/ContainerPublishing.csproj"
+      ],
+      "metadataSha256": "6701405026e60d5330baedaf2a7c1900897d6dccfd62b7084db18a5a7df19e08",
+      "markdownSha256": "081d9fe3e9ac952ad053a084a8bdb12d7245101f97302bf394eecc1498a11dab"
+    },
+    {
+      "id": "sdk.publish-referenced-symbols",
+      "previousStability": "stable",
+      "stability": "stable",
+      "disposition": "Retain stable bounded authoring contract; historical comparisons and independent package identities remain explicit.",
+      "sources": [
+        "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/sdk/src/Tasks/Microsoft.NET.Build.Tasks/targets/Microsoft.NET.Publish.targets",
+        "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/sdk/src/Tasks/Microsoft.NET.Build.Tasks/targets/Microsoft.NET.Sdk.BeforeCommon.targets",
+        "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview1/sdk.md"
+      ],
+      "packages": [],
+      "evidence": [
+        "samples/net10.0/BeaconBuild/BeaconBuild.csproj",
+        "samples/net11.0/BeaconBuild/BeaconBuild.csproj"
+      ],
+      "metadataSha256": "a4a1b849aa1ef8596e2709cbe3cb9ee7e7c11d2a1e123c4e56ab1282066ecb9e",
+      "markdownSha256": "9c29dc567fea74716156647e9f323df17f883e09c03345e175d408dee3f25799"
+    },
+    {
+      "id": "sdk.publish-reproducible-containers",
+      "previousStability": "stable",
+      "stability": "stable",
+      "disposition": "Retain stable bounded authoring contract; historical comparisons and independent package identities remain explicit.",
+      "sources": [
+        "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/sdk",
+        "https://learn.microsoft.com/en-us/dotnet/core/containers/publish-configuration",
+        "https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/rc1/sdk.md"
+      ],
+      "packages": [],
+      "evidence": [
+        "samples/net10.0/ContainerPublishing/ContainerPublishing.csproj",
+        "samples/net11.0/ContainerPublishing/ContainerPublishing.csproj",
+        "samples/net10.0/ContainerPublishing/ContainerPublishing.csproj",
+        "samples/net11.0/ContainerPublishing/ContainerPublishing.csproj"
+      ],
+      "metadataSha256": "0cf195c6a34d0e65b6c9df16e587c57dd849d7febfed2065372555a7cdf06a72",
+      "markdownSha256": "76b4d005bf14491adf67bcc7666cb05c342721dd6a01d683305d6ec25cefa698"
+    },
+    {
+      "id": "sdk.retarget-template-engine-hosts",
+      "previousStability": "preview",
+      "stability": "preview",
+      "disposition": "Retain preview: GA TemplateEngine 11.0.100 selects independently prerelease NuGet 8.0.0-rc.605 dependencies.",
+      "sources": [
+        "https://learn.microsoft.com/en-us/dotnet/core/compatibility/sdk/11/template-engine-netstandard",
+        "https://github.com/dotnet/sdk/blob/b370d9f8508baee1ab99f3f8aba8bf5e1dfacf41/src/TemplateEngine/Microsoft.TemplateEngine.Edge/Microsoft.TemplateEngine.Edge.csproj",
+        "https://github.com/dotnet/sdk/blob/b370d9f8508baee1ab99f3f8aba8bf5e1dfacf41/src/TemplateEngine/Microsoft.TemplateEngine.Edge/Settings/TemplatePackageManager.cs",
+        "https://learn.microsoft.com/en-us/dotnet/core/tools/custom-templates",
+        "https://learn.microsoft.com/en-us/nuget/reference/errors-and-warnings/nu1202",
+        "https://learn.microsoft.com/en-us/nuget/reference/errors-and-warnings/nu1701"
+      ],
+      "packages": [
+        "Microsoft.TemplateEngine.Edge/11.0.100",
+        "Microsoft.TemplateEngine.Orchestrator.RunnableProjects/11.0.100"
+      ],
+      "evidence": [
+        "samples/ArchiveTemplate/ArchiveTemplateLegacy.csproj",
+        "samples/net10.0/ArchiveTemplateRunner/ArchiveTemplateRunner.csproj",
+        "samples/net10.0/ArchiveTemplateHost/ArchiveTemplateHost.csproj",
+        "samples/net11.0/ArchiveTemplateHost/ArchiveTemplateHost.csproj"
+      ],
+      "metadataSha256": "2b325beae0c780ca2f6cd677c8bb807536392985376de3a505891679a414c016",
+      "markdownSha256": "ea358b97530c7c732549bf0df7d4cf1faff03d50a4f05ecec3c2b78919b7a887"
+    },
+    {
+      "id": "sdk.select-affected-tests",
+      "previousStability": "experimental",
+      "stability": "experimental",
+      "disposition": "Retain experimental: AffectedTests/CodeCoverage 18.13.0-preview.26519.2 and Platform 2.6.0-preview.26515.10.",
+      "sources": [
+        "https://github.com/dotnet/docs/blob/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/core/tools/dotnet-test-mtp.md",
+        "https://github.com/microsoft/testfx/blob/e3d67c4458315461201f6620374af1fbb9c4a722/docs/affected-test-selection.md",
+        "https://github.com/microsoft/testfx/blob/e3d67c4458315461201f6620374af1fbb9c4a722/eng/Versions.props",
+        "https://pkgs.dev.azure.com/dnceng/public/_packaging/test-tools/nuget/v3/index.json",
+        "https://github.com/microsoft/codecoverage/blob/main/docs/cts/affectedteststorage.md"
+      ],
+      "packages": [
+        "Microsoft.Testing.Extensions.AffectedTests/18.13.0-preview.26519.2",
+        "Microsoft.Testing.Extensions.CodeCoverage/18.13.0-preview.26519.2",
+        "Microsoft.Testing.Platform/2.6.0-preview.26515.10"
+      ],
+      "evidence": [
+        "samples/net10.0/SeedBankMap/SeedBankMap.csproj",
+        "samples/net11.0/SeedBankMap/SeedBankMap.csproj",
+        "samples/net10.0/SeedBankMap/SeedBankMap.csproj",
+        "samples/net11.0/SeedBankMap/SeedBankMap.csproj"
+      ],
+      "metadataSha256": "e461dca8ab1ee8eb7be88ca3f2e466e25a6398c0da391d22dd31c846f1dead8c",
+      "markdownSha256": "b838fe0dbace4a2c469273c7175e1120591408cb6003e2c88dc2acfd280dc8d0"
+    },
+    {
+      "id": "sdk.select-local-container-engine",
+      "previousStability": "stable",
+      "stability": "stable",
+      "disposition": "Retain stable bounded authoring contract; historical comparisons and independent package identities remain explicit.",
+      "sources": [
+        "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/sdk",
+        "https://learn.microsoft.com/en-us/dotnet/core/containers/publish-configuration",
+        "https://github.com/dotnet/sdk/blob/main/src/Containers/Microsoft.NET.Build.Containers/LocalDaemons/KnownLocalRegistryTypes.cs"
+      ],
+      "packages": [],
+      "evidence": [
+        "samples/net10.0/ContainerPublishing/ContainerPublishing.csproj",
+        "samples/net11.0/ContainerPublishing/ContainerPublishing.csproj",
+        "samples/net10.0/ContainerPublishing/ContainerPublishing.csproj",
+        "samples/net11.0/ContainerPublishing/ContainerPublishing.csproj"
+      ],
+      "metadataSha256": "0d15d9cf9b8b689060db2e3f78b0beb1714dc3e6dbc0026a2b69e47dd872e2da",
+      "markdownSha256": "39f70626c5dc280d54bf043f3d23e9e964fa1f983569b97345aa4d9c66286e1d"
+    },
+    {
+      "id": "sdk.select-tool-execution-sdk",
+      "previousStability": "stable",
+      "stability": "stable",
+      "disposition": "Retain stable bounded authoring contract; historical comparisons and independent package identities remain explicit.",
+      "sources": [
+        "https://learn.microsoft.com/en-us/dotnet/core/compatibility/sdk/11/dnx-scripts-bypass-global-json",
+        "https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-dnx",
+        "https://learn.microsoft.com/en-us/dotnet/core/tools/global-json",
+        "https://github.com/dotnet/sdk/blob/b370d9f8508baee1ab99f3f8aba8bf5e1dfacf41/src/Layout/redist/dnx.cmd",
+        "https://github.com/dotnet/dotnet/blob/a8dd0577c5c13f43a2f57fe33b4ff11b90f6371e/src/sdk/src/Layout/redist/dnx.cmd",
+        "https://github.com/dotnet/sdk/blob/b370d9f8508baee1ab99f3f8aba8bf5e1dfacf41/src/Layout/redist/dnx"
+      ],
+      "packages": [],
+      "evidence": [
+        "samples/net10.0/MuseumCatalogue/MuseumCatalogue.csproj",
+        "samples/net10.0/MuseumCatalogue/MuseumCatalogue.csproj",
+        "samples/net11.0/MuseumCatalogue/MuseumCatalogue.csproj",
+        "samples/net11.0/MuseumCatalogue/MuseumCatalogue.csproj"
+      ],
+      "metadataSha256": "3d2c26bb2d1eb5d65a7076ba3b1ef098e3413d432c1c6f4f5d89b52d8c92fd3c",
+      "markdownSha256": "33f90d1581ac415b045d387fce49f99c7fc2094411057585ad5cfd934e96eb3a"
+    },
+    {
+      "id": "sdk.watch-app-hosts-and-devices",
+      "previousStability": "stable",
+      "stability": "stable",
+      "disposition": "Retain stable bounded authoring contract; historical comparisons and independent package identities remain explicit.",
+      "sources": [
+        "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/sdk",
+        "https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/rc1/sdk.md",
+        "https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/rc2/sdk.md",
+        "https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-watch",
+        "https://www.nuget.org/packages/Aspire.Hosting.AppHost/13.4.6",
+        "https://github.com/microsoft/aspire/releases/tag/v13.4.6",
+        "https://github.com/advisories/GHSA-qhrr-8q5h-9q3h"
+      ],
+      "packages": [
+        "Aspire.Hosting.AppHost/13.4.6",
+        "MessagePack/2.5.303"
+      ],
+      "evidence": [
+        "samples/net10.0/WatchAppHost/WatchAppHost.csproj",
+        "samples/net11.0/WatchAppHost/WatchAppHost.csproj",
+        "samples/net10.0/SdkWorkflows/SdkWorkflows.csproj",
+        "samples/net10.0/SdkWorkflows/SdkWorkflows.csproj",
+        "samples/net11.0/SdkWorkflows/SdkWorkflows.csproj",
+        "samples/net11.0/SdkWorkflows/SdkWorkflows.csproj",
+        "samples/net10.0/WatchAppHost/WatchAppHost.csproj",
+        "samples/net11.0/WatchAppHost/WatchAppHost.csproj"
+      ],
+      "metadataSha256": "8907a69ff3d1e2cd79286e3a70458d72c92fbb905f6b2350cedea29fdcf3ea0f",
+      "markdownSha256": "adb9d2c3d2189f67cf31bec599a5fdc7924f815283ece3d0cf666c81a465f436"
+    },
+    {
+      "id": "testing.declare-json-dependencies",
+      "previousStability": "preview",
+      "stability": "stable",
+      "disposition": "Stable GA SDK or separately pinned stable package contract; retain bounded evidence, exclusions and Human gates.",
+      "sources": [
+        "https://learn.microsoft.com/en-us/dotnet/core/compatibility/sdk/11/vstest-removes-newtonsoft-json",
+        "https://learn.microsoft.com/en-us/dotnet/core/testing/unit-testing-with-dotnet-test",
+        "https://github.com/microsoft/vstest/blob/main/docs/Overview.md",
+        "https://github.com/JamesNK/Newtonsoft.Json/releases/tag/13.0.4",
+        "https://learn.microsoft.com/en-us/nuget/consume-packages/package-references-in-project-files#locking-dependencies",
+        "https://github.com/Microsoft/vstest-docs/blob/main/docs/extensions/datacollector.md"
+      ],
+      "packages": [
+        "Microsoft.NET.Test.Sdk/18.11.0",
+        "Microsoft.TestPlatform.CLI/18.11.0",
+        "Microsoft.TestPlatform.ObjectModel/18.11.0",
+        "Microsoft.TestPlatform.ObjectModel/18.7.0",
+        "Newtonsoft.Json/13.0.4"
+      ],
+      "evidence": [
+        "samples/WeatherJson/WeatherTestsLegacy.csproj",
+        "samples/net10.0/WeatherTests/WeatherTests.csproj",
+        "samples/net11.0/WeatherTests/WeatherTests.csproj",
+        "samples/net10.0/WeatherExtension/WeatherExtension.csproj",
+        "samples/net11.0/WeatherExtension/WeatherExtension.csproj",
+        "samples/net10.0/WeatherCollector/WeatherCollector.csproj",
+        "samples/net11.0/WeatherCollector/WeatherCollector.csproj"
+      ],
+      "metadataSha256": "c75261a097a342cabd1dc543f11d8af968394fe2b0ab44329cf599917f3814cc",
+      "markdownSha256": "2406f5a8be786a26ad5cc8a34b92f069a7f209e2f71fb469041d4983be321db1"
+    },
+    {
+      "id": "testing.migrate-assembly-resolution-context",
+      "previousStability": "preview",
+      "stability": "stable",
+      "disposition": "Stable GA SDK or separately pinned stable package contract; retain bounded evidence, exclusions and Human gates.",
+      "sources": [
+        "https://github.com/microsoft/vstest/blob/36206450d47fec22e281ba9846445edc796f5080/src/Microsoft.TestPlatform.VsTestConsole.TranslationLayer/README.md",
+        "https://github.com/microsoft/vstest/blob/36206450d47fec22e281ba9846445edc796f5080/src/Microsoft.TestPlatform.VsTestConsole.TranslationLayer/VsTestConsoleWrapper.cs",
+        "https://github.com/microsoft/vstest/blob/36206450d47fec22e281ba9846445edc796f5080/src/Microsoft.TestPlatform.PlatformAbstractions/Interfaces/Runtime/IAssemblyResolver.cs",
+        "https://github.com/microsoft/vstest/blob/36206450d47fec22e281ba9846445edc796f5080/src/Microsoft.TestPlatform.PlatformAbstractions/netcore/Runtime/PlatformAssemblyResolver.cs",
+        "https://github.com/microsoft/vstest/blob/36206450d47fec22e281ba9846445edc796f5080/src/Microsoft.TestPlatform.Build/Tasks/TestTaskUtils.cs",
+        "https://www.nuget.org/packages/Microsoft.TestPlatform.CLI/18.11.0",
+        "https://www.nuget.org/packages/Microsoft.TestPlatform.TranslationLayer/18.11.0",
+        "https://www.nuget.org/packages/Microsoft.TestPlatform.Build/18.11.0",
+        "https://github.com/dotnet/dotnet/tree/a8dd0577c5c13f43a2f57fe33b4ff11b90f6371e",
+        "https://learn.microsoft.com/en-us/nuget/consume-packages/package-references-in-project-files#locking-dependencies"
+      ],
+      "packages": [
+        "Microsoft.TestPlatform.TestHost/18.11.0"
+      ],
+      "evidence": [
+        "samples/TernTesting/TernHost.csproj",
+        "samples/TernTesting/Resolver/TernResolver.csproj",
+        "samples/net10.0/TernHost/Resolver/TernResolver.csproj",
+        "samples/net11.0/TernHost/Resolver/TernResolver.csproj",
+        "samples/net10.0/TernHost/TernHost.csproj",
+        "samples/net11.0/TernHost/TernHost.csproj"
+      ],
+      "metadataSha256": "9bf120c0217e59169089a0e4eec3f839d12c9632bda2c5f17ae22c9a89c504c2",
+      "markdownSha256": "774c5aa4c7ed96649ac2710700db491ae3a7fe09864b651836b21b289e363445"
+    },
+    {
+      "id": "testing.migrate-collector-event-inputs",
+      "previousStability": "stable",
+      "stability": "stable",
+      "disposition": "Retain stable bounded authoring contract; historical comparisons and independent package identities remain explicit.",
+      "sources": [
+        "https://github.com/microsoft/vstest/blob/6f58ced50b40e074a07ffc21fb2d2eef95d31b60/src/Microsoft.TestPlatform.ObjectModel/DataCollector/Events/TestCaseEvents.cs",
+        "https://github.com/microsoft/vstest/blob/36206450d47fec22e281ba9846445edc796f5080/src/Microsoft.TestPlatform.ObjectModel/DataCollector/Events/TestCaseEvents.cs",
+        "https://github.com/microsoft/vstest/blob/36206450d47fec22e281ba9846445edc796f5080/docs/extensions/datacollector.md"
+      ],
+      "packages": [
+        "Microsoft.NET.Test.Sdk/18.11.0",
+        "Microsoft.TestPlatform.CLI/18.11.0",
+        "Microsoft.TestPlatform.ObjectModel/18.11.0"
+      ],
+      "evidence": [
+        "samples/net10.0/QuayCollector/QuayCollector.csproj",
+        "samples/net10.0/QuayCollector/Tests/QuayTests.csproj",
+        "samples/net11.0/QuayCollector/QuayCollector.csproj",
+        "samples/net11.0/QuayCollector/Tests/QuayTests.csproj"
+      ],
+      "metadataSha256": "a7ef500a1a6f5225d22f7bf0ac8d9eac5bd8f1b1d4e5e7e5dcb37c6a0c01627f",
+      "markdownSha256": "f3f8a3865f1a836b6a819b406a7d7c4abaad87c8c2285d6baf79017d657be2b7"
+    },
+    {
+      "id": "testing.migrate-vstest-message-readers",
+      "previousStability": "preview",
+      "stability": "stable",
+      "disposition": "Stable independent TestHost18.11 package retained by user decision. Its synthetic Password remains in ToString; separate hashed GA SDK artifact redacts it. RawMessage and typed payloads remain distinct from diagnostics.",
+      "sources": [
+        "https://github.com/dotnet/dotnet/blob/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/vstest/src/Microsoft.TestPlatform.CommunicationUtilities/Messages/Message.cs",
+        "https://github.com/dotnet/dotnet/blob/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/vstest/src/Microsoft.TestPlatform.Common/Utilities/SecretRedaction.cs",
+        "https://learn.microsoft.com/en-us/dotnet/core/compatibility/sdk/11/vstest-removes-newtonsoft-json",
+        "https://www.nuget.org/packages/Microsoft.TestPlatform.TestHost/18.11.0",
+        "https://github.com/microsoft/vstest/blob/36206450d47fec22e281ba9846445edc796f5080/src/Microsoft.TestPlatform.CommunicationUtilities/JsonDataSerializer.cs",
+        "https://github.com/microsoft/vstest/blob/36206450d47fec22e281ba9846445edc796f5080/src/Microsoft.TestPlatform.CommunicationUtilities/JsonDataSerializer.Stj.cs",
+        "https://learn.microsoft.com/en-us/nuget/consume-packages/package-references-in-project-files#locking-dependencies"
+      ],
+      "packages": [
+        "Microsoft.TestPlatform.ObjectModel/18.11.0",
+        "Microsoft.TestPlatform.TestHost/18.11.0"
+      ],
+      "evidence": [
+        "samples/LaboratoryMessages/LaboratoryBridge.csproj",
+        "samples/net10.0/LaboratoryBridge/LaboratoryBridge.csproj",
+        "samples/net11.0/LaboratoryBridge/LaboratoryBridge.csproj"
+      ],
+      "metadataSha256": "14d5f0c712ef3e8ba132b6163b6cc37dda423a4d423493d073bfb80b85f29db2",
+      "markdownSha256": "e6b1ee617c4adfa3295bc3b6d3e6180fe204952a797579bfc41f7d452d48181f"
+    },
+    {
+      "id": "testing.migrate-vstest-session-host",
+      "previousStability": "preview",
+      "stability": "stable",
+      "disposition": "Stable GA SDK or separately pinned stable package contract; retain bounded evidence, exclusions and Human gates.",
+      "sources": [
+        "https://github.com/microsoft/vstest/blob/36206450d47fec22e281ba9846445edc796f5080/src/Microsoft.TestPlatform.VsTestConsole.TranslationLayer/README.md",
+        "https://github.com/microsoft/vstest/blob/36206450d47fec22e281ba9846445edc796f5080/src/Microsoft.TestPlatform.VsTestConsole.TranslationLayer/VsTestConsoleWrapper.cs",
+        "https://github.com/microsoft/vstest/blob/36206450d47fec22e281ba9846445edc796f5080/src/Microsoft.TestPlatform.PlatformAbstractions/Interfaces/Runtime/IAssemblyResolver.cs",
+        "https://github.com/microsoft/vstest/blob/36206450d47fec22e281ba9846445edc796f5080/src/Microsoft.TestPlatform.PlatformAbstractions/netcore/Runtime/PlatformAssemblyResolver.cs",
+        "https://github.com/microsoft/vstest/blob/36206450d47fec22e281ba9846445edc796f5080/src/Microsoft.TestPlatform.Build/Tasks/TestTaskUtils.cs",
+        "https://www.nuget.org/packages/Microsoft.TestPlatform.CLI/18.11.0",
+        "https://www.nuget.org/packages/Microsoft.TestPlatform.TranslationLayer/18.11.0",
+        "https://www.nuget.org/packages/Microsoft.TestPlatform.Build/18.11.0",
+        "https://github.com/dotnet/dotnet/tree/a8dd0577c5c13f43a2f57fe33b4ff11b90f6371e",
+        "https://learn.microsoft.com/en-us/nuget/consume-packages/package-references-in-project-files#locking-dependencies"
+      ],
+      "packages": [
+        "Microsoft.NET.Test.Sdk/18.11.0",
+        "Microsoft.TestPlatform.CLI/18.11.0",
+        "Microsoft.TestPlatform.TestHost/18.11.0",
+        "Microsoft.TestPlatform.TranslationLayer/18.11.0"
+      ],
+      "evidence": [
+        "samples/TernTesting/TernHost.csproj",
+        "samples/TernTesting/Tests/TernTests.csproj",
+        "samples/net10.0/TernHost/TernHost.csproj",
+        "samples/net10.0/TernHost/Tests/TernTests.csproj",
+        "samples/net11.0/TernHost/TernHost.csproj",
+        "samples/net11.0/TernHost/Tests/TernTests.csproj"
+      ],
+      "metadataSha256": "ff44b1511574af5c7065d92579082079eabac7a5efb00b7953a048fc3d94a318",
+      "markdownSha256": "638452992ccc92f10605dc7f2ad9186aa08d0292f00f7b7a7f42c3e00e3703cc"
+    },
+    {
+      "id": "testing.pass-custom-task-runsettings",
+      "previousStability": "preview",
+      "stability": "stable",
+      "disposition": "Stable GA SDK or separately pinned stable package contract; retain bounded evidence, exclusions and Human gates.",
+      "sources": [
+        "https://github.com/microsoft/vstest/blob/36206450d47fec22e281ba9846445edc796f5080/src/Microsoft.TestPlatform.VsTestConsole.TranslationLayer/README.md",
+        "https://github.com/microsoft/vstest/blob/36206450d47fec22e281ba9846445edc796f5080/src/Microsoft.TestPlatform.VsTestConsole.TranslationLayer/VsTestConsoleWrapper.cs",
+        "https://github.com/microsoft/vstest/blob/36206450d47fec22e281ba9846445edc796f5080/src/Microsoft.TestPlatform.PlatformAbstractions/Interfaces/Runtime/IAssemblyResolver.cs",
+        "https://github.com/microsoft/vstest/blob/36206450d47fec22e281ba9846445edc796f5080/src/Microsoft.TestPlatform.PlatformAbstractions/netcore/Runtime/PlatformAssemblyResolver.cs",
+        "https://github.com/microsoft/vstest/blob/36206450d47fec22e281ba9846445edc796f5080/src/Microsoft.TestPlatform.Build/Tasks/TestTaskUtils.cs",
+        "https://www.nuget.org/packages/Microsoft.TestPlatform.CLI/18.11.0",
+        "https://www.nuget.org/packages/Microsoft.TestPlatform.TranslationLayer/18.11.0",
+        "https://www.nuget.org/packages/Microsoft.TestPlatform.Build/18.11.0",
+        "https://github.com/dotnet/dotnet/tree/a8dd0577c5c13f43a2f57fe33b4ff11b90f6371e",
+        "https://learn.microsoft.com/en-us/nuget/consume-packages/package-references-in-project-files#locking-dependencies"
+      ],
+      "packages": [
+        "Microsoft.NET.Test.Sdk/18.11.0",
+        "Microsoft.TestPlatform.Build/18.11.0",
+        "Microsoft.TestPlatform.CLI/18.11.0"
+      ],
+      "evidence": [
+        "samples/TernTesting/TernHost.csproj",
+        "samples/TernTesting/Tests/TernTests.csproj",
+        "samples/net10.0/TernHost/Tests/TernTests.csproj",
+        "samples/net11.0/TernHost/Tests/TernTests.csproj",
+        "samples/net10.0/TernHost/TernHost.csproj",
+        "samples/net11.0/TernHost/TernHost.csproj"
+      ],
+      "metadataSha256": "64d1211ad278fab2d5557ec4aca8c045bb6a8ae1d1d433f2a3153e97e9c63a17",
+      "markdownSha256": "f609ae695d232e697599f37af1216cf853f20d9dbad62aa9c68e9fedfdcb3a45"
+    }
+  ]
+}

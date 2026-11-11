@@ -98,7 +98,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Prerelease GA package/SDK proof, within the recorded verification scope reconciliation; no experimental API switch. NuGet client APIs do not promise general API stability.",
+            "GA SDK/template packages with independently prerelease NuGet 8.0.0-rc.605 dependencies; no experimental API switch. NuGet client APIs do not promise general API stability.",
             "PIN-959 qualifying coverage/evidence and PIN-963 actual-GA reconciliation remain open."
           ]
         },
@@ -184,7 +184,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Prerelease GA package/SDK proof, within the recorded verification scope reconciliation; no experimental API switch. NuGet client APIs do not promise general API stability.",
+            "GA SDK/template packages with independently prerelease NuGet 8.0.0-rc.605 dependencies; no experimental API switch. NuGet client APIs do not promise general API stability.",
             "PIN-959 qualifying coverage/evidence and PIN-963 actual-GA reconciliation remain open."
           ]
         },

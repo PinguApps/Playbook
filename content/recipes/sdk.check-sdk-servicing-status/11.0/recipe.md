@@ -18,7 +18,7 @@ Windows x64 is the executed platform; other platforms need their own qualificati
 | Layer | Older comparison | Current example |
 | --- | --- | --- |
 | SDK | 10.0.403 | 11.0.100 |
-| C# compiler / language setting | 5.9.0-1.26523.112 / 14.0 | 5.12.0-1.26522.148 / 15.0 |
+| C# compiler / language setting | 5.9.0-1.26523.112 / 14.0 | 5.12.0-1.26529.118 / 15.0 |
 | Framework, reference pack and runtime | net10.0 / 10.0.14 | net11.0 / 11.0.0 |
 | Build task | No SDK vulnerability target/task | Inbox Microsoft.NET.Build.Tasks and SdkVulnerabilityCheck.targets |
 

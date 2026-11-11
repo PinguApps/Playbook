@@ -27,7 +27,7 @@
   "supportedTargets": [
     "11.0"
   ],
-  "stability": "preview",
+  "stability": "stable",
   "applicability": {
     "routes": [
       {
@@ -58,7 +58,7 @@
             "name": ".NET SDK",
             "version": "11.0.100",
             "match": "exact",
-            "reason": "Complete SDK11 GA NuGet8.0.0-rc.605 / MSBuild18.12 / Roslyn5.12 closure; old SDK10.0.403 carries NuGet7.9.0-rc.611 / MSBuild18.9.15 / Roslyn5.9."
+            "reason": "Complete SDK11 GA NuGet8.0.0-rc.53118 / MSBuild18.12 / Roslyn5.12 closure; old SDK10.0.403 carries NuGet7.9.0-rc.611 / MSBuild18.9.15 / Roslyn5.9."
           },
           "language": {
             "name": "C#",
@@ -92,7 +92,7 @@
             "Analyzer metadata requires explicit RestoreEnableAnalyzerAssets=true on this pinned current SDK; package-path compiler selection remains independently measured."
           ],
           "stabilityLimitations": [
-            "Exact-artifact preview qualification, not a public hosted-service standard/support guarantee or actual GA.",
+            "Exact GA artifact qualification; this does not establish a public hosted-service standard/support guarantee.",
             "Eight approved .NET10 foundations, PIN-959 qualifying coverage/evidence, PIN-963 actual-GA and unrelated Human gates remain open."
           ]
         },
