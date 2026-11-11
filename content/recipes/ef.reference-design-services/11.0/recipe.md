@@ -27,7 +27,7 @@ EF11 Tools and Tasks no longer bring Design into the consumer. Reference Design 
 
 ## Constraints
 
-This edition is for net11.0 with EF11 RC2; the historical net10.0 comparison uses EF10.0.13. No EF11-on-net10 route is claimed. C#15/14, SDK11 RC3/SDK10.0.403 and exact dependency locks are included. FleetDesign is a console service-registration consumer, not a provider-specific migration test. It requires no renderer, workload, account or external resource. Windows x64 execution does not establish another platform or GA compatibility.
+This edition is for net11.0 with EF11 RC2; the historical net10.0 comparison uses EF10.0.13. No EF11-on-net10 route is claimed. C#15/14, SDK11 GA/SDK10.0.403 and exact dependency locks are included. FleetDesign is a console service-registration consumer, not a provider-specific migration test. It requires no renderer, workload, account or external resource. Windows x64 execution does not establish another platform or GA compatibility.
 
 ## Evidence
 

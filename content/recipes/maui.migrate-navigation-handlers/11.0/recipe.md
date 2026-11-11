@@ -164,7 +164,7 @@ Android Shell's handler default does not imply an Apple default switch.
 ## Apple evidence and setup
 
 The canonical Apple projects pin SDK10.0.403/Controls10.0.110/C#14 and
-SDK11 RC3/Controls11 RC2/C#15 respectively, with native iOS26/27 assets and
+SDK11 GA/Controls11 RC2/C#15 respectively, with native iOS26/27 assets and
 minimum iOS18.2. No preview language, provider or account is involved. API guidance
 is stable, based on RC2 contracts rather than GA execution. Mac Catalyst uses the
 same migration but is not a separately compiled sample. Apple compilation and all

@@ -44,7 +44,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Exact current-release proof uses SDK11 RC3, not GA."
+            "reason": "Exact current-release proof uses SDK11 GA, not GA."
           },
           "language": {
             "name": "C#",
@@ -100,7 +100,7 @@
           ],
           "prerequisites": [
             "Existing approved local Docker SQL Server route from PIN-676; no new resource provisioning.",
-            "Exact SDK10.0.403 and SDK11 RC3 installations, matching dotnet-ef and Design package pins.",
+            "Exact SDK10.0.403 and SDK11 GA installations, matching dotnet-ef and Design package pins.",
             "Run eng/Test-QuarryMigrations.ps1 -Record; SQL credentials enter only the child environment."
           ],
           "optIns": [],
@@ -223,6 +223,6 @@
   },
   "humanProof": {
     "status": "not-required",
-    "scope": "Agent-executed dotnet-ef route only; Visual Studio PMC execution remains PIN-957. Exact RC3 evidence is not GA proof."
+    "scope": "Agent-executed dotnet-ef route only; Visual Studio PMC execution remains PIN-957. Current GA records define measured coverage and retained exclusions."
   }
 }

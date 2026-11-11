@@ -157,7 +157,7 @@ baselines, distinct from the release-family consumer prerequisites above.
 Microsoft.NET.Sdk.Web implicitly resolves the matching
 Microsoft.AspNetCore.App.Internal.Assets package; no other package/provider,
 optional workload or native SDK is needed. The stable APIs need no experimental
-opt-in. RC3 execution does not establish GA verification. Other browsers/OS,
+opt-in. Historical RC execution is separate from current GA verification records. Other browsers/OS,
 WebAssembly, Hybrid, deployment and older-target/new-package routes are unverified.
 This edition is selected only for target 11.0; it adds no .NET 10 foundation.
 

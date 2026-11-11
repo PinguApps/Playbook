@@ -114,12 +114,12 @@
       "kind": "compile-and-run",
       "language": "15.0",
       "sample": "samples/net11.0/HarbourRequests/HarbourRequests.csproj",
-      "scope": "Real .NET11 RC3 HTTP.sys Legacy/Medium/Strict anonymous HTTPS exposure, fixed SNI empty/small/exact buffers and native invalid-property error87. No authenticated relay-rejection or absent-native-API OS execution claim."
+      "scope": "SDK 11.0.100 GA compilation and real .NET11.0.0 HTTP.sys Legacy/Medium/Strict anonymous HTTPS exposure, fixed SNI empty/small/exact buffers and native invalid-property error87. Dedicated certificate/key, URL reservation and SSL binding removed after execution. No authenticated relay-rejection, IIS or absent-native-API OS execution claim."
     }
   ],
   "humanProof": {
     "status": "not-required",
-    "scope": "Owner prepared dedicated HTTPS certificate/binding; actual anonymous request checks executed by agent. Authentication enforcement, IIS execution and an OS without the native API are not tested, not inferred."
+    "scope": "Owner-authorized dedicated temporary HTTPS certificate, SSL binding and URL reservation were created, both samples ran, and exact owned resources were removed. Authentication enforcement, IIS and absent-native-API execution remain untested."
   },
   "snippets": {
     "n10-directory-build-props": {

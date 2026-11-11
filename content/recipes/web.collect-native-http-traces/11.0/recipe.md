@@ -70,7 +70,7 @@ For the successful route, the measured native route is `Station/Index/{id?}`; fo
 
 ## Constraints
 
-- Applicability: ASP.NET Core 11 server requests. This edition does not expose a .NET 10 native-default route; the older example deliberately includes the compatible instrumentation dependency instead. C# 15 / SDK 11 RC3 and C# 14 / SDK 10.0.403 are verification pins.
+- Applicability: ASP.NET Core 11 server requests. This edition does not expose a .NET 10 native-default route; the older example deliberately includes the compatible instrumentation dependency instead. C# 15 / SDK 11 GA and C# 14 / SDK 10.0.403 are verification pins.
 - Managed dependencies: `OpenTelemetry` 1.20.1 plus its exact resolved API/provider-builder assets in the saved lock. The .NET 10 comparison additionally references `OpenTelemetry.Instrumentation.AspNetCore` 1.20.1. The framework source is not an extra NuGet package.
 - Platform/rendering: actual Windows x64 loopback MVC execution; no browser, database, workload, secret or cloud provider. The exporter records real completed activities locally. It does not demonstrate remote collector delivery, retries, retention or backend pricing.
 - Error metrics can gain an `error.type` dimension; review backend cardinality separately. No metrics/exporter-backend execution is claimed here. The suppression control proves continued activity creation and domain enrichment, not every switch interaction in every instrumentation package.

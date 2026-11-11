@@ -25,7 +25,7 @@ The documentation calls the default Auto; the pinned enum spells it WhenNeeded. 
 
 ## Constraints
 
-Requires EF Cosmos11 on net11.0, C#15 mode, SDK11; the comparison uses EF10.0.13/net10.0/C#14. Exact RC2 packages, SDKs and transport are shown below. The SDK3.63.1 and Newtonsoft.Json13.0.4 dependencies and selected assets are recorded in metadata and lock files. Windows x64 execution with the approved Linux legacy emulator2.14.28.0 is the checked provider route. No web renderer, browser or additional workload is needed. API configuration is prepared from RC evidence; no GA or cloud parity claim.
+Requires EF Cosmos11 on net11.0, C#15 mode, SDK11; the comparison uses EF10.0.13/net10.0/C#14. Exact GA packages, SDKs and transport are shown below. The SDK3.63.1 and Newtonsoft.Json13.0.4 dependencies and selected assets are recorded in metadata and lock files. Windows x64 execution with the approved Linux legacy emulator2.14.28.0 is the checked provider route. No web renderer, browser or additional workload is needed. API configuration is prepared from RC evidence; no GA or cloud parity claim.
 
 ## Complete projects
 

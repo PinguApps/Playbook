@@ -30,7 +30,7 @@ Use Rune overloads directly for replacement/search/trim/split and RunePosition.E
 
 A Rune is a scalar, not a user-perceived grapheme: combining sequences and emoji clusters can contain several scalars. StartIndex/Length are UTF-16 code units for EnumerateUtf16; EnumerateUtf8 reports bytes. Invalid sequences are replaced during enumeration; use the validation recipe when rejection is required. An actual U+FFFD is not necessarily malformed input; WasReplaced distinguishes decoder replacement. Specify StringComparison for search; ordinal matching is appropriate for the marker here. TextInfo Rune overloads apply culture-aware casing; ordinal casing helpers have different semantics. StringBuilder/TextWriter Rune overloads avoid ToString adaptation but do not turn a UTF-16 char operation into grapheme editing.
 
-This edition targets .NET 11. It has no rendering mode, external provider, optional workload or experimental opt-in. It uses framework APIs and needs no additional package or package asset. The sample SDK pins 10.0.403 and 11.0.100 are reproducibility baselines, not mandatory exact consumer SDK installations. RC2 execution is not GA verification. No .NET 10 catalogue edition or conditional older-target package route is advertised.
+This edition targets .NET 11. It has no rendering mode, external provider, optional workload or experimental opt-in. It uses framework APIs and needs no additional package or package asset. The sample SDK pins 10.0.403 and 11.0.100 are reproducibility baselines, not mandatory exact consumer SDK installations. Historical RC execution is separate from current GA verification records. No .NET 10 catalogue edition or conditional older-target package route is advertised.
 
 ## Evidence
 

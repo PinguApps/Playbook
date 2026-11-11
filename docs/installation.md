@@ -4,7 +4,7 @@
 
 ## Prerequisites and host runtime
 
-Install the [.NET SDK](https://dotnet.microsoft.com/download) to use `dotnet tool install/update/restore`. The documentation server targets `net10.0` and needs the .NET runtime, with no desktop/mobile workloads. Its packaged `Major` roll-forward policy prefers .NET 10 when available and permits a higher major when .NET 10 is absent. Preview runtimes require separate opt-in; installing an RC SDK alone does not make its runtime eligible. Prefer a supported .NET 10 runtime for ordinary use. See [.NET runtime selection](https://learn.microsoft.com/en-us/dotnet/core/versions/selection).
+Install the [.NET SDK](https://dotnet.microsoft.com/download) to use `dotnet tool install/update/restore`. The documentation server targets `net11.0` and needs the .NET runtime, with no desktop/mobile workloads. Its packaged `Major` roll-forward policy prefers .NET 11 when available and permits a higher stable major when .NET 11 is absent. Preview runtimes require separate opt-in; installing an RC SDK alone does not make its runtime eligible. Use a supported .NET 11 GA runtime for ordinary use. See [.NET runtime selection](https://learn.microsoft.com/en-us/dotnet/core/versions/selection).
 
 The host runtime, application's target release and recipe's sample toolchains are separate. Reading .NET 11 guidance does not require SDK 11. Applying a recipe may require particular SDKs, packages, platforms or workloads: check full applicability first. Exact evidence versions describe tests, not mandatory installations. RC evidence does not establish GA verification.
 
@@ -46,7 +46,7 @@ Commit `.config/dotnet-tools.json` when the team should share the version. Launc
 
 ## Build and inspect the current development package
 
-Requires PowerShell 7 and the repository-pinned SDK **10.0.403**. Node **22.19+** is needed only for the optional Inspector commands. No .NET 9/11 SDK or workloads are needed to build the host from saved evidence and inspect its guidance; full [sample verification](contributing.md) has additional SDK prerequisites.
+Requires PowerShell 7 and the repository-pinned SDK **11.0.100**. Node **22.19+** is needed only for the optional Inspector commands. No .NET 9/10 SDK or workloads are needed to build the host from saved evidence and inspect its guidance; full [sample verification](contributing.md) has additional SDK prerequisites.
 
 From a clean PowerShell 7 window, substitute your checkout in the first line:
 
@@ -99,7 +99,7 @@ Offline-complete recipes do **not** mean a complete catalogue or an offline deve
 ## Troubleshooting
 
 - **`playbook` not found:** run `dotnet tool list --global` (or `--local` in the consumer repository). Check the chosen installation and executable path. Restart the GUI client after installation or configure the absolute path; do not rely on an interactive shell alias.
-- **Runtime missing / wrong architecture:** run `dotnet --info` and `dotnet --list-runtimes` in the environment where the client launches processes. Install the matching .NET 10 runtime/SDK. A higher major can satisfy `Major` roll-forward; an RC is not selected by default. For intentional preview testing only, set `DOTNET_ROLL_FORWARD_TO_PRERELEASE=1` in that server process's environment and record the limitation. Do not change machine-wide runtime policy to fix a client connection.
+- **Runtime missing / wrong architecture:** run `dotnet --info` and `dotnet --list-runtimes` in the environment where the client launches processes. Install the matching .NET 11 GA runtime/SDK. A higher major can satisfy `Major` roll-forward; an RC is not selected by default. Do not change machine-wide runtime policy to fix a client connection.
 - **Package/version not found:** this repository's development package is unpublished. Use the local-only feed above. For published previews, specify the exact version or `--prerelease`. Check the selected feed and authentication for any private feed.
 - **Local tool cannot resolve:** restore from the manifest's repository, set the client's working directory there, and retry `dotnet tool run playbook -- --version`. A relative path or manifest in another checkout may select the wrong installation.
 - **MCP appears to hang in a terminal:** `playbook mcp` waits for protocol messages; it is not an interactive command prompt. Use a client or Inspector. Ctrl+C stops a manually started server; normally the client owns startup and shutdown.

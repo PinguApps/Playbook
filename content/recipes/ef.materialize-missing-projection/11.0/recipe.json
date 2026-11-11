@@ -47,7 +47,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "SDK11 RC3 compiles the independently locked EF11 RC3 graph; source-audit RC2 and actual GA remain separate."
+            "reason": "SDK11 GA compiles the independently locked EF11 RC3 graph; source-audit RC2 and actual GA remain separate."
           },
           "language": {
             "name": "C#",

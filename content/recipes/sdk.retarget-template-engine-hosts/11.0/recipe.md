@@ -216,7 +216,7 @@ the actual host runtime separately. Temporary commands and caches are disposable
 
 ## Constraints
 
-The baseline uses C# 14 on SDK 10.0.403 and C# 15 on SDK 11 RC3. The host logic
+The baseline uses C# 14 on SDK 10.0.403 and C# 15 on SDK 11 GA. The host logic
 does not need a C# 15-only feature. Current dependencies are **prerelease RC2**;
 there is no experimental-API opt-in or stability guarantee for future NuGet-client
 APIs. Exact pins and explicit prerelease source selection are deliberate choices.

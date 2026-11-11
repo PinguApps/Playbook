@@ -104,9 +104,9 @@ It executes both original net10 and net11 tool packages in separate caches.
 
 | Working-directory pin | Explicit `dotnet dnx` | Either serviced wrapper in that layout |
 | --- | --- | --- |
-| SDK 9.0.319 | Fails: SDK has no dnx command; no tool execution | Runs with SDK 11 RC3 |
-| SDK 10.0.403 | Runs the net10 package with SDK 10.0.403 | Runs with SDK 11 RC3 |
-| SDK 11 RC3 | Runs with SDK 11 RC3 | Runs with SDK 11 RC3 |
+| SDK 9.0.319 | Fails: SDK has no dnx command; no tool execution | Runs with SDK 11 GA |
+| SDK 10.0.403 | Runs the net10 package with SDK 10.0.403 | Runs with SDK 11 GA |
+| SDK 11 GA | Runs with SDK 11 GA | Runs with SDK 11 GA |
 
 SDK 11 runs the net10 package on runtime 10.0.14. SDK 10.0.403 **rejects this
 net11-only package**, even with runtime 11 installed: its actual diagnostic is

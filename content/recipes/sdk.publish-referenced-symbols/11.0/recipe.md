@@ -34,7 +34,7 @@ remain open. These controls carry no experimental designation in the cited sourc
 
 Use **PublishReferencesSymbols**, with plural `References`. The Preview1 release
 note's singular **PublishReferenceSymbols** spelling is superseded by the actual
-SDK targets. SDK11 RC3 defaults the real property to **true**. Its false setting
+SDK targets. SDK11 GA defaults the real property to **true**. Its false setting
 omits the project's referenced PDB without removing the application's own PDB.
 
 The actual SDK10 baseline already publishes that project-reference PDB, even with

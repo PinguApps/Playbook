@@ -36,7 +36,7 @@ The focused async-only proof uses a real valid ZIP on a readable, seekable track
 
 On successful disposal, leaveOpen=false closes the supplied stream and true retains it. A failed factory on the tested seekable inputs leaves the supplied stream open even with false; pre-cancellation also occurs before ownership transfer. Always retain a caller cleanup scope. Disposal does not roll back downstream import work. Apply your own archive limits and path policy before extraction; this example only lists names.
 
-The exact proof baselines are SDK 10.0.403 / 11.0.100, C# 14 / 15, and framework reference/runtime 10.0.14 / 11.0.0. These identify tested artifacts separately from release-family prerequisites. The APIs used have no experimental annotation or required experimental opt-in on the inspected assets. No separate NuGet or older-target catalogue route is advertised. Desktop/server stream processing is applicable; browser/WASI and rendering modes are not exercised. RC3 execution does not establish GA verification.
+The exact proof baselines are SDK 10.0.403 / 11.0.100, C# 14 / 15, and framework reference/runtime 10.0.14 / 11.0.0. These identify tested artifacts separately from release-family prerequisites. The APIs used have no experimental annotation or required experimental opt-in on the inspected assets. No separate NuGet or older-target catalogue route is advertised. Desktop/server stream processing is applicable; browser/WASI and rendering modes are not exercised. Historical RC execution is separate from current GA verification records.
 
 ## Evidence
 

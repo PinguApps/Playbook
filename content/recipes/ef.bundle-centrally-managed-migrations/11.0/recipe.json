@@ -30,7 +30,7 @@
           "https://github.com/PinguApps/Playbook/blob/a7fd46cd658708c25a7e0d032735760c3fe6d63f/docs/planning/audits/ef.md"
         ],
         "selectionNotes": [
-          "Real Windows x64 framework-dependent SQLite migration bundles; matching Design/tool versions, inherited CPM and non-CPM control. SDK10.0.403 / EF10.0.13 versus SDK11 RC3 / EF11 RC2. No self-contained, NativeAOT, multi-context, encrypted provider, other-platform or GA claim."
+          "Real Windows x64 framework-dependent SQLite migration bundles; matching Design/tool versions, inherited CPM and non-CPM control. SDK10.0.403 / EF10.0.13 versus SDK11 GA / EF11 RC2. No self-contained, NativeAOT, multi-context, encrypted provider, other-platform or GA claim."
         ],
         "usage": "primary",
         "target": "11.0",
@@ -45,7 +45,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Current SDK11 RC3 compiles the locked EF11 RC2 graph; not GA evidence."
+            "reason": "Current SDK11 GA compiles the locked EF11 RC2 graph; not GA evidence."
           },
           "language": {
             "name": "C#",
@@ -78,14 +78,14 @@
             "Not applicable: console/database extension."
           ],
           "constraints": [
-            "Real Windows x64 framework-dependent SQLite migration bundles; matching Design/tool versions, inherited CPM and non-CPM control. SDK10.0.403 / EF10.0.13 versus SDK11 RC3 / EF11 RC2. No self-contained, NativeAOT, multi-context, encrypted provider, other-platform or GA claim."
+            "Real Windows x64 framework-dependent SQLite migration bundles; matching Design/tool versions, inherited CPM and non-CPM control. SDK10.0.403 / EF10.0.13 versus SDK11 GA / EF11 RC2. No self-contained, NativeAOT, multi-context, encrypted provider, other-platform or GA claim."
           ],
           "prerequisites": [
             "Restore with each local global.json pin. Use PowerShell7.3+. No production resources or persistent environment changes."
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Real Windows x64 framework-dependent SQLite migration bundles; matching Design/tool versions, inherited CPM and non-CPM control. SDK10.0.403 / EF10.0.13 versus SDK11 RC3 / EF11 RC2. No self-contained, NativeAOT, multi-context, encrypted provider, other-platform or GA claim."
+            "Real Windows x64 framework-dependent SQLite migration bundles; matching Design/tool versions, inherited CPM and non-CPM control. SDK10.0.403 / EF10.0.13 versus SDK11 GA / EF11 RC2. No self-contained, NativeAOT, multi-context, encrypted provider, other-platform or GA claim."
           ]
         },
         "conditional": false,
@@ -116,7 +116,7 @@
       "kind": "compile",
       "language": "14.0",
       "sample": "samples/net10.0/PloverBundle/PloverBundle.csproj",
-      "scope": "Real Windows x64 framework-dependent SQLite migration bundles; matching Design/tool versions, inherited CPM and non-CPM control. SDK10.0.403 / EF10.0.13 versus SDK11 RC3 / EF11 RC2. No self-contained, NativeAOT, multi-context, encrypted provider, other-platform or GA claim."
+      "scope": "Real Windows x64 framework-dependent SQLite migration bundles; matching Design/tool versions, inherited CPM and non-CPM control. SDK10.0.403 / EF10.0.13 versus SDK11 GA / EF11 RC2. No self-contained, NativeAOT, multi-context, encrypted provider, other-platform or GA claim."
     },
     {
       "sdk": "11.0.100",
@@ -124,7 +124,7 @@
       "kind": "compile",
       "language": "15.0",
       "sample": "samples/net11.0/PloverBundle/PloverBundle.csproj",
-      "scope": "Real Windows x64 framework-dependent SQLite migration bundles; matching Design/tool versions, inherited CPM and non-CPM control. SDK10.0.403 / EF10.0.13 versus SDK11 RC3 / EF11 RC2. No self-contained, NativeAOT, multi-context, encrypted provider, other-platform or GA claim."
+      "scope": "Real Windows x64 framework-dependent SQLite migration bundles; matching Design/tool versions, inherited CPM and non-CPM control. SDK10.0.403 / EF10.0.13 versus SDK11 GA / EF11 RC2. No self-contained, NativeAOT, multi-context, encrypted provider, other-platform or GA claim."
     },
     {
       "sdk": "10.0.403",
@@ -133,7 +133,7 @@
       "language": "14.0",
       "record": "samples/net10.0/PloverBundle/behavior.evidence.json",
       "sample": "samples/net10.0/PloverBundle/PloverBundle.csproj",
-      "scope": "Real Windows x64 framework-dependent SQLite migration bundles; matching Design/tool versions, inherited CPM and non-CPM control. SDK10.0.403 / EF10.0.13 versus SDK11 RC3 / EF11 RC2. No self-contained, NativeAOT, multi-context, encrypted provider, other-platform or GA claim."
+      "scope": "Real Windows x64 framework-dependent SQLite migration bundles; matching Design/tool versions, inherited CPM and non-CPM control. SDK10.0.403 / EF10.0.13 versus SDK11 GA / EF11 RC2. No self-contained, NativeAOT, multi-context, encrypted provider, other-platform or GA claim."
     },
     {
       "sdk": "11.0.100",
@@ -142,7 +142,7 @@
       "language": "15.0",
       "record": "samples/net11.0/PloverBundle/behavior.evidence.json",
       "sample": "samples/net11.0/PloverBundle/PloverBundle.csproj",
-      "scope": "Real Windows x64 framework-dependent SQLite migration bundles; matching Design/tool versions, inherited CPM and non-CPM control. SDK10.0.403 / EF10.0.13 versus SDK11 RC3 / EF11 RC2. No self-contained, NativeAOT, multi-context, encrypted provider, other-platform or GA claim."
+      "scope": "Real Windows x64 framework-dependent SQLite migration bundles; matching Design/tool versions, inherited CPM and non-CPM control. SDK10.0.403 / EF10.0.13 versus SDK11 GA / EF11 RC2. No self-contained, NativeAOT, multi-context, encrypted provider, other-platform or GA claim."
     }
   ],
   "snippets": {

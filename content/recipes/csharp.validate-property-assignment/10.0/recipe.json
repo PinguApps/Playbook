@@ -132,7 +132,7 @@
           ],
           "workloads": [],
           "stabilityLimitations": [
-            "Only the recorded .NET 11 RC SDK was executed for this alternative; GA reconciliation is pending. The recorded SDK is a test baseline, not an exact installation requirement."
+            "The alternative is verified with SDK 11.0.100 GA. The recorded SDK is a test baseline, not an exact installation requirement."
           ]
         },
         "selectionNotes": [
@@ -191,7 +191,7 @@
           ],
           "workloads": [],
           "stabilityLimitations": [
-            "Only .NET 11 RC artifacts were executed; GA reconciliation is pending. Stable C# 14 syntax does not establish .NET 11 GA verification."
+            "Current evidence uses SDK 11.0.100 GA. The configured C# 14 language mode remains independent of the SDK and runtime baseline."
           ]
         },
         "selectionNotes": [

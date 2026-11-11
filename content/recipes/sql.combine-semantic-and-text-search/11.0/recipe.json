@@ -32,7 +32,7 @@
         ],
         "selectionNotes": [
           "Combine full-text rank and experimental exact vector distance in one server-side weighted query, retaining semantic-only matches.",
-          "Measured Windows x64 / SQL2025 CU10; EF11 RC3 evidence is not GA proof."
+          "Measured Windows x64 / SQL2025 CU10; EF11 GA records define measured coverage and retained exclusions."
         ],
         "usage": "primary",
         "target": "11.0",

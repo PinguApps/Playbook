@@ -31,7 +31,7 @@
         "conditional": false,
         "usage": "primary",
         "selectionNotes": [
-          "Both actual SDK10.0.403/NuGet7.9 and SDK11 RC3/NuGet8 honour this switch. Do not infer newer-only availability from release notes.",
+          "Both actual SDK10.0.403/NuGet7.9 and SDK11 GA/NuGet8 honour this switch. Do not infer newer-only availability from release notes.",
           "Scope is disposable clean builds; normal incremental development keeps the default. No cache/no-op equivalence or speed saving is claimed."
         ],
         "sharedAreas": [
@@ -77,7 +77,7 @@
             "PowerShell7 for the reproducible checks. Original local package setup uses no remote source; installed guidance is embedded offline."
           ],
           "constraints": [
-            "Both actual SDK10.0.403/NuGet7.9 and SDK11 RC3/NuGet8 honour this switch. Do not infer newer-only availability from release notes.",
+            "Both actual SDK10.0.403/NuGet7.9 and SDK11 GA/NuGet8 honour this switch. Do not infer newer-only availability from release notes.",
             "Scope is disposable clean builds; normal incremental development keeps the default. No cache/no-op equivalence or speed saving is claimed.",
             "Only target11 is advertised. The real .NET10 comparison adds no ninth foundation or general SDK11-on-net10 route.",
             "No optional workload, provider, native compiler, rendering mode, production resource or public publication is required."

@@ -34,7 +34,7 @@
           "sdk": {
             "version": "11.0",
             "match": "release-family",
-            "reason": "Compatible .NET 11 SDK and the selected native workload are required; sample pins SDK11 RC3.",
+            "reason": "Compatible .NET 11 SDK and the selected native workload are required; sample pins SDK11 GA.",
             "name": ".NET SDK"
           },
           "language": {

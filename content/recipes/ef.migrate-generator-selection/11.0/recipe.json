@@ -82,7 +82,7 @@
             "EF10 already supports TrySelect and TryCreate. Its obsolete Select/Create members disappear in EF11. Move both selection callers and creation overrides; true must return a non-null generator and false reports no generator. EF10 persistence already invokes TryCreate: a legacy Create override alone compiled but did not generate the intended keys in the real fixture. Keep the working TryCreate override on EF10 too. The explicit legacy Select control throws NotSupportedException for decimal; the current TrySelect control returns false with null. The selector delegates unrelated properties to the base and registers through ReplaceService. The random application prefix is fictional; these keys offer uniqueness checks in the fixture, not ordered or globally coordinated identifiers."
           ],
           "prerequisites": [
-            "PowerShell7, pinned SDK10.0.403 and SDK11 RC3, restored locked graphs. SQL samples use the approved isolated SqlServer.ps1 route. Run eng/Test-TernExtensions.ps1 -Record."
+            "PowerShell7, pinned SDK10.0.403 and SDK11 GA, restored locked graphs. SQL samples use the approved isolated SqlServer.ps1 route. Run eng/Test-TernExtensions.ps1 -Record."
           ],
           "optIns": [],
           "stabilityLimitations": [

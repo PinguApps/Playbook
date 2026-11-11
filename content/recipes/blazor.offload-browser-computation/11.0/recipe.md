@@ -34,7 +34,7 @@ Use the complete shared document and observer below too. The observer only recor
 
 Use SDK 11.0.100 with runtime/packages 11.0.0. Create adjacent FossilDesk and FossilWorker directories. From a directory with that SDK selected, run dotnet new blazorwebworker -n FossilWorker -o FossilWorker --no-restore. The generated artifact has WebWorkerClient.cs, WorkerMethods.cs and both wwwroot/dotnet-web-worker scripts. Keep the generated client/transport; replace only its starter method and apply the explicit project/package pins below. The complete generated files are also included offline later in this body.
 
-In BOTH directories add global.json with sdk.version 11.0.100, sdk.rollForward disable and sdk.allowPrerelease false. Set Directory.Packages.props to the following identical contents. The packages and SDK are author-maintained RC3 pins, not a promise about a future GA template.
+In BOTH directories add global.json with sdk.version 11.0.100, sdk.rollForward disable and sdk.allowPrerelease false. Set Directory.Packages.props to the following identical contents. The packages and SDK are author-maintained GA pins, not a promise about a future GA template.
 
 {{snippet:packages-11}}
 

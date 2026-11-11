@@ -44,7 +44,7 @@ Use HTTPS for real confidential reports; the HTTP fixture proves tunneling only.
    first or substitute an IP address when the proxy must select the target.
 2. On net11.0, choose socks5h when explicit naming helps configuration readability.
    Keeping socks5 remains valid. Use a .NET 11 SDK/runtime for the newer sample;
-   SDK11 RC3/C#15.0 are measured pins, not proof of final GA. No package,
+   SDK11 GA/C#15.0 are measured pins, not proof of final GA. No package,
    optional workload, provider SDK, rendering mode or experimental opt-in is needed.
 3. Assign the proxy explicitly and set UseProxy=true. Keep any bypass policy
    deliberate; this helper adds no bypass list and disables redirects. Do not

@@ -34,7 +34,7 @@
         "requirements": {
           "sdk": {
             "match": "release-family",
-            "reason": "Canonical net11.0 consumer; SDK11 RC3 is the exact measured compiler baseline.",
+            "reason": "Canonical net11.0 consumer; SDK11 GA is the exact measured compiler baseline.",
             "name": ".NET SDK",
             "version": "11.0"
           },

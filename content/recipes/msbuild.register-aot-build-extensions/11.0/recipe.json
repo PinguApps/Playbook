@@ -154,7 +154,7 @@
             "Native missing task yields MSB4283, missing resolver MSB4282. The verified older managed alternative retains UsingTask/directory SDK loading and missing-task failure. No target10 catalogue route added."
           ],
           "optIns": [
-            "PublishAot=true and win-x64 with the exact RC2 toolchain; allowPrerelease=false in global.json.",
+            "PublishAot=true and win-x64 with the exact GA toolchain; allowPrerelease=false in global.json.",
             "Explicit import of the pinned public Framework package target and retained, inspected IL2026 build diagnostic. No -mt, diagnostic-ID experimental or preview-language opt-in."
           ],
           "stabilityLimitations": [

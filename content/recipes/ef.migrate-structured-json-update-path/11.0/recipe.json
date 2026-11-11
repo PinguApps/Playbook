@@ -82,7 +82,7 @@
             "The pinned assembly calls the type StructuredJsonPath, not the conflicting source draft name. EF10 carries a string path; EF11 carries segments and separate array indices. The public UpdateSqlGenerator hook is exercised directly to generate a bounded SQL Server assignment; it is not a registered replacement for the SQL Server provider generator and does not implement batching, concurrency or arbitrary provider updates. StructuredJsonPath.ToString takes an optional wildcard character, not a quoting character. Render property segments explicitly: a dot in a property name must remain one quoted segment. Reject unspecified or negative indices. The fixture tests the dotted name odd.name, concrete index 1, nested properties and whole-document replacement; it does not promise every possible SQL JSON path escape or SQL native json behavior. All values use @value. Root replacement intentionally replaces the document; sibling preservation applies to partial changes."
           ],
           "prerequisites": [
-            "PowerShell7, pinned SDK10.0.403 and SDK11 RC3, restored locked graphs. SQL samples use the approved isolated SqlServer.ps1 route. Run eng/Test-TernExtensions.ps1 -Record."
+            "PowerShell7, pinned SDK10.0.403 and SDK11 GA, restored locked graphs. SQL samples use the approved isolated SqlServer.ps1 route. Run eng/Test-TernExtensions.ps1 -Record."
           ],
           "optIns": [],
           "stabilityLimitations": [

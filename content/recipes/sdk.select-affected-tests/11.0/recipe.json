@@ -83,7 +83,7 @@
           ],
           "packageAssets": [
             "Audited extension: netstandard2.0/net10.0 and packaged win-x64 collector. Complete restored closure is unverified.",
-            "MTP value is the declared minimum. TestFx independently pins 2.6.0-preview.26519.1; SDK12 alpha rollout does not establish SDK11 RC3 compatibility."
+            "MTP value is the declared minimum. TestFx independently pins 2.6.0-preview.26519.1; SDK12 alpha rollout does not establish SDK11 GA compatibility."
           ],
           "workloads": [],
           "providers": [

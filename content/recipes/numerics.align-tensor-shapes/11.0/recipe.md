@@ -117,7 +117,7 @@ restoring the previous inconsistent shape handling. Views can share storage;
 retaining metadata does not grant ownership of that storage.
 
 The application route requires final .NET11 framework/package support and the
-selected net11 package asset. Current preparation uses actual SDK11 RC3,
+selected net11 package asset. Current preparation uses actual SDK11 GA,
 runtime/ref11RC3 and tensor11RC2 for compilation only; these are reproducibility
 pins, **not a supported package route to the new behavior**. The .NET10 comparison
 executes on runtime10.0.14 with tensor10.0.13. No newer-package-on-net10,

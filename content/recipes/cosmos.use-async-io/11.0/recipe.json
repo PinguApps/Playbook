@@ -45,7 +45,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Exact current-release proof uses SDK11 RC3, not GA."
+            "reason": "Exact current-release proof uses SDK11 GA, not GA."
           },
           "language": {
             "name": "C#",

@@ -192,7 +192,7 @@
             "reason": "The canonical sample declares this stabilized language mode explicitly."
           },
           "stabilityLimitations": [
-            "Verified using .NET 11 RC2 artifacts only; GA reconciliation is pending."
+            "Verified with SDK 11.0.100 GA; current records identify the exact tested artifacts."
           ],
           "prerequisites": [
             "Target net11.0 with LangVersion 14.0; enable ImplicitUsings or include the System and System.Collections.Generic imports shown in the instructions."

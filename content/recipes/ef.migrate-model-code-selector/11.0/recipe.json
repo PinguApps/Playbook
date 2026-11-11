@@ -43,7 +43,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Measured SDK11 RC3 consumer; not GA evidence."
+            "reason": "Measured SDK11 GA consumer; not GA evidence."
           },
           "language": {
             "name": "C#",
@@ -75,7 +75,7 @@
             }
           ],
           "packageAssets": [
-            "EF10/Design/SQLite10.0.13 and EF11/Design/SQLite11.0.0; Pkcs10.0.13; independently locked transitive graphs. SDK10.0.403 and SDK11 RC3. EF11 selects net11.0."
+            "EF10/Design/SQLite10.0.13 and EF11/Design/SQLite11.0.0; Pkcs10.0.13; independently locked transitive graphs. SDK10.0.403 and SDK11 GA. EF11 selects net11.0."
           ],
           "providers": [
             "SQLite file database, Windows x64 bundled native engine."

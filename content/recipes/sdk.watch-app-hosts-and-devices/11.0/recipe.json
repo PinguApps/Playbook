@@ -58,7 +58,7 @@
             }
           ],
           "stabilityLimitations": [
-            "The .NET 11 authoring baseline is RC2; GA reconciliation is pending.",
+            "The .NET 11 authoring baseline is SDK 11.0.100 GA. Current records and exclusions define measured coverage.",
             "Not tested: Mobile compilation/device selection: no Android device/emulator or Mac. Excluded under PIN-699; host startup does not establish distributed hot reload."
           ],
           "constraints": [

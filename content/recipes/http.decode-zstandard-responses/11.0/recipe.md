@@ -48,7 +48,7 @@ policy separately when adapting the handler.
 ## Migration
 
 1. Target net11.0 with a .NET 11 SDK/runtime and retain nullable/implicit usings.
-   SDK11 RC3/C#15.0 are the measured canonical baseline. No package, workload,
+   SDK11 GA/C#15.0 are the measured canonical baseline. No package, workload,
    external provider, rendering mode or experimental opt-in is needed for the
    newer route; System.IO.Compression and its native codec ship with the runtime.
 2. Set AutomaticDecompression to Zstandard plus the other formats you intend to

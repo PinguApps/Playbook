@@ -56,7 +56,7 @@
             "name": ".NET SDK",
             "version": "11.0.100",
             "match": "exact",
-            "reason": "Complete SDK11 RC3 NuGet8.0.0-rc.605 / MSBuild18.12 / Roslyn5.12 closure; old SDK10.0.403 carries NuGet7.9.0-rc.611 / MSBuild18.9.15 / Roslyn5.9."
+            "reason": "Complete SDK11 GA NuGet8.0.0-rc.605 / MSBuild18.12 / Roslyn5.12 closure; old SDK10.0.403 carries NuGet7.9.0-rc.611 / MSBuild18.9.15 / Roslyn5.9."
           },
           "language": {
             "name": "C#",

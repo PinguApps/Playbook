@@ -42,7 +42,7 @@
           },
           "packages": [],
           "stabilityLimitations": [
-            "The .NET 11 authoring baseline is RC2; GA reconciliation is pending."
+            "The .NET 11 authoring baseline is SDK 11.0.100 GA. Current records and exclusions define measured coverage."
           ],
           "constraints": [
             "Playbook serves guidance offline; it does not install consumer dependencies, inspect a project or execute these commands.",

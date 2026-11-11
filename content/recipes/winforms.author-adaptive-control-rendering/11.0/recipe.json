@@ -126,8 +126,8 @@
     }
   ],
   "humanProof": {
-    "scope": "PIN-897 owner check refreshed for SDK/runtime RC3 on 5 November 2026 in samples/net11.0/FenStatus/owner-settings.evidence.json. Pingu confirmed readable system-colour text with the decorative accent hidden in high contrast. Actual log shows initial disabled -> enabled/Classic -> restored disabled/Net11. Owner-reported readability; no broad accessibility or GA claim.",
-    "status": "verified"
+    "status": "verified",
+    "scope": "Pingu refreshed the owner contrast check on 11 November 2026 using SDK11.0.100/runtime11.0.0 GA. Actual log records Net11 -> Classic under high contrast -> Net11 after restoration; Pingu confirmed readable text and the decorative accent behavior. Readability is owner-reported; no broad accessibility claim."
   },
   "snippets": {
     "n10-fenstatus-directory-build-props": {

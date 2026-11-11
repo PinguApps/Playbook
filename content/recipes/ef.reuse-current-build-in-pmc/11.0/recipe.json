@@ -46,7 +46,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Exact current-release proof uses SDK11 RC3, not GA."
+            "reason": "Exact current-release proof uses SDK11 GA, not GA."
           },
           "language": {
             "name": "C#",
@@ -160,7 +160,7 @@
       "language": "15.0",
       "kind": "execution",
       "record": "samples/net11.0/CanalDesign/pmc.evidence.json",
-      "scope": "Pingu performed real Visual Studio 18.11.0 PMC Add-Migration/Update-Database NoBuild on 5 November 2026; host 7.11.0.24, PowerShell 5.1.26100.9711, SDK11 RC3 and EF11 RC2. Generated migrations, unchanged stale DLL, rebuilt AddColumn and actual SQLite schema/history verified. Exact mixed baseline only; no EF RC3 or GA claim."
+      "scope": "Pingu performed real Visual Studio 18.11.0 PMC Add-Migration/Update-Database NoBuild on 5 November 2026; host 7.11.0.24, PowerShell 5.1.26100.9711, SDK11 GA and EF11 RC2. Generated migrations, unchanged stale DLL, rebuilt AddColumn and actual SQLite schema/history verified. Exact mixed baseline only; no EF RC3 or GA claim."
     }
   ],
   "snippets": {
@@ -237,6 +237,6 @@
   },
   "humanProof": {
     "status": "verified",
-    "scope": "Pingu performed real Visual Studio 18.11.0 PMC Add-Migration/Update-Database NoBuild on 5 November 2026; host 7.11.0.24, PowerShell 5.1.26100.9711, SDK11 RC3 and EF11 RC2. Generated migrations, unchanged stale DLL, rebuilt AddColumn and actual SQLite schema/history verified. Exact mixed baseline only; no EF RC3 or GA claim."
+    "scope": "Pingu refreshed actual Visual Studio PMC NoBuild checks on 11 November 2026 with SDK11.0.100 and EF Tools11.0.0 GA. Agent inspected the empty stale migration, rebuilt BasinCode column and final read-only SQLite schema/history. Duplicate migration-name rejection followed a repeated user command. No other Visual Studio versions or production database claim."
   }
 }

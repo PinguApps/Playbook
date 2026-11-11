@@ -72,7 +72,7 @@ session and change only their UIDs.
 Only Linux x64 Docker execution is measured. macOS per-user TMPDIR selection and
 other Unix platforms are not execution claims. Both pinned baselines already
 contain the changed default. The actual .NET10.0.12 runtime is an isolated
-historical control, not a recommended rollback. SDK10.0.403/C#14 and SDK11 RC3/C#15
+historical control, not a recommended rollback. SDK10.0.403/C#14 and SDK11 GA/C#15
 are exact comparison pins; no package, optional workload, provider or UI is needed.
 
 The source also documents System.Threading.Mutex.UnsafeDefaultMutexScopeGlobal

@@ -30,13 +30,13 @@ EF11 Add-Migration and Update-Database accept NoBuild. Load this complete CanalD
 
 ## Constraints
 
-This is Visual Studio on Windows with actual NuGet Package Manager Console and matching EF11 Tools. NoBuild is claimed only for Add-Migration and Update-Database here. The original consumer requires .NET11/C#15 and SQLite; the EF10 comparison uses .NET10/C#14. No UI renderer, web host, external account or service is required. Exact SDKs and transitive package assets are recorded by the locked consumers. RC2 compilation is not GA proof.
+This is Visual Studio on Windows with actual NuGet Package Manager Console and matching EF11 Tools. NoBuild is claimed only for Add-Migration and Update-Database here. The original consumer requires .NET11/C#15 and SQLite; the EF10 comparison uses .NET10/C#14. No UI renderer, web host, external account or service is required. Exact SDKs and transitive package assets are recorded by the locked consumers. Current GA compilation and owner PMC proof are recorded separately.
 
 ## Evidence
 
 The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
-Both original consumers compile and run. Pingu executed Add-Migration and Update-Database with NoBuild in actual Visual Studio 18.11.0, NuGet Package Manager Host 7.11.0.24 and Windows PowerShell 5.1.26100.9711. The build used SDK 11.0.100 with locked EF Tools/Design/SQLite 11.0.0. Generated migrations and a read-only SQLite query confirmed the table, all three applied migrations and the BasinCode column. The unchanged DLL hash and empty pre-rebuild migration establish the stale-artifact limitation. This is the tested mixed SDK/package baseline, not EF RC3 or GA proof; it does not establish every Visual Studio version. The linked PMC execution record distinguishes Pingu's console transcript from the agent's compilation and database inspection.
+Both original consumers compile and run. On 11 November 2026 Pingu repeated the actual Visual Studio PMC check with SDK 11.0.100 and EF Tools 11.0.0 GA. Add-Migration and Update-Database with NoBuild succeeded with the intervening Release builds. The unbuilt BasinCode change produced an empty migration; after rebuilding, the next migration added the column. A repeated migration name was correctly rejected. Agent inspection of generated sources and a read-only SQLite query confirmed Id, Label, BasinCode and all three applied migrations with ProductVersion 11.0.0. The PMC record distinguishes owner execution from agent artifact/database inspection; it does not establish every Visual Studio version.
 
 ## Complete canonical projects
 

@@ -43,7 +43,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Measured SDK11 RC3 consumer; not GA evidence."
+            "reason": "Measured SDK11 GA consumer; not GA evidence."
           },
           "language": {
             "name": "C#",

@@ -71,7 +71,7 @@ The native provider is a controlled failing fixture. It executes WPF's real COM 
 
 ## Constraints
 
-Windows desktop, STA execution, SDK10.0.403/C#14 and SDK11.0.100/C#15. No added NuGet package, service account or remote provider. The current edition targets .NET11; the older sample is comparison evidence, not a .NET10 foundation or backport. Framework-reference and runtime assets must match their declared targets. No experimental API opt-in is required by these compiled samples. RC3 execution does not establish GA verification.
+Windows desktop, STA execution, SDK10.0.403/C#14 and SDK11.0.100/C#15. No added NuGet package, service account or remote provider. The current edition targets .NET11; the older sample is comparison evidence, not a .NET10 foundation or backport. Framework-reference and runtime assets must match their declared targets. No experimental API opt-in is required by these compiled samples. Historical RC execution is separate from current GA verification records.
 
 ## Evidence
 

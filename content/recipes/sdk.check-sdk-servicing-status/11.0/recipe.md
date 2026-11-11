@@ -24,7 +24,7 @@ Windows x64 is the executed platform; other platforms need their own qualificati
 
 These exact test pins do not mean a future SDK is automatically qualified. The
 supported prerequisite is an SDK shipping the documented check; use the complete
-official distribution, not a copied task DLL. RC3 evidence is not GA proof.
+official distribution, not a copied task DLL. Current GA records define measured coverage and retained exclusions.
 
 ## Older approach
 

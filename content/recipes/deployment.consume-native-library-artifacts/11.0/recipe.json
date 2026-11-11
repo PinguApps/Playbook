@@ -30,7 +30,7 @@
         "conditional": false,
         "usage": "primary",
         "selectionNotes": [
-          "Linux x64 Docker execution; SDK 10.0.403 and SDK 11 RC3 comparison. RC2 is not GA evidence.",
+          "Linux x64 Docker execution; SDK 10.0.403 and SDK 11 GA comparison. RC2 is not GA evidence.",
           "macOS publication, .dylib naming, packaging, symbols and C invocation are source-reviewed and not-tested; static libraries remain unsupported/unresolved."
         ],
         "sharedAreas": [],
@@ -73,7 +73,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Current evidence uses SDK 11 RC3, not GA."
+            "Current evidence uses SDK 11 GA, not GA."
           ]
         },
         "sourceUrls": [

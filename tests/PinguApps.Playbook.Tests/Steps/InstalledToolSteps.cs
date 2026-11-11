@@ -2928,8 +2928,9 @@ public sealed class InstalledToolSteps : IDisposable
             }
             else
             {
-                Assert.Contains("RC", primary.GetProperty("requirements").GetProperty("stabilityLimitations")[0].GetString(), StringComparison.Ordinal);
-                Assert.Contains("not GA verification", recipe.GetProperty("markdown").GetString(), StringComparison.Ordinal);
+                Assert.Contains("GA", primary.GetProperty("requirements").GetProperty("stabilityLimitations")[0].GetString(), StringComparison.Ordinal);
+                Assert.All(recipe.GetProperty("evidence").EnumerateArray().Where(item => item.GetProperty("sdk").GetString()!.StartsWith("11.", StringComparison.Ordinal)),
+                    item => Assert.Equal("11.0.100", item.GetProperty("sdk").GetString()));
             }
         }
     }

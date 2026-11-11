@@ -27,7 +27,7 @@ The current project conditions select the .icon directory only for iOS or Mac Ca
 
 ## Constraints
 
-Current intended pins: SDK11 RC3, C#15, MAUI Controls/Resizetizer11 RC2 and matching native workload. Apple requires .icon-capable Apple tooling (26.5.11720-net11-p6 or later; use the exact workload-compatible Xcode), plus normal host configuration. The comparison uses SDK10.0.402, C#14 and MAUI10.0.110. Native build assets, no provider/account or web rendering mode. No experimental API opt-in; no GA or visual quality guarantee from RC source review.
+Current intended pins: SDK11 GA, C#15, MAUI Controls/Resizetizer11 RC2 and matching native workload. Apple requires .icon-capable Apple tooling (26.5.11720-net11-p6 or later; use the exact workload-compatible Xcode), plus normal host configuration. The comparison uses SDK10.0.402, C#14 and MAUI10.0.110. Native build assets, no provider/account or web rendering mode. No experimental API opt-in; no GA or visual quality guarantee from RC source review.
 
 ## Evidence
 

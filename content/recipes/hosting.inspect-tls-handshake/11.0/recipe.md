@@ -67,7 +67,7 @@ Save the complete newer files in a separate directory. Restore with the declared
 
 ## Constraints
 
-- Runtime/framework: ASP.NET Core 11 on Kestrel for the new middleware/exception surface. SDK 11 RC3 and C# 15 are the exact sample baseline, not a mandate to use an RC build in production. The older build uses SDK 10.0.403, C# 14 and .NET 10.0.13.
+- Runtime/framework: ASP.NET Core 11 on Kestrel for the new middleware/exception surface. SDK 11 GA and C# 15 are the exact sample baseline, not a mandate to use an RC build in production. The older build uses SDK 10.0.403, C# 14 and .NET 10.0.13.
 - Packages/assets: the ASP.NET Core shared framework supplies these APIs; no extra package, provider, account or workload is required. These explicit local build/package files prevent accidental inheritance when the sample is copied into another repository.
 - Platform: the fixture actually ran on Windows x64 with TLS 1.2 and TLS 1.3 available. Its deliberate version mismatch and scoped analyzer suppression exist to create a reliable negotiation failure. The sample does not prescribe a TLS 1.2 production cap.
 - The temporary certificate is loaded into a usable private-key container for Windows TLS. It is never trusted globally. Successful-client validation pins that exact certificate; the deliberately failing client accepts a certificate only to isolate protocol negotiation. These are loopback test policies, not deployment certificate-validation advice.

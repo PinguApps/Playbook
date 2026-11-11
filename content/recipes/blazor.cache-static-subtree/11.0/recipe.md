@@ -36,7 +36,7 @@ The original local aggregation and content revision are explicit:
 
 ## Migration
 
-1. Use Microsoft.NET.Sdk.Web, net11.0 and C# 15.0. The measured SDK/runtime are 11.0.100 / 11.0.0. The older project uses net10.0, C# 14.0, SDK 10.0.403 and runtime/browser assets 10.0.14. Each project locks its SDK-aligned Internal.Assets. No optional workload or experimental opt-in is required. These are RC2 results, not GA proof.
+1. Use Microsoft.NET.Sdk.Web, net11.0 and C# 15.0. The measured SDK/runtime are 11.0.100 / 11.0.0. The older project uses net10.0, C# 14.0, SDK 10.0.403 and runtime/browser assets 10.0.14. Each project locks its SDK-aligned Internal.Assets. No optional workload or experimental opt-in is required. Current GA evidence records define measured coverage and retained exclusions.
 2. Put these components in Playbook.Samples. In _Imports.razor set @namespace Playbook.Samples and import Microsoft.AspNetCore.Components, Microsoft.AspNetCore.Components.Routing, Microsoft.AspNetCore.Http and Playbook.Samples. Use this static App.razor; no interactive activation or browser script is needed:
 
 {{snippet:document}}

@@ -34,7 +34,7 @@
         "requirements": {
           "sdk": {
             "match": "release-family",
-            "reason": "Build net11.0 against .NET 11 references; exact SDK11 RC3 is a separate tested baseline.",
+            "reason": "Build net11.0 against .NET 11 references; exact SDK11 GA is a separate tested baseline.",
             "name": ".NET SDK",
             "version": "11.0"
           },

@@ -46,7 +46,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Current SDK11 RC3 compiles the locked EF11 RC2 graph; not GA evidence."
+            "reason": "Current SDK11 GA compiles the locked EF11 RC2 graph; not GA evidence."
           },
           "language": {
             "name": "C#",

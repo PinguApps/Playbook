@@ -162,7 +162,7 @@
     },
     {
       "kind": "compile",
-      "scope": "Actual SDK11 RC3 and locked tensor11 RC2 net11 compilation of the full-release policy and shape/view/Any/native-width checks. The package lacks the release/11.0 shape backport; no successful new behavior or large/native/final-artifact execution is claimed. Final proof remains pending under PIN-962.",
+      "scope": "Actual SDK11 GA and locked tensor11 RC2 net11 compilation of the full-release policy and shape/view/Any/native-width checks. The package lacks the release/11.0 shape backport; no successful new behavior or large/native/final-artifact execution is claimed. Final proof remains pending under PIN-962.",
       "sample": "samples/net11.0/InstrumentBatch/InstrumentBatch.csproj",
       "sdk": "11.0.100",
       "language": "15.0",

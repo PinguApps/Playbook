@@ -70,7 +70,7 @@
             "Use the complete original project files below with nullable and implicit usings enabled. Permit the normal local Blazor WebSocket connection and same-origin module/static asset loading."
           ],
           "stabilityLimitations": [
-            "GA-targeted 11.0 edition qualified on SDK 11.0.100 and framework RC2. No experimental suppression is required by the inspected API/analyzer."
+            "GA-targeted 11.0 edition qualified on SDK 11.0.100 and framework GA. No experimental suppression is required by the inspected API/analyzer."
           ],
           "packages": [],
           "sdk": {

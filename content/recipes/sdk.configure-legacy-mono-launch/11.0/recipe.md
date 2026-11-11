@@ -61,7 +61,7 @@ desktop components and other applications need their own compatibility checks.
 The host needs Mono, not a .NET 11 runtime to execute this net472 importer. SDK 11
 is used to build and evaluate the new launch configuration. No package, provider,
 rendering mode, workload, experimental opt-in or public deployment is involved.
-No machine/user environment or PATH changes are required. SDK 11 RC3 establishes
+No machine/user environment or PATH changes are required. SDK 11 GA establishes
 the measured behavior only; final GA reconciliation remains separate.
 
 ## Evidence
