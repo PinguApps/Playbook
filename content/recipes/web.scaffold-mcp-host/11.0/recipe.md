@@ -92,7 +92,7 @@ The SDK template emits an explicit package version. The canonical repository sam
 
 Loopback demonstration only; the sample has no authentication, authorization or internet exposure. Production hosting security and resource access require separate design. No package publication, account or remote service provisioning is required.
 
-This is an example agent-facing application, separate from Playbook's installed stdio documentation host. Template availability, MCP library maturity and .NET RC verification are separate facts.
+This is an example agent-facing application, separate from Playbook's installed stdio documentation host. Template availability, MCP library maturity and .NET GA SDK verification are separate facts.
 
 ## Evidence
 

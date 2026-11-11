@@ -74,8 +74,8 @@ For the successful route, the measured native route is `Station/Index/{id?}`; fo
 - Managed dependencies: `OpenTelemetry` 1.20.1 plus its exact resolved API/provider-builder assets in the saved lock. The .NET 10 comparison additionally references `OpenTelemetry.Instrumentation.AspNetCore` 1.20.1. The framework source is not an extra NuGet package.
 - Platform/rendering: actual Windows x64 loopback MVC execution; no browser, database, workload, secret or cloud provider. The exporter records real completed activities locally. It does not demonstrate remote collector delivery, retries, retention or backend pricing.
 - Error metrics can gain an `error.type` dimension; review backend cardinality separately. No metrics/exporter-backend execution is claimed here. The suppression control proves continued activity creation and domain enrichment, not every switch interaction in every instrumentation package.
-- Suppression in the measured GA also removes the error status and route tag. It cannot be relied on to restore older route formatting, exception descriptions or a complete former exporter contract. This observed qualification is retained alongside the current official description rather than relabelling RC proof as GA behavior.
-- Stable API intent requires no experimental opt-in. Final .NET 11 GA source/runtime reconciliation remains outstanding under ADR 0004. Native error-event differences must be rechecked with final artifacts.
+- Suppression in the measured GA also removes the error status and route tag. It cannot be relied on to restore older route formatting, exception descriptions or a complete former exporter contract. This measured GA qualification is retained alongside the official description.
+- Stable API intent requires no experimental opt-in. The recorded GA runtime checks cover this Windows route. Other native error-event routes require separate verification.
 
 ## Evidence
 

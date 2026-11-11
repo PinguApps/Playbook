@@ -89,7 +89,7 @@
             "Choose --transport remote explicitly: the template defaults to local stdio. The measured route uses stateless Streamable HTTP, framework-dependent managed execution and ModelContextProtocol.AspNetCore 2.1.0. Neither AOT nor self-contained publication is claimed.",
             "The SDK template emits an explicit package version. The canonical repository sample uses an isolated central version file and a versionless reference to keep the same dependency. Review generated references when moving it under another CPM boundary.",
             "Loopback demonstration only; the sample has no authentication, authorization or internet exposure. Production hosting security and resource access require separate design. No package publication, account or remote service provisioning is required.",
-            "This is an example agent-facing application, separate from Playbook's installed stdio documentation host. Template availability, MCP library maturity and .NET RC verification are separate facts."
+            "This is an example agent-facing application, separate from Playbook's installed stdio documentation host. Template availability, MCP library maturity and .NET GA SDK verification are separate facts."
           ],
           "optIns": [],
           "stabilityLimitations": [

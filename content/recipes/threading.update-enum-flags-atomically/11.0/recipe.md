@@ -49,7 +49,7 @@ satisfying the generic constraint. No unsafe caller code is needed for this rout
 
 1. Target net11.0 with a .NET 11 SDK/runtime. The canonical project declares
    C#15.0. No package, workload, provider, rendering mode or experimental opt-in
-   is required. Exact test pins below identify the measured RC artifacts.
+   is required. Exact test pins below identify the measured GA artifacts.
 2. Check the real backing type. Preserve existing enum numeric values and masks.
    Replace only casts/CAS plumbing for supported integer or enum storage; retain
    the int-based implementation on .NET 10. No package backport is claimed.

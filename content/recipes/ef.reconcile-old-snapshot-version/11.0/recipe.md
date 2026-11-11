@@ -110,7 +110,7 @@ Independent compilation uses each SDK pin and lock. Focused SQLite tooling and C
 
 ## Exact toolchain
 
-Current EF package: 11.0.0; older package: 10.0.13. Tooling consumers match Design and dotnet-ef to the EF package. SDK pins are canonical below; release-family prerequisites do not relabel these RC checks as GA proof.
+Current EF package: 11.0.0; older package: 10.0.13. Tooling consumers match Design and dotnet-ef to the EF package. SDK pins are canonical below; exact GA checks are distinct from consumer release-family prerequisites.
 
 ### .NET10 AvocetSnapshot SDK pin
 

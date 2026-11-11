@@ -22,7 +22,7 @@ An absent navigation segment produces Cosmos undefined, which is different from 
 
 2. Apply IsDefined in the predicate to exclude undefined values, or CoalesceUndefined in the projection to retain those records with a fallback. Keep the behavior independent of the number of projected properties.
 
-3. Copy the complete release-specific projects and run eng/Test-ReefIdentity.ps1 -Record against the disposable local emulator. Compare absent, JSON-null and present fixtures. Refresh GA package/SDK pins and run the documented exception checks after GA; RC observations do not override the .NET11 documentation.
+3. Copy the complete release-specific projects and run eng/Test-ReefIdentity.ps1 -Record against the disposable local emulator. Compare absent, JSON-null and present fixtures. Refresh GA package/SDK pins and run the documented exception checks after GA; The measured GA discrepancy does not override the documented contract; use the verified workaround.
 
 ## Constraints
 

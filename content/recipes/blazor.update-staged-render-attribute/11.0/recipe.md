@@ -80,7 +80,7 @@ The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The
 
 Both real consumers compile and execute through Record-Evidence.ps1. Four custom-renderer batches and four actual HTML outputs cover replacement, encoding, null and subsequent replacement. The GA consumer executes wrong-frame and both index-boundary failures; Test-StagedAttribute.ps1 compiles independent negative consumers for CS1061, ASP0032 and BL0006. No DOM, event-handler mutation, performance or cross-version renderer compatibility is claimed.
 
-The exact test sets are .NET 10/C# 14, SDK 10.0.403, framework 10.0.13, and .NET 11/C# 15, SDK 11.0.100, framework 11.0.0. These independently pinned consumers are separate from the supported prerequisites above. No native assets or workloads are required. RC execution does not establish GA verification. The .NET 10 comparison adds no catalogue foundation or edition. PIN-959 and PIN-964 remain open.
+The exact test sets are .NET 10/C# 14, SDK 10.0.403, framework 10.0.13, and .NET 11/C# 15, SDK 11.0.100, framework 11.0.0. These independently pinned consumers are separate from the supported prerequisites above. No native assets or workloads are required. GA execution is limited to the recorded checks. The .NET 10 comparison adds no catalogue foundation or edition. PIN-959 and PIN-964 remain open.
 
 Official source support:
 

@@ -87,5 +87,4 @@ AsnEncodedData rejection and getter-only compilation. A separate current-target
 project compiles the unchanged old setter with warnings as errors and must fail
 with SYSLIB0065 alone; it uses no suppression. The supported newer project builds
 with zero warnings/errors. The ordinary installed artifact returns complete
-canonical Markdown, applicability and fresh records offline. RC proof leaves
-PIN-959/PIN-962 and existing Human gates open.
+canonical Markdown, applicability and fresh records offline. These checks leave unrelated comprehensive coverage and existing Human gates open.

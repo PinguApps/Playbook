@@ -87,7 +87,7 @@ ECDSA helpers also compile/run in the .NET10 comparison: ECDSA is not new in11.
 
 Application route: .NET11 runtime/reference family and SDK, C#15 canonical sample
 mode, macOS ECDSA provider with usable P-256 certificate/key access. Exact pins
-below describe measured Windows evidence, not a requirement to use an RC in an
+below describe measured Windows evidence, not a universal minimum-patch requirement for an
 application. This is stable framework API guidance with no experimental opt-in,
 NuGet package, workload, rendering mode, production key migration or external
 certificate issuer. Host console build is workload-free; it is not a Mac app build.

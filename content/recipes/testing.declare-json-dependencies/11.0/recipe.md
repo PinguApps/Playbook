@@ -210,9 +210,7 @@ temporary choice, but it does not repair a newer deployment's missing assets.
 Adding Newtonsoft cannot restore removed communication APIs such as
 `Message.Payload`, `VersionedMessage` or the old public converter/resolver types.
 That requires a separate supported API migration; this recipe deliberately uses
-only the public adapter/collector contracts. RC execution does not establish
-actual .NET 11 GA support. PIN-959 qualifying coverage/evidence and PIN-963 actual-GA
-reconciliation remain open; the exact eight .NET 10 foundations are unchanged.
+only the public adapter/collector contracts. GA execution covers these public adapter/collector contracts, rather than a full legacy-contract migration. Existing qualifying coverage gates remain separate; the exact eight .NET 10 foundations are unchanged.
 
 ## Evidence
 

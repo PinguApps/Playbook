@@ -26,7 +26,7 @@ This sample logs the complete URI only when it exactly matches the fixed synthet
 
 ## Constraints
 
-Windows only, native MAUI/WinUI; no web rendering mode, provider or account. The older app uses SDK10.0.402, C#14 and Controls10.0.110. Current intended pins are SDK11 GA, C#15 and Controls11 GA with matching MAUI Windows workload. Windows App SDK is a separate dependency, not evidence of a usable MAUI workload. No compatible .NET10 route for the new hook is claimed. The API is stable; RC artifact review is limited to the recorded checks.
+Windows only, native MAUI/WinUI; no web rendering mode, provider or account. The older app uses SDK10.0.402, C#14 and Controls10.0.110. Current intended pins are SDK11 GA, C#15 and Controls11 GA with matching MAUI Windows workload. Windows App SDK is a separate dependency, not evidence of a usable MAUI workload. No compatible .NET10 route for the new hook is claimed. The API is stable; GA artifact review is limited to the recorded checks.
 
 ## Evidence
 

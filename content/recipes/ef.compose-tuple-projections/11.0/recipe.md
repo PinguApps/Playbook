@@ -48,7 +48,7 @@ The independently pinned .NET10 consumer remains a valid comparison.
 
 ## Newer approach
 
-The independently pinned .NET11 consumer records the actual RC boundary.
+The independently pinned .NET11 consumer records the actual GA behavior.
 
 ### .NET11 Directory.Build.props
 
