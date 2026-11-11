@@ -304,7 +304,7 @@ public sealed class InstalledToolSteps : IDisposable
         }
 
         string markdown = recipe.GetProperty("markdown").GetString()!;
-        foreach (string contract in new[] { "Blazor enhanced navigation; only resources actually needed", "10.0.14", "blazor-enhanced-nav=on", "modulepreload does not execute", "warm cache", "not GA", "no unavailable older public API", "as=\"fetch\"", "crossorigin=\"anonymous\"", "data-enhance-nav=\"false\"" })
+        foreach (string contract in new[] { "Blazor enhanced navigation; only resources actually needed", "10.0.14", "blazor-enhanced-nav=on", "modulepreload does not execute", "warm cache", "11.0.100", "no unavailable older public API", "as=\"fetch\"", "crossorigin=\"anonymous\"", "data-enhance-nav=\"false\"" })
         {
             Assert.Contains(contract, markdown, StringComparison.OrdinalIgnoreCase);
         }
@@ -378,7 +378,7 @@ public sealed class InstalledToolSteps : IDisposable
         }
 
         string markdown = recipe.GetProperty("markdown").GetString()!;
-        foreach (string contract in new[] { "MetricsSupport", "BlazorWebAssemblyDiagnosticsEnabled", "EventSourceSupport", "HttpActivityPropagationSupport", "1.20.1", "lib/net10.0", "HttpProtobuf", "/v1/metrics", "/v1/traces", "collector.yaml", "allowed_origins", "Content-Type", "ForceFlush", "tracing.configure-source-rules/11.0", "subscription", "not GA", "parentSpanId", "service.instance.id" })
+        foreach (string contract in new[] { "MetricsSupport", "BlazorWebAssemblyDiagnosticsEnabled", "EventSourceSupport", "HttpActivityPropagationSupport", "1.20.1", "lib/net10.0", "HttpProtobuf", "/v1/metrics", "/v1/traces", "collector.yaml", "allowed_origins", "Content-Type", "ForceFlush", "tracing.configure-source-rules/11.0", "subscription", "11.0.100", "parentSpanId", "service.instance.id" })
         {
             Assert.Contains(contract, markdown, StringComparison.OrdinalIgnoreCase);
         }
