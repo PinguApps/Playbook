@@ -31,8 +31,8 @@
 <Project>
   <PropertyGroup><ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally><CentralPackageVersionOverrideEnabled>false</CentralPackageVersionOverrideEnabled></PropertyGroup>
   <ItemGroup>
-    <PackageVersion Include="Microsoft.AspNetCore.Components.WebAssembly" Version="[11.0.0-rc.3.26522.148]" />
-    <PackageVersion Include="Microsoft.AspNetCore.Components.Gateway" Version="[11.0.0-rc.2.26504.105]" />
+    <PackageVersion Include="Microsoft.AspNetCore.Components.WebAssembly" Version="[11.0.0]" />
+    <PackageVersion Include="Microsoft.AspNetCore.Components.Gateway" Version="[11.0.0]" />
     <PackageVersion Include="Microsoft.Extensions.ServiceDiscovery" Version="[10.10.0]" />
     <PackageVersion Include="OpenTelemetry.Exporter.OpenTelemetryProtocol" Version="[1.19.1]" />
     <PackageVersion Include="OpenTelemetry.Extensions.Hosting" Version="[1.19.1]" />
