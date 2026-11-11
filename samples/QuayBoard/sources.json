@@ -1,5 +1,5 @@
 {
-  "scope": "Original QuayBoard SourceGen migration and preview expressions; source review is not native compilation.",
+  "scope": "GA package archive/reference inspection with historical pinned source context; this is not native compilation or execution.",
   "sources": [
     {
       "sha256": "def97ef9290544122efd39f0af7fe8e8144d8aca88e1d9aef5818d4b87c5757f",
@@ -44,16 +44,18 @@
   ],
   "artifacts": [
     {
-      "sha256": "e26b653395cf06be107cf51b16c6d2f9c14fb3fdc4c82d4faa78b3c316b10e8b",
+      "sha256": "90e77ba20bde1b6ea4672ab8b4a7136c1e21389dc87c9696b5df228dc5eda08e",
       "id": "Microsoft.Maui.Controls",
-      "version": "11.0.0-rc.2.26505.5",
-      "scope": "Actual Windows dependency group net11.0-windows10.0.20348; source commit d32b79928709cf53b671336dabd0caef5a679fc2."
+      "version": "11.0.0",
+      "scope": "Actual GA package archive and dependency groups inspected; repository commit 4e6582f7397a5736bc85984228c549d09a85a1de. Native compilation/execution remains not-tested.",
+      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.maui.controls/11.0.0/microsoft.maui.controls.11.0.0.nupkg"
     },
     {
-      "sha256": "07bc50cef5dec003ae7dae0ae197716f12ba105724cccad353d8640cbf7688ec",
+      "sha256": "0aff99080c1a987740c461daf9b08c25fe322c52c7d11b5e1eb6f53d557423f3",
       "id": "Microsoft.Maui.Controls.Build.Tasks",
-      "version": "11.0.0-rc.2.26505.5",
-      "scope": "Actual buildTransitive/netstandard2.0 SourceGen analyzer and targets present."
+      "version": "11.0.0",
+      "scope": "Actual GA package archive and dependency groups inspected; repository commit 4e6582f7397a5736bc85984228c549d09a85a1de. Native compilation/execution remains not-tested.",
+      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.maui.controls.build.tasks/11.0.0/microsoft.maui.controls.build.tasks.11.0.0.nupkg"
     }
   ]
 }

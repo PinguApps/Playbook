@@ -16,7 +16,7 @@ The .NET 10 baseline has no equivalent first-party MAUI project-template Avaloni
 
 ## Newer approach
 
-Select SDK11.0.100 and install Microsoft.Maui.Templates.net11::11.0.0-rc.2.26505.5. Generate with `dotnet new maui --name QuayDesktop --with-avalonia --avaloniaControlsMauiVersion 11.0.0-rc.2.26287.618 --no-restore`. The version parameter is hidden in CLI help but is accepted by the tested template. The generated project adds a neutral net11.0 desktop target, Avalonia.Controls.Maui, conditional Avalonia.Controls.Maui.Desktop and AvaloniaControlsMauiGenerateBootstrap=true. Other heads use Avalonia embedding; a neutral desktop target is not a Windows/iOS/Android native platform TFM.
+Select SDK11.0.100 and install Microsoft.Maui.Templates.net11::11.0.0. Generate with `dotnet new maui --name QuayDesktop --with-avalonia --avaloniaControlsMauiVersion 11.0.0-rc.2.26287.618 --no-restore`. The version parameter is hidden in CLI help but is accepted by the tested template. The generated project adds a neutral net11.0 desktop target, Avalonia.Controls.Maui, conditional Avalonia.Controls.Maui.Desktop and AvaloniaControlsMauiGenerateBootstrap=true. Other heads use Avalonia embedding; a neutral desktop target is not a Windows/iOS/Android native platform TFM.
 
 For a separate desktop head use the first-party `maui-multiproject --avalonia` option; its desktop project is optional and separate. The single-project `--with-avalonia` option is ignored when XAML sample content is selected. Preserve resource XAML even when C# UI is chosen. Do not apply the template sample-content pages to the unsupported Avalonia combination.
 

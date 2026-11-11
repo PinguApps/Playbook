@@ -79,7 +79,7 @@
           ],
           "prerequisites": [
             "See exact canonical pins and independent package locks; tool host itself requires no MAUI workload.",
-            "Supplemental raw-asset consumer additionally uses Avalonia.Controls.Maui/Desktop11.0.0-rc.2.26287.618 and Microsoft.Maui.Resizetizer11.0.0-rc.2.26505.5; those are not prerequisites for the service-only backend."
+            "Supplemental raw-asset consumer additionally uses Avalonia.Controls.Maui/Desktop11.0.0-rc.2.26287.618 and Microsoft.Maui.Resizetizer11.0.0; those are not prerequisites for the service-only backend."
           ],
           "constraints": [
             "GA preparation evidence, within the recorded verification scope. No verified older-target route. Native behavior exclusions and contract doubles are explicit in Evidence."

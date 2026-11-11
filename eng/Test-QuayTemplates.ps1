@@ -25,16 +25,16 @@ try {
     $version = '11.0.0'
     $package = Join-Path $session "Microsoft.Maui.Templates.net11.$version.nupkg"
     [IO.File]::WriteAllBytes($package, $client.GetByteArrayAsync("https://api.nuget.org/v3-flatcontainer/microsoft.maui.templates.net11/$version/microsoft.maui.templates.net11.$version.nupkg").GetAwaiter().GetResult())
-    if ((Get-FileHash $package -Algorithm SHA256).Hash.ToLowerInvariant() -cne 'f79b83f8c93756b9ba812043ef204c06b51640bedf5b807012f04db916b710b7') { throw 'Template package identity changed.' }
+    if ((Get-FileHash $package -Algorithm SHA256).Hash.ToLowerInvariant() -cne '6b4059cf2b9dfa5b0bf3dfb258a7f87d8e28fa1a7fa12f5899da2bc2fde4048d') { throw 'Template package identity changed.' }
     Push-Location (Join-Path $root 'samples/net11.0/QuayBackend')
     try {
         $hive = Join-Path $session 'hive'
         & $Dotnet new install $package --debug:custom-hive $hive
         & $Dotnet new maui -n QuayCSharp -o (Join-Path $session 'csharp') --ui csharp --no-restore --debug:custom-hive $hive
-        & $Dotnet new maui -n QuayDesktop -o (Join-Path $session 'avalonia') --with-avalonia --avaloniaControlsMauiVersion '11.0.0' --no-restore --debug:custom-hive $hive
+        & $Dotnet new maui -n QuayDesktop -o (Join-Path $session 'avalonia') --with-avalonia --avaloniaControlsMauiVersion '11.0.0-rc.2.26287.618' --no-restore --debug:custom-hive $hive
         & $Dotnet new maui -n QuayRestricted -o (Join-Path $session 'restricted') --ui csharp --sample-content --no-restore --debug:custom-hive $hive
         & $Dotnet new maui -n QuayXaml -o (Join-Path $session 'xaml') --with-avalonia --sample-content --no-restore --debug:custom-hive $hive
-        & $Dotnet new maui-multiproject -n QuaySeparate -o (Join-Path $session 'separate') --avalonia --avaloniaControlsMauiVersion '11.0.0' --debug:custom-hive $hive
+        & $Dotnet new maui-multiproject -n QuaySeparate -o (Join-Path $session 'separate') --avalonia --avaloniaControlsMauiVersion '11.0.0-rc.2.26287.618' --debug:custom-hive $hive
     } finally { Pop-Location }
     # The template also emits floating logging and an SDK-selected MAUI version.
     # Freeze these generated inputs before a restore; never grant sample auto-updates.
@@ -49,7 +49,7 @@ try {
     }
     if (Test-Path (Join-Path $session 'restricted/Pages/MainPage.xaml')) { throw 'C# option unexpectedly included XAML sample content.' }
     $project = [IO.File]::ReadAllText((Join-Path $session 'avalonia/QuayDesktop.csproj'))
-    foreach ($token in 'Avalonia.Controls.Maui','Avalonia.Controls.Maui.Desktop','11.0.0','net11.0') {
+    foreach ($token in 'Avalonia.Controls.Maui','Avalonia.Controls.Maui.Desktop','11.0.0-rc.2.26287.618','net11.0') {
         if (-not $project.Contains($token)) { throw "Missing generated Avalonia input $token" }
     }
     if ($project.Contains('preview.6.*')) { throw 'Generated dependency is floating.' }
