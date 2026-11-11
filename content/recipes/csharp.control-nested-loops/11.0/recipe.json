@@ -18,7 +18,9 @@
     "break",
     "continue",
     "finally",
-    "IDisposable"
+    "IDisposable",
+    "IDE0410",
+    "csharp_style_prefer_labeled_jump_statements"
   ],
   "introducedIn": "11.0",
   "supportedTargets": [
@@ -77,13 +79,15 @@
         "conditional": false,
         "selectionNotes": [
           "Targets an enclosing labeled construct; continue requires a loop. Function and finally boundaries still apply.",
-          "No supported older-target C# 15 route is claimed."
+          "No supported older-target C# 15 route is claimed.",
+          "SDK 11.0.100 reports IDE0410 on the configured goto fixture; IDE code-fix application was not exercised."
         ],
         "sourceUrls": [
           "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/jump-statements",
           "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-specification/statements",
           "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc1/csharp.md",
-          "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-versioning"
+          "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-versioning",
+          "https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/ide0410"
         ],
         "sharedAreas": [
           "blazor",
@@ -111,6 +115,10 @@
     {
       "url": "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-versioning",
       "title": "Microsoft language and target compatibility"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/ide0410",
+      "title": "IDE0410 labeled jump preference and configuration"
     }
   ],
   "evidence": [
@@ -127,7 +135,7 @@
       "sdk": "11.0.100",
       "language": "15.0",
       "sample": "samples/net11.0/EnclosingLoops/EnclosingLoops.csproj",
-      "scope": "Actual builds and executions of identical checks for batch skipping, early termination, ordinary/empty traversal and ordered finally/using cleanup. No mocks or cross-compilation; exact commands, inputs and output are retained in the saved records.",
+      "scope": "Actual builds and executions of identical checks for batch skipping, early termination, ordinary/empty traversal and ordered finally/using cleanup. No mocks or cross-compilation; exact commands, inputs and output are retained in the saved records. Also executes bounded goto-to-labeled-jump continuation and post-loop equivalence.",
       "kind": "compile-and-run"
     }
   ],
@@ -141,6 +149,16 @@
       "language": "csharp",
       "region": "traversal",
       "path": "samples/net11.0/EnclosingLoops/Traversal.cs"
+    },
+    "goto-before": {
+      "language": "csharp",
+      "region": "goto-before",
+      "path": "samples/net11.0/EnclosingLoops/JumpMigration.cs"
+    },
+    "goto-after": {
+      "language": "csharp",
+      "region": "goto-after",
+      "path": "samples/net11.0/EnclosingLoops/JumpMigration.cs"
     }
   },
   "humanProof": {
