@@ -48,7 +48,7 @@ The .NET 10 tidal-museum editor owns its committed caption and proposal separate
 
 ## Newer approach
 
-The current editor uses the actual typed state and prediction APIs. CaptionAgentEndpoint must identify your compatible AG-UI HTTP endpoint (default http://127.0.0.1:6161/agent is a placeholder; no endpoint or model is started by this sample). RunAgentInput.State carries Pascal-case Caption/Revision on every request. The endpoint must return a full STATE_SNAPSHOT whose snapshot contains those same fields and Revision=current+1, or propose_caption with a JSON string caption. RegisterUIAction suspends that frontend action for the local decision buttons; accepted is supplied by the UI. This source-reviewed protocol integration has not been executed.
+The current editor uses the actual typed state and prediction APIs. CaptionAgentEndpoint must identify your compatible AG-UI HTTP endpoint (default http://127.0.0.1:6161/agent is a placeholder; no endpoint or model is started by this sample). RunAgentInput.State carries Pascal-case Caption/Revision on every request. The endpoint must return a full STATE_SNAPSHOT whose snapshot contains those same fields and Revision=current+1, or propose_caption with a JSON string caption. RegisterUIAction suspends that frontend action for the local decision buttons; accepted is supplied by the UI. This protocol integration was exercised against a scripted loopback endpoint. No remote model or provider authentication is proved.
 
 The view disables edits while a run/proposal is active, serializes local decisions on the dispatcher, and rejects stale or overlapping snapshots. It intentionally rejects STATE_DELTA with an actionable fresh-snapshot error: implementing arbitrary RFC6902 patches is outside this bounded editor. A different conflict policy requires application design; typed state supplies no merge or authorization guarantee.
 
@@ -92,6 +92,10 @@ The view disables edits while a run/proposal is active, serializes local decisio
 
 {{snippet:n11-packages-lock-json}}
 
+### .NET 11: Recreate the interactive view
+
+{{snippet:n11-workspace-razor}}
+
 ## Migration
 
 1. Save the older or newer file set in an independent MuseumCaptions directory. Restore with its pinned SDK, then build Release; keep the lock file and all Directory files.
@@ -105,23 +109,17 @@ The view disables edits while a run/proposal is active, serializes local decisio
 
 Same experimental Components.AI package as the conversation components. AG-UI is required for the remote state protocol; ordinary IChatClient text is not shared-state proof.
 
-The only compiled rendering mode here is Interactive Server with prerender disabled. Rendering, event flow, provider authentication, network failure/retry and concurrent-agent behaviour are untested. Do not infer WASM/Hybrid, trimming/AOT or GA support.
+The only compiled rendering mode here is Interactive Server with prerender disabled. Rendered local event flow, cancellation and transport failure are measured below. Provider authentication and concurrent remote agents remain untested. Do not infer WASM/Hybrid, trimming/AOT or GA support.
 
 This sample accepts complete snapshots and rejects deltas. Its disabled-editor policy avoids concurrent local edits; unrelated clients require server-side revision/authorization enforcement. The pending baseline is displayed only, not durable saved data.
 
-No runtime or performance claims. After building, running the current app still requires a separately configured AG-UI endpoint; the compilation record does not qualify that integration.
+No remote model or performance claims. After building, running the current app still requires a separately configured AG-UI endpoint; the compilation record does not qualify that integration.
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+SDK11.0.100/ASP.NET11.0.0, Components.AI 0.1.0-preview.1.26466.103 and AGUI.Client 0.0.6: real Interactive Server rendering with a scripted loopback protocol endpoint. Outgoing user state, incoming snapshots, stale/delta rejection, predictive accept/reject, disabled concurrent editing, HTTP503 failure, cancellation and view disposal exercised. No remote model, provider authentication, cross-client merge, WASM/Hybrid or performance proof. PIN-967 remains open.
 
-Pingu authorized documentation-based recipe delivery on 3 November 2026. Final GA, browser/provider/AG-UI, renderer/storage and Linux native TLS behaviour checks remain pending and are not claimed. These deferred checks do not block this ticket; stable release readiness remains gated.
-
-Five available consumers compile on SDK10.0.403 or SDK11.0.100, with their actual locked dependencies and fresh input hashes. Current HarbourTls instead records the real CS0246 failure for missing DirectTlsEndpoint as official-review, never compilation success. The exact baselines relevant to this recipe are the two evidence records. No sample was executed.
-
-The ordinary packed/installed tool is inspected separately over real stdio list/get, including full canonical Markdown and applicability. That verifies delivery, not the sample application. PIN-959 and PIN-964 retain broader coverage/readiness and actual-GA reconciliation.
-
-Expected future checks: local edit in outgoing request, snapshot revision validation, explicit delta rejection, pending proposal acceptance/rejection, invalid/stale updates, cancellation/failure, dispatcher lifetime and cleanup through an actual AG-UI endpoint.
+Run eng/Test-AgentViews.cjs with an absolute playwright-core module path and dotnet executable after building both hosts. Compilation receipts and rendered execution receipts have separate scopes. Historical RC evidence remains in Git at fc07b364cbf83d8a4b6285bbc39f23240adcdb0d. The .NET 10 comparison is compilation evidence only.
 
 ## Official references
 

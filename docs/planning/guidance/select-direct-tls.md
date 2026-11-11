@@ -1,8 +1,8 @@
 # Select a direct TLS transport (experimental draft)
 
 Historical planning draft, superseded by the
-[served recipe and explicit unavailable-API example](../../../content/recipes/hosting.select-direct-tls/11.0/recipe.md).
-The current example remains source-reviewed only; use the recipe's current Evidence section.
+[served socket HTTPS fallback and withdrawn endpoint explanation](../../../content/recipes/hosting.select-direct-tls/11.0/recipe.md).
+PIN-1310 withdraws the unavailable endpoint illustration. The current socket-only sample compiles on the GA SDK; direct-TLS availability remains pending for PIN-967 and native Linux/OpenSSL is not-tested. Use the current Evidence section.
 
 Use this decision guide when a Linux host needs explicit control over the
 connection implementation serving HTTPS. Intended identity:

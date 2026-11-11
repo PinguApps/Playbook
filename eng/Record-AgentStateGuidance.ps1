@@ -34,30 +34,7 @@ try {
         $manifest = Get-Content $manifestPath -Raw | ConvertFrom-Json -AsHashtable
         $manifest.dependencies = @($assets.libraries.Keys | Sort-Object -CaseSensitive)
         [IO.File]::WriteAllText($manifestPath, ($manifest | ConvertTo-Json -Depth 20).Replace("`r`n","`n") + "`n")
-        if ($version -eq 11 -and $name -eq 'HarbourTls') {
-          $before = Get-EvidenceInputs $root $sample
-          $PSNativeCommandUseErrorActionPreference = $false
-          $result = (& $dotnet build "$name.csproj" -c Release --no-restore 2>&1 | Out-String)
-          $exit = $LASTEXITCODE
-          $PSNativeCommandUseErrorActionPreference = $true
-          if ($exit -eq 0 -or $result -notmatch "CS0246.*DirectTlsEndpoint") { throw "Expected unavailable documented endpoint API, received: $result" }
-          if (($before | ConvertTo-Json -Compress) -cne ((Get-EvidenceInputs $root $sample) | ConvertTo-Json -Compress)) { throw 'Inputs changed during availability check' }
-          $record = [ordered]@{
-            kind='official-review'; sample=$sample; target='net11.0'; sdk='11.0.100'; language='15.0'
-            command="$dotnet restore $name.csproj --force-evaluate; $dotnet build $name.csproj -c Release --no-restore (expected CS0246); review pinned DirectTls documentation and exact package metadata"
-            scope='Documentation-based current example; compilation attempted and blocked by absent DirectTlsEndpoint in pinned RC1. Not a successful compilation or native Linux execution record.'
-            recordedAt=[DateTimeOffset]::UtcNow.ToString('O'); sourceCommit=(& 'C:/Program Files/Git/cmd/git.exe' -C $root rev-parse HEAD).Trim(); sourceDirty=$true
-            inputs=$before; dependencies=@($manifest.dependencies); workloads=@(); nativeToolchains=@()
-            host=[Runtime.InteropServices.RuntimeInformation]::OSDescription; sdkInfo=(& $dotnet --info | Out-String).Trim()
-            workloadInfo='No workloads or native OpenSSL runtime qualified'; output=$result.Trim()
-          }
-          [IO.File]::WriteAllText((Join-Path $directory 'source-review.evidence.json'), ($record | ConvertTo-Json -Depth 30).Replace("`r`n","`n") + "`n")
-          $global:LASTEXITCODE = 0
-          Write-Host 'PASS: documented DirectTlsEndpoint absence reproduced; source review retained, no successful compilation claimed.'
-        }
-        else {
-          & (Join-Path $PSScriptRoot 'Record-Evidence.ps1') -Sample $sample -Dotnet $dotnet -Kind compile
-        }
+        & (Join-Path $PSScriptRoot 'Record-Evidence.ps1') -Sample $sample -Dotnet $dotnet -Kind compile
       }
       finally { Pop-Location }
     }

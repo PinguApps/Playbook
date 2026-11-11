@@ -2,20 +2,20 @@
 
 Pingu requested documentation first for PIN-807, PIN-1170 and PIN-1181 on
 3 November 2026, then authorized usable served recipes with runtime qualification
-deferred. The canonical recipes below supersede these planning drafts. Five
-available consumers have compilation records; current direct TLS has an explicit
-source-review record for the reproduced missing endpoint API. No sample execution
-or GA support is claimed. Broader release readiness remains gated.
+deferred. The canonical recipes below supersede these planning drafts. All six comparison consumers now have matching-SDK compilation records.
+The .NET 11 MuseumCaptions and ObservatoryLog receipts additionally record real
+Interactive Server rendering with scripted local protocol/text and protected
+session storage. Remote model/provider durability is outside that proof.
 
-| Served recipe / edition | Canonical recipe | Deferred qualification |
+| Served recipe / edition | Canonical recipe | Remaining boundary |
 | --- | --- | --- |
-| `blazor.restore-agent-conversation/11.0` | [Restore completed turns](../../../content/recipes/blazor.restore-agent-conversation/11.0/recipe.md) | Storage/renderer execution and GA |
-| `blazor.synchronize-agent-view-state/11.0` | [Synchronize state](../../../content/recipes/blazor.synchronize-agent-view-state/11.0/recipe.md) | Real AG-UI/provider, browser/reconciliation and GA |
-| `hosting.select-direct-tls/11.0` | [Select direct TLS](../../../content/recipes/hosting.select-direct-tls/11.0/recipe.md) | Matching endpoint API, successful current compilation and native Linux TLS/GA execution |
+| `blazor.restore-agent-conversation/11.0` | [Restore completed turns](../../../content/recipes/blazor.restore-agent-conversation/11.0/recipe.md) | No host restart or remote-provider durability proof |
+| `blazor.synchronize-agent-view-state/11.0` | [Synchronize state](../../../content/recipes/blazor.synchronize-agent-view-state/11.0/recipe.md) | Scripted endpoint only; no model/provider authentication or distributed merge proof |
+| `hosting.select-direct-tls/11.0` | [Select HTTPS while direct TLS is unavailable](../../../content/recipes/hosting.select-direct-tls/11.0/recipe.md) | Withdrawn endpoint; socket compilation only. Actual supported direct-TLS availability remains mechanically pending for PIN-967; native Linux/OpenSSL is not-tested under policy |
 
-The intended comparison is .NET 10 to .NET 11. The eight approved .NET 10
-foundations and existing editions remain unchanged. PIN-959's coverage/evidence
-gate and PIN-964's actual-GA reconciliation remain open.
+PIN-1308/1309/1310 reconcile the earlier deferred work. The eight .NET 10
+foundations remain unchanged. PIN-964's bounded audit is complete; PIN-967 owns
+the final stable candidate. Historical observations below remain dated provenance.
 
 ## Evidence boundary
 

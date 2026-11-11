@@ -5,32 +5,6 @@
   "decision": "Pre-GA preview may include explicitly disclosed documented GA intent and provisional reference material. Pending proof is retained; this approval is not execution or stable readiness. Local feasible checks, complete offline content, source accuracy and input freshness remain mandatory.",
   "exceptions": [
     {
-      "id": "blazor.restore-agent-conversation",
-      "edition": "11.0",
-      "classification": "documented-ga-intent",
-      "scope": "Pingu authorized documentation-based recipe delivery on 3 November 2026. Final GA, browser/provider/AG-UI, renderer/storage and Linux native TLS behaviour checks remain pending and are not claimed. These deferred checks do not block this ticket; stable release readiness remains gated.",
-      "followUp": "PIN-964",
-      "samples": [
-        "samples/net10.0/ObservatoryLog/ObservatoryLog.csproj",
-        "samples/net11.0/ObservatoryLog/ObservatoryLog.csproj"
-      ],
-      "metadataSha256": "0868827e2d938773c3a187a0e25b715029232027fd47c6d1b059f1d259683d62",
-      "markdownSha256": "4efdb9f43c87b014a5b170c17a56495947d45b7f8cfa41441f902ce49589dcad"
-    },
-    {
-      "id": "blazor.synchronize-agent-view-state",
-      "edition": "11.0",
-      "classification": "documented-ga-intent",
-      "scope": "Pingu authorized documentation-based recipe delivery on 3 November 2026. Final GA, browser/provider/AG-UI, renderer/storage and Linux native TLS behaviour checks remain pending and are not claimed. These deferred checks do not block this ticket; stable release readiness remains gated.",
-      "followUp": "PIN-964",
-      "samples": [
-        "samples/net10.0/MuseumCaptions/MuseumCaptions.csproj",
-        "samples/net11.0/MuseumCaptions/MuseumCaptions.csproj"
-      ],
-      "metadataSha256": "e8a62cdaed2fadf70d3f54a777de443f9085141aecf22f00958f891897e91d66",
-      "markdownSha256": "3110f0bdda615ce1569fe0ff23fa49f34b02f11a6dcb6c13727878241af90d8a"
-    },
-    {
       "id": "ef.configure-generated-model-stage",
       "edition": "11.0",
       "classification": "documented-ga-intent",
@@ -60,14 +34,14 @@
       "id": "hosting.select-direct-tls",
       "edition": "11.0",
       "classification": "documented-ga-intent",
-      "scope": "Pingu authorized documentation-based recipe delivery on 3 November 2026. Final GA, browser/provider/AG-UI, renderer/storage and Linux native TLS behaviour checks remain pending and are not claimed. These deferred checks do not block this ticket; stable release readiness remains gated.",
-      "followUp": "PIN-964",
+      "scope": "GA documentation removed the direct-TLS include; NuGet index offers only RC1, not 11.0.0. RC1 lacks the former documented DirectTlsEndpoint. Current canonical code is ordinary socket HTTPS, not a direct-TLS implementation. Linux/OpenSSL transport selection and negotiation remain not-tested under the native policy. Actual supported direct-TLS artifact/scenario availability remains a PIN-967 stable-gate condition. Pending stable gate is actual supported artifact/scenario availability. Linux/OpenSSL execution remains excluded as not-tested under the existing native policy; no new hardware qualification is requested.",
+      "followUp": "PIN-967",
       "samples": [
         "samples/net10.0/HarbourTls/HarbourTls.csproj",
         "samples/net11.0/HarbourTls/HarbourTls.csproj"
       ],
-      "metadataSha256": "4fafca5cf11ca8577d8e01cb8b5c8ff0b2cf270e0f07b9e084fc2e0daa54ecba",
-      "markdownSha256": "ee8f8b2544f6cf3bebfbf1009d4b31802daf323ed450a176ce291f0dce890d96"
+      "metadataSha256": "aa8c2bc4f928d16931d75b28e10b4f5636b9cde7f03519520eb42ec9dc01da83",
+      "markdownSha256": "068139fa98cec8e1d3bb40e56770a6fb3053d8d88f5f16556cbf760d585736c1"
     },
     {
       "id": "msbuild.archive-build-artifacts",

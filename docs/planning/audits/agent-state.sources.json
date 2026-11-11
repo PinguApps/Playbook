@@ -1,6 +1,6 @@
 {
-  "reviewedAt": "2026-11-03T19:28:46.091114+00:00",
-  "scope": "Documentation-based guidance authorized by Pingu, 3 November 2026. Compilation is separate; browser/provider/storage/native TLS and GA execution remain deferred.",
+  "reviewedAt": "2026-11-11T23:24:25.3713176+00:00",
+  "scope": "PIN-1308/1309 rendered local GA-host qualification and PIN-1310 withdrawn endpoint reconciliation. Real renderer, local scripted AG-UI protocol and protected session storage measured separately from remote models/providers. Current HarbourTls compiles socket HTTPS only; Linux/OpenSSL direct transport remains not-tested; supported direct-TLS availability remains a PIN-967 stable gate. Historical RC and documentation-first decisions below remain provenance.",
   "sources": [
     {
       "title": "Experimental Blazor AI documentation",
@@ -52,5 +52,16 @@
       "package": "Microsoft.AspNetCore.Server.Kestrel.Transport.DirectTls",
       "sha256": "6d4a815c5e8f68151ffdd8e5c09517c505d06178f832a1758981727180b1e460"
     }
-  ]
+  ],
+  "gaReconciliation": {
+    "packageIndex": "https://api.nuget.org/v3-flatcontainer/microsoft.aspnetcore.server.kestrel.transport.directtls/index.json",
+    "httpStatus": 404,
+    "checkedAt": "2026-11-11T23:24:25.9618446+00:00",
+    "documentationUrl": "https://raw.githubusercontent.com/dotnet/AspNetCore.Docs/fd01aafa737af65203d3bd4ea08f1920305c52a9/aspnetcore/release-notes/aspnetcore-11/includes/direct-tls-transport.md",
+    "availableVersions": [
+      "11.0.0-rc.1.26425.128"
+    ],
+    "meaning": "Historical endpoint illustration withdrawn; socket fallback compiles. No direct-TLS GA implementation or native execution inferred.",
+    "sourceRevision": "fd01aafa737af65203d3bd4ea08f1920305c52a9"
+  }
 }

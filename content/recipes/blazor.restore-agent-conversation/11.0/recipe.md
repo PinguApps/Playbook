@@ -52,7 +52,7 @@ The .NET 10 observatory app stores completed question/answer pairs in ProtectedS
 
 ## Newer approach
 
-The current app supplies the real IConversationThread interface. LocalThread stages the user message and text updates, commits only on CompleteTurn, and exposes completed updates with stable per-message IDs. RestoreAsync returns Task<IReadOnlyList<ContentBlock>>: await it once after loading storage, before accepting new input. The view renders restored RichContentBlock text and then adds live blocks without duplicating object instances. This source-reviewed flow has compiled, but it has not been run.
+The current app supplies the real IConversationThread interface. LocalThread stages the user message and text updates, commits only on CompleteTurn, and exposes completed updates with stable per-message IDs. RestoreAsync returns Task<IReadOnlyList<ContentBlock>>: await it once after loading storage, before accepting new input. The view renders restored RichContentBlock text and then adds live blocks without duplicating object instances. This flow has been exercised through the actual Interactive Server renderer and protected session storage; see Evidence.
 
 The durable format is deliberately plain completed text, not arbitrary polymorphic AIContent. Save occurs after the agent turn finishes; a save failure leaves the in-memory result visible and blocks another send until Retry save succeeds. Browser reload/view recreation loads the last saved snapshot. The ephemeral data-protection key makes host restart a distinct unsupported durability boundary.
 
@@ -104,6 +104,10 @@ The durable format is deliberately plain completed text, not arbitrary polymorph
 
 {{snippet:n11-packages-lock-json}}
 
+### .NET 11: Recreate the interactive view
+
+{{snippet:n11-workspace-razor}}
+
 ## Migration
 
 1. Save either complete ObservatoryLog file set in a separate directory, restore the lock file with its pinned SDK and build Release. Run the host only when ready for a local browser/storage check. No provider/account is required; VisitorClient is scripted.
@@ -121,19 +125,13 @@ Local browser-tab session storage, text-only completed turns and one active comp
 
 ThreadId identifies this application thread; IsStateful=false and ConversationId=null do not invent remote provider state. No remote model, provider conversation, AG-UI run/thread ID or resume behaviour is exercised.
 
-All five available sample builds are compilation only; no browser storage or framework restoration was executed. The scripted client is explicitly not a model.
+.NET 10 comparison is compilation only. The .NET 11 Interactive Server renderer and ProtectedSessionStorage were exercised; the scripted client is not a model. Host restart and remote-provider durability are not proved.
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+SDK11.0.100/ASP.NET11.0.0 and Components.AI 0.1.0-preview.1.26466.103: real Interactive Server rendering and ProtectedSessionStorage in Chromium. Completed-turn persistence, reload/recreate/restore/continue, ordering, replay duplicate prevention, canceled/disposed turn exclusion and storage failure/retry exercised. Scripted text client only; no remote conversation/run durability, host restart durability, WASM/Hybrid or model proof. PIN-967 remains open.
 
-Pingu authorized documentation-based recipe delivery on 3 November 2026. Final GA, browser/provider/AG-UI, renderer/storage and Linux native TLS behaviour checks remain pending and are not claimed. These deferred checks do not block this ticket; stable release readiness remains gated.
-
-Five available consumers compile on SDK10.0.403 or SDK11.0.100, with their actual locked dependencies and fresh input hashes. Current HarbourTls instead records the real CS0246 failure for missing DirectTlsEndpoint as official-review, never compilation success. The exact baselines relevant to this recipe are the two evidence records. No sample was executed.
-
-The ordinary packed/installed tool is inspected separately over real stdio list/get, including full canonical Markdown and applicability. That verifies delivery, not the sample application. PIN-959 and PIN-964 retain broader coverage/readiness and actual-GA reconciliation.
-
-Expected future checks: completed text turns survive view recreation, restore once without duplicate replay, incomplete turn exclusion, continuation, save/load failures, cancellation, separate browser tabs and owner cleanup through actual renderer/storage.
+Run eng/Test-AgentViews.cjs with an absolute playwright-core module path and dotnet executable after building both hosts. Compilation receipts and rendered execution receipts have separate scopes. Historical RC evidence remains in Git at fc07b364cbf83d8a4b6285bbc39f23240adcdb0d. The .NET 10 comparison is compilation evidence only.
 
 ## Official references
 

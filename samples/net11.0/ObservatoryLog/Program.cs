@@ -6,6 +6,7 @@ builder.Services.AddRazorComponents().AddInteractiveServerComponents();
 builder.Services.AddDataProtection().UseEphemeralDataProtectionProvider();
 var app = builder.Build();
 app.UseAntiforgery();
+app.MapStaticAssets();
 app.MapRazorComponents<App>().AddInteractiveServerRenderMode();
 await app.RunAsync();
 // endsnippet:complete

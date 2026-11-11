@@ -4,7 +4,9 @@
     "eng/Evidence.ps1",
     "eng/Record-Evidence.ps1",
     "eng/Record-AgentStateGuidance.ps1",
-    "docs/planning/audits/agent-state.sources.json"
+    "docs/planning/audits/agent-state.sources.json",
+    "eng/Test-AgentViews.cjs",
+    "eng/Test-AgentViews.ps1"
   ],
   "dependencies": [
     "Microsoft.AspNetCore.App.Internal.Assets/11.0.0",

@@ -39,8 +39,7 @@
         "conditional": false,
         "usage": "primary",
         "selectionNotes": [
-          "Experimental documentation-based recipe; expected behaviour is source-reviewed, not executed. Matching-SDK compilation is recorded separately where the actual contract is available.",
-          "Provisional pre-GA guidance: pending behavior/final-artifact proof is not successful execution or GA verification."
+          "SDK11.0.100/ASP.NET11.0.0, Components.AI 0.1.0-preview.1.26466.103 and AGUI.Client 0.0.6: real Interactive Server rendering with a scripted loopback protocol endpoint. Outgoing user state, incoming snapshots, stale/delta rejection, predictive accept/reject, disabled concurrent editing, HTTP503 failure, cancellation and view disposal exercised. No remote model, provider authentication, cross-client merge, WASM/Hybrid or performance proof. PIN-967 remains open."
         ],
         "requirements": {
           "runtime": {
@@ -102,16 +101,16 @@
           ],
           "constraints": [
             "Same experimental Components.AI package as the conversation components. AG-UI is required for the remote state protocol; ordinary IChatClient text is not shared-state proof.",
-            "The only compiled rendering mode here is Interactive Server with prerender disabled. Rendering, event flow, provider authentication, network failure/retry and concurrent-agent behaviour are untested. Do not infer WASM/Hybrid, trimming/AOT or GA support.",
+            "The only compiled rendering mode here is Interactive Server with prerender disabled. Local rendered event flow, cancellation and HTTP failure are measured below. Provider authentication and concurrent remote agents remain untested. Do not infer WASM/Hybrid, trimming/AOT or GA support.",
             "This sample accepts complete snapshots and rejects deltas. Its disabled-editor policy avoids concurrent local edits; unrelated clients require server-side revision/authorization enforcement. The pending baseline is displayed only, not durable saved data.",
-            "No runtime or performance claims. After building, running the current app still requires a separately configured AG-UI endpoint; the compilation record does not qualify that integration."
+            "No remote model or performance claims. After building, running the current app still requires a separately configured AG-UI endpoint; the compilation record does not qualify that integration."
           ],
           "optIns": [
             "Explicit experimental Components.AI package reference; compilation required no experimental diagnostic suppression"
           ],
           "stabilityLimitations": [
-            "Pingu authorized documentation-based recipe delivery on 3 November 2026. Final GA, browser/provider/AG-UI, renderer/storage and Linux native TLS behaviour checks remain pending and are not claimed. These deferred checks do not block this ticket; stable release readiness remains gated.",
-            "Provisional pre-GA guidance: pending behavior/final-artifact proof is not successful execution or GA verification."
+            "Independent AI packages remain experimental after host GA.",
+            "SDK11.0.100/ASP.NET11.0.0, Components.AI 0.1.0-preview.1.26466.103 and AGUI.Client 0.0.6: real Interactive Server rendering with a scripted loopback protocol endpoint. Outgoing user state, incoming snapshots, stale/delta rejection, predictive accept/reject, disabled concurrent editing, HTTP503 failure, cancellation and view disposal exercised. No remote model, provider authentication, cross-client merge, WASM/Hybrid or performance proof. PIN-967 remains open."
           ]
         },
         "sourceUrls": [
@@ -146,7 +145,7 @@
       "sdk": "10.0.403",
       "language": "14.0",
       "kind": "compile",
-      "scope": "Actual matching-SDK compilation only. Browser, remote state, local storage, TLS behaviour and GA execution are deferred; no runtime result inferred."
+      "scope": "Actual .NET 10 matching-SDK compilation only. No .NET 10 rendered execution is recorded."
     },
     {
       "sample": "samples/net11.0/MuseumCaptions/MuseumCaptions.csproj",
@@ -154,7 +153,16 @@
       "sdk": "11.0.100",
       "language": "15.0",
       "kind": "compile",
-      "scope": "Actual matching-SDK compilation only. Browser, remote state, local storage, TLS behaviour and GA execution are deferred; no runtime result inferred."
+      "scope": "Actual matching-SDK compilation only; rendered execution is recorded separately. No remote-model result is inferred."
+    },
+    {
+      "sample": "samples/net11.0/MuseumCaptions/MuseumCaptions.csproj",
+      "language": "15.0",
+      "record": "samples/net11.0/MuseumCaptions/rendered.evidence.json",
+      "sdk": "11.0.100",
+      "target": "net11.0",
+      "scope": "SDK11.0.100/ASP.NET11.0.0, Components.AI 0.1.0-preview.1.26466.103 and AGUI.Client 0.0.6: real Interactive Server rendering with a scripted loopback protocol endpoint. Outgoing user state, incoming snapshots, stale/delta rejection, predictive accept/reject, disabled concurrent editing, HTTP503 failure, cancellation and view disposal exercised. No remote model, provider authentication, cross-client merge, WASM/Hybrid or performance proof. PIN-967 remains open.",
+      "kind": "execution"
     }
   ],
   "snippets": {
@@ -252,10 +260,15 @@
       "path": "samples/net11.0/MuseumCaptions/packages.lock.json",
       "region": "complete",
       "language": "jsonc"
+    },
+    "n11-workspace-razor": {
+      "path": "samples/net11.0/MuseumCaptions/CaptionWorkspace.razor",
+      "region": "complete",
+      "language": "razor"
     }
   },
   "humanProof": {
-    "status": "pending",
-    "scope": "Pingu authorized documentation-based recipe delivery on 3 November 2026. Final GA, browser/provider/AG-UI, renderer/storage and Linux native TLS behaviour checks remain pending and are not claimed. These deferred checks do not block this ticket; stable release readiness remains gated."
+    "status": "not-required",
+    "scope": "SDK11.0.100/ASP.NET11.0.0, Components.AI 0.1.0-preview.1.26466.103 and AGUI.Client 0.0.6: real Interactive Server rendering with a scripted loopback protocol endpoint. Outgoing user state, incoming snapshots, stale/delta rejection, predictive accept/reject, disabled concurrent editing, HTTP503 failure, cancellation and view disposal exercised. No remote model, provider authentication, cross-client merge, WASM/Hybrid or performance proof. PIN-967 remains open."
   }
 }
