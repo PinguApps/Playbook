@@ -8,12 +8,7 @@ dimensions requested by the caller. Decide separately whether the instrument's
 protocol requires exact stored dimensions or accepts the library's equivalent
 shapes.
 
-This is guidance for the **full .NET 11 release**, based on the merged
-release/11.0 backport #135281 and official compatibility note. **Final-package
-execution remains pending under PIN-962.** The published GA packages
-tested during preparation do not contain the required behavior. Do not use them
-to validate the new contract. The current sample compiles; compilation is not
-proof that these expected results run successfully.
+Verified on Windows x64 with GA SDK11.0.100/runtime11.0.0 and System.Numerics.Tensors11.0.0, containing release/11.0 backport #135281. Historical RC preparation did not establish this proof.
 
 Use an SDK console project with nullable and implicit System imports enabled,
 namespace Playbook.Samples and `using System.Numerics.Tensors`. Add
@@ -101,11 +96,11 @@ The relevant rules are:
    It checks all five scalar/pairwise Any families, copy/equality, reverse, views,
    multidimensional indexing and extrema; buffers are freed in finally. Insufficient
    memory or an unsupported authoring platform leaves this proof incomplete.
-9. After the final SDK/package is available, PIN-962 must update the deliberate
-   sample pins/locks and declared dependencies, run the full suite through
-   `eng/Record-InstrumentBatch.ps1 -RunReleaseChecks`, refresh actual evidence and
-   inspect the newly packed tool. Clear pending proof only after those results
-   establish the claims. No recurring native/client/OS matrix is required.
+9. When changing the tested SDK/package, refresh sample pins, locks, declared
+   dependencies and evidence together. Run the full suite through
+   `eng/Record-InstrumentBatch.ps1 -RunReleaseChecks` and inspect the newly packed
+   tool. The GA verification recorded below completed both checks before clearing
+   pending proof. No recurring native/client/OS matrix is required.
 
 ## Constraints
 
@@ -117,9 +112,9 @@ restoring the previous inconsistent shape handling. Views can share storage;
 retaining metadata does not grant ownership of that storage.
 
 The application route requires final .NET11 framework/package support and the
-selected net11 package asset. Current preparation uses actual SDK11 GA,
-runtime/ref11RC3 and tensor11RC2 for compilation only; these are reproducibility
-pins, **not a supported package route to the new behavior**. The .NET10 comparison
+selected net11 package asset. Verification uses actual SDK11 GA,
+runtime/ref11.0.0 and tensor11.0.0 for compilation and execution; these are reproducibility
+pins, not mandatory exact consumer installations. The .NET10 comparison
 executes on runtime10.0.14 with tensor10.0.13. No newer-package-on-net10,
 netstandard/.NET Framework multidimensional route, AOT/Mono or other-platform
 execution is established here. The eight target10 foundation editions remain.
@@ -127,26 +122,14 @@ execution is established here. The eight target10 foundation editions remain.
 No provider, UI rendering mode, workload, account or experimental API opt-in is
 required by the application APIs. Unsafe code, NativeMemory and Windows system
 memory-status calls belong only to the optional authoring proof. That proof is
-implemented for Windows x64 and remains unexecuted. Concurrent allocations can
+implemented and executed on Windows x64. Concurrent allocations can
 still cause failure after a successful preflight; a failed allocation is not
-successful verification and does not waive the pending gate.
+successful verification.
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+PIN-962 ran `eng/Record-InstrumentBatch.ps1 -RunReleaseChecks -VerifySources` against actual SDK11.0.100/runtime11.0.0 and locked tensor11.0.0/lib/net11.0. All committed release checks passed. The older policy passed on SDK10.0.403/runtime10.0.14 and tensor10.0.13/lib/net10.0. Saved records retain actual commands, inputs, dependency closure and compiler/reference/package hashes. Historical RC evidence remains in Git; source review and compilation alone do not establish behavior.
 
-The original .NET10 normalization policy is compiled and executed with actual
-SDK10.0.403/C#14, runtime10.0.14 and locked System.Numerics.Tensors10.0.13/net10.
-Its sums and retained destination metadata are checked. The current policy and
-complete future shape/view/Any/native suite are compiled using actual
-SDK11.0.100/C#15 and tensor11.0.0/net11.
-Saved records identify commands, selected dependencies, inputs and compiler,
-reference and package hashes. The current record is **compile**, not compile-and-run.
+The Windows x64 native-backed run covered 2147483656 elements after measured physical/commit preflight: 6442450968 allocated bytes, 2147483648 bytes headroom, 2m52s elapsed. All five scalar/pairwise Any families and native-width copy/equality/reversal/views/indexing/extrema passed. Small checks cover default/ranked empties, leading/internal/zero dimensions, equality/broadcasting, first-input axes and destination metadata.
 
-The intended behavior is reviewed against official compatibility guidance and
-the merged release/11.0 implementation at1ee19308f309a620c415eba0fdcda7ee3de6ae5e.
-Earlier qualification observed false leading-padding equality on both GA,
-and default-empty/Any exceptions on GA. Upstream source/tests do not replace this
-recipe's own final-artifact execution. Under Pingu's explicit preparation decision,
-PIN-962 owns successful final SDK/package and native-width checks; `humanProof`
-remains pending and stable-release packaging remains blocked.
+The selected GA Tensor types have no experimental annotation or opt-in. No newer-package-on-net10, Native AOT, Mono or other-platform execution is established. Recipe proof is verified; the global stable candidate gate remains PIN-967. No release is authorized.

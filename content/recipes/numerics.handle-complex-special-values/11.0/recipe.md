@@ -98,5 +98,4 @@ division, reciprocal, magnitude, power and root; all named affected functions;
 NaN/infinity routing; signed zeros; and old/new failures and corrected results.
 Inputs are parsed at runtime, separating these observations from constant folding.
 Saved sample records contain commands, exact inputs/results and component bits.
-Current GA checks establish only the recorded scope. Comprehensive coverage and actual-GA reconciliation
-remain open; no mocks or source-only claims replace these executions.
+Current GA checks establish only the recorded scope. Global stable readiness remains with PIN-967; no mocks or source-only claims replace these executions.

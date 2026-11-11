@@ -7,17 +7,7 @@ view still needs. Choose independent output or an explicit snapshot when source
 and destination views share storage. Separate tensor objects do not establish
 separate ownership of the underlying array.
 
-**Full-release preparation: successful current storage-contract execution is
-pending under PIN-962.** The merged .NET 11 release-branch implementation defines
-the intended contract below. Published tensor GA do not implement it;
-their successful compilation is not behavior proof. Pingu approved preparing this
-guide while retaining pending proof and the stable-release packaging gate.
-
-Use console projects with implicit System imports, nullable enabled,
-`using System.Numerics.Tensors;` and namespace `Playbook.Samples`. Canonical
-comparisons use net10.0/C#14 with tensor10.0.13 and net11.0/C#15 with tensor11RC2
-for compilation only. The intended current behavior requires the final .NET 11
-package containing release/11.0 backport #135281, followed by actual verification.
+Verified on Windows x64 with GA SDK11.0.100/runtime11.0.0 and System.Numerics.Tensors11.0.0. The package contains the release/11.0 backport #135281. Other platforms and execution engines remain unverified.
 
 ## Older approach
 
@@ -79,7 +69,7 @@ snapshots cannot make one physical cell hold multiple distinct output values.
    storage rather than covariant reference arrays. A compatible read-only view
    can retain covariance; copying to a new `T[]` is a valid writable alternative.
 7. Select and execute the actual final package containing the backport. Refresh
-   pins, lockfiles, requirements and sample evidence together through PIN-962.
+   pins, lockfiles, requirements and sample evidence together.
    Do not use this guide to infer that an RC package already enforces the contract.
 
 ## Constraints
@@ -112,34 +102,12 @@ netstandard or .NET Framework multidimensional route. C#15 is the sample mode,
 not a new syntax requirement. Actual compilation types have no experimental
 annotation or required opt-in. No provider, rendering mode, native compiler,
 workload, service or account is required. Measured previous execution is Windows
-x64 CoreCLR JIT; other platforms and final artifacts remain unverified.
+x64 CoreCLR JIT; other platforms and execution engines remain unverified.
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+PIN-962 ran `eng/Record-GridTransform.ps1 -RunReleaseChecks -VerifySources` against actual SDK11.0.100/runtime11.0.0 and locked tensor11.0.0/lib/net11.0. All committed release checks passed. The older policy passed on SDK10.0.403/runtime10.0.14 and tensor10.0.13/lib/net10.0. Saved records retain actual commands, inputs, dependency closure and compiler/reference/package hashes. Historical RC evidence remains in Git; source review and compilation alone do not establish behavior.
 
-`eng/Record-GridTransform.ps1 -VerifySources` verifies ten immutable source hashes,
-executes the original ownership/Try false controls with SDK10.0.403, C#14,
-runtime/ref10.0.14 and tensor10.0.13/lib/net10.0, and compiles the full current
-suite using SDK11.0.100, C#15, runtime/ref11RC3 and locked
-tensor11RC2/lib/net11.0. A supplementary `--policy-only` execution checks safe
-ownership and Try false controls on the current artifacts; it does not run the
-expected-release storage contract. Commands, inputs, logical values, dependency closure and
-compiler/reference/package hashes are captured through the existing sample workflow.
+The complete storage suite passed: all copy/flatten wrappers and Try false controls, unsupported overlap rejection before writes, supported dense/identical copies, elementwise/resize/reversal, repeated-output rejection and singleton/empty output, incompatible Array storage and writable/read-only covariance. Snapshot and independent-output logical values are asserted. Concatenation uses two inputs, including a compatible empty input for the singleton/empty output controls.
 
-The committed expected-release suite covers all four copying methods through
-read-only/writable/tensor/interface wrappers; before-write rejection of unsupported
-overlap; dense/identical supported operations; each-input/broadcast cases; all
-ResizeTo input wrappers; both reversal forms; repeated/singleton/empty output;
-both Array constructor forms and covariance. It verifies corrected snapshot and
-independent-output values, rather than treating lack of exceptions as success.
-
-Actual GA and latest published GA accept unsupported strided copies in all four
-copy/flatten methods, and GA fails the expected dense shifted-copy result.
-Those negative qualifications explain the pending execution gate. No successful
-current storage contract is claimed. PIN-962 owns final artifact selection,
-`Record-GridTransform.ps1 -RunReleaseChecks -VerifySources`, all behavior results
-and evidence refresh; only success can clear pending proof. Ordinary installed
-stdio list/get checks served content and applicability, not that missing package
-behavior. PIN-959, actual-GA, release-ready and Human gates remain open; the older
-comparison adds no ninth .NET 10 foundation.
+The selected GA Tensor types have no experimental annotation or opt-in. No newer-package-on-net10, Native AOT, Mono or other-platform execution is established. Recipe proof is verified; the global stable candidate gate remains PIN-967. No release is authorized.

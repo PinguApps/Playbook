@@ -1,0 +1,3082 @@
+{
+  "scope": "GA library source/artifact reconciliation; source equality does not prove consumer execution",
+  "sdk": "11.0.100",
+  "runtime": "11.0.0",
+  "gaSource": "297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+  "rcSource": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+  "comparisons": [
+    {
+      "family": "data-io",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Collections.Immutable/ref/System.Collections.Immutable.cs",
+      "rcSha256": "fdf9f4e80a6f38069cb9e3ba965281c3fe559092c388eaca519ef809a2111deb",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/System.Collections.Immutable/ref/System.Collections.Immutable.cs",
+      "gaSha256": "fdf9f4e80a6f38069cb9e3ba965281c3fe559092c388eaca519ef809a2111deb",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    },
+    {
+      "family": "data-io",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Collections/ref/System.Collections.cs",
+      "rcSha256": "0163a13eb9a04a5435b214cdfe431543a39a3ea7ebbd221ab03c1a8004fe0c54",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/System.Collections/ref/System.Collections.cs",
+      "gaSha256": "0163a13eb9a04a5435b214cdfe431543a39a3ea7ebbd221ab03c1a8004fe0c54",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    },
+    {
+      "family": "data-io",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Console/ref/System.Console.cs",
+      "rcSha256": "d5aa37d390e2944e35cddd0d1ffb0e13386642382b634751c9910d46163a446c",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/System.Console/ref/System.Console.cs",
+      "gaSha256": "d5aa37d390e2944e35cddd0d1ffb0e13386642382b634751c9910d46163a446c",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    },
+    {
+      "family": "data-io",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Diagnostics.Process/ref/System.Diagnostics.Process.cs",
+      "rcSha256": "ea82455d8a1e5ca226d21224376e9282dd032c2f819a54e00c5347f7e8e2f9a2",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/System.Diagnostics.Process/ref/System.Diagnostics.Process.cs",
+      "gaSha256": "ea82455d8a1e5ca226d21224376e9282dd032c2f819a54e00c5347f7e8e2f9a2",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    },
+    {
+      "family": "data-io",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Formats.Tar/ref/System.Formats.Tar.cs",
+      "rcSha256": "327c5642a35d790de97814484c8579e9555fdc5c535d7de86b84b53d0e6d962f",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/System.Formats.Tar/ref/System.Formats.Tar.cs",
+      "gaSha256": "327c5642a35d790de97814484c8579e9555fdc5c535d7de86b84b53d0e6d962f",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    },
+    {
+      "family": "data-io",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.IO.Compression.ZipFile/ref/System.IO.Compression.ZipFile.cs",
+      "rcSha256": "3ecd2adbbee0e969139963a74c8e9f6993a7e2c75844b6b19907f6e4e6d20b7f",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/System.IO.Compression.ZipFile/ref/System.IO.Compression.ZipFile.cs",
+      "gaSha256": "3ecd2adbbee0e969139963a74c8e9f6993a7e2c75844b6b19907f6e4e6d20b7f",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    },
+    {
+      "family": "data-io",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.IO.Compression/ref/System.IO.Compression.cs",
+      "rcSha256": "46bb4bb4f25eeba46ead365dd6e0d20bb26d6dde2af1ad8172076d3ab9925a29",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/System.IO.Compression/ref/System.IO.Compression.cs",
+      "gaSha256": "0e910b67ecdefe33f20658a4c2649ce42e9a2ec3fea26647020fb34e3166b631",
+      "unchanged": false,
+      "added": [
+        "        public static byte[] Train(System.ReadOnlySpan<byte> samples, System.ReadOnlySpan<int> sampleLengths, int maxDictionarySize) { throw null; }"
+      ],
+      "removed": [
+        "        public static System.IO.Compression.ZstandardDictionary Train(System.ReadOnlySpan<byte> samples, System.ReadOnlySpan<int> sampleLengths, int maxDictionarySize) { throw null; }"
+      ]
+    },
+    {
+      "family": "data-io",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.IO.Hashing/ref/System.IO.Hashing.cs",
+      "rcSha256": "36646e92cbc42b6e6749ad2d96b2172af9ab9b2bd35047b2e213c2b22884d1e1",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/System.IO.Hashing/ref/System.IO.Hashing.cs",
+      "gaSha256": "36646e92cbc42b6e6749ad2d96b2172af9ab9b2bd35047b2e213c2b22884d1e1",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    },
+    {
+      "family": "data-io",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.IO.Packaging/ref/System.IO.Packaging.cs",
+      "rcSha256": "058850ebb55be715fb8625021388ff8eb49c15814648163d728bb3c06c176725",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/System.IO.Packaging/ref/System.IO.Packaging.cs",
+      "gaSha256": "058850ebb55be715fb8625021388ff8eb49c15814648163d728bb3c06c176725",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    },
+    {
+      "family": "data-io",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.IO.Pipes/ref/System.IO.Pipes.cs",
+      "rcSha256": "bb3af29277f41b9cd0aa5fa3c24918b439dc5578f3602f9c20cba3837f6cad6a",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/System.IO.Pipes/ref/System.IO.Pipes.cs",
+      "gaSha256": "bb3af29277f41b9cd0aa5fa3c24918b439dc5578f3602f9c20cba3837f6cad6a",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    },
+    {
+      "family": "data-io",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Linq.Expressions/ref/System.Linq.Expressions.cs",
+      "rcSha256": "721064b78af1d12c125f0b8039c46e9f270d5e9340fded2b1b60dfb52e38ef44",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/System.Linq.Expressions/ref/System.Linq.Expressions.cs",
+      "gaSha256": "721064b78af1d12c125f0b8039c46e9f270d5e9340fded2b1b60dfb52e38ef44",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    },
+    {
+      "family": "data-io",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Memory/ref/System.Memory.cs",
+      "rcSha256": "5e0264c13f2d275a4b735369672dcd8d5105fd6642c1320c8b064bd80db8bff9",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/System.Memory/ref/System.Memory.cs",
+      "gaSha256": "5e0264c13f2d275a4b735369672dcd8d5105fd6642c1320c8b064bd80db8bff9",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    },
+    {
+      "family": "data-io",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Numerics.Tensors/ref/System.Numerics.Tensors.cs",
+      "rcSha256": "a04ccea54dd478bca099214b0b5f77ab41fbe3d045cec66662577757f43ad25c",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/System.Numerics.Tensors/ref/System.Numerics.Tensors.cs",
+      "gaSha256": "a04ccea54dd478bca099214b0b5f77ab41fbe3d045cec66662577757f43ad25c",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    },
+    {
+      "family": "data-io",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Numerics.Vectors/ref/System.Numerics.Vectors.cs",
+      "rcSha256": "5fc3a3fc2c3dd3b8060df6688248b98efd11a97e41a1bd91548aa33d734a71ba",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/System.Numerics.Vectors/ref/System.Numerics.Vectors.cs",
+      "gaSha256": "5fc3a3fc2c3dd3b8060df6688248b98efd11a97e41a1bd91548aa33d734a71ba",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    },
+    {
+      "family": "data-io",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Runtime.Intrinsics/ref/System.Runtime.Intrinsics.cs",
+      "rcSha256": "4a13a9e90bc0f8a978a559ed745c1cd8f90ffe9211b384d8533c6fcb776dc1b5",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/System.Runtime.Intrinsics/ref/System.Runtime.Intrinsics.cs",
+      "gaSha256": "4a13a9e90bc0f8a978a559ed745c1cd8f90ffe9211b384d8533c6fcb776dc1b5",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    },
+    {
+      "family": "data-io",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Runtime.Numerics/ref/System.Runtime.Numerics.cs",
+      "rcSha256": "7fb4edfd9785b44158e15339bb88f388bef53b17d6b9d20f1b95baa85015239b",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/System.Runtime.Numerics/ref/System.Runtime.Numerics.cs",
+      "gaSha256": "7fb4edfd9785b44158e15339bb88f388bef53b17d6b9d20f1b95baa85015239b",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    },
+    {
+      "family": "data-io",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Runtime/ref/System.Runtime.cs",
+      "rcSha256": "a4faef46b520215ee7d63344c670031143e48de807fd8d52fa1a8fc1c3c4602e",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/System.Runtime/ref/System.Runtime.cs",
+      "gaSha256": "a4faef46b520215ee7d63344c670031143e48de807fd8d52fa1a8fc1c3c4602e",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    },
+    {
+      "family": "data-io",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Text.RegularExpressions/gen/DiagnosticDescriptors.cs",
+      "rcSha256": "ccca3d7ad0b52a132bb377b5cc2b2b093c9d5bdc6ab374350c28fc10a47d3af9",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/System.Text.RegularExpressions/gen/DiagnosticDescriptors.cs",
+      "gaSha256": "ccca3d7ad0b52a132bb377b5cc2b2b093c9d5bdc6ab374350c28fc10a47d3af9",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    },
+    {
+      "family": "serialization",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Text.Json/gen/JsonSourceGenerator.DiagnosticDescriptors.cs",
+      "rcSha256": "ac49a3a934f3fc4715bd7726af9805d98ec7d71469d84233ae5359fc1fab4c14",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/System.Text.Json/gen/JsonSourceGenerator.DiagnosticDescriptors.cs",
+      "gaSha256": "ac49a3a934f3fc4715bd7726af9805d98ec7d71469d84233ae5359fc1fab4c14",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    },
+    {
+      "family": "serialization",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Text.Json/ref/System.Text.Json.cs",
+      "rcSha256": "5cd315a88d553a8322af6d3ecb49c2b97d95ede49678f122f170cf39a99059cb",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/System.Text.Json/ref/System.Text.Json.cs",
+      "gaSha256": "5cd315a88d553a8322af6d3ecb49c2b97d95ede49678f122f170cf39a99059cb",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    },
+    {
+      "family": "serialization",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Formats.Cbor/ref/System.Formats.Cbor.cs",
+      "rcSha256": "c53869234ad1ca3f8f6d0914cc32886b0bed6f9c30641ea3d69793de13d24843",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/System.Formats.Cbor/ref/System.Formats.Cbor.cs",
+      "gaSha256": "c53869234ad1ca3f8f6d0914cc32886b0bed6f9c30641ea3d69793de13d24843",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    },
+    {
+      "family": "serialization",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Runtime.Serialization.Schema/ref/System.Runtime.Serialization.Schema.cs",
+      "rcSha256": "af9730499c1866798577b5249fd62ae429a19e10c28102e956de565e4d184eff",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/System.Runtime.Serialization.Schema/ref/System.Runtime.Serialization.Schema.cs",
+      "gaSha256": "af9730499c1866798577b5249fd62ae429a19e10c28102e956de565e4d184eff",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    },
+    {
+      "family": "serialization",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Formats.Cbor/src/System/Formats/Cbor/Reader/CborReaderOptions.cs",
+      "rcSha256": "ed1b41a7584818f448239880d9878cd8b97ae90581c02909e4bda78438fb394b",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/System.Formats.Cbor/src/System/Formats/Cbor/Reader/CborReaderOptions.cs",
+      "gaSha256": "ed1b41a7584818f448239880d9878cd8b97ae90581c02909e4bda78438fb394b",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    },
+    {
+      "family": "serialization",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Formats.Cbor/src/System/Formats/Cbor/Writer/CborWriterOptions.cs",
+      "rcSha256": "a061cbb574865eeeae66e374ec5539f4e720b5c7585452c8ca2d3e55aeb4fd48",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/System.Formats.Cbor/src/System/Formats/Cbor/Writer/CborWriterOptions.cs",
+      "gaSha256": "a061cbb574865eeeae66e374ec5539f4e720b5c7585452c8ca2d3e55aeb4fd48",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    },
+    {
+      "family": "serialization",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Text.Json/src/System/Text/Json/Serialization/JsonTypeClassifierFactory.cs",
+      "rcSha256": "37ac10ffa3a900e06cf6cf2225866dc442af57aab528ae451175e7fdea4a5503",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/System.Text.Json/src/System/Text/Json/Serialization/JsonTypeClassifierFactory.cs",
+      "gaSha256": "37ac10ffa3a900e06cf6cf2225866dc442af57aab528ae451175e7fdea4a5503",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    },
+    {
+      "family": "serialization",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Text.Json/ref/System.Text.Json.net11.cs",
+      "rcSha256": "a9c9e279046cef94ee304e6df6e58e888c707f37ae93053fea60a419d790c186",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/System.Text.Json/ref/System.Text.Json.net11.cs",
+      "gaSha256": "a9c9e279046cef94ee304e6df6e58e888c707f37ae93053fea60a419d790c186",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    },
+    {
+      "family": "extensions",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/Microsoft.Extensions.Options/gen/DiagDescriptors.cs",
+      "rcSha256": "90337f36a2dfb7a870127ae004b0cef7ebd651942f4add323fc9d8edc46552ff",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/Microsoft.Extensions.Options/gen/DiagDescriptors.cs",
+      "gaSha256": "90337f36a2dfb7a870127ae004b0cef7ebd651942f4add323fc9d8edc46552ff",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    },
+    {
+      "family": "extensions",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/Microsoft.Extensions.Options/gen/DiagDescriptorsBase.cs",
+      "rcSha256": "ed39841d7679fa72179a2701d74a031df78f459074526c69be0cbe01125d6b92",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/Microsoft.Extensions.Options/gen/DiagDescriptorsBase.cs",
+      "gaSha256": "ed39841d7679fa72179a2701d74a031df78f459074526c69be0cbe01125d6b92",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    },
+    {
+      "family": "extensions",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/Microsoft.Extensions.Configuration.Binder/gen/Parser/DiagnosticDescriptors.cs",
+      "rcSha256": "dc6f376edcff9e2b06d360b8e64f1d6a2f5c018f0c58044720821a31269d1a0a",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/Microsoft.Extensions.Configuration.Binder/gen/Parser/DiagnosticDescriptors.cs",
+      "gaSha256": "dc6f376edcff9e2b06d360b8e64f1d6a2f5c018f0c58044720821a31269d1a0a",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    },
+    {
+      "family": "extensions",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/Microsoft.Extensions.Logging.Abstractions/gen/DiagnosticDescriptors.cs",
+      "rcSha256": "beb4977b9006f27b940ec23ac1943901d36125de42ce731d76c77fc0b91abe3b",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/Microsoft.Extensions.Logging.Abstractions/gen/DiagnosticDescriptors.cs",
+      "gaSha256": "beb4977b9006f27b940ec23ac1943901d36125de42ce731d76c77fc0b91abe3b",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    },
+    {
+      "family": "extensions",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/Microsoft.Extensions.Configuration.EnvironmentVariables/src/EnvironmentVariablesConfigurationProvider.cs",
+      "rcSha256": "b272a6d6ce3cfbc49f51b184cc2cf1f36cd101cf6a6f47b25f1b42e9602254fb",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/Microsoft.Extensions.Configuration.EnvironmentVariables/src/EnvironmentVariablesConfigurationProvider.cs",
+      "gaSha256": "b272a6d6ce3cfbc49f51b184cc2cf1f36cd101cf6a6f47b25f1b42e9602254fb",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    },
+    {
+      "family": "extensions",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/Microsoft.Extensions.Configuration.EnvironmentVariables/src/EnvironmentVariablesConfigurationSource.cs",
+      "rcSha256": "b77359d4108ba72b21383f047746150234cc2e3ee5193766f27d0e9c756b96e5",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/Microsoft.Extensions.Configuration.EnvironmentVariables/src/EnvironmentVariablesConfigurationSource.cs",
+      "gaSha256": "b77359d4108ba72b21383f047746150234cc2e3ee5193766f27d0e9c756b96e5",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    },
+    {
+      "family": "extensions",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Diagnostics.DiagnosticSource/src/System/Diagnostics/Activity.cs",
+      "rcSha256": "70cb13d2d6ba837c884f00556a6f67c90141f5ef660d24f4605c5c84a0fc4f8f",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/System.Diagnostics.DiagnosticSource/src/System/Diagnostics/Activity.cs",
+      "gaSha256": "70cb13d2d6ba837c884f00556a6f67c90141f5ef660d24f4605c5c84a0fc4f8f",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    },
+    {
+      "family": "extensions",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Diagnostics.DiagnosticSource/src/System/Diagnostics/ActivityContext.cs",
+      "rcSha256": "29b311c5683095062118d65d3df074f9faa33f2f79acace03a1e70b5f8b3b273",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/System.Diagnostics.DiagnosticSource/src/System/Diagnostics/ActivityContext.cs",
+      "gaSha256": "29b311c5683095062118d65d3df074f9faa33f2f79acace03a1e70b5f8b3b273",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    },
+    {
+      "family": "extensions",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Diagnostics.DiagnosticSource/src/System/Diagnostics/ActivitySource.cs",
+      "rcSha256": "80cd4481925995a7966e6669449d211ee21e1aaba7be76440dff9dbe090cd86a",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/System.Diagnostics.DiagnosticSource/src/System/Diagnostics/ActivitySource.cs",
+      "gaSha256": "80cd4481925995a7966e6669449d211ee21e1aaba7be76440dff9dbe090cd86a",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    },
+    {
+      "family": "extensions",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Diagnostics/Tracing/EventSource.cs",
+      "rcSha256": "1cbc6626c509ad474ced33795d3e786b98cbc739e3baa76bc6bdc0b75e83659a",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/System.Private.CoreLib/src/System/Diagnostics/Tracing/EventSource.cs",
+      "gaSha256": "1cbc6626c509ad474ced33795d3e786b98cbc739e3baa76bc6bdc0b75e83659a",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    },
+    {
+      "family": "extensions",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/aspnetcore/src/Validation/gen/AnalyzerReleases.Shipped.md",
+      "rcSha256": "2f05f7af0cf68524f74754a236e7cd4b5123ae10c00f5c9dff0a560252fb884b",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/aspnetcore/src/Validation/gen/AnalyzerReleases.Shipped.md",
+      "gaSha256": "2f05f7af0cf68524f74754a236e7cd4b5123ae10c00f5c9dff0a560252fb884b",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    },
+    {
+      "family": "extensions",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/aspnetcore/src/Validation/gen/AnalyzerReleases.Unshipped.md",
+      "rcSha256": "a93b947ef1a08178947b5993ff3907a0683b99ab6b5bbfbe87927403711c378b",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/aspnetcore/src/Validation/gen/AnalyzerReleases.Unshipped.md",
+      "gaSha256": "a93b947ef1a08178947b5993ff3907a0683b99ab6b5bbfbe87927403711c378b",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    },
+    {
+      "family": "extensions",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/aspnetcore/src/Validation/gen/Analyzers/ValidationsDiagnosticAnalyzer.cs",
+      "rcSha256": "eed48fc0d66881869fbb2f882605a76304a9088bf8d57e0661f686a4da5ff388",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/aspnetcore/src/Validation/gen/Analyzers/ValidationsDiagnosticAnalyzer.cs",
+      "gaSha256": "eed48fc0d66881869fbb2f882605a76304a9088bf8d57e0661f686a4da5ff388",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    },
+    {
+      "family": "extensions",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/aspnetcore/src/Validation/gen/ValidationsGenerator.cs",
+      "rcSha256": "f4367786734ab69fe2d5c61bf7d2bb9d975916842018441e247acd3247b41b2e",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/aspnetcore/src/Validation/gen/ValidationsGenerator.cs",
+      "gaSha256": "f4367786734ab69fe2d5c61bf7d2bb9d975916842018441e247acd3247b41b2e",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    },
+    {
+      "family": "extensions",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/aspnetcore/src/Validation/gen/Analyzers/ValidatableTypeInGeneratedCodeDiagnosticAnalyzer.cs",
+      "rcSha256": "d9a2ab8124664c276e7ea1f47b9b91c9a6a9a03c54263555e6d20fc623068e62",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/aspnetcore/src/Validation/gen/Analyzers/ValidatableTypeInGeneratedCodeDiagnosticAnalyzer.cs",
+      "gaSha256": "d9a2ab8124664c276e7ea1f47b9b91c9a6a9a03c54263555e6d20fc623068e62",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    },
+    {
+      "family": "extensions",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/Microsoft.Extensions.DependencyInjection.Abstractions/src/EmptyServiceProvider.cs",
+      "rcSha256": "90b7564726d208babfebd4afe495ddec7008974608b7c5d0ab52710d912cecad",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/Microsoft.Extensions.DependencyInjection.Abstractions/src/EmptyServiceProvider.cs",
+      "gaSha256": "90b7564726d208babfebd4afe495ddec7008974608b7c5d0ab52710d912cecad",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    },
+    {
+      "family": "extensions",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/Microsoft.Extensions.Caching.Abstractions/src/Hybrid/HybridCache.cs",
+      "rcSha256": "9e9725a51589f4886a83ba97e4d05349342b2077b52de55b938d7c7d8e4c28fc",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/Microsoft.Extensions.Caching.Abstractions/src/Hybrid/HybridCache.cs",
+      "gaSha256": "9e9725a51589f4886a83ba97e4d05349342b2077b52de55b938d7c7d8e4c28fc",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    },
+    {
+      "family": "runtime-security",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Reflection.Emit/ref/System.Reflection.Emit.cs",
+      "rcSha256": "84341f7dbfc5f2e746e8f70f3646d2810e44a7862464b9efbfec8bdf4e82aacc",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/System.Reflection.Emit/ref/System.Reflection.Emit.cs",
+      "gaSha256": "84341f7dbfc5f2e746e8f70f3646d2810e44a7862464b9efbfec8bdf4e82aacc",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    },
+    {
+      "family": "runtime-security",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.NameResolution/ref/System.Net.NameResolution.cs",
+      "rcSha256": "a7971c47a150298504a918542b54e6dfd48043920d3bd1c95ef407804709f87c",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/System.Net.NameResolution/ref/System.Net.NameResolution.cs",
+      "gaSha256": "a7971c47a150298504a918542b54e6dfd48043920d3bd1c95ef407804709f87c",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    },
+    {
+      "family": "runtime-security",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.Http/ref/System.Net.Http.cs",
+      "rcSha256": "5794c590c72138c9ebf598a4f1a2471bba1ff48510d2855f75a096fe238d1198",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/System.Net.Http/ref/System.Net.Http.cs",
+      "gaSha256": "5794c590c72138c9ebf598a4f1a2471bba1ff48510d2855f75a096fe238d1198",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    },
+    {
+      "family": "runtime-security",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.NetworkInformation/ref/System.Net.NetworkInformation.cs",
+      "rcSha256": "f58962185a06c3bac95e40ecc0e7e6c285e146592995478edee046788b71a231",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/System.Net.NetworkInformation/ref/System.Net.NetworkInformation.cs",
+      "gaSha256": "f58962185a06c3bac95e40ecc0e7e6c285e146592995478edee046788b71a231",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    },
+    {
+      "family": "runtime-security",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.Primitives/ref/System.Net.Primitives.cs",
+      "rcSha256": "5899fe351c8389bf1cf2c005e60e4ed0f1198644e18eab34c6313f38aa8a1900",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/System.Net.Primitives/ref/System.Net.Primitives.cs",
+      "gaSha256": "5899fe351c8389bf1cf2c005e60e4ed0f1198644e18eab34c6313f38aa8a1900",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    },
+    {
+      "family": "runtime-security",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.Quic/ref/System.Net.Quic.cs",
+      "rcSha256": "9cf45744727f6b78c9f7eda1824df7e7ffa0b1e7cb55e20654342617fad3755f",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/System.Net.Quic/ref/System.Net.Quic.cs",
+      "gaSha256": "9cf45744727f6b78c9f7eda1824df7e7ffa0b1e7cb55e20654342617fad3755f",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    },
+    {
+      "family": "runtime-security",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.Sockets/ref/System.Net.Sockets.cs",
+      "rcSha256": "7922299ccdea91d96ada3e083f0efb3be01cf7b119cf602e5d57536b796ab851",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/System.Net.Sockets/ref/System.Net.Sockets.cs",
+      "gaSha256": "7922299ccdea91d96ada3e083f0efb3be01cf7b119cf602e5d57536b796ab851",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    },
+    {
+      "family": "runtime-security",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Runtime.InteropServices/ref/System.Runtime.InteropServices.cs",
+      "rcSha256": "69429069addcb55e698a697bde517d8aa76d7109df079b68a408f8e76efdb76e",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/System.Runtime.InteropServices/ref/System.Runtime.InteropServices.cs",
+      "gaSha256": "69429069addcb55e698a697bde517d8aa76d7109df079b68a408f8e76efdb76e",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    },
+    {
+      "family": "runtime-security",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.Mail/ref/System.Net.Mail.cs",
+      "rcSha256": "bb0e6fcab48b64f89c87628fffbb7554d210284144c88630bbd85f0e4b3f8b54",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/System.Net.Mail/ref/System.Net.Mail.cs",
+      "gaSha256": "bb0e6fcab48b64f89c87628fffbb7554d210284144c88630bbd85f0e4b3f8b54",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    },
+    {
+      "family": "runtime-security",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography.Pkcs/ref/System.Security.Cryptography.Pkcs.cs",
+      "rcSha256": "10a4be57c879c00fbc28f7ec21629e87742eeb99c7b628acea6707531a76e76c",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/System.Security.Cryptography.Pkcs/ref/System.Security.Cryptography.Pkcs.cs",
+      "gaSha256": "10a4be57c879c00fbc28f7ec21629e87742eeb99c7b628acea6707531a76e76c",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    },
+    {
+      "family": "runtime-security",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Threading/ref/System.Threading.cs",
+      "rcSha256": "f16e2f27dcf324bdd9fdd569f350afa483ba8261d4e4542dccd6d3435d0f6544",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/System.Threading/ref/System.Threading.cs",
+      "gaSha256": "f16e2f27dcf324bdd9fdd569f350afa483ba8261d4e4542dccd6d3435d0f6544",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    },
+    {
+      "family": "runtime-security",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography/ref/System.Security.Cryptography.cs",
+      "rcSha256": "1c65691229ae9e41e823bb65951ddc888fdf7abe16b7a0f4387297190288cb66",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/System.Security.Cryptography/ref/System.Security.Cryptography.cs",
+      "gaSha256": "1c65691229ae9e41e823bb65951ddc888fdf7abe16b7a0f4387297190288cb66",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    },
+    {
+      "family": "runtime-security",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Runtime.InteropServices/gen/Common/MemorySafetyRules.cs",
+      "rcSha256": "93717bb275b427d7f11bea43f15e05ce6bc196806be9778078ea6483c8246214",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/System.Runtime.InteropServices/gen/Common/MemorySafetyRules.cs",
+      "gaSha256": "93717bb275b427d7f11bea43f15e05ce6bc196806be9778078ea6483c8246214",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    },
+    {
+      "family": "runtime-security",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Runtime.InteropServices/gen/ComInterfaceGenerator/GeneratorDiagnostics.cs",
+      "rcSha256": "2b994f0046479ded70ef36174c75e97b230ce3d218492d1990552a4cc5af366a",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/System.Runtime.InteropServices/gen/ComInterfaceGenerator/GeneratorDiagnostics.cs",
+      "gaSha256": "2b994f0046479ded70ef36174c75e97b230ce3d218492d1990552a4cc5af366a",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    },
+    {
+      "family": "runtime-security",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Runtime.InteropServices/gen/LibraryImportGenerator/GeneratorDiagnostics.cs",
+      "rcSha256": "8d21ceb2cf75ec1e5f17438cf599e1ef23fad534cf6f5c0880464ddb3a148eeb",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/System.Runtime.InteropServices/gen/LibraryImportGenerator/GeneratorDiagnostics.cs",
+      "gaSha256": "8d21ceb2cf75ec1e5f17438cf599e1ef23fad534cf6f5c0880464ddb3a148eeb",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    },
+    {
+      "family": "runtime-security",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Runtime.InteropServices/gen/LibraryImportGenerator/LibraryImportGenerator.cs",
+      "rcSha256": "039429c428fbf458ca5d4088c34c6e0ec41ea34c7a292e5cd845b667354057a6",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/System.Runtime.InteropServices/gen/LibraryImportGenerator/LibraryImportGenerator.cs",
+      "gaSha256": "039429c428fbf458ca5d4088c34c6e0ec41ea34c7a292e5cd845b667354057a6",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    },
+    {
+      "family": "runtime-security",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Reflection.Emit.ILGeneration/ref/System.Reflection.Emit.ILGeneration.cs",
+      "rcSha256": "ad6b6e67c51e2fb62b5741144716be268c8b8c8ac2a28b3a6426716d8d99cffd",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/System.Reflection.Emit.ILGeneration/ref/System.Reflection.Emit.ILGeneration.cs",
+      "gaSha256": "ad6b6e67c51e2fb62b5741144716be268c8b8c8ac2a28b3a6426716d8d99cffd",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    },
+    {
+      "family": "runtime-security",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Runtime.InteropServices.JavaScript/ref/System.Runtime.InteropServices.JavaScript.cs",
+      "rcSha256": "623e88c0ce8b1661877ca99b6be0287c7b676d09fb00aafc79b6b1f467401697",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/System.Runtime.InteropServices.JavaScript/ref/System.Runtime.InteropServices.JavaScript.cs",
+      "gaSha256": "623e88c0ce8b1661877ca99b6be0287c7b676d09fb00aafc79b6b1f467401697",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    },
+    {
+      "family": "runtime-security",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Runtime.Loader/ref/System.Runtime.Loader.cs",
+      "rcSha256": "7587adc1e032bc1f506cfdc8d8128c93f4e832c36b745bebb93c0c585a4d4946",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/System.Runtime.Loader/ref/System.Runtime.Loader.cs",
+      "gaSha256": "7587adc1e032bc1f506cfdc8d8128c93f4e832c36b745bebb93c0c585a4d4946",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    },
+    {
+      "family": "runtime-security",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/mono/browser/runtime/dotnet.d.ts",
+      "rcSha256": "8ca624400405209c6f5c969d601534e14cd85e725684b896e0e1f4be00d34389",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/mono/browser/runtime/dotnet.d.ts",
+      "gaSha256": "8ca624400405209c6f5c969d601534e14cd85e725684b896e0e1f4be00d34389",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    },
+    {
+      "family": "runtime-security",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.Security/ref/System.Net.Security.cs",
+      "rcSha256": "d9349fe78c2171cb3d26f40a1211c28b77e26a47d84b92b6ede67563aeb29342",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/System.Net.Security/ref/System.Net.Security.cs",
+      "gaSha256": "d9349fe78c2171cb3d26f40a1211c28b77e26a47d84b92b6ede67563aeb29342",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    },
+    {
+      "family": "runtime-security",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Runtime/InteropServices/UnmanagedCallersOnlyAttribute.cs",
+      "rcSha256": "c651945e550a41c8f73cc79329a331f76fc7704c5186de8fd49ad7b4daa60512",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/System.Private.CoreLib/src/System/Runtime/InteropServices/UnmanagedCallersOnlyAttribute.cs",
+      "gaSha256": "c651945e550a41c8f73cc79329a331f76fc7704c5186de8fd49ad7b4daa60512",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    },
+    {
+      "family": "runtime-security",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Runtime/InteropServices/ExtendedLayoutAttribute.cs",
+      "rcSha256": "9d1f8ec24cd0c1fdde9a35313b796d9dc06c44fa9513350738d6316de5e9a323",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/System.Private.CoreLib/src/System/Runtime/InteropServices/ExtendedLayoutAttribute.cs",
+      "gaSha256": "9d1f8ec24cd0c1fdde9a35313b796d9dc06c44fa9513350738d6316de5e9a323",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    },
+    {
+      "family": "runtime-security",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/SafeEvpPKeyHandle.OpenSsl.cs",
+      "rcSha256": "7bce2bbfbbe42f4c3e53aedb38fc59318bea20d364edbbbeb0e356afa2962f68",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/SafeEvpPKeyHandle.OpenSsl.cs",
+      "gaSha256": "7bce2bbfbbe42f4c3e53aedb38fc59318bea20d364edbbbeb0e356afa2962f68",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    },
+    {
+      "family": "runtime-security",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.HttpListener/src/System/Net/Windows/HttpListenerResponse.Windows.cs",
+      "rcSha256": "5f5280610f64f677f39d39e39d09373260218c600533356a70bac751a3b581cf",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/System.Net.HttpListener/src/System/Net/Windows/HttpListenerResponse.Windows.cs",
+      "gaSha256": "5f5280610f64f677f39d39e39d09373260218c600533356a70bac751a3b581cf",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    },
+    {
+      "family": "runtime-security",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography.Xml/src/System/Security/Cryptography/Xml/SignedXml.cs",
+      "rcSha256": "b1f6fa6f456bfbea0ceeb0e029672d641ff0ee94eba14693ecb1a56fa20c9a0a",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/System.Security.Cryptography.Xml/src/System/Security/Cryptography/Xml/SignedXml.cs",
+      "gaSha256": "b1f6fa6f456bfbea0ceeb0e029672d641ff0ee94eba14693ecb1a56fa20c9a0a",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    },
+    {
+      "family": "runtime-security",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography.Xml/src/System/Security/Cryptography/Xml/LocalAppContextSwitches.cs",
+      "rcSha256": "f6a325d855d4613a7024107c64e630f143a7e56fd025a8036de125bc9955b60d",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/System.Security.Cryptography.Xml/src/System/Security/Cryptography/Xml/LocalAppContextSwitches.cs",
+      "gaSha256": "f6a325d855d4613a7024107c64e630f143a7e56fd025a8036de125bc9955b60d",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    },
+    {
+      "family": "runtime-security",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.Http/src/System/Net/Http/SocketsHttpHandler/SocksHelper.cs",
+      "rcSha256": "d0068bfb39a3b972cc2037d5bbb10c8d994a1712a3a1663800d514154dc7eef2",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/System.Net.Http/src/System/Net/Http/SocketsHttpHandler/SocksHelper.cs",
+      "gaSha256": "d0068bfb39a3b972cc2037d5bbb10c8d994a1712a3a1663800d514154dc7eef2",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    },
+    {
+      "family": "runtime-security",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.HttpListener/src/System/Net/HttpListenerResponse.cs",
+      "rcSha256": "5e2165dcbbd401aad0de08768b2f8a3e061521ac7f603ef7a5d06f0890d24f82",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/System.Net.HttpListener/src/System/Net/HttpListenerResponse.cs",
+      "gaSha256": "5e2165dcbbd401aad0de08768b2f8a3e061521ac7f603ef7a5d06f0890d24f82",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    },
+    {
+      "family": "runtime-security",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.Http/src/System/Net/Http/SocketsHttpHandler/AuthenticationHelper.NtAuth.cs",
+      "rcSha256": "0f90b1be71906a063580c43282e824e37b7e44b0a8308833f3d9ece4c8bdb730",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/System.Net.Http/src/System/Net/Http/SocketsHttpHandler/AuthenticationHelper.NtAuth.cs",
+      "gaSha256": "0f90b1be71906a063580c43282e824e37b7e44b0a8308833f3d9ece4c8bdb730",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    },
+    {
+      "family": "runtime-security",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography.Xml/src/System/Security/Cryptography/Xml/SignedInfo.cs",
+      "rcSha256": "7c93e32fcdec44437fb94b00c049256da001688c8502966f18d8c3e7ce359e65",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/System.Security.Cryptography.Xml/src/System/Security/Cryptography/Xml/SignedInfo.cs",
+      "gaSha256": "7c93e32fcdec44437fb94b00c049256da001688c8502966f18d8c3e7ce359e65",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    },
+    {
+      "family": "runtime-security",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography.Xml/src/System/Security/Cryptography/Xml/Utils.cs",
+      "rcSha256": "563dd7c1b3feef9187f004bec756a51846f8172aa940b3f126927bcd4cf9c9e7",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/System.Security.Cryptography.Xml/src/System/Security/Cryptography/Xml/Utils.cs",
+      "gaSha256": "563dd7c1b3feef9187f004bec756a51846f8172aa940b3f126927bcd4cf9c9e7",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    },
+    {
+      "family": "numeric-and-parsing",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Numerics.Tensors/ref/System.Numerics.Tensors.netcore.cs",
+      "rcSha256": "22f290f8fb3e706c5d6d3d24fd9c08ba80dfb50c6da22355258e6129a98602e0",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/System.Numerics.Tensors/ref/System.Numerics.Tensors.netcore.cs",
+      "gaSha256": "22f290f8fb3e706c5d6d3d24fd9c08ba80dfb50c6da22355258e6129a98602e0",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    },
+    {
+      "family": "numeric-and-parsing",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Numerics.Tensors/src/System.Numerics.Tensors.csproj",
+      "rcSha256": "e2c49b7baac6a316288f3f27ca25df3297ff702758ff7c2e8c40693385c7622c",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/System.Numerics.Tensors/src/System.Numerics.Tensors.csproj",
+      "gaSha256": "e2c49b7baac6a316288f3f27ca25df3297ff702758ff7c2e8c40693385c7622c",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    },
+    {
+      "family": "numeric-and-parsing",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Globalization/JapaneseCalendar.cs",
+      "rcSha256": "726a05b5ccefec74bc51abc14f996c70188bf371045ccff40cd3da7586486577",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/System.Private.CoreLib/src/System/Globalization/JapaneseCalendar.cs",
+      "gaSha256": "726a05b5ccefec74bc51abc14f996c70188bf371045ccff40cd3da7586486577",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    },
+    {
+      "family": "numeric-and-parsing",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Math.cs",
+      "rcSha256": "8e5f665f900788f11907c536e924b07ec169e6c57c4fc960e6c5ee88bb4c4819",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/System.Private.CoreLib/src/System/Math.cs",
+      "gaSha256": "8e5f665f900788f11907c536e924b07ec169e6c57c4fc960e6c5ee88bb4c4819",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    },
+    {
+      "family": "numeric-and-parsing",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Numerics.Tensors/src/System/Numerics/Tensors/netcore/TensorPrimitives.Clamp.cs",
+      "rcSha256": "49b1e6baf41bb866ce763cbe1113dc6ddfaea7237c87ad677b5328fbf79a216c",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/System.Numerics.Tensors/src/System/Numerics/Tensors/netcore/TensorPrimitives.Clamp.cs",
+      "gaSha256": "49b1e6baf41bb866ce763cbe1113dc6ddfaea7237c87ad677b5328fbf79a216c",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    },
+    {
+      "family": "numeric-and-parsing",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Numerics.Tensors/src/System/Numerics/Tensors/netcore/TensorPrimitives.Round.cs",
+      "rcSha256": "00303adc08e411bfdede529c24ba73a3a6fa3de2a21914954ca8b0881b10b2b0",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/System.Numerics.Tensors/src/System/Numerics/Tensors/netcore/TensorPrimitives.Round.cs",
+      "gaSha256": "00303adc08e411bfdede529c24ba73a3a6fa3de2a21914954ca8b0881b10b2b0",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    },
+    {
+      "family": "cryptography-platforms",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography/src/System.Security.Cryptography.csproj",
+      "rcSha256": "48bf130cce3ea65815e2a239dc29a8b1d75fc842a0d899b4d680522d7e3d8ee1",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/System.Security.Cryptography/src/System.Security.Cryptography.csproj",
+      "gaSha256": "48bf130cce3ea65815e2a239dc29a8b1d75fc842a0d899b4d680522d7e3d8ee1",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    },
+    {
+      "family": "cryptography-platforms",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/Common/src/System/Security/Cryptography/CompositeMLDsaImplementation.Windows.cs",
+      "rcSha256": "55a2b49feb2231a4a7ba307d01d3fac8fd09d82c69b8f79362bc0106994cbb73",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/Common/src/System/Security/Cryptography/CompositeMLDsaImplementation.Windows.cs",
+      "gaSha256": "55a2b49feb2231a4a7ba307d01d3fac8fd09d82c69b8f79362bc0106994cbb73",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    },
+    {
+      "family": "cryptography-platforms",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/X509Certificates/OpenSslX509ChainProcessor.cs",
+      "rcSha256": "27a27387c451fe2ee65fa90425650db8730b65e002df3b95116900f201858352",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/X509Certificates/OpenSslX509ChainProcessor.cs",
+      "gaSha256": "27a27387c451fe2ee65fa90425650db8730b65e002df3b95116900f201858352",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    },
+    {
+      "family": "cryptography-platforms",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.Security/src/System/Net/Security/SslStream.Protocol.cs",
+      "rcSha256": "fba03dbec202d2971d78d6ed8e1e8a4c935b7cd341fc613403b25a12b4524041",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/System.Net.Security/src/System/Net/Security/SslStream.Protocol.cs",
+      "gaSha256": "fba03dbec202d2971d78d6ed8e1e8a4c935b7cd341fc613403b25a12b4524041",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    },
+    {
+      "family": "cryptography-platforms",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/HKDF.Windows.cs",
+      "rcSha256": "fa297e99dbbfb88875827e6240d29fb5b3549187a5ccfbf0dc93007dc53cb72d",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/HKDF.Windows.cs",
+      "gaSha256": "fa297e99dbbfb88875827e6240d29fb5b3549187a5ccfbf0dc93007dc53cb72d",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    },
+    {
+      "family": "cryptography-platforms",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/DSA.Create.NotSupported.cs",
+      "rcSha256": "19c237425505cb218c0a95ee5716ad24ca4414c25de2e483e19bdce920c93008",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/DSA.Create.NotSupported.cs",
+      "gaSha256": "19c237425505cb218c0a95ee5716ad24ca4414c25de2e483e19bdce920c93008",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    },
+    {
+      "family": "cryptography-platforms",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/Common/src/System/Security/Cryptography/PqcBlobHelpers.cs",
+      "rcSha256": "7335cedccd8b471d2dd4e9d3ff6a6c35a56466b6217a79d98ba6bcb2a7c75d56",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/Common/src/System/Security/Cryptography/PqcBlobHelpers.cs",
+      "gaSha256": "7335cedccd8b471d2dd4e9d3ff6a6c35a56466b6217a79d98ba6bcb2a7c75d56",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    },
+    {
+      "family": "cryptography-platforms",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/AsnEncodedData.cs",
+      "rcSha256": "698344e0328ff71cccd67fb440a0ff3a245d87f2fc13756488ae5501793f7e58",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/AsnEncodedData.cs",
+      "gaSha256": "698344e0328ff71cccd67fb440a0ff3a245d87f2fc13756488ae5501793f7e58",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    },
+    {
+      "family": "cryptography-platforms",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/X509Certificates/X509BasicConstraintsExtension.cs",
+      "rcSha256": "06309fb5058b99b20736d019429719adee6b4d1184712cddf2a48a28a25302d7",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/X509Certificates/X509BasicConstraintsExtension.cs",
+      "gaSha256": "06309fb5058b99b20736d019429719adee6b4d1184712cddf2a48a28a25302d7",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    },
+    {
+      "family": "cryptography-platforms",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/RSACryptoServiceProvider.Windows.cs",
+      "rcSha256": "943bc442cd30fa6050fe9d9bb0d38be83d25f64cd28ccc712c8f44d62a1b1ea8",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/RSACryptoServiceProvider.Windows.cs",
+      "gaSha256": "943bc442cd30fa6050fe9d9bb0d38be83d25f64cd28ccc712c8f44d62a1b1ea8",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    },
+    {
+      "family": "cryptography-platforms",
+      "rcUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.Security/src/System/Net/Security/LocalAppContextSwitches.cs",
+      "rcSha256": "51a65f995c8d38bed779cde1ce573261590c8d812a813bc7c91d132ad21f0987",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/System.Net.Security/src/System/Net/Security/LocalAppContextSwitches.cs",
+      "gaSha256": "51a65f995c8d38bed779cde1ce573261590c8d812a813bc7c91d132ad21f0987",
+      "unchanged": true,
+      "added": [],
+      "removed": []
+    }
+  ],
+  "catalogue": [
+    {
+      "id": "archive.adapt-package-part-streams",
+      "title": "Supply seekable package data only when required",
+      "stability": "stable",
+      "metadataSha256": "198a7401085be9caa9c25bc2e135bb7b2e2f06d1b980df2ec56c889cad38adb4",
+      "markdownSha256": "19704fe21be0a60584df8dd230285e7cb500c84fb04ac4354124eeeafd5aff2f",
+      "requirements": null
+    },
+    {
+      "id": "archive.choose-hard-link-policy",
+      "title": "Choose TAR hard-link preservation or independent copies",
+      "stability": "stable",
+      "metadataSha256": "2422a60f0f31e9ac5ad917908d81f23e3a92a8fb1e8b2d69581db63ee8f8f961",
+      "markdownSha256": "0d09c7720532cd38d7ce4e1a7e704bd9022450fbc69c61e08fdf58ffd4fa7814",
+      "requirements": null
+    },
+    {
+      "id": "archive.control-entry-access",
+      "title": "Choose ZIP entry access without retaining unwanted content",
+      "stability": "stable",
+      "metadataSha256": "05685d0d4297b9163f1246c7e14fb13d3a728a0932a5191adeeb3b72d0db86e0",
+      "markdownSha256": "ff355ce06ee2dec4ee96425f1580711ecd26551465fb6f84f080b058b9ef045b",
+      "requirements": null
+    },
+    {
+      "id": "archive.handle-async-initialization",
+      "title": "Handle ZIP failures during asynchronous initialization",
+      "stability": "stable",
+      "metadataSha256": "ab84960014d824fc7a3f3c480d564859ec66fe3e9db0c52bf086b0bf81eae91e",
+      "markdownSha256": "d2522adb50f48eb3581a366fd091507ef7213449b6cb2883ed2d529451dd64db",
+      "requirements": null
+    },
+    {
+      "id": "archive.handle-corruption",
+      "title": "Reject damaged ZIP entries and TAR headers",
+      "stability": "stable",
+      "metadataSha256": "3ed314091606c7bb4aca91535ecedbfcce5b99de159249bca0fc63ece1ae423a",
+      "markdownSha256": "d2fede47c5dda6983024a89f9405c03ac5a58ef431d7106a3bfd578a0b1cf043",
+      "requirements": null
+    },
+    {
+      "id": "archive.protect-entries",
+      "title": "Protect ZIP entry contents with a supported password algorithm",
+      "stability": "stable",
+      "metadataSha256": "8f91ebb0d6cbd27c6cfdfdc9d93eecb8d001b4b33bd5fe3299e03eb7e68ff570",
+      "markdownSha256": "6e327625899c0377170477e1e67667a0174db93092e4ad084253f3e604576a53",
+      "requirements": null
+    },
+    {
+      "id": "archive.select-tar-format",
+      "title": "Choose a TAR format the receiver can read",
+      "stability": "stable",
+      "metadataSha256": "3736ec86bdca107e2ad924cab0755c5f079954b7d871d739a1d39b2c6a34e038",
+      "markdownSha256": "4b45e0dd121d08aaf1d4c299a34d021aeb3cb002101e81cb15edafaeb2a2bfc6",
+      "requirements": null
+    },
+    {
+      "id": "cache.observe-memory-cache",
+      "title": "Observe cache requests, entries, evictions and estimated size",
+      "stability": "stable",
+      "metadataSha256": "c88a04785610f29599b23ec5b856e0c50ddee79239570ae23733f278d91b95c8",
+      "markdownSha256": "0c828474fb07903c7de9b1654a5b3327d8265cf63e37d8945671c40442f490c9",
+      "requirements": null
+    },
+    {
+      "id": "cache.select-options-from-value",
+      "title": "Choose cache lifetimes after loading a value",
+      "stability": "stable",
+      "metadataSha256": "6988f028cb4acc91a1536257f1da63e0e2b32f75870c84a6b6628dad1d957b77",
+      "markdownSha256": "1cc65a2e2f0f8deb43571376d85f920dd212461c177460ed8146c3d7bfb768ef",
+      "requirements": null
+    },
+    {
+      "id": "cbor.bound-nesting",
+      "title": "Bound nesting when reading and writing CBOR",
+      "stability": "stable",
+      "metadataSha256": "2e2cb906738c95d2c79228d973ca9ad737f3d05cdb370ec91e965d16626c5be8",
+      "markdownSha256": "d654d349ad7eda1c52b3f6355c734e57fe18fdd9f46857b936e021765395a4bf",
+      "requirements": null
+    },
+    {
+      "id": "cbor.read-chunks",
+      "title": "Read CBOR records across incoming chunks",
+      "stability": "stable",
+      "metadataSha256": "48bbb7ba2ef29ab88aeb41ab4f62391e5ae642e69ed50a8f834b3da61cac1afb",
+      "markdownSha256": "57b7d0e79709d85f49fe69d0d7efd44a8a969d071f0280e8adc3a134a46da192",
+      "requirements": null
+    },
+    {
+      "id": "certificates.encode-registered-identifiers",
+      "title": "Encode registered identifiers in certificate subject alternatives",
+      "stability": "stable",
+      "metadataSha256": "bc9a6230e8cb08b253e393ee1646d7917526e1df2677e4065abe3e74139b6eb1",
+      "markdownSha256": "a3950496e1564424adde5a72cb9301b3816793f32132ead8eef790075137eb92",
+      "requirements": null
+    },
+    {
+      "id": "collections.compare-by-key",
+      "title": "Match records by a selected key and define ordering separately",
+      "stability": "stable",
+      "metadataSha256": "aed93e37047593a5aa0b9fe0245c3ae897ab238b7c17833c34656ef70502a1fc",
+      "markdownSha256": "2ca1a784dae5765d338d9a3d4ee20479d16273712bb16f34003e63ae05190750",
+      "requirements": null
+    },
+    {
+      "id": "collections.count-and-build-bits",
+      "title": "Build compact flags from spans and count enabled positions",
+      "stability": "stable",
+      "metadataSha256": "0c054f1208713084fbbfb917cbabedb44910df413c762a0c34e01056a4eaf4be",
+      "markdownSha256": "312f2425160addbfa20e7c3f34729bd207dd739141dbbbc68ee10f87e5a281b8",
+      "requirements": null
+    },
+    {
+      "id": "collections.find-span-extrema",
+      "title": "Find extrema directly in an existing span",
+      "stability": "stable",
+      "metadataSha256": "805b85ce60fd3a15db0dfa6f1a829c2c757f82786fb0eba5a1589b467b74ff67",
+      "markdownSha256": "facbd5917864824a1a9e47fbabb413e9722ec814c5e019975588a13a508398ae",
+      "requirements": null
+    },
+    {
+      "id": "compression.handle-empty-payloads",
+      "title": "Emit valid compressed frames for empty messages",
+      "stability": "stable",
+      "metadataSha256": "29c7a7025ad69bd52ec4fe8b582c255f053eb6d3767194f79b860ef464937dbc",
+      "markdownSha256": "2c42a366d7c089e611890a9b40c278bd8ea1ab41ecb51e7d6d6c293d4d6ce428",
+      "requirements": null
+    },
+    {
+      "id": "compression.process-buffers",
+      "title": "Compress independent buffers and reuse codec state",
+      "stability": "stable",
+      "metadataSha256": "9bd01489f3d2a2bad4e65640a2d4b3f7ffebcd86a343e1e6aa9c2071137a6678",
+      "markdownSha256": "68e1d574f8f489d6aaeec844466e76b77e3fe9f0872a384b5a4380eae8bc0363",
+      "requirements": null
+    },
+    {
+      "id": "compression.use-zstandard",
+      "title": "Exchange Zstandard frames with built-in codecs",
+      "stability": "stable",
+      "metadataSha256": "196730cba7c6e1e2bc9e9e5e780d4bf7e6de0baac4b9b9b9e6ac9a942bdba5fa",
+      "markdownSha256": "bd8de1ad028cbaf8a230e8850f8a39646a1e66942b6f97811bf0e0cb445af8d2",
+      "requirements": null
+    },
+    {
+      "id": "configuration.await-change-callback",
+      "title": "Complete asynchronous reload work before rearming notifications",
+      "stability": "stable",
+      "metadataSha256": "720fe94bcd1b699fda00a3eb32e1163fbd307733a81d3d9a1adb81eda330b5cd",
+      "markdownSha256": "f3f8ef35391e3c96a3ed350c6ac9a5821e6af964177a5aea18f2de48d3a3c605",
+      "requirements": null
+    },
+    {
+      "id": "configuration.exclude-properties",
+      "title": "Keep runtime-owned properties out of configuration binding",
+      "stability": "stable",
+      "metadataSha256": "09ae02d00b88062814ec4c9e7577b45fa4b49af79385612ba2d09012120c31f5",
+      "markdownSha256": "2396993545924129c3f59ca9c2c3dc0851d878aacf1820f75ab6da0234360efc",
+      "requirements": null
+    },
+    {
+      "id": "configuration.observe-file-load-failures",
+      "title": "Observe configuration load failures separately from changes",
+      "stability": "stable",
+      "metadataSha256": "28fb624fad728fa462c66b99f34dd3358b2f0394c6c36d93213d6febc33240e1",
+      "markdownSha256": "7284c70fca992a1394a56463aecbe2fc2e9e57042e2e91ae749a72839ec9be94",
+      "requirements": null
+    },
+    {
+      "id": "configuration.transform-environment-keys",
+      "title": "Map environment-variable names to intended configuration keys",
+      "stability": "stable",
+      "metadataSha256": "e93bd673d16a76985a74fd8261b2a45c0c46e65a78d34d76efe6162da8868dae",
+      "markdownSha256": "5332705c67a3d243c74d3423b9febc71158cbf9f0aa81ac2b51e665039582645",
+      "requirements": null
+    },
+    {
+      "id": "console.color-piped-output",
+      "title": "Choose colour policy for redirected console output",
+      "stability": "stable",
+      "metadataSha256": "1dad3ee0b5b21ecde4f94b0c6d3ad1e4002bcf56a5576473de60ef87a75f508f",
+      "markdownSha256": "b2871cd40224e52867fe87b8f2749cb2065c979bde15097a3b2997acd7502469",
+      "requirements": null
+    },
+    {
+      "id": "crypto.bound-hkdf-inputs",
+      "title": "Enforce an explicit HKDF input contract on Windows",
+      "stability": "stable",
+      "metadataSha256": "cbd6b6c4bffaccbe64e0fc83216ff11272c5e5392fe2d3b4ff19221d56131905",
+      "markdownSha256": "e36fcfe51c7e661826024e0e6bbf35a19a4184b3a632a2d330e3019350e98b96",
+      "requirements": null
+    },
+    {
+      "id": "crypto.bound-xml-signature-references",
+      "title": "Bound XML signature references",
+      "stability": "stable",
+      "metadataSha256": "07dc4771a4fcecf66510b6f6b4928bfb0a137335e2164f90d20c210de256e3be",
+      "markdownSha256": "dd86dcd62db59fead3a879680765f84fa60692a98eb6c1672e9adcbddc9f63ed",
+      "requirements": null
+    },
+    {
+      "id": "crypto.compare-fixed-secret",
+      "title": "Compare a secret buffer with a repeated byte",
+      "stability": "stable",
+      "metadataSha256": "8bd14eb8be989faa30aa463dfd64b23f8a27a9044a3d459b7086943c7c9828b4",
+      "markdownSha256": "6840925b3bebb7bebdf81191d864d38672fe33055563adc4532fa86fe922bdab",
+      "requirements": null
+    },
+    {
+      "id": "crypto.configure-provider-backed-keys",
+      "title": "Select cryptographic providers for key operations",
+      "stability": "stable",
+      "metadataSha256": "a8a82b198be9d8d78cfa288354f4a32fb00b0d0f70a51825aeb0d3de87ffddcf",
+      "markdownSha256": "a66c7880ae55e4037174ff54668a36255c78cfb6172e6a8b5dfde232f37c7eba",
+      "requirements": null
+    },
+    {
+      "id": "crypto.encapsulate-hybrid-secrets",
+      "title": "Negotiate experimental composite key encapsulation",
+      "stability": "experimental",
+      "metadataSha256": "5489e76f3865241ed3fb71e8890b2a3026fc5fe56aff103f4070dc47a946c9d2",
+      "markdownSha256": "28f092a9ca83d5ac3c915542e038025b355a38f36c4fb9bfe6127751a8a64bb3",
+      "requirements": null
+    },
+    {
+      "id": "crypto.encrypt-cms-with-mlkem",
+      "title": "Encrypt a CMS envelope for a pure ML-KEM recipient",
+      "stability": "stable",
+      "metadataSha256": "855e4fdad6dc6ca665bd68955a827d014481a4178d22490c9674f65fa068b382",
+      "markdownSha256": "146957b66253c74b324fadf67067474e984e392b26654097f0256dca8de66bf1",
+      "requirements": null
+    },
+    {
+      "id": "crypto.exchange-x25519",
+      "title": "Exchange keys with the platform X25519 implementation",
+      "stability": "stable",
+      "metadataSha256": "8df171a5bf7f8bbe3cfd78ef8ab29ec80225d072b4869d1bd591e6ddf2eebbe1",
+      "markdownSha256": "8daf66b379d1edfb88fe5e46077641301cb017157e5421f9da444dd0d2223e33",
+      "requirements": null
+    },
+    {
+      "id": "crypto.inspect-aead-key-size",
+      "title": "Inspect an encryption instance's key size",
+      "stability": "stable",
+      "metadataSha256": "d00e929e68022aa93acbfa821eac9045be6e86b0c6bd932a8bab479981166b5e",
+      "markdownSha256": "e1b2899799dd10749cf328c3a7a474c44fb9305599c3fdd2fa4e0003384d961c",
+      "requirements": null
+    },
+    {
+      "id": "crypto.make-rsa-padding-explicit",
+      "title": "Preserve legacy RSA interoperability with explicit padding",
+      "stability": "stable",
+      "metadataSha256": "d856b1964ca468aa1008c5feb0a8cca70afdfb756b21842e18de685fdea55f05",
+      "markdownSha256": "2df99bcdaea2a37722156908ab4c1e57403ee4c814a2a00d27ed6f3ed3e5a34e",
+      "requirements": null
+    },
+    {
+      "id": "crypto.migrate-dsa-signatures",
+      "title": "Replace legacy DSA signatures with an explicit ECDSA contract",
+      "stability": "stable",
+      "metadataSha256": "c2827ac507235657fab06509a82d27979336fef69d410bbeb3f3dd5fff26733f",
+      "markdownSha256": "38ec42bf53e02418f0be04a1dc1a5a340b359e71697b67f10e1da5ffa8e8f9c5",
+      "requirements": null
+    },
+    {
+      "id": "crypto.replace-encoded-extension-data",
+      "title": "Update decoded certificate extension state through supported APIs",
+      "stability": "stable",
+      "metadataSha256": "9923cc628267087c2a3bd5af34eeebaaa477f52c9ab9f512e251c7b2e0bd411d",
+      "markdownSha256": "65f41296ba3f4a27e5129eddc12e99d75e66bab1c2ded64a578cb512fb8ace8f",
+      "requirements": null
+    },
+    {
+      "id": "crypto.select-supported-composite-signature",
+      "title": "Gate Windows composite signatures by the exact algorithm",
+      "stability": "experimental",
+      "metadataSha256": "66372c1ab49ce29fd21c2cef3d743e4cdc96fa0c8d55ae87a77f9ee833daf340",
+      "markdownSha256": "d85fbb257265290ce6590c47c49394a7f832740984eca44ae92fd0273e1d8e8d",
+      "requirements": null
+    },
+    {
+      "id": "crypto.supply-chain-intermediates",
+      "title": "Supply certificate intermediates without relying on excess AIA hops",
+      "stability": "stable",
+      "metadataSha256": "6b8716f4d8e15c95ced38a2621bf28dc8cad250fd5c007c78bdc6edc01ed277f",
+      "markdownSha256": "15a4d4c4610d9911074c4da79956d970b3c21da977ced35b1798a8ff331c69db",
+      "requirements": null
+    },
+    {
+      "id": "crypto.verify-message-authenticators",
+      "title": "Verify message authenticators",
+      "stability": "stable",
+      "metadataSha256": "e61d071b3984c8504714d26f8dc783cca8c005956ed23c02e5719796d45df34e",
+      "markdownSha256": "ee1a69b71ef86bdb9c1c4085fb31661b827fa38fb2b58c9ce81b60444a416738",
+      "requirements": null
+    },
+    {
+      "id": "crypto.wrap-keys",
+      "title": "Wrap encryption keys in the negotiated AES format",
+      "stability": "stable",
+      "metadataSha256": "f161869a77cef76b798d84acfc8d9bc97db81f5f16eadf9a1c395dc4e131f7fc",
+      "markdownSha256": "6d088567bc8049641919b26054e8981a2240b11532c74a562c12767edd5b2ab3",
+      "requirements": null
+    },
+    {
+      "id": "dependencies.use-framework-extensions",
+      "title": "Reference Extensions correctly after shared-framework inclusion",
+      "stability": "stable",
+      "metadataSha256": "411a6605b17fc0c93be69cffff7a592302f5aff226370d2e672a4c5821988113",
+      "markdownSha256": "27bc647e77d323063c2336475b8cae834600727466c37c732fd8b13a854694e5",
+      "requirements": null
+    },
+    {
+      "id": "di.supply-empty-services",
+      "title": "Supply a provider without application services",
+      "stability": "stable",
+      "metadataSha256": "c878727ecda28a80267aa656c69e408baa02aedb221cec2748b91024f2b91fa9",
+      "markdownSha256": "d8c4a78bc4f8433fba2c442e49b9adc44d2b6a389aac9f3fa75bdf50de6f55c8",
+      "requirements": null
+    },
+    {
+      "id": "diagnostics.choose-event-provider-identity",
+      "title": "Give a dynamic event provider an explicit identity",
+      "stability": "stable",
+      "metadataSha256": "7b57797b3582a79a91ad9b22d3a41ab3f151e92c23c40cc6245bb1b9df57dac3",
+      "markdownSha256": "5dc96779d2df667b3726cb1edc16077eca126e5b4ec7d340b113adec375b415f",
+      "requirements": null
+    },
+    {
+      "id": "dns.inspect-typed-records",
+      "title": "Inspect typed DNS routing and metadata records",
+      "stability": "stable",
+      "metadataSha256": "af49120db9031ca15129b89fbf9ae1be3751f3db1d797c763ec647dd8eb38f3e",
+      "markdownSha256": "bbe5dfac88e06fda4c0743b7bdce00d93dc2ba524d5c29f680140f7b9a356cf8",
+      "requirements": null
+    },
+    {
+      "id": "dns.resolve-service-records",
+      "title": "Resolve advertised service targets and ports",
+      "stability": "stable",
+      "metadataSha256": "0700e999388828193a93961aa27ec795a7dbf1accad2594b9469e2f5510874b0",
+      "markdownSha256": "91d184a6314c1374f1d6bbae0548c4bf524cb2f942a6144155579a6e7863f52c",
+      "requirements": null
+    },
+    {
+      "id": "globalization.validate-date-parsing-options",
+      "title": "Separate invalid date parsing options from bad data",
+      "stability": "stable",
+      "metadataSha256": "d1e2ed2d48947f0c2f475f91ae898f52123cfde879701dba3127cbe8ae30ea4a",
+      "markdownSha256": "6492d57790b306fb881f41af4c1535f97d68441c55e9a543bc3a604f87315519",
+      "requirements": null
+    },
+    {
+      "id": "globalization.validate-japanese-calendar-range",
+      "title": "Validate dates against the Japanese calendar boundary",
+      "stability": "stable",
+      "metadataSha256": "7f65e2895d41f4b27351bba88dae98f7d5f44b83f0a63e704a4998537ebf579c",
+      "markdownSha256": "88ab61fdf9cab6dc292f785cdbf4dab15779e824cb52d8668edbd83fc9395871",
+      "requirements": null
+    },
+    {
+      "id": "hosting.distinguish-invocation-paths",
+      "title": "Distinguish invocation names from application file locations",
+      "stability": "stable",
+      "metadataSha256": "bea9855533bb36c246b2cd12a31b2ec67d37db8d2131aa4f381e4328efceae7e",
+      "markdownSha256": "f8f765fd4bedd3cccb6a0ad9b10e5b4554bad97557b0fd13fb248b63fd0be81d",
+      "requirements": null
+    },
+    {
+      "id": "hosting.observe-background-failures",
+      "title": "Preserve background-service failures at the host boundary",
+      "stability": "stable",
+      "metadataSha256": "ef7bbfec9403fc3f1b35cec6f2a9e6ad57c4ed126421e713703306759154b267",
+      "markdownSha256": "d032eade45bf67ee2794b8f72e10a6f113e3cbf62a6160cbc2f02e30a6f90953",
+      "requirements": null
+    },
+    {
+      "id": "hosting.report-assembly-location",
+      "title": "Report logical assembly locations and handle missing physical files",
+      "stability": "stable",
+      "metadataSha256": "f7d4d28de1cb0d32cb91219e097be1e8095dedac10b64eceff3a518ddb5c2afc",
+      "markdownSha256": "995e566d756db6874a2f14999251a0d8c9ae1ee1d5078b2c2534fdbb3d8ad382",
+      "requirements": null
+    },
+    {
+      "id": "http.bound-initial-h2-streams",
+      "title": "Bound HTTP/2 requests before server settings arrive",
+      "stability": "stable",
+      "metadataSha256": "dc255fd9e2b1cb1fc6fe40ccca1f7b823feb0905fe769384077bda8d1cf06377",
+      "markdownSha256": "94a32a691d58c89903673def6e97d2b96bb7df537cd65f14c3701f486d028ec7",
+      "requirements": null
+    },
+    {
+      "id": "http.compress-request-body",
+      "title": "Compress outgoing HTTP request bodies",
+      "stability": "stable",
+      "metadataSha256": "acc964402a022b09c14afa73c39451ac05ca477a3b145c983f802409b5991a26",
+      "markdownSha256": "cdf6c96f567782c7386b34f667b891eb376bf4842b83391ed6ee271f675242e5",
+      "requirements": null
+    },
+    {
+      "id": "http.decode-zstandard-responses",
+      "title": "Decode Zstandard HTTP responses",
+      "stability": "stable",
+      "metadataSha256": "7665529f4e75128f260aefb7b0accb83ad0243b9ff229862661a1c3411ad0219",
+      "markdownSha256": "a3c6da72ee9a21d5395902ccb9041eb7d9dc0fd3df9b16b63f426778af1cd8a4",
+      "requirements": null
+    },
+    {
+      "id": "http.remove-manual-windows-auth-downgrade",
+      "title": "Remove a verified manual Windows-authentication downgrade",
+      "stability": "stable",
+      "metadataSha256": "c886d577ca57b4f696333f3c059cb07d0aecf30c1d5e86665b7736c42975ddfe",
+      "markdownSha256": "d8950386e60860172ba493393583f0df6c581be9f5156b4ad7d89b2b2f80b972",
+      "requirements": null
+    },
+    {
+      "id": "http.replace-mobile-synchronous-sends",
+      "title": "Replace synchronous mobile HTTP sends",
+      "stability": "stable",
+      "metadataSha256": "5567a1d195c7c744ced6b8dd8cd3f9b98374c11a3bc28886ae8ac3b5d44ecd4b",
+      "markdownSha256": "e3a60c97a6aa30fec971a05354506d0c2417383325a991c098d5b40b1c39e198",
+      "requirements": null
+    },
+    {
+      "id": "http.resolve-dns-through-socks-proxy",
+      "title": "Resolve target names through a SOCKS proxy",
+      "stability": "stable",
+      "metadataSha256": "43aa3553d13857f252bfca4960c3d458f207a042c2585c80fb9051e1558419d6",
+      "markdownSha256": "58595640d38e28a840c20ace1e7590e89af8329239c90579deb305e4c12e4950",
+      "requirements": null
+    },
+    {
+      "id": "http.retire-connections",
+      "title": "Retire pooled connections using a cached policy (experimental)",
+      "stability": "experimental",
+      "metadataSha256": "48fec42f1eb94f14e43707f715819a9d3099abb725571ddb495d5bba14dba16b",
+      "markdownSha256": "2d6203fe10aa7d9bfc1a78f9a834b3ce01648326d7892ca2d51add80eabd0e90",
+      "requirements": null
+    },
+    {
+      "id": "interop.allocate-aligned-type-lifetime-memory",
+      "title": "Allocate aligned native memory with type lifetime",
+      "stability": "stable",
+      "metadataSha256": "d36add12ca874dbea18626d5acf61495560373e2f5a4a70690efe2f5c0ab97bc",
+      "markdownSha256": "b943b6b18cc9b0b90fa606f0a1c191a9c9a3f66612032ddd7d349e0c598b484e",
+      "requirements": null
+    },
+    {
+      "id": "interop.exchange-float-buffers-with-javascript",
+      "title": "Exchange floating-point buffers with JavaScript",
+      "stability": "stable",
+      "metadataSha256": "74a5a7216a39bc42243c4d4fb7828d06a5dc0e6eb28b12a0b39002a5b272ebc6",
+      "markdownSha256": "0fc5749b79d055b96026cc9abed115a1ae92e7d532d8b7738694f909a322c5ba",
+      "requirements": null
+    },
+    {
+      "id": "interop.generate-com-properties",
+      "title": "Generate COM property contracts",
+      "stability": "stable",
+      "metadataSha256": "bddc2e23ecae6fc2dfe50cf0e5163eadc6f1af87661f13ade87579d3dbed943a",
+      "markdownSha256": "3e583a9d78c159c678ae319cd1baa0b67f363aaf14769e1275a718b2d9210003",
+      "requirements": null
+    },
+    {
+      "id": "interop.match-native-c-layout",
+      "title": "Match native C structure and union layouts",
+      "stability": "stable",
+      "metadataSha256": "dd38ebb5bd36193dece83575023f0c1f6d9c0045cccce8c512f969596c3424cc",
+      "markdownSha256": "a6bf31510082a490c7c7be481a27ba2126668178ea40a878a09d9de97e6b7ce0",
+      "requirements": null
+    },
+    {
+      "id": "interop.retain-native-exports-with-types",
+      "title": "Retain native exports with their source types",
+      "stability": "stable",
+      "metadataSha256": "da45f153bd5438c1b6cebf0c22540050c42eb2566e2e2ecf85c9403f107ff770",
+      "markdownSha256": "985aa8de30afd550679003ba336595c83cd5f96d8b5a356d7cb5086eee8075ca",
+      "requirements": null
+    },
+    {
+      "id": "io.adapt-existing-buffers",
+      "title": "Pass existing buffers to stream consumers",
+      "stability": "stable",
+      "metadataSha256": "ca1078182e3f2b5e0dcc47f5d993757e8c4bffa22c582102494b13defcbe93e5",
+      "markdownSha256": "7455fcce8149a474cb33adc84c70e558da536bf3f74e921a8a80f5b3a30b9b74",
+      "requirements": null
+    },
+    {
+      "id": "io.cancel-text-output",
+      "title": "Cancel asynchronous text output explicitly",
+      "stability": "stable",
+      "metadataSha256": "8afc91e926a5c9075fb5d962ab55a41786296dc6fc19d4c2e7c991a7f5311212",
+      "markdownSha256": "a3e4096709510eb1a2d9bb7f6415b8f50ddd8b95b7178b1aa11539dcbe1e986e",
+      "requirements": null
+    },
+    {
+      "id": "io.compose-file-watcher-roots",
+      "title": "Compose a filesystem watcher with the intended root",
+      "stability": "stable",
+      "metadataSha256": "78e0d13e5c37be6ba0d4c0adfe10794e02b78b5e5297b20386d62788eeda8eaa",
+      "markdownSha256": "2422665c0bacf7fece1058a5526016e4a9a0aaa96115f403ab4fc44e8061fc2d",
+      "requirements": null
+    },
+    {
+      "id": "io.compute-format-checksums",
+      "title": "Compute the checksum a binary format requires",
+      "stability": "stable",
+      "metadataSha256": "ab3a84f8bda867c6d7747491d45ab9147657923c3761c58d15b2e5108b499285",
+      "markdownSha256": "c18489a0560cd95d6c3a37f1c572dd932153793480b5f0583ec2b2dc7797540d",
+      "requirements": null
+    },
+    {
+      "id": "io.create-hard-links",
+      "title": "Create file aliases with hard links",
+      "stability": "stable",
+      "metadataSha256": "e224a3f6266a690cccada06b6515f15c24ff376ff6dc6bf051cc00417bbd4286",
+      "markdownSha256": "8d2db771d96b50f786602f093d54ca1e16caa2237c3c47c1ab47557de5286441",
+      "requirements": null
+    },
+    {
+      "id": "io.migrate-mobile-locking",
+      "title": "Coordinate mobile file access without relying on advisory locks",
+      "stability": "stable",
+      "metadataSha256": "8695173cf20d8e996f78acbeed80f2eb2aa6abd7ddb1c28476757bdbe6277794",
+      "markdownSha256": "e0ec9f1f11570ba7adb3598be0a5364e77c4a824fed9b726fffe8b14ebf9ee87",
+      "requirements": null
+    },
+    {
+      "id": "io.report-directory-failures",
+      "title": "Report the failing directory without parsing messages",
+      "stability": "stable",
+      "metadataSha256": "0305017226142285482ca8c36188c25289443266081acb5d67a55c4d85eb8b79",
+      "markdownSha256": "3a736fb29675a5631a2cb7ab2f0c3d84efd45324b64b40c81c9d6bb9ab034fbb",
+      "requirements": null
+    },
+    {
+      "id": "io.use-pipe-handles",
+      "title": "Use pipe handles with explicit ownership and platform-aware I/O",
+      "stability": "stable",
+      "metadataSha256": "c7b77ed1ad518c1dff589c3c7026202947f85b91fc432f8fed4acf4571cc0032",
+      "markdownSha256": "5eea4c0056cf9ff27bdec7d04fa892f11b0e636bf858fb770575c2504cfb9e98",
+      "requirements": null
+    },
+    {
+      "id": "json.bind-reference-constructors",
+      "title": "Bind JSON to constructors with reference parameters",
+      "stability": "stable",
+      "metadataSha256": "88a974364dcbc0965b8d40e5ddaeade62eca3fd8e5c058ad8125df4fee2dc97c",
+      "markdownSha256": "fbcd5b5c01ab9a43764436762de9b6e1c67757aee65dbf4b6caf2abfbf269538",
+      "requirements": null
+    },
+    {
+      "id": "json.classify-payload-values",
+      "title": "Choose JSON variants from payload values",
+      "stability": "stable",
+      "metadataSha256": "07e20ffc22c7f3a564512a3a789e48b7206be36a4c54e1805ad8ab84ff628fdb",
+      "markdownSha256": "1c7dfef3daa7dac0f2bf7813c5a5f7daf7c3a90ac138cb89731edebfdd126f17",
+      "requirements": null
+    },
+    {
+      "id": "json.configure-generic-contracts",
+      "title": "Resolve generic JSON converters and derived contracts",
+      "stability": "stable",
+      "metadataSha256": "67f9e28e4b205aaa64a00eea9c42a4445f766924de55626a2ab10931d48749ca",
+      "markdownSha256": "d65828df0a90d521e802ef118fd0935e037caf71ea93817dcef134ad1b7208ad",
+      "requirements": null
+    },
+    {
+      "id": "json.configure-member-conventions",
+      "title": "Define JSON naming and omission rules at the type boundary",
+      "stability": "stable",
+      "metadataSha256": "74bdecbcbe5c2aac5cde0f73ad870308a889f5cc71457682ae5b55525233a268",
+      "markdownSha256": "0fd73ef26918be0cdd35ae09800e5d022ed201551720926ab506fd11d9e96e85",
+      "requirements": null
+    },
+    {
+      "id": "json.describe-binary-schema",
+      "title": "Export JSON schema for binary buffer values",
+      "stability": "stable",
+      "metadataSha256": "3a7c26228484dc093be3e65f9b205f45989c5ed01151cd609186ce9babb66f7d",
+      "markdownSha256": "b2168a4b6f7676e6b3733ef9c8e03a46f6f4eb12e30ffe46917f9138f30ec66f",
+      "requirements": null
+    },
+    {
+      "id": "json.generate-private-contracts",
+      "title": "Generate JSON contracts for deliberately included private state",
+      "stability": "stable",
+      "metadataSha256": "f25cc6c1a86986a5797c03481130e517ba5e497992004e62551f934c113d3e0f",
+      "markdownSha256": "b980a314003287d59d671f3f2b50abfabc6b48b2d2b01bc79f320ad1e0019b81",
+      "requirements": null
+    },
+    {
+      "id": "json.infer-closed-polymorphism",
+      "title": "Infer JSON contracts for a closed state family",
+      "stability": "stable",
+      "metadataSha256": "4b7e489e67b71c842b1a40a6b6a6eefc4cf023dc48d713600231504e3ea3be4e",
+      "markdownSha256": "d35a8bdf1ec29d11e8f5a9d25c9c098786814ea4fa25ffac4ae9a7452ac74154",
+      "requirements": null
+    },
+    {
+      "id": "json.preserve-omitted-initializers",
+      "title": "Preserve initialized values when generated JSON omits a member",
+      "stability": "stable",
+      "metadataSha256": "f67cb0e4013b550cb9613a2946800b951a26e6b7f4e685737b5b449a7b43dfd7",
+      "markdownSha256": "3f44571144c378ad279e7e60d8dbbdcc3edffbfe7f17e2e346fad1b263f58001",
+      "requirements": null
+    },
+    {
+      "id": "json.retrieve-typed-metadata",
+      "title": "Retrieve typed JSON metadata and distinguish resolution misses",
+      "stability": "stable",
+      "metadataSha256": "a0c4f7736dd088f0b6180afd489ea2ed4fdd067c06ef5065e3a6dd6ede061a3f",
+      "markdownSha256": "4fbc19c82e6b5e5f3092333170ddc4595cdc15f7bf152aa82b492b41a3aed4d3",
+      "requirements": null
+    },
+    {
+      "id": "json.reuse-writer",
+      "title": "Reuse a flushed JSON writer with different options",
+      "stability": "stable",
+      "metadataSha256": "6bf688e63883948c711afe0fb29a5f7c4da439e3626542a3b2ff4f4bbfcd2b0b",
+      "markdownSha256": "003c4e3d8a067a5ed8db15c661a39b859dd2a63db54e1a0d137b9553cee7c95f",
+      "requirements": null
+    },
+    {
+      "id": "json.serialize-closed-results",
+      "title": "Preserve a union's distinct cases through JSON",
+      "stability": "stable",
+      "metadataSha256": "ce29fff7784eafaee35c568a613d939f721aa2813843006b1e24736d35cbcddf",
+      "markdownSha256": "940e7966473f59214bf052b64c66f82e789cee7feca921b387aa68ec751e5e5e",
+      "requirements": null
+    },
+    {
+      "id": "json.stream-json-lines",
+      "title": "Stream JSON records without collecting the input",
+      "stability": "stable",
+      "metadataSha256": "58987aef5aca75f45ed55de9a2691ac774ef5b2fd73ef139091edbcf176d0ce6",
+      "markdownSha256": "ad146a0c95373f304eb98c4d4933a22016478efa421aa70839692877829b7d91",
+      "requirements": null
+    },
+    {
+      "id": "json.use-numeric-collection-contracts",
+      "title": "Serialize numeric values and read-only collection contracts",
+      "stability": "stable",
+      "metadataSha256": "24afa352a29a229d4c82836690d8d4acd13371ebc311236bf60cbb0c8c6d1ea2",
+      "markdownSha256": "efeffeb3e69f5b2ee2d9432acb4a32e1439bd12e8fd3ca3c43dc07746c018ff6",
+      "requirements": null
+    },
+    {
+      "id": "linq.reconcile-all-rows",
+      "title": "Reconcile records while preserving both unmatched sides",
+      "stability": "stable",
+      "metadataSha256": "34449e1b37172700df1dccf0298c29824b15f15c8c0af8f911d2e4dd00910450",
+      "markdownSha256": "8859b73f1f06ee5e65837be3b0b0d8e9b71f27acb37d52cda85288f7c904372d",
+      "requirements": null
+    },
+    {
+      "id": "logging.generate-generic-messages",
+      "title": "Generate structured logging methods for generic values",
+      "stability": "stable",
+      "metadataSha256": "49363d4125c3595515b5eb8c4e7b940fa64def6e9fdec98563d1ce9b90961dd4",
+      "markdownSha256": "b32a5eba14413e43254ac35550eb77a83faa36ad4ff3033659f9daa14c1bfbf4",
+      "requirements": null
+    },
+    {
+      "id": "metrics.read-observable-http-data",
+      "title": "Poll observable HTTP request and connection instruments",
+      "stability": "stable",
+      "metadataSha256": "6b6f365a218b5fd0438f6bb6b26c888fd08860bde8bae8692d865089350d5ba4",
+      "markdownSha256": "824165df36cd165e8a47160b72c451ba6455b9d2a062ea7f453426429b92f213",
+      "requirements": null
+    },
+    {
+      "id": "mime.map-file-and-content-types",
+      "title": "Map file extensions and content types",
+      "stability": "stable",
+      "metadataSha256": "df80c442a43400afd4d77125ff78ab5b43f7eb15b6a902403e1dcee7039bfb06",
+      "markdownSha256": "97a373cb16a2eb16f0578e113f6eab3e378b06848d43d8b9faf65f0606677c31",
+      "requirements": null
+    },
+    {
+      "id": "networking.bind-linux-negotiate-to-tls",
+      "title": "Bind Linux Negotiate authentication to TLS",
+      "stability": "stable",
+      "metadataSha256": "216d9b2a7e635e0c2470f45e43b2ba0e8fb90190a6e9d25ccde01910801cb7d8",
+      "markdownSha256": "470a761b1b45fc802195488338796a752972edcc27e17060695bca096ee7f95e",
+      "requirements": null
+    },
+    {
+      "id": "networking.guard-change-monitoring",
+      "title": "Monitor network changes with a supported fallback",
+      "stability": "stable",
+      "metadataSha256": "cb3689654f8a84e50a9e20cf8178f36cbe93813f8950200f494f7b9b54df00d9",
+      "markdownSha256": "511b3ab46f98622c6db71a7c71df0d100685ff1076c1c0ce495065b76097139b",
+      "requirements": null
+    },
+    {
+      "id": "networking.parse-endpoint-buffers",
+      "title": "Parse and format endpoints in UTF-8 buffers",
+      "stability": "stable",
+      "metadataSha256": "692f26c9d69443420db777785f91b1a3bb59bb8a513bf7cb069aafad2e34252b",
+      "markdownSha256": "938b2a1f6f7a6f6431a475bdfb80a7d64108cd0b0370e1e3d7f3044d694a532b",
+      "requirements": null
+    },
+    {
+      "id": "numerics.align-tensor-shapes",
+      "title": "Align tensor shapes without losing metadata",
+      "stability": "stable",
+      "metadataSha256": "83e9acce4ed6314b9595c16931179e9aa15c1d3aba1ebb9f58d50132d97d032d",
+      "markdownSha256": "2d7740a2770875371740aee52b60094f6fdcefb6f5feac560a09d545d7739708",
+      "requirements": null
+    },
+    {
+      "id": "numerics.choose-bfloat16",
+      "title": "Choose reduced-precision binary values deliberately",
+      "stability": "stable",
+      "metadataSha256": "a412190e2f5db120687cbabf66b6ee0675bab7bf043108b2591147713fbfd75d",
+      "markdownSha256": "5c9342584aacf4c1ed1225951900c038b5ec269ecaac562cdb3206c2c22af5a6",
+      "requirements": null
+    },
+    {
+      "id": "numerics.choose-fractional-rounding",
+      "title": "Choose explicit fractional rounding semantics",
+      "stability": "stable",
+      "metadataSha256": "754d4d2101d4b885cc62d3d37edefec73a4096872ef6598f9dd655e5b196895b",
+      "markdownSha256": "ff20b89717b491457fe44867862429587ef34006024c7f3d16cc2b0c7f17f265",
+      "requirements": null
+    },
+    {
+      "id": "numerics.choose-ieee-decimal",
+      "title": "Choose decimal precision and special-value behavior",
+      "stability": "stable",
+      "metadataSha256": "5b207573ed86e5444cb5d25bf69c8547ea2c46d6955880d74afa215702e94a81",
+      "markdownSha256": "173f639ffc1c4080378c72864ca0a68e9dd3cf67f81359ed5e10d34eb9cef816",
+      "requirements": null
+    },
+    {
+      "id": "numerics.choose-integer-division",
+      "title": "Choose integer division and remainder rules",
+      "stability": "stable",
+      "metadataSha256": "996e8acf5234f3c44f9c3ed4b660c50e63d627f0e004630b28e5e6b7ee1dde49",
+      "markdownSha256": "bd4b1b8efd345ee48c3c135bc3f55534af8924a3476e03da154d051f5a7a33ab",
+      "requirements": null
+    },
+    {
+      "id": "numerics.compare-ieee-decimal-results",
+      "title": "Choose a contract for IEEE-decimal function results",
+      "stability": "stable",
+      "metadataSha256": "0041b1f2834e3d02937a2b25c99a92020f6ceb8f1edd5a4da6612de41c560dd9",
+      "markdownSha256": "f94fdc52662f78522f1cae1c1b8debb5c4af92600917e35d7a3c1722604e4e33",
+      "requirements": null
+    },
+    {
+      "id": "numerics.copy-tensor-views-safely",
+      "title": "Copy tensor views with explicit storage ownership",
+      "stability": "stable",
+      "metadataSha256": "43d0f3e39a35cfe3c8c956e62cde71b39c956be6b8b73479ed18288cfb602fa1",
+      "markdownSha256": "94597941ab2a022d2dbc2acfbc5c5a35af3cea19a41d27dfca05c3b9b6ce3067",
+      "requirements": null
+    },
+    {
+      "id": "numerics.generate-generic-random",
+      "title": "Generate bounded random values for generic numeric calculations",
+      "stability": "stable",
+      "metadataSha256": "e721fa54b9114bb5ff7e0fa67c2eeea1bab22f80dedd510e9e095078f1659d59",
+      "markdownSha256": "0b8cdd4f96dfaf00e70398eac13d09278cbc00e17b1864192a1ce3f42871a43b",
+      "requirements": null
+    },
+    {
+      "id": "numerics.handle-complex-special-values",
+      "title": "Handle complex nonfinite results deliberately",
+      "stability": "stable",
+      "metadataSha256": "8eb7b21716988679f86924704c9816461f89292785d889a0174a3b7f7009d351",
+      "markdownSha256": "7ce7e437202b158730ca4c725260ab2b0d7f5aa504f569b0abad4a7202e3786f",
+      "requirements": null
+    },
+    {
+      "id": "numerics.measure-integer-magnitude",
+      "title": "Compute integer decimal magnitude without rounding",
+      "stability": "stable",
+      "metadataSha256": "dbde78b2cec17e1618a91ed8018cb1f8c216e243a5a161ac740f7d9a4ee5d4ad",
+      "markdownSha256": "e1cf0b43df4a98ca84bb590742e76da2b779c2babb802c8cb388b382a632a0d9",
+      "requirements": null
+    },
+    {
+      "id": "numerics.parse-delimited-values",
+      "title": "Parse numeric cells while retaining the consumed boundary",
+      "stability": "stable",
+      "metadataSha256": "95ae0550ecffe3fd8b97968b77b10b195cf2c9be05081a4ae25837be1eb8cfa4",
+      "markdownSha256": "dee3f12112f9b396df8aaa65b9ba713ec215822da1c08f9d2904cf1f4bc1b387",
+      "requirements": null
+    },
+    {
+      "id": "numerics.preserve-color-channels",
+      "title": "Preserve colour channel order across binary boundaries",
+      "stability": "stable",
+      "metadataSha256": "85168989ed87892a5a6c747dac5a9b68b61ddedbb738ad9968f43947993057d8",
+      "markdownSha256": "4422bc02147520daf13d6108ceab34bcbe5dcf6c04c339d54c829f14b238cdc4",
+      "requirements": null
+    },
+    {
+      "id": "numerics.preserve-conversion-intent",
+      "title": "Preserve deliberate numeric conversion intent",
+      "stability": "stable",
+      "metadataSha256": "c7f4bc5a87d8821c481484d95a36ac9e3eeeb31c2467d754e57eaf8b83934ad0",
+      "markdownSha256": "b3e7eb3623be6b52b4f476bbb3c277113c83c2fdc93ef344416ad2e2d6ae9961",
+      "requirements": null
+    },
+    {
+      "id": "numerics.roundtrip-float-bits",
+      "title": "Round-trip floating values and raw BFloat16 payloads",
+      "stability": "stable",
+      "metadataSha256": "7f140af5ef792d003f277a71a326076767858b2bb36f730e5fea51e1fa632359",
+      "markdownSha256": "02baf9af9e744e19f9c5b8d4f961f6d85c80a5c86154644b4a3cbc63c46d7923",
+      "requirements": null
+    },
+    {
+      "id": "numerics.select-complex-precision",
+      "title": "Choose the scalar representation for complex arithmetic",
+      "stability": "stable",
+      "metadataSha256": "d9f9304485b803b48af2feb903a8fe7a815991eab811dd68d02e15b3ad8ef20e",
+      "markdownSha256": "ff9adc8fc71c33be825e7d6199aa9e49b754b3095043b0471f82a6cb12e919b5",
+      "requirements": null
+    },
+    {
+      "id": "numerics.select-small-integer-conversion",
+      "title": "Select a small integer conversion policy",
+      "stability": "stable",
+      "metadataSha256": "3dc6838a9f246e2102589ffdd6772c26855581f81fb76f2b732971e814ca3b7b",
+      "markdownSha256": "6898ce1d918fb066ab3df56db29da3416ffff95c43c9ad6fdcc7fc245a2da97c",
+      "requirements": null
+    },
+    {
+      "id": "numerics.validate-tensor-clamp-bounds",
+      "title": "Validate tensor clamp bounds consistently",
+      "stability": "stable",
+      "metadataSha256": "878d50166180e211808178ff19600ed6ead562a7f481b886068fa2f8128bf4f0",
+      "markdownSha256": "47a8b619cbec464faa6cfa7268ed2f5f2e12575fc87ffa8745b882e9b5037031",
+      "requirements": null
+    },
+    {
+      "id": "options.validate-asynchronously",
+      "title": "Await settings validation before application startup completes",
+      "stability": "stable",
+      "metadataSha256": "0cd06d38c5143b73e91491dcc3df95c19dad2a73f46394c4e923bac5ba311cd2",
+      "markdownSha256": "a7fcb8177fb0aa33e691c26e99fbbb1eda18f029406d234da0e0e32f94e9694f",
+      "requirements": null
+    },
+    {
+      "id": "options.validate-with-di",
+      "title": "Validate settings with a dependency-injected validator",
+      "stability": "stable",
+      "metadataSha256": "d1823c7aa1ba6ec6359b0b6c855fd4934b39ad558fb648fbb5690f59fecc3993",
+      "markdownSha256": "77f495267080116b2b897a654823240f108965e7d23b5f6dc713a367f92b3a71",
+      "requirements": null
+    },
+    {
+      "id": "process.capture-output",
+      "title": "Capture command output and cancel its execution",
+      "stability": "stable",
+      "metadataSha256": "db6c595c84632519261f275901493789e79cb3372004e00fcacffd2f7d4a5aaa",
+      "markdownSha256": "f4ca483c77ef1ddfb9b5613ea1f5f2780ff331fafb5ec46a6bf064a35e5399a0",
+      "requirements": null
+    },
+    {
+      "id": "process.control-lifetime",
+      "title": "Choose child lifetime independently of process bookkeeping",
+      "stability": "stable",
+      "metadataSha256": "51ac895339735d0b6332f8225211a5ccc8e8fcb0182f72eb37ec7189f7263d41",
+      "markdownSha256": "bbcb8b6a08234e8292a6e36339183ae7a4f14ba24191aeb81a0f2564dca294e0",
+      "requirements": null
+    },
+    {
+      "id": "process.control-native-handles",
+      "title": "Own process and redirected handles explicitly",
+      "stability": "stable",
+      "metadataSha256": "b80f919692d1b5ae165937c1a420deea44956680e6e241e54c77a6fba76ddd0a",
+      "markdownSha256": "fa4a0f86f20b8b5f0994d69a3c3e0204071cf88698f36b702f8147bc20eea155",
+      "requirements": null
+    },
+    {
+      "id": "process.inspect-termination",
+      "title": "Distinguish normal exit from signal termination",
+      "stability": "stable",
+      "metadataSha256": "afecb8a9aaf51b971b147c6d50d02f8538f0bf45621c82ea6f98c7bb9aaa2fe8",
+      "markdownSha256": "2d9f5d8f368572aa2765f1b02fab507dc1121118a1c08f3f399f5b1875c75232",
+      "requirements": null
+    },
+    {
+      "id": "process.prepare-before-start",
+      "title": "Prepare a suspended child before allowing execution",
+      "stability": "stable",
+      "metadataSha256": "b97f24b05c41c0992c6e61381e6fb2c3e3df0796b14d3950da4ce27200591380",
+      "markdownSha256": "241b5eebd25194c2430b30e0492a02db18b5cdac15242fd76b9364e462d7107e",
+      "requirements": null
+    },
+    {
+      "id": "quic.prioritize-streams",
+      "title": "Prioritize outgoing QUIC streams on one connection",
+      "stability": "stable",
+      "metadataSha256": "b2cf4e7460fe22963d2b3380c3507edd59bec953e1400a008560511fc92aefbf",
+      "markdownSha256": "e7c066c06440128dab24182d35b96bdcba7ed2cfd688faf8fbf4f459ac874dd5",
+      "requirements": null
+    },
+    {
+      "id": "reflection.emit-function-pointer-calls",
+      "title": "Emit calls from typed function-pointer signatures",
+      "stability": "stable",
+      "metadataSha256": "203c9f454ffd0bafe35347b017569298cc644d9bd4eab5fa044650a0eab512d9",
+      "markdownSha256": "639e25726ad41e8b20b1f69a7203882cb906e8dc85f51d68be092fb6ac910e5f",
+      "requirements": null
+    },
+    {
+      "id": "reflection.inspect-loaded-metadata",
+      "title": "Inspect metadata-only assemblies and handle unavailable caller information",
+      "stability": "stable",
+      "metadataSha256": "1c016972cbcb98bfbbb99ee840be3794bd1369c188c5fa4c5f589fe72b8b8828",
+      "markdownSha256": "10af40f3a6814a0e06d79b14032752b34b77c81f4cf7b81f55e832e93acca397",
+      "requirements": null
+    },
+    {
+      "id": "regex.handle-unicode-newlines",
+      "title": "Match mixed newline conventions deliberately",
+      "stability": "stable",
+      "metadataSha256": "54eae9a67d325ef696ed5fae57da8f07a19ed50abba73e654805aad84a70ed94",
+      "markdownSha256": "15b3f25b7ed82f2a9475fa2a75eadaa6d4d47d0f808f2e1ca26833d9fd61c7e2",
+      "requirements": null
+    },
+    {
+      "id": "runtime.audit-hardware-baseline",
+      "title": "Check CPU requirements before a runtime upgrade",
+      "stability": "stable",
+      "metadataSha256": "077454d582f3f3f21afa902aa553db5525979d6a04030fe149fcab253f742b76",
+      "markdownSha256": "cb9349fe88646591be8afb06967d3b109ddc03218200a70f243c4db9f5d7673c",
+      "requirements": null
+    },
+    {
+      "id": "runtime.bound-a-32-bit-gc-heap",
+      "title": "Bound a 32-bit managed heap",
+      "stability": "stable",
+      "metadataSha256": "1d9375fa8a2b362f61b6a813bee1e715f7a3d6b1a49faefddb8b90d48212feca",
+      "markdownSha256": "a24a8206bc47e9cf1a5897b0fec226769d5a4771aaafb7a3b1bcee14334f1699",
+      "requirements": null
+    },
+    {
+      "id": "runtime.choose-sleep-aware-deadlines",
+      "title": "Choose whether a deadline includes system sleep",
+      "stability": "stable",
+      "metadataSha256": "8a02287827f99351ce8449b8432d19198bbf5c6b82898369a2b12a4e5c7985dd",
+      "markdownSha256": "7ccd319d4bc29c218c48546a1b227fb9389d528942a62da4ed6bf18624c7eb4d",
+      "requirements": null
+    },
+    {
+      "id": "runtime.configure-crash-reporting",
+      "title": "Capture a crash report inside a failing process",
+      "stability": "stable",
+      "metadataSha256": "22691c601fcf65c999e1e72d6e97c79ea87ed57bb6ba341634ef37af3f24f754",
+      "markdownSha256": "939a7966da82ad6ddec19c36c726409e020c149b5870fb2df10bd122d167a047",
+      "requirements": null
+    },
+    {
+      "id": "runtime.select-threading-path",
+      "title": "Choose a supported threading path",
+      "stability": "stable",
+      "metadataSha256": "b2dba6e3b495b43c90a145949981a9b44c0fd306e676e3a455fa8acab030ee6e",
+      "markdownSha256": "ea6bbf1db9ce163d3e464981ba2ef4b76376862ffca3b322f997749ce8323ea2",
+      "requirements": null
+    },
+    {
+      "id": "simd.arrange-lanes",
+      "title": "Arrange planar and interleaved vector lanes portably",
+      "stability": "stable",
+      "metadataSha256": "0a92468a63d39ab4711988bb327de9a68a3cfb47895b80b4e6f4016bfe0d6393",
+      "markdownSha256": "959afedbafe61f901944f0fd33f18e8de03c4132a948a4a4107a99959b26e19a",
+      "requirements": null
+    },
+    {
+      "id": "simd.select-supported-instructions",
+      "title": "Select supported vector instructions with a correct scalar fallback",
+      "stability": "experimental",
+      "metadataSha256": "4d609883514113c96932e97398b9ce9b6ce5795e999b8cdfb50e322d350511a2",
+      "markdownSha256": "20eb9d0160dc4ae5c516b7dad99a179b96f5100dfbc2b7a2f42086031194011d",
+      "requirements": null
+    },
+    {
+      "id": "sockets.race-dual-stack-connections",
+      "title": "Race IPv4 and IPv6 connections deliberately",
+      "stability": "stable",
+      "metadataSha256": "1e7e25a7ff4a8a142228ce8e14f11dc8d0f86e4f50f75601c5ad70e3c974065f",
+      "markdownSha256": "423bf5a2ccfe4d52e8fb7661dfa80d352c2c518e3e1cdaa74359d98a9ca4077f",
+      "requirements": null
+    },
+    {
+      "id": "text.compare-characters",
+      "title": "Choose a character comparison policy explicitly",
+      "stability": "stable",
+      "metadataSha256": "b9adf30962ba502bbfda491c6122a57786176be42036ea1091166351328575a2",
+      "markdownSha256": "a7cab30937430f6c28b39d535261ba9546c006f326a05df7c0abfa7b9a2fe6d6",
+      "requirements": null
+    },
+    {
+      "id": "text.convert-domain-labels",
+      "title": "Convert international domain labels into caller buffers",
+      "stability": "stable",
+      "metadataSha256": "294df146c86548f2d53873016f37386b0984dc2a1f70b6bf29dd9143300abdd9",
+      "markdownSha256": "afdb71d3360a9bd83b383204e6dfb658ed81878e158fbe76a0c82ee4788de8b8",
+      "requirements": null
+    },
+    {
+      "id": "text.encode-base64",
+      "title": "Encode binary data directly into Base64 buffers",
+      "stability": "stable",
+      "metadataSha256": "d5e78546b8047055d104fca757c2dd326ff77ccdac61c36005f1f10ce4b18e6e",
+      "markdownSha256": "10f08f419a08325587c5b036ebcd66bddac85c8dba57ab6357b6fc54d6566be5",
+      "requirements": null
+    },
+    {
+      "id": "text.handle-unicode-scalars",
+      "title": "Transform text without splitting Unicode scalars",
+      "stability": "stable",
+      "metadataSha256": "9f66bfca33139e461ec01bd43d2171700b572ddbf97833804d3b382592b35791",
+      "markdownSha256": "3e797dc1e42e77a2059cddd982c4dd94aaf120cbe6a6ee99fcb146b2e2f924d7",
+      "requirements": null
+    },
+    {
+      "id": "text.locate-invalid-unicode",
+      "title": "Report the first malformed Unicode subsequence",
+      "stability": "stable",
+      "metadataSha256": "ea22b7ba1c4245839d07ea70242ba0226e30ca3bb0ccaa5ba770744291e47190",
+      "markdownSha256": "48bf13e825ac583acb0f7c7c3bb75e2c3dda6924b720b36cf020fd95c988ba2b",
+      "requirements": null
+    },
+    {
+      "id": "text.transfer-builder-content",
+      "title": "Transfer accumulated text and empty its builder",
+      "stability": "stable",
+      "metadataSha256": "cb39b2fa373dc7bf4a77d28297476847dea50825944483c67974d823f1268b99",
+      "markdownSha256": "cc1bb46ec9a589d5c35b597e32d567116585938e8aad03c6ea3a59c51d06904d",
+      "requirements": null
+    },
+    {
+      "id": "threading.choose-unix-mutex-scope",
+      "title": "Choose Unix named-mutex scope",
+      "stability": "stable",
+      "metadataSha256": "33b78d60b8ae4d6b23f019369496f11d68517f61582041a3aaf0e4d7f9f59dea",
+      "markdownSha256": "76f34fa3f70cbac2cce0dace45404b676e853e47daa77b03121a00fec99ea6d4",
+      "requirements": null
+    },
+    {
+      "id": "threading.update-enum-flags-atomically",
+      "title": "Update shared enum flags atomically",
+      "stability": "stable",
+      "metadataSha256": "6e290db7da5ce7524d2c4cd5d73144506dc080fa3550635c8bd53a9736a31ccb",
+      "markdownSha256": "18dc8f1f92bb0296fd81a6bda248944d9dcad9ae16364cfc4c1bb9252fcc8f89",
+      "requirements": null
+    },
+    {
+      "id": "tls.drive-handshake-io",
+      "title": "Drive TLS with caller-owned buffers and I/O (experimental)",
+      "stability": "experimental",
+      "metadataSha256": "6d018197c4a7b9db65336ff3727639f8519f6f92e85234056e99afe5ba561321",
+      "markdownSha256": "5c0486a9e4b3b3fba4459058cf5cdd00bd7d00b9308f26ebd345670b63cff67f",
+      "requirements": null
+    },
+    {
+      "id": "tls.supply-client-certificate-chain",
+      "title": "Validate TLS client certificates with an explicitly supplied chain",
+      "stability": "stable",
+      "metadataSha256": "b905f2e14fd3053be3dee9214b76926fe87cff6da55a793456bb6243dcdecae9",
+      "markdownSha256": "5f485570994e4450b07b1413800842223ca5bb5bd591f2521f4e0dc240a137cd",
+      "requirements": null
+    },
+    {
+      "id": "tooling.annotate-code-strings",
+      "title": "Annotate embedded code strings for editor tooling",
+      "stability": "stable",
+      "metadataSha256": "1d74523fbbff7195c7f2519b11b4f208b00d798b803171691e69594655a7fdf5",
+      "markdownSha256": "fce4e71ed4e2f7ec196bf316d4e30d1b6a82dab43a3948cc808ba8a0f0ae3bc6",
+      "requirements": null
+    },
+    {
+      "id": "tracing.configure-source-rules",
+      "title": "Select activity sources and operations with refreshable tracing rules",
+      "stability": "stable",
+      "metadataSha256": "c05d9ba632a56288ac7e115d1a5369fceaa9d292c505b6debe61859b976d5ce1",
+      "markdownSha256": "e184f1608dbefa2b7781cc3638ea1c61e10a51631a3e9b4354273a958e5f000b",
+      "requirements": null
+    },
+    {
+      "id": "tracing.preserve-randomness-metadata",
+      "title": "Preserve trace randomness independently of recording",
+      "stability": "stable",
+      "metadataSha256": "6d5b5a7885a2e94cc7d639861f064df1eb5392f8564d36720fdd97e33bbcdf14",
+      "markdownSha256": "6162febbcc5939e9e0b697ed78f4994cbc1fc44d42ed497f6c9f886df566847f",
+      "requirements": null
+    },
+    {
+      "id": "uri.identify-data-uris",
+      "title": "Recognise embedded URI payloads and describe video media types",
+      "stability": "stable",
+      "metadataSha256": "30bda4c8c6f2f43b04f8d3f2866ad39ad3cb32c09ff71ee18b18c74d2d528f6f",
+      "markdownSha256": "0c3d12861cae05a877457a20741f0a0d92b670ed6cf9dab389bbb7e949b787f8",
+      "requirements": null
+    },
+    {
+      "id": "validation.format-localized-rules",
+      "title": "Format validation messages using the rule's own arguments",
+      "stability": "stable",
+      "metadataSha256": "050a39b699d1ecb68855e5e4b222344c7cdcf64a91e0935e16c059eeac0b2ee8",
+      "markdownSha256": "9b63add6f7ab674f7a8fd65115f0de9230e9da6a9227ec769a36dda56831ea83",
+      "requirements": null
+    },
+    {
+      "id": "validation.migrate-custom-metadata",
+      "title": "Migrate an authored validation resolver to new metadata contracts",
+      "stability": "stable",
+      "metadataSha256": "9b397ffd4e8f8eb5a0445a0dbd73d84d78ae699b261ff2dbc7c238814d59704b",
+      "markdownSha256": "cebbdf2c91b1e512bcfce4535eb047b3810d02ebd10e614c22c4a22c77332e07",
+      "requirements": null
+    },
+    {
+      "id": "validation.translate-model-feedback",
+      "title": "Return the same translated validation messages in forms and endpoints",
+      "stability": "stable",
+      "metadataSha256": "3194031844b92ea16c4da721f8c2a0f7b6e57fcff9ad0af015c104a0c3e9a590",
+      "markdownSha256": "36c4e59b1fe26cacce8cdfe1f150544a7ad22263a17fcaed757d0b8ede5125f5",
+      "requirements": null
+    },
+    {
+      "id": "validation.validate-asynchronously",
+      "title": "Await data validation before accepting a model",
+      "stability": "stable",
+      "metadataSha256": "ccb5c72fa80338c165fbb0390ff41229d14f0d1dc06cfc51ab28fcc560d9449f",
+      "markdownSha256": "6868dc08bfddc69a1b3d2795a09579472d5988ba44f0d5199e2e89ea0edce5d4",
+      "requirements": null
+    },
+    {
+      "id": "wasm.migrate-custom-runtime-hosts",
+      "title": "Migrate custom browser runtime hosts",
+      "stability": "preview",
+      "metadataSha256": "9912f2fb45c4ce115f0d391bb41e6ff73b5a0d581ab94349ed6bc37680ddd098",
+      "markdownSha256": "fd88855cc7cc1d84bed9739b723380f55159299c0567227f37c7fb3f8c61f3d7",
+      "requirements": null
+    }
+  ],
+  "artifacts": [
+    {
+      "file": "clretwrc.dll",
+      "productVersion": "11,0,26,53018 @Commit: 297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "ee28acf8e79463616d2f12fbd4c21c8372901c3cfd1fd06cff89546fe4b40f14"
+    },
+    {
+      "file": "clrgc.dll",
+      "productVersion": "11,0,26,53018 @Commit: 297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "9e89d7556b870d2c52a8de48a2674574226fe02a118399a4e905eeadc16a6134"
+    },
+    {
+      "file": "clrgcexp.dll",
+      "productVersion": "11,0,26,53018 @Commit: 297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "ddcdb4e27b584c10ffbc7f56de48f4b0a48d2a477f6fe0c6e991328fa8d3735b"
+    },
+    {
+      "file": "clrjit.dll",
+      "productVersion": "11,0,26,53018 @Commit: 297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "3fb61e948095c5cae6e3e11bd9b726e20d98ececc87cb516f48bf56be321595e"
+    },
+    {
+      "file": "coreclr.dll",
+      "productVersion": "11,0,26,53018 @Commit: 297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "606465533979071e8a38855ca5a7cb581dd02c810b77879857920250b063ac7b"
+    },
+    {
+      "file": "hostpolicy.dll",
+      "productVersion": "11.0.0 @Commit: 297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "8ed8431eec0d2f299af81ad2a61f46ac8a2f6fd2ea6506ad8117cb2cff250797"
+    },
+    {
+      "file": "Microsoft.CSharp.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "425e9e52223ab86d725d6c9b9d6eb68f86b20854f8cab88ff3d4e2e1e3b79ed5"
+    },
+    {
+      "file": "Microsoft.DiaSymReader.Native.amd64.dll",
+      "productVersion": "14.50.35740.0",
+      "sha256": "ad3e85687b8d2d2eb09d1f097fdf7095372dbb044db5b64179f2d4b8024fed2b"
+    },
+    {
+      "file": "Microsoft.Extensions.Caching.Abstractions.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "b1df96e0e22cbaf98c3dc333f5cb33e6d6785d85980331c6b1611e5806803873"
+    },
+    {
+      "file": "Microsoft.Extensions.Configuration.Abstractions.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "bf7779e4ee9b7f703c325bdc0fd612d733099664bee3f1475bfe653d5221392a"
+    },
+    {
+      "file": "Microsoft.Extensions.DependencyInjection.Abstractions.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "683a9a89b52eddd3591bae90a9b029ebe45d70c6942e0db3fa70e16e441367d3"
+    },
+    {
+      "file": "Microsoft.Extensions.Diagnostics.Abstractions.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "1cee5f501bb2845f30529cc3c039d070199043e65ee30605562c32079a4aec9c"
+    },
+    {
+      "file": "Microsoft.Extensions.FileProviders.Abstractions.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "390ec9c93bb50062e2b05af9f79e8ca193546a2a68b5d0c9db168a47a2578f6f"
+    },
+    {
+      "file": "Microsoft.Extensions.Hosting.Abstractions.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "1ac8dc53f6dd0917776567d160a5b02668b6bf10c6914e3db75f650c386328db"
+    },
+    {
+      "file": "Microsoft.Extensions.Logging.Abstractions.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "ab908044cff27b54e0cee8975b5b22083a9434ff6baeb69320ee80c9313afe1c"
+    },
+    {
+      "file": "Microsoft.Extensions.Options.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "3459674acb392deea4b1ea13335fc48ee4641b342cd63ee141878d0fd47cfa49"
+    },
+    {
+      "file": "Microsoft.Extensions.Primitives.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "9f55105142f3b471a388fa35417afd8701ba4f2678a350e2742f809ae3d41546"
+    },
+    {
+      "file": "Microsoft.VisualBasic.Core.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "f1560d4af48291281f4c982b749fc70a26730dc769096644bdf7dd259d732334"
+    },
+    {
+      "file": "Microsoft.VisualBasic.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "aa43724287688e2fe66d7a5b9def70b88f683e90b6ab2aa9bbed90bdd990298a"
+    },
+    {
+      "file": "Microsoft.Win32.Primitives.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "ecea026c71153b926a18178b27c4ae20d437a842d4b49a181e552ecbb519698d"
+    },
+    {
+      "file": "Microsoft.Win32.Registry.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "a2bd5b220d242913846dad95077c29b362ae63e7c2a0e141273c4a59642cdd07"
+    },
+    {
+      "file": "mscordaccore_amd64_amd64_11.0.26.53018.dll",
+      "productVersion": "11,0,26,53018 @Commit: 297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "ef9be79aceccdd0e7d1875c56381cce46d7e2997bebb0c38b999a8c51bafad25"
+    },
+    {
+      "file": "mscordaccore.dll",
+      "productVersion": "11,0,26,53018 @Commit: 297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "ef9be79aceccdd0e7d1875c56381cce46d7e2997bebb0c38b999a8c51bafad25"
+    },
+    {
+      "file": "mscordbi.dll",
+      "productVersion": "11,0,26,53018 @Commit: 297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "cd4684b4f5f72b9d2dc2e19030bda2bd5f85912b18b18261e1c15d492e8c1754"
+    },
+    {
+      "file": "mscorlib.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "064bfe93fe329645645690b9489f8281d566c53dffc70d88182a011898dc6301"
+    },
+    {
+      "file": "msquic.dll",
+      "productVersion": "2.5.12.161031966-official",
+      "sha256": "d363de7b6b08b3c68f0bc87ae74843cb152067a9ea589a265631895f41a0ca45"
+    },
+    {
+      "file": "netstandard.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "19f731ef9a7650c7da0022413749e9cf4189551c5944c4d517bd8b09686b0cad"
+    },
+    {
+      "file": "System.AppContext.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "f65939ad2679b43d123503538a77c4fb19b45b6addb664b6ca1840a08ce53914"
+    },
+    {
+      "file": "System.Buffers.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "6c9ac4c10baea1be4d2bc4e81483a15086fc705fedeebeeb58dc76007350bbbe"
+    },
+    {
+      "file": "System.Collections.Concurrent.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "cd4bc85f0b76d2c77f6f4492bd155edbe15e4fdf7590a72f2bf1dc2b33ea0f49"
+    },
+    {
+      "file": "System.Collections.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "991dd721597150c6cf5aa335a353a2f63c6a434ac749219b067482bb26ce10d4"
+    },
+    {
+      "file": "System.Collections.Immutable.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "546b9918e059291c0d9f64bece3ac4ddddfb978a806be758b3e19020c56dfc71"
+    },
+    {
+      "file": "System.Collections.NonGeneric.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "7889536ec9316f8531af4b7356a21eb1dae9dc35d9089ea1d6b311df39a09a67"
+    },
+    {
+      "file": "System.Collections.Specialized.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "4ad55344750af50520565784ab6b15515805f9704a1b879d8a40628c869ff2e2"
+    },
+    {
+      "file": "System.ComponentModel.Annotations.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "963a6da8d402efc4ff7163160342fea08a6661659d676b223ed5e7342fdbff7c"
+    },
+    {
+      "file": "System.ComponentModel.DataAnnotations.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "ea91f0d53eebd584d37b90585ac2cf2b505add43fa6db35ca080f60292019a03"
+    },
+    {
+      "file": "System.ComponentModel.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "b9f0be76147bf1b3e0af76f7c9508b58ef4b74aa286c09104402a5de0f128075"
+    },
+    {
+      "file": "System.ComponentModel.EventBasedAsync.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "c3cc963c77ff9cb76352d6b7a76568d361601e0392828e58e387a5780a80d293"
+    },
+    {
+      "file": "System.ComponentModel.Primitives.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "3ba1d1cee741ce5bdb61889893526d181468e71c375683395c0a162747a37b0a"
+    },
+    {
+      "file": "System.ComponentModel.TypeConverter.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "7b009fb532e7687a1721840561fb5a363ba71c6d2a4086c317834706a5ce47fe"
+    },
+    {
+      "file": "System.Configuration.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "bf43dc34af31d825f65f1e1b8ca1d23562d633c4d588960213d63b4a0afc8dde"
+    },
+    {
+      "file": "System.Console.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "4e1ddc69404552e601fffbd20ad234813d2e8ff857c5699bf032d2236c10929b"
+    },
+    {
+      "file": "System.Core.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "fdec7fda6d062c9ad5f36c2f553c6d7397cbc3cc3ac64429f79677ccf780ac3d"
+    },
+    {
+      "file": "System.Data.Common.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "44967dc5d7f9af25e76bbb357d43c43e88e7d04f8a47f4d70cb78cbdb59a4bee"
+    },
+    {
+      "file": "System.Data.DataSetExtensions.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "135c49fcaaf7a08f25754b312c5c43869d6af1955e1c4386cb635e7acdf82ba5"
+    },
+    {
+      "file": "System.Data.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "3726bace91cc2b580e96839316b1a71b24383392d415820267ec1ad21017f4cf"
+    },
+    {
+      "file": "System.Diagnostics.Contracts.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "20e6f1866f4304ef09c7f5ed14b2c8c66e221680e184e115b5fcb26ac47a5880"
+    },
+    {
+      "file": "System.Diagnostics.Debug.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "1860a7c4b5c876aed0e21d8a8635ffbc174b8e171bcaf400b466b8c44d0aeff1"
+    },
+    {
+      "file": "System.Diagnostics.DiagnosticSource.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "0b2e41306dbf9c3eb019adec87f954a26283883f293035bc15263abd1af5975b"
+    },
+    {
+      "file": "System.Diagnostics.FileVersionInfo.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "8311b69e3b534b9d9377ff9cb287555e52eb098a81fb7add001ea87c5cadfa60"
+    },
+    {
+      "file": "System.Diagnostics.Process.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "00451125b6a52b0f7266df69edc252edf157eede4d1e049008f6c87903a0cc08"
+    },
+    {
+      "file": "System.Diagnostics.StackTrace.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "f77e90b3bd1f6f2ab54929884ba9fdd58911028a17b04790321309c35f09356b"
+    },
+    {
+      "file": "System.Diagnostics.TextWriterTraceListener.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "a46d57f9eb98bab2e9ba99995804510052a60e48ae794836bc13da1dd7bedb13"
+    },
+    {
+      "file": "System.Diagnostics.Tools.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "e61d6ccbe36948d74ee980267079c95a8bd0c652fd72f9463e2112a2db3671a5"
+    },
+    {
+      "file": "System.Diagnostics.TraceSource.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "d730f46782e39cb7786be2b2f5efc4ae89658528e8e88bed6ad597b5bfe0977d"
+    },
+    {
+      "file": "System.Diagnostics.Tracing.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "b400c4e3485c5f30335cca5828481a7ed3bcb5cdeac81734e536f741a4d382a8"
+    },
+    {
+      "file": "System.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "12eccb9ffbea0514de4eb577a4f44877c0e5c600c0d7bba3074d2bbbd2ce852b"
+    },
+    {
+      "file": "System.Drawing.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "9bec298c177b229455d24a61342fbafedc2c4880e16992ac62974f91effe976f"
+    },
+    {
+      "file": "System.Drawing.Primitives.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "ee7109cad0f34a8aef17178e5631b22d4c8f403c75e93eb0e90b99208601c78c"
+    },
+    {
+      "file": "System.Dynamic.Runtime.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "56a47a8980e6b4d1096430a859fe0784d8802af21eddbaaf315e2a872981f64a"
+    },
+    {
+      "file": "System.Formats.Asn1.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "fc8f775be68eaf66218f8a87855f0a0229b75f14d2b23b50626960fe5faa2234"
+    },
+    {
+      "file": "System.Formats.Tar.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "1a3236f04162ae0da8d30a1dacf6fc14d9ca87775706054539a8695fce7e7085"
+    },
+    {
+      "file": "System.Globalization.Calendars.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "8cb1409d038696e623e792942b1a8bdd709ef65b14f680bbee1e262a52d485b7"
+    },
+    {
+      "file": "System.Globalization.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "f8c930e23d6d7a07426c06b1e88e464913d30b4ba5b272d300af5f034890d46b"
+    },
+    {
+      "file": "System.Globalization.Extensions.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "88f7bdfe8751ba0c95fe90a1fd8f52e05db9843d7622dd0c6403f583b9343bb9"
+    },
+    {
+      "file": "System.IO.Compression.Brotli.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "144a0ec128001cf2020cc36b5800c6a1fa885d717ecfea7daa47b0ff8788e79a"
+    },
+    {
+      "file": "System.IO.Compression.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "92a1143812102ccf0ae959607e5588b000f94c998a38513ea847c8b16da8c8df"
+    },
+    {
+      "file": "System.IO.Compression.FileSystem.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "bd9a1aca6130673a8ad3f206bbe0a8298a885c68ff4fe3c20cb782c293330309"
+    },
+    {
+      "file": "System.IO.Compression.Native.dll",
+      "productVersion": "11.0.0 @Commit: 297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "a7d49dcdfc75cb53f0081acf436b075d9d88659b21c3c932b823fa9c8d67dc10"
+    },
+    {
+      "file": "System.IO.Compression.ZipFile.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "8385b3771e15f9c56a6f2aaf2335ab50675b30978cb9522d528389ecdcda2ed2"
+    },
+    {
+      "file": "System.IO.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "ffa15dd261756997686e17fc091fe0934256d6021c96e8e46550ac71b2c247b2"
+    },
+    {
+      "file": "System.IO.FileSystem.AccessControl.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "c6c73b60f3307fac4913a08de40741a23baf757592862abc6209be4cb74b050e"
+    },
+    {
+      "file": "System.IO.FileSystem.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "b63b27d079825fe6f58fda763c915e65086e48650ec99be7e770406224831ea7"
+    },
+    {
+      "file": "System.IO.FileSystem.DriveInfo.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "5c135e5ed6f6c9c0e718622ffce3a665ef23d5f1a7af3ca965a13df68c203ad5"
+    },
+    {
+      "file": "System.IO.FileSystem.Primitives.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "e186eefbf16884cfb040e001bd58468ece1c76f6c9d8246f690e3b59648f9c8b"
+    },
+    {
+      "file": "System.IO.FileSystem.Watcher.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "c81d84c6494cc96f625794a47fb727a1eaca1872d99be0ef00db9f6fbb55962c"
+    },
+    {
+      "file": "System.IO.IsolatedStorage.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "3757996a7599f62e78146b834da8373952ebbfe79253bbf52be14b2acd626f5a"
+    },
+    {
+      "file": "System.IO.MemoryMappedFiles.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "c5ee882b15016a7d7710354c0906492bd50a5d656c229461f82388027c82f5d4"
+    },
+    {
+      "file": "System.IO.Pipelines.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "68f446678013540cda26456bb6a4a91fb84ac8c5ffdf3e4e7b91a521bb9aaef0"
+    },
+    {
+      "file": "System.IO.Pipes.AccessControl.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "30925cf3fbf988c7a20fbd6edcc6c5f58a28206290cf96e7fbaf82c953258c42"
+    },
+    {
+      "file": "System.IO.Pipes.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "a896701c7d471d51c61bd5f9826eec71e83ce8e1b337bf4c14a2c7f1035a6b9c"
+    },
+    {
+      "file": "System.IO.UnmanagedMemoryStream.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "df78d51b2ebcfa39c4265ac590372815ead6535384c828d0ee88c745edeb3c5a"
+    },
+    {
+      "file": "System.Linq.AsyncEnumerable.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "3930814bae5e88c7f30c8dd85564b2cff58e8755c297f0ca84a13f678540b741"
+    },
+    {
+      "file": "System.Linq.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "cd6bbe66c7fd7145f0b65b81bfad1517392f1f477052dd7e618304f93f7f3954"
+    },
+    {
+      "file": "System.Linq.Expressions.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "6c15c9cb05f6077c0cc067ad02cffd382acf6f84c565040a53d3569862a53459"
+    },
+    {
+      "file": "System.Linq.Parallel.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "5b7f493780502657696960d8ce4cc0e8e3cf72b6a4c262bf74e5f63ffbddbd23"
+    },
+    {
+      "file": "System.Linq.Queryable.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "90f6ce444e876295c7b7885df73cb95fb5f101f45d81e6b4808433522249d2aa"
+    },
+    {
+      "file": "System.Memory.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "a10265265f6e885e9d8518a88205722f4acf2e386f42d9d74f6b1f3f2b18a10a"
+    },
+    {
+      "file": "System.Net.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "a488495275905172415bd37be294f5988ac849288fe0483024070f24fdcca656"
+    },
+    {
+      "file": "System.Net.Http.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "a86802733ba85dc875e7f9b28b341f55825dbbc36c19b497bb60556542b311d6"
+    },
+    {
+      "file": "System.Net.Http.Json.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "7ab0009f2c4e217ba4c05c28329161778fa4db8553a24460a76340f2fa02bc7e"
+    },
+    {
+      "file": "System.Net.HttpListener.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "d8d7c603ccbbc63610af868bd4cd4ba7ede316fe4eab88866f518ae2a44107a2"
+    },
+    {
+      "file": "System.Net.Mail.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "4c3b424b4322a8d6eb09ab24649fe32d3d4ad946cd78e6cd799e92744503b95f"
+    },
+    {
+      "file": "System.Net.NameResolution.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "ee940086b32e4dfe7eeb9ab7a6245959f63bd50860f75c41931722b60f02098f"
+    },
+    {
+      "file": "System.Net.NetworkInformation.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "1023537f4b9cf59723b6a7d061be706b59ac80c7836b50e6943c352f40ade10e"
+    },
+    {
+      "file": "System.Net.Ping.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "7d20c1194d1f1b024a1b3740a9c178c26e7fdf1cae3c5015b6b73a3aacb422f3"
+    },
+    {
+      "file": "System.Net.Primitives.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "c18044686d2efa7d22984125efcfdbf932c8383e06844d0b1878d032cbfd8e43"
+    },
+    {
+      "file": "System.Net.Quic.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "e52288f87fc3f8ebf21eee02b68b5bf7a7504227d0e179139d10c650a8955a8a"
+    },
+    {
+      "file": "System.Net.Requests.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "42af1b5ae55c3fae55ada1ae28290eec1d4eedeac6e1ee265bc46a5847768f6a"
+    },
+    {
+      "file": "System.Net.Security.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "9d4b29d62cc5a0c5cf5b622df345e6f32a6031a6afe67a62290738ef439ebdb0"
+    },
+    {
+      "file": "System.Net.ServerSentEvents.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "215abcb1552ebaf23b50fa492204f069b4ae03adeeed362f737a40c155d919d3"
+    },
+    {
+      "file": "System.Net.ServicePoint.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "64f1fb7910eb1adaa5729b520655c7c31caf6ea640485ae948e93cdc87c0f088"
+    },
+    {
+      "file": "System.Net.Sockets.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "55a184b6561f7ae0513380f959929215248c6ac847621093465ddbc33c0fdefc"
+    },
+    {
+      "file": "System.Net.WebClient.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "1c377714e2ea354d03fcd520bbd2a22c5848399c338fca66ffde7b71b22dc7fd"
+    },
+    {
+      "file": "System.Net.WebHeaderCollection.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "6fc7b01060ccfcda9979363bec66229a03e342425beba58180c9012691e402be"
+    },
+    {
+      "file": "System.Net.WebProxy.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "b728db2014ed489357a42a24071b17839717daf3c7c8de4cfdfb2f28e88e7c67"
+    },
+    {
+      "file": "System.Net.WebSockets.Client.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "8642495131e01cb9538989ae621518054e486bcb1bd41e5cfacc3bce4a815987"
+    },
+    {
+      "file": "System.Net.WebSockets.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "e6e13f50c3ebce26d17228cdca6a9ce34a176865e6149a5de7c8244ee6dc131b"
+    },
+    {
+      "file": "System.Numerics.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "2ce173352e1d6d6914651b47805eb2277730e983bd993b4c0622a2b653b93870"
+    },
+    {
+      "file": "System.Numerics.Vectors.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "f4415f2df93e1bedb1b2c3378b75c8568db178c63e56ba67aa711c47f906484d"
+    },
+    {
+      "file": "System.ObjectModel.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "953ab5669bcd9de4d7567a0c857bfaa277a8b9da1378ad67ce553bfd57137566"
+    },
+    {
+      "file": "System.Private.CoreLib.dll",
+      "productVersion": "11.0.0-rtm.26529.118+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "7b82f62a60e1673863813dd78af931a775be0630570a377cffa9e8cb9cb7abab"
+    },
+    {
+      "file": "System.Private.DataContractSerialization.dll",
+      "productVersion": "11.0.0-rtm.26529.118+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "6fa8d05df7dc4ea0b4d06b27e85fcd0f8c53db5cf8edef02a277cbb72dd8e868"
+    },
+    {
+      "file": "System.Private.Uri.dll",
+      "productVersion": "11.0.0-rtm.26529.118+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "3a816f1adbf1dc23ae0ddfaddc90de861bf7685cc675412cb8897dcaf148d5d0"
+    },
+    {
+      "file": "System.Private.Xml.dll",
+      "productVersion": "11.0.0-rtm.26529.118+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "36fc8d389d292b53b0fe55976e952a8ebd8a33c0c33b5b7e1455a85547557f05"
+    },
+    {
+      "file": "System.Private.Xml.Linq.dll",
+      "productVersion": "11.0.0-rtm.26529.118+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "b7d9380c831687a35312be2023a4c787d82484512d7da797b4b031df0ab47c54"
+    },
+    {
+      "file": "System.Reflection.DispatchProxy.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "4324d13b77cc47dca3fb6f48896fcca018903d23bfc05fcff0480439aec2af42"
+    },
+    {
+      "file": "System.Reflection.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "0be7176091316419631f5cad813d822a4f4a001a419933796953c95d6836a47a"
+    },
+    {
+      "file": "System.Reflection.Emit.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "582e623b47c20266f0183cdde9c415d3a04de9964c23ee7d24a78dd3284e5f88"
+    },
+    {
+      "file": "System.Reflection.Emit.ILGeneration.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "53d18e07afad248e8fe29b5305538aa3e08390e27c0c076e0653a6e65a3529c6"
+    },
+    {
+      "file": "System.Reflection.Emit.Lightweight.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "fa236e451394eb1eb40370144c2e66e14c40475fe6599829b0fb63a41c1f9553"
+    },
+    {
+      "file": "System.Reflection.Extensions.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "48f2c9de2627ecd959de7865997798023023387e75b1bd3582f2bc3c500ee36b"
+    },
+    {
+      "file": "System.Reflection.Metadata.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "95d3bd90185aa432301921e7842d81afe85675c6d1de38da3e54365b5c451d44"
+    },
+    {
+      "file": "System.Reflection.Primitives.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "73f58c28ec11a0d19cbdace576f9081b2ceb5b932eac6374a2b3d7615e429bdd"
+    },
+    {
+      "file": "System.Reflection.TypeExtensions.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "0f049910407fe74845d0edce44912858166ce1a38862fa14e96cd55e71e37625"
+    },
+    {
+      "file": "System.Resources.Reader.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "51b8b0ba05d342881134fd171edc84227066951a6a2d869e318a4ff2e97b82c8"
+    },
+    {
+      "file": "System.Resources.ResourceManager.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "38ff823d624a1fc805c0953d193558544a4fe3b81d551c47e64acb10f9959f0a"
+    },
+    {
+      "file": "System.Resources.Writer.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "b771b34751fb01cfec7d9f46dd969c157156b7781005810b864da297ebc49119"
+    },
+    {
+      "file": "System.Runtime.CompilerServices.Unsafe.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "5e4fad5b6a6a8076ad7a3f8bbf9206dbd6251820b3025d25fda17913e7e4c27c"
+    },
+    {
+      "file": "System.Runtime.CompilerServices.VisualC.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "561ee870cd436b8ae3c0bfebb6a8165fb92c2984b97db76ea7c3f7493a0c7464"
+    },
+    {
+      "file": "System.Runtime.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "fa44e6e28f385224ff981086d9ca7aad2c9f49ee4de0152913eff60cb4e25416"
+    },
+    {
+      "file": "System.Runtime.Extensions.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "0ab15fcd8b45ed4182590ec5ef20855126f2aaf555ea2b83388be12ad5b8005f"
+    },
+    {
+      "file": "System.Runtime.Handles.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "80573a03543793559045a566636f7ed5b71e39807e4a6dd9d384bd7f8e9af7c7"
+    },
+    {
+      "file": "System.Runtime.InteropServices.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "fb7675efff90e61538aecf6224d49ccfd48380f86c501b5d28aa2a2fdb15c4c7"
+    },
+    {
+      "file": "System.Runtime.InteropServices.JavaScript.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "140b4212041600df3397f7dcecb6913267f83d6b7ef413ca02ef8ce54b9f3526"
+    },
+    {
+      "file": "System.Runtime.InteropServices.RuntimeInformation.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "06802c69f00bf1036e4ddb4b21da6ae2462215983d27958b923743058165fb72"
+    },
+    {
+      "file": "System.Runtime.Intrinsics.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "18ac610d391b464cdca5cfec0da595d2855930e847214d28f243e63b6284e48f"
+    },
+    {
+      "file": "System.Runtime.Loader.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "b150d78e6ca4f639bcef30032087c2b97399bf78a3b04838a75caf9860756141"
+    },
+    {
+      "file": "System.Runtime.Numerics.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "393a66a13f12217d504a863d38648916d096ff8142c63a9f941e9d92f1213711"
+    },
+    {
+      "file": "System.Runtime.Serialization.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "ca7a84fbbbe9fdfe4b4985fbbe220812d0d0ec96b2883c9efed276a3e46b74e1"
+    },
+    {
+      "file": "System.Runtime.Serialization.Formatters.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "db523647f12bc378ec03b73bc6ee2fe77b728476a6418fce2d171019931d032f"
+    },
+    {
+      "file": "System.Runtime.Serialization.Json.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "2d579b4dd31765870a3dcf1a97c1c1783fa125be5a4d86631b700cd325cf31b6"
+    },
+    {
+      "file": "System.Runtime.Serialization.Primitives.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "b8db22db01fc8a90f380ed11a12e366dd6999f9ecb6a2780dfffdfa2b82984e5"
+    },
+    {
+      "file": "System.Runtime.Serialization.Xml.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "26cda600b6ef06ca246f07501aed7e8cd0087a713227e4cb4326b4a0fd4c9efa"
+    },
+    {
+      "file": "System.Security.AccessControl.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "87496308c29f0441d7e6033a4e5808798ca27e6802a11a1fc09773637f1a21c0"
+    },
+    {
+      "file": "System.Security.Claims.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "48dc8f0df9978f5cd510dd70911591286126d58523c6947e528d793b5e59cf92"
+    },
+    {
+      "file": "System.Security.Cryptography.Algorithms.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "5ec6e6025d07b3864888e58a867f7c1fe194d0e4c78e3999988ba30d4bc2799e"
+    },
+    {
+      "file": "System.Security.Cryptography.Cng.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "d9628b3d052ea6c9edce45ee113138bb4d5b5f650bf4385e09febdcbfdd2e42e"
+    },
+    {
+      "file": "System.Security.Cryptography.Csp.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "69f745009d2d198dc7a3560eeac0a56c4dc7f3bc2d826c2386206b971339b771"
+    },
+    {
+      "file": "System.Security.Cryptography.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "582a43dc0d9d85d93be75878f80dbf853648afe906a3e823f41306e1fec860de"
+    },
+    {
+      "file": "System.Security.Cryptography.Encoding.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "9a374e7ba73b59209e861d6a35bc3f3c70add40d0d5d8f3ab8ae345e4654605e"
+    },
+    {
+      "file": "System.Security.Cryptography.OpenSsl.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "5794b3283e6232e2098a8ea054833b9f75b4aa66d2a4db347c789847da5f2e8c"
+    },
+    {
+      "file": "System.Security.Cryptography.Primitives.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "b16544504b4b7bb5c5a4bbc98b52c8bc98bd28825c9f4e134be859d1a7fd37f3"
+    },
+    {
+      "file": "System.Security.Cryptography.X509Certificates.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "71550c081f0c5d8a3973694071e0e2b372209ee486837ff5f1c0b350e4d9c2c5"
+    },
+    {
+      "file": "System.Security.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "400ff0bb85fc86b736348de9a7fb87cc57b8bcdebfbd2175d031bdb1258c16aa"
+    },
+    {
+      "file": "System.Security.Principal.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "586bfeb3393bad206405cee6be047060f92b882faff6f797d69a3c58d385f0e0"
+    },
+    {
+      "file": "System.Security.Principal.Windows.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "4b8b660722e2bbed36e6b616b8a893577292c6597b2b44a897701186324a61d8"
+    },
+    {
+      "file": "System.Security.SecureString.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "20b733f978e51337bbd24c8d3413930daa5423b0989d2716a39be7d6e1273ad8"
+    },
+    {
+      "file": "System.ServiceModel.Web.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "2b9bab8daf88b3be380e526753c144a8a3a727bf5c3f64c9ff42250a99f15797"
+    },
+    {
+      "file": "System.ServiceProcess.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "09a9c7678b54ea931a7cc1cec00a99dbdbccd8cd81c07d96ac42358357a8ad4e"
+    },
+    {
+      "file": "System.Text.Encoding.CodePages.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "6a3d63c54baed95d3c0bb53d379789c2fcd68716a65bb8dfe6606817d74cb54e"
+    },
+    {
+      "file": "System.Text.Encoding.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "b7f4b7e48f6740a37c493144d283ae8be1ef8170a025a0e987016ca211491d7c"
+    },
+    {
+      "file": "System.Text.Encoding.Extensions.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "86d526b20d8fc312bef60211e373b3ef469add80b0579a5072e4a4038d927943"
+    },
+    {
+      "file": "System.Text.Encodings.Web.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "cfee0310dab851e6f2d668798aae3d9a446b183b2dc3bd5f8f175c69e333c3b2"
+    },
+    {
+      "file": "System.Text.Json.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "a13f18c851af3dce1a1f050ac157d34f674184f103961f76d94d201cc3077641"
+    },
+    {
+      "file": "System.Text.RegularExpressions.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "c30fde3847f9177fb9a10eeb45d9093f0a16dd4fcd0c4976213938ff449f4378"
+    },
+    {
+      "file": "System.Threading.AccessControl.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "b9d0723791982db62ce37329db3fa679cd0ea69aa7eef4a6d1f6ce9513eb39e4"
+    },
+    {
+      "file": "System.Threading.Channels.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "f77110c4eda9d9f9fb3d7c47e7e94d7b697b07914d5ca65dd445fe733d5382b4"
+    },
+    {
+      "file": "System.Threading.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "a924949795fed97dd698f80ec588f827732937d0bc0c898d7286d300c4c72e9d"
+    },
+    {
+      "file": "System.Threading.Overlapped.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "9c71ec9b185b54b38919ccdc6f39a4f3e72d1593f1301cb02dfeec06c96995ae"
+    },
+    {
+      "file": "System.Threading.Tasks.Dataflow.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "a5ea752f4a672f2a8f785c24cc6a8ffba5ef7d857866187a2928b86dc40bc96b"
+    },
+    {
+      "file": "System.Threading.Tasks.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "8683b1c24d8af982534e89775427e3d81431b28448f0cb58c96f318f8791933a"
+    },
+    {
+      "file": "System.Threading.Tasks.Extensions.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "4d3f69b10caa688feff576c10eb3c43e8f90eee85b9a76f4911c962b3916e3f6"
+    },
+    {
+      "file": "System.Threading.Tasks.Parallel.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "3ae74663c9df934d9f46e2cd15bb14fb7468ce6a9801225ad8f40b4102853793"
+    },
+    {
+      "file": "System.Threading.Thread.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "c6b77423d57788ffb7531003aa614a4df5e3dbd7674e6f8df0f60fc07cfdcef4"
+    },
+    {
+      "file": "System.Threading.ThreadPool.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "9c256f25f6f1b4b0a45c0eea0c30bcd096d03161e98ac96b0600b5b9a143b41e"
+    },
+    {
+      "file": "System.Threading.Timer.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "18587cf7f71aa6f2b3b9694b62887b75c470525a036d444ca2cfd8ea6706e4e1"
+    },
+    {
+      "file": "System.Transactions.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "0fd1efc22a77f3946eb6d98aa29a4cdaf865d0d2f96dda323239c287e2132c71"
+    },
+    {
+      "file": "System.Transactions.Local.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "ab5d3b8d6df086b0944fbb7bd63776ab76856e2b55cd0f82717f422b35ee8a0f"
+    },
+    {
+      "file": "System.ValueTuple.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "3b563108990708e6b49a777757c95849026580e4d96b8604d4f0672f9d1190bb"
+    },
+    {
+      "file": "System.Web.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "fd29832c69a727f3ffaf77b47909b23d827461f3258c8e12b2ac11b834315c3e"
+    },
+    {
+      "file": "System.Web.HttpUtility.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "7a23327b11e7cb58a96faf66346efc4be67541143e60e3d4e4fb82890a9ab676"
+    },
+    {
+      "file": "System.Windows.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "0914fced5556a243d8b6fce14615a6b98376d5dbe8592dc53f4423316124570e"
+    },
+    {
+      "file": "System.Xml.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "88b8b41aafd4eb70c5c5400beeddb22ea8aafe9fd482bddcb8d440ba92060cb1"
+    },
+    {
+      "file": "System.Xml.Linq.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "8d66e68178a52a7549782ccc4297d1a4b5f9d033f33f0dce837153d63be142bb"
+    },
+    {
+      "file": "System.Xml.ReaderWriter.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "95d35ba7db98493640352ea4e3d868a0689cb6e4b2eaafaa3af54d7432a6df1e"
+    },
+    {
+      "file": "System.Xml.Serialization.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "7e603bcd62d56c8abe4c85a7d255afe0f6e48ff665b70da681d75e7365f95cc8"
+    },
+    {
+      "file": "System.Xml.XDocument.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "f63f78d2a2e7a629fec20ed2c4133a1c909f30405a8a708067a8a19b5f19ba18"
+    },
+    {
+      "file": "System.Xml.XmlDocument.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "1f86c1964bf9ec47bea3b496bbed97b570a81ec3e8f1ce9e67afe041f61dcd92"
+    },
+    {
+      "file": "System.Xml.XmlSerializer.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "36873f185476744d3d9b459010551498762bb1dafaa29304ef7b5a9f4275bd64"
+    },
+    {
+      "file": "System.Xml.XPath.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "34b89ef7d42291616b45f4baff40db7b2a2679ad377b85f17651252a0211f8e0"
+    },
+    {
+      "file": "System.Xml.XPath.XDocument.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "c6835f4e291a758c6d67da2ef6029db0d0b5fec1ecebd949e484d79e022ada5c"
+    },
+    {
+      "file": "WindowsBase.dll",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+      "sha256": "324d05e38839bc9c3d35f1aa27101aa95373246c97be9f05368ac76fb60f643b"
+    }
+  ],
+  "tensor": {
+    "version": "11.0.0",
+    "source": "297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+    "asset": "lib/net11.0/System.Numerics.Tensors.dll",
+    "sha256": "d792726013d402cf22c0b24a73c04251b38bd8a97fb556b3eedf0e599ce96da6"
+  },
+  "backportComparison": [
+    {
+      "id": "tensor-operations",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/System.Numerics.Tensors/src/System/Numerics/Tensors/netcore/Tensor.cs",
+      "gaSha256": "3909a502ac647593e0d39b8183b5d8f669cf79cd67b68a937d1239965a55aa79",
+      "backportSha256": "3909a502ac647593e0d39b8183b5d8f669cf79cd67b68a937d1239965a55aa79",
+      "unchanged": true
+    },
+    {
+      "id": "tensor-shape",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/System.Numerics.Tensors/src/System/Numerics/Tensors/netcore/TensorShape.cs",
+      "gaSha256": "eee61600ab8f7fcd9f02150c735842a3b3efdae446bea63ed97dbd437503c450",
+      "backportSha256": "eee61600ab8f7fcd9f02150c735842a3b3efdae446bea63ed97dbd437503c450",
+      "unchanged": true
+    },
+    {
+      "id": "tensor-readonly-view",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/System.Numerics.Tensors/src/System/Numerics/Tensors/netcore/ReadOnlyTensorSpan_1.cs",
+      "gaSha256": "d2ab45a9f1a7efe319b18a388f51143e12abf6d4038f4f6161a4ee2a68b63260",
+      "backportSha256": "d2ab45a9f1a7efe319b18a388f51143e12abf6d4038f4f6161a4ee2a68b63260",
+      "unchanged": true
+    },
+    {
+      "id": "tensor-guide",
+      "gaUrl": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/System.Numerics.Tensors/README.md",
+      "gaSha256": "05043ff72eb5aac721c2952a6be529c5a093cfe0802ca4daf8b8d1697ff4ccb9",
+      "backportSha256": "05043ff72eb5aac721c2952a6be529c5a093cfe0802ca4daf8b8d1697ff4ccb9",
+      "unchanged": true
+    }
+  ]
+}

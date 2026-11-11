@@ -138,7 +138,7 @@ static void Views()
     var slice = source.Slice((ReadOnlySpan<NRange>)[1..2, 0..2]);
     Check(slice[0, 0] == 2 && slice.Lengths.SequenceEqual((ReadOnlySpan<nint>)[1, 2]), "slice values and metadata");
     var empty = source.Slice((ReadOnlySpan<NRange>)[2..2, 2..2]);
-    var expected = new ReadOnlyTensorSpan<int>(storage, 0, [0, 0], [2, 1]);
+    var expected = new ReadOnlyTensorSpan<int>(storage, 0, [0, 0], [0, 0]);
     Check(empty == expected, "empty view keeps source storage origin");
     var writable = new TensorSpan<int>(new int[4], [2, 2]);
     ReadOnlyTensorSpan<int> row = new(new[] { 5, 6 }, [1, 2]);

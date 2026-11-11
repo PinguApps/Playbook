@@ -57,7 +57,7 @@ try {
         $hash = (Get-FileHash -LiteralPath $artifact -Algorithm SHA256).Hash.ToLowerInvariant()
         $record.output += "`nBUILD ARTIFACT $artifact version=$version sha256=$hash"
       }
-      $record.scope = 'Actual pinned SDK/reference/runtime executions for original nongeneric complex signal classification. Runtime-parsed inputs separate execution from compiler folding; exact component bits, inputs/results and artifact hashes follow. Windows x64 CoreCLR JIT only; no interpreter, Native AOT, Mono, other-OS/architecture or actual-GA proof.'
+      $record.scope = 'Actual pinned SDK/reference/runtime executions for original nongeneric complex signal classification. Runtime-parsed inputs separate execution from compiler folding; exact component bits, inputs/results and artifact hashes follow. Windows x64 CoreCLR JIT only; no interpreter, Native AOT, Mono, other-OS/architecture proof. The net11 consumer uses actual GA SDK11.0.100/runtime11.0.0.'
       [IO.File]::WriteAllText($recordPath, ($record | ConvertTo-Json -Depth 40).Replace("`r`n","`n") + "`n")
     }
   }

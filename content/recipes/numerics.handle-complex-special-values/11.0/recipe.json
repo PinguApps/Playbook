@@ -83,7 +83,7 @@
             "Route finite, infinite and undefined results separately before consuming a signal measurement."
           ],
           "constraints": [
-            "Actual paired nongeneric Complex arithmetic, named multiply/divide, zero divisors, reciprocal/magnitude/power, elementary/trigonometric/hyperbolic/inverse cases, component bits and signed-zero controls; finite controls and application classification. Exact SDK/reference/runtime identities and inputs/results recorded. Windows x64 CoreCLR JIT; no other engine/platform or GA proof.",
+            "Actual paired nongeneric Complex arithmetic, named multiply/divide, zero divisors, reciprocal/magnitude/power, elementary/trigonometric/hyperbolic/inverse cases, component bits and signed-zero controls; finite controls and application classification. Exact SDK/reference/runtime identities and inputs/results recorded. Windows x64 CoreCLR JIT; no other engine/platform proof. The net11 consumer ran on GA SDK11.0.100/runtime11.0.0.",
             "Infinity takes precedence over companion NaN in the classification policy; a companion NaN still has no usable direction. A zero quotient component has no universal sign promise. Reciprocal(Zero) is observed as Zero on both artifacts.",
             "No generic-storage migration, package, provider, rendering mode, native toolchain, workload or experimental opt-in is required. The net10 comparison adds no foundation edition."
           ],
@@ -117,7 +117,7 @@
   "evidence": [
     {
       "kind": "compile-and-run",
-      "scope": "Actual paired nongeneric Complex arithmetic, named multiply/divide, zero divisors, reciprocal/magnitude/power, elementary/trigonometric/hyperbolic/inverse cases, component bits and signed-zero controls; finite controls and application classification. Exact SDK/reference/runtime identities and inputs/results recorded. Windows x64 CoreCLR JIT; no other engine/platform or GA proof.",
+      "scope": "Actual paired nongeneric Complex arithmetic, named multiply/divide, zero divisors, reciprocal/magnitude/power, elementary/trigonometric/hyperbolic/inverse cases, component bits and signed-zero controls; finite controls and application classification. Exact SDK/reference/runtime identities and inputs/results recorded. Windows x64 CoreCLR JIT; no other engine/platform proof. The net11 consumer ran on GA SDK11.0.100/runtime11.0.0.",
       "sample": "samples/net10.0/SignalPipeline/SignalPipeline.csproj",
       "sdk": "10.0.403",
       "language": "14.0",
@@ -125,7 +125,7 @@
     },
     {
       "kind": "compile-and-run",
-      "scope": "Actual paired nongeneric Complex arithmetic, named multiply/divide, zero divisors, reciprocal/magnitude/power, elementary/trigonometric/hyperbolic/inverse cases, component bits and signed-zero controls; finite controls and application classification. Exact SDK/reference/runtime identities and inputs/results recorded. Windows x64 CoreCLR JIT; no other engine/platform or GA proof.",
+      "scope": "Actual paired nongeneric Complex arithmetic, named multiply/divide, zero divisors, reciprocal/magnitude/power, elementary/trigonometric/hyperbolic/inverse cases, component bits and signed-zero controls; finite controls and application classification. Exact SDK/reference/runtime identities and inputs/results recorded. Windows x64 CoreCLR JIT; no other engine/platform proof. The net11 consumer ran on GA SDK11.0.100/runtime11.0.0.",
       "sample": "samples/net11.0/SignalPipeline/SignalPipeline.csproj",
       "sdk": "11.0.100",
       "language": "15.0",
@@ -146,6 +146,6 @@
   },
   "humanProof": {
     "status": "not-required",
-    "scope": "Managed signal calculations and installed stdio retrieval require no Human access. Other execution engines/platforms and actual-GA are not verified."
+    "scope": "Managed signal calculations and installed stdio retrieval require no Human access. Other execution engines/platforms are not verified. GA SDK11.0.100/runtime11.0.0 execution passed under PIN-962."
   }
 }

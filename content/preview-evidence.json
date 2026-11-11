@@ -109,32 +109,6 @@
       "markdownSha256": "548def875fe71bf30fa40ad18e443ae220dffb3703e1fc59b76f9461d0f28bb6"
     },
     {
-      "id": "numerics.align-tensor-shapes",
-      "edition": "11.0",
-      "classification": "documented-ga-intent",
-      "scope": "Pingu authorized full .NET11 release preparation on30October2026 with final-package execution deferred. PIN-962 must select GA SDK/runtime/tensor assets, run all shape/view/scalar-pairwise Any checks and memory-preflighted native traversal beyond int.MaxValue, refresh actual sample evidence and clear pending proof only on success. Current code compilation and source review are not this proof; stable-release packaging stays blocked.",
-      "followUp": "PIN-962",
-      "samples": [
-        "samples/net10.0/InstrumentBatch/InstrumentBatch.csproj",
-        "samples/net11.0/InstrumentBatch/InstrumentBatch.csproj"
-      ],
-      "metadataSha256": "6abaa2d3f6994d5669056c94482f98e2bb2f4f68a56556bb85a9e42422e0d1f0",
-      "markdownSha256": "34dc3e29b09cd762972fa08e91c27a393a10d23ef438971ab3dcef6cb5dec145"
-    },
-    {
-      "id": "numerics.copy-tensor-views-safely",
-      "edition": "11.0",
-      "classification": "documented-ga-intent",
-      "scope": "Pingu authorized full-release preparation on 30 October 2026 with final-package execution deferred to PIN-962. Select actual final SDK/runtime/tensor assets, run every committed storage check, refresh evidence and clear pending proof only after successful execution. Current compilation and merged source are not that proof; stable-release packaging remains blocked.",
-      "followUp": "PIN-962",
-      "samples": [
-        "samples/net10.0/GridTransform/GridTransform.csproj",
-        "samples/net11.0/GridTransform/GridTransform.csproj"
-      ],
-      "metadataSha256": "996984f02b2b5b1e0f130a8d9586fff6f730db0007782636c1b9f08a75aac518",
-      "markdownSha256": "6c4d87cfdb6552f970cc06b420cb0ccb1371843f5cfcdd265e6fdd5af8858808"
-    },
-    {
       "id": "sdk.configure-cli-telemetry",
       "edition": "11.0",
       "classification": "documented-ga-intent",

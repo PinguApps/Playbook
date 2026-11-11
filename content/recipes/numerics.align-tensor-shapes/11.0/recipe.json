@@ -2,7 +2,7 @@
   "id": "numerics.align-tensor-shapes",
   "edition": "11.0",
   "title": "Align tensor shapes without losing metadata",
-  "goal": "Align differently ranked measurement batches while preserving requested dimensions; final .NET 11 package behavior and native-width execution remain pending.",
+  "goal": "Align differently ranked measurement batches while preserving requested dimensions.",
   "areas": [
     "libraries"
   ],
@@ -56,9 +56,8 @@
         "conditional": false,
         "usage": "primary",
         "selectionNotes": [
-          "Align differently ranked measurement batches while preserving requested dimensions; final .NET 11 package behavior and native-width execution remain pending.",
-          "Prepared for the full .NET 11 release from the merged release/11.0 backport. Published GA packages lack the required behavior. Current sample evidence is compilation only; final execution is tracked by PIN-962.",
-          "Provisional pre-GA guidance: pending behavior/final-artifact proof is not successful execution or GA verification."
+          "Align differently ranked measurement batches while preserving requested dimensions.",
+          "Verified with GA SDK/runtime and System.Numerics.Tensors11.0.0 on Windows x64. Other platforms and execution engines remain unverified."
         ],
         "requirements": {
           "runtime": {
@@ -71,7 +70,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Use final .NET 11 SDK for GA verification. The installed GA SDK is only the current compilation baseline."
+            "reason": "Use the .NET 11 SDK for the net11.0/C#15 consumer; exact tested pins are evidence baselines."
           },
           "language": {
             "name": "C#",
@@ -85,15 +84,15 @@
               "name": "System.Numerics.Tensors",
               "version": "11.0",
               "match": "release-family",
-              "reason": "Requires a final .NET 11 package containing release/11.0 backport #135281. GA compilation assets do not implement this contract; final package verification is pending."
+              "reason": "The shipped .NET 11 package contains the release/11.0 storage and shape backport; verified with package11.0.0."
             }
           ],
           "packageAssets": [
-            "Canonical route: lib/net11.0/System.Numerics.Tensors.dll. Current compilation uses package11.0.0, previous execution uses10.0.13/lib/net10.0; neither proves final behavior."
+            "Canonical route: lib/net11.0/System.Numerics.Tensors.dll from package11.0.0; previous policy uses10.0.13/lib/net10.0."
           ],
           "providers": [],
           "platforms": [
-            "Managed tensor operations follow framework/package support; actual previous policy execution is Windows x64. Opt-in native proof is implemented for Windows x64 and remains unexecuted."
+            "Measured Windows x64 CoreCLR JIT execution. Other platforms, Native AOT and Mono are not tested."
           ],
           "renderingModes": [],
           "workloads": [],
@@ -104,14 +103,11 @@
           ],
           "constraints": [
             "Default rank-zero empties compute as [0] while retaining stored metadata. Only leading singleton padding is ignored; zero/internal dimensions remain significant. Equality is not general broadcasting. Axes follow the first effective input; caller destinations keep their requested shape.",
-            "The scoped shape/view/Any/native-width suite is implemented and compiled, with expected behavior reviewed against the merged release/11.0 source. No successful current or final package execution is claimed.",
             "No provider, rendering mode, workload, account or experimental API opt-in is required. NativeMemory/kernel32 resource checks are test-only system facilities, not application prerequisites. The comparison adds no target10 foundation."
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Pending final SDK/runtime/package behavior, all five scalar/pairwise Any families, views/extrema and native traversal beyond int.MaxValue. PIN-962 owns refresh; pending proof blocks stable-release packaging.",
-            "No experimental annotation was required by the selected types/signatures on actual compilation assets. Full-release guidance is not an advertisement for GA behavior.",
-            "Provisional pre-GA guidance: pending behavior/final-artifact proof is not successful execution or GA verification."
+            "No experimental annotation or opt-in on the selected GA types. Execution proof is limited to the declared consumers and measured Windows x64 platform; global stable readiness remains PIN-967."
           ]
         },
         "sourceUrls": [
@@ -161,8 +157,8 @@
       "target": "net10.0"
     },
     {
-      "kind": "compile",
-      "scope": "Actual SDK11 GA and locked tensor11 GA net11 compilation of the full-release policy and shape/view/Any/native-width checks. The package lacks the release/11.0 shape backport; no successful new behavior or large/native/final-artifact execution is claimed. Final proof remains pending under PIN-962.",
+      "kind": "compile-and-run",
+      "scope": "Actual SDK11.0.100/runtime11.0.0 and locked tensor11.0.0 net11 execution: complete shape, empty, combine, destination, view, extrema and scalar/pairwise Any suite; Windows x64 native-backed traversal of 2147483656 elements passed after physical/commit preflight.",
       "sample": "samples/net11.0/InstrumentBatch/InstrumentBatch.csproj",
       "sdk": "11.0.100",
       "language": "15.0",
@@ -182,7 +178,7 @@
     }
   },
   "humanProof": {
-    "status": "pending",
-    "scope": "Pingu authorized full .NET11 release preparation on30October2026 with final-package execution deferred. PIN-962 must select GA SDK/runtime/tensor assets, run all shape/view/scalar-pairwise Any checks and memory-preflighted native traversal beyond int.MaxValue, refresh actual sample evidence and clear pending proof only on success. Current code compilation and source review are not this proof; stable-release packaging stays blocked."
+    "status": "verified",
+    "scope": "Actual SDK11.0.100/runtime11.0.0 and locked tensor11.0.0 net11 execution: complete shape, empty, combine, destination, view, extrema and scalar/pairwise Any suite; Windows x64 native-backed traversal of 2147483656 elements passed after physical/commit preflight."
   }
 }
