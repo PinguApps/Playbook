@@ -1,0 +1,22 @@
+{
+  "buildArguments": [],
+  "additionalInputs": [
+    ".editorconfig",
+    "eng/Evidence.ps1",
+    "eng/Record-Evidence.ps1",
+    "eng/Test-ObservatoryAuthentication.ps1"
+  ],
+  "workloads": [],
+  "nativeToolchains": [],
+  "dependencies": [
+    "Microsoft.AspNetCore.Authentication.OpenIdConnect/11.0.0",
+    "Microsoft.Bcl.Cryptography/10.0.2",
+    "Microsoft.IdentityModel.Abstractions/8.19.2",
+    "Microsoft.IdentityModel.JsonWebTokens/8.19.2",
+    "Microsoft.IdentityModel.Logging/8.19.2",
+    "Microsoft.IdentityModel.Protocols.OpenIdConnect/8.19.2",
+    "Microsoft.IdentityModel.Protocols/8.19.2",
+    "Microsoft.IdentityModel.Tokens/8.19.2",
+    "System.IdentityModel.Tokens.Jwt/8.19.2"
+  ]
+}

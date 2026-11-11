@@ -1,0 +1,6 @@
+<!-- snippet:complete -->
+<Project Sdk="Microsoft.NET.Sdk.Web">
+ <PropertyGroup><TargetFramework>net11.0</TargetFramework><LangVersion>15.0</LangVersion><ImplicitUsings>enable</ImplicitUsings><Nullable>enable</Nullable><TreatWarningsAsErrors>true</TreatWarningsAsErrors><RestorePackagesWithLockFile>true</RestorePackagesWithLockFile><EnableSourceControlManagerQueries>false</EnableSourceControlManagerQueries><EnableSourceLink>false</EnableSourceLink></PropertyGroup>
+ <ItemGroup><PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="[11.0.0]"/></ItemGroup>
+</Project>
+<!-- endsnippet:complete -->
