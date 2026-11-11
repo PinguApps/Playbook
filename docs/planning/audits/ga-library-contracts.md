@@ -93,7 +93,7 @@ before/after and performs its own native-memory preflight.
 Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-74ea50d7-47a2e70aac883dab'
 $ga = 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe'
 $older = 'V:\_worktrees\Playbook\t3-1ead8027\artifacts\dotnet10\dotnet.exe'
-& ./eng/Inspect-GaLibraryContracts.ps1
+& ./eng/Inspect-GaLibraryContracts.ps1 -OutputPath docs/planning/audits/ga-library-contracts.sources.json
 & ./eng/Record-ComplexSignals.ps1 -Net10Dotnet $older -Net11Dotnet $ga -VerifySources
 & ./eng/Record-InstrumentBatch.ps1 -Net10Dotnet $older -Net11Dotnet $ga -RunReleaseChecks -VerifySources
 & ./eng/Record-GridTransform.ps1 -Net10Dotnet $older -Net11Dotnet $ga -RunReleaseChecks -VerifySources
@@ -112,7 +112,7 @@ artifact and calls stdio list/get from an unrelated directory):
 Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-74ea50d7-47a2e70aac883dab'
 $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH = '0'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
-  -RecipeId @('numerics.align-tensor-shapes','numerics.copy-tensor-views-safely') `
+  -RecipeId @('numerics.align-tensor-shapes','numerics.copy-tensor-views-safely','numerics.handle-complex-special-values') `
   -Query '' -RecipeEdition '11.0' -TargetVersion '11.0' `
   -PackageVersion '0.0.0-pin962' -BuildAndPack `
   -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
@@ -120,6 +120,6 @@ $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH = '0'
   -OutputDirectory './artifacts/pin962/inspection'
 ```
 
-Expect both discovery IDs/titles/goals, full canonical Markdown and target11,
+Expect all three discovery IDs/titles/goals, full canonical Markdown and target11,
 edition11 applicability with verified tensor proof. This checks the agent's
 served guidance; other-platform runtime behavior remains outside its proof.

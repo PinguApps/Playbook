@@ -102,7 +102,7 @@ netstandard or .NET Framework multidimensional route. C#15 is the sample mode,
 not a new syntax requirement. Actual compilation types have no experimental
 annotation or required opt-in. No provider, rendering mode, native compiler,
 workload, service or account is required. Measured previous execution is Windows
-x64 CoreCLR JIT; other platforms and final artifacts remain unverified.
+x64 CoreCLR JIT; other platforms and execution engines remain unverified.
 
 ## Evidence
 

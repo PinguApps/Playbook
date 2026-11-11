@@ -1688,7 +1688,7 @@
       "title": "Copy tensor views with explicit storage ownership",
       "stability": "stable",
       "metadataSha256": "43d0f3e39a35cfe3c8c956e62cde71b39c956be6b8b73479ed18288cfb602fa1",
-      "markdownSha256": "d32d085869d9aed3e39a1516740ec37a3551149d207b762f09a1b878fda16b5e",
+      "markdownSha256": "895f770ca505ddf1426e435ad8930c0b628530bca1352a12296bdf39da3e74ea",
       "requirements": null
     },
     {
@@ -1704,7 +1704,7 @@
       "title": "Handle complex nonfinite results deliberately",
       "stability": "stable",
       "metadataSha256": "8eb7b21716988679f86924704c9816461f89292785d889a0174a3b7f7009d351",
-      "markdownSha256": "c8f68f7a49252ea241869816f66bfb0843fd635e64073ab0721db879cf5c0e30",
+      "markdownSha256": "7ce7e437202b158730ca4c725260ab2b0d7f5aa504f569b0abad4a7202e3786f",
       "requirements": null
     },
     {
