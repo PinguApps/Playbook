@@ -21,7 +21,7 @@ try {
         Write-Host "PASS $Name $result"
     }
     $extension = 'public class Shelf {} public static class Access { extension(Shelf s) { public int this[int i] => i; } } '
-    Probe 'ExpressionTree' ($extension + 'class Use { System.Linq.Expressions.Expression<System.Func<Shelf,int>> x = s => s[0]; }') $false 'CS'
+    Probe 'ExpressionTree' ($extension + 'class Use { System.Linq.Expressions.Expression<System.Func<Shelf,int>> x = s => s[0]; }') $false 'CS9296'
     $generic = 'public static class Access { extension<T>(int s) { public T this[int i, T key] { set {} } } } '
     Probe 'AssignmentInferenceRejected' ($generic + 'class Use { void Run() { int shelf = 0; shelf[0, null] = new object(); } }') $false 'CS'
     Probe 'AssignmentInferenceValid' ($generic + 'class Use { void Run() { int shelf = 0; shelf[0, new object()] = null; Access.set_Item(shelf, 0, null, new object()); } }') $true
@@ -31,8 +31,8 @@ try {
     Probe 'BaseRejected' ($extension + 'class Child : Shelf { int Read() => base[0]; }') $false 'CS'
     Probe 'ValidLabels' 'class Use { void Run() { batches: for(int i=0;i<3;i++) { for(int j=0;j<2;j++) { if(j==0) continue batches; break batches; } } } }' $true
     Probe 'DuplicateLabels' 'class Use { void Run() { batch: while(true) { batch: while(true) { break batch; } } } }' $false 'CS0158'
-    Probe 'BlockContinue' 'class Use { void Run() { batch: { while(true) { continue batch; } } } }' $false 'CS'
-    Probe 'ImmediateLabel' 'class Use { void Run() { first: second: while(true) { continue first; } } }' $false 'CS'
+    Probe 'BlockContinue' 'class Use { void Run() { batch: { while(true) { continue batch; } } } }' $false 'CS9394'
+    Probe 'ImmediateLabel' 'class Use { void Run() { first: second: while(true) { continue first; } } }' $false 'CS9394'
     $fixture = Join-Path $output 'analyzer'
     New-Item -ItemType Directory -Force $fixture | Out-Null
     [IO.File]::WriteAllText((Join-Path $fixture 'Directory.Build.props'), '<Project />')
