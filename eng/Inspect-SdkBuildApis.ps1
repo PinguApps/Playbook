@@ -4,7 +4,8 @@ param(
   [string]$Net11Root = (Split-Path (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source -Parent),
   [string]$OutputPath = (Join-Path $PSScriptRoot '../artifacts/sdk-build.assets.json'),
   [string]$CompareWith,
-  [switch]$SkipSources
+  [switch]$SkipSources,
+  [string]$MetadataLoadContextPath
 )
 
 # Read actual installed tooling metadata/XML only; never execute inspected code.
@@ -128,7 +129,8 @@ function Get-XmlSurface([string]$Path) {
   }))
 }
 
-Add-Type -Path (Join-Path $Net10Root 'sdk/10.0.403/System.Reflection.MetadataLoadContext.dll')
+if (-not $MetadataLoadContextPath) { $MetadataLoadContextPath = Join-Path $Net10Root 'sdk/10.0.403/System.Reflection.MetadataLoadContext.dll' }
+Add-Type -Path $MetadataLoadContextPath
 $baselines = @(
   @{ root = $Net10Root; sdk = '10.0.403'; runtime = '10.0.14'; target = 'net10.0' },
   @{ root = $Net11Root; sdk = '11.0.100'; runtime = '11.0.0'; target = 'net11.0' }
