@@ -25,7 +25,7 @@ For example, `Outcome value = OutcomeWorkflow.Receipt("C-24");` followed by `Out
 
 ### Custom storage and providers
 
-Use a custom representation when adapting an existing type or when typed storage matters. Apply public `[Union]` (`System.Runtime.CompilerServices`) and expose public single-argument constructors plus a public object-valued `Value` getter. Implement `IUnion` for common runtime access; it does not replace the required shape. A creation parameter can be by value or `in`.
+Use a custom representation when adapting an existing type or when typed storage matters. Apply public `[Union]` (`System.Runtime.CompilerServices`) and expose public single-argument constructors plus a public object-valued `Value` getter. Implement `IUnion` for common runtime access; it does not replace the required shape. These examples use by-value creation parameters.
 
 {{snippet:tagged}}
 
@@ -42,6 +42,10 @@ The compiler trusts four behavioral contracts rather than proving them: Value is
 A multi-field struct reassigned concurrently can expose a tag and payload from different writes. Readonly fields do not make replacement of the whole struct atomic. Synchronize shared reads and writes; no unsynchronized local-copy mitigation is claimed or verified here.
 
 ### Patterns and conversions
+
+Keep the earlier museum payload declarations. Add `using System.Runtime.CompilerServices;` and place these types in the same `Playbook.Samples` namespace. The following auxiliary types and complete check class support the pattern and conversion examples; call `CustomUnionChecks.Run()` from the console entry point. The checks deliberately exercise constant inputs; when using the repository analyzers, suppress CA1508 for this check class as in the canonical sample.
+
+{{snippet:auxiliary}}
 
 {{snippet:patterns}}
 
@@ -65,12 +69,14 @@ Nested unions retain the inner wrapper as a case; do not assume recursive flatte
 
 This route needs .NET 11 runtime/reference assemblies and the .NET 11 SDK with C# 15. No preview language flag, extra package, workload, provider, UI framework or rendering mode is used. No supported down-level C# 15 route is claimed. The verification baseline is GA SDK 11.0.100/runtime 11.0.0.
 
-A declared union stores object-backed state; value-type payloads box. It supplies neither record equality nor a domain-specific empty case. `default(Outcome)` has null Value; JSON null maps to that default when no case accepts null. Nullable wrapper absence and empty underlying storage can both match null. Do not rely on a nullability annotation to make default impossible. Union declarations cannot add instance fields, auto-properties, field-like events or public single-parameter constructors. Custom union implementations must obey the compiler's soundness and access rules; the custom route below takes responsibility for those contracts.
+A declared union stores object-backed state; value-type payloads box. It supplies neither record equality nor a domain-specific empty case. `default(Outcome)` has null Value; JSON null maps to that default when no case accepts null. Nullable wrapper absence and empty underlying storage can both match null. Do not rely on a nullability annotation to make default impossible. Union declarations cannot add instance fields, auto-properties, field-like events or public single-parameter constructors. Custom union implementations must obey the compiler's soundness and access rules; the custom route above takes responsibility for those contracts.
 
 Exhaustiveness diagnoses omitted known cases; it does not validate payload properties or prove persisted data is trustworthy. Use a closed hierarchy when the alternatives need common inherited members (`csharp.closed-hierarchies`).
 
 ## Evidence
 
 The original .NET 10/C# 14 and .NET 11 GA/C# 15 projects compile and execute the same case/payload, null/default and JSON ambiguity checks. The .NET 11 consumer probe omits a union case and requires CS8509, promoted to an error. Evidence records retain exact SDKs, dependencies, inputs and actual output. No mocks, Native AOT publishing or UI/client matrix is represented as proof. Portable execution needs no targeted Human proof.
+
+PIN-1290/PIN-1291 extend that consumer with tagged/provider creation, every case, nullable/default inputs, access agreement, wrapper/content patterns, operator precedence and nested storage. Instrumentation verifies that both typed `is` patterns and the switch avoid the Value getter. Compiler probes check CS0457, CS0029, CS8121, CS9386, CS9385, CS0117 and added-case CS8509; recursive declaration acceptance alone is not execution proof.
 
 GA refresh (PIN-1287): the declared .NET 11 sample was rebuilt and executed with SDK 11.0.100 and runtime 11.0.0. This refresh does not establish broader platform or API behavior.

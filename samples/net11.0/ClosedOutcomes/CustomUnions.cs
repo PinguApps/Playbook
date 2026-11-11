@@ -48,6 +48,7 @@ public sealed class ShelfDecision : ShelfDecision.IUnionMembers, IUnion
 }
 // endsnippet:provider-union
 
+// snippet:union-auxiliary
 public union ShelfEnvelope(ShelfReading, string);
 public union GenericShelf<T>(T, string);
 public union OverlappingShelf(System.IComparable, System.IFormattable);
@@ -68,25 +69,26 @@ public readonly struct PriorityShelf : IUnion
     public static implicit operator PriorityShelf(int value) => FromInt32(value);
 }
 
+// endsnippet:union-auxiliary
+
+// snippet:union-patterns
 internal static class CustomUnionChecks
 {
     public static void Run()
     {
-        // snippet:union-patterns
         ShelfReading empty = default;
         ShelfReading count = (int?)24;
         ShelfReading flag = true;
         ShelfReading absent = (int?)null;
         ShelfReading? noWrapper = null;
         ShelfReading? emptyWrapper = empty;
+        ShelfReading.ValueReads = 0;
         Require(empty is { } && empty is null, "{} checks the struct wrapper, null checks its contents");
         Require(count is int number && number == 24, "declaration pattern unwraps contents");
         Require(count is int { } && flag is bool, "typed property/type patterns unwrap contents");
         Require(count is not null && absent is null && noWrapper is null && emptyWrapper is null, "content and wrapper null");
-        ShelfReading.ValueReads = 0;
         Require(Describe(count) == "count:24" && Describe(flag) == "flag:True" && Describe(empty) == "empty", "all cases");
         Require(ShelfReading.ValueReads == 0, "typed matching bypasses boxing Value getter");
-        // endsnippet:union-patterns
         foreach (ShelfReading reading in new[] { empty, count, flag, absent })
         {
             object? value = reading.Value;
@@ -127,4 +129,4 @@ internal static class CustomUnionChecks
         if (!condition) { throw new InvalidOperationException(claim); }
     }
 }
-
+// endsnippet:union-patterns
