@@ -14,8 +14,8 @@
         "samples/net10.0/ObservatoryLog/ObservatoryLog.csproj",
         "samples/net11.0/ObservatoryLog/ObservatoryLog.csproj"
       ],
-      "metadataSha256": "5f220dcd39948517b3e252501dfcef569d5f359297ba9acab1957925a324090e",
-      "markdownSha256": "b382d7aebc979e2aa26afe2aff74d14cdc8299d066cab8fc543b213442ede27a"
+      "metadataSha256": "35cccf488dd82efeb88dda7c92c98f0b72d06595e65247aeb0d46c89a3c80ee3",
+      "markdownSha256": "4efdb9f43c87b014a5b170c17a56495947d45b7f8cfa41441f902ce49589dcad"
     },
     {
       "id": "blazor.synchronize-agent-view-state",
@@ -27,8 +27,8 @@
         "samples/net10.0/MuseumCaptions/MuseumCaptions.csproj",
         "samples/net11.0/MuseumCaptions/MuseumCaptions.csproj"
       ],
-      "metadataSha256": "d8e76982bf7f780be4e233fa55fd7807db27424fe2bf7444c7e82fe19d1e1a6d",
-      "markdownSha256": "33d6547d2e739bcdfebcfac93795db38ea18cb245337575a29670ac8a4e307e7"
+      "metadataSha256": "5d3a0693fdec39b77084d0f9ea7416c4e1acf38e9ad8e43a5cde9d9f4e6b259c",
+      "markdownSha256": "3110f0bdda615ce1569fe0ff23fa49f34b02f11a6dcb6c13727878241af90d8a"
     },
     {
       "id": "ef.configure-generated-model-stage",
@@ -40,8 +40,8 @@
         "samples/net10.0/FernGeneration/FernGeneration.csproj",
         "samples/net11.0/FernGeneration/FernGeneration.csproj"
       ],
-      "metadataSha256": "0453adc161da0d3fb1c393b917384175ae43e71f1a6ebbab58f0f3c360c15bc6",
-      "markdownSha256": "f28790dc11f22d2fa9237eeb273eaaa5745436b344013eb668dbbb5cd0a82c30"
+      "metadataSha256": "80537fab8af268f4bb0c7389e533617a4a07a238f3bad9250158749961d7ecfd",
+      "markdownSha256": "67272f0742678924944b9a6b565ff85730345a7ef5143bfd6ca6784ea18b0c3d"
     },
     {
       "id": "ef.materialize-missing-projection",
@@ -53,8 +53,8 @@
         "samples/net10.0/PloverQueries/PloverQueries.csproj",
         "samples/net11.0/PloverQueries/PloverQueries.csproj"
       ],
-      "metadataSha256": "ef2eee827a41fd074ef0de6567fc89fcf4d3c5c11513f664c1cd4678d01f83b5",
-      "markdownSha256": "3e7a34d86c94d49025d4376cc1d8ebac1dc6b2c5bb62eb3677dfebefe74500e9"
+      "metadataSha256": "422489b9ffe441718d4e655bca7421109e8f9564fbe33a45076d0a5b81c22ee7",
+      "markdownSha256": "1a982b07922714fe360786bc54acd50745409d756481566907d95cc5c61c4cbd"
     },
     {
       "id": "hosting.select-direct-tls",
@@ -66,8 +66,8 @@
         "samples/net10.0/HarbourTls/HarbourTls.csproj",
         "samples/net11.0/HarbourTls/HarbourTls.csproj"
       ],
-      "metadataSha256": "993986cf7eedfa372b553a719503eddd59a7c5bb3ce123fa363b5a97dc2f66fd",
-      "markdownSha256": "624768f5bef083d05577c57a2801e7705f735b8220a620b1db97cc1c38ffc945"
+      "metadataSha256": "81c28d7ce95efae979cdb27b08386688bf2e37ea8c4636e0a39e010010bffae1",
+      "markdownSha256": "ee8f8b2544f6cf3bebfbf1009d4b31802daf323ed450a176ce291f0dce890d96"
     },
     {
       "id": "msbuild.archive-build-artifacts",
@@ -79,8 +79,8 @@
         "samples/net10.0/BuildArtifacts/BuildArtifacts.csproj",
         "samples/net11.0/BuildArtifacts/BuildArtifacts.csproj"
       ],
-      "metadataSha256": "d0d3eff49ddfd1d2c28e465c13a784e55f0b4ba9689b0ae5b5b85633b4cd6255",
-      "markdownSha256": "87206668c582236c37841972f0ac3b63ac43b3c0e5f6d1138fc18e8552d9dd24"
+      "metadataSha256": "bd05a1ef430b50b49476123ea202bee98a52e591c105757de8ddc8b4281881f0",
+      "markdownSha256": "2710ba4eaf302e93a6f50f0777b3bce17f2af5dc1364679541b017c2fff31f5d"
     },
     {
       "id": "msbuild.inspect-file-access-records",
@@ -92,8 +92,8 @@
         "samples/net10.0/BuildAccessObserver/BuildAccessObserver.csproj",
         "samples/net11.0/BuildAccessObserver/BuildAccessObserver.csproj"
       ],
-      "metadataSha256": "9d5fb751a0f22287789e1a271b5d3bff3dea54dae67b8fdabb95b232704d5683",
-      "markdownSha256": "93d94c0cdc2c7d00db2ba3d7f1b531364cfa86486fc0ee67430a79a1333ae7dc"
+      "metadataSha256": "d4ca639249500e91561bc62c7de306f3131c2c1b09d700c4ced0b2b79cf2fd54",
+      "markdownSha256": "e026d3d2898f9b309dd573f44fb89dcd6727398f6194124fd115ab49aade7a63"
     },
     {
       "id": "msbuild.inspect-item-globs",
@@ -105,8 +105,8 @@
         "samples/net10.0/BuildArtifacts/BuildArtifacts.csproj",
         "samples/net11.0/BuildArtifacts/BuildArtifacts.csproj"
       ],
-      "metadataSha256": "9d859b8af485d66a5d6fd7d3e1b00940ee0d0841e619467d741fb72076b90846",
-      "markdownSha256": "96aaecf984023132aa054da730feb9c3962980931ed6f6230b0f062022a9b938"
+      "metadataSha256": "1684e06f5cd00f8d0bdf7ee071926547345d7aae3f83836e40487a5a4879f42f",
+      "markdownSha256": "548def875fe71bf30fa40ad18e443ae220dffb3703e1fc59b76f9461d0f28bb6"
     },
     {
       "id": "numerics.align-tensor-shapes",
@@ -118,8 +118,8 @@
         "samples/net10.0/InstrumentBatch/InstrumentBatch.csproj",
         "samples/net11.0/InstrumentBatch/InstrumentBatch.csproj"
       ],
-      "metadataSha256": "18cfa82e95e647445cdca9d4813b5afe28bee5cd9a6571a42507a3f2ab3e8812",
-      "markdownSha256": "bea2b795fc4774386a38f04dd094792e8e6e42481969a94796cc970288bf1db7"
+      "metadataSha256": "6abaa2d3f6994d5669056c94482f98e2bb2f4f68a56556bb85a9e42422e0d1f0",
+      "markdownSha256": "34dc3e29b09cd762972fa08e91c27a393a10d23ef438971ab3dcef6cb5dec145"
     },
     {
       "id": "numerics.copy-tensor-views-safely",
@@ -131,8 +131,8 @@
         "samples/net10.0/GridTransform/GridTransform.csproj",
         "samples/net11.0/GridTransform/GridTransform.csproj"
       ],
-      "metadataSha256": "e80e46f725d0f36a3e31863112432ca23d0e684394d13be384a2e5dd66747fe8",
-      "markdownSha256": "f7897f23d5a183bed74b853c37b166a1b5814bd35d46c60210b29ae5063ccae0"
+      "metadataSha256": "996984f02b2b5b1e0f130a8d9586fff6f730db0007782636c1b9f08a75aac518",
+      "markdownSha256": "6c4d87cfdb6552f970cc06b420cb0ccb1371843f5cfcdd265e6fdd5af8858808"
     },
     {
       "id": "sdk.configure-cli-telemetry",
@@ -144,8 +144,8 @@
         "samples/net10.0/CliTelemetry/CliTelemetry.csproj",
         "samples/net11.0/CliTelemetry/CliTelemetry.csproj"
       ],
-      "metadataSha256": "971ef6457670fa615f1bb614ee267122ef74848b18d708492c2cf7f691dc3d37",
-      "markdownSha256": "ce9a51a851b36b0f8f59c23fb9bae485579eeca04cf7e32a3d53bca688258284"
+      "metadataSha256": "9f0da0bd4fe124905c0d831840c93e2ec3b2d356ad2d8b0327a9f2224f052c37",
+      "markdownSha256": "1cb1e4b8071e546f66cb7509c88198d6532db1b017e5526da454e06638a1ba2d"
     },
     {
       "id": "sdk.publish-multiarch-with-podman",
@@ -157,8 +157,8 @@
         "samples/net10.0/ContainerPublishing/ContainerPublishing.csproj",
         "samples/net11.0/ContainerPublishing/ContainerPublishing.csproj"
       ],
-      "metadataSha256": "d29a65c28f3fd5cf96bd205f2ab94299d49d88c6835ce846f6fb27b6b30811cf",
-      "markdownSha256": "fbf47c4f1093b500a4a124c2d4784633c4a26e771deddbbe28a48e86685ddc4e"
+      "metadataSha256": "6701405026e60d5330baedaf2a7c1900897d6dccfd62b7084db18a5a7df19e08",
+      "markdownSha256": "081d9fe3e9ac952ad053a084a8bdb12d7245101f97302bf394eecc1498a11dab"
     },
     {
       "id": "sdk.publish-reproducible-containers",
@@ -170,8 +170,8 @@
         "samples/net10.0/ContainerPublishing/ContainerPublishing.csproj",
         "samples/net11.0/ContainerPublishing/ContainerPublishing.csproj"
       ],
-      "metadataSha256": "b1d06b0f3f568dc3984e3a181c58d426d4e182f394dcb39586c1a4e932c441eb",
-      "markdownSha256": "38e92188aa3221ae62b61a7fd0bba2793b4a54c55ead0e3f31db37bd0fa2c6b2"
+      "metadataSha256": "0cf195c6a34d0e65b6c9df16e587c57dd849d7febfed2065372555a7cdf06a72",
+      "markdownSha256": "76b4d005bf14491adf67bcc7666cb05c342721dd6a01d683305d6ec25cefa698"
     },
     {
       "id": "sdk.select-affected-tests",
@@ -183,8 +183,8 @@
         "samples/net10.0/SeedBankMap/SeedBankMap.csproj",
         "samples/net11.0/SeedBankMap/SeedBankMap.csproj"
       ],
-      "metadataSha256": "49064948818953a16267e7fa7daa48fe3db514960af65cfc669948fe29d93a1a",
-      "markdownSha256": "bbddd14c18181848616a56ddfe17171d98cedd6db5120cf248de9f57c7c8718e"
+      "metadataSha256": "e461dca8ab1ee8eb7be88ca3f2e466e25a6398c0da391d22dd31c846f1dead8c",
+      "markdownSha256": "b838fe0dbace4a2c469273c7175e1120591408cb6003e2c88dc2acfd280dc8d0"
     },
     {
       "id": "sdk.select-local-container-engine",
@@ -196,8 +196,8 @@
         "samples/net10.0/ContainerPublishing/ContainerPublishing.csproj",
         "samples/net11.0/ContainerPublishing/ContainerPublishing.csproj"
       ],
-      "metadataSha256": "030ea5631cdd6a3849be60647997413b8e4bd1eb118866e67c3ae15069bc4c93",
-      "markdownSha256": "da29f9c1072a6df85beaee8a4f8711bb74bb7a9dc18deff85d7ad2390fcfda55"
+      "metadataSha256": "0d15d9cf9b8b689060db2e3f78b0beb1714dc3e6dbc0026a2b69e47dd872e2da",
+      "markdownSha256": "39f70626c5dc280d54bf043f3d23e9e964fa1f983569b97345aa4d9c66286e1d"
     }
   ]
 }

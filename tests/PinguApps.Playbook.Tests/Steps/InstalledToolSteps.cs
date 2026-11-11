@@ -1627,7 +1627,7 @@ public sealed class InstalledToolSteps : IDisposable
         }
     }
 
-    [Then("configuration options and cache guidance retains complete bodies applicability and RC limitations")]
+    [Then("configuration options and cache guidance retains complete bodies applicability and measured limitations")]
     public async Task CheckConfigurationOptionsCacheAsync()
     {
         string[] ids = ["configuration.exclude-properties", "configuration.await-change-callback", "options.validate-with-di", "options.validate-asynchronously", "cache.observe-memory-cache", "cache.select-options-from-value"];
@@ -1674,7 +1674,7 @@ public sealed class InstalledToolSteps : IDisposable
             {
                 Assert.Contains("ignores LocalSize", summary.ToString(), StringComparison.Ordinal);
                 Assert.Contains("requests 24 units", expected, StringComparison.Ordinal);
-                Assert.Contains("GA reconciliation", expected, StringComparison.Ordinal);
+                Assert.Contains("GA rerun", expected, StringComparison.Ordinal);
                 Assert.Contains("10.11.0", requirements.GetProperty("packages").ToString(), StringComparison.Ordinal);
             }
             else if (id == "options.validate-asynchronously")

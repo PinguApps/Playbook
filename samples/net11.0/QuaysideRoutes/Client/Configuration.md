@@ -1,7 +1,7 @@
 // snippet:n11-global-json
 {
   "sdk": {
-    "version": "11.0.100-rc.3.26522.148",
+    "version": "11.0.100",
     "rollForward": "disable",
     "allowPrerelease": false
   }
