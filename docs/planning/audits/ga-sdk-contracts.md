@@ -27,13 +27,14 @@ recapture or relabelling of historical execution. Unchanged sample inputs retain
 their existing proof; native exclusions, pending Human checks, eight historical
 foundations and PIN-967 remain intact.
 
-PIN-1301 remains a separate behavior decision: an actual independent TestHost
+PIN-1301 retains the independent 18.11.0 package under Pingu's explicit decision: an actual independent TestHost
 18.11.0 consumer retains the synthetic Password value in Message.ToString(),
 whereas an isolated probe of the actual GA SDK assemblies preserves RawMessage
 and redacts that Password value in ToString(). The SDK probe is artifact
 diagnosis, not a supported SDK-DLL acquisition route for the recipe. No logging
-guarantee for arbitrary payloads follows from either observation. The combined
-change remains unpublished pending resolution and complete behavior proof.
+guarantee for arbitrary payloads follows from either observation. The original laboratory harness now includes explicit old/current independent
+package controls and a separate hashed SDK diagnostic probe. The final stable
+gate remains PIN-967; this correction does not authorize release.
 
 PIN-963, 11 November 2026. Bounded source/artifact release decision register.
 This does not close PIN-967 or authorize publication.

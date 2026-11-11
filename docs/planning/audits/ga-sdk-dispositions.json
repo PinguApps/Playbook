@@ -1147,8 +1147,10 @@
       "id": "testing.migrate-vstest-message-readers",
       "previousStability": "preview",
       "stability": "stable",
-      "disposition": "Stable GA SDK or separately pinned stable package contract; retain bounded evidence, exclusions and Human gates.",
+      "disposition": "Stable independent TestHost18.11 package retained by user decision. Its synthetic Password remains in ToString; separate hashed GA SDK artifact redacts it. RawMessage and typed payloads remain distinct from diagnostics.",
       "sources": [
+        "https://github.com/dotnet/dotnet/blob/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/vstest/src/Microsoft.TestPlatform.CommunicationUtilities/Messages/Message.cs",
+        "https://github.com/dotnet/dotnet/blob/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/vstest/src/Microsoft.TestPlatform.Common/Utilities/SecretRedaction.cs",
         "https://learn.microsoft.com/en-us/dotnet/core/compatibility/sdk/11/vstest-removes-newtonsoft-json",
         "https://www.nuget.org/packages/Microsoft.TestPlatform.TestHost/18.11.0",
         "https://github.com/microsoft/vstest/blob/36206450d47fec22e281ba9846445edc796f5080/src/Microsoft.TestPlatform.CommunicationUtilities/JsonDataSerializer.cs",
@@ -1164,8 +1166,8 @@
         "samples/net10.0/LaboratoryBridge/LaboratoryBridge.csproj",
         "samples/net11.0/LaboratoryBridge/LaboratoryBridge.csproj"
       ],
-      "metadataSha256": "0c9e09d776c5f481da5c778e29c3de614b2436cf49250608ce05b9350c237956",
-      "markdownSha256": "7bc197fb164854ec094c9055be965bd453b25c03d9feff51d6c56e31c3557939"
+      "metadataSha256": "8c45228b2213beea1a09cfa16a2ab684a58c42aef05d64475ebb2031282988c2",
+      "markdownSha256": "bf0057053507b13bc6ac1ddd809cf4b1ae786112c3ec4e0b9c346e8b435e72c2"
     },
     {
       "id": "testing.migrate-vstest-session-host",

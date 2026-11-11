@@ -11,6 +11,26 @@ using PayloadException = System.Text.Json.JsonException;
 
 var serializer = JsonDataSerializer.Instance;
 Console.WriteLine($"runtime={Environment.Version};platform={typeof(Message).Assembly.FullName}");
+// Synthetic values only. This envelope is a diagnostic control, not a LabRun.
+var secretWire = "{\"Version\":2,\"MessageType\":\"CwmLab.Environment\",\"Payload\":{\"Password\":\"synthetic-lab-secret\",\"Bench\":\"bench-4\"}}";
+#if LEGACY_PLATFORM
+var oldDiagnostic = serializer.DeserializeMessage(secretWire);
+if (oldDiagnostic.MessageType != "CwmLab.Environment") throw new InvalidDataException();
+Console.WriteLine("PASS old18.7-secret-envelope-header;no-current-RawMessage-contract");
+#else
+var diagnostic = serializer.DeserializeMessage(secretWire);
+if (diagnostic.RawMessage != secretWire) throw new InvalidDataException("Raw envelope changed.");
+if (args.Length == 1 && args[0] == "--sdk-diagnostics")
+{
+    // Harness-only artifact comparison. SDK DLL copying is not the acquisition route.
+    if (diagnostic.ToString() != secretWire.Replace("synthetic-lab-secret", "<redacted>", StringComparison.Ordinal))
+        throw new InvalidDataException("SDK diagnostic redaction changed.");
+    Console.WriteLine("PASS SDK-secret-redacted;raw-envelope-preserved;ordinary-property-retained");
+    return;
+}
+if (diagnostic.ToString() != secretWire) throw new InvalidDataException("Independent 18.11 diagnostic behavior changed.");
+Console.WriteLine("PASS NuGet18.11-secret-retained;raw-envelope-preserved;no-redaction-guarantee");
+#endif
 if (args.Length == 2 && args[0] == "--read")
 {
     TypedBridge.Read(File.ReadAllText(args[1])).Check();
@@ -27,7 +47,7 @@ foreach (var version in new[] { 1, 2 })
 #else
     var message = serializer.DeserializeMessage(wire);
     if (message.Version != (version == 1 ? 0 : version) || message.MessageType != TypedBridge.Completion
-        || message.RawMessage != wire || message.ToString() != wire)
+        || message.RawMessage != wire)
         throw new InvalidDataException("Header/raw-message semantics changed.");
 #endif
     Console.WriteLine($"PASS protocol={version};typed-platform-graph;batch=vial-204");

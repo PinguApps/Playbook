@@ -95,7 +95,7 @@
           ],
           "constraints": [
             "Known original laboratory payload uses TestCase, TestObject traits, TestResult and ITestRunStatistics; both protocol 1/2 graphs and cross-version wires are executed.",
-            "Message.Version is 0 when protocol 1 serialization omits Version; 2 remains 2. RawMessage is the full unchanged JSON envelope, not the payload. Header parsing alone can accept malformed payload JSON.",
+            "Message.Version is 0 when protocol 1 serialization omits Version; 2 remains 2. RawMessage is the full unchanged JSON envelope, not the payload. NuGet TestHost18.11 retains the synthetic Password in ToString; the separately hashed GA SDK artifact redacts it. Diagnostic text is not a protocol or arbitrary-payload logging guarantee. Header parsing alone can accept malformed payload JSON.",
             "Bridge accepts only message kind CwmLab.BatchCompleted and negotiated versions 0/1/2, validates required domain fields and rejects null/malformed payloads. This is a local protocol example, not a VSTest transport/negotiation implementation.",
             "Use ITestRunStatistics. On actual 18.11 a concrete TestRunStatistics read preserves ExecutedTests but loses its Passed count; the measured limitation is explicit.",
             "All eight named removed contracts have old compile and current failure controls, even with explicit Newtonsoft. The note names TestPlatformContractResolver<T>; actual 18.7 exports the nongeneric TestPlatformContractResolver1. No generic equivalent is invented.",
@@ -182,7 +182,7 @@
           ],
           "constraints": [
             "Known original laboratory payload uses TestCase, TestObject traits, TestResult and ITestRunStatistics; both protocol 1/2 graphs and cross-version wires are executed.",
-            "Message.Version is 0 when protocol 1 serialization omits Version; 2 remains 2. RawMessage is the full unchanged JSON envelope, not the payload. Header parsing alone can accept malformed payload JSON.",
+            "Message.Version is 0 when protocol 1 serialization omits Version; 2 remains 2. RawMessage is the full unchanged JSON envelope, not the payload. NuGet TestHost18.11 retains the synthetic Password in ToString; the separately hashed GA SDK artifact redacts it. Diagnostic text is not a protocol or arbitrary-payload logging guarantee. Header parsing alone can accept malformed payload JSON.",
             "Bridge accepts only message kind CwmLab.BatchCompleted and negotiated versions 0/1/2, validates required domain fields and rejects null/malformed payloads. This is a local protocol example, not a VSTest transport/negotiation implementation.",
             "Use ITestRunStatistics. On actual 18.11 a concrete TestRunStatistics read preserves ExecutedTests but loses its Passed count; the measured limitation is explicit.",
             "All eight named removed contracts have old compile and current failure controls, even with explicit Newtonsoft. The note names TestPlatformContractResolver<T>; actual 18.7 exports the nongeneric TestPlatformContractResolver1. No generic equivalent is invented.",
@@ -209,6 +209,8 @@
     ]
   },
   "sources": [
+    { "url": "https://github.com/dotnet/dotnet/blob/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/vstest/src/Microsoft.TestPlatform.CommunicationUtilities/Messages/Message.cs", "title": "Distinct GA SDK diagnostic string representation" },
+    { "url": "https://github.com/dotnet/dotnet/blob/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/vstest/src/Microsoft.TestPlatform.Common/Utilities/SecretRedaction.cs", "title": "Name-based string-property redaction and its bounded scope" },
     {
       "url": "https://learn.microsoft.com/en-us/dotnet/core/compatibility/sdk/11/vstest-removes-newtonsoft-json",
       "title": "Official VSTest JSON/public API removal"

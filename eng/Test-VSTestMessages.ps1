@@ -130,6 +130,21 @@ try {
       Assert-Text (Invoke-Consumer $capture.Case.Dotnet $scratch @((Join-Path $capture.Deploy 'LaboratoryBridge.dll'),'--read',"$($foreign.Wire)-v$version.json")) 'PASS foreign-wire'
     }
   }
+  # Separate artifact diagnosis, not the supported NuGet acquisition route.
+  # Replace the complete platform set in a disposable current consumer only.
+  $ga = Get-Content (Join-Path $root 'docs/planning/audits/ga-sdk-contracts.sources.json') -Raw | ConvertFrom-Json
+  $sdkDirectory = Join-Path (Split-Path $Net11Dotnet) 'sdk/11.0.100'
+  if (-not (Get-Content (Join-Path $sdkDirectory '.version') -Raw).Contains($ga.gaSource)) { throw 'GA SDK identity mismatch.' }
+  $sdkProbe = Join-Path $scratch 'sdk-artifact-diagnostics'
+  Copy-Item $captures[2].Deploy $sdkProbe -Recurse
+  foreach ($assembly in Get-ChildItem $sdkProbe -Filter '*TestPlatform*.dll') {
+    $source = Join-Path $sdkDirectory $assembly.Name
+    $identity = @($ga.tooling | Where-Object path -CEQ $assembly.Name)
+    if ($identity.Count -ne 1 -or (Get-FileHash $source).Hash.ToLowerInvariant() -cne $identity[0].gaSha256) { throw "GA platform artifact mismatch: $($assembly.Name)" }
+    Copy-Item $source $assembly.FullName -Force
+    $log.Add("sdk-artifact=$($assembly.Name);product=$($identity[0].productVersion);sha256=$($identity[0].gaSha256)")
+  }
+  Assert-Text (Invoke-Consumer $Net11Dotnet $scratch @((Join-Path $sdkProbe 'LaboratoryBridge.dll'),'--sdk-diagnostics')) 'PASS SDK-secret-redacted;raw-envelope-preserved;ordinary-property-retained'
   # Compile every removed symbol independently. A direct Newtonsoft reference is
   # present in BOTH lanes; it cannot bring the removed platform contracts back.
   $probe = Join-Path $scratch 'compile-controls'

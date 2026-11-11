@@ -103,8 +103,14 @@ compatibility. JSON ownership in tests/extensions is a separate recipe.
 ### Header, payload and protocol semantics
 
 - `Message.MessageType` is the routing key. `RawMessage` is the **entire unchanged
-  received JSON envelope**, including its payload. Current `ToString()` returns
-  that raw text; an empty current Message returns `{}`. It is not a payload API.
+  received JSON envelope**, including its payload. The independently shipped
+  TestHost **18.11.0** retains that text in `ToString()` for the synthetic
+  Password control. The GA SDK bundled **18.11.0-release-26504-105** artifact
+  instead redacts secret-named string properties in diagnostic `ToString()`.
+  An empty current Message returns `{}`. Neither is a payload API. Use
+  RawMessage for protocol decoding; do not assume diagnostic text is unchanged
+  or safe to log. Name-based redaction does not guarantee removal of secrets
+  in arbitrary payloads.
 - Serializing with protocol 1 omits Version; current `DeserializeMessage` reports
   **0**. Explicit protocol 2 reports **2**. This bridge accepts only its negotiated
   0/1/2 set and exact completion kind. It rejects 99 before decoding; the actual
@@ -218,3 +224,10 @@ open; existing Human gates and the exact eight foundations remain unchanged.
 - [Public serializer at the actual 18.11 package source commit](https://github.com/microsoft/vstest/blob/36206450d47fec22e281ba9846445edc796f5080/src/Microsoft.TestPlatform.CommunicationUtilities/JsonDataSerializer.cs).
 - [Modern serializer and protocol implementation](https://github.com/microsoft/vstest/blob/36206450d47fec22e281ba9846445edc796f5080/src/Microsoft.TestPlatform.CommunicationUtilities/JsonDataSerializer.Stj.cs).
 - [NuGet locked restoration](https://learn.microsoft.com/en-us/nuget/consume-packages/package-references-in-project-files#locking-dependencies).
+
+The secret-envelope controls retain the selected NuGet 18.11.0 package. A separate
+GA SDK artifact probe verifies redaction and raw preservation against hashed SDK
+assemblies; that disposable diagnostic comparison is not a supported SDK-DLL
+acquisition or deployment route. Ordinary typed payload decoding continues through
+the independently restored package closure. Old18.7 header behavior is an explicit
+control, without inferring the removed/current raw-message contract.
