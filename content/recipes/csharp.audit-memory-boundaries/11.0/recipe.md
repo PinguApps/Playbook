@@ -60,6 +60,47 @@ The actual GA `ReadOnlySpan<byte>(void*, int)` call also requires an unsafe cont
 
 ## Migration
 
+### Check the effective language version first
+
+The TFM supplies the default language version; `global.json` selects the SDK.
+An explicit `LangVersion` or inherited build properties can override that default.
+Inspect the project and `Directory.Build.props`/targets. Temporarily add
+`#error version` to a compiled source file and build: CS8304 reports the compiler
+and selected language. Remove the directive, then rebuild successfully. For net11.0,
+omit `LangVersion` for its stable default or explicitly choose `15.0` for stable
+code. This experimental recipe deliberately uses `preview` plus its feature switch.
+Avoid `LangVersion=latest`, which changes with the installed compiler; it does not
+mean preview. Playbook's `targetVersion=latest` selects the newest catalogue target,
+not a C# language setting. No newer-language/older-TFM route is supported here.
+
+### Declaration and caller migration reference
+
+These are bounded preview migration checks, not stable C# 15 promises. The actual
+SDK 11.0.100 probes in `eng/Test-UnsafeBoundaries.ps1` take precedence over evolving
+proposal text. Keep the checked beacon wrapper as the normal application surface.
+
+| Review surface | Migration decision and measured boundary |
+| --- | --- |
+| Native declarations | Every extern needs an explicit `safe` assertion or `unsafe` caller obligation (CS9389). The safe `LibraryImport` partial declaration also compiles with the real SDK generator; inspect generated declarations too. Generation does not validate the native signature or calling convention. Native execution is outside this example. |
+| Layout and fields | Explicit layout without a field decision produces CS9392. Review packed/nonzero-size layouts too: the current proposal requires annotations, but the pinned compiler accepts the unannotated Pack=1 probe. Treat that as missing enforcement, not evidence of safety. Writing an unsafe field requires an audit context (CS9362), just like reading it. |
+| Properties and events | Accessor obligations are distinct from backing-field obligations. Marking a property/event unsafe does not mark its backing field. Choose a property modifier or individual accessor modifiers, not both (CS9396); do not repeat the same modifier on every accessor. Event add/remove accessors cannot have independent modifiers (CS1609); annotate the event. |
+| Constructors | A parameterless unsafe constructor needs an audit when satisfying `new()` in an expression (CS9376). The `struct` constraint probe also reports CS9376; the audited new-constraint call succeeds. Declaration-position combinations remain source-reviewed; inspect them before changing generic public contracts. An unsafe block around a declaration is not a compatibility strategy. |
+| Polymorphism | Do not add caller obligations through an override (CS9364) or implicit interface implementation (CS9365): callers can still use the safe base/interface declaration. |
+| Delegates and nested code | Converting an unsafe method to a delegate needs an audit (CS9362). The delegate does not retain a caller obligation, so the conversion must discharge it. A local function needs its own unsafe modifier to propagate an obligation; an enclosing method modifier does not do this. Lambdas cannot declare requires-unsafe contracts; audit operations in their bodies. |
+| Partial declarations | Keep safe/unsafe decisions consistent between both parts; the mismatched unsafe probe produces CS0764. Review source-generator output as well as authored code. |
+| Contextual names | Escape an existing type named safe as `@safe` (or qualify it) where the contextual keyword would change parsing. The escaped-name probe compiles. |
+| Expression and async scopes | `unsafe(expression)` acknowledges only the enclosed expression. `await unsafe(ReadAsync())` keeps the acknowledgement around the call. Never let a pointer outlive its allocation/pin; awaiting inside fixed is rejected (CS9398). Later proposal language about suspension does not extend storage lifetimes. |
+| Stack storage | Under SkipLocalsInit, an uninitialized stackalloc span requires audit (CS9361), even if the next statement clears it. Prefer an initializer; the initialized probe executes safely. Never inspect uninitialized bytes to test this rule. |
+| Legacy assemblies | Recompile callers as well as libraries. The real C# 14 library probes reject calls to pointer and function-pointer-returning methods with CS9363. Do not infer protection from pointer-free annotations. These are focused shapes, not an exhaustive legacy compatibility guarantee. |
+
+Diagnostic numbers are compiler-specific evidence. CS9363 identifies legacy
+pointer-signature compatibility; CS9376 constructor constraints; CS9392 explicit
+layout fields. CS9401 has no named ErrorCode in this pinned compiler; do not
+substitute it for observed CS9361. Rules not independently probed here (including the full
+LibraryImport generator surface, declaration-position constraints and all legacy
+function-pointer shapes) remain source-reviewed migration considerations, not
+verified compiler/runtime guarantees. Recheck those exact consumers when migrating.
+
 1. Keep a working .NET 10 baseline and inventory each raw operation's length, lifetime, ownership and pinning preconditions.
 2. After obtaining explicit user opt-in, opt the .NET 11 library and relevant consumers into preview plus `updated-memory-safety-rules`. Keep `AllowUnsafeBlocks=true` where unsafe syntax is used.
 3. Review every declaration modifier. Add explicit body contexts around actual operations; use member `unsafe` only when the caller has a real obligation. Preserve the narrow checked wrapper and existing public compatibility commitments.

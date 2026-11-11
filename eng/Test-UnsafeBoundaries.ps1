@@ -8,6 +8,8 @@ $scratch = Join-Path ([IO.Path]::GetTempPath()) ('playbook-unsafe-' + [guid]::Ne
 New-Item -ItemType Directory $scratch | Out-Null
 $previousNativePreference = $PSNativeCommandUseErrorActionPreference
 $previousIntegration = $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH
+$savedPaths = @{}
+foreach ($scope in 'Process','User','Machine') { $savedPaths[$scope] = [Environment]::GetEnvironmentVariable('PATH', $scope) }
 try {
   $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH = '0'
   $PSNativeCommandUseErrorActionPreference = $false
@@ -52,6 +54,34 @@ public static class Program {
 }
 '@
   $cases = @(
+    @{ Name = 'unsafe constructor struct constraint'; Source = 'struct Beacon { public unsafe Beacon() {} } class Program { static T Make<T>() where T:struct => new T(); static void Main() { _ = Make<Beacon>(); } }'; Pattern = 'CS9376' },
+    @{ Name = 'audited constructor constraint'; Source = 'class Beacon { public unsafe Beacon() {} } class Program { static T Make<T>() where T:new() => new T(); static void Main() { _ = unsafe(Make<Beacon>()); } }'; Run = $true },
+    @{ Name = 'LibraryImport generated safe declaration'; Source = 'partial class Program { [System.Runtime.InteropServices.LibraryImport("beacon")] public static safe partial int Read(); static void Main() {} }' },
+    @{ Name = 'legacy pointer signature compatibility'; Source = 'class Program { static void Main() { _ = Legacy.Echo(null); } }'; Pattern = 'CS9363' },
+    @{ Name = 'legacy function pointer signature compatibility'; Source = 'class Program { static void Main() { _ = Legacy.Callback(); } }'; Pattern = 'CS9363' },
+    @{ Name = 'unsafe property backing field is independent'; Source = 'class Program { public unsafe int Value { get => field; set => field = value; } static void Main() { var p = new Program(); unsafe { p.Value = 2; if(p.Value != 2) throw new System.Exception(); } } }'; Run = $true },
+    @{ Name = 'TFM default diagnostic'; Source = "#error version`nclass Program { static void Main() {} }"; Language = ''; Features = ''; Pattern = 'CS8304:.*Language version: 15.0' },
+    @{ Name = 'explicit stable diagnostic'; Source = "#error version`nclass Program { static void Main() {} }"; Language = '15.0'; Features = ''; Pattern = 'CS8304:.*Language version: 15.0' },
+    @{ Name = 'default mode cleaned source'; Source = 'class Program { static void Main() {} }'; Language = ''; Features = ''; Run = $true },
+    @{ Name = 'explicit mode cleaned source'; Source = 'class Program { static void Main() {} }'; Language = '15.0'; Features = ''; Run = $true },
+    @{ Name = 'extern needs explicit safety'; Source = 'class Program { [System.Runtime.InteropServices.DllImport("beacon")] public static extern int Read(); static void Main() {} }'; Pattern = 'CS9389' },
+    @{ Name = 'extern safe and unsafe declarations'; Source = 'class Program { [System.Runtime.InteropServices.DllImport("beacon")] public static safe extern int Read(); [System.Runtime.InteropServices.DllImport("beacon")] public static unsafe extern int Write(); static void Main() {} }' },
+    @{ Name = 'packed field requirement not enforced by this compiler'; Source = '[System.Runtime.InteropServices.StructLayout(System.Runtime.InteropServices.LayoutKind.Sequential, Pack=1)] struct Slot { public int Value; } class Program { static void Main() {} }' },
+    @{ Name = 'unsafe field write'; Source = 'class Program { static unsafe int Value; static void Main() { Value = 1; } }'; Pattern = 'CS9362' },
+    @{ Name = 'safe contextual name escape'; Source = 'class @safe {} class Program { static void Main() { _ = new @safe(); } }' },
+    @{ Name = 'unsafe constructor new constraint'; Source = 'class Beacon { public unsafe Beacon() {} } class Program { static T Make<T>() where T:new() => new T(); static void Main() { _ = Make<Beacon>(); } }'; Pattern = 'CS9376' },
+    @{ Name = 'override cannot strengthen caller obligation'; Source = 'class Base { public virtual void Read() {} } class Program:Base { public override unsafe void Read() {} static void Main() {} }'; Pattern = 'CS9364' },
+    @{ Name = 'interface cannot strengthen caller obligation'; Source = 'interface I { void Read(); } class Program:I { public unsafe void Read() {} static void Main() {} }'; Pattern = 'CS9365' },
+    @{ Name = 'delegate conversion requires audit'; Source = 'class Program { static unsafe void Read() {} static void Main() { System.Action action = Read; action(); } }'; Pattern = 'CS9362' },
+    @{ Name = 'delegate conversion with audit'; Source = 'class Program { static unsafe void Read() {} static void Main() { System.Action action = unsafe((System.Action)Read); action(); } }'; Run = $true },
+    @{ Name = 'local function requires audit'; Source = 'class Program { static void Main() { unsafe void Read() {} Read(); } }'; Pattern = 'CS9362' },
+    @{ Name = 'partial modifiers must match'; Source = 'partial class Program { static partial void Read(); static unsafe partial void Read() {} static void Main() {} }'; Pattern = 'CS0764' },
+    @{ Name = 'property and accessor modifiers conflict'; Source = 'class Program { public unsafe int Value { safe get => 1; } static void Main() {} }'; Pattern = 'CS9396' },
+    @{ Name = 'event accessor cannot carry modifier'; Source = 'class Program { public event System.Action Changed { unsafe add {} remove {} } static void Main() {} }'; Pattern = 'CS1609' },
+    @{ Name = 'skip locals init requires stack audit'; Source = 'class Program { [System.Runtime.CompilerServices.SkipLocalsInit] static void Main() { System.Span<int> values = stackalloc int[2]; values.Clear(); } }'; Pattern = 'CS9361' },
+    @{ Name = 'initialized stack allocation'; Source = 'class Program { [System.Runtime.CompilerServices.SkipLocalsInit] static void Main() { System.Span<int> values = stackalloc int[] { 1, 2 }; if(values[0] != 1) throw new System.Exception(); } }'; Run = $true },
+    @{ Name = 'await audited call'; Source = 'class Program { static unsafe System.Threading.Tasks.Task Read() => System.Threading.Tasks.Task.CompletedTask; static async System.Threading.Tasks.Task Main() { await unsafe(Read()); } }'; Run = $true },
+    @{ Name = 'fixed cannot cross await'; Source = 'class Program { static async System.Threading.Tasks.Task Main() { byte[] bytes = [1]; fixed(byte* p = bytes) { await System.Threading.Tasks.Task.Yield(); } } }'; Pattern = 'CS9398' },
     @{ Name = 'external caller and metadata'; Source = $consumer; Run = $true },
     @{ Name = 'caller must acknowledge the public unsafe member'; Source = $consumer.Replace('unsafe(BeaconFrame.ReadRaw(address))', 'BeaconFrame.ReadRaw(address)'); Pattern = 'CS9362' },
     @{ Name = 'member modifier does not authorize its body'; Source = $bodyWithoutContext; Pattern = 'CS9360' },
@@ -68,6 +98,11 @@ public static class Program {
   )
   Push-Location $scratch
   try {
+    New-Item -ItemType Directory Legacy | Out-Null
+    '<Project Sdk="Microsoft.NET.Sdk"><PropertyGroup><TargetFramework>net11.0</TargetFramework><LangVersion>14.0</LangVersion><AllowUnsafeBlocks>true</AllowUnsafeBlocks></PropertyGroup></Project>' | Set-Content Legacy/Legacy.csproj
+    'public static unsafe class Legacy { public static int* Echo(int* p) => p; public static delegate*<void> Callback() => null; }' | Set-Content Legacy/Legacy.cs
+    $legacyBuild = & $Net11Dotnet build Legacy/Legacy.csproj -c Release --nologo 2>&1 | Out-String
+    if ($LASTEXITCODE -ne 0) { throw $legacyBuild }
     foreach ($case in $cases) {
       $allow = if ($case.ContainsKey('Allow')) { $case.Allow } else { 'true' }
       $language = if ($case.ContainsKey('Language')) { $case.Language } else { 'preview' }
@@ -76,6 +111,7 @@ public static class Program {
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup><TargetFramework>net11.0</TargetFramework><LangVersion>$language</LangVersion><Features>$features</Features><AllowUnsafeBlocks>$allow</AllowUnsafeBlocks><Nullable>enable</Nullable><TreatWarningsAsErrors>true</TreatWarningsAsErrors><OutputType>Exe</OutputType></PropertyGroup>
   <ItemGroup><Reference Include="UnsafeBoundaries"><HintPath>$assembly</HintPath></Reference></ItemGroup>
+  <ItemGroup><Compile Remove="Legacy/**/*.cs" /><Reference Include="Legacy"><HintPath>Legacy/bin/Release/net11.0/Legacy.dll</HintPath></Reference></ItemGroup>
 </Project>
 "@ | Set-Content Probe.csproj
       $case.Source | Set-Content Probe.cs
@@ -97,6 +133,9 @@ public static class Program {
     }
 
     # Build the exact offline setup without the repository's shared sample properties or test program.
+    $legacyPath = [IO.Path]::GetFullPath((Join-Path $scratch 'Legacy'))
+    if (-not $legacyPath.StartsWith([IO.Path]::GetFullPath($scratch) + [IO.Path]::DirectorySeparatorChar, [StringComparison]::OrdinalIgnoreCase)) { throw 'Unexpected legacy scratch path.' }
+    Remove-Item -LiteralPath $legacyPath -Recurse -Force
     $projectSource = Get-Content (Join-Path $sample 'UnsafeBoundaries.csproj') -Raw
     $properties = [regex]::Match($projectSource, '(?s)<!-- snippet:project -->\r?\n(.*?)\s*<!-- endsnippet:project -->').Groups[1].Value
     '<Project Sdk="Microsoft.NET.Sdk">' + $properties + '</Project>' | Set-Content Probe.csproj
@@ -114,6 +153,9 @@ public static class Program {
 finally {
   $PSNativeCommandUseErrorActionPreference = $previousNativePreference
   $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH = $previousIntegration
+  foreach ($scope in 'Process','User','Machine') {
+    if ([Environment]::GetEnvironmentVariable('PATH', $scope) -cne $savedPaths[$scope]) { throw "$scope PATH changed; preserve shared settings and investigate." }
+  }
   $resolved = [IO.Path]::GetFullPath($scratch)
   if (-not $resolved.StartsWith([IO.Path]::GetFullPath([IO.Path]::GetTempPath()), [StringComparison]::OrdinalIgnoreCase)) { throw 'Unexpected scratch path.' }
   Remove-Item -LiteralPath $resolved -Recurse -Force
