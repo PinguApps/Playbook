@@ -2,7 +2,7 @@
   "id": "csharp.audit-memory-boundaries",
   "edition": "11.0",
   "title": "Express and check unsafe memory boundaries (experimental)",
-  "goal": "Use experimental unsafe member contracts with explicit user opt-in when raw memory imposes caller obligations; document safety contracts and retain checked wrappers.",
+  "goal": "Audit experimental declaration and caller migration contracts with explicit user opt-in; diagnose the effective language version and retain checked memory wrappers.",
   "areas": [
     "csharp"
   ],
@@ -115,6 +115,10 @@
     ]
   },
   "sources": [
+    {
+      "title": "Configure and diagnose the effective C# language version",
+      "url": "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/configure-language-version"
+    },
     {
       "title": "C# memory safety preview",
       "url": "https://learn.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-15#memory-safety"

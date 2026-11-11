@@ -1,4 +1,5 @@
 {
+  "incrementalMigrationReview": {"date":"2026-11-11","issues":["PIN-1298","PIN-1299"],"recipe":"csharp.audit-memory-boundaries","sdk":"11.0.100","disposition":"Included in existing experimental recipe; historical captures below remain unchanged","sources":["https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/proposals/unsafe-evolution","https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/configure-language-version"],"checks":"eng/Test-UnsafeBoundaries.ps1","limits":"Pack=1 is accepted without annotation; CS9401 is absent from pinned ErrorCode. No native invocation or stable C#15 memory-safety claim."},
   "scope": "GA language/compiler source and bundled artifact reconciliation; no consumer execution",
   "gaSource": "297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
   "rcSource": "820230c386db5b0106c5430b3e5aee92a7826bf5",

@@ -257,3 +257,29 @@ assemblies; saved sample compilation records are refreshed only for changed
 net11 consumers. The supplied csharp-15 attachment is a gap inventory, not source
 or execution evidence. No provider, release-readiness or publication claim is
 added; stable IDs, fictional domains and historical original deliveries remain.
+
+## Incremental migration coverage — 11 November 2026
+
+PIN-1298 and PIN-1299 extend the existing experimental memory-boundary recipe and
+companion instructions. Official unsafe-evolution and language-version references
+are reconciled against SDK11.0.100/Roslyn5.12.0-1.26529.118 (VMR297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f).
+Disposition: included, with measured compiler differences retained. The attached
+skill was a gap inventory, not proof. Historical receipts below/above remain historical.
+
+`eng/Test-UnsafeBoundaries.ps1` rebuilds real temporary consumers and a separate
+legacy C#14 library. Checks cover extern safety, generated LibraryImport,
+explicit/packed fields, unsafe writes and backing fields, constructor constraints,
+overrides/interfaces, delegates/locals/partials/accessors, escaped safe names,
+async/fixed and initialized/uninitialized SkipLocalsInit stack storage. Only valid
+managed/pinned examples execute; native imports are compiled, never invoked.
+CS9363, CS9376 and CS9392 are observed. The exact compiler's ErrorCode enum names
+9363 as ERR_UnsafeMemberOperationCompat, 9376 as ERR_UnsafeConstructorConstraint,
+9392 as ERR_ExplicitOrExtendedLayoutFieldRequiresUnsafeOrSafe; it has no 9401 name.
+The actual stack allocation diagnostic is CS9361. Pack=1 without a field annotation
+compiles, unlike the current proposal requirement. Unprobed combinations stay
+explicitly source-reviewed, not a stable C#15 or exhaustive compatibility claim.
+
+Default net11.0 and explicit15.0 builds report CS8304/compiler identity with the
+temporary version directive, then rebuild and execute after removal. Preview and
+catalogue latest remain distinct. No repository language policy or older-target
+support route changes. Both sample receipts are refreshed because their declared inputs include the changed shared probe script; historical commits remain untouched.

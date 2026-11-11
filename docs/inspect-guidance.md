@@ -4815,3 +4815,28 @@ its unusable retrieval proxies demonstrate embedded delivery, not OS network
 isolation. Separate consumer checks are `eng/Test-IndexerJumpContracts.ps1` and
 the CollectionLike/EnclosingLoops samples. IDE0410 is observed during build;
 interactive IDE code-fix application and database/provider behavior are not claimed.
+
+## Experimental memory migration and language diagnosis
+
+From an unrelated directory in PowerShell 7, select the exact worktree below.
+SDK11.0.100/ref/runtime11.0.0 and Node are required. Setup builds/packs locally,
+installs pinned Inspector and installs that exact package in an isolated feed/cache.
+The harness calls actual stdio list_recipes/get_recipe outside the checkout.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-384aabab-9691ba761deedf0d'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('csharp.audit-memory-boundaries') -Query '' `
+  -RecipeEdition '11.0' -TargetVersion '11.0' `
+  -PackageVersion '0.0.0-pin1298-1299' -BuildAndPack `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory './artifacts/inspection'
+```
+
+Expect the stable ID, experimental title/label, explanatory goal, complete expanded
+Markdown (including migration table and effective language diagnosis), applicability
+and fresh sample receipts. Retrieval proves embedded delivery with unusable proxies,
+not OS network isolation. Compiler checks run separately with
+`eng/Test-UnsafeBoundaries.ps1 -Net11Dotnet <absolute-dotnet-executable>`.
+No native import is invoked; unprobed combinations stay explicitly source-reviewed.
