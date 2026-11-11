@@ -301,3 +301,19 @@ Linear boundary: team `62f80270-b641-4fa3-b60c-46be4c4df2c8`, project `b22380c7-
 [rc2]: https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc2/csharp.md
 [winforms]: https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc2/winforms.md
 [compat]: https://github.com/dotnet/docs/blob/7a5a9cf8549d2356a135e1686949f4f205cc4843/docs/core/compatibility/11.md
+
+### Closed accessibility and collection binding — 11 November 2026
+
+PIN-1292/PIN-1293 extend the existing stable recipe IDs with original museum/archive
+fixtures. Official csharplang closed-hierarchies and collection-expression-arguments
+specifications were reconciled with GA SDK11.0.100 compiler5.12.0-1.26529.118
+(297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f), ref/runtime11.0.0.
+`eng/Test-LanguageBinding.ps1` checks separate owner/consumer accessibility,
+inheritance, generic filtering/constraints, switch/null diagnostics, outer overload
+and inference failures/fixes, default ambiguity, and a real evaluation trace.
+It asserts expression order/once-only evaluation and resulting elements, without
+asserting iterator scheduling. Classic initializer directives and proposed dictionary
+key/value expressions are rejected by that compiler. Proposal motivation is not
+shipped syntax proof. Same-module restrictions remain official-source guidance;
+no separate multi-module fixture is claimed. Earlier source/artifact snapshots
+remain historical; unaffected older samples and unrelated release gates are reused.

@@ -4765,3 +4765,27 @@ C# 15 emits CS8652. PIN-967 remains the global readiness gate. Run
 `eng/Test-StaticInterfaceHelpers.ps1` and `eng/Test-CompilerMigrations.ps1`
 with the corresponding complete SDK installations for separate compiler controls.
 Historical RC receipts remain in Git at `0d455e8759b6a7181f79568e8da5d294f5c9171b`.
+
+## Closed accessibility and collection binding
+
+Run from an unrelated directory in PowerShell 7. Setup builds/packs locally and
+installs pinned Inspector; nothing is published. Requires SDK11.0.100/ref and
+runtime11.0.0, Node and NuGet access for setup.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-3a1a619e-e5906bcb72a76c4b'
+& ./eng/Test-LanguageBinding.ps1
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('csharp.closed-hierarchies','csharp.configure-collection-construction') `
+  -Query '' -PackageVersion '0.0.0-pin1292-1293' -BuildAndPack `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory './artifacts/binding-inspection'
+```
+
+Expect both IDs/titles/explanatory goals, full canonical Markdown and applicability
+at target/edition11.0 through the actual installed stdio server. Both are stable
+C#15 guidance. Retrieval uses an unrelated directory, isolated feed/cache and
+unusable proxies; this proves embedded offline retrieval, not OS network isolation.
+Compiler probes check source diagnostics and a real trace separately; multi-module
+compilation and arbitrary third-party builders are outside that proof.

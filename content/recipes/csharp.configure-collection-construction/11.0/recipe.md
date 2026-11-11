@@ -30,6 +30,24 @@ Queue() produces shelf-c, shelf-a, shelf-c in that order and reserves at least t
 
 ## Constraints
 
+### Bind the target before configuration
+
+The presence of `with` affects whether a candidate collection conversion exists; its argument values/types do not select an outer method overload or infer element type arguments. They select the constructor or builder only after the collection target is known. For overloads `Store(List<string>)` and `Store(HashSet<string>)`, `Store([with(StringComparer.OrdinalIgnoreCase), "bay"])` remains ambiguous (CS0121), even though the comparer fits only the set constructor. Assign the expression to a `HashSet<string>` local, then call `Store(labels)`.
+
+An empty `Store<T>(HashSet<T>)` call with `[with(StringComparer.OrdinalIgnoreCase)]` cannot infer `T` from that argument (CS0411). Supply `Store<string>(...)`, or provide an explicitly typed target. Ordinary element expressions can still contribute inference.
+
+{{snippet:binding}}
+
+`List<int> values = [with(default)]` is also ambiguous: the default literal fits both capacity and enumerable constructors. Use `capacity: default`, `default(int)`, or an explicitly typed argument. Use `comparer:` for the comparer overload rather than relying on an untyped default. These fixes retain the target restrictions below and the span-last builder contract above.
+
+### Preserve evaluation behavior
+
+Configuration arguments evaluate once, left to right, before element expressions; element expressions evaluate once in source order. For `[with(capacity: Reserve()), First(), .. Fetch(), Last()]`, the calls occur in that order. Calling `Fetch()` to obtain an enumerable is different from running its iterator body. Enumeration may be delayed relative to later element evaluation; do not rely on where iterator side effects interleave. Materialize a side-effecting source explicitly before construction when that ordering matters. Capacity getters, enumeration and allocation optimizations are not a scheduling contract.
+
+Collection arguments belong to bracket collection expressions. Classic `new List<int>(12) { 1, 2 }` initializers still pass configuration to the constructor and elements to `Add`; `with(...)` is not an initializer directive. Dictionary key/value expression proposals are separate: do not infer shipped `["bay": 1]` syntax from proposal motivation. The pinned GA compiler rejects it; use `new Dictionary<string,int>(comparer) { ["bay"] = 1 }` for that contract.
+
+`eng/Test-LanguageBinding.ps1` verifies CS0121/CS0411 failures and corrected target/type-argument/named-argument calls using SDK 11.0.100/C# 15/ref 11.0.0. It also checks rejection of initializer directives and proposed dictionary syntax. Proposal examples do not override these observed artifacts.
+
 The target type controls available constructor/factory arguments. Do not infer a comparer overload from IEnumerable<T> alone: read-only sequence interfaces only accept an empty with element; ICollection<T>/IList<T> support empty or capacity arguments. Arrays and spans do not accept this construction element. Dynamic arguments are unsupported. Constructor overload ambiguity still needs an explicit argument type or name. Builder support here is verified for the supplied string collection, not every third-party builder.
 
 This is stabilized C# 15 syntax according to canonical RC1 notes, with GA SDK 11.0.100 compilation/execution. No C# 15-on-net10.0 route is offered: a compiler accepting a combination does not establish supported language/target compatibility. No provider, rendering mode or native platform behavior is involved.
