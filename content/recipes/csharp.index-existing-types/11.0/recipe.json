@@ -17,7 +17,10 @@
   ],
   "tags": [
     "collections",
-    "indexer"
+    "indexer",
+    "ranges",
+    "list-patterns",
+    "lookup"
   ],
   "snippets": {
     "older": {
@@ -29,6 +32,11 @@
       "language": "csharp",
       "region": "indexer",
       "path": "samples/net11.0/CollectionLike/Collections.cs"
+    },
+    "ranges": {
+      "language": "csharp",
+      "region": "ranges",
+      "path": "samples/net11.0/CollectionLike/RangeShelf.cs"
     }
   },
   "edition": "11.0",
@@ -49,7 +57,7 @@
     {
       "sample": "samples/net11.0/CollectionLike/CollectionLike.csproj",
       "target": "net11.0",
-      "scope": "Actual positional reads, node replacement, preserved sequence/length and null/negative/past-end rejection, including unchanged state after rejected writes.",
+      "scope": "Actual positional reads, node replacement, preserved sequence/length and null/negative/past-end rejection, including unchanged state after rejected writes. Also executes from-end/range/list patterns, bounds, copy isolation, named accessor calls and instance/extension lookup precedence.",
       "kind": "compile-and-run",
       "sdk": "11.0.100",
       "language": "15.0"
@@ -80,7 +88,7 @@
       {
         "selectionNotes": [
           "Linked-list positional access is O(n), with no concurrent-mutation guarantee.",
-          "Only zero-based integer indexing is supplied; invalid slots and null receivers throw.",
+          "The linked-list route supplies integer reads/writes; the independent ArchiveShelf route supplies Count, integer indexing and copied Slice results for Index/Range and list patterns.",
           "Use a named receiver and import the extension namespace; existing applicable instance members win."
         ],
         "target": "11.0",
