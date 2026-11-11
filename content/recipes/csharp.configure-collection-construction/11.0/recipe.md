@@ -38,7 +38,7 @@ An empty `Store<T>(HashSet<T>)` call with `[with(StringComparer.OrdinalIgnoreCas
 
 {{snippet:binding}}
 
-`List<int> values = [with(default)]` is also ambiguous: the default literal fits both capacity and enumerable constructors. Use `capacity: default`, `default(int)`, or an explicitly typed argument. Use `comparer:` for the comparer overload rather than relying on an untyped default. These fixes retain the concrete/interface restrictions and span-last builder contract above.
+`List<int> values = [with(default)]` is also ambiguous: the default literal fits both capacity and enumerable constructors. Use `capacity: default`, `default(int)`, or an explicitly typed argument. Use `comparer:` for the comparer overload rather than relying on an untyped default. These fixes retain the target restrictions below and the span-last builder contract above.
 
 ### Preserve evaluation behavior
 

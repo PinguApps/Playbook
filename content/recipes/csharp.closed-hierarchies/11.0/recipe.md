@@ -40,7 +40,7 @@ Closure applies to direct subclasses in the same assembly **and module**, not al
 
 {{snippet:hidden-hierarchy}}
 
-Compile these declarations into the owning library. A separately compiled consumer cannot name `DeferredIntake` (CS0122). Matching only `AcceptedIntake` and `OpenIntake` produces CS8509. Either expose the hidden case deliberately, or retain `IntakeDecision => ...` (plus `null => ...` for nullable input). A fallback acknowledges states the consumer cannot name. Do not make a private implementation type public merely to silence a warning.
+Compile these declarations into the owning library. A separately compiled consumer cannot name `DeferredIntake` (CS0122). Matching only `AcceptedIntake` and `OpenIntake` produces CS8509. Either expose the hidden case deliberately, or retain `IntakeDecision => ...` (plus `null => ...` for nullable input). A fallback acknowledges states the consumer cannot name. Do not make an internal implementation type public merely to silence a warning.
 
 Once all direct cases are handled, a following base arm is subsumed (CS8510). A base arm placed first likewise subsumes later descendants. Use a base fallback only while some cases remain uncovered. Switch **expressions** report missing cases; switch **statements** need not cover every state and may simply execute no arm. Nullable input adds a separate null case: leaf patterns do not cover it (CS8655).
 

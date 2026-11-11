@@ -81,7 +81,7 @@ try {
         if (@($entries | Where-Object id -CEQ $id).Count -ne 0) { throw "Removed recipe remains discoverable: $id" }
         $PSNativeCommandUseErrorActionPreference = $false
         try {
-          $removedText = & $Node $entry --format json --quiet --method tools/call --tool-name get_recipe `
+          $removedText = & $Node $entry -e ('DOTNET_ROOT=' + (Split-Path $Dotnet -Parent)) --format json --quiet --method tools/call --tool-name get_recipe `
             --tool-arg "id=$id" --tool-arg ('targetVersion="' + $TargetVersion + '"') -- $tool mcp `
             2> (Join-Path $OutputDirectory "$id.removed.stderr.json") | Out-String
           $removedExit = $LASTEXITCODE
@@ -176,7 +176,7 @@ try {
           # Inspector prints the actual result, then exits 5 for an expected MCP tool error.
           $PSNativeCommandUseErrorActionPreference = $false
           try {
-            $unsupportedText = & $Node $entry --format json --quiet --method tools/call --tool-name get_recipe `
+            $unsupportedText = & $Node $entry -e ('DOTNET_ROOT=' + (Split-Path $Dotnet -Parent)) --format json --quiet --method tools/call --tool-name get_recipe `
               --tool-arg "id=$id" --tool-arg ('targetVersion="' + $UnsupportedTargetVersion + '"') -- $tool mcp `
               2> (Join-Path $OutputDirectory "$id.unsupported.stderr.json") | Out-String
             $unsupportedExit = $LASTEXITCODE
