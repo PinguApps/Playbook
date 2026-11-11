@@ -1239,3 +1239,7 @@
 # Visually checked at gallery sizes on light/dark; installed-package smoke checks embedding/PNG metadata.
 /assets/icon/playbook-master.png
 /src/PinguApps.Playbook/icon.png
+
+# Inspect-GaLibraryContracts generates the source/artifact/catalogue hash register.
+# Review its script, audit dispositions and consumer proof instead.
+/docs/planning/audits/ga-library-contracts.sources.json
