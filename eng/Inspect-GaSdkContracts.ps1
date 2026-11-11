@@ -58,7 +58,7 @@ $deltas = foreach ($difference in $current.differences) {
   }
 }
 if (@($comparisons).Count -ne 9 -or @($catalogue).Count -ne 56 -or @($assets).Count -ne 52) { throw 'Audit coverage changed: reconcile the 9-source/56-edition/52-asset scope before recording new evidence.' }
-$report = [ordered]@{ scope='PIN-963 bounded GA SDK source/artifact reconciliation; hashes do not prove execution'; gaSource=$ga; rcSource=$rc; retainedSdk=$retained.sdk; comparisons=@($comparisons); catalogue=@($catalogue | Sort-Object id); tooling=@($assets); metadataReportSha256=(Get-FileHash $AssetReport).Hash.ToLowerInvariant(); metadataDeltas=@($deltas) }
+$report = [ordered]@{ scope='PIN-963 bounded GA SDK source/artifact reconciliation; hashes do not prove execution'; gaSource=$ga; rcSource=$rc; retainedSdk=$retained.sdk; comparisons=@($comparisons); catalogue=@($catalogue | Sort-Object { [string]$_['id'] }); tooling=@($assets); metadataReportSha256=(Get-FileHash $AssetReport).Hash.ToLowerInvariant(); metadataDeltas=@($deltas) }
 $output = $ExecutionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($OutputPath)
 New-Item -ItemType Directory -Force (Split-Path $output) | Out-Null
 [IO.File]::WriteAllText($output,($report | ConvertTo-Json -Depth 50).Replace("`r`n","`n") + "`n")
