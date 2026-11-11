@@ -60,7 +60,7 @@ try {
     Push-Location -LiteralPath $session
     try {
       function Invoke-RecipeTool([string]$Name, [string[]]$Arguments) {
-        $call = @('--format','json','--quiet','--method','tools/call','--tool-name',$Name,'--tool-arg',('targetVersion="' + $TargetVersion + '"'))
+        $call = @('-e', ('DOTNET_ROOT=' + (Split-Path $Dotnet -Parent)), '--format','json','--quiet','--method','tools/call','--tool-name',$Name,'--tool-arg',('targetVersion="' + $TargetVersion + '"'))
         foreach ($argument in $Arguments) { $call += @('--tool-arg',$argument) }
         $response = & $Node $entry @call -- $tool mcp | ConvertFrom-Json
         if ($response.result.isError) { throw "MCP failure: $Name" }
