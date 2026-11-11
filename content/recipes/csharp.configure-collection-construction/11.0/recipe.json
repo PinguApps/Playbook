@@ -35,6 +35,11 @@
       "language": "csharp",
       "region": "construction",
       "path": "samples/net11.0/CollectionLike/Collections.cs"
+    },
+    "binding": {
+      "path": "samples/net11.0/CollectionLike/Binding.cs",
+      "language": "csharp",
+      "region": "binding"
     }
   },
   "edition": "11.0",
@@ -61,7 +66,7 @@
       "language": "15.0"
     }
   ],
-  "goal": "Use collection-expression arguments when constructor or builder configuration must accompany the elements. Preserve capacity, ordering and comparison semantics.",
+  "goal": "Configure collection capacity and comparison with collection-expression arguments. Resolve target binding explicitly and preserve expression evaluation semantics.",
   "sources": [
     {
       "url": "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/collection-expressions",
@@ -78,6 +83,10 @@
     {
       "url": "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc1/csharp.md",
       "title": "Canonical RC1 C# stabilization"
+    },
+    {
+      "title": "Official language design specification; reconciled with SDK 11.0.100 probes",
+      "url": "https://github.com/dotnet/csharplang/blob/main/proposals/csharp-15.0/collection-expression-arguments.md"
     }
   ],
   "stability": "stable",
@@ -101,7 +110,8 @@
           "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/collection-expressions",
           "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/proposals/csharp-15.0/collection-expression-arguments",
           "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-versioning",
-          "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc1/csharp.md"
+          "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc1/csharp.md",
+          "https://github.com/dotnet/csharplang/blob/main/proposals/csharp-15.0/collection-expression-arguments.md"
         ],
         "requirements": {
           "optIns": [],

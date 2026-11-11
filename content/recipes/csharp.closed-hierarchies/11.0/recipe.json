@@ -2,7 +2,7 @@
   "id": "csharp.closed-hierarchies",
   "edition": "11.0",
   "title": "Match every permitted state in an inheritance family",
-  "goal": "Use a closed C# hierarchy when one assembly owns the direct states and consumers should match every permitted case. Seal leaves to bound further inheritance.",
+  "goal": "Use a closed C# hierarchy when one assembly owns direct states. Account for inaccessible and generic cases, and seal leaves to bound further inheritance.",
   "areas": [
     "csharp"
   ],
@@ -83,7 +83,8 @@
           "https://learn.microsoft.com/en-us/dotnet/standard/serialization/system-text-json/union-types",
           "https://learn.microsoft.com/en-us/dotnet/standard/serialization/system-text-json/polymorphism",
           "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc1/csharp.md",
-          "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-versioning"
+          "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-versioning",
+          "https://github.com/dotnet/csharplang/blob/main/proposals/csharp-15.0/closed-hierarchies.md"
         ],
         "sharedAreas": [
           "blazor",
@@ -119,6 +120,10 @@
     {
       "title": "Microsoft C# and target compatibility",
       "url": "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-versioning"
+    },
+    {
+      "title": "Official language design specification; reconciled with SDK 11.0.100 probes",
+      "url": "https://github.com/dotnet/csharplang/blob/main/proposals/csharp-15.0/closed-hierarchies.md"
     }
   ],
   "evidence": [
@@ -159,6 +164,16 @@
       "path": "samples/net11.0/ClosedOutcomes/Outcomes.cs",
       "region": "state-context",
       "language": "csharp"
+    },
+    "generic-hierarchy": {
+      "path": "samples/net11.0/ClosedOutcomes/HierarchyContracts.cs",
+      "language": "csharp",
+      "region": "generic-hierarchy"
+    },
+    "hidden-hierarchy": {
+      "path": "samples/net11.0/ClosedOutcomes/HierarchyContracts.cs",
+      "language": "csharp",
+      "region": "hidden-hierarchy"
     }
   },
   "humanProof": {
