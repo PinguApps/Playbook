@@ -77,7 +77,7 @@
           },
           "workloads": [],
           "stabilityLimitations": [
-            "Actual GA SDK 11.0.100/runtime 11.0.0 execution; experimental opt-ins remain required."
+            "Actual GA SDK 11.0.100/runtime 11.0.0 execution; ordinary task binding requires no experimental opt-in. The pending cleanup-failure limitation still applies."
           ],
           "renderingModes": [],
           "optIns": [],
