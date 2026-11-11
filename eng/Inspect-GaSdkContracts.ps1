@@ -39,6 +39,11 @@ $assets = foreach ($asset in $retained.assemblies) {
 }
 $current = Get-Content $AssetReport -Raw | ConvertFrom-Json
 if ($current.baselines[1].sdk -ne '11.0.100') { throw 'Actual GA metadata report required.' }
+if ($current.baselines[1].sdkIdentity[0] -ne $ga) { throw 'Metadata source identity mismatch.' }
+foreach ($asset in $assets) {
+  $measured = @($current.baselines[1].assemblies | Where-Object path -CEQ $asset.path)
+  if ($measured.Count -ne 1 -or $measured[0].sha256 -cne $asset.gaSha256) { throw "Metadata/artifact mismatch: $($asset.path)" }
+}
 $deltas = foreach ($difference in $current.differences) {
   $previous = $baseline.differences | Where-Object { $_.kind -eq $difference.kind -and $_.asset -eq $difference.asset }
   foreach ($side in @('added','removed')) {

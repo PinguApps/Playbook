@@ -1,6 +1,6 @@
 # GA SDK and package-authoring reconciliation
 
-PIN-963, 11 November 2026. Bounded audit; draft disposition pending review.
+PIN-963, 11 November 2026. Bounded source/artifact release decision register.
 This does not close PIN-967 or authorize publication.
 
 ## Authority and actual artifacts
@@ -10,7 +10,7 @@ stories 41–44, 47, 93–95, 130, 132–133, 146 and 158–160; approved propos
 `b3778cc` (`GA_BUILD`), ADRs 0001–0004 and the release plan. Root PLAN.md,
 CONTEXT.md and CONTEXT-MAP.md are absent. Explicit source pointers resolve.
 Native delivery inputs are Done or deliberately Canceled; cancellation does
-not establish execution. No related ticket has been changed by this audit.
+not establish execution. Follow-ons PIN-1301 and PIN-1302 are created in the same team/project.
 
 The [release feed](https://builds.dotnet.microsoft.com/dotnet/release-metadata/11.0/releases.json)
 and [GA notes](https://github.com/dotnet/core/blob/main/release-notes/11.0/11.0.0/11.0.0.md)
@@ -38,30 +38,30 @@ The generated register retains the RC3-to-GA change in that comparison, rather
 than committing the full disposable metadata dump. Whole-file hashes and API
 declarations are different kinds of evidence; neither establishes execution.
 
-| Delta | Draft disposition |
+| Delta | Disposition |
 | --- | --- |
 | VSTest Message.ToString redacts JSON properties | Existing `testing.migrate-vstest-message-readers` says the output is unchanged raw text. Prepare the narrow correction below. RawMessage remains a separate API. |
 | IVsTestConsoleWrapperAsync obsolete | Existing session sample uses IVsTestConsoleWrapper. Do not introduce the obsolete alias. |
-| EqtHash.GuidFromStringXxHash128 marked VSTEST001 | Retain experimental status; public visibility alone does not establish an intended new developer goal. Needs final documented-scenario assessment before audit completion. |
+| EqtHash.GuidFromStringXxHash128 marked VSTEST001 | Retain experimental status; public visibility alone does not establish an intended new developer goal. No documented external authoring scenario was established; no new recipe is inferred from visibility. |
 | ResolveAssemblyReference cancellation interface | SDK task implementation capability; not by itself a new application recipe. |
 | Optimized publishing defaults false and hook changes | Current `sdk.migrate-optimized-publish-hooks` already explicitly describes the GA default and opts in for its failure control. Preserve actual native receipts and their limits. |
-| PackTool shim directory and publish integration | Requires final assessment against existing package-tool and custom native-RID samples. Private target names alone are not supported authoring hooks. |
+| PackTool shim directory and publish integration | Existing package-tool and custom native-RID samples use public SDK contracts rather than the changed private paths. Private target names alone are not supported authoring hooks. |
 | Bundled versions, quoted VSTest conditions, guarded ProjectData import | Retain exact version/input identities; implementation changes are not independently executed consumer evidence. |
-| Static web assets/browser Hot Reload targets | Requires reconciliation with web-family ownership; do not silently claim framework behavior from XML inspection. |
+| Static web assets/browser Hot Reload targets | Forwarded to the verified PIN-964 web-family owner; do not silently claim framework behavior from XML inspection. |
 
 Canonical [SDK notes](https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/sdk)
 and [compatibility index](https://learn.microsoft.com/en-us/dotnet/core/compatibility/11)
-remain discovery sources. The latter expressly disclaims completeness. Final
-note/package dependency reconciliation and dispositions remain pending; this
-draft is not a completed family audit or proof of every recipe's behavior.
+remain discovery sources. The latter expressly disclaims completeness. Package
+dependency replay is recorded below. This bounded reconciliation does not prove
+every recipe's behavior; the two tracked corrections retain the stable gate.
 
-## Prepared follow-on draft
+## Tracked follow-ons
 
 As a developer reading VSTest messages, I want the guidance to distinguish raw
 protocol data from redacted diagnostic text so that logging does not depend on
 an incorrect promise of unchanged output.
 
-Proposed outcome: correct `testing.migrate-vstest-message-readers` and add a
+PIN-1301 outcome: correct `testing.migrate-vstest-message-readers` and add a
 secret-bearing envelope control to its existing real-package harness. Verify
 RawMessage preserves the wire envelope, ToString redacts the relevant properties,
 ordinary typed payload decoding remains correct, and the old/current controls
@@ -69,13 +69,13 @@ are explicitly distinguished. Refresh affected evidence and inspect installed
 MCP guidance. Preserve ID, fictional domain and existing protocol boundaries.
 
 Estimate **S (2)**: bounded wording/test/evidence refresh with actual package
-execution. Executor Agent; existing build/deployment milestone; cycle pending
-Pingu's explicit choice. Source: PIN-963 and the immutable Message.cs comparison
-in the adjacent register. Native ticket allocation, overlap refresh and creation
-remain pending. Add it as a prerequisite to the final stable candidate gate;
+execution. Executor Agent; build/deployment milestone; Current Cycle 5
+(9–16 November), explicitly approved by Pingu. Source: PIN-963 and the immutable
+Message.cs comparison in the adjacent register. Saved as **03-051 / PIN-1301**,
+Todo, S (2), with a native relation blocking the final stable candidate gate;
 do not reopen or close the completed original delivery merely from this finding.
 
-## Verification so far
+## Verification and limits
 
 The actual package-host replay also passed: 32 immutable source hashes, seven
 full notes and 23 package ZIPs. Experimental affected-test packages remain
@@ -86,13 +86,14 @@ refresh against their specific GA or independent-package contracts. The native
 RID recipe also names GA SDK11 while retaining an RC3 compiler build in its
 requirements table; reconcile that exact statement with its saved artifact.
 
-Second follow-on draft: reconcile stability and measured-version statements for
+PIN-1302 (03-052, Todo, M (3)): reconcile stability and measured-version statements for
 the complete 56-edition SDK catalogue. Estimate **M (3)** for per-contract source
 review, surgical metadata/prose corrections, affected evidence freshness checks
 and real installed discovery/applicability inspection. Keep independently
 versioned previews and deliberately experimental APIs labelled. Do not rerun
-unaffected native/platform matrices. Agent, build/deployment milestone, cycle
-pending explicit choice; source PIN-963 and this catalogue register. This is
+unaffected native/platform matrices. Agent, build/deployment milestone, Current
+Cycle 5 (9–16 November); source PIN-963 and this catalogue register. Its native
+relation also blocks PIN-967. This is
 separate from the focused VSTest redaction behavior proof above.
 
 PIN-964 is verified in the same team/project and owns the web-family
