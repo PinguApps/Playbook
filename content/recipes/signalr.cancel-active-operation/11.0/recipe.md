@@ -118,7 +118,7 @@ The recipe preserves edition 11.0 and stable goal identity. The .NET 10 code is 
 
 - [SignalR cancellation release notes](https://learn.microsoft.com/en-us/aspnet/core/release-notes/aspnetcore-11?view=aspnetcore-11.0#cancel-hub-invocations-from-the-client)
 - [The .NET client's cancellation contract](https://learn.microsoft.com/en-us/aspnet/core/signalr/dotnet-client?view=aspnetcore-11.0#cancel-a-hub-method-invocation)
-- [Pinned GA client cancellation implementation](https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/SignalR/clients/csharp/Client.Core/src/HubConnection.cs)
-- [Pinned GA server invocation dispatch](https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/SignalR/server/Core/src/Internal/DefaultHubDispatcher.cs)
-- [Pinned GA synthetic hub arguments](https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/SignalR/server/Core/src/Internal/HubMethodDescriptor.cs)
+- [Pinned client cancellation implementation](https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/SignalR/clients/csharp/Client.Core/src/HubConnection.cs)
+- [Pinned server invocation dispatch](https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/SignalR/server/Core/src/Internal/DefaultHubDispatcher.cs)
+- [Pinned synthetic hub arguments](https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/SignalR/server/Core/src/Internal/HubMethodDescriptor.cs)
 - [Previous-release client implementation](https://github.com/dotnet/aspnetcore/blob/v10.0.13/src/SignalR/clients/csharp/Client.Core/src/HubConnection.cs)

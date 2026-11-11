@@ -142,5 +142,5 @@ contains exact input/artifact hashes, commands and browser/provider journals;
 the essential instructions and examples are embedded here.
 
 Official references: [virtualization and provider/layout requirements](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/virtualization?view=aspnetcore-11.0),
-[pinned GA implementation](https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Web/src/Virtualization/Virtualize.cs),
+[pinned implementation](https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Web/src/Virtualization/Virtualize.cs),
 and [the .NET 10 comparison surface](https://github.com/dotnet/aspnetcore/blob/0ef4bbfa3291b306a21e5001cb0491277bdd35bc/src/Components/Web/src/Virtualization/Virtualize.cs).

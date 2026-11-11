@@ -197,5 +197,5 @@ remain open; this guidance neither provisions resources nor publishes packages.
 
 - [EF11 owned JSON collection diagnostic and mitigations](https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/breaking-changes#owned-json-collections-obsolete).
 - [Reviewed immutable documentation baseline](https://github.com/dotnet/EntityFramework.Docs/blob/aa051c4c1cad21b2dc03fa401ac0e925c3644606/entity-framework/core/what-is-new/ef-core-11.0/breaking-changes.md).
-- [Package-matched GA relational validator](https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/efcore/src/EFCore.Relational/Infrastructure/RelationalModelValidator.cs).
+- [Pinned package-matched relational validator](https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/efcore/src/EFCore.Relational/Infrastructure/RelationalModelValidator.cs).
 - [EF10 complex types and JSON](https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-10.0/whatsnew#complex-types).
