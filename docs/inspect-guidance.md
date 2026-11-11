@@ -4867,3 +4867,32 @@ and fresh sample receipts. Retrieval proves embedded delivery with unusable prox
 not OS network isolation. Compiler checks run separately with
 `eng/Test-UnsafeBoundaries.ps1 -Net11Dotnet <absolute-dotnet-executable>`.
 No native import is invoked; unprobed combinations stay explicitly source-reviewed.
+
+## Exact external identities and requested authentication freshness
+
+PIN-1306/PIN-1307 disclose observed 11.0.0 artifact limitations and supply explicit
+ordinal-login and signed-authentication-time guards. Built-in observations remain
+separate from guard assertions. The eight .NET10 foundations stay unchanged.
+
+From any directory, using PowerShell7, the installed SDK10.0.404/11.0.100 and Node:
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-cd67d62b-4348f7b312b80854'
+& ./eng/Test-ObservatoryAuthentication.ps1
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('identity.match-external-logins-exactly','authentication.enforce-signin-freshness') `
+  -Query 'observatory' -RecipeEdition '11.0' -TargetVersion '11.0' `
+  -UnsupportedTargetVersion '10.0' -PackageVersion '0.0.0-pin1306-1307' -BuildAndPack `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' -OutputDirectory './artifacts/observatory-inspection'
+```
+
+Expect passing guard checks on both consumers, separately labelled unguarded
+observations, then ID/title/goal, complete canonical Markdown, applicability and
+fresh evidence from the actual locally packed and installed stdio server. Target10
+has no applicable edition. Setup needs NuGet/Inspector access; retrieval uses an
+unrelated directory and unusable proxies, establishing embedded offline delivery,
+not OS network isolation. SQLite and local signed-token implicit callbacks run on
+Windows x64. PAR, code/hybrid flows, external-provider interoperability and other
+sample deployment platforms are not tested; the recipes explain those boundaries.
+No release, deployment, foundation change or global stable-gate approval occurs.

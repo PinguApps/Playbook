@@ -1,0 +1,224 @@
+{
+  "id": "authentication.enforce-signin-freshness",
+  "edition": "11.0",
+  "title": "Enforce requested sign-in freshness",
+  "goal": "Validate signed authentication time against the effective max_age request, preserving protected transaction state and rejecting missing, invalid, stale or future assertions.",
+  "areas": [
+    "aspnetcore"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "authentication",
+    "observatory",
+    "ga-artifact-limitation"
+  ],
+  "apis": [
+    "OpenIdConnectOptions.MaxAge",
+    "OpenIdConnectChallengeProperties.MaxAge",
+    "OnRedirectToIdentityProvider",
+    "OnTokenValidated"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "usage": "primary",
+        "conditional": false,
+        "selectionNotes": [
+          "Use the explicit guard: actual 11.0.0 artifacts tested here did not enforce the documented GA behavior. No claim that framework behavior is fixed.",
+          "Only a .NET11 edition is added. The .NET10 comparison adds no foundation."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET / ASP.NET Core",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Target release family; measured execution uses 11 GA."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build net11.0 with the matching SDK. Exact reproduction pins are recorded separately."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Explicit tested C# mode; older comparison uses C#14."
+          },
+          "frameworks": [
+            "ASP.NET Core"
+          ],
+          "packages": [
+            {
+              "name": "Microsoft.AspNetCore.Authentication.OpenIdConnect",
+              "version": "11.0",
+              "match": "release-family",
+              "reason": "Matching pinned GA packages; exact complete locked graph recorded separately."
+            }
+          ],
+          "workloads": [],
+          "packageAssets": [
+            "Pinned 11.0.0 packages and older 10.0.13 comparison; complete dependency locks below. Login samples include real native SQLite assets."
+          ],
+          "providers": [
+            "Local signed-token fixture and actual OpenID Connect handler; no external-provider interoperability claim."
+          ],
+          "platforms": [
+            "Executed Windows x64; other sample deployment platforms not tested. Existing package CI is separate."
+          ],
+          "renderingModes": [
+            "No browser rendering. Automated local consumer; no deployment claim."
+          ],
+          "prerequisites": [
+            "Save every complete file together; restore once using its pinned SDK, then use locked restore. Fixture configuration is not production setup."
+          ],
+          "constraints": [
+            "Actual signed-token OIDC handler: four independent max_age sources and absent control; valid/missing/invalid/string/fractional/negative/range/stale/future cases; signature, nonce and state controls. Separate deterministic invariant parsing and inclusive skew-boundary tests.",
+            "Use the explicit guard: actual 11.0.0 artifacts tested here did not enforce the documented GA behavior. No claim that framework behavior is fixed.",
+            "Only a .NET11 edition is added. The .NET10 comparison adds no foundation.",
+            "Preserve authorization, HTTPS, provider validation, schema migrations and production key storage."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Stable APIs with an observed source/artifact discrepancy and an explicit guard. PIN-967 remains the final stable gate; unrelated experimental and Human gates remain separate."
+          ]
+        },
+        "sourceUrls": [
+          "https://github.com/dotnet/AspNetCore.Docs/blob/fd01aafa737af65203d3bd4ea08f1920305c52a9/aspnetcore/breaking-changes/11/openid-connect-max-age-validates-auth-time.md"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/ObservatoryFreshness/ObservatoryFreshness.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Documented GA contract; observed artifact discrepancy disclosed",
+      "url": "https://github.com/dotnet/AspNetCore.Docs/blob/fd01aafa737af65203d3bd4ea08f1920305c52a9/aspnetcore/breaking-changes/11/openid-connect-max-age-validates-auth-time.md"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/ObservatoryFreshness/ObservatoryFreshness.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.404",
+      "language": "14.0",
+      "kind": "compile-and-run",
+      "scope": "Actual signed-token OIDC handler: four independent max_age sources and absent control; valid/missing/invalid/string/fractional/negative/range/stale/future cases; signature, nonce and state controls. Separate deterministic invariant parsing and inclusive skew-boundary tests."
+    },
+    {
+      "sample": "samples/net11.0/ObservatoryFreshness/ObservatoryFreshness.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100",
+      "language": "15.0",
+      "kind": "compile-and-run",
+      "scope": "Actual signed-token OIDC handler: four independent max_age sources and absent control; valid/missing/invalid/string/fractional/negative/range/stale/future cases; signature, nonce and state controls. Separate deterministic invariant parsing and inclusive skew-boundary tests."
+    }
+  ],
+  "snippets": {
+    "n10-boundarychecks-cs": {
+      "path": "samples/net10.0/ObservatoryFreshness/BoundaryChecks.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n10-directory-build-props": {
+      "path": "samples/net10.0/ObservatoryFreshness/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-build-targets": {
+      "path": "samples/net10.0/ObservatoryFreshness/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-packages-props": {
+      "path": "samples/net10.0/ObservatoryFreshness/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-freshness-cs": {
+      "path": "samples/net10.0/ObservatoryFreshness/Freshness.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n10-observatoryfreshness-csproj": {
+      "path": "samples/net10.0/ObservatoryFreshness/ObservatoryFreshness.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-program-cs": {
+      "path": "samples/net10.0/ObservatoryFreshness/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n10-global-json": {
+      "path": "samples/net10.0/ObservatoryFreshness/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n10-packages-lock-json": {
+      "path": "samples/net10.0/ObservatoryFreshness/packages.lock.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n11-boundarychecks-cs": {
+      "path": "samples/net11.0/ObservatoryFreshness/BoundaryChecks.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-directory-build-props": {
+      "path": "samples/net11.0/ObservatoryFreshness/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-build-targets": {
+      "path": "samples/net11.0/ObservatoryFreshness/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-packages-props": {
+      "path": "samples/net11.0/ObservatoryFreshness/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-freshness-cs": {
+      "path": "samples/net11.0/ObservatoryFreshness/Freshness.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-observatoryfreshness-csproj": {
+      "path": "samples/net11.0/ObservatoryFreshness/ObservatoryFreshness.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-program-cs": {
+      "path": "samples/net11.0/ObservatoryFreshness/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-global-json": {
+      "path": "samples/net11.0/ObservatoryFreshness/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n11-packages-lock-json": {
+      "path": "samples/net11.0/ObservatoryFreshness/packages.lock.json",
+      "region": "complete",
+      "language": "json"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Local automated consumers require no external account, paid service or physical device. Other platform and global release gates remain separate."
+  }
+}

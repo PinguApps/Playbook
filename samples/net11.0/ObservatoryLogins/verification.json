@@ -1,0 +1,27 @@
+{
+  "buildArguments": [],
+  "additionalInputs": [
+    ".editorconfig",
+    "eng/Evidence.ps1",
+    "eng/Record-Evidence.ps1",
+    "eng/Test-ObservatoryAuthentication.ps1"
+  ],
+  "workloads": [],
+  "nativeToolchains": [],
+  "dependencies": [
+    "Microsoft.AspNetCore.Identity.EntityFrameworkCore/11.0.0",
+    "Microsoft.Data.Sqlite.Core/11.0.0",
+    "Microsoft.EntityFrameworkCore.Abstractions/11.0.0",
+    "Microsoft.EntityFrameworkCore.Analyzers/11.0.0",
+    "Microsoft.EntityFrameworkCore.Relational/11.0.0",
+    "Microsoft.EntityFrameworkCore.Sqlite.Core/11.0.0",
+    "Microsoft.EntityFrameworkCore.Sqlite/11.0.0",
+    "Microsoft.EntityFrameworkCore/11.0.0",
+    "Microsoft.Extensions.DependencyModel/11.0.0",
+    "SQLite/3.53.4",
+    "SQLitePCLRaw.bundle_e_sqlite3/3.0.5",
+    "SQLitePCLRaw.config.e_sqlite3/3.0.5",
+    "SQLitePCLRaw.core/3.0.5",
+    "SQLitePCLRaw.provider.e_sqlite3/3.0.5"
+  ]
+}
