@@ -194,7 +194,7 @@ static void WriteOutput(int[] storage, nint[] lengths, nint[] strides, bool comb
     var destination = new TensorSpan<int>(storage, lengths, strides);
     var count = checked((int)destination.FlattenedLength);
     var input = Tensor.Create(Enumerable.Repeat(23, count).ToArray(), lengths);
-    if (combine) Tensor.Concatenate<int>([input], destination);
+    if (combine) Tensor.Concatenate<int>([input, Tensor.Create(Array.Empty<int>(), [0])], destination);
     else Tensor.ResizeTo(input, destination);
 }
 static void ArrayStorage()
