@@ -1243,3 +1243,7 @@
 # Inspect-GaLibraryContracts generates the source/artifact/catalogue hash register.
 # Review its script, audit dispositions and consumer proof instead.
 /docs/planning/audits/ga-library-contracts.sources.json
+
+# Inspect-GaWebContracts generates the source/artifact/catalogue release register.
+# Review the generator, GA disposition overlay and authored audit instead.
+/docs/planning/audits/ga-web-contracts.sources.json
