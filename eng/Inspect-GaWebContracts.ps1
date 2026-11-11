@@ -69,14 +69,16 @@ $metadata = foreach ($family in @('blazor','web')) {
   $after = Get-Content $path -Raw | ConvertFrom-Json
   if ($after.baselines[1].sdk -ne '11.0.100' -or $after.baselines[1].referencePack -ne '11.0.0') { throw 'GA metadata required.' }
   $deltas = foreach ($kind in @('publicApiDiff','publicToolingDiff')) {
-   foreach ($difference in $after.$kind) {
-    $previous = $before.$kind | Where-Object asset -CEQ $difference.asset
+   $assets = @(@($before.$kind.asset) + @($after.$kind.asset) | Where-Object { $null -ne $_ } | Sort-Object -Unique -CaseSensitive)
+   foreach ($asset in $assets) {
+    $previous = $before.$kind | Where-Object asset -CEQ $asset
+    $difference = $after.$kind | Where-Object asset -CEQ $asset
     foreach ($side in @('added','removed')) {
       $oldLines = @($previous.diff.$side | Where-Object { $null -ne $_ })
       $newLines = @($difference.diff.$side | Where-Object { $null -ne $_ })
       $delta = @(Compare-Object $oldLines $newLines -CaseSensitive)
       if ($delta.Count) {
-        [ordered]@{ kind=$kind; asset=$difference.asset; side=$side; introduced=@($delta | Where-Object SideIndicator -EQ '=>' | ForEach-Object InputObject); withdrawn=@($delta | Where-Object SideIndicator -EQ '<=' | ForEach-Object InputObject) }
+        [ordered]@{ kind=$kind; asset=$asset; side=$side; introduced=@($delta | Where-Object SideIndicator -EQ '=>' | ForEach-Object InputObject); withdrawn=@($delta | Where-Object SideIndicator -EQ '<=' | ForEach-Object InputObject) }
       }
     }
    }

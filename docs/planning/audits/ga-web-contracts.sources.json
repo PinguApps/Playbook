@@ -3,10 +3,10 @@
   "sdk": "11.0.100",
   "gaSource": "297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
   "sourceHeads": {
-    "dotnet/docs": "0dad19ab65b096f0b86430c01b1b6a9e5832ea22",
-    "dotnet/core": "33918e8affbb517bf654c15559ea6f813c08bbae",
     "dotnet/AspNetCore.Docs": "fd01aafa737af65203d3bd4ea08f1920305c52a9",
-    "dotnet/aspnetcore": "1def4cdc07dc10fc267136060e3ef5c1a96d4a99"
+    "dotnet/aspnetcore": "1def4cdc07dc10fc267136060e3ef5c1a96d4a99",
+    "dotnet/core": "33918e8affbb517bf654c15559ea6f813c08bbae",
+    "dotnet/docs": "0dad19ab65b096f0b86430c01b1b6a9e5832ea22"
   },
   "comparisons": [
     {
@@ -6068,15 +6068,6 @@
       "metadataDeltas": [
         {
           "kind": "publicApiDiff",
-          "asset": "sdk/Microsoft.CodeAnalysis.Razor.Compiler.dll",
-          "side": "added",
-          "introduced": [
-            "field Microsoft.AspNetCore.Razor.Language.RazorLanguageVersion::Version_12_0 Microsoft.AspNetCore.Razor.Language.RazorLanguageVersion [Public, Static, InitOnly] value=<none> "
-          ],
-          "withdrawn": []
-        },
-        {
-          "kind": "publicApiDiff",
           "asset": "microsoft.aspnetcore.components.ai/Microsoft.AspNetCore.Components.AI.dll",
           "side": "added",
           "introduced": [
@@ -6215,6 +6206,15 @@
             "method Microsoft.AspNetCore.Components.AI.AgentContext::RetryAsync [Public, HideBySig] (System.Threading.CancellationToken cancellationToken [Optional, HasDefault] default=null modreq= modopt= ) -> System.Threading.Tasks.Task  [None] default=null modreq= modopt=  generic= [System.Runtime.CompilerServices.AsyncStateMachineAttribute(System.Type:Microsoft.AspNetCore.Components.AI.AgentContext+<RetryAsync>d__21)]",
             "method Microsoft.AspNetCore.Components.AI.UIAgent::SendMessageAsync [Public, HideBySig] (Microsoft.Extensions.AI.ChatMessage message [None] default=<none> modreq= modopt= , System.Threading.CancellationToken cancellationToken [Optional, HasDefault] default=null modreq= modopt= [System.Runtime.CompilerServices.EnumeratorCancellationAttribute()]) -> System.Collections.Generic.IAsyncEnumerable`1[Microsoft.AspNetCore.Components.AI.ContentBlock]  [None] default=null modreq= modopt=  generic= [System.Runtime.CompilerServices.AsyncIteratorStateMachineAttribute(System.Type:Microsoft.AspNetCore.Components.AI.UIAgent+<SendMessageAsync>d__12)]"
           ]
+        },
+        {
+          "kind": "publicApiDiff",
+          "asset": "sdk/Microsoft.CodeAnalysis.Razor.Compiler.dll",
+          "side": "added",
+          "introduced": [
+            "field Microsoft.AspNetCore.Razor.Language.RazorLanguageVersion::Version_12_0 Microsoft.AspNetCore.Razor.Language.RazorLanguageVersion [Public, Static, InitOnly] value=<none> "
+          ],
+          "withdrawn": []
         },
         {
           "kind": "publicToolingDiff",
@@ -7257,6 +7257,15 @@
         },
         {
           "kind": "publicToolingDiff",
+          "asset": "typeScript/index.d.ts",
+          "side": "added",
+          "introduced": [
+            "export { AuthenticationRefreshFailedContext, AuthenticationRefreshedContext, IAuthenticationRefreshOptions } from \"./IAuthenticationRefreshOptions\";"
+          ],
+          "withdrawn": []
+        },
+        {
+          "kind": "publicToolingDiff",
           "asset": "typeScript/LongPollingTransport.d.ts",
           "side": "added",
           "introduced": [
@@ -7272,15 +7281,6 @@
           "side": "removed",
           "introduced": [
             "    constructor(httpClient: HttpClient, logger: ILogger, options: IHttpConnectionOptions);"
-          ],
-          "withdrawn": []
-        },
-        {
-          "kind": "publicToolingDiff",
-          "asset": "typeScript/index.d.ts",
-          "side": "added",
-          "introduced": [
-            "export { AuthenticationRefreshFailedContext, AuthenticationRefreshedContext, IAuthenticationRefreshOptions } from \"./IAuthenticationRefreshOptions\";"
           ],
           "withdrawn": []
         },
