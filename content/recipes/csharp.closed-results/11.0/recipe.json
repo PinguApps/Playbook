@@ -2,7 +2,7 @@
   "id": "csharp.closed-results",
   "edition": "11.0",
   "title": "Model distinct outcomes with a C# union",
-  "goal": "Use a C# 15 union when an operation returns one of several unrelated payload types and callers must handle every case, including unassigned storage.",
+  "goal": "Use a C# 15 union for distinct outcomes, implement custom typed storage, and diagnose matching or conversion pitfalls while handling default/null explicitly.",
   "areas": [
     "csharp"
   ],
@@ -12,7 +12,13 @@
   "tags": [
     "closed",
     "outcomes",
-    "json"
+    "json",
+    "custom-union",
+    "boxing",
+    "patterns",
+    "conversions",
+    "CS0457",
+    "CS8121"
   ],
   "apis": [
     "union",
@@ -83,7 +89,8 @@
           "https://learn.microsoft.com/en-us/dotnet/standard/serialization/system-text-json/union-types",
           "https://learn.microsoft.com/en-us/dotnet/standard/serialization/system-text-json/polymorphism",
           "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc1/csharp.md",
-          "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-versioning"
+          "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-versioning",
+          "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/proposals/csharp-15.0/unions"
         ],
         "sharedAreas": [
           "blazor",
@@ -119,6 +126,10 @@
     {
       "title": "Microsoft C# and target compatibility",
       "url": "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-versioning"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/proposals/csharp-15.0/unions",
+      "title": "Microsoft union pattern specification (checked against SDK 11.0.100 consumers)"
     }
   ],
   "evidence": [
@@ -135,7 +146,7 @@
       "sdk": "11.0.100",
       "language": "15.0",
       "sample": "samples/net11.0/ClosedOutcomes/ClosedOutcomes.csproj",
-      "scope": "Original case/payload matching and generated-metadata JSON round trips, null/default and ambiguous-object rejection. The GA run additionally executes explicit-registration precedence and missing-generated-inference failure. Exact records captured by eng/Record-Evidence.ps1; eng/Verify.ps1 reruns samples.",
+      "scope": "Original case/payload matching and generated-metadata JSON round trips, null/default and ambiguous-object rejection. The GA run additionally executes explicit-registration precedence and missing-generated-inference failure. Exact records captured by eng/Record-Evidence.ps1; eng/Verify.ps1 reruns samples. Custom tagged/provider unions execute every case, nullable/default, access agreement, operator precedence, nested storage and zero Value reads during matching. eng/Test-ClosedOutcomes.ps1 checks CS0457, CS0029, CS8121, CS9386, CS0117, CS9385 and added-case CS8509.",
       "kind": "compile-and-run"
     }
   ],
@@ -163,6 +174,26 @@
     "converter": {
       "path": "samples/net10.0/ClosedOutcomes/Outcomes.cs",
       "region": "converter",
+      "language": "csharp"
+    },
+    "tagged": {
+      "language": "csharp",
+      "path": "samples/net11.0/ClosedOutcomes/CustomUnions.cs",
+      "region": "tagged-union"
+    },
+    "provider": {
+      "language": "csharp",
+      "path": "samples/net11.0/ClosedOutcomes/CustomUnions.cs",
+      "region": "provider-union"
+    },
+    "patterns": {
+      "language": "csharp",
+      "path": "samples/net11.0/ClosedOutcomes/CustomUnions.cs",
+      "region": "union-patterns"
+    },
+    "auxiliary": {
+      "region": "union-auxiliary",
+      "path": "samples/net11.0/ClosedOutcomes/CustomUnions.cs",
       "language": "csharp"
     }
   },

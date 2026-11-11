@@ -18,6 +18,17 @@ try {
   Push-Location $scratch
   try {
     $cases = @(
+      @{ Name = 'overlapping union conversion'; Pattern = 'CS0457'; Source = 'using Playbook.Samples; public class Probe { public OverlappingShelf Value = 24; }' },
+      @{ Name = 'union conversion cannot chain'; Pattern = 'CS0029'; Source = 'using Playbook.Samples; public class Probe { public ShelfEnvelope Value = 24; }' },
+      @{ Name = 'nullable source cannot lift int case'; Pattern = 'CS0029'; Source = 'public union Count(int, string); public class Probe { public Count Value = (int?)24; }' },
+      @{ Name = 'union type pattern examines contents'; Pattern = 'CS8121'; Source = 'using Playbook.Samples; public class Probe { public bool Match(ShelfReading x) => x is ShelfReading; }' },
+      @{ Name = 'generic overlapping constructors'; Pattern = 'CS0457'; Source = 'using Playbook.Samples; public class Probe { public GenericShelf<string> Value = "C-24"; }' },
+      @{ Name = 'provider replaces constructor lookup'; Pattern = 'CS0029'; Source = 'using System.Runtime.CompilerServices; [Union] public class U : U.IUnionMembers { public U(int x) {} public interface IUnionMembers { public static U Create(string x) => new(0); public object? Value { get; } } public object? Value => null; } public class Probe { public U Value = 1; }' },
+      @{ Name = 'invalid Value shape'; Pattern = 'CS9386'; Source = 'using System.Runtime.CompilerServices; [Union] public struct U { public U(int x) {} public int Value => 0; } public class Probe { public U Value = 1; }' },
+      @{ Name = 'added union case requires arm'; Pattern = 'CS8509'; Source = 'public union U(int, bool, string); public class Probe { public int Match(U x) => x switch { int => 1, bool => 2, null => 0 }; }' },
+      @{ Name = 'untyped property uses wrapper'; Pattern = 'CS0117'; Source = 'using Playbook.Samples; public class Probe { public bool Match(Outcome x) => x is { ShelfCode: "C-24" }; }' },
+      @{ Name = 'recursive declaration alone'; Pattern = $null; Source = 'public union RecursiveShelf(RecursiveShelf, string);' },
+      @{ Name = 'private provider rejected'; Pattern = 'CS9385'; Source = 'using System.Runtime.CompilerServices; [Union] public class U : U.IUnionMembers { private interface IUnionMembers { public static U Create(int x) => new(); public object? Value { get; } } public object? Value => null; }' },
       @{ Name = 'missing union case'; Pattern = 'CS8509'; Source = 'using Playbook.Samples; public static class Probe { public static int Match(Outcome x) => x switch { ArchiveReceipt => 1, null => 0 }; }' },
       @{ Name = 'missing hierarchy case'; Pattern = 'CS8509'; Source = 'using Playbook.Samples; public static class Probe { public static int Match(IntakeState? x) => x switch { Waiting => 1, null => 0 }; }' },
       @{ Name = 'external direct descendant'; Pattern = 'CS9382'; Source = 'using Playbook.Samples; public record Intruder : IntakeState;' },
@@ -48,4 +59,3 @@ finally {
   if (-not $resolved.StartsWith([IO.Path]::GetFullPath([IO.Path]::GetTempPath()), [StringComparison]::OrdinalIgnoreCase)) { throw 'Unexpected scratch path.' }
   Remove-Item -LiteralPath $resolved -Recurse -Force
 }
-
