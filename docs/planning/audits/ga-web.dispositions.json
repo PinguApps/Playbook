@@ -1,0 +1,19 @@
+{
+  "groups": [
+    {
+      "id": "ga-razor-language-version",
+      "assetPattern": "^sdk/Microsoft\\.CodeAnalysis\\.Razor\\.Compiler\\.dll$",
+      "pattern": "^field Microsoft\\.AspNetCore\\.Razor\\.Language\\.RazorLanguageVersion::Version_12_0 ",
+      "owner": "PIN-964",
+      "disposition": "Excluded: compiler version marker alone supplies no documented external authoring goal. Preserve the PIN-1166–1168 withdrawal; do not invent a new compiler-host recipe."
+    }
+  ],
+  "followOns": [
+    { "issue": "PIN-1306", "goal": "Preserve exact external login identities across database collations", "estimate": 5 },
+    { "issue": "PIN-1307", "goal": "Enforce requested OpenID Connect authentication freshness", "estimate": 5 },
+    { "issue": "PIN-1308", "recipe": "blazor.synchronize-agent-view-state/11.0", "estimate": 5 },
+    { "issue": "PIN-1309", "recipe": "blazor.restore-agent-conversation/11.0", "estimate": 5 },
+    { "issue": "PIN-1310", "recipe": "hosting.select-direct-tls/11.0", "estimate": 3 }
+  ],
+  "stableGate": "PIN-967"
+}

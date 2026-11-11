@@ -4,6 +4,8 @@ param(
   [string]$Net11Root = (Split-Path (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source -Parent),
   [string]$OutputPath = (Join-Path $PSScriptRoot '../artifacts/blazor.assets.json'),
   [string]$CompareWith,
+  [string]$AiVersion = '11.0.0',
+  [string]$AdditionalDispositionManifest,
   [string]$SourceManifest = (Join-Path $PSScriptRoot '../docs/planning/audits/blazor.sources.json'),
   [string]$DispositionManifest = (Join-Path $PSScriptRoot '../docs/planning/audits/blazor.dispositions.json')
 )
@@ -131,7 +133,7 @@ try {
     if ($baseline.target -eq 'net11.0') { $ids += @('microsoft.aspnetcore.components.ai','microsoft.aspnetcore.components.server.autopause','microsoft.aspnetcore.components.gateway','microsoft.aspnetcore.components.gateway.cli','microsoft.extensions.ai.abstractions','microsoft.extensions.dependencyinjection.abstractions') }
     foreach ($id in $ids) {
       $version = switch ($id) {
-        'microsoft.aspnetcore.components.ai' { '11.0.0' }
+        'microsoft.aspnetcore.components.ai' { $AiVersion }
         'microsoft.extensions.ai.abstractions' { '10.6.0' }
         'microsoft.extensions.dependencyinjection.abstractions' { '10.0.0' }
         'microsoft.aspnetcore.razor.language' { '6.0.0' }
@@ -231,6 +233,10 @@ try {
     }
   }
   $rules=Get-Content $dispositionManifest -Raw | ConvertFrom-Json
+  if ($AdditionalDispositionManifest) {
+    $additional = Get-Content $AdditionalDispositionManifest -Raw | ConvertFrom-Json
+    $rules.groups = @($rules.groups) + @($additional.groups)
+  }
   $assignments=@()
   $unowned=@()
   $toolingAssignments=@()
@@ -270,6 +276,7 @@ try {
     $diagnostics += [ordered]@{ path=$path; oldIds=$oldIds; newIds=$newIds; idDiff=Get-Diff $oldIds $newIds; sourceDiff=Get-Diff ($oldText -split '\r?\n') ($newText -split '\r?\n') }
   }
   $report=[ordered]@{ schemaVersion=1; sourceManifestSha256=Get-Hash $sourceManifest; dispositionManifestSha256=Get-Hash $dispositionManifest; baselines=$results; publicApiDiff=$diffs; publicToolingDiff=$textDiffs; analyzerDiff=$diagnostics; dispositions=$counts; toolingDispositions=$toolingAssignments }
+  if ($AdditionalDispositionManifest) { $report.additionalDispositionManifestSha256=Get-Hash $AdditionalDispositionManifest }
   $json=ConvertTo-Json $report -Depth 40
   New-Item -ItemType Directory -Path (Split-Path $output -Parent) -Force | Out-Null
   [IO.File]::WriteAllText($output,$json.Replace("`r`n","`n")+"`n",[Text.UTF8Encoding]::new($false))
