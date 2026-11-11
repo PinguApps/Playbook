@@ -1,0 +1,7 @@
+<!-- snippet:complete -->
+@namespace MuseumCaptions
+@using Microsoft.AspNetCore.Components.Web
+<button @onclick="() => _generation++">Recreate view</button>
+<CaptionPanel @key="_generation" />
+@code { private int _generation; }
+<!-- endsnippet:complete -->

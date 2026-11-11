@@ -1,5 +1,7 @@
 <!-- snippet:complete -->
 @namespace MuseumCaptions
+@using Microsoft.AspNetCore.Components
+@using Microsoft.AspNetCore.Components.Web
 @using Microsoft.AspNetCore.Components.AI
 @using Microsoft.Extensions.AI
 @implements IDisposable
@@ -19,6 +21,7 @@
  private CaptionSession _session = default!;
  private IDisposable? _subscription;
  private CancellationTokenSource? _run;
+ private TaskCompletionSource? _decision;
  private readonly List<UIActionBlock> _actions = [];
  private string _request = "Propose a shorter caption";
  private string _status = "Ready; remote endpoint not checked";
@@ -36,13 +39,14 @@
  private async Task SendAsync()
  {
      if (_busy) { return; }
-     _busy = true; _actions.Clear(); _run = new();
+     _busy = true; _status = "Running"; _actions.Clear(); _run = new();
      try
      {
          await foreach (var block in _session.Agent.SendMessageAsync(new ChatMessage(ChatRole.User, _request), _run.Token))
          {
-             if (block is UIActionBlock action && !_actions.Contains(action)) { _actions.Add(action); }
+             if (block is UIActionBlock action && !_actions.Contains(action)) { _actions.Add(action); _decision = new(TaskCreationOptions.RunContinuationsAsynchronously); }
              await InvokeAsync(StateHasChanged);
+             if (block is UIActionBlock && _decision is { } decision) { await decision.Task.WaitAsync(_run.Token); _decision = null; }
          }
          _status = "Run completed";
      }
@@ -57,6 +61,7 @@
          action.Call.Arguments ??= new Dictionary<string, object?>();
          action.Call.Arguments["accepted"] = accepted;
          await action.InvokeAsync();
+         _decision?.TrySetResult();
      }
      catch (Exception ex) { _status = ex.Message; }
  }
