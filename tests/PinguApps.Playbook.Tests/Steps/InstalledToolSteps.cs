@@ -2307,7 +2307,7 @@ public sealed class InstalledToolSteps : IDisposable
         }
 
         Assert.NotEmpty(requirements.GetProperty("platforms").EnumerateArray());
-        Assert.Contains("GA", Assert.Single(requirements.GetProperty("stabilityLimitations").EnumerateArray()).GetString(), StringComparison.Ordinal);
+        Assert.Contains("11.0.100", Assert.Single(requirements.GetProperty("stabilityLimitations").EnumerateArray()).GetString(), StringComparison.Ordinal);
         Assert.NotEmpty(recipe.GetProperty("sources").EnumerateArray());
         Assert.Equal("not-required", recipe.GetProperty("humanProof").GetProperty("status").GetString());
         Assert.Equal(["net10.0", "net11.0"], recipe.GetProperty("evidence").EnumerateArray().Select(value => value.GetProperty("target").GetString()));
@@ -2368,7 +2368,7 @@ public sealed class InstalledToolSteps : IDisposable
             Assert.Empty(requirements.GetProperty(field).EnumerateArray());
         }
 
-        Assert.Contains("GA", Assert.Single(requirements.GetProperty("stabilityLimitations").EnumerateArray()).GetString(), StringComparison.Ordinal);
+        Assert.Contains("11.0.100", Assert.Single(requirements.GetProperty("stabilityLimitations").EnumerateArray()).GetString(), StringComparison.Ordinal);
         Assert.Equal("not-required", recipe.GetProperty("humanProof").GetProperty("status").GetString());
         Assert.Equal(2, recipe.GetProperty("evidence").GetArrayLength());
         Assert.All(recipe.GetProperty("evidence").EnumerateArray(), evidence =>
@@ -2432,7 +2432,7 @@ public sealed class InstalledToolSteps : IDisposable
                 Assert.Empty(requirements.GetProperty(field).EnumerateArray());
             }
 
-            Assert.Contains("GA", Assert.Single(requirements.GetProperty("stabilityLimitations").EnumerateArray()).GetString(), StringComparison.Ordinal);
+            Assert.Contains("11.0.100", Assert.Single(requirements.GetProperty("stabilityLimitations").EnumerateArray()).GetString(), StringComparison.Ordinal);
             Assert.Equal("not-required", recipe.GetProperty("humanProof").GetProperty("status").GetString());
             Assert.Equal(2, recipe.GetProperty("evidence").GetArrayLength());
             Assert.All(recipe.GetProperty("evidence").EnumerateArray(), evidence =>
@@ -2516,7 +2516,7 @@ public sealed class InstalledToolSteps : IDisposable
 
                 if (target == "11.0")
                 {
-                    Assert.Contains("GA", Assert.Single(requirements.GetProperty("stabilityLimitations").EnumerateArray()).GetString(), StringComparison.Ordinal);
+                    Assert.Contains("11.0.100", Assert.Single(requirements.GetProperty("stabilityLimitations").EnumerateArray()).GetString(), StringComparison.Ordinal);
                 }
 
                 Assert.Equal(foundation ? 3 : 2, recipe.GetProperty("evidence").GetArrayLength());
