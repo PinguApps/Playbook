@@ -43,8 +43,8 @@ try {
     $result = & $Dotnet build (Join-Path $fixture 'Fixture.csproj') -c Release --nologo 2>&1 | Out-String
     if ($LASTEXITCODE -ne 0) { throw $result }
     Write-Host $result
-    if ($result -match 'IDE0410') { Write-Host 'OBSERVED: IDE0410 build diagnostic' }
-    else { Write-Host 'NOT VERIFIED: SDK build did not report IDE0410; no IDE/code-fix execution claimed.' }
+    if ($result -notmatch 'warning IDE0410') { throw 'Expected IDE0410 build diagnostic missing.' }
+    Write-Host 'PASS: actual SDK IDE0410 build diagnostic'
     foreach ($scope in 'Process','User','Machine') {
         if ($before[$scope] -cne [Environment]::GetEnvironmentVariable('PATH',$scope)) { throw "PATH changed: $scope" }
     }

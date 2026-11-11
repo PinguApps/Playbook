@@ -4789,3 +4789,29 @@ C#15 guidance. Retrieval uses an unrelated directory, isolated feed/cache and
 unusable proxies; this proves embedded offline retrieval, not OS network isolation.
 Compiler probes check source diagnostics and a real trace separately; multi-module
 compilation and arbitrary third-party builders are outside that proof.
+
+## Extension indexers and labeled jumps
+
+From any directory, with PowerShell 7, SDK 11.0.100 and Node installed:
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-95b00dac-f4d8d4cab85a5313'
+$env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH = '0'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('csharp.index-existing-types','csharp.control-nested-loops') `
+  -Query '' -RecipeEdition '11.0' -TargetVersion '11.0' `
+  -PackageVersion '0.0.0-pin1294' -BuildAndPack `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory './artifacts/pin1294/inspection'
+```
+
+This builds/packs and locally installs the actual server, then calls list_recipes
+and get_recipe through MCP Inspector from an unrelated temporary directory.
+Expect both stable IDs, titles, explanatory goals, full rendered Markdown with
+range/list and goto migration snippets, applicability and refreshed net11 evidence.
+No experimental opt-in is required. The helper displays and saves real responses;
+its unusable retrieval proxies demonstrate embedded delivery, not OS network
+isolation. Separate consumer checks are `eng/Test-IndexerJumpContracts.ps1` and
+the CollectionLike/EnclosingLoops samples. IDE0410 is observed during build;
+interactive IDE code-fix application and database/provider behavior are not claimed.

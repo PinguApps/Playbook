@@ -63,11 +63,9 @@ Keep the flags for an older target when they already express the flow clearly. A
 
 IDE0410 (Use labeled jump statement) recognizes suitable Boolean propagation and goto exit/continuation patterns in C# 15+. Its documented preference default is true. Configure the preference independently of diagnostic severity in .editorconfig:
 
-```ini
-[*.cs]
-csharp_style_prefer_labeled_jump_statements = true
-dotnet_diagnostic.IDE0410.severity = warning
-```
+    [*.cs]
+    csharp_style_prefer_labeled_jump_statements = true
+    dotnet_diagnostic.IDE0410.severity = warning
 
 For build enforcement set `EnforceCodeStyleInBuild` to true in the project. Setting the preference to false disables this rule; severity none suppresses the diagnostic. Do not assume a preference default means every build reports warnings: severity, build settings and installed analyzer support also matter. SDK 11.0.100 actually reports IDE0410 on the bounded goto fixture in `eng/Test-IndexerJumpContracts.ps1` with the configuration above. Interactive IDE suggestions and application of a code fix were not exercised.
 
