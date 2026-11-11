@@ -12,7 +12,19 @@ connection.CreateCollation("OBSERVATORY", (left, right) =>
 await using var database = new Observatory(new DbContextOptionsBuilder<Observatory>().UseSqlite(connection).Options);
 await database.Database.EnsureCreatedAsync();
 using var builtin = new UserStore<IdentityUser>(database);
-using var guarded = new ExactLoginStore(database);
+var builder = Host.CreateApplicationBuilder();
+var services = builder.Services;
+services.AddLogging();
+services.AddSingleton(database);
+services.AddIdentityCore<IdentityUser>()
+    .AddEntityFrameworkStores<Observatory>()
+    .AddUserStore<ExactLoginStore>();
+using var host = builder.Build();
+await using var scope = host.Services.CreateAsyncScope();
+var resolved = scope.ServiceProvider.GetRequiredService<IUserStore<IdentityUser>>();
+Check(resolved is ExactLoginStore, "Identity must resolve the guarded store");
+var guarded = (IUserLoginStore<IdentityUser>)resolved;
+Console.WriteLine("PASS DI resolves ExactLoginStore after EF store registration");
 var observer = new IdentityUser("observer") { Id = "observer-1" };
 var other = new IdentityUser("other") { Id = "observer-2" };
 database.Users.AddRange(observer, other);
@@ -29,11 +41,11 @@ foreach (var (provider, key, exact) in new[] {
     var candidateExists = await database.UserLogins.AnyAsync(x => x.LoginProvider == provider && x.ProviderKey == key);
     Check(candidateExists == (provider != "MissingAuthority"), "real SQL collation candidate");
     Console.WriteLine($"OBSERVED built-in lookup [{provider}]/[{key}]: {await builtin.FindByLoginAsync(provider, key) is not null}");
-    Check((await guarded.FindByLoginAsync(provider, key) is not null) == exact, "guarded lookup");
-    await guarded.RemoveLoginAsync(other, provider, key);
+    Check((await guarded.FindByLoginAsync(provider, key, CancellationToken.None) is not null) == exact, "guarded lookup");
+    await guarded.RemoveLoginAsync(other, provider, key, CancellationToken.None);
     await database.SaveChangesAsync();
     Check(await database.UserLogins.AnyAsync(), "wrong owner cannot remove login");
-    await guarded.RemoveLoginAsync(observer, provider, key);
+    await guarded.RemoveLoginAsync(observer, provider, key, CancellationToken.None);
     await database.SaveChangesAsync();
     Check(await database.UserLogins.AnyAsync() == !exact, "guarded removal");
     await database.UserLogins.ExecuteDeleteAsync();
@@ -58,6 +70,7 @@ static void Check(bool condition, string claim) {
 sealed class ExactLoginStore(Observatory database) : UserStore<IdentityUser>(database)
 {
     private async Task<IdentityUserLogin<string>?> ExactLogin(string provider, string key, CancellationToken token) {
+        // The composite key uses this collation, so at most one SQL candidate can exist.
         var candidate = await database.UserLogins.SingleOrDefaultAsync(x =>
             x.LoginProvider == provider && x.ProviderKey == key, token);
         return candidate is not null &&

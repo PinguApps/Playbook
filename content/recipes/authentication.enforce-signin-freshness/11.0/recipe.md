@@ -12,9 +12,9 @@ The pinned official documentation describes built-in .NET11 max_age/auth_time va
 
 ## Request, state and validation
 
-Effective max_age can originate from options, OpenIdConnectChallengeProperties, AdditionalAuthorizationParameters or OnRedirectToIdentityProvider. Four independent schemes exercise each source alone. Compose existing redirect customization first, then call Freshness.Capture last. It reads the final outgoing value, parses nonnegative integral seconds using invariant culture, and records it in AuthenticationProperties.Items BEFORE the handler protects state. An absent value removes the entry and adds no auth_time requirement. Do not trust callback parameters as evidence of the original requested age.
+Effective max_age can originate from options, OpenIdConnectChallengeProperties, AdditionalAuthorizationParameters or OnRedirectToIdentityProvider. Four independent schemes exercise each source alone. Compose existing redirect customization first, then call Freshness.Capture last. It reads the final outgoing value, parses nonnegative integral seconds using invariant culture, and records it in AuthenticationProperties.Items BEFORE the handler protects state. An absent value removes the entry and adds no auth_time requirement. Invalid outgoing max_age and unsupported validated token representations are configuration errors that abort rather than silently bypass validation; these exceptions can surface as server errors, while invalid auth_time uses a normal authentication failure. Do not trust callback parameters as evidence of the original requested age.
 
-Freshness.Validate inspects raw signed JSON from the already signature/issuer/audience-validated ID token, before accepting a session. It rejects missing, string, fractional, negative and out-of-range NumericDate values. Elapsed time may equal max_age plus ClockSkew; a future time may equal current time plus ClockSkew. Deterministic boundary controls complement real handler checks. Keep nonce, correlation and protected-state validation. Neither a signed assertion nor this guard proves a physical authentication ceremony or protects against a compromised provider.
+Freshness.Validate inspects raw signed JSON from the already signature/issuer/audience-validated ID token, before accepting a session. It rejects missing, string, fractional, negative and out-of-range NumericDate values. Elapsed time may equal max_age plus ClockSkew; a future time may equal current time plus ClockSkew. Set TokenValidationParameters.ClockSkew explicitly: this sample uses five seconds. A framework default measured in minutes widens both the allowed age and future-time tolerance. Deterministic boundary controls complement real handler checks. Keep nonce, correlation and protected-state validation. Neither a signed assertion nor this guard proves a physical authentication ceremony or protects against a compromised provider.
 
 ## PAR, flow boundaries and compatibility switch
 
@@ -26,7 +26,7 @@ This check neither changes local cookie lifetime nor covers refresh-token redemp
 
 ## Older approach: guarded .NET10 comparison
 
-SDK10.0.404, C#14.0. Save the files together, restore once, then restore --locked-mode and run --configuration Release. The executable checks behavior and exits.
+SDK10.0.404, C#14.0. Save the complete files together for standalone use. To reproduce this checkout in PowerShell, first run `Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-cd67d62b-4348f7b312b80854'`, then `Push-Location -LiteralPath './samples/net10.0/ObservatoryFreshness'`. Set the process-only value `$env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH = '0'`. Run `& 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' restore --locked-mode`, followed by `& 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' run --configuration Release`, then `Pop-Location`. For standalone copies, select their directory instead and use your installed matching SDK host. The executable checks behavior and exits.
 
 ### BoundaryChecks.cs
 
@@ -66,7 +66,7 @@ SDK10.0.404, C#14.0. Save the files together, restore once, then restore --locke
 
 ## Newer approach: guarded .NET11 comparison
 
-SDK11.0.100, C#15.0. Save the files together, restore once, then restore --locked-mode and run --configuration Release. The executable checks behavior and exits.
+SDK11.0.100, C#15.0. Save the complete files together for standalone use. To reproduce this checkout in PowerShell, first run `Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-cd67d62b-4348f7b312b80854'`, then `Push-Location -LiteralPath './samples/net11.0/ObservatoryFreshness'`. Set the process-only value `$env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH = '0'`. Run `& 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' restore --locked-mode`, followed by `& 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' run --configuration Release`, then `Pop-Location`. For standalone copies, select their directory instead and use your installed matching SDK host. The executable checks behavior and exits.
 
 ### BoundaryChecks.cs
 

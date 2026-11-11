@@ -17,15 +17,17 @@ The pinned official documentation describes ordinal verification after an indexe
 3. Exercise exact and collation-only identities against the actual provider before rollout.
 
 
-Keep the indexed SQL predicate over LoginProvider and ProviderKey. Materialize the bounded candidate and verify BOTH original strings with StringComparison.Ordinal before resolving a user or removing a row. Do not scan every login or put an untranslatable client comparison into SQL. Case-insensitive key uniqueness can still prevent storing ordinal-distinct identities; this guard does not change schema uniqueness.
+## Guarded store policy
 
-The complete samples override IUserLoginStore operations in ExactLoginStore. Register it in place of the default store on the existing Identity builder using AddUserStore<ExactLoginStore>, adapting user/context/key types. Preserve other Identity operations and policy. Custom IUserLoginStore implementations own equivalent lookup AND removal checks, owner verification, cancellation, persistence and concurrency policy. Direct store calls save changes explicitly; UserManager uses its normal update path.
+Keep the indexed SQL predicate over LoginProvider and ProviderKey. Materialize the bounded candidate and verify BOTH original strings with StringComparison.Ordinal before resolving a user or removing a row. Do not scan every login or put an untranslatable client comparison into SQL. The sample composite primary key has the same collation as its lookup, so it guarantees at most one candidate for SingleOrDefaultAsync. Preserve that uniqueness precondition; a custom schema admitting multiple candidates needs bounded candidate-set retrieval and ordinal selection. Case-insensitive key uniqueness can prevent storing ordinal-distinct identities; this guard does not change schema uniqueness.
+
+The complete samples override IUserLoginStore operations in ExactLoginStore. They register AddEntityFrameworkStores<Observatory> followed by AddUserStore<ExactLoginStore> and assert that the resolved IUserStore<IdentityUser> is ExactLoginStore before calling its IUserLoginStore operations. Register the guard in place of the default store, adapt user/context/key types and verify the actual resolved store in your application; later registrations can change it. Preserve other Identity operations and policy. Custom IUserLoginStore implementations own equivalent lookup AND removal checks, owner verification, cancellation, persistence and concurrency policy. Direct store calls save changes explicitly; UserManager uses its normal update path.
 
 Both older and newer consumers intentionally use the explicit guard. They print unguarded observations separately from guard assertions. The actual SQLite collation ignores case and trailing ASCII spaces on indexed key columns. This verifies the hazard and guard without claiming every SQL Server collation or deployment provider.
 
 ## Older approach: guarded .NET10 comparison
 
-SDK10.0.404, C#14.0. Save the files together, restore once, then restore --locked-mode and run --configuration Release. The executable checks behavior and exits.
+SDK10.0.404, C#14.0. Save the complete files together for standalone use. To reproduce this checkout in PowerShell, first run `Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-cd67d62b-4348f7b312b80854'`, then `Push-Location -LiteralPath './samples/net10.0/ObservatoryLogins'`. Set the process-only value `$env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH = '0'`. Run `& 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' restore --locked-mode`, followed by `& 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' run --configuration Release`, then `Pop-Location`. For standalone copies, select their directory instead and use your installed matching SDK host. The executable checks behavior and exits.
 
 ### Directory.Build.props
 
@@ -57,7 +59,7 @@ SDK10.0.404, C#14.0. Save the files together, restore once, then restore --locke
 
 ## Newer approach: guarded .NET11 comparison
 
-SDK11.0.100, C#15.0. Save the files together, restore once, then restore --locked-mode and run --configuration Release. The executable checks behavior and exits.
+SDK11.0.100, C#15.0. Save the complete files together for standalone use. To reproduce this checkout in PowerShell, first run `Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-cd67d62b-4348f7b312b80854'`, then `Push-Location -LiteralPath './samples/net11.0/ObservatoryLogins'`. Set the process-only value `$env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH = '0'`. Run `& 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' restore --locked-mode`, followed by `& 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' run --configuration Release`, then `Pop-Location`. For standalone copies, select their directory instead and use your installed matching SDK host. The executable checks behavior and exits.
 
 ### Directory.Build.props
 
