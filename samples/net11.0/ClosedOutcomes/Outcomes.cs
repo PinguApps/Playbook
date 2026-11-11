@@ -56,6 +56,7 @@ internal static class RestrictionChecks
 
     public static void Run()
     {
+        CustomUnionChecks.Run();
         // Explicit registrations replace inference, rather than adding to it.
         var options = new JsonSerializerOptions { TypeInfoResolver = new DefaultJsonTypeInfoResolver() };
         JsonTypeInfo info = options.GetTypeInfo(typeof(RegisteredState));
