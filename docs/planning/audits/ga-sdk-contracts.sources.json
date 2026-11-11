@@ -102,448 +102,392 @@
       "title": "Migrate an authored Azure Linux base-image selection",
       "stability": "preview",
       "metadataSha256": "4bd38f303e401f4e9fbb07d065cde98b231abfc0c481f82ccbec2ac9754c927c",
-      "markdownSha256": "0daa2eeb3ae30510dee7ee8cc3b0a792b9b8fa81833ffb3ac7c0f8f8373128f7",
-      "requirements": null
+      "markdownSha256": "0daa2eeb3ae30510dee7ee8cc3b0a792b9b8fa81833ffb3ac7c0f8f8373128f7"
     },
     {
       "id": "sdk.configure-test-runs",
       "title": "Run selected test projects with deliberate runner and limits",
       "stability": "stable",
       "metadataSha256": "20a919f61f346475e446526e8c0e3add60a5f039bf11c562363918af5424d98f",
-      "markdownSha256": "8c3f461ab888d700883dcbcd206387f29b3eb9a89d30f721e6960a8c492034ca",
-      "requirements": null
+      "markdownSha256": "8c3f461ab888d700883dcbcd206387f29b3eb9a89d30f721e6960a8c492034ca"
     },
     {
       "id": "sdk.create-test-runner-projects",
       "title": "Create executable tests with an explicit framework and runner",
       "stability": "stable",
       "metadataSha256": "d3caebb0ae5ff60f4f881fc9b09c278f07b0eb58be982d10814e916d19993770",
-      "markdownSha256": "316debcdb853ad45247951b093ad79dc39a8ad133b128ad79fa6e5c26b810abc",
-      "requirements": null
+      "markdownSha256": "316debcdb853ad45247951b093ad79dc39a8ad133b128ad79fa6e5c26b810abc"
     },
     {
       "id": "sdk.customize-native-tool-package-rids",
       "title": "Select native tool package RIDs from a measured toolchain",
       "stability": "stable",
       "metadataSha256": "9fd341c14a18d5d04faf06952229cf637096a2e67f51e98b5d94720ce0b58663",
-      "markdownSha256": "9fc7d82e3f68998b7819c498897021fb91af86682209b7bc5a0f533304980586",
-      "requirements": null
+      "markdownSha256": "9fc7d82e3f68998b7819c498897021fb91af86682209b7bc5a0f533304980586"
     },
     {
       "id": "sdk.declare-static-asset-groups",
       "title": "Publish selected static asset groups and compiled TypeScript",
       "stability": "stable",
       "metadataSha256": "6bae9579d5d0964f4531ddccb1c5247ff082362f07fa704817211e3cd6290a8e",
-      "markdownSha256": "709d2a73f165b322bc8f2abc0a0d26540a7cbad57e4d1ab0606d70d88b333995",
-      "requirements": null
+      "markdownSha256": "709d2a73f165b322bc8f2abc0a0d26540a7cbad57e4d1ab0606d70d88b333995"
     },
     {
       "id": "sdk.filter-solutions",
       "title": "Build a selected part of a solution with a maintained filter",
       "stability": "stable",
       "metadataSha256": "7463033767e7c2c97bc7f052dc20b9c2f9f5cbc2355a2700e13a033f3eac5c2a",
-      "markdownSha256": "84bf0d32b91c1df0aaadb8c038fc83041a34bbfba695e3b28b93ab12cc63436a",
-      "requirements": null
+      "markdownSha256": "84bf0d32b91c1df0aaadb8c038fc83041a34bbfba695e3b28b93ab12cc63436a"
     },
     {
       "id": "sdk.format-targeted-code",
       "title": "Format only the intended file and framework",
       "stability": "stable",
       "metadataSha256": "966db1827ec85a4d93b63c226cbc59d4bcff995c9170767553404d30019b631e",
-      "markdownSha256": "910925503d6d543d2cb9dff5174d017106854568c528d0c2f989819e1df40d40",
-      "requirements": null
+      "markdownSha256": "910925503d6d543d2cb9dff5174d017106854568c528d0c2f989819e1df40d40"
     },
     {
       "id": "sdk.install-preview-templates",
       "title": "Choose preview templates deliberately and keep exact pins reproducible",
       "stability": "stable",
       "metadataSha256": "dae580611d68c060820b8651a948084b9357a04cf00cdd5bd2b44239ab711a71",
-      "markdownSha256": "c1b1b2461fe7854474f115378365811c3f9488d047ff61115d1416a1a7611037",
-      "requirements": null
+      "markdownSha256": "c1b1b2461fe7854474f115378365811c3f9488d047ff61115d1416a1a7611037"
     },
     {
       "id": "sdk.keep-build-configuration-explicit",
       "title": "Select build and publish configurations explicitly",
       "stability": "stable",
       "metadataSha256": "bcb132f46b451830c02c7117e69332e0df4c19e675ce114bed376a3855c88602",
-      "markdownSha256": "7c19f3296d36b32e994bc6454413d6623b9860086293a4e808172cfbdb6759eb",
-      "requirements": null
+      "markdownSha256": "7c19f3296d36b32e994bc6454413d6623b9860086293a4e808172cfbdb6759eb"
     },
     {
       "id": "sdk.migrate-optimized-publish-hooks",
       "title": "Preserve generated files during optimized native publishing",
       "stability": "stable",
       "metadataSha256": "89e0d0b53a11d24129260eac7124a2fb2f650ecc76b0b43d45df29718158943a",
-      "markdownSha256": "da15d7b0ae80e64080c19756f19d312101dcd58b5fafce675511ec5776a5c251",
-      "requirements": null
+      "markdownSha256": "da15d7b0ae80e64080c19756f19d312101dcd58b5fafce675511ec5776a5c251"
     },
     {
       "id": "sdk.migrate-single-file-output",
       "title": "Choose single-file extraction and locate deployed files correctly",
       "stability": "stable",
       "metadataSha256": "1facdc360bca1b2d16e3c1b6c184ea6e5a7ad40bfceb92565ec25532859da1d1",
-      "markdownSha256": "a198ad55564323b0492a48ceb38e351e102e0de32f76d294c8120a0b2b66e4e0",
-      "requirements": null
+      "markdownSha256": "a198ad55564323b0492a48ceb38e351e102e0de32f76d294c8120a0b2b66e4e0"
     },
     {
       "id": "sdk.package-tools-correctly",
       "title": "Package an installable command with the SDK tool contract",
       "stability": "stable",
       "metadataSha256": "46e3b0e8c58a559f9ed70a6051029abc0f1516e9e59067f8de55531746dde815",
-      "markdownSha256": "244878ff4bcb1a89094848e589db4d0363dc03cecc9d25127ad8983d3f42636a",
-      "requirements": null
+      "markdownSha256": "244878ff4bcb1a89094848e589db4d0363dc03cecc9d25127ad8983d3f42636a"
     },
     {
       "id": "sdk.configure-redirected-output-encoding",
       "title": "Read redirected SDK output with an explicit encoding",
       "stability": "stable",
       "metadataSha256": "0cbfe090a5179c4cd067ebd38448185ed56d98085c265741ce57356cd9e42d92",
-      "markdownSha256": "2490feba2096ce7ae6cf3a13cfa7e911d18d065616e4eb81788948929c886a45",
-      "requirements": null
+      "markdownSha256": "2490feba2096ce7ae6cf3a13cfa7e911d18d065616e4eb81788948929c886a45"
     },
     {
       "id": "sdk.pass-launch-settings",
       "title": "Keep launch arguments, build properties and environment values distinct",
       "stability": "stable",
       "metadataSha256": "2eafe84380886d6a5e43811339698848a736dc80c607371bac12b6dc6ba0e70b",
-      "markdownSha256": "ee267af2f6d23fa840e048e309ad40941ef8f55feb633448621b13a5c3c0e23d",
-      "requirements": null
+      "markdownSha256": "ee267af2f6d23fa840e048e309ad40941ef8f55feb633448621b13a5c3c0e23d"
     },
     {
       "id": "sdk.publish-referenced-symbols",
       "title": "Include referenced symbols in published output",
       "stability": "stable",
       "metadataSha256": "a4a1b849aa1ef8596e2709cbe3cb9ee7e7c11d2a1e123c4e56ab1282066ecb9e",
-      "markdownSha256": "d71eaa1d3da81c08dd197e3d252377798cd4aabbb9f5fbb08745219343628798",
-      "requirements": null
+      "markdownSha256": "d71eaa1d3da81c08dd197e3d252377798cd4aabbb9f5fbb08745219343628798"
     },
     {
       "id": "sdk.publish-reproducible-containers",
       "title": "Publish repeatable container images from fixed inputs",
       "stability": "stable",
       "metadataSha256": "0cf195c6a34d0e65b6c9df16e587c57dd849d7febfed2065372555a7cdf06a72",
-      "markdownSha256": "76b4d005bf14491adf67bcc7666cb05c342721dd6a01d683305d6ec25cefa698",
-      "requirements": null
+      "markdownSha256": "76b4d005bf14491adf67bcc7666cb05c342721dd6a01d683305d6ec25cefa698"
     },
     {
       "id": "sdk.retarget-template-engine-hosts",
       "title": "Retarget an embedded template-engine host",
       "stability": "preview",
       "metadataSha256": "30aa8162e2a3855d67e9a9ad0a642161b2004e3aaa151867c828d21c333cc5a3",
-      "markdownSha256": "156cf4e419b75b61d92a4fd047504cffac71bd091b760ce9fdaf4d46fd70b4e1",
-      "requirements": null
+      "markdownSha256": "156cf4e419b75b61d92a4fd047504cffac71bd091b760ce9fdaf4d46fd70b4e1"
     },
     {
       "id": "sdk.select-affected-tests",
       "title": "Select affected tests with an experimental source map",
       "stability": "experimental",
       "metadataSha256": "e461dca8ab1ee8eb7be88ca3f2e466e25a6398c0da391d22dd31c846f1dead8c",
-      "markdownSha256": "b838fe0dbace4a2c469273c7175e1120591408cb6003e2c88dc2acfd280dc8d0",
-      "requirements": null
+      "markdownSha256": "b838fe0dbace4a2c469273c7175e1120591408cb6003e2c88dc2acfd280dc8d0"
     },
     {
       "id": "sdk.select-local-container-engine",
       "title": "Choose the local engine for container publishing",
       "stability": "stable",
       "metadataSha256": "0d15d9cf9b8b689060db2e3f78b0beb1714dc3e6dbc0026a2b69e47dd872e2da",
-      "markdownSha256": "39f70626c5dc280d54bf043f3d23e9e964fa1f983569b97345aa4d9c66286e1d",
-      "requirements": null
+      "markdownSha256": "39f70626c5dc280d54bf043f3d23e9e964fa1f983569b97345aa4d9c66286e1d"
     },
     {
       "id": "sdk.select-tool-execution-sdk",
       "title": "Select the intended SDK when executing a tool",
       "stability": "stable",
       "metadataSha256": "3d2c26bb2d1eb5d65a7076ba3b1ef098e3413d432c1c6f4f5d89b52d8c92fd3c",
-      "markdownSha256": "33f90d1581ac415b045d387fce49f99c7fc2094411057585ad5cfd934e96eb3a",
-      "requirements": null
+      "markdownSha256": "33f90d1581ac415b045d387fce49f99c7fc2094411057585ad5cfd934e96eb3a"
     },
     {
       "id": "sdk.watch-app-hosts-and-devices",
       "title": "Choose the application host and device for a local watch loop (mobile execution not tested)",
       "stability": "stable",
       "metadataSha256": "8907a69ff3d1e2cd79286e3a70458d72c92fbb905f6b2350cedea29fdcf3ea0f",
-      "markdownSha256": "adb9d2c3d2189f67cf31bec599a5fdc7924f815283ece3d0cf666c81a465f436",
-      "requirements": null
+      "markdownSha256": "adb9d2c3d2189f67cf31bec599a5fdc7924f815283ece3d0cf666c81a465f436"
     },
     {
       "id": "testing.declare-json-dependencies",
       "title": "Own JSON dependencies in test projects and extensions",
       "stability": "preview",
       "metadataSha256": "0180cc4832e73bc3a9cfba985e116ded6ddf856a499f06bc5b55bec4012e7783",
-      "markdownSha256": "2406f5a8be786a26ad5cc8a34b92f069a7f209e2f71fb469041d4983be321db1",
-      "requirements": null
+      "markdownSha256": "2406f5a8be786a26ad5cc8a34b92f069a7f209e2f71fb469041d4983be321db1"
     },
     {
       "id": "testing.migrate-assembly-resolution-context",
       "title": "Construct immutable VSTest assembly-resolution context",
       "stability": "preview",
       "metadataSha256": "00c3850c6418e6898e025184ee0d25c6c2c7c993bde6638a113b41599c99b5f4",
-      "markdownSha256": "774c5aa4c7ed96649ac2710700db491ae3a7fe09864b651836b21b289e363445",
-      "requirements": null
+      "markdownSha256": "774c5aa4c7ed96649ac2710700db491ae3a7fe09864b651836b21b289e363445"
     },
     {
       "id": "testing.migrate-collector-event-inputs",
       "title": "Observe VSTest collector events without rewriting outcomes",
       "stability": "stable",
       "metadataSha256": "a7ef500a1a6f5225d22f7bf0ac8d9eac5bd8f1b1d4e5e7e5dcb37c6a0c01627f",
-      "markdownSha256": "e042aeddcb8a77ee3b0c0fe450e0c5bb8eb302f48defc13908284a139f9ccb72",
-      "requirements": null
+      "markdownSha256": "e042aeddcb8a77ee3b0c0fe450e0c5bb8eb302f48defc13908284a139f9ccb72"
     },
     {
       "id": "testing.migrate-vstest-message-readers",
       "title": "Read VSTest messages through the supported typed contract",
       "stability": "preview",
       "metadataSha256": "57c235bb9adc5e720fd2f56d359084a7ce8ebf82e1fadb99c7b198d827813178",
-      "markdownSha256": "7bc197fb164854ec094c9055be965bd453b25c03d9feff51d6c56e31c3557939",
-      "requirements": null
+      "markdownSha256": "7bc197fb164854ec094c9055be965bd453b25c03d9feff51d6c56e31c3557939"
     },
     {
       "id": "sdk.publish-multiarch-with-podman",
       "title": "Build a multi-architecture image with Podman",
       "stability": "stable",
       "metadataSha256": "6701405026e60d5330baedaf2a7c1900897d6dccfd62b7084db18a5a7df19e08",
-      "markdownSha256": "081d9fe3e9ac952ad053a084a8bdb12d7245101f97302bf394eecc1498a11dab",
-      "requirements": null
+      "markdownSha256": "081d9fe3e9ac952ad053a084a8bdb12d7245101f97302bf394eecc1498a11dab"
     },
     {
       "id": "sdk.configure-legacy-mono-launch",
       "title": "Configure an explicit legacy Mono launch",
       "stability": "stable",
       "metadataSha256": "addc8ed47c575675530765cae540d4f632475194700d24334cf475cf9ee4abcf",
-      "markdownSha256": "c1fbffedc2b547d70c7e0cdec96c63b2c9d49aae3aca6454667a611f8a36e71f",
-      "requirements": null
+      "markdownSha256": "c1fbffedc2b547d70c7e0cdec96c63b2c9d49aae3aca6454667a611f8a36e71f"
     },
     {
       "id": "sdk.configure-cli-telemetry",
       "title": "Choose CLI telemetry collection and export explicitly",
       "stability": "stable",
       "metadataSha256": "9f0da0bd4fe124905c0d831840c93e2ec3b2d356ad2d8b0327a9f2224f052c37",
-      "markdownSha256": "1cb1e4b8071e546f66cb7509c88198d6532db1b017e5526da454e06638a1ba2d",
-      "requirements": null
+      "markdownSha256": "1cb1e4b8071e546f66cb7509c88198d6532db1b017e5526da454e06638a1ba2d"
     },
     {
       "id": "sdk.compose-file-apps",
       "title": "Grow a file application with shared code and explicit dependencies",
       "stability": "stable",
       "metadataSha256": "d935a16904d53dba3c818aae566d0dc15a4d9fe68a4ef48a07475292029f8809",
-      "markdownSha256": "205ae3e146b6683663718f5e6ae46600483b37d46db5beaf88df022290498bac",
-      "requirements": null
+      "markdownSha256": "205ae3e146b6683663718f5e6ae46600483b37d46db5beaf88df022290498bac"
     },
     {
       "id": "containers.verify-base-image-signatures",
       "title": "Verify the signature of a selected .NET base image",
       "stability": "stable",
       "metadataSha256": "4f78e4aba9a1738da22a3ddf2c27389396c264b31563a8b3550d4b007af90083",
-      "markdownSha256": "83c9934b48d94cc959f1b1bd301b2a31c2b483f702d959c2f5c592b9d3230501",
-      "requirements": null
+      "markdownSha256": "83c9934b48d94cc959f1b1bd301b2a31c2b483f702d959c2f5c592b9d3230501"
     },
     {
       "id": "deployment.control-runtime-overrides",
       "title": "Preserve production runtime settings while allowing development overrides",
       "stability": "stable",
       "metadataSha256": "44f3a5e7189f23442b15095804d55b1b09399b9b668bb0b55c874485a7297233",
-      "markdownSha256": "e6f9272325d72c5ac5dc74992933be1e6c94b45ca6737cc20c914f72552f862d",
-      "requirements": null
+      "markdownSha256": "e6f9272325d72c5ac5dc74992933be1e6c94b45ca6737cc20c914f72552f862d"
     },
     {
       "id": "msbuild.archive-build-artifacts",
       "title": "Create and extract build archives with MSBuild tasks",
       "stability": "stable",
       "metadataSha256": "bd05a1ef430b50b49476123ea202bee98a52e591c105757de8ddc8b4281881f0",
-      "markdownSha256": "2710ba4eaf302e93a6f50f0777b3bce17f2af5dc1364679541b017c2fff31f5d",
-      "requirements": null
+      "markdownSha256": "2710ba4eaf302e93a6f50f0777b3bce17f2af5dc1364679541b017c2fff31f5d"
     },
     {
       "id": "msbuild.bind-typed-task-inputs",
       "title": "Bind typed file inputs in a custom MSBuild task",
       "stability": "experimental",
       "metadataSha256": "0708b10b64e4f4ba113433e151db27d9b8b06e0a257e10c9c19d3ebed8b1549a",
-      "markdownSha256": "e9c8d90b8f7101d7e4eb5beca0ec5c02e45924ba99e6f202246836f31af7e492",
-      "requirements": null
+      "markdownSha256": "e9c8d90b8f7101d7e4eb5beca0ec5c02e45924ba99e6f202246836f31af7e492"
     },
     {
       "id": "msbuild.evaluate-project-stages",
       "title": "Evaluate only the project information a tool needs",
       "stability": "preview",
       "metadataSha256": "a72b0397fdf5531fccb9083ed0213a1129b22af1852b517729f8360b37919081",
-      "markdownSha256": "fa1c7b10df031c2b13ad5b186923c45274f7e1f2e0282f8b7336dc3cbc79feb4",
-      "requirements": null
+      "markdownSha256": "fa1c7b10df031c2b13ad5b186923c45274f7e1f2e0282f8b7336dc3cbc79feb4"
     },
     {
       "id": "msbuild.inspect-file-access-records",
       "title": "Read experimental build file-access records correctly",
       "stability": "experimental",
       "metadataSha256": "d4ca639249500e91561bc62c7de306f3131c2c1b09d700c4ced0b2b79cf2fd54",
-      "markdownSha256": "e026d3d2898f9b309dd573f44fb89dcd6727398f6194124fd115ab49aade7a63",
-      "requirements": null
+      "markdownSha256": "e026d3d2898f9b309dd573f44fb89dcd6727398f6194124fd115ab49aade7a63"
     },
     {
       "id": "msbuild.inspect-import-tree",
       "title": "Inspect the actual build import tree",
       "stability": "stable",
       "metadataSha256": "3e226d0f7de36a0f8db4945555e62c148921d8e23e17c0b19bb568af78501591",
-      "markdownSha256": "bce8b45832acf9eabc867bf60bc0ba3746a091fab524a46a1f2543db580f698a",
-      "requirements": null
+      "markdownSha256": "bce8b45832acf9eabc867bf60bc0ba3746a091fab524a46a1f2543db580f698a"
     },
     {
       "id": "msbuild.inspect-item-globs",
       "title": "Explain build item patterns and selected files",
       "stability": "stable",
       "metadataSha256": "1684e06f5cd00f8d0bdf7ee071926547345d7aae3f83836e40487a5a4879f42f",
-      "markdownSha256": "548def875fe71bf30fa40ad18e443ae220dffb3703e1fc59b76f9461d0f28bb6",
-      "requirements": null
+      "markdownSha256": "548def875fe71bf30fa40ad18e443ae220dffb3703e1fc59b76f9461d0f28bb6"
     },
     {
       "id": "msbuild.inspect-structured-build-events",
       "title": "Consume structured assembly-conflict and server events",
       "stability": "preview",
       "metadataSha256": "ebc99d104fd99e1b5de586161eb27383f5410a9ecd37c89a0cf424de54087301",
-      "markdownSha256": "8c6c041abe0e1bf9a9bc43818017be57f5134d15186c9f0c639ded6f900f27a6",
-      "requirements": null
+      "markdownSha256": "8c6c041abe0e1bf9a9bc43818017be57f5134d15186c9f0c639ded6f900f27a6"
     },
     {
       "id": "msbuild.migrate-xml-inputs",
       "title": "Migrate build XML to the current DTD policy",
       "stability": "stable",
       "metadataSha256": "2c9b2c15dbd3e50e6f78e49cc0e99fdbbd6058a7bf18d9f9514f9d1708602de7",
-      "markdownSha256": "14e5dd55a905b53e5e055e16e57b0ab494c3656155e4ee21577919629cbf8878",
-      "requirements": null
+      "markdownSha256": "14e5dd55a905b53e5e055e16e57b0ab494c3656155e4ee21577919629cbf8878"
     },
     {
       "id": "msbuild.register-aot-build-extensions",
       "title": "Register a closed set of build extensions in an AOT host",
       "stability": "preview",
       "metadataSha256": "e343021a00ac87be570669f62983f22cd3be47a9e787d2d15ac5b4fcef0d95df",
-      "markdownSha256": "e4f1e9974631919da8cb7fa9a379f8b846fc040252119b05f56a9de5946e793b",
-      "requirements": null
+      "markdownSha256": "e4f1e9974631919da8cb7fa9a379f8b846fc040252119b05f56a9de5946e793b"
     },
     {
       "id": "msbuild.retire-old-wave-optouts",
       "title": "Retire build change-wave opt-outs",
       "stability": "stable",
       "metadataSha256": "1aa81bf16ae6f9076079e580c39960fe97b08625ba89d1243f3fe92cb8ce28a1",
-      "markdownSha256": "097da00d20e9a778fb2bf6712cda13eb0b9fe301f62fa6d44ca32c34cd145f47",
-      "requirements": null
+      "markdownSha256": "097da00d20e9a778fb2bf6712cda13eb0b9fe301f62fa6d44ca32c34cd145f47"
     },
     {
       "id": "nuget.delay-new-package-selection",
       "title": "Delay selection of newly published packages",
       "stability": "stable",
       "metadataSha256": "73aab47e6a08c8afefb8bc50ce2c226dd0262d359b6f99d249aa980cd7cbe822",
-      "markdownSha256": "7d741be57c589fe34c90e7321074d8f2d4bd25487a43348566bc7aa4d10dacb9",
-      "requirements": null
+      "markdownSha256": "7d741be57c589fe34c90e7321074d8f2d4bd25487a43348566bc7aa4d10dacb9"
     },
     {
       "id": "nuget.inspect-analyzer-assets",
       "title": "Inspect restore's analyzer assets without assuming execution",
       "stability": "preview",
       "metadataSha256": "e05a68aa54a365c47423c8256450334ab2e7c3d17d3f0a3d6d5f807f38d55cd6",
-      "markdownSha256": "a0b1749eeb025ae356e0797ef5fedfdfee2c9e847d2d730907686108d4c0c42e",
-      "requirements": null
+      "markdownSha256": "a0b1749eeb025ae356e0797ef5fedfdfee2c9e847d2d730907686108d4c0c42e"
     },
     {
       "id": "nuget.make-package-timestamps-reproducible",
       "title": "Produce repeatable package timestamps",
       "stability": "stable",
       "metadataSha256": "a79ab2bdf6ebfab937d64fb4ae3bc6b61e1bb4b31a91fb6f7d6ef8708fec8fc8",
-      "markdownSha256": "d0e19d5d9334dea913f404db2a64cd966d7ec1b0d5936b685b8ca42c681ace69",
-      "requirements": null
+      "markdownSha256": "d0e19d5d9334dea913f404db2a64cd966d7ec1b0d5936b685b8ca42c681ace69"
     },
     {
       "id": "nuget.migrate-client-library-hosts",
       "title": "Retarget a NuGet client-library host",
       "stability": "stable",
       "metadataSha256": "950d554368caa7fe4491af42582fe5cd2847a0b666b9081ae9e2d6c610c7d46e",
-      "markdownSha256": "a89368e60ff6538ea7b90ab4218e78756e6838449ceb7750c3dc91d7f3378bc3",
-      "requirements": null
+      "markdownSha256": "a89368e60ff6538ea7b90ab4218e78756e6838449ceb7750c3dc91d7f3378bc3"
     },
     {
       "id": "nuget.migrate-package-identities",
       "title": "Choose a compliant package identity during migration",
       "stability": "stable",
       "metadataSha256": "d6f8f0d0620fd301fae25a66f5eff505bd70b36f84fa2f212a827a9892082c3e",
-      "markdownSha256": "1a396f724bb378a72dbffe6a1be13034f5bbc095cbce0739ee03c2e127314f34",
-      "requirements": null
+      "markdownSha256": "1a396f724bb378a72dbffe6a1be13034f5bbc095cbce0739ee03c2e127314f34"
     },
     {
       "id": "nuget.own-plugin-launch-diagnostics",
       "title": "Remove dependency on an obsolete credential-plugin diagnostic helper",
       "stability": "preview",
       "metadataSha256": "5ad09ecc710bff485040efe9ab7b1708d45de0d8afef94ea267876a89d8764ba",
-      "markdownSha256": "ce478431cafb63b043f42925f4d8c23476ce8b5008b90aa01acc96098afca779",
-      "requirements": null
+      "markdownSha256": "ce478431cafb63b043f42925f4d8c23476ce8b5008b90aa01acc96098afca779"
     },
     {
       "id": "nuget.reset-reused-host-state",
       "title": "Invalidate custom NuGet caches between reused builds",
       "stability": "preview",
       "metadataSha256": "4253ce6cc5d335b3e0bfa93ed0bad91570e6758961cfb750659d660156652d5f",
-      "markdownSha256": "a58d476526122a3bd43282d474b4a91c5cf9925f55973afcc57905363d086332",
-      "requirements": null
+      "markdownSha256": "a58d476526122a3bd43282d474b4a91c5cf9925f55973afcc57905363d086332"
     },
     {
       "id": "nuget.restore-from-declared-sources",
       "title": "Restore dependencies independently of next-best cache entries",
       "stability": "stable",
       "metadataSha256": "00798891895b9b2400b92a6674b31abc8394b04ff36661b1ea6edb7fed6b678a",
-      "markdownSha256": "1b4ce3d2eda351e4ac3563a3efacfbcb5c28461e394eea7999ddc97cbad4a289",
-      "requirements": null
+      "markdownSha256": "1b4ce3d2eda351e4ac3563a3efacfbcb5c28461e394eea7999ddc97cbad4a289"
     },
     {
       "id": "nuget.skip-disposable-restore-graph",
       "title": "Avoid writing a disposable CI restore graph",
       "stability": "stable",
       "metadataSha256": "587f8d5fa25c10bc3e9bf82a6d22d77917c4ca2ed9c2034fe9a2346b2959e9a8",
-      "markdownSha256": "539f7f19faca7884a67f743f1998e1b76b440efaca910f0245436d47220092fc",
-      "requirements": null
+      "markdownSha256": "539f7f19faca7884a67f743f1998e1b76b440efaca910f0245436d47220092fc"
     },
     {
       "id": "nuget.stage-package-uploads",
       "title": "Upload packages to a V3 staging endpoint",
       "stability": "preview",
       "metadataSha256": "710f86913e5328ad9ecac93207fbae32c9fdc59ddca0f5980fc81e6cd844580e",
-      "markdownSha256": "ae506e4a5cd4e4b72158564913bfb33748c9b32ae7319d4169b3178aa2601a91",
-      "requirements": null
+      "markdownSha256": "ae506e4a5cd4e4b72158564913bfb33748c9b32ae7319d4169b3178aa2601a91"
     },
     {
       "id": "nuget.update-vulnerable-dependencies",
       "title": "Update vulnerable dependencies under strict warnings",
       "stability": "stable",
       "metadataSha256": "379adde9db34cb9c0ddb7cd21b89d1f885474474f6389269cba9fe0d153a934d",
-      "markdownSha256": "9ed20e5cd86e6c3d5b86ff25db2c7073152fa0b9360ead953bd29962197774ac",
-      "requirements": null
+      "markdownSha256": "9ed20e5cd86e6c3d5b86ff25db2c7073152fa0b9360ead953bd29962197774ac"
     },
     {
       "id": "sdk.check-sdk-servicing-status",
       "title": "Check the selected SDK for cached security and support warnings",
       "stability": "stable",
       "metadataSha256": "21fadf6501ecb3033426e6e811d450f2cefc3be19c6e6b4721a4dc6f1fcee383",
-      "markdownSha256": "299d3143171122ba3965519ae5dc0770e93b766ba44af9b1ef6006994c322a31",
-      "requirements": null
+      "markdownSha256": "299d3143171122ba3965519ae5dc0770e93b766ba44af9b1ef6006994c322a31"
     },
     {
       "id": "sdk.choose-partial-readytorun-inputs",
       "title": "Choose partial ReadyToRun assemblies and preserve JIT fallback",
       "stability": "stable",
       "metadataSha256": "d51853330e8bdd6dc7f9f9e40f37f57b402d4595d4ab7be7e2c2fc2806f1521d",
-      "markdownSha256": "501f2dbb1fc51fdb41e5d5c4dc6beb6fb339928a4734f6d7e6795abe8839afdf",
-      "requirements": null
+      "markdownSha256": "501f2dbb1fc51fdb41e5d5c4dc6beb6fb339928a4734f6d7e6795abe8839afdf"
     },
     {
       "id": "testing.migrate-vstest-session-host",
       "title": "Replace removed VSTest session orchestration",
       "stability": "preview",
       "metadataSha256": "934aeb5d631bb2c9a10fb094420c6c00cbc1fda8dae2d84ffe01d2b882a57026",
-      "markdownSha256": "638452992ccc92f10605dc7f2ad9186aa08d0292f00f7b7a7f42c3e00e3703cc",
-      "requirements": null
+      "markdownSha256": "638452992ccc92f10605dc7f2ad9186aa08d0292f00f7b7a7f42c3e00e3703cc"
     },
     {
       "id": "testing.pass-custom-task-runsettings",
       "title": "Pass custom VSTest runsettings through the current task contract",
       "stability": "preview",
       "metadataSha256": "ff22319c80e52c7ed5dba98db8431f6bd0c898206dc632fdbd34d7c27e8bff62",
-      "markdownSha256": "f609ae695d232e697599f37af1216cf853f20d9dbad62aa9c68e9fedfdcb3a45",
-      "requirements": null
+      "markdownSha256": "f609ae695d232e697599f37af1216cf853f20d9dbad62aa9c68e9fedfdcb3a45"
     }
   ],
   "tooling": [

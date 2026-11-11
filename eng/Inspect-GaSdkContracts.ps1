@@ -1,6 +1,6 @@
 [CmdletBinding()]
 param(
-  [string]$DotnetRoot = 'C:/Users/pingu/AppData/Local/dotnetup/dotnet',
+  [string]$DotnetRoot = (Split-Path (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source -Parent),
   [string]$OutputPath = (Join-Path $PSScriptRoot '../artifacts/ga-sdk-contracts.json'),
   [string]$AssetReport = (Join-Path $PSScriptRoot '../artifacts/ga-sdk-build.assets.json')
 )
@@ -29,7 +29,7 @@ $comparisons = foreach ($family in @('sdk-build','sdk-package-hosts')) {
 $catalogue = foreach ($file in Get-ChildItem (Join-Path $root 'content/recipes') -Recurse -Filter recipe.json) {
   $recipe = Get-Content $file.FullName -Raw | ConvertFrom-Json
   if ($recipe.edition -ne '11.0' -or 'sdk' -notin $recipe.areas) { continue }
-  [ordered]@{ id=$recipe.id; title=$recipe.title; stability=$recipe.stability; metadataSha256=(Get-FileHash $file.FullName).Hash.ToLowerInvariant(); markdownSha256=(Get-FileHash (Join-Path $file.DirectoryName 'recipe.md')).Hash.ToLowerInvariant(); requirements=$recipe.requirements }
+  [ordered]@{ id=$recipe.id; title=$recipe.title; stability=$recipe.stability; metadataSha256=(Get-FileHash $file.FullName).Hash.ToLowerInvariant(); markdownSha256=(Get-FileHash (Join-Path $file.DirectoryName 'recipe.md')).Hash.ToLowerInvariant() }
 }
 $baseline = Get-Content (Join-Path $root 'docs/planning/audits/sdk-build.assets.json') -Raw | ConvertFrom-Json
 $retained = $baseline.baselines | Where-Object target -EQ 'net11.0'
@@ -38,10 +38,12 @@ $assets = foreach ($asset in $retained.assemblies) {
   [ordered]@{ path=$asset.path; rcSha256=$asset.sha256; gaSha256=(Get-FileHash $path).Hash.ToLowerInvariant(); productVersion=[Diagnostics.FileVersionInfo]::GetVersionInfo($path).ProductVersion }
 }
 $current = Get-Content $AssetReport -Raw | ConvertFrom-Json
-if ($current.baselines[1].sdk -ne '11.0.100') { throw 'Actual GA metadata report required.' }
-if ($current.baselines[1].sdkIdentity[0] -ne $ga) { throw 'Metadata source identity mismatch.' }
+$gaBaseline = @($current.baselines | Where-Object target -CEQ 'net11.0')
+if ($gaBaseline.Count -ne 1 -or $gaBaseline[0].sdk -ne '11.0.100') { throw 'Exactly one GA net11.0 metadata baseline required.' }
+$gaBaseline = $gaBaseline[0]
+if ($gaBaseline.sdkIdentity[0] -ne $ga) { throw 'Metadata source identity mismatch.' }
 foreach ($asset in $assets) {
-  $measured = @($current.baselines[1].assemblies | Where-Object path -CEQ $asset.path)
+  $measured = @($gaBaseline.assemblies | Where-Object path -CEQ $asset.path)
   if ($measured.Count -ne 1 -or $measured[0].sha256 -cne $asset.gaSha256) { throw "Metadata/artifact mismatch: $($asset.path)" }
 }
 $deltas = foreach ($difference in $current.differences) {
@@ -55,6 +57,7 @@ $deltas = foreach ($difference in $current.differences) {
     }
   }
 }
+if (@($comparisons).Count -ne 9 -or @($catalogue).Count -ne 56 -or @($assets).Count -ne 52) { throw 'Audit coverage changed: reconcile the 9-source/56-edition/52-asset scope before recording new evidence.' }
 $report = [ordered]@{ scope='PIN-963 bounded GA SDK source/artifact reconciliation; hashes do not prove execution'; gaSource=$ga; rcSource=$rc; retainedSdk=$retained.sdk; comparisons=@($comparisons); catalogue=@($catalogue | Sort-Object id); tooling=@($assets); metadataReportSha256=(Get-FileHash $AssetReport).Hash.ToLowerInvariant(); metadataDeltas=@($deltas) }
 $output = $ExecutionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($OutputPath)
 New-Item -ItemType Directory -Force (Split-Path $output) | Out-Null

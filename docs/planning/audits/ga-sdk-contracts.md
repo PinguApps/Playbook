@@ -27,7 +27,9 @@ These distinct baselines are intentional and must not be relabelled.
 ## Observed comparison
 
 The adjacent generated register binds all 56 prepared edition11 SDK recipes
-by ID, title, stability, requirements and metadata/Markdown hashes. It compares
+by ID, title, stability and metadata/Markdown hashes. Requirements and measured
+versions are read from the hashed recipe metadata's applicability routes and
+Markdown; they are not extracted into a separate register field. It compares
 nine unique retained VMR source files from the SDK-build and package-host
 registers, checking their original hashes before fetching GA. Eight are identical.
 VSTest Message.cs changes its string representation to redact secret properties.
