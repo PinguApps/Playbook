@@ -1,5 +1,29 @@
 # Inspect the guidance an agent receives
 
+## SDK catalogue contract dispositions
+
+PIN-1302 retains independent package previews and experimental contracts while
+correcting SDK GA labels and measured version tables. From any directory, with
+PowerShell 7, Node and the existing SHA512-verified portable GA SDK:
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-524959b6-8112833c9829366f'
+$contracts = Get-Content ./docs/planning/audits/ga-sdk-dispositions.json -Raw | ConvertFrom-Json
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @($contracts.contracts.id) -Query '' `
+  -RecipeEdition '11.0' -TargetVersion '11.0' `
+  -PackageVersion '0.0.0-pin1301-1302' -BuildAndPack `
+  -Dotnet 'V:\_worktrees\Playbook\t3-10e315a2-1eead2566af90fbf\artifacts\ga-sdk\extracted\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' -OutputDirectory './artifacts/catalogue-inspection'
+```
+
+Expect each ID/title/goal, full canonical Markdown, target applicability and
+current evidence through the actual locally built, packed and installed stdio
+server. Setup needs NuGet and Inspector access. Retrieval runs outside the
+checkout with unusable proxies; it establishes embedded delivery, not OS network
+isolation or new sample execution. Historical foundations, native exclusions,
+pending Human checks and the final stable release gate remain separate.
+
 ## GA compiler-host packages
 
 PIN-1289 checks stable FCS/Core on .NET 10/11 and retains labelled Roslyn preview

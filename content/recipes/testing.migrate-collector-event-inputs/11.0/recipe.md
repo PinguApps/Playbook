@@ -17,7 +17,7 @@ removed-setter migration and no forced rewrite of a working older observer.
 
 | Layer | Older comparison | Current consumer |
 | --- | --- | --- |
-| SDK / compiler / language | 10.0.403 / 5.9.0-1.26523.112 / C#14 | 11.0.100 / 5.12.0-1.26522.148 / C#15 |
+| SDK / compiler / language | 10.0.403 / 5.9.0-1.26523.112 / C#14 | 11.0.100 / 5.12.0-1.26529.118 / C#15 |
 | Framework / ref / actual runtime | net10.0 / 10.0.14 | net11.0 / 11.0.0 |
 | ObjectModel / CLI / Test.Sdk / TestHost | 18.7.0 | 18.11.0 |
 | ObjectModel compile/runtime assets | lib/net8.0 | lib/net8.0 |

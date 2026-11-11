@@ -27,7 +27,7 @@
   "supportedTargets": [
     "11.0"
   ],
-  "stability": "preview",
+  "stability": "stable",
   "applicability": {
     "routes": [
       {
@@ -131,7 +131,7 @@
           ],
           "workloads": [],
           "packageAssets": [
-            "Current public MSBuild packages18.11.0 net11.0, product18.11.0-1.26512.6 at source1b17a019; not bundled18.12.0-1.26504.105. Native pack/ILCompiler/ILLink11RC2 are SDK-selected and locked.",
+            "Current public MSBuild packages18.11.0 net11.0, product18.11.0-1.26512.6 at source1b17a019; not bundled18.12.2-1.26529.118. Native pack/ILCompiler/ILLink11.0.0 are SDK-selected and locked.",
             "Import the actual Framework buildTransitive/net10.0 target because the current-TFM placeholder can hide defaults. No copied SDK internals.",
             "Older managed SDK10.0.403 MSBuild18.9.15 loads the complete installed closure through locked Locator1.11.2 net8.0; no older native or static-registration route."
           ],
@@ -158,7 +158,7 @@
             "Explicit import of the pinned public Framework package target and retained, inspected IL2026 build diagnostic. No -mt, diagnostic-ID experimental or preview-language opt-in."
           ],
           "stabilityLimitations": [
-            "Preview-qualified .NET11 SDK/runtime/package integration; package version numerals do not establish GA framework support.",
+            "GA .NET11 SDK/runtime with independently pinned stable packages; evidence is limited to the recorded integration checks.",
             "Actual-GA/PIN-963, PIN-959 qualifying coverage/evidence, exactly eight .NET10 foundations and unrelated Human gates remain open."
           ]
         },

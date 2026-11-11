@@ -30,7 +30,7 @@
   "supportedTargets": [
     "11.0"
   ],
-  "stability": "preview",
+  "stability": "stable",
   "applicability": {
     "routes": [
       {
@@ -73,7 +73,7 @@
           "packages": [],
           "workloads": [],
           "packageAssets": [
-            "Actual SDK Microsoft.Build, Framework, Utilities and Tasks.Core 18.12.0-1.26504.105, Private=false; full MSBuild.deps.json/resolver closure checked. No independent NuGet replacement, no public18.11 byte equivalence claim."
+            "Actual SDK Microsoft.Build, Framework, Utilities and Tasks.Core 18.12.2-1.26529.118, Private=false; full MSBuild.deps.json/resolver closure checked. No independent NuGet replacement, no public18.11 byte equivalence claim."
           ],
           "providers": [],
           "platforms": [
@@ -97,7 +97,7 @@
             "No ExperimentalAttribute diagnostic or preview-language suppression is required by these event APIs. GA SDK pin disables preview selection."
           ],
           "stabilityLimitations": [
-            "Preview-qualified exact SDK observation; new conflict records are gated by the18.12 feature wave. Do not disable the wave to claim typed emission.",
+            "GA SDK observation; new conflict records are gated by the18.12 feature wave. Do not disable the wave to claim typed emission.",
             "The eight approved .NET10 foundations, PIN-959 qualifying evidence, PIN-963/actual-GA and unrelated Human gates remain open."
           ]
         },

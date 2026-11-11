@@ -24,7 +24,7 @@
     "10.0",
     "11.0"
   ],
-  "stability": "stable",
+  "stability": "preview",
   "applicability": {
     "routes": [
       {
@@ -96,7 +96,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Verified with SDK 11.0.100 (GA), within the recorded verification scope. No publisher-designated experimental API; GA reconciliation remains separate."
+            "Verified with SDK 11.0.100 (GA), within the recorded verification scope. The independently distributed NuGet.Packaging 8.0.0-rc.605 remains prerelease despite the GA SDK. No publisher-designated experimental API."
           ]
         },
         "sourceUrls": [
@@ -176,7 +176,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Verified with SDK 11.0.100 (GA), within the recorded verification scope. No publisher-designated experimental API; GA reconciliation remains separate."
+            "Verified with SDK 11.0.100 (GA), within the recorded verification scope. The independently distributed NuGet.Packaging 8.0.0-rc.605 remains prerelease despite the GA SDK. No publisher-designated experimental API."
           ]
         },
         "sourceUrls": [

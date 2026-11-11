@@ -12,7 +12,7 @@ enforcement of a package author's rule.
 
 Exact tested Windows x64 hosts are SDK10.0.403/runtime+ref10.0.14/C#14 and
 SDK11.0.100/runtime+ref11.0.0/C#15. Their actual
-NuGet SDK assemblies are7.9.0-rc.611 (net8.0) and8.0.0-rc.605 (net10.0).
+NuGet SDK assemblies are7.9.0-rc.611 (net8.0) and8.0.0-rc.53118 (net10.0).
 Those DLL TFMs do not determine the application target or Roslyn version.
 The actual Roslyn API versions are **5.9.0.0** and **5.12.0.0**, from each
 complete SDK's `Roslyn/bincore` closure. Exact compiler/SDK/runtime/ref/native-host
@@ -28,9 +28,9 @@ package/version promise. A consumer's durable feed/lock must refer to its own
 reviewed artifact bytes; do not reuse a hash from a different pack.
 
 No workload, provider, account, native compiler, device, UI/rendering mode or
-experimental diagnostic suppression is needed. Only the SDK itself is preview.
+experimental diagnostic suppression is needed. The selected SDK is GA.
 General analyzer portability, other compilers/languages/OSes, redistribution and
-actual GA remain unqualified. The source retains VB/future-version folders as
+other artifact versions remain unqualified. The source retains VB/future-version folders as
 selection controls; it does not claim a VB analyzer implementation.
 
 ## Older approach

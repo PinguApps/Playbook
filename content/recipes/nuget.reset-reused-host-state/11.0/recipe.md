@@ -14,12 +14,12 @@ installation, runtime/reference11.0.0 and C#15 mode, compared with
 SDK10.0.403, runtime/reference10.0.14 and C#14. These are exact tested pins,
 not a promise for every member of either release family. No workload, provider,
 account, native compiler, rendering mode or preview-language switch is needed.
-The current SDK is GA, so actual GA remains unqualified.
+The current SDK is GA; only the recorded checks are qualified.
 
 SDK10 carries NuGet7.9.0-rc.611 (source a8dd0577); SDK11 carries
-NuGet8.0.0-rc.605 (source820230c3). Their NuGet DLL TFMs are net8.0/net10.0,
+NuGet8.0.0-rc.53118 (source297acf93). Their NuGet DLL TFMs are net8.0/net10.0,
 separate from this example's net10/net11 executable targets. MSBuild18.9.15 versus
-18.12.0-1.26504.105 supplies actual `BuildManager` execution. Reference the matching
+18.12.2-1.26529.118 supplies actual `BuildManager` execution. Reference the matching
 complete SDK closure with `Private=false`; do not mix independent package DLLs
 or infer distributable package8 availability. Package dependencies here are empty.
 Exact SDK/compiler/ref/runtime/native-host products and hashes are separately

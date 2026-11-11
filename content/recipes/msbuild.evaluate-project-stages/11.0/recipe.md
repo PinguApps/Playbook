@@ -16,10 +16,10 @@ utility itself targets net11.0; this edition advertises only that host route.
 
 The qualified newer route uses SDK **11.0.100**, runtime/reference
 pack **11.0.0**, C# **15.0** and the SDK's MSBuild
-**18.12.0-1.26504.105**. The comparison uses SDK **10.0.403**, runtime/reference
+**18.12.2-1.26529.118**. The comparison uses SDK **10.0.403**, runtime/reference
 pack **10.0.13**, C# **14.0**, and MSBuild **18.9.15**. Assembly version
 `15.1.0.0` identifies neither product build. These are exact tested Windows x64
-artifacts, not a promise about every MSBuild release or an actual-GA qualification.
+GA artifacts, not a promise about every MSBuild release.
 
 MSBuild Locator **1.11.2** is independently distributed. Its actual package has
 net8.0 and net46 assets and no transitive package dependencies; these hosts use
@@ -53,7 +53,7 @@ including its `Sdks`, resolvers and dependency closure, available at runtime.
 
 There are no provider, rendering-mode, workload or optional native-tool
 requirements. Partial evaluation has no experimental feature switch in these
-artifacts. This is a **preview** host qualification; do not add preview language
+artifacts. This is a bounded **GA** host qualification; do not add preview language
 mode, experimental `-mt`, or a broad warning suppression to use it.
 
 ## Project being inspected
@@ -183,7 +183,7 @@ to execution. Do not infer target execution from a nonempty target dictionary.
 
 No down-level partial-API route, independent Microsoft.Build package substitution,
 Visual Studio/.NET Framework host, NativeAOT/trimming, server reuse, workload,
-other-platform or GA compatibility is advertised. No recurring native/OS/client
+other-platform compatibility is advertised. No recurring native/OS/client
 matrix is added. The exact eight approved .NET10 foundations and all existing
 recipe/edition identities are retained.
 

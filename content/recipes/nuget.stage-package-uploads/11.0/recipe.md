@@ -19,12 +19,12 @@ DLL. No independently distributed package is restored by either publisher.
 
 | Input | Older comparison | Current route |
 | --- | --- | --- |
-| SDK / product source | 10.0.403 / `a8dd0577c5c13f43a2f57fe33b4ff11b90f6371e` | 11.0.100 / `820230c386db5b0106c5430b3e5aee92a7826bf5` |
+| SDK / product source | 10.0.403 / `a8dd0577c5c13f43a2f57fe33b4ff11b90f6371e` | 11.0.100 / `297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f` |
 | Runtime and reference pack | 10.0.14 | 11.0.0 |
 | Application / language | net10.0 / C#14 | net11.0 / C#15 |
-| Bundled NuGet product | 7.9.0-rc.611 | 8.0.0-rc.605 |
+| Bundled NuGet product | 7.9.0-rc.611 | 8.0.0-rc.53118 |
 | Actual NuGet DLL target framework | net8.0 | net10.0 |
-| NuGet.Protocol DLL SHA-256 | `edb9d5c446900e286c7a792e41d57a6b71e0aa2ce44a2e06f091c5f3e92a52c0` | `8d85c73d7acc85bf09345ffa46ab5f9b558b1ef246097f312b5f688db95bea65` |
+| NuGet.Protocol DLL SHA-256 | `edb9d5c446900e286c7a792e41d57a6b71e0aa2ce44a2e06f091c5f3e92a52c0` | `116b67aa913721ebdd21ed4b1c037c59046f60a8f7bb8d78aa6b4913faf198a7` |
 | Transport evidence | Actual ordinary publication to local fixture | Actual staging to local fixture |
 
 The DLL's target framework is an artifact fact, not a tested older-target route
@@ -220,7 +220,7 @@ no applicable staging edition; the valid old publication comparison remains in
 this body. Retrieval executes no uploads. These are Windows x64 managed HTTP
 checks, not mock responses injected into NuGet, TLS/provider interoperability,
 performance, other-platform or GA evidence. The API requires no experimental
-diagnostic suppression or preview-language flag; the SDK itself is GA/preview.
+diagnostic suppression or preview-language flag; the SDK itself is GA.
 The exact eight approved .NET10 foundations, PIN-959 qualifying coverage/evidence,
 PIN-963 actual-GA reconciliation and unrelated Human gates remain open.
 

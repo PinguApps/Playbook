@@ -14,11 +14,11 @@ SDK11.0.100/runtime+ref11.0.0/C#15. These pins are
 tested artifacts, not a universal release-family compatibility promise. No
 provider installation, feed, account, real credential, native compiler, workload,
 device, UI/rendering mode or preview-language opt-in is required. Current SDK
-stability is GA/preview, within the recorded verification scope.
+stability is GA, within the recorded verification scope.
 
 The old helper's actual metadata reference is the complete SDK10 NuGet.Credentials
 7.9.0-rc.611 net8.0 closure (source a8dd0577), compared with SDK11's
-8.0.0-rc.605 net10.0 closure (source820230c3). DLL TFMs differ from the executable
+8.0.0-rc.53118 net10.0 closure (source297acf93). DLL TFMs differ from the executable
 net10/net11 targets. Both compiler/reference/native-host and SDK assembly
 products/hashes are pinned separately in `samples/net11.0/GannetWorkshop/Shared/artifact-pins.json`.
 No independent NuGet package8 is inferred from those SDK files. The fixed
