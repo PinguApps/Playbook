@@ -34,7 +34,7 @@ try {
     Write-Host 'Pack --no-build rejected a prose verification pin in requirements.'
     $original | Set-Content (Join-Path $edition 'recipe.json')
     & (Join-Path $PSScriptRoot 'Build-Content.ps1') -RecipeRoot $recipes -OutputPath (Join-Path $fixture 'catalogue.json') `
-      -VerifyAgainst (Join-Path $root 'src/PinguApps.Playbook/obj/Release/net10.0/Generated/compiled-catalogue.json')
+      -VerifyAgainst (Join-Path $root 'src/PinguApps.Playbook/obj/Release/net11.0/Generated/compiled-catalogue.json')
     $recipe = ConvertFrom-Json $original -AsHashtable
     $recipe.goal += ' Changed since compilation.'
     $recipe | ConvertTo-Json -Depth 30 | Set-Content (Join-Path $edition 'recipe.json')
