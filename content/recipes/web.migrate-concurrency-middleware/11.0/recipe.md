@@ -69,15 +69,15 @@ Save the newer files separately. There is no replacement NuGet dependency: the m
 
 - ASP.NET Core 11 removes the old middleware source and ships no new Microsoft.AspNetCore.ConcurrencyLimiter 11.x package. An existing older package may temporarily be retained while migrating; this example verifies 10.0.13 only on .NET 10 and does **not** advertise or establish a retained-package .NET 11 route. Do not infer that the lack of an 11.x package makes every older asset intrinsically incompatible.
 - The official removal note contains broad unavailable/restore wording alongside its retained-package workaround. Interpret the concrete change as no newly shipped 11.x package/source, not proof that explicitly pinning any older package must fail. The supported replacement avoids that ambiguity.
-- Exact sample baselines: SDK 10.0.403 / C# 14 / runtime 10.0.14 and package 10.0.13; SDK 11.0.100 / C# 15 / matching RC3 shared frameworks. The new recipe targets 11.0 only; the older application remains a comparison.
+- Exact sample baselines: SDK 10.0.403 / C# 14 / runtime 10.0.14 and package 10.0.13; SDK 11.0.100 / C# 15 / matching GA shared frameworks. The new recipe targets 11.0 only; the older application remains a comparison.
 - Kestrel server HTTP on supported server platforms; actual execution is Windows x64. No browser or Blazor rendering requirement, external provider, account, workload or experimental opt-in applies. No native, cross-platform, AOT or trimming execution is claimed.
 - Limits are process-local. Multiple instances each admit their own work. Do not present a constant partition as a distributed quota, and do not partition by unbounded untrusted input without a resource strategy.
 - The real fixture verifies saturation, queue admission, 503 rejection and release/recovery. With only one waiting caller it does not establish relative ordering among multiple queued callers, stack eviction, client-disconnect behavior or fairness under sustained load.
-- Stable API intent is prepared with RC2 evidence under ADR 0004. GA reconciliation and product-wide publication gates remain separate.
+- Stable API intent is prepared with GA evidence under ADR 0004. GA reconciliation and product-wide publication gates remain separate.
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Both complete projects were restored, compiled and executed through `eng/Record-Evidence.ps1`. The older dependency lock and saved input hashes identify the actual package. Four actual loopback HTTP requests establish one running handler plus one waiting caller, one 503 rejection during saturation, completion of the queued request after release, and successful later recovery with maximum concurrency one. No sleep determines admission and no mock limiter substitutes for middleware execution.
 

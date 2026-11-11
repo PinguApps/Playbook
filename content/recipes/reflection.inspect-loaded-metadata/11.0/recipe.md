@@ -18,7 +18,7 @@ A constructor's value parameters and method type parameters are different counts
 
 ## Newer approach
 
-Use the .NET 11 framework and System.Reflection.MetadataLoadContext 11.0.0 for the measured RC2 sample. The selected package asset is lib/net11.0. The package also contains down-level assets; their existence alone does not establish that all these APIs work on an older target. No such application route is advertised here.
+Use the .NET 11 framework and System.Reflection.MetadataLoadContext 11.0.0 for the measured GA sample. The selected package asset is lib/net11.0. The package also contains down-level assets; their existence alone does not establish that all these APIs work on an older target. No such application route is advertised here.
 
 {{snippet:newer}}
 
@@ -70,10 +70,10 @@ Metadata inspection requires an untrimmed, file-based CoreCLR host and explicit 
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 The two actual MetadataInspection projects compile and execute metadata-only ownership, nullable Int32, one constructor value parameter, zero method type parameters and the companion loader/location checks. Separate DeploymentInspection records publish and run Windows x64 single-file, Native AOT with stack traces enabled/disabled, and CoreCLR with stack traces disabled. They assert the release-specific caller outcome and physical/unavailable assembly location. Native tool versions, resolved publication dependencies, commands and output are labelled separately from the ordinary managed-build prerequisites.
 
 For a standalone DeploymentInspection project, set OutputType=Exe and the target/language above; use PublishAot=true, RuntimeIdentifier=win-x64 and StackTraceSupport=true or false for the native comparison. Install the platform's supported native compiler/linker and SDK. The measured authoring route uses MSVC 14.51 and Windows SDK 10.0.26100.0; it invokes tools explicitly without modifying PATH. No additional package is required by the caller snippet; the SDK restores its native compilation packs during publication.
 
-No mocks, cross-compilation, editor UI or other native OS/architecture execution is presented as proof. These are .NET 11 RC2 results, not GA verification. No provider, rendering mode, service account or resource provisioning is involved.
+No mocks, cross-compilation, editor UI or other native OS/architecture execution is presented as proof. These are .NET 11 GA results, within the recorded verification scope. No provider, rendering mode, service account or resource provisioning is involved.

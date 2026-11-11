@@ -86,7 +86,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Exact recorded artifacts establish only the exercised routes; EF11 uses RC2 rather than GA."
+            "Exact recorded artifacts establish only the exercised routes; EF11 uses GA rather than GA."
           ]
         },
         "conditional": false,

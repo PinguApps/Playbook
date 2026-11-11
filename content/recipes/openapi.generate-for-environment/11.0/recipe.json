@@ -37,7 +37,7 @@
             "name": ".NET",
             "version": "11.0",
             "match": "release-family",
-            "reason": "New server behavior is verified with the actual .NET 11 RC2 runtime; not a GA execution claim."
+            "reason": "New server behavior is verified with the actual .NET 11 GA runtime; not a GA execution claim."
           },
           "sdk": {
             "name": ".NET SDK",
@@ -56,7 +56,7 @@
           ],
           "packages": [
             {
-              "reason": "net11.0 server generation, pinned RC2 11.0.0 in the canonical sample.",
+              "reason": "net11.0 server generation, pinned GA 11.0.0 in the canonical sample.",
               "match": "release-family",
               "version": "11.0",
               "name": "Microsoft.AspNetCore.OpenApi"
@@ -92,7 +92,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Stable framework capability, prepared with .NET 11 RC2 artifacts under ADR 0004. GA source/package/runtime reconciliation remains separate."
+            "Stable framework capability, prepared with .NET 11 GA artifacts under ADR 0004. GA source/package/runtime reconciliation remains separate."
           ]
         },
         "sourceUrls": [

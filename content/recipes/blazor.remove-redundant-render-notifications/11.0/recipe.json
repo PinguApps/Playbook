@@ -81,7 +81,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "The demonstrated public APIs and diagnostics are not experimental. The 11.0 edition prepares release-family guidance using RC2 evidence; PIN-964 actual-GA and PIN-959 comprehensive coverage remain open."
+            "The demonstrated public APIs and diagnostics are not experimental. The 11.0 edition prepares release-family guidance using GA evidence; PIN-964 actual-GA and PIN-959 comprehensive coverage remain open."
           ]
         },
         "sourceUrls": [

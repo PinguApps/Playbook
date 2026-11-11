@@ -73,12 +73,12 @@ The console consumers use SDK10.0.403/.NET10.0.14/C#14 and
 SDK11.0.100/.NET11RC3/C#15. The fixture's separately locked
 Microsoft.AspNetCore.Authentication.Negotiate and System.DirectoryServices.Protocols
 versions are 10.0.14 and 11.0.0. The request helper itself needs no
-NuGet package or workload. There is no experimental opt-in. RC evidence prepares
-edition11.0 guidance; final-GA reconciliation remains open under PIN-962/PIN-959.
+NuGet package or workload. There is no experimental opt-in. Recorded evidence prepares
+edition11.0 guidance; final-GA checks are limited to the recorded scope. under PIN-962/PIN-959.
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Run eng/Test-GannetGateway.ps1 -Record -VerifySources from the repository root
 using the pinned SDK installations. It compiles both real dependency sets,

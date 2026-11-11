@@ -82,7 +82,7 @@ The file uses the shared SDK file-app directives, versionless #:package plus the
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 The exact SDK, language and package inputs are recorded with the samples. Saved compilation records establish the canonical code builds; the separate repeatable `eng/Test-WebTooling.ps1` command establishes real CLI/generated-server behavior. No mocks or cross-compilation are used. Installed-package checks independently compare the entire expanded body and applicability over stdio from an unrelated directory; that delivery check does not replace the runtime checks. GA reconciliation and comprehensive product publication gates remain outstanding.
 

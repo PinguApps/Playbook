@@ -60,7 +60,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "The documented .NET 11 SDK/MSBuild/NuGet command behavior; exact RC2 verification is recorded separately."
+            "reason": "The documented .NET 11 SDK/MSBuild/NuGet command behavior; exact GA verification is recorded separately."
           },
           "language": {
             "name": "C#",
@@ -89,7 +89,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Verified using SDK 11.0.100, not GA. No publisher-designated experimental API is used; GA reconciliation remains separate."
+            "Verified using SDK 11.0.100, within the recorded verification scope. No publisher-designated experimental API is used; GA reconciliation remains separate."
           ]
         },
         "sourceUrls": [

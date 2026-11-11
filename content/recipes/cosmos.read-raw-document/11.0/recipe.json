@@ -48,7 +48,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Build the declared target. Exact recorded SDKs are verification baselines; current-release proof uses RC2, not GA."
+            "reason": "Build the declared target. Exact recorded SDKs are verification baselines; current-release proof uses GA."
           },
           "language": {
             "name": "C#",
@@ -64,7 +64,7 @@
               "match": "release-family",
               "version": "11.0",
               "name": "Microsoft.EntityFrameworkCore.Cosmos",
-              "reason": "Exact RC2 baseline 11.0.0; previous comparison 10.0.13."
+              "reason": "Exact GA baseline 11.0.0; previous comparison 10.0.13."
             },
             {
               "name": "Microsoft.Azure.Cosmos",
@@ -103,7 +103,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Stable API contract prepared using .NET11 GA SDK/runtime and EF11 RC2 packages; no experimental opt-in. Actual GA reconciliation remains outstanding."
+            "Stable API contract prepared using .NET11 GA SDK/runtime and EF11 GA packages; no experimental opt-in. Actual GA checks are limited to the recorded scope."
           ]
         },
         "conditional": false,

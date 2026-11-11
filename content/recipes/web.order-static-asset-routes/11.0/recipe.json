@@ -41,7 +41,7 @@
           ],
           "constraints": [
             "For ordinary application ordering prefer the public endpoint convention; do not hand-edit obj or generated manifests. The advanced descriptor route is a bounded generated-manifest integration, not a universal custom JSON authoring contract.",
-            "Order is a nullable string. Missing/null/empty, invalid text and Int32 overflow use -100 in the measured RC2 factory; JSON numeric Order fails parsing. Validate author-owned values rather than relying on silent fallback.",
+            "Order is a nullable string. Missing/null/empty, invalid text and Int32 overflow use -100 in the measured GA factory; JSON numeric Order fails parsing. Validate author-owned values rather than relying on silent fallback.",
             "Descriptors freeze before endpoint conventions run. Set Order before serialization/mapping; conventions change RouteEndpointBuilder.Order, never descriptor metadata.",
             "Lower Order is selected first among matching candidates. Route specificity, constraints, method/content negotiation and middleware still matter. Equal competing literal orders can be ambiguous; order is not authorization or fallback policy.",
             ".NET10 lacks descriptor Order; the verified convention approach remains valid. No older-target Order backport, trimming/NativeAOT, arbitrary manifest schema, browser or deployment guarantee."
@@ -57,7 +57,7 @@
           "runtime": {
             "name": ".NET / ASP.NET Core",
             "match": "release-family",
-            "reason": "Descriptor Order requires ASP.NET Core 11. Exact execution evidence is RC2, not actual GA.",
+            "reason": "Descriptor Order requires ASP.NET Core 11. Exact execution evidence is GA.",
             "version": "11.0"
           },
           "language": {
@@ -82,7 +82,7 @@
           },
           "workloads": [],
           "stabilityLimitations": [
-            "No ExperimentalAttribute on the actual Order contract. Stable API designation with measured RC2 assets; actual-GA reconciliation PIN-964, comprehensive PIN-959, PIN-963 and unrelated Human gates remain open."
+            "No ExperimentalAttribute on the actual Order contract. Stable API designation with measured GA assets; actual-GA reconciliation PIN-964, comprehensive PIN-959, PIN-963 and unrelated Human gates remain open."
           ]
         },
         "usage": "primary",
@@ -154,7 +154,7 @@
       "kind": "compile-and-run",
       "target": "net11.0",
       "language": "15.0",
-      "scope": "SDK-generated manifest projected through public descriptors to two competing physical static endpoints; absent/null/empty -100, explicit win/yield, equal-order AmbiguousMatchException/HTTP500, invalid text/overflow fallback, numeric JSON failure, public conventions and frozen Order rejection. Real GET/HEAD bytes and unchanged input hashes; exact compiler/reference/loaded framework/native-host identities, Windows x64, empty package closure, RC2 not GA."
+      "scope": "SDK-generated manifest projected through public descriptors to two competing physical static endpoints; absent/null/empty -100, explicit win/yield, equal-order AmbiguousMatchException/HTTP500, invalid text/overflow fallback, numeric JSON failure, public conventions and frozen Order rejection. Real GET/HEAD bytes and unchanged input hashes; exact compiler/reference/loaded framework/native-host identities, Windows x64, empty package closure, GA within the recorded scope."
     }
   ],
   "snippets": {

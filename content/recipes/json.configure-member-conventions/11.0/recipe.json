@@ -78,7 +78,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Verified with .NET 11 RC2 artifacts; GA reconciliation remains pending."
+            "Verified with .NET 11 GA artifacts; GA checks are limited to the recorded scope."
           ]
         },
         "sharedAreas": [

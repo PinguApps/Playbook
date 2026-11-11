@@ -34,7 +34,7 @@
         "usage": "primary",
         "selectionNotes": [
           "Choose exact binary-input rounding, decimal source quantities or an explicit scale/round/divide policy when fractional measurement results must survive an upgrade.",
-          "Only Windows x64 CoreCLR JIT execution is established. RC2 evidence requires actual-GA reconciliation."
+          "Only Windows x64 CoreCLR JIT execution is established. GA evidence requires actual-GA reconciliation."
         ],
         "requirements": {
           "runtime": {
@@ -47,7 +47,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Build against the .NET 11 reference assemblies; exact RC2 is the recorded test baseline."
+            "reason": "Build against the .NET 11 reference assemblies; exact GA is the recorded test baseline."
           },
           "language": {
             "name": "C#",
@@ -83,7 +83,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Verified using .NET 11 RC2; GA reconciliation remains pending. These selected contracts have no publisher experimental annotation or required opt-in."
+            "Verified using .NET 11 GA; GA checks are limited to the recorded scope. These selected contracts have no publisher experimental annotation or required opt-in."
           ]
         },
         "sourceUrls": [

@@ -34,9 +34,9 @@ The file is interpreted by dotnet-ef11, not by the runtime or EF10 tools. This e
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
-The real EF10 CLI executes Commands.ps1 with explicit options from a nested directory. The runner executes Configure.ps1, verifies its JSON equals the committed defaults, and EF11 discovers that generated file from commands/deep, resolves both relative project paths and selects CanalContext. An explicit context option then selects ArchiveContext. The runner executes actual tool/application artifacts; it neither mocks parsing nor runs Visual Studio PMC. Windows x64 RC2 results do not prove GA or another provider/platform. Installed retrieval separately checks the complete offline body, applicability, target and text fallback.
+The real EF10 CLI executes Commands.ps1 with explicit options from a nested directory. The runner executes Configure.ps1, verifies its JSON equals the committed defaults, and EF11 discovers that generated file from commands/deep, resolves both relative project paths and selects CanalContext. An explicit context option then selects ArchiveContext. The runner executes actual tool/application artifacts; it neither mocks parsing nor runs Visual Studio PMC. Windows x64 GA results do not prove GA or another provider/platform. Installed retrieval separately checks the complete offline body, applicability, target and text fallback.
 
 ## Complete canonical projects
 

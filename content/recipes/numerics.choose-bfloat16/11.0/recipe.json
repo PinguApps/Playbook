@@ -31,7 +31,7 @@
           "runtime": {
             "name": ".NET",
             "match": "release-family",
-            "reason": "Primary net11.0 consumer; actual RC2 proof is distinct from GA verification.",
+            "reason": "Primary net11.0 consumer; actual GA proof is distinct from GA verification.",
             "version": "11.0"
           },
           "sdk": {
@@ -62,18 +62,18 @@
             "Previous SDK10.0.403/C#14/ref-runtime10.0.14; current SDK11.0.100/C#15/ref-runtime11RC3. Exact proof pins are separate from release-family requirements.",
             "No provider, native assets, workloads, rendering modes or experimental diagnostic opt-ins. Older comparisons remain valid and add no foundation; no additional older-target API route is advertised.",
             "BFloat16 has float-like exponent range but only 8 significant binary digits for normals. Choose data-specific error budgets and widen before accumulation when appropriate.",
-            "Windows x64 RC2 execution; no JSON/bit-serialization, ML/GPU, universal accuracy or performance claim."
+            "Windows x64 GA execution; no JSON/bit-serialization, ML/GPU, universal accuracy or performance claim."
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Verified with actual RC2 artifacts; final-GA reconciliation remains open. No experimental diagnostic opt-in on the selected APIs."
+            "Verified with actual GA artifacts; final-GA checks are limited to the recorded scope. No experimental diagnostic opt-in on the selected APIs."
           ]
         },
         "sharedAreas": [],
         "usage": "primary",
         "selectionNotes": [
           "BFloat16 has float-like exponent range but only 8 significant binary digits for normals. Choose data-specific error budgets and widen before accumulation when appropriate.",
-          "Windows x64 RC2 execution; no JSON/bit-serialization, ML/GPU, universal accuracy or performance claim."
+          "Windows x64 GA execution; no JSON/bit-serialization, ML/GPU, universal accuracy or performance claim."
         ],
         "evidenceSamples": [
           "samples/net11.0/SensorArchive/SensorArchive.csproj"

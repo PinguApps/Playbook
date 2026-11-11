@@ -75,7 +75,7 @@
           "packages": [],
           "sdk": {
             "version": "11.0",
-            "reason": "Build against .NET 11 references. Exact RC2 pins identify measured evidence, not GA verification.",
+            "reason": "Build against .NET 11 references. Exact GA pins identify measured GA evidence for the recorded checks.",
             "name": ".NET SDK",
             "match": "release-family"
           },

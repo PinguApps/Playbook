@@ -68,7 +68,7 @@ ApplicationStarted. Explicit lifecycle cases also await StartAsync successfully.
 Each raw route uses a diagnostic boundary that records the exception and maps a
 caught failure to 17; it does not suppress it into exit 0.
 
-| StopHost case | .NET 10 raw run/stop/wait | .NET 11 RC2 raw run/stop/wait |
+| StopHost case | .NET 10 raw run/stop/wait | .NET 11 GA raw run/stop/wait |
 | --- | --- | --- |
 | One importer fails | logged, no boundary exception, exit 0 | original SensorImportException, exit 17 |
 | Two importers fail | both logged, no boundary exception, exit 0 | AggregateException containing both original objects, exit 17 |
@@ -126,7 +126,7 @@ OperationCanceledException as success regardless of its token or lifecycle.
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 The sample executes 35 actual child processes per release: seven boundaries times
 five scenarios. Both real dependency sets compile/run. Checks capture exact thrown
@@ -138,7 +138,7 @@ bounded Program runs in its own child as well.
 
 `eng/Record-CalibrationHost.ps1` saves exact commands, input hashes, locked closures,
 compiler/reference/runtime/selected package asset identities in the existing sample
-evidence records. Only Windows x64 CoreCLR JIT is measured. RC2 is not actual-GA
+evidence records. Only Windows x64 CoreCLR JIT is measured. GA is limited to the recorded checks
 proof; PIN-962, comprehensive PIN-959 and existing Human gates stay open. The .NET10
 comparison preserves the exact eight foundations and adds no target10 catalogue edition.
 

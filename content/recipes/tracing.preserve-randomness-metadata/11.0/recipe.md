@@ -34,7 +34,7 @@ Use a net11.0/C#15 nullable, implicit-usings console project. Call
 `ArchivePropagation.HasRandomId(context)` for an ActivityContext, or the Activity
 overload for a live activity. The framework supplies DiagnosticSource; this
 route needs no package, exporter, collector, UI/rendering mode or opt-in. The
-reviewed APIs are not experimental. Exact RC2 artifacts below are evidence pins,
+reviewed APIs are not experimental. Exact GA artifacts below are evidence pins,
 not proof that GA has been checked or a backport package route exists.
 
 ## Migration
@@ -87,7 +87,7 @@ flags, but does not promise retention by every downstream product.
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 `eng/Test-ExtensionMetadata.ps1 -Record -VerifySources` builds/runs both original
 ArchiveStages consumers: SDK10.0.403/runtime10.0.14/C#14 and
@@ -108,5 +108,5 @@ ID/title/goal, full canonical Markdown/snippets, target11/edition11 applicabilit
 and fresh paired evidence are checked. Target10 returns no_applicable_edition;
 its comparison adds no foundation. Unusable retrieval proxies establish proxy
 independence, not OS network isolation. PIN-959/PIN-962, existing Human gates and
-the exact eight approved .NET10 foundations remain unchanged/open. RC2 proof is
-not final-GA reconciliation.
+the exact eight approved .NET10 foundations remain unchanged/open. GA proof is
+not a blanket compatibility guarantee.

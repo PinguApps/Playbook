@@ -113,7 +113,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Public18.11 packages are stable; .NET11 SDK/runtime proof is RC2. No experimental opt-in is required for the current route; removed old pooling was unfinished/obsolete.",
+            "Public18.11 packages are stable; .NET11 SDK/runtime proof is GA. No experimental opt-in is required for the current route; removed old pooling was unfinished/obsolete.",
             "PIN-959 coverage/evidence, PIN-963 actual-GA reconciliation and Human gates remain open; preserve the exact eight .NET10 foundations."
           ]
         },
@@ -216,7 +216,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Public18.11 packages are stable; .NET11 SDK/runtime proof is RC2. No experimental opt-in is required for the current route; removed old pooling was unfinished/obsolete.",
+            "Public18.11 packages are stable; .NET11 SDK/runtime proof is GA. No experimental opt-in is required for the current route; removed old pooling was unfinished/obsolete.",
             "PIN-959 coverage/evidence, PIN-963 actual-GA reconciliation and Human gates remain open; preserve the exact eight .NET10 foundations."
           ]
         },

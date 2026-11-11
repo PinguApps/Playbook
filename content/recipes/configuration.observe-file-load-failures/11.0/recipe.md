@@ -39,7 +39,7 @@ OS write. Explicit `Load()` always uses the initial-style path, even after a
 successful load. The JSON parser retains its prior dictionary on that parse failure;
 other parsers can modify data before throwing.
 
-| Operation | Data after ignored failure | .NET 10 notify | RC2 notify |
+| Operation | Data after ignored failure | .NET 10 notify | GA notify |
 | --- | --- | --- | --- |
 | Successful initial load or reload | New parsed values | Yes | Yes |
 | Initial malformed JSON | Empty | Yes | No |
@@ -52,9 +52,9 @@ other parsers can modify data before throwing.
 | Recreate with valid JSON | New values | Yes | Yes |
 
 With `Ignore=false`, explicit parse/missing errors throw before notification.
-RC2 open failures also throw when unignored and preserve existing data without
+GA open failures also throw when unignored and preserve existing data without
 notification. An unignored malformed automatic reload clears data but does not
-notify; the RC2 provider contains the escaped failure. The separately reaped
+notify; the GA provider contains the escaped failure. The separately reaped
 children on both releases report the callback and remain alive after this physical
 reload. The old implementation does not provide the new provider-level catch;
 its observed physical notification path must not be generalized to every custom provider.
@@ -95,7 +95,7 @@ There is no required workload, rendering mode or experimental opt-in.
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 `eng/Record-FileChain.ps1 -VerifySources` captures paired real initial/explicit/
 automatic operations, exception types, Ignore, dictionary state and pre-operation
@@ -107,6 +107,6 @@ Providers/registrations are disposed and temporary files removed. Exact dependen
 closures, commands, inputs and artifacts remain in the saved sample records.
 
 The ordinary packed/local-feed-installed tool must return this complete canonical
-body offline through real stdio list/get. RC2 is preparation evidence; PIN-959,
+body offline through real stdio list/get. GA is preparation evidence; PIN-959,
 PIN-962 and existing Human gates remain open, and the exact eight foundations
 are unchanged. Official references and applicability accompany this body offline.

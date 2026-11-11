@@ -50,7 +50,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Build the declared target. Exact recorded SDKs are verification baselines; current-release proof uses RC2, not GA."
+            "reason": "Build the declared target. Exact recorded SDKs are verification baselines; current-release proof uses GA."
           },
           "language": {
             "name": "C#",
@@ -66,7 +66,7 @@
               "name": "Microsoft.EntityFrameworkCore.SqlServer",
               "version": "11.0",
               "match": "release-family",
-              "reason": "Pinned standalone sample: EF11 RC2, SqlClient7.1.0, Pkcs10.0.13; EF11 requires net11.0."
+              "reason": "Pinned standalone sample: EF11 GA, SqlClient7.1.0, Pkcs10.0.13; EF11 requires net11.0."
             }
           ],
           "packageAssets": [
@@ -95,7 +95,7 @@
             "The complete shared sample suppresses EF9105 for its separate experimental vector index/search demonstration. JSON indexing and explicit scalar projection do not require that suppression themselves."
           ],
           "stabilityLimitations": [
-            "RC2 compilation and bounded execution are not GA proof.",
+            "GA compilation and bounded execution cover only the recorded checks.",
             "SQL Server vector index/search is preview; newer EF11 search execution not-tested."
           ]
         },

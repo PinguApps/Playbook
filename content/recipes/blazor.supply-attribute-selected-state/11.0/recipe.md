@@ -40,7 +40,7 @@ Reed Archive holds letters and maps in two `CollectionContext` objects. A compon
 
 .NET 11 registers one scoped supplier for `FromArchiveAttribute`. Its callback checks the property type and selects a context by the attribute's collection name. Each subscription returns that context and retains a recipient callback. The component implements `IArchiveSubscriber` so notifications can dispatch `StateHasChanged` through the component itself. The example mutates the same object; it does not manufacture a `ParameterView` or promise lifecycle replay for replacing the value.
 
-The provider disposes a subscription when the child leaves the render tree. Full renderer teardown on the pinned RC2 build does not perform that unsubscription. `ArchiveState.Dispose` therefore cleans remaining callbacks when the owning scope ends, after its renderer. Normal removal also unregisters that callback from its owner, so scope cleanup cannot repeat the disposal.
+The provider disposes a subscription when the child leaves the render tree. Full renderer teardown on the pinned GA build does not perform that unsubscription. `ArchiveState.Dispose` therefore cleans remaining callbacks when the owning scope ends, after its renderer. Normal removal also unregisters that callback from its owner, so scope cleanup cannot repeat the disposal.
 
 ### .NET 11: `ArchiveHost.razor`
 
@@ -81,14 +81,14 @@ The provider disposes a subscription when the child leaves the render tree. Full
 
 ## Constraints
 
-`ComponentState` is described by the framework as an implementation detail. This exact RC2 consumer emits no BL0006 for its `Microsoft.AspNetCore.Components.Rendering.ComponentState` access, while the deliberate `RenderTree.Renderer` control does emit BL0006. The canonical consumer contains no suppression. If an altered integration emits a warning, inspect that access and acknowledge only the deliberate boundary; do not suppress the diagnostic project-wide or infer support from its absence.
+`ComponentState` is described by the framework as an implementation detail. This exact GA consumer emits no BL0006 for its `Microsoft.AspNetCore.Components.Rendering.ComponentState` access, while the deliberate `RenderTree.Renderer` control does emit BL0006. The canonical consumer contains no suppression. If an altered integration emits a warning, inspect that access and acknowledge only the deliberate boundary; do not suppress the diagnostic project-wide or infer support from its absence.
 
 This is a serial, renderer-owned mutable state example. Unknown names, wrong property types and recipients without the refresh interface fail explicitly. It provides no arbitrary component support, replacement-value semantics, concurrency, trimming or NativeAOT promise. In-process HtmlRenderer verifies generated output, not DOM delivery to a browser. Static request output is already sent after a response ends; it cannot receive these later updates. Interactive hosting requires its own normal transport/lifetime integration, which this recipe does not claim to have exercised.
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 The canonical .NET 10/C#14 and .NET 11/C#15 projects compile and execute against actual SDK 10.0.403/framework 10.0.13 and SDK 11.0.100/framework 11.0.0. Both have empty external dependency closures and lock files. `verification-evidence.json` captures the real commands, inputs and output through `eng/Record-Evidence.ps1`. Neither cross-compilation nor mocks establish these renderer checks.
 
-`eng/Test-ArchiveFragments.ps1` runs both actual consumers, rejects the custom registration on .NET 10, and proves the RC2 analyzer with a deliberate RenderTree control. The installed-MCP consumer check reconstructs these complete files from the returned Markdown and runs them outside the checkout. Requirements above describe consumers; exact RC pins describe observations. No ExperimentalAttribute opt-in applies, and current GA records define measured coverage. PIN-959 and PIN-964 remain open for comprehensive and actual-GA reconciliation.
+`eng/Test-ArchiveFragments.ps1` runs both actual consumers, rejects the custom registration on .NET 10, and proves the GA analyzer with a deliberate RenderTree control. The installed-MCP consumer check reconstructs these complete files from the returned Markdown and runs them outside the checkout. Requirements above describe consumers; exact RC pins describe observations. No ExperimentalAttribute opt-in applies, and current GA records define measured coverage. PIN-959 and PIN-964 remain open for comprehensive and actual-GA reconciliation.

@@ -62,7 +62,7 @@ Local verification only: the invalid/missing buttons supply deliberate failure i
 
 The current component calls NavigateToLogout with the logout route and the local permits return path. The extension puts an InteractiveRequestOptions SignOut entry into browser history before navigation. RemoteAuthenticatorView uses the real service and completes the registered provider callback. The overload with only NavigationManager and logoutPath also works: its destination comes from AuthenticationPaths.LogOutSucceededPath, configured to permits here.
 
-Both measured releases reject a well-formed non-null history entry for the wrong interaction before provider logout. With null history, .NET 10 invokes the session-storage validation fallback; RC2 no longer uses that manager and lets the no-state flow proceed. Keep using NavigateToLogout. The observed RC2 null-state behaviour is a compatibility difference, not a recommended workaround or a custom CSRF protection scheme.
+Both measured releases reject a well-formed non-null history entry for the wrong interaction before provider logout. With null history, .NET 10 invokes the session-storage validation fallback; GA no longer uses that manager and lets the no-state flow proceed. Keep using NavigateToLogout. The observed GA null-state behaviour is a compatibility difference, not a recommended workaround or a custom CSRF protection scheme.
 
 Create a separate .NET 11 directory with these files. The stable replacement already existed before .NET 11; removal of the obsolete API motivates this migration.
 
@@ -125,17 +125,17 @@ Use this local verification page for the same invalid/missing/default checks on 
 
 - Current proof: SDK **11.0.100**, **net11.0**, C# **15**, WASM/Authentication/browser runtime **11.0.0**. Previous proof: SDK **10.0.403**, **net10.0**, C# **14**, matching packages/browser runtime **10.0.14**. Exact test pins and full locked dependencies are separate from release-family consumer requirements.
 - Browser-hosted interactive WASM only. No server cookie logout, server-side Identity, static SSR execution, authorization enforcement, new authentication system or production resources.
-- Stable supported replacement APIs; no experimental warning or preview-language opt-in. RC2 proof does not establish GA. No older-target/newer-package route or ninth .NET 10 foundation is added.
+- Stable supported replacement APIs; no experimental warning or preview-language opt-in. GA execution is limited to the recorded configuration. No older-target/newer-package route or ninth .NET 10 foundation is added.
 - One loopback oidc-provider 9.5.1 runs real discovery, code/PKCE, signed ID tokens, provider sessions and RP-initiated logout, with a fixed fictional account and ephemeral in-memory state/keys. HTTP is bound to loopback only. This is not production identity infrastructure, external-provider verification or a security assessment. A fake remote service could establish only component branching and is not the logout proof used here.
 - Provider session logout, cached application identity, token revocation and API authorization are separate. This bounded result does not promise universal single sign-out or revocation of every issued token. Keep your provider's HTTPS, redirect and session policies.
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Both actual target/package sets compile with zero warnings/errors. Compilation and execution records use the existing input-hash/freshness workflow. No mock, source review or cross-compilation is substituted for actual execution.
 
-Chromium exercises .NET 10 legacy session logout, supported navigation on both, the no-explicit-return overload, invalid non-null state on both, missing-state rejection on .NET 10 and missing-state provider logout on RC2. It records history, sign-out session operations, request shapes, callback and public return, without retaining token/code/cookie values. Accepted logout requires a fresh provider interaction on the next sign-in.
+Chromium exercises .NET 10 legacy session logout, supported navigation on both, the no-explicit-return overload, invalid non-null state on both, missing-state rejection on .NET 10 and missing-state provider logout on GA. It records history, sign-out session operations, request shapes, callback and public return, without retaining token/code/cookie values. Accepted logout requires a fresh provider interaction on the next sign-in.
 
 For authoring reproduction, install the locked Node fixture with npm ci --prefix samples/WetlandIdentity --ignore-scripts --no-audit --no-fund, invoking npm's CLI through an absolute Node executable. Run eng/Record-WasmAuthentication.ps1 with absolute Chromium, Node and both .NET executable paths. Disable .NET first-run PATH integration with DOTNET_ADD_GLOBAL_TOOLS_TO_PATH=0 in child environments. The script publishes the four consumers, starts one local provider/flow, records four browser execution records and closes its owned servers/browser. Ports 5980–5982 must be free; it never stops another listener or provisions an external account. Exact commands and measured Node/browser/provider versions accompany the evidence.
 

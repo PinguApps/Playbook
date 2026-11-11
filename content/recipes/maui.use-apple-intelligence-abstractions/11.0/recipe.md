@@ -21,7 +21,7 @@ Embeddings are a separate capability. NLEmbeddingGenerator wraps Apple's Natural
 ## Migration
 
 1. Use an existing iOS native host and copy the appropriate release's canonical files. Preserve the isolated package/build boundary and exact SDK/package pins. Restore the matching native workload and assets on a suitable Apple authoring host; this Windows checkout has no such route.
-2. For the current sample select the package's actual net11.0-ios26.5 asset, not a neutral assembly. Supply a compatible Apple SDK/Xcode pairing and retain the deployment floor 26.0. The target binding level is distinct from that floor; upgrading to the repository's RC2 Apple 27 baseline requires its reviewed Xcode 27/macOS 26.6 pairing and fresh evidence.
+2. For the current sample select the package's actual net11.0-ios26.5 asset, not a neutral assembly. Supply a compatible Apple SDK/Xcode pairing and retain the deployment floor 26.0. The target binding level is distinct from that floor; upgrading to the repository's GA Apple 27 baseline requires its reviewed Xcode 27/macOS 26.6 pairing and fresh evidence.
 3. Retain the narrow MAUIAI0001 suppression. Call Notes.SummariseAsync only after the user opts in, pass the page's cancellation token, and display the returned text for review. The caller must catch cancellation and generation failures and expose retry/manual editing.
 4. Verify actual model availability and output on eligible hardware before claiming runtime behavior. Neither the ordinary Playbook package smoke nor a portable abstraction build proves the native bridge or model.
 
@@ -31,7 +31,7 @@ Experimental package contracts can change independently of the .NET runtime. Exa
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Both real native build attempts stop at NETSDK1147 (ios workload unavailable). Immutable package-provenance source and actual native assembly documentation support the constructor and IChatClient method contract. These are official-review records, not compilation or successful generation. Both exact sample paths are not-tested for native compilation/execution under PIN-699. PIN-937 is canceled and has not executed; it creates no future hardware obligation. No GA or Apple model execution claim is made.
 

@@ -58,7 +58,7 @@ The /live route shares public markup but rerenders the live badge for each user.
 
 ## Constraints
 
-Static SSR cache contracts; only the documented static GET capture path is exercised. Refusal is a rendering guard, not a pre-lifecycle security boundary: in measured RC2 the refused badge's OnInitialized has already executed before capture throws. Do not place writes, audits or permission enforcement there expecting Throw to prevent them.
+Static SSR cache contracts; only the documented static GET capture path is exercised. Refusal is a rendering guard, not a pre-lifecycle security boundary: in measured GA the refused badge's OnInitialized has already executed before capture throws. Do not place writes, audits or permission enforcement there expecting Throw to prevent them.
 
 CacheCondition checks dimension categories, not the semantic completeness of the key. User variation distinguishes the authenticated identity; it does not automatically refresh changed permissions, tenant, culture or private anonymous-session state. This sample badge depends only on the signed-in name from two trusted fictional identities. Any additional output dependency needs its own correct variation or a live boundary. All anonymous users share the anonymous identity dimension.
 
@@ -66,10 +66,10 @@ Rerendered parameters are replayed unchanged, including strings supplied by the 
 
 Use blazor.cache-static-subtree for canonical boundary placement, variation, capacity, expiration, invalidation and optional HybridCache provider guidance. This recipe intentionally uses the default local memory store and a two-minute lifetime only to make repeated requests observable; it does not duplicate provider behavior or establish a distributed/multi-node contract. Nested CacheView, streaming, interactive modes, WebAssembly/Auto, trimming/AOT and other OS behavior are outside this execution scope.
 
-The 11.0 edition is GA-targeted guidance prepared from RC2, not actual-GA verification or an older-target backport. The inspected annotations have no experimental label. Existing recipe identities and the eight .NET 10 foundations remain unchanged.
+The 11.0 edition is GA guidance verified within the recorded scope or an older-target backport. The inspected annotations have no experimental label. Existing recipe identities and the eight .NET 10 foundations remain unchanged.
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Actual cookie authentication and repeated SSR GETs execute on Windows x64, with no mock renderer. The old consumer records one public-data build and three live badge initializations. The new consumer records three live badge initializations, one public-subtree build for /live, one per user for /guarded, and two guarded initializations before refusal. Refusal returns 500 and increments the guarded initialization count to three, confirming its timing limitation. Both users' displayed names and captured/live ticket values are asserted. Separate canonical compilation and execution records plus installed offline list/get checks retain distinct claims.

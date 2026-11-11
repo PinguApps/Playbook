@@ -29,7 +29,7 @@ edition identity when using it on .NET 10.
 
 All sixteen original ZIPs were downloaded again and their SHA-256 values matched
 the source audit. **Each** old package below was independently referenced and built
-by a real netstandard2.0 consumer. **Each** corresponding RC2 package failed a
+by a real netstandard2.0 consumer. **Each** corresponding GA package failed a
 strict netstandard2.0 restore with NU1202.
 
 | Exact package ID | 10.0.402 ZIP frameworks | 11.0.100 ZIP frameworks |
@@ -49,7 +49,7 @@ RunnableProjects plus their transitive closure; it does not need IDE or the
 localizer. The note abbreviates the localizer's displayed name; the last row is
 its actual package ID.
 
-The official note says the remaining modern floor is **net9.0**. These exact RC2
+The official note says the remaining modern floor is **net9.0**. These exact GA
 packages contain **net10.0**, not net9.0. The selected net10/net11 consumer assets
 resolve that discrepancy for this recipe. There is no advertised net9 route.
 Framework `net472` directories remain, but no Framework consumer was executed;
@@ -140,7 +140,7 @@ Both current projects use this adjacent `Directory.Packages.props`:
 
 Both also need this `NuGet.Config`. The public dotnet-tools feed supplies the
 actual NuGet **8.0.0-rc.605** dependencies. A fresh nuget.org-only restore of this
-RC2 host failed NU1102 for those unavailable dependencies. Package source mapping
+GA host failed NU1102 for those unavailable dependencies. Package source mapping
 deliberately confines `NuGet.*` to that feed for the current set; use the separate
 historical configuration for NuGet 6.13.2. A ZIP on nuget.org alone does not prove
 that its closure is available there.
@@ -196,7 +196,7 @@ browser or rendering mode is required for this local managed template scenario.
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Requires PowerShell 7, the two SDK/runtime installations and public feeds during
 setup. It uses distinct old/current caches and CLI homes, independent consumer
@@ -217,10 +217,10 @@ the actual host runtime separately. Temporary commands and caches are disposable
 ## Constraints
 
 The baseline uses C# 14 on SDK 10.0.403 and C# 15 on SDK 11 GA. The host logic
-does not need a C# 15-only feature. Current dependencies are **prerelease RC2**;
+does not need a C# 15-only feature. Current dependencies are **GA**;
 there is no experimental-API opt-in or stability guarantee for future NuGet-client
 APIs. Exact pins and explicit prerelease source selection are deliberate choices.
-Do not present RC2 evidence as final GA verification.
+Do not present GA evidence as final GA verification.
 
 Execution was on Windows x64 with the actual managed dependency closure. Other
 operating systems, Framework, remote template installation, IDE integration,

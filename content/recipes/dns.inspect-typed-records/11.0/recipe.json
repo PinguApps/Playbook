@@ -44,7 +44,7 @@
             "name": ".NET"
           },
           "sdk": {
-            "reason": "Build against .NET 11 references; exact RC2 pin records verification.",
+            "reason": "Build against .NET 11 references; exact GA pin records verification.",
             "match": "release-family",
             "version": "11.0",
             "name": ".NET SDK"
@@ -71,7 +71,7 @@
           ],
           "renderingModes": [],
           "prerequisites": [
-            "Console net11.0 project, C# 15.0, nullable and implicit usings; exact RC2 versions are tested baselines.",
+            "Console net11.0 project, C# 15.0, nullable and implicit usings; exact GA versions are tested baselines.",
             "Trusted DNS endpoint and working sockets; local proof needs free loopback UDP 53 on Windows or isolated Linux ephemeral ports. No public-zone dependency."
           ],
           "constraints": [
@@ -79,7 +79,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Actual RC2 verification; final-GA reconciliation and comprehensive coverage gates remain open."
+            "Actual GA verification; final-GA reconciliation and comprehensive coverage gates remain open."
           ]
         },
         "sourceUrls": [
@@ -155,7 +155,7 @@
     },
     {
       "sdk": "11.0.100",
-      "scope": "Real Windows authoritative UDP records/TTLs, NODATA/NXDOMAIN/SOA absence, server override and pre/in-flight cancellation. Windows RC2 DnsQueryEx drops the SOA and returns negative TTL zero; separate Linux evidence measures 45 when the SOA is present and zero when absent.",
+      "scope": "Real Windows authoritative UDP records/TTLs, NODATA/NXDOMAIN/SOA absence, server override and pre/in-flight cancellation. Windows GA DnsQueryEx drops the SOA and returns negative TTL zero; separate Linux evidence measures 45 when the SOA is present and zero when absent.",
       "sample": "samples/net11.0/TypedDns/TypedDns.csproj",
       "target": "net11.0",
       "kind": "compile-and-run",

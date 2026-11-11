@@ -151,7 +151,7 @@ Previous exact baseline: SDK 10.0.403, net10.0/C# 14, ASP.NET Core packages and 
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Fresh canonical compile records retain exact SDK/dependency closure, commands and input hashes. The real reference/package artifact audit was rerun and matched the committed inventory. Separate real T3 integrated Chromium 152 browser checks, using actual WASM runtime assets, establish the focused behavior in docs/verification/blazor-renderer-navigation.md. They do not use mocked JS interop.
 

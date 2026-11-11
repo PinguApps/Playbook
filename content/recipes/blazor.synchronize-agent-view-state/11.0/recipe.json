@@ -47,13 +47,13 @@
             "name": ".NET",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Intended net11.0 consumer; exact RC compilation baseline is recorded separately, not GA behaviour proof."
+            "reason": "Intended net11.0 consumer; exact RC compilation baseline is recorded separately, within the recorded verification scope behaviour proof."
           },
           "sdk": {
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Use matching Razor/compiler assets; sample pins RC2. Documentation-only blocked TLS sample has no successful current build."
+            "reason": "Use matching Razor/compiler assets; sample pins GA. Documentation-only blocked TLS sample has no successful current build."
           },
           "language": {
             "name": "C#",

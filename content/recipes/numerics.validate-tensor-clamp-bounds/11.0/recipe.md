@@ -38,7 +38,7 @@ The Preview 7 headline needs a type qualification. Vectorizable float now uses
 still delegates to `decimal.Clamp` and can throw. These are actual measured calls
 with every pair reversed `[4,3]`, not a promise for all implementations:
 
-| Raw call / input length | Tensor 10.0.13 | Tensor 11 RC2 |
+| Raw call / input length | Tensor 10.0.13 | Tensor 11 GA |
 | --- | --- | --- |
 | float, scalar bounds, 1 / 3 / 33 | ArgumentException | accepts; writes 3 |
 | float, per-element bounds, 1 / 3 | ArgumentException | accepts; writes 3 |
@@ -82,7 +82,7 @@ annotation and require no opt-in. Sample dependencies remain author-maintained.
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Both actual packages compile and execute scalar/per-element float and decimal
 controls at lengths 1/3/33. Reversed/equal/ordered pairs, an invalid final pair,
@@ -93,7 +93,7 @@ reference, runtime and selected package assets have exact identities/hashes in
 the existing sample evidence records, refreshed by `eng/Record-CalibrationHost.ps1`.
 
 Only Windows x64 CoreCLR JIT execution is established. Other platforms/engines,
-newer package on an older target and actual-GA execution are not verified. RC2
+newer package on an older target and actual-GA execution are not verified. GA
 evidence does not close PIN-962 or comprehensive PIN-959 coverage. The older
 comparison adds no target10 edition or ninth foundation. Existing Human gates remain.
 

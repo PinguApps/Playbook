@@ -24,7 +24,7 @@
           "Experimental -mt requires an explicit opt-in; the ordinary host remains a verified alternative. The attribute is a thread-safety promise, not enforcement."
         ],
         "requirements": {
-          "runtime": {"name": ".NET", "version": "11.0.0", "match": "exact", "reason": "Qualified task execution host and runtime closure for the RC2 task assembly; actual GA remains unqualified."},
+          "runtime": {"name": ".NET", "version": "11.0.0", "match": "exact", "reason": "Qualified task execution host and runtime closure for the GA task assembly; actual GA remains unqualified."},
           "sdk": {"name": ".NET SDK", "version": "11.0.100", "match": "exact", "reason": "Direct SDK assembly references require the exact artifact-qualified MSBuild 18.12.0-1.26504.105 binding and construction implementation."},
           "language": {"name": "C#", "version": "15.0", "match": "exact", "reason": "Pinned language mode of the compiled typed-task example; no newer language feature is a separate task-binding requirement."},
           "frameworks": [],
@@ -47,7 +47,7 @@
             "Playbook embeds offline guidance; retrieving a recipe executes no consumer code and changes no project."
           ],
           "optIns": ["Use -mt (with -m:2 in the proof) for experimental multithreaded execution; annotate only fully audited thread-safe task classes."],
-          "stabilityLimitations": ["RC2 execution is not actual-GA proof; PIN-963 and PIN-959 remain open.", "The migration analyzer described in preview sources is planned, not shipped or required."]
+          "stabilityLimitations": ["GA verification is limited to the recorded checks proof; PIN-963 and PIN-959 remain open.", "The migration analyzer described in preview sources is planned, not shipped or required."]
         },
         "sourceUrls": [
           "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview7/msbuild.md",
@@ -67,7 +67,7 @@
   ],
   "evidence": [
     {"kind": "compile-and-run", "sample": "samples/net10.0/ObservatoryTasks/ObservatoryTasks.csproj", "target": "net10.0", "sdk": "10.0.403", "language": "14.0", "scope": "Actual SDK10 explicit-path task: ordinary and -mt sidecar project builds, inputs/content/output metadata, unchanged task process state, missing-file failure and parameterless construction of the compatibility binary. Exact MSBuild/compiler/ref/native-host hashes checked. No older generic-item support is claimed."},
-    {"kind": "compile-and-run", "sample": "samples/net11.0/ObservatoryTasks/ObservatoryTasks.csproj", "target": "net11.0", "sdk": "11.0.100", "language": "15.0", "scope": "Actual SDK11 typed binding and output metadata, ordinary and actual -mt same-process/different-thread rendezvous, project paths, configured/absent defaults and explicit override, full process state equality across Execute(), canonical production XML execution and missing-file failure. The same SDK10 compatibility DLL selects its injected constructor here. Exact MSBuild/compiler/ref/native-host hashes checked. Windows x64 RC2; no server reuse, performance or actual-GA claim."}
+    {"kind": "compile-and-run", "sample": "samples/net11.0/ObservatoryTasks/ObservatoryTasks.csproj", "target": "net11.0", "sdk": "11.0.100", "language": "15.0", "scope": "Actual SDK11 typed binding and output metadata, ordinary and actual -mt same-process/different-thread rendezvous, project paths, configured/absent defaults and explicit override, full process state equality across Execute(), canonical production XML execution and missing-file failure. The same SDK10 compatibility DLL selects its injected constructor here. Exact MSBuild/compiler/ref/native-host hashes checked. Windows x64 GA; no server reuse, performance or actual-GA claim."}
   ],
   "snippets": {
     "legacy": {"path": "samples/net10.0/ObservatoryTasks/SummarizeExposures.cs", "region": "legacy", "language": "csharp"},
@@ -76,5 +76,5 @@
     "settings": {"path": "samples/net11.0/ObservatoryTasks/ObservatoryTasks.csproj", "region": "settings", "language": "xml"},
     "invocation": {"path": "samples/net11.0/ObservatoryTasks/Measure.proj", "region": "invocation", "language": "xml"}
   },
-  "humanProof": {"status": "not-required", "scope": "Bounded managed task execution is demonstrated by real local host builds and installed offline retrieval. No native/device/Human operation is required; unrelated Human and comprehensive/actual-GA gates remain open."}
+  "humanProof": {"status": "not-required", "scope": "Bounded managed task execution is demonstrated by real local host builds and installed offline retrieval. No native/device/Human operation is required; unrelated Human and comprehensive/Unexecuted platform gates remain separate."}
 }

@@ -40,7 +40,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Matching Web SDK, Razor/reference packs and browser assets; pinned RC2 verifies the canonical sample."
+            "reason": "Matching Web SDK, Razor/reference packs and browser assets; pinned GA verifies the canonical sample."
           },
           "language": {
             "name": "C#",
@@ -80,7 +80,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "RC2; GA unverified."
+            "GA; GA unverified."
           ]
         },
         "evidenceSamples": [

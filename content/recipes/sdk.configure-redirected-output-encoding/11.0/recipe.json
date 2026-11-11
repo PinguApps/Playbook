@@ -46,7 +46,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "SDK family supplying the authored build contract; exact RC2 build is recorded evidence, not GA qualification."
+            "reason": "SDK family supplying the authored build contract; exact GA build is recorded evidence, within the recorded verification scope."
           },
           "language": {
             "name": "C#",
@@ -70,11 +70,11 @@
           "constraints": [
             "Real paired Windows x64 build/run, raw non-ASCII diagnostic bytes under private CP1252/65001 consoles; default/false/true and source opt-out controls, explicit UTF-8 decode, mismatched reader corruption and actual failed builds. No working legacy producer opt-out is qualified.",
             "The SDK cannot discover a pipe reader encoding. Producer bytes and decoder policy must agree; code pages, glyph rendering and arbitrary tools are separate.",
-            "RC2 observations are not GA qualification. PIN-959/PIN-963/Human gates and exact eight foundations remain open."
+            "GA observations cover only the recorded checks qualification. PIN-959/PIN-963/Human gates and exact eight foundations remain open."
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Evidence is .NET 11 RC2. Reconcile actual GA artifacts separately under PIN-963; no API taught here is designated experimental."
+            "Evidence is .NET 11 GA. Reconcile actual GA artifacts separately under PIN-963; no API taught here is designated experimental."
           ]
         },
         "sourceUrls": [

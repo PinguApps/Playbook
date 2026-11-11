@@ -33,7 +33,7 @@
           "runtime": {
             "version": "11.0",
             "match": "release-family",
-            "reason": "Actual .NET 11 RC2 execution, not GA verification.",
+            "reason": "Actual .NET 11 GA execution, within the recorded verification scope.",
             "name": ".NET"
           },
           "sdk": {
@@ -77,11 +77,11 @@
             "Fixtures bind ephemeral loopback ports and stop their hosts. Certificates are temporary and are not added to shared trust stores."
           ],
           "constraints": [
-            "Subscribe to Microsoft.AspNetCore, not the activity operation name Microsoft.AspNetCore.Hosting.HttpRequestIn. Use one provider and export pipeline. Preserve non-HTTP instrumentation separately. The suppression switch is not a general rollback: RC2 removes native route/tags and error status, keeps span creation and does not restore exception StatusDescription. Native RC2 emits error.type but no exception event in this fixture; inspect actual exporter inputs."
+            "Subscribe to Microsoft.AspNetCore, not the activity operation name Microsoft.AspNetCore.Hosting.HttpRequestIn. Use one provider and export pipeline. Preserve non-HTTP instrumentation separately. The suppression switch is not a general rollback: GA removes native route/tags and error status, keeps span creation and does not restore exception StatusDescription. Native GA emits error.type but no exception event in this fixture; inspect actual exporter inputs."
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Stable API intent for .NET 11, verified with RC2 under ADR 0004. Final GA reconciliation remains pending; RC2 differences are disclosed in the body."
+            "Stable API intent for .NET 11, verified with GA under ADR 0004. Final GA checks are limited to the recorded scope; GA differences are disclosed in the body."
           ]
         },
         "sharedAreas": [],
@@ -93,7 +93,7 @@
           "samples/net11.0/LanternTraces/LanternTraces.csproj"
         ],
         "selectionNotes": [
-          "Subscribe to Microsoft.AspNetCore, not the activity operation name Microsoft.AspNetCore.Hosting.HttpRequestIn. Use one provider and export pipeline. Preserve non-HTTP instrumentation separately. The suppression switch is not a general rollback: RC2 removes native route/tags and error status, keeps span creation and does not restore exception StatusDescription. Native RC2 emits error.type but no exception event in this fixture; inspect actual exporter inputs."
+          "Subscribe to Microsoft.AspNetCore, not the activity operation name Microsoft.AspNetCore.Hosting.HttpRequestIn. Use one provider and export pipeline. Preserve non-HTTP instrumentation separately. The suppression switch is not a general rollback: GA removes native route/tags and error status, keeps span creation and does not restore exception StatusDescription. Native GA emits error.type but no exception event in this fixture; inspect actual exporter inputs."
         ],
         "sourceUrls": [
           "https://learn.microsoft.com/en-us/aspnet/core/breaking-changes/11/http-activity-otel-semconv"
@@ -122,7 +122,7 @@
       "kind": "compile-and-run",
       "language": "15.0",
       "sample": "samples/net11.0/LanternTraces/LanternTraces.csproj",
-      "scope": "Actual .NET 11 RC2 MVC success/error requests through OpenTelemetry 1.20.1 with a custom domain processor/exporter and no AspNetCore instrumentation dependency. Exactly two distinct native server spans, source identity, domain enrichment, method/response tags, resolved conventional routes, Error/null description and error.type asserted. Fresh-process suppression asserts absent native HTTP/route tags, Unset error status, continued spans/domain tags and null description. No remote collector or metric execution claim."
+      "scope": "Actual .NET 11 GA MVC success/error requests through OpenTelemetry 1.20.1 with a custom domain processor/exporter and no AspNetCore instrumentation dependency. Exactly two distinct native server spans, source identity, domain enrichment, method/response tags, resolved conventional routes, Error/null description and error.type asserted. Fresh-process suppression asserts absent native HTTP/route tags, Unset error status, continued spans/domain tags and null description. No remote collector or metric execution claim."
     }
   ],
   "humanProof": {

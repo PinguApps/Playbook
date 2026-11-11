@@ -27,11 +27,11 @@ EF11 Tools and Tasks no longer bring Design into the consumer. Reference Design 
 
 ## Constraints
 
-This edition is for net11.0 with EF11 RC2; the historical net10.0 comparison uses EF10.0.13. No EF11-on-net10 route is claimed. C#15/14, SDK11 GA/SDK10.0.403 and exact dependency locks are included. FleetDesign is a console service-registration consumer, not a provider-specific migration test. It requires no renderer, workload, account or external resource. Windows x64 execution does not establish another platform or GA compatibility.
+This edition is for net11.0 with EF11 GA; the historical net10.0 comparison uses EF10.0.13. No EF11-on-net10 route is claimed. C#15/14, SDK11 GA/SDK10.0.403 and exact dependency locks are included. FleetDesign is a console service-registration consumer, not a provider-specific migration test. It requires no renderer, workload, account or external resource. Windows x64 execution does not establish another platform or GA compatibility.
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Test-FleetDesign copies each actual project to a disposable directory, removes its direct Design dependency, then builds. EF10 succeeds through Tools; EF11 fails with the missing Design surface. Restoring the direct reference compiles and runs real service registration. No mocks or Visual Studio execution are involved. Sample compilation records separately identify the exact packages and source inputs. Tasks dependency removal is an official package contract; this test exercises the Tools consumer path.
 

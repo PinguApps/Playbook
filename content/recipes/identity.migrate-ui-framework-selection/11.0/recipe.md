@@ -4,7 +4,7 @@
 
 Keep customized sign-in pages rendering when upgrading Identity UI by selecting Bootstrap 5 and migrating the affected markup, styles and published assets.
 
-Exact reproduction uses SDK10.0.403 / framework10.0.14 / C#14 versus SDK11.0.100 / framework11.0.0 / C#15. These are tested pins, not minimum supported versions. RC2 is not actual-GA proof. The exact eight approved .NET10 foundations, stable identities, PIN-959/PIN-963/PIN-964 and unrelated Human gates remain unchanged.
+Exact reproduction uses SDK10.0.403 / framework10.0.14 / C#14 versus SDK11.0.100 / framework11.0.0 / C#15. These are tested pins, not minimum supported versions. GA is limited to the recorded checks. The exact eight approved .NET10 foundations, stable identities, PIN-959/PIN-963/PIN-964 and unrelated Human gates remain unchanged.
 
 ## Older approach — .NET 10
 
@@ -143,7 +143,7 @@ Use a separate directory and the same restore/publish/run commands with the decl
 
 Changing the property selects packaged UI/assets; it does not rewrite customized Razor or CSS. Only the bounded form/checkbox/button selectors shown here are migrated.
 
-Bootstrap4 still builds in the measured RC2 package but produces an obsolete-support warning. Do not suppress that warning as a migration. Remove BOTH IdentityUIFrameworkVersion and an inherited IdentityDefaultUIFramework when choosing defaults. An empty GLOBAL MSBuild property is not equivalent to removing it.
+Bootstrap4 still builds in the measured GA package but produces an obsolete-support warning. Do not suppress that warning as a migration. Remove BOTH IdentityUIFrameworkVersion and an inherited IdentityDefaultUIFramework when choosing defaults. An empty GLOBAL MSBuild property is not equivalent to removing it.
 
 Keep existing confirmation/lockout/session policy and antiforgery. This fixture uses PasswordSignInAsync, requires confirmed accounts, validates local return URLs and checks denied/allowed fresh principals. The form is not a complete production Identity replacement: add the application's existing 2FA, recovery, external-login and accessibility requirements when applicable.
 
@@ -153,7 +153,7 @@ The complete files, configuration, lock, native-tool acquisition conditions and 
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Both actual dependency sets compile. Published HTTP checks cover custom layout/CSS, missing-token 400, validation, denied unconfirmed account, allowed confirmed account and rejected external return URL. Actual package targets produce the Bootstrap4 warning. Both explicit5 and property-removal copies publish and execute. Chromium152/Electron44 on Windows at1280x800 rendered login and validation for all three publishes: loaded local stylesheets, labeled inputs, 480px panels, 414px buttons, readable red error text and no horizontal overflow; screenshots were visually inspected. This is server validation, not unobtrusive/client JavaScript proof.
 
@@ -161,6 +161,6 @@ Fresh compilation/execution records retain exact commands, source/input hashes, 
 
 ## References
 
-- [Pinned ASP.NET RC1 migration changes retained in RC2](https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc1/aspnetcore.md)
-- [Exact Identity UI RC2 package and build assets](https://www.nuget.org/packages/Microsoft.AspNetCore.Identity.UI/11.0.0-rc.2.26504.105)
+- [Pinned ASP.NET RC1 migration changes retained in GA](https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc1/aspnetcore.md)
+- [Exact Identity UI GA package and build assets](https://www.nuget.org/packages/Microsoft.AspNetCore.Identity.UI/11.0.0-rc.2.26504.105)
 - [Bootstrap migration reference](https://getbootstrap.com/docs/5.3/migration/)

@@ -45,7 +45,7 @@ The sample's `artifact-pins.json` records SHA-256/product identities for the aud
 MSBuild DLLs, Roslyn/C# compiler, reference assembly, dotnet/hostfxr/CoreCLR,
 MSBuild dependency/runtime manifests and loaded SDK helper/resolver dependencies.
 Fresh evidence also records every loaded assembly path/hash and actual imported
-build file path/hash. Roslyn is 5.9 in the comparison versus 5.12 in RC2; MSBuild
+build file path/hash. Roslyn is 5.9 in the comparison versus 5.12 in GA; MSBuild
 VMR commits are `a8dd0577c5c13f43a2f57fe33b4ff11b90f6371e` and
 `820230c386db5b0106c5430b3e5aee92a7826bf5`. Those observations are separate from
 the supported acquisition/registration requirements above. Keep the full SDK,
@@ -162,7 +162,7 @@ target count, whose exact value depends on the imported SDK.
 
 ## Constraints
 
-RC2 **guards** unavailable state. Reading `Items`/`GetItems` at `Properties`, or
+GA **guards** unavailable state. Reading `Items`/`GetItems` at `Properties`, or
 reading `Targets.Count` at any partial stage, throws `InvalidOperationException`.
 An unavailable target count is **not zero**. The pinned Preview7 notes show a
 zero-target-count example, but the actual RC2 source and execution reject that
@@ -189,7 +189,7 @@ recipe/edition identities are retained.
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Both actual host dependency sets compile and execute through
 `eng/Record-Evidence.ps1` and their saved `verification-evidence.json` records.
@@ -216,5 +216,5 @@ native device, hosted service or production resource proof.
 ## Official references
 
 - [Pinned Preview7 feature description and CLI routing](https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview7/msbuild.md).
-- [Actual RC2 stage semantics](https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/msbuild/src/Build/Definition/ProjectEvaluationStage.cs), [options/default validation](https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/msbuild/src/Build/Definition/ProjectOptions.cs), [instance guards](https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/msbuild/src/Build/Instance/ProjectInstance.cs) and [mutable factory rejection](https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/msbuild/src/Build/Definition/Project.cs).
+- [Actual GA stage semantics](https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/msbuild/src/Build/Definition/ProjectEvaluationStage.cs), [options/default validation](https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/msbuild/src/Build/Definition/ProjectOptions.cs), [instance guards](https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/msbuild/src/Build/Instance/ProjectInstance.cs) and [mutable factory rejection](https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/msbuild/src/Build/Definition/Project.cs).
 - [Locator package](https://www.nuget.org/packages/Microsoft.Build.Locator/1.11.2), [the package's pinned external-host guidance](https://github.com/microsoft/MSBuildLocator/blob/89a9d0858a83930f5066e4fa0bf0d154e24095d7/README.md) and [RegisterMSBuildPath contract](https://github.com/microsoft/MSBuildLocator/blob/89a9d0858a83930f5066e4fa0bf0d154e24095d7/src/MSBuildLocator/MSBuildLocator.cs).

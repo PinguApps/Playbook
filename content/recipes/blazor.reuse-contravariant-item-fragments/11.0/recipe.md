@@ -68,7 +68,7 @@ Null handling remains application policy. Here a missing item renders `No observ
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Actual .NET 10/C#14 (SDK 10.0.403/framework 10.0.13) and .NET 11/C#15 (SDK 11.0.100/framework 11.0.0) consumers compile and render `SpecialObservation("Comet & dust", 30)` as encoded text, then render the null placeholder. They have empty external dependency closures and lock files. `eng/Record-Evidence.ps1` saves fresh input hashes, exact commands and successful real renderer output in the existing sample evidence records.
 

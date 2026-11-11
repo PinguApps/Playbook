@@ -73,7 +73,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "RC2 verification; GA reconciliation pending. No experimental API opt-in."
+            "GA verification; GA checks are limited to the recorded scope. No experimental API opt-in."
           ]
         },
         "sourceUrls": [

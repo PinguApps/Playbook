@@ -30,11 +30,11 @@ StringBuilder.MoveChunks returns a builder holding the accumulated content and e
 
 This is an ownership handoff, not a thread-safety primitive. Serialize access and stop enumerating old GetChunks results before transfer or subsequent mutation; those borrowed views do not become immutable snapshots. Do not assume capacity, maximum capacity, chunk layout or allocation counts remain identical to the copying version. Convert to a string separately if the consumer needs immutable text.
 
-This edition targets .NET 11. It has no rendering mode, external provider, optional workload or experimental opt-in. It uses framework APIs and needs no additional package or package asset. The sample SDK pins 10.0.403 and 11.0.100 are reproducibility baselines, not mandatory exact consumer SDK installations. Historical RC execution is separate from current GA verification records. No .NET 10 catalogue edition or conditional older-target package route is advertised.
+This edition targets .NET 11. It has no rendering mode, external provider, optional workload or experimental opt-in. It uses framework APIs and needs no additional package or package asset. The sample SDK pins 10.0.403 and 11.0.100 are reproducibility baselines, not mandatory exact consumer SDK installations. Current GA verification is limited to the recorded checks. No .NET 10 catalogue edition or conditional older-target package route is advertised.
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 The original BufferAdapters projects compile and run against their declared .NET 10/11 SDKs. Checks cover UTF-8 split across segments, encoded text, sliced writes, borrowed-memory mutation, fixed-size overflow and source-emptying with independent builder reuse.
 

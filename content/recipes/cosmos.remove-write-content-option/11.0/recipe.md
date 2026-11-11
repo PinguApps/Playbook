@@ -89,13 +89,13 @@ The EF11 comparison uses the supported metadata/configuration route. The obsolet
 
 ## Constraints
 
-SDK10.0.403 / C#14 / EF10.0.13 versus SDK11.0.100 / C#15 / EF11.0.0. Both EF consumers select net10.0 versus net11.0 assets. No EF11 on an older runtime or extra .NET10 foundation is offered. RC3 evidence is not actual GA proof. No workload, rendering mode or experimental opt-in applies. Cosmos SDK3.63.1 and Newtonsoft.Json13.0.4 explicitly pinned in both graphs. Legacy Linux emulator2.14.28.0 uses pinned HTTPS gateway transport on Windows x64. The public local emulator key is not production authentication. Data lasts only for the running emulator session; no restart/cloud durability claim.
+SDK10.0.403 / C#14 / EF10.0.13 versus SDK11.0.100 / C#15 / EF11.0.0. Both EF consumers select net10.0 versus net11.0 assets. No EF11 on an older runtime or extra .NET10 foundation is offered. GA verification is limited to the recorded checks proof. No workload, rendering mode or experimental opt-in applies. Cosmos SDK3.63.1 and Newtonsoft.Json13.0.4 explicitly pinned in both graphs. Legacy Linux emulator2.14.28.0 uses pinned HTTPS gateway transport on Windows x64. The public local emulator key is not production authentication. Data lasts only for the running emulator session; no restart/cloud durability claim.
 
 Remove the ContentResponseOnWriteEnabled call from EF configuration. The comparison deliberately retains enabled, disabled and omitted controls; null here means omit the call, not pass null to the bool parameter. The current option is obsolete; its nullable internal setting is not a new public nullable parameter. Saved values, refreshed ETags and stale-write rejection must still work. The direct Cosmos SDK has its own response options: this recipe makes no SDK-wide network, CPU, RU or performance claim.
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 The sample-evidence workflow captures each exact locked graph, SDK/runtime, inputs and fresh compilation separately from real provider execution. Run `eng/Test-EstuaryProviders.ps1 -Record`. SQL checks insert and query through fresh contexts and inspect retry defaults. EF11 reopens and updates EF10-seeded documents in the same isolated database. Cosmos checks enabled/disabled/omitted options, partition names, persisted values, ETag refresh, stale-write rejection and wrong-partition exclusion. The installed local package is inspected with real stdio list/get from an unrelated directory. PIN-959 comprehensive readiness and PIN-965 GA reconciliation remain open.
 

@@ -25,7 +25,7 @@ Use complete official SDK/runtime distributions and the matching
 and native Crossgen2 hash are recorded separately from the SDK pin. A copied
 compiler or task assembly does not establish a compatible target/runtime route.
 Both samples are framework-dependent and disable apphost generation; run their
-DLLs with the matching absolute dotnet executable. RC2 does not qualify actual GA.
+DLLs with the matching absolute dotnet executable. GA does not qualify actual GA.
 
 ## Older approach
 
@@ -126,7 +126,7 @@ remains valid and adds no ninth foundation. PIN-959/PIN-963/GA gates remain open
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 `eng/Test-SkylarkBuild.ps1 -Record` builds both real dependency sets, publishes
 full/selected controls, inspects PE machine/native headers and partial flags, and

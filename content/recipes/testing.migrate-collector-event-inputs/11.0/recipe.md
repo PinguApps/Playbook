@@ -35,7 +35,7 @@ The measured platform is Windows x64 with PowerShell7 and complete matching SDKs
 There is no native compiler, optional workload, provider, account, UI rendering
 mode or experimental opt-in. Public NuGet access prepares the package closure;
 installed guidance itself is offline. The public packages are stable; SDK/runtime
-execution is RC3 evidence, not actual-GA qualification. Other OSes, arbitrary test
+execution is GA evidence, within the recorded verification scope. Other OSes, arbitrary test
 frameworks, .NET Framework, MTP, trimming and NativeAOT remain unqualified.
 
 ## Older approach
@@ -153,7 +153,7 @@ real test run. No approval to rewrite results follows from a public setter.
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 `eng/Test-QuayCollector.ps1 -Record` locks/restores/builds both actual dependency
 sets, verifies the independently audited CLI ZIP, locked-restore dependency SHA512

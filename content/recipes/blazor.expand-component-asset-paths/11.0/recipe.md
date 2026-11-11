@@ -143,7 +143,7 @@ suppression is used. No net10-plus-new-package compatibility route is advertised
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Both actual targets compile with locked resolved dependencies through
 eng/Record-Evidence.ps1. Their selected behavior.evidence.json records retain
@@ -155,5 +155,5 @@ tools, discovery ID/title/goal, the full canonical body, explicit 11.0 edition,
 applicability and current evidence from the exact locally installed ordinary tool.
 Offline guidance is embedded; inspection does not contact a provider.
 
-The evidence is preparation against RC2, not final GA qualification. PIN-959's
+The evidence is GA verification for the recorded configuration. PIN-959's
 comprehensive delivery gate and PIN-964's actual-GA reconciliation remain open.

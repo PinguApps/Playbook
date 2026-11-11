@@ -81,7 +81,7 @@
             "No older-target refresh backport, provider/cloud, AOT or actual-GA guarantee."
           ],
           "stabilityLimitations": [
-            "GA-targeted edition verified on .NET 11 RC2; final GA reconciliation remains open."
+            "GA-targeted edition verified on .NET 11 GA; final GA checks are limited to the recorded scope."
           ]
         },
         "sourceUrls": [

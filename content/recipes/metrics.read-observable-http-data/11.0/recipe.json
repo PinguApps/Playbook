@@ -45,7 +45,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Build against .NET 11 reference assemblies; exact RC2 is evidence, not an exact installation requirement."
+            "reason": "Build against .NET 11 reference assemblies; exact GA is evidence, not an exact installation requirement."
           },
           "language": {
             "name": "C#",
@@ -76,7 +76,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "RC2 compilation/execution; GA reconciliation pending. No experimental API opt-in."
+            "GA compilation/execution; GA checks are limited to the recorded scope. No experimental API opt-in."
           ]
         },
         "sourceUrls": [
@@ -112,7 +112,7 @@
       "sdk": "10.0.403",
       "language": "14.0",
       "kind": "compile-and-run",
-      "scope": "Actual previous-release comparison: Actual loopback SocketsHttpHandler traffic, both instrument types, held active/open=1, completed active=0, keep-alive open=1, disposal open=0 and non-accumulating repeated RC2 polls."
+      "scope": "Actual previous-release comparison: Actual loopback SocketsHttpHandler traffic, both instrument types, held active/open=1, completed active=0, keep-alive open=1, disposal open=0 and non-accumulating repeated GA polls."
     },
     {
       "sample": "samples/net11.0/HttpObservations/HttpObservations.csproj",
@@ -120,7 +120,7 @@
       "sdk": "11.0.100",
       "language": "15.0",
       "kind": "compile-and-run",
-      "scope": "Actual loopback SocketsHttpHandler traffic, both instrument types, held active/open=1, completed active=0, keep-alive open=1, disposal open=0 and non-accumulating repeated RC2 polls."
+      "scope": "Actual loopback SocketsHttpHandler traffic, both instrument types, held active/open=1, completed active=0, keep-alive open=1, disposal open=0 and non-accumulating repeated GA polls."
     }
   ],
   "snippets": {

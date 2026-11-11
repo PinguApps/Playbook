@@ -180,14 +180,14 @@ first restore for a repeatable local build. An empty workload requirement is not
 claim that the author's installed SDK has no workloads.
 
 These event contracts are stable APIs, not experimental APIs. Current execution
-is RC2 evidence, not GA validation. WebAssembly/Hybrid startup hooks, other OS or
+is GA evidence for the recorded configuration. WebAssembly/Hybrid startup hooks, other OS or
 browsers, AOT, deployment, and using new assets on an older target are unverified.
 Only target 11.0 selects this migration edition; the .NET 10 comparison remains
 complete offline, without advertising an untested older-target route.
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Both original projects compile with their own pinned SDK. Separate real Chrome
 checks exercise a trusted native `beforeinput`, actual Interactive Server handlers,

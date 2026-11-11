@@ -49,7 +49,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Build the net11.0 consumer; measured SDK 11.0.100 is RC2 evidence, not GA proof."
+            "reason": "Build the net11.0 consumer; measured SDK 11.0.100 is GA evidence, within the recorded verification scope."
           },
           "language": {
             "name": "C#",
@@ -93,7 +93,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Stable API shape in GA-targeted guidance, measured on RC2 packages and SDK. No experimental API suppression required. Actual GA reconciliation remains outstanding."
+            "Stable API shape in GA-targeted guidance, measured on GA packages and SDK. No experimental API suppression required. Actual GA checks are limited to the recorded scope."
           ]
         },
         "conditional": false,

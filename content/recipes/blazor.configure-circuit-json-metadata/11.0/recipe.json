@@ -40,7 +40,7 @@
             "name": ".NET",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Execute the ASP.NET Core 11 shared-framework API; the actual evidence is RC2, not GA."
+            "reason": "Execute the ASP.NET Core 11 shared-framework API; the actual evidence is GA."
           },
           "sdk": {
             "name": ".NET SDK",
@@ -137,7 +137,7 @@
       "sdk": "10.0.403",
       "language": "14.0",
       "kind": "compile",
-      "scope": "Record-CedarPayload.ps1 captures exact compilation inputs/dependencies, then Test-CedarPayload.mjs runs both real local servers in Chromium with two separate circuits/tabs each. ShowTicket and ExtraNote round-trip over JS interop and DI protected session storage. Trace assertions distinguish four independent serializer options instances in RC2, preserve registration order and exercise reflection fallback; each app retains its own scope values and stored ticket. Ciphertext conceals the payload and an altered ciphertext is rejected by real Data Protection. Compile-only evidence is separate from saved execution records. These checks do not claim exhaustive security or production key management."
+      "scope": "Record-CedarPayload.ps1 captures exact compilation inputs/dependencies, then Test-CedarPayload.mjs runs both real local servers in Chromium with two separate circuits/tabs each. ShowTicket and ExtraNote round-trip over JS interop and DI protected session storage. Trace assertions distinguish four independent serializer options instances in GA, preserve registration order and exercise reflection fallback; each app retains its own scope values and stored ticket. Ciphertext conceals the payload and an altered ciphertext is rejected by real Data Protection. Compile-only evidence is separate from saved execution records. These checks do not claim exhaustive security or production key management."
     },
     {
       "sample": "samples/net10.0/CedarPlanetarium/CedarPlanetarium.csproj",
@@ -145,7 +145,7 @@
       "sdk": "10.0.403",
       "language": "14.0",
       "kind": "execution",
-      "scope": "Record-CedarPayload.ps1 captures exact compilation inputs/dependencies, then Test-CedarPayload.mjs runs both real local servers in Chromium with two separate circuits/tabs each. ShowTicket and ExtraNote round-trip over JS interop and DI protected session storage. Trace assertions distinguish four independent serializer options instances in RC2, preserve registration order and exercise reflection fallback; each app retains its own scope values and stored ticket. Ciphertext conceals the payload and an altered ciphertext is rejected by real Data Protection. Compile-only evidence is separate from saved execution records. These checks do not claim exhaustive security or production key management.",
+      "scope": "Record-CedarPayload.ps1 captures exact compilation inputs/dependencies, then Test-CedarPayload.mjs runs both real local servers in Chromium with two separate circuits/tabs each. ShowTicket and ExtraNote round-trip over JS interop and DI protected session storage. Trace assertions distinguish four independent serializer options instances in GA, preserve registration order and exercise reflection fallback; each app retains its own scope values and stored ticket. Ciphertext conceals the payload and an altered ciphertext is rejected by real Data Protection. Compile-only evidence is separate from saved execution records. These checks do not claim exhaustive security or production key management.",
       "record": "samples/net10.0/CedarPlanetarium/behavior.evidence.json"
     },
     {
@@ -154,7 +154,7 @@
       "sdk": "11.0.100",
       "language": "15.0",
       "kind": "compile",
-      "scope": "Record-CedarPayload.ps1 captures exact compilation inputs/dependencies, then Test-CedarPayload.mjs runs both real local servers in Chromium with two separate circuits/tabs each. ShowTicket and ExtraNote round-trip over JS interop and DI protected session storage. Trace assertions distinguish four independent serializer options instances in RC2, preserve registration order and exercise reflection fallback; each app retains its own scope values and stored ticket. Ciphertext conceals the payload and an altered ciphertext is rejected by real Data Protection. Compile-only evidence is separate from saved execution records. These checks do not claim exhaustive security or production key management."
+      "scope": "Record-CedarPayload.ps1 captures exact compilation inputs/dependencies, then Test-CedarPayload.mjs runs both real local servers in Chromium with two separate circuits/tabs each. ShowTicket and ExtraNote round-trip over JS interop and DI protected session storage. Trace assertions distinguish four independent serializer options instances in GA, preserve registration order and exercise reflection fallback; each app retains its own scope values and stored ticket. Ciphertext conceals the payload and an altered ciphertext is rejected by real Data Protection. Compile-only evidence is separate from saved execution records. These checks do not claim exhaustive security or production key management."
     },
     {
       "sample": "samples/net11.0/CedarPlanetarium/CedarPlanetarium.csproj",
@@ -162,7 +162,7 @@
       "sdk": "11.0.100",
       "language": "15.0",
       "kind": "execution",
-      "scope": "Record-CedarPayload.ps1 captures exact compilation inputs/dependencies, then Test-CedarPayload.mjs runs both real local servers in Chromium with two separate circuits/tabs each. ShowTicket and ExtraNote round-trip over JS interop and DI protected session storage. Trace assertions distinguish four independent serializer options instances in RC2, preserve registration order and exercise reflection fallback; each app retains its own scope values and stored ticket. Ciphertext conceals the payload and an altered ciphertext is rejected by real Data Protection. Compile-only evidence is separate from saved execution records. These checks do not claim exhaustive security or production key management.",
+      "scope": "Record-CedarPayload.ps1 captures exact compilation inputs/dependencies, then Test-CedarPayload.mjs runs both real local servers in Chromium with two separate circuits/tabs each. ShowTicket and ExtraNote round-trip over JS interop and DI protected session storage. Trace assertions distinguish four independent serializer options instances in GA, preserve registration order and exercise reflection fallback; each app retains its own scope values and stored ticket. Ciphertext conceals the payload and an altered ciphertext is rejected by real Data Protection. Compile-only evidence is separate from saved execution records. These checks do not claim exhaustive security or production key management.",
       "record": "samples/net11.0/CedarPlanetarium/behavior.evidence.json"
     }
   ],

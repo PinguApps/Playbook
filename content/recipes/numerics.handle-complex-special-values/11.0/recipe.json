@@ -48,7 +48,7 @@
         "usage": "primary",
         "selectionNotes": [
           "Distinguish undefined results from directed infinities and preserve signed-zero expectations when upgrading a double-based complex signal pipeline.",
-          "Nongeneric Complex remains valid. RC2 execution is distinct from actual-GA reconciliation."
+          "Nongeneric Complex remains valid. GA execution is distinct from actual-GA reconciliation."
         ],
         "requirements": {
           "runtime": {
@@ -61,7 +61,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Build the current sample against .NET 11 references; exact RC2 is a reproducibility baseline."
+            "reason": "Build the current sample against .NET 11 references; exact GA is a reproducibility baseline."
           },
           "language": {
             "name": "C#",
@@ -89,7 +89,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Verified using .NET 11 RC2; GA reconciliation remains pending. These selected contracts have no publisher experimental annotation or required opt-in."
+            "Verified using .NET 11 GA; GA checks are limited to the recorded scope. These selected contracts have no publisher experimental annotation or required opt-in."
           ]
         },
         "sourceUrls": [

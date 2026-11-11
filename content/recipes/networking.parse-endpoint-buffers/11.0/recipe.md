@@ -47,7 +47,7 @@ declares an IPEndPoint variable. The documentation addresses 192.0.2.41 and
 
 1. Target net11.0 using a .NET 11 SDK/runtime. The canonical project declares
    C# 15.0 and has no package reference, workload, native toolchain, provider
-   selection, rendering mode or experimental opt-in. Exact RC2 pins below record
+   selection, rendering mode or experimental opt-in. Exact GA pins below record
    what was tested, not a requirement to use that one prerelease build forever.
 2. Replace only the UTF-8 decode/encode adapter where the surrounding code already
    owns bytes. Pass the complete endpoint field, excluding record delimiters.
@@ -84,13 +84,13 @@ TryRead does not trim record padding or accept a partial streaming field.
 
 No provider or rendering integration is involved. Windows x64 consumers are
 executed here; other platforms are not measured. The reviewed API is unannotated
-as experimental, but RC2 evidence does not establish final-GA verification.
+as experimental, but GA evidence does not establish final-GA verification.
 Keep the string adapter where its explicit all-or-nothing write matters, or
 stage new formatted bytes in scratch storage before committing a record.
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 eng/Test-NetworkBuffers.ps1 -Record -VerifySources compiles and runs actual
 net10.0/C#14 and net11.0/C#15 consumers using SDK10.0.403/runtime10.0.14 and

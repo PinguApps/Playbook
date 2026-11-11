@@ -2,7 +2,7 @@
   "id": "validation.translate-model-feedback",
   "edition": "11.0",
   "title": "Return the same translated validation messages in forms and endpoints",
-  "goal": "Share resource conventions and custom ValidationAttribute.FormatMessage formatting across generated Blazor and Minimal API validation; RC2 replaces the earlier formatter interface.",
+  "goal": "Share resource conventions and custom ValidationAttribute.FormatMessage formatting across generated Blazor and Minimal API validation; GA replaces the earlier formatter interface.",
   "areas": [
     "aspnetcore",
     "blazor",
@@ -35,7 +35,7 @@
         "selectionNotes": [
           "Requires .NET 11 shared async DataAnnotations and generated Extensions.Validation metadata; no net10.0 package route is claimed.",
           "Blazor live field validation requires an interactive mode; static SSR validates during posts. WebAssembly needs browser-usable services/resources and independent server validation.",
-          "Localization requires IStringLocalizerFactory and correct declaring-type resource names. RC2 uses ValidationAttribute.FormatMessage, not the removed formatter interface."
+          "Localization requires IStringLocalizerFactory and correct declaring-type resource names. GA uses ValidationAttribute.FormatMessage, not the removed formatter interface."
         ],
         "requirements": {
           "runtime": {
@@ -48,7 +48,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Build against .NET 11 reference assemblies; exact RC2 is evidence, not an exact installation requirement."
+            "reason": "Build against .NET 11 reference assemblies; exact GA is evidence, not an exact installation requirement."
           },
           "language": {
             "name": "C#",
@@ -80,12 +80,12 @@
           "constraints": [
             "Requires .NET 11 shared async DataAnnotations and generated Extensions.Validation metadata; no net10.0 package route is claimed.",
             "Blazor live field validation requires an interactive mode; static SSR validates during posts. WebAssembly needs browser-usable services/resources and independent server validation.",
-            "Localization requires IStringLocalizerFactory and correct declaring-type resource names. RC2 uses ValidationAttribute.FormatMessage, not the removed formatter interface.",
+            "Localization requires IStringLocalizerFactory and correct declaring-type resource names. GA uses ValidationAttribute.FormatMessage, not the removed formatter interface.",
             "No MVC/Razor Pages adapter, atomic reservation, arbitrary cross-assembly coverage, trimming/AOT proof or conditional older-target route is claimed."
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Stable contracts compiled/executed with .NET 11 RC2; GA reconciliation pending. No experimental opt-in."
+            "Stable contracts compiled/executed with .NET 11 GA; GA checks are limited to the recorded scope. No experimental opt-in."
           ]
         },
         "sourceUrls": [

@@ -60,7 +60,7 @@ Start this file with `@page "/page"` as its first line, followed immediately by 
 
 WebApplication.CreateBuilder automatically wires the .NET 11 CSRF middleware. It records a verdict for endpoints with IAntiforgeryMetadata requiring validation. Protected form consumers enforce the verdict; a JSON endpoint does not become form-protected. Without explicit token middleware, static SSR stops emitting tokens and form-bound Minimal APIs use the automatic check.
 
-**Use the API actually present in this RC2 artifact.** MVC opts in with [RequireAntiforgeryToken], replacing [ValidateAntiForgeryToken]. The latter still runs a token filter; combining both attributes is rejected. The checked Razor Pages provider still inserts AutoValidateAntiforgeryTokenAttribute, so the Page deliberately retains its token and cookie. Removing UseAntiforgery alone does not migrate that filter. Current migration prose describes broader integration than this pinned artifact proves.
+**Use the API actually present in this GA artifact.** MVC opts in with [RequireAntiforgeryToken], replacing [ValidateAntiForgeryToken]. The latter still runs a token filter; combining both attributes is rejected. The checked Razor Pages provider still inserts AutoValidateAntiforgeryTokenAttribute, so the Page deliberately retains its token and cookie. Removing UseAntiforgery alone does not migrate that filter. Current migration prose describes broader integration than this pinned artifact proves.
 
 The --keep-tokens true mode retains token generation and middleware for SSR, Minimal APIs and the opted-in MVC action, plus the Page's retained filter. --reject-additional true deliberately rejects otherwise valid token pairs. Keep those paths when tokens are required; this is a real additional-data check, not a mock token validator.
 
@@ -112,7 +112,7 @@ Start this file with `@page "/page"` as its first line, followed immediately by 
 
 ## Migration
 
-1. Inventory actual form consumers and why they use tokens. Keep token services, middleware and hidden fields when supporting older browsers that may omit origin metadata, using IAntiforgeryAdditionalDataProvider, or satisfying an independent compliance rule. Both protections can be present, but this RC2 token middleware can overwrite the automatic verdict; do not claim two independently enforced layers from their presence alone.
+1. Inventory actual form consumers and why they use tokens. Keep token services, middleware and hidden fields when supporting older browsers that may omit origin metadata, using IAntiforgeryAdditionalDataProvider, or satisfying an independent compliance rule. Both protections can be present, but this GA token middleware can overwrite the automatic verdict; do not claim two independently enforced layers from their presence alone.
 2. For the eligible net11.0 SSR/Minimal API paths, omit explicit AddAntiforgery and UseAntiforgery. AddRazorComponents and MVC/Pages still register services needed by their consumers. For MVC, use [RequireAntiforgeryToken] to select the middleware route. Retain Razor Pages' working token path until the actual framework's filter integration is verified.
 3. Review CORS as write trust. The sample's /trusted form endpoint deliberately permits only http://localhost:6019 with AllowCredentials. This exact credentialed origin can submit; another origin receives 400. Replace the fictional local origin with an explicitly trusted production origin after reviewing who can act with ambient credentials. Wildcard or anonymous public-read CORS does not grant this trust.
 4. Do not remove a failing check by adding DisableAntiforgery or IgnoreAntiforgeryToken to a browser/cookie endpoint. An exemption needs an actual authentication/exposure reason, such as a separately verified bearer-only boundary. This sample exempts no form endpoint.
@@ -130,7 +130,7 @@ The ordinary MVC token filter and automatic Razor Page filter remain token-based
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Actual .NET 10/11 consumers compile with their declared SDKs. Seventy real Kestrel HTTP checks cover same-origin/cross-origin forms on all four paths, missing tokens, valid token pairs, rejected additional data, Fetch Metadata precedence, headerless automatic requests, named CORS trust and unchanged JSON. Those HTTP probes deliberately supply Origin headers; separate real Chrome form clicks establish actual browser submissions.
 

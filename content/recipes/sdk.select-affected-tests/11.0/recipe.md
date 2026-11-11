@@ -2,7 +2,7 @@
 
 ## Goal
 
-Use this when a large managed test suite needs a faster change-validation lane while retaining an ordinary full-test baseline. **Experimental, documentation-based guidance.** The original examples and command shapes below have not been compiled or executed as a composed affected-test consumer. The local registration/configuration documentation is unavailable; do not treat this as a turnkey setup or a verified .NET 11 RC2 route. Pingu authorized documentation-based delivery on 3 November 2026 while unreleased execution proof remains pending.
+Use this when a large managed test suite needs a faster change-validation lane while retaining an ordinary full-test baseline. **Experimental, documentation-based guidance.** The original examples and command shapes below have not been compiled or executed as a composed affected-test consumer. The local registration/configuration documentation is unavailable; do not treat this as a turnkey setup or a verified .NET 11 GA route. Pingu authorized documentation-based delivery on 3 November 2026 while unreleased execution proof remains pending.
 
 ## Older approach: run the complete suite
 
@@ -66,7 +66,7 @@ Do not combine affected-test operations with device testing, parallel test modul
 
 ## Evidence and limitations
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 The canonical .NET10 and .NET11 projects now have actual locked compilation records from Windows, using their declared SDKs and dependencies. The original official-source review is retained separately. Compilation of the rules/decoder library does not compile illustrative .cs.txt host integration or establish behavior.
 

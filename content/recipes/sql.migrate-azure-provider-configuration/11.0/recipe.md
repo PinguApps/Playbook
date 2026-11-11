@@ -73,13 +73,13 @@ UseAzureSql selects the supported entry point.
 
 ## Constraints
 
-SDK10.0.403 / C#14 / EF10.0.13 versus SDK11.0.100 / C#15 / EF11.0.0. Both EF consumers select net10.0 versus net11.0 assets. No EF11 on an older runtime or extra .NET10 foundation is offered. RC3 evidence is not actual GA proof. No workload, rendering mode or experimental opt-in applies. SqlClient6.1.7 versus7.1.0, with Pkcs10.0.13; SQL2025 17.0.5035.5 compatibility170; SQL authentication is injected through the authorized local route.
+SDK10.0.403 / C#14 / EF10.0.13 versus SDK11.0.100 / C#15 / EF11.0.0. Both EF consumers select net10.0 versus net11.0 assets. No EF11 on an older runtime or extra .NET10 foundation is offered. GA verification is limited to the recorded checks proof. No workload, rendering mode or experimental opt-in applies. SqlClient6.1.7 versus7.1.1, with Pkcs10.0.13; SQL2025 17.0.5035.5 compatibility170; SQL authentication is injected through the authorized local route.
 
 EF10 UseSqlServer(..., sql => sql.UseAzureSqlDefaults()) is replaced by UseAzureSql(connection). UseAzureSql already exists in EF10: adopt it before upgrading. EF11 removes the defaults helper. Both paths use six retries with a 30-second maximum delay. Preserve intentional retry and compatibility overrides; these defaults do not change the database compatibility level. Local SQL2025 compatibility170 round-trips are approved evidence for this bounded configuration migration. No Azure outage, retry scheduling, Entra authentication or cloud service parity is established.
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 The sample-evidence workflow captures each exact locked graph, SDK/runtime, inputs and fresh compilation separately from real provider execution. Run `eng/Test-EstuaryProviders.ps1 -Record`. SQL checks insert and query through fresh contexts and inspect retry defaults. The sibling Cosmos recipes own their separate document and concurrency checks. The installed local package is inspected with real stdio list/get from an unrelated directory. PIN-959 comprehensive readiness and PIN-965 GA reconciliation remain open.
 

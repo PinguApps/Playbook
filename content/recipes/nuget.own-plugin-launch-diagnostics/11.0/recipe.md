@@ -14,7 +14,7 @@ SDK11.0.100/runtime+ref11.0.0/C#15. These pins are
 tested artifacts, not a universal release-family compatibility promise. No
 provider installation, feed, account, real credential, native compiler, workload,
 device, UI/rendering mode or preview-language opt-in is required. Current SDK
-stability is RC2/preview, not actual GA.
+stability is GA/preview, within the recorded verification scope.
 
 The old helper's actual metadata reference is the complete SDK10 NuGet.Credentials
 7.9.0-rc.611 net8.0 closure (source a8dd0577), compared with SDK11's
@@ -144,7 +144,7 @@ cache proof only; `CourierLauncher` itself needs neither.
 
 ## Evidence and limits
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 `eng/Record-PackageWorkshop.ps1` captures the paired consumers through the
 existing sample-evidence workflow. Both fixed projects compile with zero

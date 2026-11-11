@@ -30,7 +30,7 @@
         "usage": "primary",
         "conditional": false,
         "selectionNotes": [
-          "RC2 sharing: use uniform public policy."
+          "GA sharing: use uniform public policy."
         ],
         "requirements": {
           "runtime": {
@@ -43,7 +43,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Matching Razor and browser assets; pinned RC2 compiled/executed."
+            "reason": "Matching Razor and browser assets; pinned GA compiled/executed."
           },
           "language": {
             "name": "C#",
@@ -74,14 +74,14 @@
           ],
           "constraints": [
             "Final RC1 groups: InteractiveServer, StaticServer, InteractiveWebAssembly. Serializable data only; function callbacks remain JavaScript initializers. Server reconnection policy applies to circuits, including Auto while it uses Server; a WebAssembly instance has no server circuit to reconnect.",
-            "Pinned RC2 separate HTTP requests reproduced endpoint/component sharing (7 -> 1 -> 1). Apply a uniform non-secret application policy. Do not put user, tenant or request-specific values in shared endpoint options. This is a bounded local reproduction, not a framework-wide security conclusion or GA claim.",
+            "Pinned GA separate HTTP requests reproduced endpoint/component sharing (7 -> 1 -> 1). Apply a uniform non-secret application policy. Do not put user, tenant or request-specific values in shared endpoint options. This is a bounded local reproduction, not a framework-wide security conclusion or GA claim.",
             "Component non-null values replace earlier endpoint values; omitted scalars retain them. TimeSpan serializes to milliseconds; PreserveDom serializes as negated disableDomPreservation. ConfigureBrowser is request rendering, not a live circuit-settings update.",
             "Standalone WASM without an ASP.NET Core component endpoint does not acquire server options. .NET 10 uses valid startup JavaScript; it is only the previous-release comparison, not an older-target route for BrowserOptions.",
-            "Exact .NET 10/RC2 Server, WebAssembly and Auto startup and Server interruption/recovery are local Windows Chromium evidence. No other browser/OS, AOT, deployment, transport/auth-expiry policy, automatic circuit pause or GA execution is claimed."
+            "Exact .NET 10/GA Server, WebAssembly and Auto startup and Server interruption/recovery are local Windows Chromium evidence. No other browser/OS, AOT, deployment, transport/auth-expiry policy, automatic circuit pause or GA execution is claimed."
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "RC2; GA unverified."
+            "GA; GA unverified."
           ]
         },
         "evidenceSamples": [

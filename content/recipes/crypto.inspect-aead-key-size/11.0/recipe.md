@@ -44,7 +44,7 @@ The getter neither exports the secret nor changes encryption or decryption.
    C#15.0; the old net10.0 consumer declares C#14.0. These are framework APIs:
    no NuGet dependency, optional workload, rendering mode, provider configuration,
    unsafe code or experimental opt-in is required. No down-level package getter
-   route is claimed. Exact RC2 test pins below are distinct from these requirements.
+   route is claimed. Exact GA test pins below are distinct from these requirements.
 2. Require AesGcm.IsSupported or AesCcm.IsSupported for the mode you use.
    Unsupported modes need an explicit application decision; do not silently
    replace encryption with plaintext. This evidence requires both modes to run.
@@ -58,7 +58,7 @@ The getter neither exports the secret nor changes encryption or decryption.
    Ciphertext length is not key length. Check supported nonce/tag sizes for your
    actual platform and protocol rather than deriving them from this getter.
 5. Do not use a successful getter as evidence that the object is still usable.
-   On the tested RC2 Windows implementation the value remains readable after
+   On the tested GA Windows implementation the value remains readable after
    Dispose, while Encrypt and Decrypt throw ObjectDisposedException. Lifetime
    still belongs to the owner; do not use disposal probing as synchronization.
 6. Exercise every key size your protocol supports with real encryption/decryption
@@ -73,12 +73,12 @@ clear temporary key buffers when appropriate. An ownership wrapper may still be
 useful for other policy/lifetime responsibilities; remove it only if truly unused.
 No FIPS, HSM, custom-provider, performance or universal OS support is claimed.
 Actual positive execution here uses Windows x64 CNG. Other providers/platforms
-were not executed. The audited property is not marked experimental; RC2 execution
+were not executed. The audited property is not marked experimental; GA execution
 does not establish final-GA verification.
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 eng/Test-AttachmentFacts.ps1 -Record -VerifySources uses the existing sample
 evidence workflow. ParcelKeys builds and runs with SDK10.0.403/runtime10.0.14

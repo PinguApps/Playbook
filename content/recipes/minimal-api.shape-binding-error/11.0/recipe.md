@@ -104,7 +104,7 @@ Numeric route values must reach binding: a route constraint such as {dock:int} c
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Each target performs eight real requests across two ephemeral Development hosts: three scalar failures, valid arguments, a handler domain error, malformed JSON, wrong content type and the throw-enabled control. The checks distinguish filter/handler counters and response contracts. Malformed JSON returns an empty 400 before its filter on both runtimes; wrong media remains 415. No handler runs on failed binding.
 

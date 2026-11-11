@@ -152,7 +152,7 @@ legacy text to prove no implicit fallback occurs.
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Use the matching SDK installation from each sample directory. Disable first-run
 PATH integration before using an isolated .NET home. These commands restore the
@@ -172,7 +172,7 @@ Null returns unavailable. On .NET10 malformed fallback text also returns
 unavailable; on .NET11 even valid-looking fallback text stays unavailable.
 
 Saved compilation/execution records are current for these exact canonical inputs.
-RC2 is not actual-GA proof. PIN-959 comprehensive content, PIN-964 actual-GA
+GA is limited to the recorded checks. PIN-959 comprehensive content, PIN-964 actual-GA
 reconciliation and existing Human gates stay open. This recipe preserves the
 exact eight approved .NET10 foundations and all existing recipe/edition identities.
 

@@ -24,7 +24,7 @@ For an existing constrained database, scaffold and inspect a separate transition
 
 ## Constraints
 
-Relational only; relationship/index retained; data integrity responsibility changes. This is SQL Server2025 execution with EF10.0.13 and EF11 RC2, not evidence for every relational provider. SDK/runtime/language/package assets are explicit in applicability. No rendering or workload requirement. Stable API guidance, RC2 proof, no GA claim or experimental opt-in.
+Relational only; relationship/index retained; data integrity responsibility changes. This is SQL Server2025 execution with EF10.0.13 and EF11 GA, not evidence for every relational provider. SDK/runtime/language/package assets are explicit in applicability. No rendering or workload requirement. Stable API guidance, GA proof, no GA claim or experimental opt-in.
 
 ## Tool setup
 
@@ -62,7 +62,7 @@ Supply PLAYBOOK_SQL_CONNECTION_STRING only to the process that may use the chose
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Canonical compilation and focused real local execution are distinct from source review, mocks and cross-compilation. Exact SDKs, packages, input hashes and outputs are retained in the evidence records. Installed offline list/get checks full body, applicability and target11/edition11; target10 has no applicable edition. No cloud parity or GA execution is claimed.
 

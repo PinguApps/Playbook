@@ -97,7 +97,7 @@
             "Neutral package consumer is workload-free; ordinary generated native heads require matched MAUI workloads and platform toolchains."
           ],
           "constraints": [
-            "RC2 preparation evidence, not GA verification. No verified older-target route. Native behavior exclusions and contract doubles are explicit in Evidence."
+            "GA preparation evidence, within the recorded verification scope. No verified older-target route. Native behavior exclusions and contract doubles are explicit in Evidence."
           ],
           "optIns": [
             "--with-avalonia or maui-multiproject --avalonia; AvaloniaControlsMauiGenerateBootstrap=true."

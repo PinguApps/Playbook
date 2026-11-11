@@ -39,9 +39,9 @@ Use the .NET 11 native Controls assets and a matching MAUI platform workload. Ta
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
-The complete canonical projects below pin .NET 10 SDK10.0.403/C#14/Controls10.0.110 and .NET 11 SDK11.0.100/C#15/Controls11.0.0. The current Windows target is net11.0-windows10.0.20348.0, win-x64/minimum17763. Matching MAUI SDK/platform workloads are required. These are native controls with no Blazor mode, provider or account. APIs are stable guidance prepared against RC2, not GA verification or experimental C# UI.
+The complete canonical projects below pin .NET 10 SDK10.0.403/C#14/Controls10.0.110 and .NET 11 SDK11.0.100/C#15/Controls11.0.0. The current Windows target is net11.0-windows10.0.20348.0, win-x64/minimum17763. Matching MAUI SDK/platform workloads are required. These are native controls with no Blazor mode, provider or account. APIs are stable guidance prepared against GA verification or experimental C# UI.
 
 The older Windows project compiled in Release. Its optional NavigationCheck actually ran forward navigation, query delivery and back navigation in a native Windows process. Set HARBOUR_NAVIGATION_RECEIPT to a writable disposable file to run that probe; normal launches stay interactive. Current Windows compilation fails NETSDK1147 because this SDK installation lacks Microsoft.Maui.Sdk. Current native navigation, rendering, swipe/tint, badge and spoken-label behavior are source-reviewed and explicitly not-tested under PIN-699. Android/Apple device checks are unavailable and excluded; package retrieval does not establish native behavior. No older-target route for these new APIs is claimed. Source and exact package review support the contracts; upstream tests were not executed.
 

@@ -50,7 +50,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Build the net11.0 consumer; measured SDK 11.0.100 is RC2 evidence, not GA proof."
+            "reason": "Build the net11.0 consumer; measured SDK 11.0.100 is GA evidence, within the recorded verification scope."
           },
           "language": {
             "name": "C#",
@@ -63,20 +63,20 @@
           ],
           "packages": [
             {
-              "reason": "Matched EF11 SQL provider graph; actual RC2 locked.",
+              "reason": "Matched EF11 SQL provider graph; actual GA locked.",
               "version": "11.0",
               "match": "release-family",
               "name": "Microsoft.EntityFrameworkCore.SqlServer"
             },
             {
-              "reason": "Matched native SQLite graph; actual RC2 locked.",
+              "reason": "Matched native SQLite graph; actual GA locked.",
               "version": "11.0",
               "match": "release-family",
               "name": "Microsoft.EntityFrameworkCore.Sqlite"
             }
           ],
           "packageAssets": [
-            "Exact independently locked SQL Server/SQLite graphs; Current supported route: .NET/SDK11, C#15 and matching EF11 packages. Measured SDK11.0.100, EF11.0.0 versus SDK10.0.403, C#14, runtime10.0.14 and EF10.0.13. Stable API shapes on RC2 are not GA proof. EF11/Core/Relational select net11.0; direct Sqlite11 selects net10.0. EF10 selects net10.0 and direct Sqlite10 net8.0. SQL Server provider uses SqlClient6.1.7 versus7.1.0; locked graphs pin Pkcs10.0.13. Windows x64 native SQLite3.53.3/SQLitePCLRaw2.1.13 versus3.53.4/3.0.5. Both native hashes/source IDs are recorded. No older-runtime EF11 route, new .NET10 foundation, encryption, other OS/provider, Cosmos transaction or GA claim. No workload, rendering mode or experimental opt-in applies."
+            "Exact independently locked SQL Server/SQLite graphs; Current supported route: .NET/SDK11, C#15 and matching EF11 packages. Measured SDK11.0.100, EF11.0.0 versus SDK10.0.403, C#14, runtime10.0.14 and EF10.0.13. Stable API shapes on GA cover only the recorded checks. EF11/Core/Relational select net11.0; direct Sqlite11 selects net10.0. EF10 selects net10.0 and direct Sqlite10 net8.0. SQL Server provider uses SqlClient6.1.7 versus7.1.1; locked graphs pin Pkcs10.0.13. Windows x64 native SQLite3.53.3/SQLitePCLRaw2.1.13 versus3.53.4/3.0.5. Both native hashes/source IDs are recorded. No older-runtime EF11 route, new .NET10 foundation, encryption, other OS/provider, Cosmos transaction or GA claim. No workload, rendering mode or experimental opt-in applies."
           ],
           "providers": [
             "Isolated SQL Server2025 17.0.5035.5, compatibility170; Windows x64 bundled SQLite3.53.3/3.53.4"
@@ -90,14 +90,14 @@
           ],
           "constraints": [
             "EF10 TranslateParameterizedCollectionsToConstants maps to UseParameterizedCollectionMode(Constant); TranslateParameterizedCollectionsToParameters maps to Parameter. MultipleParameters is a distinct mode and already exists in EF10. EF11 removes the two helpers. SQL Server executes seeded Contains queries, constants and EF.Parameter overrides with identical IDs. Constant produces IN (1, 3), Parameter uses OPENJSON and one JSON parameter, MultipleParameters uses scalar parameters. OPENJSON requires SQL compatibility130+. Measured SQL2025 uses compatibility170. Each mode uses a separate internal service provider to avoid reusing a previously compiled query shape across option changes in the same process. This isolated comparison proves those configurations; dynamically changing mode on shared cached services is not established. Query-level EF.Constant/EF.Parameter overrides are checked. Parameter padding, query plans, speed and arbitrary providers are not promised.",
-            "Current supported route: .NET/SDK11, C#15 and matching EF11 packages. Measured SDK11.0.100, EF11.0.0 versus SDK10.0.403, C#14, runtime10.0.14 and EF10.0.13. Stable API shapes on RC2 are not GA proof. EF11/Core/Relational select net11.0; direct Sqlite11 selects net10.0. EF10 selects net10.0 and direct Sqlite10 net8.0. SQL Server provider uses SqlClient6.1.7 versus7.1.0; locked graphs pin Pkcs10.0.13. Windows x64 native SQLite3.53.3/SQLitePCLRaw2.1.13 versus3.53.4/3.0.5. Both native hashes/source IDs are recorded. No older-runtime EF11 route, new .NET10 foundation, encryption, other OS/provider, Cosmos transaction or GA claim. No workload, rendering mode or experimental opt-in applies."
+            "Current supported route: .NET/SDK11, C#15 and matching EF11 packages. Measured SDK11.0.100, EF11.0.0 versus SDK10.0.403, C#14, runtime10.0.14 and EF10.0.13. Stable API shapes on GA cover only the recorded checks. EF11/Core/Relational select net11.0; direct Sqlite11 selects net10.0. EF10 selects net10.0 and direct Sqlite10 net8.0. SQL Server provider uses SqlClient6.1.7 versus7.1.1; locked graphs pin Pkcs10.0.13. Windows x64 native SQLite3.53.3/SQLitePCLRaw2.1.13 versus3.53.4/3.0.5. Both native hashes/source IDs are recorded. No older-runtime EF11 route, new .NET10 foundation, encryption, other OS/provider, Cosmos transaction or GA claim. No workload, rendering mode or experimental opt-in applies."
           ],
           "prerequisites": [
             "PowerShell7, both pinned SDKs, running approved local SQL2025 Docker route and NuGet restore. Use eng/Test-AlderQueries.ps1; it injects credentials only in the child environment. Never print credentials. Copy the complete independent projects. Restore before offline execution."
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Stable API shape in GA-targeted guidance, measured on RC2 packages and SDK. No experimental API suppression required. Actual GA reconciliation remains outstanding."
+            "Stable API shape in GA-targeted guidance, measured on GA packages and SDK. No experimental API suppression required. Actual GA checks are limited to the recorded scope."
           ]
         },
         "conditional": false,

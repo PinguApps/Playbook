@@ -20,7 +20,7 @@ The custom service requires **ASP.NET Core 11** with the Web SDK's implicit
 `IAntiforgeryMetadata.RequiresValidation`. A form-bound Minimal API provides that
 consumer here. No optional workload, native package, cloud provider, Blazor
 rendering mode or experimental diagnostic opt-in is needed. The actual public
-contracts have no `ExperimentalAttribute`. RC2 testing does not qualify actual GA.
+contracts have no `ExperimentalAttribute`. GA testing does not qualify actual GA.
 
 The measured baselines are SDK **10.0.403**, C# **14.0**, frameworks **10.0.14**,
 and SDK **11.0.100**, C# **15.0**, frameworks
@@ -62,7 +62,7 @@ Human gates stay open. This comparison adds no ninth .NET10 foundation.
    deciding write trust. A normal modern browser sends Origin for these POSTs;
    clients that cannot do that need a separately designed token-required path.
    Configuration rejects empty lists, wildcards, non-loopback HTTP and paths.
-4. Keep automatic antiforgery metadata on form-bound endpoints. The RC2 middleware
+4. Keep automatic antiforgery metadata on form-bound endpoints. The GA middleware
    calls the DI service and records its verdict; it does not itself terminate every
    request. The form-binding consumer returns 400 before the handler for a denial.
    Merely attaching metadata to arbitrary handlers is not proof of enforcement.
@@ -78,7 +78,7 @@ Human gates stay open. This comparison adds no ninth .NET10 foundation.
    when deploying a different partner; changing write trust does not change CORS.
 6. Keep token-dependent clients, additional token data and compliance requirements
    on token-required paths. `--tokens true` runs a **separate** .NET11 token mode
-   with the standard provider. RC2 token middleware can overwrite its automatic
+   with the standard provider. GA token middleware can overwrite its automatic
    verdict, so this mode is not two independently enforced origin/token layers.
    The .NET10 origin middleware explicitly rejects before token validation and
    therefore retains both checks. Do not mix legacy token filters into an assumed
@@ -96,7 +96,7 @@ Human gates stay open. This comparison adds no ninth .NET10 foundation.
 
 ## Evidence: observed comparison
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 The target is `http://localhost:6180`; the partner is `http://localhost:6181`.
 `localhost:6183` is an untrusted same-site control and `127.0.0.1:6181` is a
@@ -104,7 +104,7 @@ cross-site control. Actual Chrome headers were `same-origin`, `same-site` and
 `cross-site` respectively. Here **200/1** means HTTP200 and one handler invocation;
 **400/0** means HTTP400 and zero handler invocations.
 
-| Submission to protected form | Standard RC2 | Custom RC2 | .NET10 with valid token pair |
+| Submission to protected form | Standard GA | Custom GA | .NET10 with valid token pair |
 | --- | --- | --- | --- |
 | Own origin | 200/1 | 200/1 | 200/1 |
 | Partner, ordinary `/seed` | 400/0 | 200/1 | 200/1 |

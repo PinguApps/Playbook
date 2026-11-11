@@ -55,6 +55,6 @@ The exact baselines are SDK 10.0.403 / ASP.NET Core 10.0.14 and SDK 11.0.100 / A
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 The compiled .NET 10 helper and .NET 11 component render matching captions. Actual browser inspection checks precedence, both fallback paths and French resource loading with document language fr. Actual HTTP rendering repeats localization for both artifacts. No localizer mock or screen-reader session is presented as proof.

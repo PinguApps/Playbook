@@ -68,7 +68,7 @@
               "name": "Microsoft.Extensions.Localization",
               "version": "10.0.14",
               "match": "exact",
-              "reason": "Client localizer implementation; actual RC2 resolved abstractions are recorded separately."
+              "reason": "Client localizer implementation; actual GA resolved abstractions are recorded separately."
             }
           ],
           "workloads": [],
@@ -85,13 +85,13 @@
           "prerequisites": [
             "Build the complete Host and referenced Client projects, SDK pins, local package/build boundaries, document, boot script, namespaces and three resource files below. Host uses AddLocalization; client uses the pinned Localization package. Neither workload/AOT nor external provider/account is required.",
             "Server request localization selects en-GB formatting and fr-FR translations before rendering. Browser starts en-US. Keep both CurrentCulture and CurrentUICulture; they can differ.",
-            "Register AddInteractiveWebAssemblyComponents without an options callback. In pinned RC2, Components:UseCultureFromServer true/1 enables transfer; false/0 disables it; absent/unrecognized values fall back to whether IStringLocalizerFactory exists. Default AddLocalization is the demonstrated aligned route.",
+            "Register AddInteractiveWebAssemblyComponents without an options callback. In pinned GA, Components:UseCultureFromServer true/1 enables transfer; false/0 disables it; absent/unrecognized values fall back to whether IStringLocalizerFactory exists. Default AddLocalization is the demonstrated aligned route.",
             "For independent client mode explicitly disable server transfer, then set the client's two default thread cultures before RunAsync. The sample chooses de-DE deliberately. Its initial SSR remains en-GB/fr-FR; the changed client formatting/text is intentional.",
             "Build BlazorWebAssemblyLoadAllGlobalizationData=true and include the matching fr-FR/de-DE satellite assemblies. Culture selection alone does not make unavailable resources loadable."
           ],
           "constraints": [
             "Prerendered WASM in Blazor Web Apps; satellite assembly timing.",
-            "The previous public WebAssemblyComponentsOptions.UseCultureFromServer API was removed. Its internal replacement is not a public options callback. This edition uses the actual configuration key and real restored RC2 state order.",
+            "The previous public WebAssemblyComponentsOptions.UseCultureFromServer API was removed. Its internal replacement is not a public options callback. This edition uses the actual configuration key and real restored GA state order.",
             "Server request policy, browser initial applicationCulture, persisted culture state and shipped resources are distinct. Restored server culture is applied in RunAsync before satellite loading/rendering, after Program. Do not expect restored values earlier in client Program.",
             "The .NET 10 manual comparison chooses both cultures in Program before its earlier satellite-loading stage. Late component state or OnAfterRender culture changes are too late for initial resource selection. It is a supported comparison, not a target-10 route to automatic transfer.",
             "Independent-client opt-out permits a visible intentional language/format change. Align instead when the product requires seamless content. Full reload and resource availability matter when changing culture later.",
@@ -99,7 +99,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "RC2; GA unverified."
+            "GA; GA unverified."
           ]
         },
         "evidenceSamples": [
@@ -291,6 +291,6 @@
   },
   "humanProof": {
     "status": "not-required",
-    "scope": "Local real .NET 10/RC2 browser proof covers alignment and explicit independent opt-out. No remote resource or Human-only prerequisite; GA remains unverified."
+    "scope": "Local real .NET 10/GA browser proof covers alignment and explicit independent opt-out. No remote resource or Human-only prerequisite; GA checks are limited to the recorded scope."
   }
 }

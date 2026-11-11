@@ -33,7 +33,7 @@
         "conditional": false,
         "usage": "primary",
         "selectionNotes": [
-          "Prefer ordinary net10 when appropriate; net10 and net11 hosts have independently restored, built and executed the actual RC2 dependency closure.",
+          "Prefer ordinary net10 when appropriate; net10 and net11 hosts have independently restored, built and executed the actual GA dependency closure.",
           "Target-10 selection requires deliberately adopting the newer template packages; the exact eight .NET 10 foundations are unchanged."
         ],
         "sharedAreas": [],
@@ -42,7 +42,7 @@
             "match": "release-family",
             "version": "11.0",
             "name": ".NET",
-            "reason": "Actual host runtime, separate from the generated net10 application. Measured runtime10 is 10.0.14; runtime11 is RC3."
+            "reason": "Actual host runtime, separate from the generated net10 application. Measured runtime10 is 10.0.14; runtime11 is GA."
           },
           "sdk": {
             "match": "release-family",
@@ -64,7 +64,7 @@
               "match": "exact",
               "version": "11.0.100",
               "name": "Microsoft.TemplateEngine.Edge",
-              "reason": "Actual inspected, restored and executed RC2 artifact, not an SDK-root assembly."
+              "reason": "Actual inspected, restored and executed GA artifact, not an SDK-root assembly."
             },
             {
               "match": "exact",
@@ -93,12 +93,12 @@
           "constraints": [
             "Host TFM and generated-application TFM are separate; all three real hosts create and execute a net10 application.",
             "All eight removed netstandard routes are independently probed. Default implicit Framework fallback gives NU1701; strict current restore fails NU1202. Suppression is not compatibility.",
-            "RC2 ZIPs and selected assets establish net10 rather than the note's net9 recommendation. No net9 or Framework route is advertised.",
+            "GA ZIPs and selected assets establish net10 rather than the note's net9 recommendation. No net9 or Framework route is advertised.",
             "No IDE/localization behavior, general untrusted templates, post-action execution, trimming or Native AOT claim."
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Prerelease RC2 package/SDK proof, not GA reconciliation; no experimental API switch. NuGet client APIs do not promise general API stability.",
+            "Prerelease GA package/SDK proof, within the recorded verification scope reconciliation; no experimental API switch. NuGet client APIs do not promise general API stability.",
             "PIN-959 qualifying coverage/evidence and PIN-963 actual-GA reconciliation remain open."
           ]
         },
@@ -119,7 +119,7 @@
         "conditional": true,
         "usage": "optional-alternative",
         "selectionNotes": [
-          "Prefer ordinary net10 when appropriate; net10 and net11 hosts have independently restored, built and executed the actual RC2 dependency closure.",
+          "Prefer ordinary net10 when appropriate; net10 and net11 hosts have independently restored, built and executed the actual GA dependency closure.",
           "Target-10 selection requires deliberately adopting the newer template packages; the exact eight .NET 10 foundations are unchanged."
         ],
         "sharedAreas": [],
@@ -128,7 +128,7 @@
             "match": "release-family",
             "version": "10.0",
             "name": ".NET",
-            "reason": "Actual host runtime, separate from the generated net10 application. Measured runtime10 is 10.0.14; runtime11 is RC3."
+            "reason": "Actual host runtime, separate from the generated net10 application. Measured runtime10 is 10.0.14; runtime11 is GA."
           },
           "sdk": {
             "match": "release-family",
@@ -150,7 +150,7 @@
               "match": "exact",
               "version": "11.0.100",
               "name": "Microsoft.TemplateEngine.Edge",
-              "reason": "Actual inspected, restored and executed RC2 artifact, not an SDK-root assembly."
+              "reason": "Actual inspected, restored and executed GA artifact, not an SDK-root assembly."
             },
             {
               "match": "exact",
@@ -179,12 +179,12 @@
           "constraints": [
             "Host TFM and generated-application TFM are separate; all three real hosts create and execute a net10 application.",
             "All eight removed netstandard routes are independently probed. Default implicit Framework fallback gives NU1701; strict current restore fails NU1202. Suppression is not compatibility.",
-            "RC2 ZIPs and selected assets establish net10 rather than the note's net9 recommendation. No net9 or Framework route is advertised.",
+            "GA ZIPs and selected assets establish net10 rather than the note's net9 recommendation. No net9 or Framework route is advertised.",
             "No IDE/localization behavior, general untrusted templates, post-action execution, trimming or Native AOT claim."
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Prerelease RC2 package/SDK proof, not GA reconciliation; no experimental API switch. NuGet client APIs do not promise general API stability.",
+            "Prerelease GA package/SDK proof, within the recorded verification scope reconciliation; no experimental API switch. NuGet client APIs do not promise general API stability.",
             "PIN-959 qualifying coverage/evidence and PIN-963 actual-GA reconciliation remain open."
           ]
         },
@@ -235,7 +235,7 @@
       "sdk": "10.0.403",
       "language": "14.0",
       "kind": "compile",
-      "scope": "Actual historical netstandard host compilation plus sixteen audited ZIPs, eight old direct builds/eight strict RC2 NU1202 restores and default NU1701 fallback control."
+      "scope": "Actual historical netstandard host compilation plus sixteen audited ZIPs, eight old direct builds/eight strict GA NU1202 restores and default NU1701 fallback control."
     },
     {
       "sample": "samples/net10.0/ArchiveTemplateRunner/ArchiveTemplateRunner.csproj",
@@ -251,7 +251,7 @@
       "sdk": "10.0.403",
       "language": "14.0",
       "kind": "compile-and-run",
-      "scope": "Real ordinary net10 host restores/builds/runs RC2 packages with the actual closure; instantiated net10 application also builds/runs with SDK/runtime10."
+      "scope": "Real ordinary net10 host restores/builds/runs GA packages with the actual closure; instantiated net10 application also builds/runs with SDK/runtime10."
     },
     {
       "sample": "samples/net11.0/ArchiveTemplateHost/ArchiveTemplateHost.csproj",
@@ -259,7 +259,7 @@
       "sdk": "11.0.100",
       "language": "15.0",
       "kind": "compile-and-run",
-      "scope": "Independent actual net11 host and RC2 closure instantiate the same net10 template; generated application builds/runs with SDK/runtime10."
+      "scope": "Independent actual net11 host and GA closure instantiate the same net10 template; generated application builds/runs with SDK/runtime10."
     }
   ],
   "snippets": {

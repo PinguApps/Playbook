@@ -38,7 +38,7 @@
             "name": ".NET"
           },
           "sdk": {
-            "reason": "Build against .NET 11 references; exact RC2 pin records verification.",
+            "reason": "Build against .NET 11 references; exact GA pin records verification.",
             "match": "release-family",
             "version": "11.0",
             "name": ".NET SDK"
@@ -70,7 +70,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "RC2 compilation/execution; GA reconciliation pending."
+            "GA compilation/execution; GA checks are limited to the recorded scope."
           ]
         },
         "sourceUrls": [

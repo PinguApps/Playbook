@@ -82,7 +82,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "RC2; GA pending."
+            "GA; GA pending."
           ]
         },
         "evidenceSamples": [
@@ -227,6 +227,6 @@
   },
   "humanProof": {
     "status": "not-required",
-    "scope": "Actual local .NET 10/RC2 desktop browser and server lifecycle proof is recorded. No external service or Human-only prerequisite is required for these routes. Mobile/distributed/GA behavior is not claimed."
+    "scope": "Actual local .NET 10/GA desktop browser and server lifecycle proof is recorded. No external service or Human-only prerequisite is required for these routes. Mobile/distributed/GA behavior is not claimed."
   }
 }

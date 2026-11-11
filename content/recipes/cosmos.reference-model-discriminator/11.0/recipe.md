@@ -22,7 +22,7 @@ EF11 names the default model property Discriminator while retaining $type in JSO
 
 ## Constraints
 
-Model Discriminator versus stored $type; no automatic data rename. Requires EF11/net11.0/SDK11/C#15; historical EF10.0.13/net10.0/SDK10.0.403/C#14 comparison. Exact package assets, provider and prerequisites are in applicability. Windows x64 execution; no renderer or additional workload. Stable contract, RC2 evidence, no experimental opt-in. GA reconciliation remains pending.
+Model Discriminator versus stored $type; no automatic data rename. Requires EF11/net11.0/SDK11/C#15; historical EF10.0.13/net10.0/SDK10.0.403/C#14 comparison. Exact package assets, provider and prerequisites are in applicability. Windows x64 execution; no renderer or additional workload. Stable contract, GA evidence, no experimental opt-in. GA checks are limited to the recorded scope.
 
 ## Complete projects
 
@@ -56,7 +56,7 @@ Model Discriminator versus stored $type; no automatic data rename. Requires EF11
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Canonical compilation and focused real local execution are distinct from source review, mocks and cross-compilation. Exact SDKs, packages, input hashes and outputs are retained in the evidence records. Installed offline list/get checks full body, applicability and target11/edition11; target10 has no applicable edition. No cloud parity or GA execution is claimed.
 

@@ -18,7 +18,7 @@ CompositeMLKem is experimental (SYSLIB5006). The example explicitly chooses ML-K
 
 {{snippet:newer}}
 
-Hpke is separately experimental (SYSLIB5009). RC2 implements classical DHKEM suites; its ML-KEM and composite enum names do not establish implemented post-quantum HPKE. This original example deliberately uses supported P-256/HKDF-SHA256/AES-128-GCM with matching public information and associated data on both sides.
+Hpke is separately experimental (SYSLIB5009). GA implements classical DHKEM suites; its ML-KEM and composite enum names do not establish implemented post-quantum HPKE. This original example deliberately uses supported P-256/HKDF-SHA256/AES-128-GCM with matching public information and associated data on both sides.
 
 {{snippet:hpke}}
 
@@ -34,10 +34,10 @@ Hpke is separately experimental (SYSLIB5009). RC2 implements classical DHKEM sui
 
 Experimental SYSLIB5006/SYSLIB5009 contracts may change even after .NET GA. Composite availability depends on both the platform ML-KEM provider and its classical component. This exact composite and classical HPKE suite were executed on Linux x64/OpenSSL 3.5.5. Windows CNG availability differs; Apple/browser/mobile support is not established by this evidence. Query the support APIs on the deployment host, including its crypto-policy configuration.
 
-The CMS recipe accepts pure ML-KEM, not this composite format. Do not pass CompositeMLKem to CMS merely because a public decryption overload exists: in RC2 it throws PlatformNotSupportedException. No older-target package route, certificate trust, interoperability with another implementation or complete protocol security proof is claimed.
+The CMS recipe accepts pure ML-KEM, not this composite format. Do not pass CompositeMLKem to CMS merely because a public decryption overload exists: in GA it throws PlatformNotSupportedException. No older-target package route, certificate trust, interoperability with another implementation or complete protocol security proof is claimed.
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Actual .NET 10 pure ML-KEM and .NET 11 composite samples compile and execute with public-only sender keys, real encapsulation/decapsulation, fixed-time equality and malformed-capsule rejection. The newer sample also executes classical HPKE seal/open and ciphertext-tampering rejection, and asserts the selected MLKEM768_P256 HPKE suite is unsupported. No mock stands in for the post-quantum operation. Exact dependencies, GA SDK, Linux image and OpenSSL version are recorded separately from GA readiness.

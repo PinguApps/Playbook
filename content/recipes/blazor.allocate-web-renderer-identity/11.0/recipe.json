@@ -90,7 +90,7 @@
           "optIns": [],
           "stabilityLimitations": [
             "BL0006: RenderTree and internal browser protocols are framework integration contracts with compatibility risk; no publisher ExperimentalAttribute opt-in is claimed.",
-            "Actual current evidence is RC2; GA reconciliation remains pending."
+            "Actual current evidence is GA; GA checks are limited to the recorded scope."
           ]
         },
         "sourceUrls": [

@@ -22,7 +22,7 @@ Await ToListAsync and SaveChangesAsync throughout the call chain. Keep the calle
 
 ## Constraints
 
-Cosmos; no switch restores sync in EF Core 11. Requires EF11/net11.0/SDK11/C#15; historical EF10.0.13/net10.0/SDK10.0.403/C#14 comparison. Exact package assets, provider and prerequisites are in applicability. Windows x64 execution; no renderer or additional workload. Stable contract, RC2 evidence, no experimental opt-in. GA reconciliation remains pending.
+Cosmos; no switch restores sync in EF Core 11. Requires EF11/net11.0/SDK11/C#15; historical EF10.0.13/net10.0/SDK10.0.403/C#14 comparison. Exact package assets, provider and prerequisites are in applicability. Windows x64 execution; no renderer or additional workload. Stable contract, GA evidence, no experimental opt-in. GA checks are limited to the recorded scope.
 
 ## Complete projects
 
@@ -56,7 +56,7 @@ Cosmos; no switch restores sync in EF Core 11. Requires EF11/net11.0/SDK11/C#15;
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 The official EF11 breaking-change reference establishes that no opt-in restores synchronous I/O. The executable sample verifies default-path rejection and working asynchronous operations; it does not enumerate configuration switches.
 

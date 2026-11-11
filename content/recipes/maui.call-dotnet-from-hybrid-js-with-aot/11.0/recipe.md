@@ -6,7 +6,7 @@ Register a generated HybridWebView invocation target and JSON context for trimme
 
 ## Constraints
 
-The fictional Marsh Survey app records a bird count from bundled HTML. .NET10 uses SDK10.0.403, C#14 and Controls10.0.110; .NET11 uses SDK11.0.100, C#15 and Controls11.0.0. These are pinned preparation baselines, not GA execution evidence. No account, provider or web rendering mode is required.
+The fictional Marsh Survey app records a bird count from bundled HTML. .NET10 uses SDK10.0.403, C#14 and Controls10.0.110; .NET11 uses SDK11.0.100, C#15 and Controls11.0.0. These are pinned preparation baselines, within the recorded verification scope execution evidence. No account, provider or web rendering mode is required.
 
 ## Generated dispatch and JSON
 
@@ -133,13 +133,13 @@ Use the net11.0 canonical project below with its matched platform packages.
 
 ## Generated-dispatch consumer
 
-The workload-free MarshDispatch consumer uses the actual neutral MAUI assemblies and packaged generator. It publishes and executes on Windows x64 with NativeAOT, asserting generated request deserialization and response serialization. This does not exercise the iOS WebView, its local content transport, or Apple publishing. The pinned RC2 ILCompiler emits NU1903 for GHSA-p3jp-9v83-76w9; this historical authoring baseline is not a production toolchain recommendation.
+The workload-free MarshDispatch consumer uses the actual neutral MAUI assemblies and packaged generator. It publishes and executes on Windows x64 with NativeAOT, asserting generated request deserialization and response serialization. This does not exercise the iOS WebView, its local content transport, or Apple publishing. The pinned GA ILCompiler emits NU1903 for GHSA-p3jp-9v83-76w9; this historical authoring baseline is not a production toolchain recommendation.
 
 {{snippet:marsh-dispatch}}
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Official source hashes are retained in samples/MarshInterop/sources.json and checked by eng/Test-MarshInterop.ps1. Evidence records distinguish source review from compilation. iOS compilation, trimming, NativeAOT publication and WebView interaction excluded: Mac/Xcode unavailable. No native execution or GA verification is claimed. Installed-package list/get verifies offline content delivery only. No verified older-target route is declared for this edition.
 

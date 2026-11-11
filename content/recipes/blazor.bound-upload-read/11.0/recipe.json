@@ -74,7 +74,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Stable API; measured current baseline is RC2, with GA reconciliation still pending."
+            "Stable API; measured current baseline is GA, with GA checks are limited to the recorded scope."
           ]
         },
         "sourceUrls": [

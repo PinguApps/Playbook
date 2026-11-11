@@ -20,7 +20,7 @@ Order by Distance, then Take, then WithApproximate. Read the entity from Value a
 
 ## Server compatibility and migration
 
-The supplied Docker SQL2025 CU10 server supports the legacy TOP_N vector-search form but rejects WITH APPROXIMATE (SQL error102). EF11 RC2 emits the newer form. Microsoft's current documentation places the latest index implementation in Azure SQL Database, Fabric SQL and Managed Instance with the Always-up-to-date policy. Do not treat SQL Server2025 alone as sufficient for this EF11 query. Check the exact engine/index implementation and generated SQL before adoption. No cloud resources are provisioned by this guidance.
+The supplied Docker SQL2025 CU10 server supports the legacy TOP_N vector-search form but rejects WITH APPROXIMATE (SQL error102). EF11 GA emits the newer form. Microsoft's current documentation places the latest index implementation in Azure SQL Database, Fabric SQL and Managed Instance with the Always-up-to-date policy. Do not treat SQL Server2025 alone as sufficient for this EF11 query. Check the exact engine/index implementation and generated SQL before adoption. No cloud resources are provisioned by this guidance.
 
 The complete sample prints both SQL shapes and vector-index DDL without executing them by default. On an independently supplied compatible engine, run with --execute-search to create the actual index and exercise both queries. That optional branch is compiled but NOT TESTED here. It seeds before index creation because older preview indexes can restrict writes. Review actual database restrictions and migration impact before deploying any index. This recipe makes no measured latency or recall claim and does not silently replace EF11 SQL with legacy raw SQL.
 
@@ -62,7 +62,7 @@ EF11 uses lib/net11.0; EF10 uses lib/net10.0; the drivers select compatible net9
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 The locked consumers compile on their declared SDKs and execute supported JSON/index, exact-distance and persisted-projection checks on Windows against the local Linux SQL2025 route. Current vector-index DDL and exact/approximate VectorSearch are SQL-generation checks only. They do not prove application or execution of that branch. Pingu explicitly authorized this unavailable-engine execution exclusion on 2 November 2026. No mock, GA proof, production migration, reverse-engineering CLI execution, other platform or measured approximate recall is claimed. Installed-tool list/get verifies the complete offline body and applicability independently of consumer execution.
 

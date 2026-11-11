@@ -21,7 +21,7 @@ DependencyModel10.0.13. Current pins: SDK11.0.100, framework and
 matching packages11.0.0, C#15. These identify reproduction, not
 minimum servicing versions. Windows x64 is the executed lane. The newer hook
 targets the .NET11 framework/package family with no experimental opt-in or
-C#15-specific syntax; actual-GA reconciliation remains open.
+C#15-specific syntax; actual-GA checks are limited to the recorded scope.
 
 ## Constraints
 
@@ -173,7 +173,7 @@ Copy every file below at its relative path into an independent directory.
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Run eng/Test-WebResourceRecipes.ps1 -RecordEvidence from the task worktree to
 refresh the six actual consumers, diagnostic controls and audited artifact hashes.

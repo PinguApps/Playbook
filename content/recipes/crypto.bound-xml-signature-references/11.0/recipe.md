@@ -90,7 +90,7 @@ cannot express the required policy. Keep package/security maintenance deliberate
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 eng/Test-LifetimeSignatures.ps1 -Record -VerifySources compiles/runs PermitManifest
 on SDK10.0.403/runtime10.0.14/Xml10.0.13 and
@@ -109,6 +109,6 @@ Keys are disposable process-local test keys; no production key or service is use
 The ordinary package's installed offline stdio list/get verifies discovery,
 complete canonical Markdown, target11/edition11 applicability, fresh paired
 evidence and target10 rejection. The eight .NET 10 foundations are unchanged.
-Windows x64 RC2 is measured; other providers/platforms and final GA remain
+Windows x64 GA is measured; other providers/platforms and final GA remain
 unverified. PIN-959/PIN-962 and existing Human gates remain open; no recurring
 native/client/OS matrix, public publication or persistent setting change is added.

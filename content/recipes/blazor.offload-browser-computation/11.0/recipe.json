@@ -79,13 +79,13 @@
           "constraints": [
             "Create only after browser rendering. Retain ownership of the eventual created client and dispose it if the component leaves during startup. Await DisposeAsync for termination; abrupt page termination does not guarantee component disposal.",
             "Invocation timeout abandons pending results; cancellation interrupts the managed JS await. Neither necessarily stops CPU work. Creation timeout terminates; in-flight creation cancellation may lose the reference while the worker still boots. The sample bounds startup without cancelling its managed await and adopts/disposes late results.",
-            "RC2 invoke timeout cleanup reads the latest request ID instead of capturing the timed-out call ID. Serialize this sample's calls; do not claim safe concurrent timed-out requests. Explicit worker disposal terminates all its pending calls; it is not graceful/cooperative job cancellation.",
+            "GA invoke timeout cleanup reads the latest request ID instead of capturing the timed-out call ID. Serialize this sample's calls; do not claim safe concurrent timed-out requests. Explicit worker disposal terminates all its pending calls; it is not graceful/cooperative job cancellation.",
             "Worker .NET memory is separate from the page. JSExport accepts supported primitive/string interop shapes; no DOM or shared DI state. Serialize complex values explicitly. This fixture uses bounded CPU time and a per-worker completion counter; it is not a production scoring algorithm.",
             "Static SSR cannot run browser workers. Interactive Server work belongs to its server; hosted/Auto composition requires explicit client ownership and is not executed here. No background-tab timing, mobile, AOT, GA, deployment, durable-work or speedup claim."
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "RC2; serial timeouts."
+            "GA; serial timeouts."
           ]
         },
         "evidenceSamples": [
@@ -244,6 +244,6 @@
   },
   "humanProof": {
     "status": "not-required",
-    "scope": "Required foreground .NET 10/RC2 real browser proof supplied locally. No external resource or Human-only prerequisite; no GA, mobile, AOT or deployment claim."
+    "scope": "Required foreground .NET 10/GA real browser proof supplied locally. No external resource or Human-only prerequisite; no GA, mobile, AOT or deployment claim."
   }
 }

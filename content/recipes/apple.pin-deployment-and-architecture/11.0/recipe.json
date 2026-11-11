@@ -47,7 +47,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "GA SDK intended; pinned Apple RC2 source/artifact review is separate from a tested native workload composition."
+            "reason": "GA SDK intended; pinned Apple Historical RC2 source and GA artifact review is separate from a tested native workload composition."
           },
           "language": {
             "name": "C#",
@@ -65,7 +65,7 @@
               "match": "release-family",
               "version": "11.0",
               "name": "ios",
-              "reason": "Compatible workload required; RC3 native composition not built."
+              "reason": "Compatible workload required; GA native composition not built."
             }
           ],
           "packageAssets": [
@@ -135,7 +135,7 @@
       "sdk": "10.0.402"
     },
     {
-      "scope": "Exact official RC2 sources and Catalyst artifact reviewed. Canonical net11 Catalyst C# reference compilation passes against the pinned RC2 Mac Catalyst assembly; no native workload compilation, publish output or execution.",
+      "scope": "Exact official RC2 sources and Catalyst artifact reviewed. Canonical net11 Catalyst C# reference compilation passes against the pinned GA Mac Catalyst assembly; no native workload compilation, publish output or execution.",
       "sample": "samples/net11.0/TernPublish/TernPublish.csproj",
       "language": "15.0",
       "kind": "official-review",

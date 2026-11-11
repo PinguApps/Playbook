@@ -62,7 +62,7 @@ Call `await ReefExample.CheckAsync(new TankReport(), CancellationToken.None)` in
 ## Migration
 
 1. Qualify the exact package/target before editing. The old source fails against
-   RC2 with missing base types and incompatible resolver outputs/context members.
+   GA with missing base types and incompatible resolver outputs/context members.
    Adding a ValidateAsync method alone cannot restore removed types. Keep the
    old working project as the comparison; migrate into the net11 consumer.
 2. Change resolver outputs from IValidatableInfo to IValidatableTypeInfo and
@@ -126,7 +126,7 @@ remains outside this recipe. No trimming/AOT or web integration is claimed.
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 `eng/Test-ExtensionMetadata.ps1 -Record -VerifySources` builds/runs both original
 ReefMaintenance consumers on Windows x64 with SDK10.0.403/runtime10.0.14/C#14
@@ -142,7 +142,7 @@ Name/Path/Container/ErrorMessage, path restoration, required-service failure,
 pending completion, original failure propagation and cancellation-token identity.
 Actual generated metadata executes beside the custom resolver; LocalizerProvider
 selects the model localizer and produces Code requis. Isolated compiler probes
-reject the three old base types against RC2, the current package on net10 and
+reject the three old base types against GA, the current package on net10 and
 ASP0033/ASP0035/ASP0038 cases. The canonical current build is the fixed control.
 
 The ordinary packed tool is installed through an isolated local-only feed/cache
@@ -151,5 +151,5 @@ ID/title/goal, complete canonical snippets/Markdown, target11/edition11,
 applicability and fresh paired evidence are checked. Target10 has no applicable
 edition; its comparison adds no foundation. Unusable retrieval proxies prove
 proxy independence, not OS network isolation. Existing Human gates, PIN-959,
-PIN-962 and the exact eight .NET10 foundations remain unchanged/open. RC2 evidence
+PIN-962 and the exact eight .NET10 foundations remain unchanged/open. GA evidence
 does not establish final-GA, other-platform, native or endpoint behaviour.

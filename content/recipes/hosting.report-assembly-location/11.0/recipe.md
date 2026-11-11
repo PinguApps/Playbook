@@ -52,7 +52,7 @@ The hook is process-wide and irreversible for the process lifetime. A logical la
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Actual net10.0 and net11.0 MetadataInspection projects load the built module from a stream. The old runtime location is empty while the host reporting function returns the logical label. The newer Assembly.Location returns that label, unrelated core-library locations are preserved, and a second process-wide registration is rejected.
 
@@ -60,4 +60,4 @@ Separately labelled DeploymentInspection records publish/run Windows x64 single-
 
 For a standalone deployment probe use OutputType=Exe and the appropriate target/language. Set RuntimeIdentifier=win-x64, SelfContained=true, PublishSingleFile=true for the bundled case, or PublishAot=true for Native AOT. Set StackTraceSupport=true/false for the desired caller case. Native publishing requires the supported native compiler/linker and OS SDK; the actual MSVC/Windows SDK versions and per-mode restored packages are recorded in output. The caller/location code has no package, workload, provider or rendering dependency. MetadataLoadContext is used only by the companion project's independent metadata checks, not by this location hook.
 
-Evidence is actual Windows x64 execution on the declared .NET 10 and .NET 11 RC2 artifacts, not mocks, cross-compilation or GA proof. No process-wide callback is installed in Playbook itself; this is guidance for a consumer host you control.
+Evidence is actual Windows x64 execution on the declared .NET 10 and .NET 11 GA artifacts, not mocks, cross-compilation or GA proof. No process-wide callback is installed in Playbook itself; this is guidance for a consumer host you control.

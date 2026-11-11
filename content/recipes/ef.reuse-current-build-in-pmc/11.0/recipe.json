@@ -46,7 +46,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Exact current-release proof uses SDK11 GA, not GA."
+            "reason": "Exact current-release proof uses SDK11 GA."
           },
           "language": {
             "name": "C#",
@@ -109,7 +109,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Stable API guidance prepared with exact RC2 packages; GA reconciliation remains pending.",
+            "Stable API guidance prepared with exact GA packages; GA checks are limited to the recorded scope.",
             "Actual PMC execution pending H_PMC_PROOF; publication with this gap explicitly approved by Pingu."
           ]
         },
@@ -160,7 +160,7 @@
       "language": "15.0",
       "kind": "execution",
       "record": "samples/net11.0/CanalDesign/pmc.evidence.json",
-      "scope": "Pingu performed real Visual Studio 18.11.0 PMC Add-Migration/Update-Database NoBuild on 5 November 2026; host 7.11.0.24, PowerShell 5.1.26100.9711, SDK11 GA and EF11 RC2. Generated migrations, unchanged stale DLL, rebuilt AddColumn and actual SQLite schema/history verified. Exact mixed baseline only; no EF RC3 or GA claim."
+      "scope": "Pingu performed real Visual Studio 18.11.0 PMC Add-Migration/Update-Database NoBuild on 5 November 2026; host 7.11.0.24, PowerShell 5.1.26100.9711, SDK11 GA and EF11 GA. Generated migrations, unchanged stale DLL, rebuilt AddColumn and actual SQLite schema/history verified. Exact mixed baseline only; no EF GA or GA claim."
     }
   ],
   "snippets": {

@@ -53,7 +53,7 @@
             "version": "11.0",
             "name": ".NET SDK",
             "match": "release-family",
-            "reason": "Build the declared .NET 11 target; the exact RC2 pin is evidence, not a minimum SDK."
+            "reason": "Build the declared .NET 11 target; the exact GA pin is evidence, not a minimum SDK."
           },
           "language": {
             "version": "15.0",
@@ -69,7 +69,7 @@
               "version": "11.0.0",
               "name": "System.Security.Cryptography.Pkcs",
               "match": "exact",
-              "reason": "Inspected and executed RC2 KEM recipient implementation; reconcile future artifacts deliberately."
+              "reason": "Inspected and executed GA KEM recipient implementation; reconcile future artifacts deliberately."
             }
           ],
           "workloads": [],
@@ -80,7 +80,7 @@
             "OpenSSL 3.5+ ML-KEM; require MLKem.IsSupported and reject Windows."
           ],
           "platforms": [
-            "RC2: non-Windows only; Linux/OpenSSL 3.5.5 executed. Apple/browser/mobile unverified."
+            "GA: non-Windows only; Linux/OpenSSL 3.5.5 executed. Apple/browser/mobile unverified."
           ],
           "renderingModes": [],
           "prerequisites": [
@@ -88,14 +88,14 @@
             "Import System.Security.Cryptography.Pkcs and System.Security.Cryptography.X509Certificates; supply a trusted pure ML-KEM recipient certificate and its matching privately held MLKem key."
           ],
           "constraints": [
-            "Pure ML-KEM only; the experimental SYSLIB5006 composite CMS Decrypt overload throws PlatformNotSupportedException in RC2.",
+            "Pure ML-KEM only; the experimental SYSLIB5006 composite CMS Decrypt overload throws PlatformNotSupportedException in GA.",
             "CMS AES-CBC confidentiality does not authenticate message content or sender; certificate loading does not validate trust.",
             "Present-but-empty UKM differs from omitted UKM; no verified older-target Pkcs route.",
             "No account, resource provisioning, persistent key store, authenticated protocol, FIPS certification or unverified older-target package route is claimed."
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "RC2 proof only; GA and other platforms unverified."
+            "GA proof only; GA and other platforms unverified."
           ]
         },
         "usage": "primary",

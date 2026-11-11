@@ -70,7 +70,7 @@ The newer fixture sends malformed bytes without a high-level client's header nor
 2. Before translating HTTP/1.1 to HTTP/2 or HTTP/3, strip the connection-specific fields and `Connection`-nominated names. Have the outbound writer recreate authority and framing from the outbound URI and actual body; `ForwardHeaders` only filters inbound fields. Retain `TE: trailers` only where allowed.
 3. For HTTP/1.1, choose one framing mechanism. Do not forward a stale `Content-Length` next to chunked transfer encoding. The server processes this ambiguous request then closes; that is distinct from rejecting an HTTP/2 or HTTP/3 message.
 4. Recreate each complete sample in a separate directory with the supplied boundaries and SDK pin. Run restore to generate and review the lock file, build Release and execute the DLL with the corresponding absolute `dotnet` host.
-5. Expect HTTP/1.1 ambiguous framing to close and corrected framing to permit two responses on one connection. Expect all six malformed HTTP/2 and HTTP/3 cases to fail on RC2, then all corrected controls to receive `OK`. The .NET 10 result intentionally shows four tolerated fields on each newer protocol.
+5. Expect HTTP/1.1 ambiguous framing to close and corrected framing to permit two responses on one connection. Expect all six malformed HTTP/2 and HTTP/3 cases to fail on GA, then all corrected controls to receive `OK`. The .NET 10 result intentionally shows four tolerated fields on each newer protocol.
 6. Apply the repair to the real adapter and check its downstream request path. There is no invented Kestrel relaxation switch in this recipe. Do not substitute a global parsing/security change for fixing the writer.
 
 ## Constraints
@@ -80,13 +80,13 @@ The newer fixture sends malformed bytes without a high-level client's header nor
 - The temporary HTTPS certificate is pinned by the HTTP/3 fixture and never added to shared trust. This is not production certificate provisioning. HTTP/2 prior knowledge runs over loopback TCP; HTTP/3 uses encrypted QUIC.
 - The header filter is a focused transport repair, not a general reverse proxy. It does not implement authentication, routing, trailer translation, content transformations or hop-by-hop WebSocket tunneling. A proxy library's own validated outbound writer is preferable to hand-writing production HPACK/QPACK.
 - `Forwarded` and `X-Forwarded-*` trust configuration is a separate application concern. No browser/rendering mode, database, account or cloud resource is involved here.
-- Stable protocol enforcement is prepared using RC2 evidence. Earlier-version servicing can change the comparison's observed behavior; regenerate evidence instead of inferring behavior from the major version. GA reconciliation remains pending.
+- Stable protocol enforcement is prepared using GA evidence. Earlier-version servicing can change the comparison's observed behavior; regenerate evidence instead of inferring behavior from the major version. GA checks are limited to the recorded scope.
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
-Each original program was built and run using its actual pinned SDK/runtime and locked restore. Counters assert 23 accepted requests on .NET 10 and 15 on RC2: three HTTP/1.1 handler invocations, corrected HTTP/2 and HTTP/3 controls, plus only the older release's eight tolerated malformed requests. No mock protocol parser or client-side rejection stands in for server execution.
+Each original program was built and run using its actual pinned SDK/runtime and locked restore. Counters assert 23 accepted requests on .NET 10 and 15 on GA: three HTTP/1.1 handler invocations, corrected HTTP/2 and HTTP/3 controls, plus only the older release's eight tolerated malformed requests. No mock protocol parser or client-side rejection stands in for server execution.
 
 Saved sample records identify commands, native library version in output, dependencies and input hashes. The installed `LanternTransport` scenario separately retrieves the entire body and applicability through real offline stdio list/get with isolated package feed/cache and an unrelated working directory. It verifies edition 11.0 and absence from target 10.0 discovery. These checks do not establish final GA or arbitrary production-proxy compatibility.
 

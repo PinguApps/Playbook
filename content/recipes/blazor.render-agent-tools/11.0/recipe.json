@@ -41,7 +41,7 @@
             "name": ".NET",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Actual net11.0 ASP.NET Core consumer; RC2 execution is not GA proof."
+            "reason": "Actual net11.0 ASP.NET Core consumer; GA execution is limited to the recorded checks."
           },
           "sdk": {
             "name": ".NET SDK",
@@ -105,7 +105,7 @@
             "Explicit experimental package reference; no experimental diagnostic suppression required by this package"
           ],
           "stabilityLimitations": [
-            "Experimental throughout .NET 11; package APIs may change. Exact package pins and RC2 host execution do not establish GA verification."
+            "Experimental throughout .NET 11; package APIs may change. Exact package pins and GA host execution do not establish GA verification."
           ]
         },
         "sourceUrls": [

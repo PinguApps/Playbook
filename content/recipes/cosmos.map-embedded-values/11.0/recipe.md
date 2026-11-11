@@ -87,10 +87,10 @@ EmulatorTransport.cs
 
 Requires Cosmos EF Core 11 on net11.0. Both Complex types sections in the release inventory describe this one capability and are reconciled here. This local route is the approved legacy Linux NoSQL emulator, not cloud parity. The example replaces Location and edits and extends Samples, clears tracking and reloads, and reads the physical JSON independently. Migrating an existing owned model requires checking stored property names, discriminator/id conventions and partition keys before changing production mappings. No automatic data migration is claimed.
 
-Stable API contract using RC2 evidence, without experimental opt-in; actual GA remains unverified. No web renderer, browser or workload is required. The previous sample is a comparison, not another .NET10 foundation.
+Stable API contract using the recorded GA evidence, without experimental opt-in. No web renderer, browser or workload is required. The previous sample is a comparison, not another .NET10 foundation.
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Actual isolated Cosmos emulator insert/read/update; independent SDK JSON object and array read-back; root-only EF11 tracking versus EF10 owned entries. Windows x64 consumer; no cloud, performance, other-platform or GA claim. Exact SDKs, dependencies, input hashes and actual output are retained in the paired verification records. Compilation and real execution are distinguished from source review. Offline installed MCP checks use the existing isolated feed/cache harness; unusable proxies demonstrate proxy independence, not operating-system network isolation.

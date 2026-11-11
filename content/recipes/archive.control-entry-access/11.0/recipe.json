@@ -77,7 +77,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Verified with SDK 11.0.100; Historical RC execution is separate from current GA verification records."
+            "Verified with SDK 11.0.100; Current GA verification is limited to the recorded checks."
           ]
         },
         "sourceUrls": [

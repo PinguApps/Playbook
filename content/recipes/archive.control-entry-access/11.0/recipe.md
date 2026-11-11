@@ -14,7 +14,7 @@ Open() infers access from the archive mode. In Update mode it provides existing 
 
 ## Newer approach
 
-Create the corresponding net11.0 / C# 15 project with the same imports and implicit usings. These are framework APIs, not an independently versioned compression package. The canonical sample is verified against .NET 11 RC2.
+Create the corresponding net11.0 / C# 15 project with the same imports and implicit usings. These are framework APIs, not an independently versioned compression package. The canonical sample is verified against .NET 11 GA.
 
 Open(FileAccess.Write) in Update mode discards existing content. Use Read for a read-only view or ReadWrite to preserve and edit it. CompressionMethod reports Stored, Deflate or Deflate64; this receiver deliberately accepts only Stored and Deflate.
 
@@ -30,11 +30,11 @@ Open(FileAccess.Write) in Update mode discards existing content. Use Read for a 
 
 Read archives accept only Read. Create accepts Write and ReadWrite, but both are write-only. Update accepts all three: Write truncates, ReadWrite retains content, and Read cannot write. Incompatible combinations throw InvalidOperationException; invalid enum values throw ArgumentOutOfRangeException. Parameterless Open keeps its previous inference. Create entries can only be written once. Update buffers entry data, so limit trusted input sizes before opening it. CompressionMethod is inspection, not a setter; Deflate64 can be read by the runtime but is not produced by this example. The byte-array helpers deliberately handle small trusted archives; they are not a bounded untrusted extraction service.
 
-This edition has no external provider, workload, rendering requirement or experimental opt-in. Shared Blazor applicability means server-side code; it is not browser execution proof. All sample dependencies are framework-provided. Exact SDK pins 10.0.403 and 11.0.100 are reproducibility baselines, not mandatory exact consumer installations. RC verification does not establish GA behaviour or every platform's behaviour.
+This edition has no external provider, workload, rendering requirement or experimental opt-in. Shared Blazor applicability means server-side code; it is not browser execution proof. All sample dependencies are framework-provided. Exact SDK pins 10.0.403 and 11.0.100 are reproducibility baselines, not mandatory exact consumer installations. GA verification is limited to the recorded platforms and checks.
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 ZIP access/replacement round trips, Stored metadata, incompatible Create/Read combinations, Create ReadWrite capabilities and actual OpenAsync(Read) execution.
 

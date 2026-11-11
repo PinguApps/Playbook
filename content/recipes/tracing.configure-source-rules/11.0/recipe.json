@@ -46,7 +46,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Build against .NET 11 reference assemblies; exact RC2 is evidence, not an exact installation requirement."
+            "reason": "Build against .NET 11 reference assemblies; exact GA is evidence, not an exact installation requirement."
           },
           "language": {
             "name": "C#",
@@ -77,7 +77,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "RC2 compilation/execution; GA reconciliation pending. No experimental API opt-in."
+            "GA compilation/execution; GA checks are limited to the recorded scope. No experimental API opt-in."
           ]
         },
         "sourceUrls": [

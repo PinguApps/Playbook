@@ -31,7 +31,7 @@
           "runtime": {
             "name": ".NET",
             "match": "release-family",
-            "reason": "Primary net11.0 consumer; actual RC2 proof is distinct from GA verification.",
+            "reason": "Primary net11.0 consumer; actual GA proof is distinct from GA verification.",
             "version": "11.0"
           },
           "sdk": {
@@ -52,7 +52,7 @@
               "name": "System.Formats.Cbor",
               "version": "11.0",
               "match": "release-family",
-              "reason": "Per-instance depth options are in package11. Exact RC2 test pin and dependency lock identify reproduction."
+              "reason": "Per-instance depth options are in package11. Exact GA test pin and dependency lock identify reproduction."
             }
           ],
           "packageAssets": [
@@ -73,11 +73,11 @@
             "No provider, native assets, workloads, rendering modes or experimental diagnostic opt-ins. Older comparisons remain valid and add no foundation; no additional older-target API route is advertised.",
             "Complete finite-buffer schema; one Int32 leaf in single-child arrays/maps. Strict conformance, one root, indefinite containers preserved. Depth does not bound payload bytes or string lengths.",
             "Explicit finite budget8. Zero forbids containers, -1 selects current runtime defaults64/1000; read and write failures differ. The older10.0.13 reader already has the64 backport.",
-            "Windows x64 RC2 execution; no incremental, arbitrary-schema, newer-package-on-net10, trimming/AOT or final-GA claim."
+            "Windows x64 GA execution; no incremental, arbitrary-schema, newer-package-on-net10, trimming/AOT or final-GA claim."
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Verified with actual RC2 artifacts; final-GA reconciliation remains open. No experimental diagnostic opt-in on the selected APIs."
+            "Verified with actual GA artifacts; final-GA checks are limited to the recorded scope. No experimental diagnostic opt-in on the selected APIs."
           ]
         },
         "sharedAreas": [],
@@ -85,7 +85,7 @@
         "selectionNotes": [
           "Complete finite-buffer schema; one Int32 leaf in single-child arrays/maps. Strict conformance, one root, indefinite containers preserved. Depth does not bound payload bytes or string lengths.",
           "Explicit finite budget8. Zero forbids containers, -1 selects current runtime defaults64/1000; read and write failures differ. The older10.0.13 reader already has the64 backport.",
-          "Windows x64 RC2 execution; no incremental, arbitrary-schema, newer-package-on-net10, trimming/AOT or final-GA claim."
+          "Windows x64 GA execution; no incremental, arbitrary-schema, newer-package-on-net10, trimming/AOT or final-GA claim."
         ],
         "evidenceSamples": [
           "samples/net11.0/CalibrationGroups/CalibrationGroups.csproj"

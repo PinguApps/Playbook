@@ -12,7 +12,7 @@ EF10 uses two explicit steps. With matching dotnet-ef10.0.13 installed locally, 
 
 ## Newer approach
 
-With matching dotnet-ef11 RC2, run `dotnet ef database update CreateQuarry --add`. This is a database-update option, not a migrations-add option. It scaffolds the named migration then applies it, retaining the migration, designer and snapshot. Scaffolding success alone does not prove application success: inspect database history and schema, and keep files if application fails so recovery can be deliberate. Do not blindly rerun a named scaffold after failure.
+With matching dotnet-ef11 GA, run `dotnet ef database update CreateQuarry --add`. This is a database-update option, not a migrations-add option. It scaffolds the named migration then applies it, retaining the migration, designer and snapshot. Scaffolding success alone does not prove application success: inspect database history and schema, and keep files if application fails so recovery can be deliberate. Do not blindly rerun a named scaffold after failure.
 
 {{snippet:n11-program-cs}}
 
@@ -24,7 +24,7 @@ PMC has the corresponding `Update-Database -Migration CreateQuarry -Add` spellin
 
 ## Constraints
 
-This mutates a live schema. Explicit database selection and owner authorization are required in a consumer workflow. No production deployment strategy, script review gate or rollback policy is replaced. Samples require the exact SDK/runtime/provider pins listed in applicability: EF11 targets net11.0, EF10 targets net10.0. Console only, no renderer/workload, Windows x64 SQL2025 proof. Stable API guidance uses RC2 artifacts; GA remains unverified.
+This mutates a live schema. Explicit database selection and owner authorization are required in a consumer workflow. No production deployment strategy, script review gate or rollback policy is replaced. Samples require the exact SDK/runtime/provider pins listed in applicability: EF11 targets net11.0, EF10 targets net10.0. Console only, no renderer/workload, Windows x64 SQL2025 proof. Stable API guidance uses GA artifacts; GA checks are limited to the recorded scope.
 
 ## Tool setup
 
@@ -62,7 +62,7 @@ Supply PLAYBOOK_SQL_CONNECTION_STRING only to the process that may use the chose
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Canonical compilation and focused real local execution are distinct from source review, mocks and cross-compilation. Exact SDKs, packages, input hashes and outputs are retained in the evidence records. Installed offline list/get checks full body, applicability and target11/edition11; target10 has no applicable edition. No cloud parity or GA execution is claimed.
 

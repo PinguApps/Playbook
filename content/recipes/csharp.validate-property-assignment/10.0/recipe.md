@@ -43,7 +43,7 @@ The exact tested SDK was `11.0.100`; that is a reproducibility baseline, not a m
 
 ## Evidence and alternatives
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 The original projects use independent SDK pins and compile against their actual target frameworks. Their shared executable checks cover construction, normalization, null/blank/length rejection and preservation of the previous value. Run `eng/Verify.ps1` to rerun these checks. Compilation and these local execution checks establish only the demonstrated behavior, not application integration or concurrent safety.
 

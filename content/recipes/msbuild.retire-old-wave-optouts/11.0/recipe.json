@@ -30,7 +30,7 @@
         "conditional": false,
         "usage": "primary",
         "selectionNotes": [
-          "17.10, 17.12, 17.14 and 18.3 are retired; RC2 clamps each to 18.4 with MSB4272.",
+          "17.10, 17.12, 17.14 and 18.3 are retired; GA clamps each to 18.4 with MSB4272.",
           "The check verifies a dispatch artifact and diagnostics, not every historical feature or concurrent atomic-write failure."
         ],
         "sharedAreas": [
@@ -56,7 +56,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "The documented .NET 11 SDK/MSBuild/NuGet command behavior; exact RC2 verification is recorded separately."
+            "reason": "The documented .NET 11 SDK/MSBuild/NuGet command behavior; exact GA verification is recorded separately."
           },
           "language": {
             "name": "C#",
@@ -77,14 +77,14 @@
             "Inspect effective global.json, imported targets and process environment. Select the actual dotnet executable."
           ],
           "constraints": [
-            "17.10, 17.12, 17.14 and 18.3 are retired; RC2 clamps each to 18.4 with MSB4272.",
+            "17.10, 17.12, 17.14 and 18.3 are retired; GA clamps each to 18.4 with MSB4272.",
             "The check verifies a dispatch artifact and diagnostics, not every historical feature or concurrent atomic-write failure.",
             "Target 11 only. .NET 10 is a verified comparison, not an added foundation or a declared older-target route.",
             "Consulting Playbook serves embedded documentation only; no consumer build, package update, account or resource is created."
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Verified using SDK 11.0.100, not GA. No publisher-designated experimental API is used; GA reconciliation remains separate."
+            "Verified using SDK 11.0.100, within the recorded verification scope. No publisher-designated experimental API is used; GA reconciliation remains separate."
           ]
         },
         "sourceUrls": [

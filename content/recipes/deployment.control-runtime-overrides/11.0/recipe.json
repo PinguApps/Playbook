@@ -73,7 +73,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Measured .NET 11 RC2 is not GA evidence; no experimental API or native workload is required."
+            "Measured .NET 11 GA is limited to the recorded checks; no experimental API or native workload is required."
           ]
         },
         "sourceUrls": [

@@ -27,7 +27,7 @@ compiler is needed. No separately distributed package is assumed byte-identical
 to a bundled tooling DLL. Windows x64 is the executed platform. There is no provider,
 UI rendering or optional workload requirement. The XML/CLI controls are language
 neutral; the compiled example uses supported C#14/15, without a preview-language
-switch. RC2 verification is not GA proof; PIN-959/PIN-963 and existing Human gates
+switch. GA verification is limited to the recorded checks; PIN-959/PIN-963 and existing Human gates
 remain open. These controls carry no experimental designation in the cited sources.
 
 ## Older approach
@@ -153,7 +153,7 @@ information from every possible artifact. No debugger or performance claim is ma
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 `eng/Test-BeaconBuild.ps1 -Record` compiles both real dependency sets and exercises
 true/false/default/wrong-singular settings against their matching complete SDKs.

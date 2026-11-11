@@ -29,7 +29,7 @@
       {
         "usage": "primary",
         "selectionNotes": [
-          "New numeric converters require net11.0; the audited RC2 net10.0 package asset lacks their metadata services.",
+          "New numeric converters require net11.0; the audited GA net10.0 package asset lacks their metadata services.",
           "Read-only sets become HashSet; extension entries are copied then overwritten by incoming keys."
         ],
         "target": "11.0",
@@ -72,13 +72,13 @@
             "Target net11.0 with framework System.Text.Json; see complete recipe imports and context declarations."
           ],
           "constraints": [
-            "New numeric converters require net11.0; the audited RC2 net10.0 package asset lacks their metadata services.",
+            "New numeric converters require net11.0; the audited GA net10.0 package asset lacks their metadata services.",
             "Read-only sets become HashSet; extension entries are copied then overwritten by incoming keys.",
             "No verified older-target package route, trimming or Native AOT publication. No workload/provider/rendering dependency."
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Verified with .NET 11 RC2 artifacts; GA reconciliation remains pending."
+            "Verified with .NET 11 GA artifacts; GA checks are limited to the recorded scope."
           ]
         },
         "sharedAreas": [

@@ -36,6 +36,6 @@ The new APIs require .NET 11 reference/runtime assemblies. No extra packages/ass
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Both actual VectorLanes projects compile and execute exact zip/unzip order, all four concat selections, reverse and geometric/alternating/floating-harmonic patterns. The same built DLLs also pass with DOTNET_EnableHWIntrinsic=0 and report accelerated=False. Saved compilation/execution records identify SDK 10.0.403 / C# 14 and SDK 11.0.100 / C# 15 and exact canonical inputs. This establishes Windows x64 behavior and the software route; it is not native Arm/AVX-512 execution, mocks, cross-compilation, a benchmark or GA proof.

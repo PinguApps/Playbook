@@ -72,10 +72,10 @@ Measured pins: SDK 10.0.403 / framework and browser assets 10.0.14, and SDK 11.0
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Both original SailRepairs projects compiled against actual matching dependency sets, with local SDK pins, locked assets, exact commands and input hashes saved through Record-Evidence. Separate `behavior.evidence.json` records capture real Chromium 153 field/submit results and three model replacements, one service call per validation event, one current message and no old-context callbacks. The same circuit-scoped catalogue is used by the component and attribute.
 
 The actual-runtime `--verify` path also resolves distinct real DI scopes, rejects plastic, accepts canvas, checks exactly one current handler across three replacements and verifies final disposal. Both .NET 10 providerless fixtures demonstrate service-resolution failure. No mocked service or metadata-only result substitutes for execution. `eng/Record-RemovedBlazorBehavior.ps1` captures these results only with unchanged canonical inputs.
 
-The source/API audit matched the pinned reference assets again. Installed-package stdio checks verify full canonical Markdown, discovery goal, target/edition, applicability, current compilation/execution evidence and structured/text equality outside the checkout. RC2 proof does not close the GA reconciliation or comprehensive coverage gates, and WEB-089's other migration families remain outstanding.
+The source/API audit matched the pinned reference assets again. Installed-package stdio checks verify full canonical Markdown, discovery goal, target/edition, applicability, current compilation/execution evidence and structured/text equality outside the checkout. GA proof does not close the GA reconciliation or comprehensive coverage gates, and WEB-089's other migration families remain outstanding.

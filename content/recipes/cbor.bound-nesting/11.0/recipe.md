@@ -94,7 +94,7 @@ sample's claims. Runtime defaults are not an application-specific safety policy.
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 eng/Test-PrecisionDepth.ps1 -Record -VerifySources executes both actual
 CalibrationGroups consumers. Accepted outputs at depth0/1/7/8, maps/arrays and
@@ -116,4 +116,4 @@ real stdio list/get from an unrelated directory, checking ID/title/goal, complet
 canonical Markdown, target11/edition11, applicability, fresh evidence and matching
 structured/text JSON offline. Target10 returns no_applicable_edition. Existing
 IDs, exactly eight foundations, PIN-959/PIN-962 and Human gates remain unchanged;
-RC3 execution does not establish final-GA evidence or publication readiness.
+GA execution establishes the recorded behavior, not publication readiness.

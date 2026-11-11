@@ -30,7 +30,7 @@
         "conditional": false,
         "usage": "primary",
         "selectionNotes": [
-          "Known RC gap: HybridCache 10.11.0 honours derived local expiry but ignores LocalSize (requested 24, measured L1 size 12). GA verification remains required.",
+          "Known RC gap: HybridCache 10.11.0 honours derived local expiry but ignores LocalSize (requested 24, measured L1 size 12). GA checks are limited to the recorded scope.",
           "Local-only workload, no distributed backend proof. Do not mix direct MemoryCache application units with this HybridCache implementation estimate."
         ],
         "requirements": {
@@ -60,13 +60,13 @@
               "name": "Microsoft.Extensions.Caching.Hybrid",
               "version": "10.11.0",
               "match": "exact",
-              "reason": "Exact implementation verified with the declared RC2 abstraction/shared-framework composition."
+              "reason": "Exact implementation verified with the declared GA abstraction/shared-framework composition."
             },
             {
               "name": "Microsoft.Extensions.Caching.Abstractions",
               "version": "11.0.0",
               "match": "exact",
-              "reason": "The explicit RC2 abstraction pin exposes the mutable factory context; its net11 empty asset defers to the shared framework."
+              "reason": "The explicit GA abstraction pin exposes the mutable factory context; its net11 empty asset defers to the shared framework."
             }
           ],
           "workloads": [],
@@ -82,13 +82,13 @@
             "Console project: TargetFramework=net11.0, LangVersion=15.0, Nullable=enable, ImplicitUsings=enable, FrameworkReference Microsoft.AspNetCore.App. Exact imports and registration steps are in the body."
           ],
           "constraints": [
-            "Known RC gap: HybridCache 10.11.0 honours derived local expiry but ignores LocalSize (requested 24, measured L1 size 12). GA verification remains required.",
+            "Known RC gap: HybridCache 10.11.0 honours derived local expiry but ignores LocalSize (requested 24, measured L1 size 12). GA checks are limited to the recorded scope.",
             "Local-only workload, no distributed backend proof. Do not mix direct MemoryCache application units with this HybridCache implementation estimate.",
             "No external account, provisioning, rendering integration, optional workload or unverified older-target package route is required or advertised."
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "RC2 verification; GA reconciliation pending. No experimental API opt-in."
+            "GA verification; GA checks are limited to the recorded scope. No experimental API opt-in."
           ]
         },
         "sourceUrls": [

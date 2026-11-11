@@ -48,11 +48,11 @@ This affects applications that **directly reference NuGet's own client libraries
 
 These examples exercise package identity reading only. They do not establish remote feed authentication, restore APIs, every NuGet client package, signing verification, plugin loading, trimming or Native AOT compatibility. Windows x64 was executed; other supported .NET platforms require their own claim-specific checks when behavior differs. No provider, rendering mode, workload, external account or provisioned resource is required.
 
-The API is not publisher-designated experimental, but the exact current package and SDK evidence is RC2 rather than GA. Reconcile final assets/dependencies at GA. Keep sample pins manual under the dependency policy. No library is copied out of the SDK and represented as a restored package.
+The API is not publisher-designated experimental, but the exact current package and SDK evidence is GA rather than GA. Reconcile final assets/dependencies at GA. Keep sample pins manual under the dependency policy. No library is copied out of the SDK and represented as a restored package.
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Three original hosts compiled and executed: .NET 10 with NuGet.Packaging 7.9.0; .NET 11 with 8.0.0-rc.605; and .NET 10 with 8.0.0-rc.605. SDK pins were 10.0.403 and 11.0.100. Their current input-hashed records include exact locked transitive packages, compiler/runtime output and the asserted manifest identity. The behavior script also checks actual resolved compile/runtime asset paths: net8.0 for the older library and net10.0 for both current-library hosts.
 

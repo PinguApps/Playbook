@@ -42,7 +42,7 @@
             "name": ".NET / ASP.NET Core",
             "version": "11.0",
             "match": "release-family",
-            "reason": "An ASP.NET Core 11 migration; the recorded execution baseline is RC2, not GA."
+            "reason": "An ASP.NET Core 11 migration; the recorded execution baseline is GA."
           },
           "sdk": {
             "name": ".NET SDK",

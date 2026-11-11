@@ -46,7 +46,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "GA SDK selected; pinned Apple and MAUI sources are preparation evidence, not a tested RC3 workload composition."
+            "reason": "GA SDK selected; pinned Apple and MAUI sources are preparation evidence, not a tested GA workload composition."
           },
           "language": {
             "name": "C#",
@@ -72,7 +72,7 @@
               "match": "release-family",
               "version": "11.0",
               "name": "ios",
-              "reason": "Compatible workload required; RC3 native composition not built."
+              "reason": "Compatible workload required; GA native composition not built."
             }
           ],
           "packageAssets": [

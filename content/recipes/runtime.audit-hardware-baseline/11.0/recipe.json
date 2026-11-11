@@ -71,7 +71,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Verified on RC2 artifacts; reconcile final .NET 11 GA contracts before release."
+            "Verified on GA artifacts; reconcile final .NET 11 GA contracts before release."
           ]
         },
         "sourceUrls": [

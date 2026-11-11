@@ -43,7 +43,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Build the net11 consumer. Exact GA SDK and reference/runtime artifacts are verification pins, not GA evidence."
+            "reason": "Build the net11 consumer. Exact GA SDK and reference/runtime artifacts are verification pins, within the recorded verification scope."
           },
           "language": {
             "name": "C#",
@@ -59,7 +59,7 @@
               "name": "Microsoft.EntityFrameworkCore.Sqlite",
               "version": "11.0",
               "match": "release-family",
-              "reason": "Use the matching EF11 SQLite provider graph that translates TimeOnly Hour, Minute and Second; RC2 is the exact tested graph."
+              "reason": "Use the matching EF11 SQLite provider graph that translates TimeOnly Hour, Minute and Second; GA is the exact tested graph."
             }
           ],
           "packageAssets": [
@@ -90,7 +90,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "These APIs are not publisher-designated experimental; no diagnostic suppression or experimental opt-in. Evidence uses .NET11 RC2, not actual GA. PIN-965 retains GA reconciliation."
+            "These APIs are not publisher-designated experimental; no diagnostic suppression or experimental opt-in. Evidence uses .NET11 GA. PIN-965 retains GA reconciliation."
           ]
         },
         "selectionNotes": [

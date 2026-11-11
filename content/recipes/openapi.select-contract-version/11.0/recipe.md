@@ -27,11 +27,11 @@ Choosing 3.0 is a measured example, not a claim that every generator needs it. T
 
 OpenAPI specification 3.2 and Microsoft.OpenApi package 3.x are different version systems. A package upgrade can require source changes even when you retain a 3.0 document. This example deliberately uses the common OpenApiSpecVersion and document-title surface; it does not teach a full transformer migration or assert that all custom transformer code remains compatible. Consult the linked official migration guide for affected object-model APIs and validate against the actual locked artifacts.
 
-The verified downstream route is a single ordinary JSON model and operation. NSwag 14.7.1/NJsonSchema 11.6.1 generated typed DomeStatus code from the selected 3.0 document; an independent net10.0 build and real HTTP request passed for each server. OpenAPI 3.2 parsing, SSE generation, unions and every third-party generator remain unverified. No experimental API opt-in, account, cloud service, UI or database is needed. RC2 is not final GA evidence.
+The verified downstream route is a single ordinary JSON model and operation. NSwag 14.7.1/NJsonSchema 11.6.1 generated typed DomeStatus code from the selected 3.0 document; an independent net10.0 build and real HTTP request passed for each server. OpenAPI 3.2 parsing, SSE generation, unions and every third-party generator remain unverified. No experimental API opt-in, account, cloud service, UI or database is needed. GA is limited to the recorded checks.
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Actual .NET 10/11 builds and Kestrel requests check the generated version fields. The saved compile-and-run records also cover typed SSE versus raw JSON and runtime metadata. The separate contracts.evidence.json records capture Development/Production build commands, actual documents, NSwag generation, independent .NET 10 compilation and a real typed client request against each running server. Compilation, execution and the build tool's mock hosting server are identified separately. The independent client is created outside repository/shared-build inheritance and is not a mock.
 

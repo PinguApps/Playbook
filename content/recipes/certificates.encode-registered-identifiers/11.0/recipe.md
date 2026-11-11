@@ -30,7 +30,7 @@ with no NuGet package or workload. It adds no .NET 10 catalogue foundation.
 ## Newer approach
 
 Use the .NET 11 SAN builder to combine the supported name forms. **The actual
-RC2 signature is AddRegisteredId(string)**, taking dotted decimal notation.
+GA signature is AddRegisteredId(string)**, taking dotted decimal notation.
 The audit's draft spelling AddRegisteredId(Oid) is stale. Do not pass an Oid object
 or assume its friendly-name lookup validates the value.
 
@@ -79,12 +79,12 @@ arcs; do not validate OIDs by splitting them into fixed-width integers.
 The encoder uses shared framework APIs. The round-trip fixture additionally
 needs an available ECDSA P-256 certificate-signing provider; Windows x64 execution
 is measured. Other providers/platforms and network identity validation are not
-verified here. No UI/rendering integration is required. RC3 evidence is not GA
+verified here. No UI/rendering integration is required. GA verification is limited to the recorded checks
 verification; PIN-962 retains that reconciliation and PIN-959 stays open.
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 SDK 10.0.403/runtime 10.0.14 and SDK 11.0.100/runtime 11RC3 compile and
 run the real consumers with no package dependencies and warnings as errors.

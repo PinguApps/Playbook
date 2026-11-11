@@ -80,14 +80,14 @@
           ],
           "prerequisites": [
             "Disable autostart, load one matching framework script, then call Blazor.start once with browser JavaScript. Full pinned projects, imports, boot order and documents appear below.",
-            "Use matching blazor.server.js, blazor.webassembly.js or blazor.web.js with the browser-wasm runtime as appropriate. Web App examples execute Interactive Server and Interactive WebAssembly; use Microsoft.NET.Sdk.Web and Microsoft.NET.Sdk.BlazorWebAssembly. Stable startup contracts were executed with .NET 11 RC2; this is not GA proof."
+            "Use matching blazor.server.js, blazor.webassembly.js or blazor.web.js with the browser-wasm runtime as appropriate. Web App examples execute Interactive Server and Interactive WebAssembly; use Microsoft.NET.Sdk.Web and Microsoft.NET.Sdk.BlazorWebAssembly. Stable startup contracts were executed with .NET 11 GA; verification covers only the recorded checks."
           ],
           "constraints": [
             "No nested legacy route on .NET 10; project flat options there. Static SSR has no interactive circuit/WASM startup. Auto, Hybrid and older-target new-package routes are untested."
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "RC2, not GA"
+            "GA"
           ]
         },
         "sourceUrls": [

@@ -34,7 +34,7 @@
         "selectionNotes": [
           "Built-in async startup requires the built-in factory and default IOptions; custom legacy IStartupValidator suppresses async startup.",
           "Async-only validators fail synchronous pre-start, snapshot/factory and monitor reload paths; adding a succeeding sync validator does not undo that failure.",
-          "Choose generated or handwritten synchronous Validate ownership; RC2 rejects conflicting explicit ownership with SYSLIB1205."
+          "Choose generated or handwritten synchronous Validate ownership; GA rejects conflicting explicit ownership with SYSLIB1205."
         ],
         "requirements": {
           "runtime": {
@@ -81,12 +81,12 @@
           "constraints": [
             "Built-in async startup requires the built-in factory and default IOptions; custom legacy IStartupValidator suppresses async startup.",
             "Async-only validators fail synchronous pre-start, snapshot/factory and monitor reload paths; adding a succeeding sync validator does not undo that failure.",
-            "Choose generated or handwritten synchronous Validate ownership; RC2 rejects conflicting explicit ownership with SYSLIB1205.",
+            "Choose generated or handwritten synchronous Validate ownership; GA rejects conflicting explicit ownership with SYSLIB1205.",
             "No external account, provisioning, rendering integration, optional workload or unverified older-target package route is required or advertised."
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "RC2 verification; GA reconciliation pending. No experimental API opt-in."
+            "GA verification; GA checks are limited to the recorded scope. No experimental API opt-in."
           ]
         },
         "sourceUrls": [

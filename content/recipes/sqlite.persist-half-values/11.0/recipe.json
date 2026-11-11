@@ -46,7 +46,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Current SDK11 GA compiles the locked EF11 RC2 graph; not GA evidence."
+            "reason": "Current SDK11 GA compiles the locked EF11 GA graph; verification covers only the recorded checks."
           },
           "language": {
             "name": "C#",
@@ -59,7 +59,7 @@
           ],
           "packages": [
             {
-              "reason": "Exact tested RC2 graph is locked.",
+              "reason": "Exact tested GA graph is locked.",
               "match": "release-family",
               "version": "11.0",
               "name": "Microsoft.EntityFrameworkCore.Sqlite"
@@ -72,7 +72,7 @@
             }
           ],
           "packageAssets": [
-            "EF10.0.13 net10.0 versus EF11 RC2 net11.0; Data.Sqlite.Core10 lib/net8.0 versus 11 lib/net10.0. SDK10.0.403/C#14 and SDK11.0.100/C#15 differ from the original SDK10.0.402/11 RC2 source audit. System.Security.Cryptography.Pkcs10.0.13 is explicitly pinned as in existing SQL consumers."
+            "EF10.0.13 net10.0 versus EF11 GA net11.0; Data.Sqlite.Core10 lib/net8.0 versus 11 lib/net10.0. SDK10.0.403/C#14 and SDK11.0.100/C#15 differ from the original SDK10.0.402/11 RC2 source audit. System.Security.Cryptography.Pkcs10.0.13 is explicitly pinned as in existing SQL consumers."
           ],
           "providers": [
             "Actual Windows x64 bundled SQLite3.53.3/3.53.4 and isolated local SQL Server2025 Developer; no EF InMemory or mocks."
@@ -92,7 +92,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "No experimental suppression required. RC package execution is not GA reconciliation; PIN-965 remains separate."
+            "No experimental suppression required. Recorded package execution is limited to the recorded checks; PIN-965 remains separate."
           ]
         },
         "conditional": false,

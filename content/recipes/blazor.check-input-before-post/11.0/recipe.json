@@ -34,7 +34,7 @@
         "usage": "primary",
         "selectionNotes": [
           "Static SSR only; enhanced/plain posts remain server validated.",
-          "RC2 emits the root client rule in this sample; nested rejection is verified on the server."
+          "GA emits the root client rule in this sample; nested rejection is verified on the server."
         ],
         "requirements": {
           "runtime": {
@@ -47,7 +47,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Build against .NET 11 reference assemblies; exact RC2 is evidence, not an exact installation requirement."
+            "reason": "Build against .NET 11 reference assemblies; exact GA is evidence, not an exact installation requirement."
           },
           "language": {
             "name": "C#",
@@ -75,12 +75,12 @@
           ],
           "constraints": [
             "Static SSR only; enhanced/plain posts remain server validated.",
-            "RC2 emits the root client rule in this sample; nested rejection is verified on the server.",
+            "GA emits the root client rule in this sample; nested rejection is verified on the server.",
             "No arbitrary cross-assembly, trimming/AOT, interactive transition or conditional older-target package route is claimed."
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Stable .NET 11 contracts verified on RC2 artifacts; GA reconciliation pending. Older public generator attributes are experimental in the .NET 10 comparison only."
+            "Stable .NET 11 contracts verified on GA artifacts; GA checks are limited to the recorded scope. Older public generator attributes are experimental in the .NET 10 comparison only."
           ]
         },
         "sourceUrls": [

@@ -51,7 +51,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Build against the .NET 11 reference assemblies; exact RC2 is the recorded test baseline."
+            "reason": "Build against the .NET 11 reference assemblies; exact GA is the recorded test baseline."
           },
           "language": {
             "name": "C#",
@@ -82,7 +82,7 @@
             "#pragma warning disable SYSLIB5003 around experimental SVE usage, restored afterward; AllowUnsafeBlocks=true for SVE pointer access."
           ],
           "stabilityLimitations": [
-            "Arm SVE/SVE2/SveSha3/SveSm4 contracts are publisher-designated experimental and may change. RC2 is not GA evidence.",
+            "Arm SVE/SVE2/SveSha3/SveSm4 contracts are publisher-designated experimental and may change. GA is limited to the recorded checks.",
             "SVE/SVE2 and AVX-VNNI-512 native execution are explicitly excluded under PIN-699. This limitation remains untested and does not block publication.",
             "Not tested: SVE/SVE2 and AVX-VNNI-512 execution: unavailable CPUs. Excluded under PIN-699; x64 AVX2/scalar checks do not cover these paths."
           ]

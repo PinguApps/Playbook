@@ -39,7 +39,7 @@
             "name": ".NET",
             "version": "11.0",
             "match": "release-family",
-            "reason": "New server behavior is verified with the actual .NET 11 RC2 runtime; not a GA execution claim."
+            "reason": "New server behavior is verified with the actual .NET 11 GA runtime; not a GA execution claim."
           },
           "sdk": {
             "name": ".NET SDK",
@@ -83,11 +83,11 @@
           ],
           "constraints": [
             "Minimal API/MVC response declarations are additive on .NET 11. Remove stale declarations; same-media schemas can form anyOf. Verify the actual client generator: NSwag 14.7.1 preserves these JSON cases as extension data and does not handle the text branch automatically.",
-            "Response declarations describe behavior; they do not make the handler return those models, negotiate content, or remove an obsolete runtime branch. `anyOf` is not exclusive and introduces no discriminator. The sample's distinct property names let its explicit consumer choose the shape; version wire models deliberately if they become ambiguous. NSwag 14.7.1/NJsonSchema 11.6.1 with System.Text.Json generated code was compiled and executed on .NET 10 against the RC2 server: it does not produce strongly typed anyOf cases, and status 200 chooses JSON even for the text branch. This result is a concrete limitation, not evidence that every generator fails or succeeds. QUERY extension support and OpenAPI 3.2 parsing were not established by this generator check."
+            "Response declarations describe behavior; they do not make the handler return those models, negotiate content, or remove an obsolete runtime branch. `anyOf` is not exclusive and introduces no discriminator. The sample's distinct property names let its explicit consumer choose the shape; version wire models deliberately if they become ambiguous. NSwag 14.7.1/NJsonSchema 11.6.1 with System.Text.Json generated code was compiled and executed on .NET 10 against the GA server: it does not produce strongly typed anyOf cases, and status 200 chooses JSON even for the text branch. This result is a concrete limitation, not evidence that every generator fails or succeeds. QUERY extension support and OpenAPI 3.2 parsing were not established by this generator check."
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Stable framework capability, prepared with .NET 11 RC2 artifacts under ADR 0004. GA source/package/runtime reconciliation remains separate."
+            "Stable framework capability, prepared with .NET 11 GA artifacts under ADR 0004. GA source/package/runtime reconciliation remains separate."
           ]
         },
         "sourceUrls": [

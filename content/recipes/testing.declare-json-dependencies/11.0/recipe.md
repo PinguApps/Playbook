@@ -183,7 +183,7 @@ under `artifacts/json-dependencies`. It does not install a global tool or publis
 
 ## Constraints and alternatives
 
-The exact evidence is Windows x64, SDK 10.0.403 / 11 RC2, C# 14 / 15 and runtimes
+The exact evidence is Windows x64, SDK 10.0.403 / 11 GA, C# 14 / 15 and runtimes
 10.0.13 / 11.0.0. No C# 15 feature, provider, native compiler,
 workload, rendering mode, device, cloud resource or Human-only step is required.
 Test.Sdk brings CodeCoverage, but these checks run a **managed custom collector**;
@@ -216,7 +216,7 @@ reconciliation remain open; the exact eight .NET 10 foundations are unchanged.
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 All seven project closures have fresh compilation/execution records. Three real
 runner/test-host lanes each produce exactly one passed rainfall test, a successful

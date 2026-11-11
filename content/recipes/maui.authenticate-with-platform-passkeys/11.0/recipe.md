@@ -33,9 +33,9 @@ This sample is a compiled Windows adapter, not a complete MAUI application or a 
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
-The exact RC2 Windows Essentials asset compiles this adapter with SDK 11 GA. Immutable platform source establishes JSON ownership, native origin derivation and window requirements. It does not prove a device ceremony or server interoperability. Under PIN-699, Pingu approved the PIN-701 native access exclusion and the PIN-936 not-tested ceremony disposition on 7 November 2026. No Human ceremony is pending for this unavailable route, and it is excluded from publication prerequisites. The exact sample/input identity remains in the existing compilation record. No endpoint, signing/trust setup or physical ceremony was provisioned. No GA, Android, Apple, browser or Windows Hello execution is claimed; no server challenge/response verification result is available.
+The exact GA Windows Essentials asset compiles this adapter with SDK 11 GA. Immutable platform source establishes JSON ownership, native origin derivation and window requirements. It does not prove a device ceremony or server interoperability. Under PIN-699, Pingu approved the PIN-701 native access exclusion and the PIN-936 not-tested ceremony disposition on 7 November 2026. No Human ceremony is pending for this unavailable route, and it is excluded from publication prerequisites. The exact sample/input identity remains in the existing compilation record. No endpoint, signing/trust setup or physical ceremony was provisioned. No GA, Android, Apple, browser or Windows Hello execution is claimed; no server challenge/response verification result is available.
 
 ## Canonical inputs
 

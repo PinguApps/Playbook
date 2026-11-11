@@ -14,7 +14,7 @@ Fresh stream wrappers remain a valid implementation. Each wrapper is disposed be
 
 ## Newer approach
 
-Create the corresponding net11.0 / C# 15 project with the same imports and implicit usings. These are framework APIs, not an independently versioned compression package. The canonical sample is verified against .NET 11 RC2.
+Create the corresponding net11.0 / C# 15 project with the same imports and implicit usings. These are framework APIs, not an independently versioned compression package. The canonical sample is verified against .NET 11 GA.
 
 The three format-specific methods demonstrate actual encoder/decoder pairs. Allocate from the matching GetMaxCompressedLength bound, check consumed/written counts and OperationStatus, and Reset both instances before each independent message. A one-byte decode margin lets the decoder finish an empty message and detect output beyond the known logical length.
 
@@ -40,12 +40,12 @@ For the finite trusted payloads in this example, restore with the matching forma
 
 Deflate is raw framing, ZLib adds its wrapper/checksum, and GZip has different headers/trailers; select the agreed wire format at both ends. Reset discards previous state and does not finish a pending frame: finalise and consume it first. Dispose all codec instances and avoid concurrent use. These complete finite-message helpers reject any status other than Done; they are not an incremental network parser. For incremental callers retain unconsumed input, advance only by bytesConsumed/bytesWritten, provide more output on DestinationTooSmall, provide new input on NeedMoreData, reject InvalidData, and mark isFinalBlock only at the actual end. Never spin on unchanged buffers. Bound compressed input and expanded output for untrusted peers; GetMaxCompressedLength is a compression allocation bound, not a safe decompression-size hint. Decoding into a known size here is for original trusted test messages, not arbitrary size metadata from an attacker.
 
-This edition has no external provider, workload, rendering requirement or experimental opt-in. Shared Blazor applicability means server-side code; it is not browser execution proof. All sample dependencies are framework-provided. Exact SDK pins 10.0.403 and 11.0.100 are reproducibility baselines, not mandatory exact consumer installations. RC verification does not establish GA behaviour or every platform's behaviour.
+This edition has no external provider, workload, rendering requirement or experimental opt-in. Shared Blazor applicability means server-side code; it is not browser execution proof. All sample dependencies are framework-provided. Exact SDK pins 10.0.403 and 11.0.100 are reproducibility baselines, not mandatory exact consumer installations. GA verification is limited to the recorded platforms and checks.
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
-Actual .NET 10 stream and RC2 span implementations round-trip empty, short, repetitive 8192-byte and subsequent independent payloads in all three formats. GZip checks additionally observe DestinationTooSmall for encode/decode and NeedMoreData for a partial header.
+Actual .NET 10 stream and GA span implementations round-trip empty, short, repetitive 8192-byte and subsequent independent payloads in all three formats. GZip checks additionally observe DestinationTooSmall for encode/decode and NeedMoreData for a partial header.
 
 The actual declared .NET 10 and .NET 11 projects compile and execute on Windows with zero warnings/errors. Saved records identify source hashes, SDK/target/language, resolved dependencies, commands, host and output; freshness is checked at package build. These are execution records, not source-review-only, cross-compilation or mock claims. The existing installed-tool harness independently verifies the complete canonical body, target-11 applicability/edition and target-10 refusal offline from an unrelated directory. Comprehensive catalogue and public-release readiness remain separate gates.

@@ -38,7 +38,7 @@
             "name": ".NET",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Blazor Web App static SSR with enhanced navigation; actual execution uses RC2."
+            "reason": "Blazor Web App static SSR with enhanced navigation; actual execution uses GA."
           },
           "sdk": {
             "name": ".NET SDK",
@@ -70,7 +70,7 @@
           "prerequisites": [
             "Use a static router and HeadOutlet with blazor.web.js. An interactive SPA router is not enhanced navigation. The complete standalone files, SDK pins and commands are included offline.",
             "Author HeadContent hints only for measured destination needs. Match the exact eventual URL, fetch destination/as, MIME type, credentials/CORS and cache policy. Same-origin loopback data/module examples need no account or external provider.",
-            ".NET 10.0.14 already has the enhanced-navigation guard in SSRRenderModeBoundary, as does selected RC2. The historical guide's .NET 11 introduction is not a claim that every serviced .NET 10 emits implicit hints. The valid .NET 10 explicit pattern is a comparison, not a new foundation or older-target route."
+            ".NET 10.0.14 already has the enhanced-navigation guard in SSRRenderModeBoundary, as does selected GA. The historical guide's .NET 11 introduction is not a claim that every serviced .NET 10 emits implicit hints. The valid .NET 10 explicit pattern is a comparison, not a new foundation or older-target route."
           ],
           "constraints": [
             "Blazor enhanced navigation; only resources actually needed. Initial/full navigation behavior is separate. No universal preload requirement or browser request-count/performance guarantee.",
@@ -81,7 +81,7 @@
             "Explicit HeadContent preload/as and modulepreload"
           ],
           "stabilityLimitations": [
-            "Stable HTML/Blazor APIs; selected .NET 11 framework is RC2, not GA."
+            "Stable HTML/Blazor APIs; selected .NET 11 framework is GA."
           ]
         },
         "evidenceSamples": [

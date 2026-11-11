@@ -58,7 +58,7 @@ net11.0/Apply.razor body:
 {{snippet:apply}}
 
 The receiving component binds a key with SupplyParameterFromTempData. **Measured
-RC2 behavior:** its final property value is written back to TempData. Leaving a
+GA behavior:** its final property value is written back to TempData. Leaving a
 received message in that property repeats it on the next read. Copy it to a
 display field, then clear the bound property to consume the confirmation. The
 canonical sample proves this through a redirect and two separate GET requests;
@@ -157,7 +157,7 @@ An initial prerender does not make later circuit events an HTTP state workflow.
 The default provider encrypts cookies with Data Protection. Keep messages small
 and share the appropriate key ring across server instances. TempData is not
 authorisation, durable storage or a safe place for an entire form draft. Cookies
-and headers must be written before the response starts. On RC2, late cookie
+and headers must be written before the response starts. On GA, late cookie
 TempData writes emit a warning and are not persisted; the streamed response can
 still succeed. A successful response alone is insufficient evidence of storage.
 
@@ -177,14 +177,14 @@ Arbitrary custom JSON classes are not supported. Keys are case-insensitive;
 two supplied properties in the same render must not own the same key.
 
 These stable APIs have no experimental opt-in. All current execution here is
-RC2, not GA proof. Missing session middleware fails the static request; it is not
+GA proof. Missing session middleware fails the static request; it is not
 a harmless empty value. Concurrent requests are not an exactly-once delivery
 transaction: this recipe proves sequential read consumption, not atomic receipt
 or replay prevention. Use application storage when that stronger guarantee matters.
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Original samples compile as net10.0/C# 14.0 using SDK 10.0.403 and
 net11.0/C# 15.0 using SDK 11.0.100. The saved records are **compile**
@@ -205,5 +205,5 @@ browser UI, multi-server provider, interactive or GA execution is claimed.
 
 Official source review: [Blazor server state](https://learn.microsoft.com/en-us/aspnet/core/blazor/state-management/server?view=aspnetcore-11.0),
 [older session and TempData](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/app-state?view=aspnetcore-10.0),
-[RC2 bound-property persistence](https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Endpoints/src/TempData/TempDataCascadingValueSupplier.cs)
-and [RC2 streaming persistence](https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Endpoints/src/DependencyInjection/TempDataService.cs).
+[GA bound-property persistence](https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Endpoints/src/TempData/TempDataCascadingValueSupplier.cs)
+and [GA streaming persistence](https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Endpoints/src/DependencyInjection/TempDataService.cs).

@@ -75,7 +75,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "RC2 execution; GA unverified"
+            "GA execution; GA unverified"
           ]
         },
         "sourceUrls": [
@@ -225,6 +225,6 @@
   },
   "humanProof": {
     "status": "not-required",
-    "scope": "Local real browser/component checks require no account or Human-only action. RC2 on one Windows Chrome; no GA/deployment/other-browser claim."
+    "scope": "Local real browser/component checks require no account or Human-only action. GA on one Windows Chrome; no GA/deployment/other-browser claim."
   }
 }

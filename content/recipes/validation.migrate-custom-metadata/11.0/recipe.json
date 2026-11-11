@@ -37,7 +37,7 @@
         "requirements": {
           "sdk": {
             "match": "release-family",
-            "reason": "Build against .NET 11 references; exact RC2 pins record measured artifacts.",
+            "reason": "Build against .NET 11 references; exact GA pins record measured artifacts.",
             "name": ".NET SDK",
             "version": "11.0"
           },
@@ -78,7 +78,7 @@
           ],
           "packageAssets": [
             "Microsoft.Extensions.Validation 11.0.0 lib/net11.0 and its shipped generator; no net10 asset.",
-            "DependencyInjection 11 RC2 lib/net11.0; Localization.Abstractions 11 RC2 lib/net11.0; other moved abstractions from the base framework."
+            "DependencyInjection 11 GA lib/net11.0; Localization.Abstractions 11 GA lib/net11.0; other moved abstractions from the base framework."
           ],
           "workloads": [],
           "prerequisites": [
@@ -95,7 +95,7 @@
             "For generated validation: InterceptorsNamespaces includes Microsoft.Extensions.Validation.Generated and Microsoft.AspNetCore.Http.Validation.Generated."
           ],
           "stabilityLimitations": [
-            "Actual RC2 verification, not final-GA proof; PIN-962 and PIN-959 remain open."
+            "Actual GA verification, within the recorded verification scope; PIN-962 and PIN-959 remain open."
           ],
           "constraints": [
             "Bounded non-web TankReport/PumpReport resolver, not a general DataAnnotations engine or endpoint adapter.",

@@ -20,7 +20,7 @@ Custom validators implement both contracts. A synchronous implementation must pe
 
 {{snippet:dual}}
 
-For source-generated synchronous validation, choose generated or handwritten ownership. This canonical example normally lets the generator provide Validate. Defining EXPLICIT_VALIDATE deliberately enables the conflicting handwritten method and the actual RC2 generator rejects it with SYSLIB1205. Remove that branch for generated ownership, or remove OptionsValidator and own the full manual contract. Async generation is separate.
+For source-generated synchronous validation, choose generated or handwritten ownership. This canonical example normally lets the generator provide Validate. Defining EXPLICIT_VALIDATE deliberately enables the conflicting handwritten method and the actual GA generator rejects it with SYSLIB1205. Remove that branch for generated ownership, or remove OptionsValidator and own the full manual contract. Async generation is separate.
 
 {{snippet:generated}}
 
@@ -42,6 +42,6 @@ PermitRegister is a real asynchronous in-process policy, not proof of an externa
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
-Both actual release projects run supported Generic Host startup, acceptance and rejection. RC2 additionally executes IAsyncStartupValidator, named dual validation, seeded default/monitor caches, synchronous pre-start/snapshot/factory failures, an async-only plus succeeding synchronous validator collection, and configuration-driven monitor reload failure with zero notifications. The Options package's real generator builds the valid model, rejects the conflicting explicit implementation with SYSLIB1205, and builds/runs again after restoration. Exact artifacts and input hashes are saved. These managed checks are distinct from the source-only custom-factory/legacy-precedence restrictions; no GA, external-service or browser proof is claimed.
+Both actual release projects run supported Generic Host startup, acceptance and rejection. GA additionally executes IAsyncStartupValidator, named dual validation, seeded default/monitor caches, synchronous pre-start/snapshot/factory failures, an async-only plus succeeding synchronous validator collection, and configuration-driven monitor reload failure with zero notifications. The Options package's real generator builds the valid model, rejects the conflicting explicit implementation with SYSLIB1205, and builds/runs again after restoration. Exact artifacts and input hashes are saved. These managed checks are distinct from the source-only custom-factory/legacy-precedence restrictions; no GA, external-service or browser proof is claimed.

@@ -6,7 +6,7 @@ Use the first-party C# UI template option when screens should be authored in cod
 
 ## Constraints
 
-Current examples pin SDK11.0.100, C#15 and MAUI11.0.0. Older comparisons pin SDK10.0.403, C#14 and MAUI10.0.110. These pins are actual RC2/.NET10 evidence, not GA certification or minimum-version promises. Keep independent SDK, native platform/workload and package-asset requirements separate. No provider, account or web-server rendering mode is implied.
+Current examples pin SDK11.0.100, C#15 and MAUI11.0.0. Older comparisons pin SDK10.0.403, C#14 and MAUI10.0.110. These pins are actual GA/.NET10 evidence, within the recorded verification scope certification or minimum-version promises. Keep independent SDK, native platform/workload and package-asset requirements separate. No provider, account or web-server rendering mode is implied.
 
 The fictional Quay Ledger screen counts checked crates using built-in MAUI controls. Both canonical apps implement that same screen in C#; no third-party fluent UI library is involved.
 
@@ -16,7 +16,7 @@ C# UI is already valid on .NET 10: construct the Application, Window and Content
 
 ## Newer approach
 
-With SDK11 and the matching MAUI template installed, run `dotnet new maui --name QuayLedger --ui csharp --no-restore`. Use Microsoft.Maui.Templates.net11 version 11.0.0 for the retained RC2 preparation baseline. A prerequisite template install is `dotnet new install Microsoft.Maui.Templates.net11::11.0.0`; native workload installation is separate. Select a directory containing the matching global.json before these commands.
+With SDK11 and the matching MAUI template installed, run `dotnet new maui --name QuayLedger --ui csharp --no-restore`. Use Microsoft.Maui.Templates.net11 version 11.0.0 for the retained GA preparation baseline. A prerequisite template install is `dotnet new install Microsoft.Maui.Templates.net11::11.0.0`; native workload installation is separate. Select a directory containing the matching global.json before these commands.
 
 The option generates App.cs, AppShell.cs and MainPage.cs and removes their screen XAML counterparts. Resources/Styles/Colors.xaml and Styles.xaml remain. C# screens do not imply deleting resource dictionaries, assets or platform startup XAML. XAML remains the default (`--ui xaml`). `--sample-content` is XAML-only: with C# UI the template warns and omits that sample content. Keep the original small crate screen rather than presenting the template's demo as an original worked example.
 
@@ -32,7 +32,7 @@ Before restoring, replace the generated Controls $(MauiVersion) and floating Log
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 The actual first-party package was installed into an isolated template hive and exercised for C# UI, resource retention and the incompatible sample-content option. The original net10 Windows app compiled and reached Label.Loaded; a managed button event updated its count, then its window closed. That check is not pointer interaction or visual/accessibility approval. The exact net11 Windows sample failed before compilation with NETSDK1147 because the SDK11 installation has no usable MAUI SDK pack. Its native compilation/interaction is explicitly not-tested under PIN-699. The native11 restore never completed, so that sample has no packages.lock.json and its dependency/workload declarations remain empty. RestorePackagesWithLockFile requests a lock on a future successful restore; it is not proof that a resolved lock exists. Do not invent a lock or treat this head as a locked build. Do not turn a template-generation pass into native app proof.
 

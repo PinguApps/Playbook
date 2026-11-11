@@ -30,7 +30,7 @@
         "requirements": {
           "sdk": {
             "match": "release-family",
-            "reason": "Build against .NET 11 references; exact RC2 pins record measured artifacts.",
+            "reason": "Build against .NET 11 references; exact GA pins record measured artifacts.",
             "name": ".NET SDK",
             "version": "11.0"
           },
@@ -66,7 +66,7 @@
           "renderingModes": [],
           "optIns": [],
           "stabilityLimitations": [
-            "Actual RC2 verification, not final-GA proof; PIN-962 and PIN-959 remain open."
+            "Actual GA verification, within the recorded verification scope; PIN-962 and PIN-959 remain open."
           ],
           "constraints": [
             "Only the nine moved libraries are covered; framework-dependent publish observations do not describe self-contained or single-file layouts.",
@@ -110,7 +110,7 @@
       "target": "net10.0",
       "sdk": "10.0.403",
       "language": "14.0",
-      "scope": "Actual Windows x64 .NET10/.NET11 RC3 managed consumers, exact reference/compiler/runtime/package identities. Restore-selected assets, missing-reference failure, exact/minimum direct references and NU1510, multitarget library consumer, retained implementation package, matching-version RC3 reference, framework-dependent publish/deps/runtime resolution. No self-contained/single-file/native/AOT/other-platform/GA deployment proof."
+      "scope": "Actual Windows x64 .NET10/.NET11 GA managed consumers, exact reference/compiler/runtime/package identities. Restore-selected assets, missing-reference failure, exact/minimum direct references and NU1510, multitarget library consumer, retained implementation package, matching-version GA reference, framework-dependent publish/deps/runtime resolution. No self-contained/single-file/native/AOT/other-platform/GA deployment proof."
     },
     {
       "kind": "compile-and-run",
@@ -118,12 +118,12 @@
       "target": "net11.0",
       "sdk": "11.0.100",
       "language": "15.0",
-      "scope": "Actual Windows x64 .NET10/.NET11 RC3 managed consumers, exact reference/compiler/runtime/package identities. Restore-selected assets, missing-reference failure, exact/minimum direct references and NU1510, multitarget library consumer, retained implementation package, matching-version RC3 reference, framework-dependent publish/deps/runtime resolution. No self-contained/single-file/native/AOT/other-platform/GA deployment proof."
+      "scope": "Actual Windows x64 .NET10/.NET11 GA managed consumers, exact reference/compiler/runtime/package identities. Restore-selected assets, missing-reference failure, exact/minimum direct references and NU1510, multitarget library consumer, retained implementation package, matching-version GA reference, framework-dependent publish/deps/runtime resolution. No self-contained/single-file/native/AOT/other-platform/GA deployment proof."
     }
   ],
   "humanProof": {
     "status": "not-required",
-    "scope": "Actual Windows x64 .NET10/.NET11 RC3 managed consumers, exact reference/compiler/runtime/package identities. Restore-selected assets, missing-reference failure, exact/minimum direct references and NU1510, multitarget library consumer, retained implementation package, matching-version RC3 reference, framework-dependent publish/deps/runtime resolution. No self-contained/single-file/native/AOT/other-platform/GA deployment proof. No interactive action required."
+    "scope": "Actual Windows x64 .NET10/.NET11 GA managed consumers, exact reference/compiler/runtime/package identities. Restore-selected assets, missing-reference failure, exact/minimum direct references and NU1510, multitarget library consumer, retained implementation package, matching-version GA reference, framework-dependent publish/deps/runtime resolution. No self-contained/single-file/native/AOT/other-platform/GA deployment proof. No interactive action required."
   },
   "snippets": {
     "older": {

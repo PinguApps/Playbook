@@ -142,6 +142,6 @@
   },
   "humanProof": {
     "status": "not-required",
-    "scope": "Bounded local native/service behaviour is executed by the agent; unrelated Human/publication/actual-GA gates remain open."
+    "scope": "Bounded local native/service behaviour is executed by the agent; unrelated Human/publication/Unexecuted platform gates remain separate."
   }
 }

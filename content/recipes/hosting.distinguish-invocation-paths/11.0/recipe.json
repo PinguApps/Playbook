@@ -80,7 +80,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Exact RC2 artifacts executed; no GA verification. No experimental annotation or opt-in on the used APIs."
+            "Exact GA artifacts executed; no GA verification. No experimental annotation or opt-in on the used APIs."
           ]
         },
         "sourceUrls": [

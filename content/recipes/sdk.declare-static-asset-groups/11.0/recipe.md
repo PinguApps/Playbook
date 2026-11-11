@@ -20,7 +20,7 @@ SDK 11 connects Microsoft.TypeScript.MSBuild output to static-asset discovery an
 
 {{snippet:newer}}
 
-The Audience definition tags crew/** with Audience=crew. SourceId ties definitions/selections to this project's PackageId. Order must be an integer and unique within that source. IncludePattern matches asset-relative paths, not arbitrary filesystem paths. StaticWebAssetGroup selects the matching value for publication; changing PierAudience to visitor changes the selected endpoints while leaving ungrouped generated JavaScript available. The measured RC2 publish still contains the physical crew HTML.
+The Audience definition tags crew/** with Audience=crew. SourceId ties definitions/selections to this project's PackageId. Order must be an integer and unique within that source. IncludePattern matches asset-relative paths, not arbitrary filesystem paths. StaticWebAssetGroup selects the matching value for publication; changing PierAudience to visitor changes the selected endpoints while leaving ungrouped generated JavaScript available. The measured GA publish still contains the physical crew HTML.
 
 The extra endpoint definition uses Pattern and Replacement; the ** stem in **/index.html lets the SDK map crew/index.html to crew. The ordinary file endpoint remains. This is a manifest/endpoint contract, not an authorization rule or SPA fallback implementation.
 
@@ -30,7 +30,7 @@ Use the same tsconfig and crew page as above. The minimal host maps the generate
 
 {{snippet:program}}
 
-Pin global.json to SDK 11.0.100 for this original RC2 build. From the project directory publish with `dotnet publish WebAssets.csproj -c Release -p:NodePath="<absolute-node-executable>" -o <fresh-output-directory>`. The result must contain wwwroot/bin/berths.js and wwwroot/crew/index.html; WebAssets.staticwebassets.endpoints.json includes the crew route.
+Pin global.json to SDK 11.0.100 for this original GA build. From the project directory publish with `dotnet publish WebAssets.csproj -c Release -p:NodePath="<absolute-node-executable>" -o <fresh-output-directory>`. The result must contain wwwroot/bin/berths.js and wwwroot/crew/index.html; WebAssets.staticwebassets.endpoints.json includes the crew route.
 
 For the library comparison, create ../RclAssets/RclAssets.csproj. Its older SDK-10 route keeps the explicit hook:
 
@@ -52,7 +52,7 @@ The host project reference publishes the result at wwwroot/_content/Pier.Deck.As
 2. Pin Microsoft.TypeScript.MSBuild 5.9.3 and enable its NuGet target. Keep TS inputs and tsconfig in source control; generate JavaScript before discovery. If central package management applies, move the pin into that sample's central file or explicitly isolate it with ManagePackageVersionsCentrally=false.
 3. Under SDK 11, remove a redundant old registration target after verifying clean and repeated publish. Declare group definitions and selections with matching SourceId/name/value; use deterministic Order and asset-relative patterns.
 4. Add extra endpoints only for the intended pattern. Inspect the actual publish manifest's AssetGroups and the endpoint manifest; do not infer a route from the item name.
-5. Publish again to a separate empty directory with `-p:PierAudience=visitor`. The crew endpoints should disappear; generated ungrouped JavaScript should remain. The recorded RC2 artifact still contains the physical crew HTML, so inspect both endpoints and files. Groups influence SDK asset metadata; they do not authenticate visitors.
+5. Publish again to a separate empty directory with `-p:PierAudience=visitor`. The crew endpoints should disappear; generated ungrouped JavaScript should remain. The recorded GA artifact still contains the physical crew HTML, so inspect both endpoints and files. Groups influence SDK asset metadata; they do not authenticate visitors.
 6. For Razor class libraries, the same static-assets infrastructure integrates compiled TypeScript. Package consumers may require their own group conventions (StaticWebAssets.Groups.targets) and project-mode/base-path handling. The original project-reference consumer above verifies RCL JavaScript publication. A NuGet-packaged RCL consumer is not claimed.
 
 ## Constraints
@@ -61,6 +61,6 @@ Target net11.0/C#15 and the .NET 11 Static Web Assets SDK are the declared route
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Both actual project targets compile and publish from clean generated-output states. SDK 11 produces Audience=crew metadata and the captured-stem crew endpoint; changing the selection removes the grouped endpoints while retaining compiled JavaScript. The older explicit discovery hook produces its intended files too. Both hosts also publish the actual RCL-generated deck.js through a project reference. The TypeScript code is actually compiled by the pinned package, not copied from a handwritten JavaScript stub. Evidence records exact SDK, compiler package and Node.js baseline. Real installed stdio list/get verifies full body, canonical project/host/TypeScript, applicability and target-11 edition offline. No NuGet RCL-package-consumer, browser, native-platform, mock or GA execution claim follows.

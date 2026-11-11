@@ -48,7 +48,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Build the declared target. Exact recorded SDKs are verification baselines; current-release proof uses RC2, not GA."
+            "reason": "Build the declared target. Exact recorded SDKs are verification baselines; current-release proof uses GA."
           },
           "language": {
             "name": "C#",
@@ -90,7 +90,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "No experimental API opt-in; actual .NET11/EF11 proof uses RC2, not GA."
+            "No experimental API opt-in; actual .NET11/EF11 proof uses GA."
           ]
         },
         "conditional": false,
@@ -123,7 +123,7 @@
       "language": "14.0",
       "kind": "compile-and-run",
       "sdk": "10.0.403",
-      "scope": "Real isolated SQL2025 execution: temporal generation, adjacent history periods and rejected direct period update; EF10 shadow reads and parameterized SQL conversion/bucketing; EF11 CLR reads and translated offset members, constructors and hour grouping. RC2 is not GA; no older-engine proof."
+      "scope": "Real isolated SQL2025 execution: temporal generation, adjacent history periods and rejected direct period update; EF10 shadow reads and parameterized SQL conversion/bucketing; EF11 CLR reads and translated offset members, constructors and hour grouping. GA is limited to the recorded checks; no older-engine proof."
     },
     {
       "sample": "samples/net11.0/BeaconHistory/BeaconHistory.csproj",
@@ -131,7 +131,7 @@
       "language": "15.0",
       "kind": "compile-and-run",
       "sdk": "11.0.100",
-      "scope": "Real isolated SQL2025 execution: temporal generation, adjacent history periods and rejected direct period update; EF10 shadow reads and parameterized SQL conversion/bucketing; EF11 CLR reads and translated offset members, constructors and hour grouping. RC2 is not GA; no older-engine proof."
+      "scope": "Real isolated SQL2025 execution: temporal generation, adjacent history periods and rejected direct period update; EF10 shadow reads and parameterized SQL conversion/bucketing; EF11 CLR reads and translated offset members, constructors and hour grouping. GA is limited to the recorded checks; no older-engine proof."
     }
   ],
   "snippets": {

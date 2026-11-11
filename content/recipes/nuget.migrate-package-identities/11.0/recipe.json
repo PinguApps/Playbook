@@ -31,7 +31,7 @@
         "conditional": false,
         "usage": "primary",
         "selectionNotes": [
-          "Target-11 edition with actual SDK 10.0.403 and 11 RC2 comparison; the exact eight .NET 10 foundations are unchanged."
+          "Target-11 edition with actual SDK 10.0.403 and 11 GA comparison; the exact eight .NET 10 foundations are unchanged."
         ],
         "sharedAreas": [],
         "requirements": {
@@ -45,7 +45,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "SDK 11 implements the new NuGet behavior; exact verification uses RC2, compared with SDK 10.0.403."
+            "reason": "SDK 11 implements the new NuGet behavior; exact verification uses GA, compared with SDK 10.0.403."
           },
           "language": {
             "name": "C#",
@@ -76,7 +76,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Not an experimental API; actual SDK 11 GA evidence is not final GA verification. PIN-959/PIN-963 remain open."
+            "Not an experimental API; actual SDK 11 GA verification is limited to the recorded checks. PIN-959/PIN-963 remain open."
           ]
         },
         "sourceUrls": [

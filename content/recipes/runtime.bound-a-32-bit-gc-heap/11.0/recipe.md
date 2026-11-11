@@ -82,10 +82,10 @@ not promise exactly 32 tiles. RSS can exceed 32 MiB while the managed limit work
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 eng/Test-NativeBoundaries.ps1 -Lane Windows -Record builds both independently
-pinned consumers and runs real Windows x86 .NET10.0.13 and .NET11 RC2. Evidence
+pinned consumers and runs real Windows x86 .NET10.0.13 and .NET11 GA. Evidence
 records retain commands, inputs, actual compiler/reference/runtime identities,
 configured limit, bounded retained bytes, RSS and observed OOM/control outcomes.
 The records distinguish actual SDK10.0.403 and SDK11.0.100 from

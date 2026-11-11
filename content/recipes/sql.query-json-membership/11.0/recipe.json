@@ -50,7 +50,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Build the declared target. Exact recorded SDKs are verification baselines; current-release proof uses RC2, not GA."
+            "reason": "Build the declared target. Exact recorded SDKs are verification baselines; current-release proof uses GA."
           },
           "language": {
             "name": "C#",
@@ -96,7 +96,7 @@
             "Explicit local #pragma warning disable EF9106 around JsonContains calls; accept possible API change/removal."
           ],
           "stabilityLimitations": [
-            "Pinned EF11 RC2 marks JsonContains experimental with EF9106; its CLR result is int, although SQL can return NULL. JsonPathExists is not marked experimental. SQL2025 JSON_CONTAINS documentation has no preview label. These are separate API/server stability boundaries; no actual EF11 GA verification."
+            "Pinned EF11 GA marks JsonContains experimental with EF9106; its CLR result is int, although SQL can return NULL. JsonPathExists is not marked experimental. SQL2025 JSON_CONTAINS documentation has no preview label. These are separate API/server stability boundaries; no actual EF11 GA verification."
           ]
         },
         "conditional": false,
@@ -137,7 +137,7 @@
       "language": "14.0",
       "kind": "compile-and-run",
       "sdk": "10.0.403",
-      "scope": "Actual isolated SQL2025/170 queries: missing/null/empty nested fields, numeric containment, explicit LIKE mode, missing path/SQL NULL results, non-null primitive membership and nullable column membership. EF10 custom built-in mappings and OPENJSON; EF11 built-in APIs and JSON_CONTAINS with nullable OPENJSON fallback. eng/Test-JsonDocuments.ps1 -Record owns setup and cleanup; RC2 is not GA."
+      "scope": "Actual isolated SQL2025/170 queries: missing/null/empty nested fields, numeric containment, explicit LIKE mode, missing path/SQL NULL results, non-null primitive membership and nullable column membership. EF10 custom built-in mappings and OPENJSON; EF11 built-in APIs and JSON_CONTAINS with nullable OPENJSON fallback. eng/Test-JsonDocuments.ps1 -Record owns setup and cleanup; GA is limited to the recorded checks."
     },
     {
       "sample": "samples/net11.0/FenDocuments/FenDocuments.csproj",
@@ -145,7 +145,7 @@
       "language": "15.0",
       "kind": "compile-and-run",
       "sdk": "11.0.100",
-      "scope": "Actual isolated SQL2025/170 queries: missing/null/empty nested fields, numeric containment, explicit LIKE mode, missing path/SQL NULL results, non-null primitive membership and nullable column membership. EF10 custom built-in mappings and OPENJSON; EF11 built-in APIs and JSON_CONTAINS with nullable OPENJSON fallback. eng/Test-JsonDocuments.ps1 -Record owns setup and cleanup; RC2 is not GA."
+      "scope": "Actual isolated SQL2025/170 queries: missing/null/empty nested fields, numeric containment, explicit LIKE mode, missing path/SQL NULL results, non-null primitive membership and nullable column membership. EF10 custom built-in mappings and OPENJSON; EF11 built-in APIs and JSON_CONTAINS with nullable OPENJSON fallback. eng/Test-JsonDocuments.ps1 -Record owns setup and cleanup; GA is limited to the recorded checks."
     }
   ],
   "snippets": {

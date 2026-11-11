@@ -106,11 +106,11 @@ Application route: ASP.NET Core11 with its matching SDK; F#11 plus Razor's C# vi
 
 The old FSharp.Core10.1.402/RuntimeCompilation10.0.13 graph and current FSharp.Core11.0.101-rc2.26504.105 graph are exact test pins, not minimum supported versions. The current build emits and actually loads the separate .Views.dll from the default application load context. The fresh published consumer contains no source views or runtime compiler; a fresh disabled-compilation publish demonstrates the missing-view failure. Build-time compilation can also be configured on older targets; no untested older-target route is advertised here.
 
-Server-rendered MVC HTML and model encoding through real HTTP. No browser, Blazor, live edit or Hot Reload session is claimed. Windows x64 is the executed lane. No package-native assets, workloads, external provider, resource provisioning or public publication are required. Stable migration guidance is based on RC2 evidence; actual-GA reconciliation and comprehensive readiness remain open. The eight approved .NET10 foundations and existing recipe/edition identities remain unchanged.
+Server-rendered MVC HTML and model encoding through real HTTP. No browser, Blazor, live edit or Hot Reload session is claimed. Windows x64 is the executed lane. No package-native assets, workloads, external provider, resource provisioning or public publication are required. Stable migration guidance is based on GA evidence; actual-GA reconciliation and comprehensive readiness remain open. The eight approved .NET10 foundations and existing recipe/edition identities remain unchanged.
 
 ## Evidence and local verification
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Fresh sample records contain actual paired compilation/rendering, exact artifact qualification and the .NET11 clean published-consumer controls. The positive page renders encoded model data; the fresh disabled-compilation publish observes the specific missing-view exception. A build-only result would not satisfy this claim.
 

@@ -46,7 +46,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Exact current-release proof uses SDK11 GA, not GA."
+            "reason": "Exact current-release proof uses SDK11 GA."
           },
           "language": {
             "name": "C#",
@@ -72,7 +72,7 @@
             }
           ],
           "packageAssets": [
-            "EF11 lib/net11.0 and EF10 lib/net10.0; SQLitePCLRaw native assets and full transitive dependencies pinned in locks. dotnet-ef11 RC2 and10.0.13 tools run on net10.0."
+            "EF11 lib/net11.0 and EF10 lib/net10.0; SQLitePCLRaw native assets and full transitive dependencies pinned in locks. dotnet-ef11 GA and10.0.13 tools run on net10.0."
           ],
           "providers": [
             "SQLite local disposable file; no external database or account."
@@ -94,7 +94,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Stable API guidance prepared with exact RC2 packages; GA reconciliation remains pending."
+            "Stable API guidance prepared with exact GA packages; GA checks are limited to the recorded scope."
           ]
         },
         "conditional": false,
@@ -212,6 +212,6 @@
   },
   "humanProof": {
     "status": "not-required",
-    "scope": "Agent-executable local verification; actual GA reconciliation remains pending."
+    "scope": "Agent-executable local verification; actual GA checks are limited to the recorded scope."
   }
 }

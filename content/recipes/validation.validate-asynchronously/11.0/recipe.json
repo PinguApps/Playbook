@@ -46,7 +46,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Build against .NET 11 reference assemblies; exact RC2 is evidence, not an exact installation requirement."
+            "reason": "Build against .NET 11 reference assemblies; exact GA is evidence, not an exact installation requirement."
           },
           "language": {
             "name": "C#",
@@ -78,7 +78,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "RC2 compilation/execution; GA reconciliation pending. No experimental API opt-in."
+            "GA compilation/execution; GA checks are limited to the recorded scope. No experimental API opt-in."
           ]
         },
         "sourceUrls": [
@@ -127,7 +127,7 @@
       "sdk": "11.0.100",
       "language": "15.0",
       "kind": "compile-and-run",
-      "scope": "Actual awaited acceptance/rejection, synchronous Required, propagated rule failure/cancellation and culture flow; six async Validator families and IAsyncValidatableObject in RC2."
+      "scope": "Actual awaited acceptance/rejection, synchronous Required, propagated rule failure/cancellation and culture flow; six async Validator families and IAsyncValidatableObject in GA."
     }
   ],
   "snippets": {

@@ -32,7 +32,7 @@ library directories through `SkylarkMsvcLibraries`, `SkylarkUmLibraries` and
 `SkylarkUcrtLibraries`. `IlcUseEnvironmentalTools=true` avoids automatic tool discovery
 and child-shell PATH setup. No persistent PATH or shell integration is required.
 The exact ILCompiler/ILLink packages and their complete closures are locked; sample
-dependencies remain manually maintained. Current proof is RC2, not GA.
+dependencies remain manually maintained. Current proof is GA.
 
 ## Older approach
 
@@ -119,7 +119,7 @@ publication authority.
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 `eng/Test-SkylarkBuild.ps1 -Record` compiles/runs both actual managed projects,
 uses real ILC and MSVC-link to pack native executables, checks package counts and

@@ -35,8 +35,8 @@ Supporting editors decide how to use syntax metadata. These methods do not parse
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 The example methods return input unchanged. Actual builds and runtime checks on both targets inspect all three attributes and confirm that deliberately invalid source is returned unchanged. This establishes emitted metadata and lack of runtime validation; no editor UI behavior or specific editor version is claimed or required Human proof.
 
-The constants are framework APIs with no external package/assets, provider, rendering mode, optional workload or experimental opt-in. No unverified older-target package route is advertised, and .NET 10 remains a comparison rather than a new catalogue foundation. The newer artifact is SDK 11.0.100 / C# 15 / .NET 11 RC2; its exact versions and input hashes are saved separately. RC evidence is not GA verification.
+The constants are framework APIs with no external package/assets, provider, rendering mode, optional workload or experimental opt-in. No unverified older-target package route is advertised, and .NET 10 remains a comparison rather than a new catalogue foundation. The newer artifact is SDK 11.0.100 / C# 15 / .NET 11 GA; its exact versions and input hashes are saved separately. Recorded evidence is limited to the recorded checks.

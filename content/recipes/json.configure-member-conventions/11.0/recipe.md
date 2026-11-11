@@ -32,6 +32,6 @@ Requires framework System.Text.Json on net11.0, SDK 11 / C# 15. No packages, wor
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
-Actual .NET 10/11 builds/executions inspect field names and omission precedence, including the zero and forced-null cases. RC2 reflection rejects type-level Always, and the compiler probe requires SYSLIB1226. Saved exact input/toolchain records and complete installed offline list/get checks accompany the recipes. No mocks or targeted Human proof; RC2 is not GA verification.
+Actual .NET 10/11 builds/executions inspect field names and omission precedence, including the zero and forced-null cases. GA reflection rejects type-level Always, and the compiler probe requires SYSLIB1226. Saved exact input/toolchain records and complete installed offline list/get checks accompany the recipes. No mocks or targeted Human proof; GA is limited to the recorded checks.

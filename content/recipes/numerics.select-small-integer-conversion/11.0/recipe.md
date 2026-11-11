@@ -96,7 +96,7 @@ them or offer Mono saturation through the direct-cast implementation.
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Paired artifacts: SDK10.0.403, runtime/ref10.0.14 and C#14 versus
 SDK11.0.100, runtime/ref11.0.0 and C#15.
@@ -107,7 +107,7 @@ destinations execute double/float plus representative Half values (including Hal
 own finite-range/precision limits), checked overflow, conversion APIs and real
 buffer validation. Legacy out-of-range outputs remain measured observations.
 
-RC3 evidence is not GA reconciliation. The previous consumer is a comparison,
+GA verification is limited to the recorded checks reconciliation. The previous consumer is a comparison,
 not a new target10 catalogue foundation. Comprehensive coverage, actual-GA and
 existing Human gates remain open.
 

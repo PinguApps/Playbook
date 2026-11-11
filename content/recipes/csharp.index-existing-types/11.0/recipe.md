@@ -36,4 +36,4 @@ Canonical RC1 notes stabilize extension indexers in C# 15; the recorded artifact
 
 Both canonical CollectionLike projects compile on their actual targets (net10.0/C# 14, net11.0/C# 15) and execute reads, middle-node replacement, preserved sequence/length and null/negative/past-end rejection. A rejected write leaves the list unchanged. Exact saved SDK/runtime/input records accompany the samples; focused execution is distinct from source-reviewed general lookup restrictions. No native execution, mocks or cross-compilation is claimed. Full source snippets and instructions are embedded in the offline tool.
 
-GA refresh (PIN-1287): the declared .NET 11 sample was rebuilt and executed with SDK 11.0.100 and runtime 11.0.0. Earlier RC observations above remain historical; this refresh does not establish broader platform or API behavior.
+GA refresh (PIN-1287): the declared .NET 11 sample was rebuilt and executed with SDK 11.0.100 and runtime 11.0.0. This refresh does not establish broader platform or API behavior.

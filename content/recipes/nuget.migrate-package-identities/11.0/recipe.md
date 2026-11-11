@@ -33,7 +33,7 @@ Save this complete `TagRules.cs` in each library directory:
 
 Use SDK **10.0.403 / 11.0.100**, respectively, with C# **14 / 15**.
 Save a `global.json` beside each project with `sdk.version` set to that exact
-SDK, `rollForward` set to `disable`, and `allowPrerelease` false only for RC2.
+SDK, `rollForward` set to `disable`, and `allowPrerelease` false only for GA.
 Those are the verification pins, separate from the supported SDK-11 feature
 requirement. Pack each library with its installation's absolute `dotnet`
 executable, arguments `pack WildlifeTags.csproj -c Release -o <absolute-feed>`.
@@ -137,11 +137,11 @@ The original libraries/consumers use net10/net11 assets and runtime
 10.0.13 / 11.0.0 for execution. No external package dependencies,
 provider, workload, native compiler, browser or rendering mode is involved.
 PowerShell 7 and the two installed SDK/runtime sets reproduce the local check.
-The new warning is not experimental; actual RC2 proof is not GA proof.
+The new warning is not experimental; actual Current GA checks establish only the recorded scope.
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 `eng/Test-NuGetMigration.ps1` checks both real SDKs, explicit analysis levels,
 warnings-as-errors, underscores, repeated/mixed punctuation, package contents,

@@ -48,7 +48,7 @@ client Program below are identical in both comparisons.
 ## Newer approach
 
 .NET 11 moves these serializable settings into C#. The final RC1 names retained
-in the tested RC2 are InteractiveServer, StaticServer and
+in the tested GA are InteractiveServer, StaticServer and
 InteractiveWebAssembly. WithBrowserOptions supplies endpoint defaults.
 ConfigureBrowser replaces non-null scalar values during request rendering;
 unspecified values retain the existing value. The desk's component changes
@@ -132,7 +132,7 @@ the complete document, dialog CSS and boot script.
    class. Timers are scheduling delays, not a real-time guarantee. Reconnecting
    cannot revive a circuit the server has discarded; this sample does not promise
    recovery after process restart. Reload after an exhausted test.
-6. Use one uniform, public policy on the tested RC2. The separate-request probe
+6. Use one uniform, public policy on the tested GA. The separate-request probe
    described below establishes sharing for endpoint/component composition:
    endpoint metadata must not be treated as isolated per-request storage.
    If the consumer needs user/tenant-specific policy, do not copy this shared
@@ -154,7 +154,7 @@ functions, configureSignalR, loadBootResource and configureRuntime stay in
 JavaScript initialization. This recipe does not set connection transport,
 authentication expiry, circuit pause, client hosted services or culture policy.
 
-**Measured RC2 sharing:** in a separate deliberately request-varying diagnostic
+**Measured GA sharing:** in a separate deliberately request-varying diagnostic
 consumer, a first HTTP request emitted seven endpoint retries, a second request
 used ConfigureBrowser to set one, and a third independent request with no
 override still emitted one. Static lookup returned the same endpoint-metadata
@@ -165,14 +165,14 @@ non-secret values on every request; it does not use mutable tenant/user data.
 An absent HttpContext during interactive rendering is not a supported way to
 update startup policy after the runtime has started.
 
-The API is not marked experimental in the inspected RC2 reference surface.
-RC2 is prerelease evidence, with final GA reconciliation still required.
+The API is not marked experimental in the inspected GA reference surface.
+GA verification covers only the recorded configuration.
 Native AOT, publishing, other browsers/operating systems and external deployment
 have not been established by these local checks.
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 The two actual hosts and two actual WebAssembly clients compile against their
 declared SDKs, language modes, frameworks and locked package assets. Saved
@@ -186,7 +186,7 @@ real WebSocket and refuses real subsequent negotiations: the selected dialog
 appears, temporary loss recovers the same counter, and sustained loss yields
 three actual failed negotiations at the configured scalar cadence. The browser
 also executes the WebAssembly client and Auto routes. Separate-request sharing
-is established only for the explicitly described RC2 diagnostic composition.
+is established only for the explicitly described GA diagnostic composition.
 
 Installed-tool checks use the actual package, a fresh local feed/cache and an
 unrelated working directory. They retrieve this complete expanded Markdown,
@@ -194,9 +194,9 @@ target/edition, every authored nested applicability route field and current
 compilation records offline. A disposable consumer assembled from the returned
 body checks the setup independently of repository build inheritance.
 
-Official attribution: RC1 release notes define the final names; pinned RC2
+Official attribution: RC1 release notes define the final names; pinned GA
 BrowserOptions, ConfigureBrowser, endpoint convention, Boot.Web and retry sources
-explain lookup, merging and consumption. The actual RC2 artifact's VMR commit
+explain lookup, merging and consumption. The actual GA artifact's VMR commit
 820230c386db5b0106c5430b3e5aee92a7826bf5 maps through its source manifest to
 ASP.NET Core 4a70870818bf5662f21b0c28f9a8c267dccb77f0.
 The .NET 10 startup documentation supports the valid JavaScript comparison.

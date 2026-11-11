@@ -9,7 +9,7 @@ separate ownership of the underlying array.
 
 **Full-release preparation: successful current storage-contract execution is
 pending under PIN-962.** The merged .NET 11 release-branch implementation defines
-the intended contract below. Published tensor RC2 and RC3 do not implement it;
+the intended contract below. Published tensor GA do not implement it;
 their successful compilation is not behavior proof. Pingu approved preparing this
 guide while retaining pending proof and the stable-release packaging gate.
 
@@ -116,7 +116,7 @@ x64 CoreCLR JIT; other platforms and final artifacts remain unverified.
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 `eng/Record-GridTransform.ps1 -VerifySources` verifies ten immutable source hashes,
 executes the original ownership/Try false controls with SDK10.0.403, C#14,
@@ -134,8 +134,8 @@ ResizeTo input wrappers; both reversal forms; repeated/singleton/empty output;
 both Array constructor forms and covariance. It verifies corrected snapshot and
 independent-output values, rather than treating lack of exceptions as success.
 
-Actual RC2 and latest published RC3 accept unsupported strided copies in all four
-copy/flatten methods, and RC2 fails the expected dense shifted-copy result.
+Actual GA and latest published GA accept unsupported strided copies in all four
+copy/flatten methods, and GA fails the expected dense shifted-copy result.
 Those negative qualifications explain the pending execution gate. No successful
 current storage contract is claimed. PIN-962 owns final artifact selection,
 `Record-GridTransform.ps1 -RunReleaseChecks -VerifySources`, all behavior results

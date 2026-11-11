@@ -64,10 +64,10 @@ The canonical services below bind Kestrel to loopback port56485 using UseHttps a
 
 ## Constraints
 
-Development localhost only; no production certificate advice or external provider. Kestrel server HTTP endpoints have no Blazor rendering requirement. The framework assets are Microsoft.AspNetCore.App for each declared target. The .NET10 comparison has compilation evidence only; execution evidence covers the .NET11 RC3 service and the two named clients. Browser-store behavior and final-GA behavior are unverified. The 11.0 catalogue edition retains the .NET10 comparison without adding a ninth .NET10 foundation. Trust changes require the owner.
+Development localhost only; no production certificate advice or external provider. Kestrel server HTTP endpoints have no Blazor rendering requirement. The framework assets are Microsoft.AspNetCore.App for each declared target. The .NET10 comparison has compilation evidence only; execution evidence covers the .NET11 GA service and the two named clients. Browser-store behavior and final-GA behavior are unverified. The 11.0 catalogue edition retains the .NET10 comparison without adding a ninth .NET10 foundation. Trust changes require the owner.
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
-Official dotnet-dev-certs and ASP.NET Core HTTPS references are included in the source metadata. The saved compilation records identify actual artifacts and inputs. The controlled Windows/WSL observation, certificate identity, exact commands, failures and cleanup status are recorded in docs/verification/wsl-certificate-trust.md. That observation is RC evidence for the stated clients, not universal trust or GA verification.
+Official dotnet-dev-certs and ASP.NET Core HTTPS references are included in the source metadata. The saved compilation records identify actual artifacts and inputs. The controlled Windows/WSL observation, certificate identity, exact commands, failures and cleanup status are recorded in docs/verification/wsl-certificate-trust.md. That observation is Recorded evidence for the stated clients, not universal trust or GA verification.

@@ -28,7 +28,7 @@
           "runtime": {
             "version": "11.0",
             "match": "release-family",
-            "reason": "Actual .NET 11 RC3 execution, not GA verification.",
+            "reason": "Actual .NET 11 GA execution, within the recorded verification scope.",
             "name": ".NET"
           },
           "sdk": {
@@ -68,7 +68,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Actual .NET11 RC3 evidence; GA reconciliation remains open."
+            "Actual .NET11 GA evidence; GA checks are limited to the recorded scope."
           ]
         },
         "sharedAreas": [],

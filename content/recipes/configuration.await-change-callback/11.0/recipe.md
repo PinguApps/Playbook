@@ -32,6 +32,6 @@ This is the consumer lifetime contract, separate from whether a file provider su
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
-Actual .NET 10/11 RC2 executions use cancellation change tokens, controlled task barriers and bounded waits. They prove no overlap, coalescing, caught asynchronous failure and a later successful refresh. .NET 11 additionally checks synchronous exception propagation and completion after disposal. The discarded framework task's unobserved-fault policy is pinned source evidence, not a nondeterministic GC/event test. Exact builds, output and input hashes are saved; GA remains unverified.
+Actual .NET 10/11 GA executions use cancellation change tokens, controlled task barriers and bounded waits. They prove no overlap, coalescing, caught asynchronous failure and a later successful refresh. .NET 11 additionally checks synchronous exception propagation and completion after disposal. The discarded framework task's unobserved-fault policy is pinned source evidence, not a nondeterministic GC/event test. Exact builds, output and input hashes are saved; GA checks are limited to the recorded scope.

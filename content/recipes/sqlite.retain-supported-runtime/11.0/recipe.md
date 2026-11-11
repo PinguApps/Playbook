@@ -18,8 +18,8 @@ a build SDK; it does not retarget the project or restore a missing package asset
 | Application and dependency | Verified managed asset | Decision |
 | --- | --- | --- |
 | net10.0 with Sqlite 10.0.13 | Core lib/net8.0 | Valid previous-release comparison; retain deliberately when the upgrade is deferred. |
-| net11.0 with Sqlite 11 RC2 | Core lib/net10.0 | Normal current-release comparison; keep direct SQL while moving the application target. |
-| net10.0 with Sqlite 11 RC2 | Core lib/net10.0 | Upgrade the direct provider without moving to net11.0. |
+| net11.0 with Sqlite 11 GA | Core lib/net10.0 | Normal current-release comparison; keep direct SQL while moving the application target. |
+| net10.0 with Sqlite 11 GA | Core lib/net10.0 | Upgrade the direct provider without moving to net11.0. |
 | net48 with Sqlite 10.0.13 | Core lib/netstandard2.0 | Verified earlier-dependency alternative on Windows; Framework cannot use Sqlite 11. |
 
 This is one 11.0 migration edition, with conditional target-10 routes. The previous
@@ -45,7 +45,7 @@ for this example. No experimental API or experimental opt-in is used.
 Provider pins are 10.0.13 and 11.0.0. These are reproducible
 baselines, not advice to remain on an old servicing patch indefinitely. Review
 current servicing/security support when choosing a production dependency, then
-refresh the consumer proof after any dependency change. RC2 is not actual GA
+refresh the consumer proof after any dependency change. GA is limited to the recorded checks
 verification; the existing GA reconciliation gate remains open.
 
 The old graph uses SQLitePCLRaw 2.1.13 and native SQLite3.53.3; the new graph uses
@@ -76,7 +76,7 @@ The net48 consumer is a desktop console and does not establish those native path
 Even the retained 2.1.13 bundle here must not be described as a UWP/Xamarin fallback.
 
 Source reconciliation matters: the reviewed article describes bundle2.1.12,
-while the actual Sqlite11 RC2 graph resolves bundle/config/core/provider3.0.5
+while the actual Sqlite11 GA graph resolves bundle/config/core/provider3.0.5
 and SQLite3.53.4. The executed artifact graph governs these sample prerequisites.
 Custom/encrypted bundle migration remains separate work; a package label is not
 native-platform or encryption proof.
@@ -232,7 +232,7 @@ of execution: the EXE was also launched directly, recorded separately.
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 The authoring check `eng/Record-SqliteRuntime.ps1` builds and executes all four
 real consumers and checks the managed asset selected by each restore. It records
@@ -250,7 +250,7 @@ neither those checks nor retrieval establishes other native platforms or GA.
 
 - [Reviewed .NET Framework and UWP/classic Xamarin breaking-change baseline](https://github.com/dotnet/EntityFramework.Docs/blob/aa051c4c1cad21b2dc03fa401ac0e925c3644606/entity-framework/core/what-is-new/ef-core-11.0/breaking-changes.md)
 - [Microsoft release notes: Sqlite net10.0 minimum](https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/preview7/efcore.md)
-- [Microsoft.Data.Sqlite.Core 11 RC2 package assets](https://www.nuget.org/packages/Microsoft.Data.Sqlite.Core/11.0.0-rc.2.26504.105)
+- [Microsoft.Data.Sqlite.Core 11 GA package assets](https://www.nuget.org/packages/Microsoft.Data.Sqlite.Core/11.0.0-rc.2.26504.105)
 - [Microsoft.Data.Sqlite.Core 10.0.13 package assets](https://www.nuget.org/packages/Microsoft.Data.Sqlite.Core/10.0.13)
 - [EF Core 11 requires .NET 11](https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew)
 - [Microsoft.Data.Sqlite native-library and bundle configuration](https://learn.microsoft.com/en-us/dotnet/standard/data/sqlite/custom-versions)

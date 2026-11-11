@@ -31,7 +31,7 @@
           "runtime": {
             "name": ".NET",
             "match": "release-family",
-            "reason": "Primary net11.0 consumer; actual RC2 proof is distinct from GA verification.",
+            "reason": "Primary net11.0 consumer; actual GA proof is distinct from GA verification.",
             "version": "11.0"
           },
           "sdk": {
@@ -65,7 +65,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Verified with actual RC2 artifacts; final-GA reconciliation remains open. No experimental diagnostic opt-in on the selected APIs."
+            "Verified with actual GA artifacts; final-GA checks are limited to the recorded scope. No experimental diagnostic opt-in on the selected APIs."
           ]
         },
         "sharedAreas": [],
@@ -73,7 +73,7 @@
         "selectionNotes": [
           "Find the exact base-ten exponent of an integer when decimal digit budgets must preserve large values and define zero and negative-input rules.",
           "Nonnegative integer batch policy: zero has width one, negatives throw. Integer Log10 returns an exponent; width is an application rule.",
-          "RC3 evidence is not actual-GA verification."
+          "GA verification is limited to the recorded checks."
         ],
         "evidenceSamples": [
           "samples/net11.0/BatchEncoder/BatchEncoder.csproj"

@@ -42,7 +42,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "SDK11 with compatible native workloads required; actual generation used SDK10.0.403 template engine and RC2 packages."
+            "reason": "SDK11 with compatible native workloads required; actual generation used SDK10.0.403 template engine and GA packages."
           },
           "language": {
             "name": "C#",
@@ -70,7 +70,7 @@
             }
           ],
           "packageAssets": [
-            "RC2 Android37.2.0-rc.2.84 and Apple27.0.12212-net11-rc.2 workload assets."
+            "GA Android37.2.29 and Apple27.0.12212-net11-rc.2 workload assets."
           ],
           "providers": [
             "No service, account or external provider required."
@@ -91,7 +91,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "RC2 source/artifact preparation, not GA verification."
+            "Historical RC2 source and GA artifact preparation, within the recorded verification scope."
           ]
         },
         "sourceUrls": [
@@ -168,7 +168,7 @@
       "language": "15.0",
       "target": "net11.0-android37.0",
       "sdk": "11.0.100",
-      "scope": "Pinned RC2 source/artifact review and actual template generation; native compilation/execution not-tested."
+      "scope": "Pinned Historical RC2 source and GA artifact review and actual template generation; native compilation/execution not-tested."
     },
     {
       "kind": "official-review",
@@ -176,7 +176,7 @@
       "language": "15.0",
       "target": "net11.0-ios27.0",
       "sdk": "11.0.100",
-      "scope": "Pinned RC2 source/artifact review and actual template generation; native compilation/execution not-tested."
+      "scope": "Pinned Historical RC2 source and GA artifact review and actual template generation; native compilation/execution not-tested."
     }
   ],
   "humanProof": {

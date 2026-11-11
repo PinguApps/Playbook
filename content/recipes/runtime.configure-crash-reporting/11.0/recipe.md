@@ -16,7 +16,7 @@ On supported Unix CoreCLR .NET 11 builds, DOTNET_EnableCrashReport=1 or DOTNET_E
 
 {{snippet:newer}}
 
-When DOTNET_DbgEnableMiniDump is enabled, createdump retains ownership of these report switches; do not claim the same in-process path. DOTNET_DbgMiniDumpName configures createdump naming, whereas DOTNET_CrashReportRootPath is the in-process reporter's root. In RC2 the latter creates `.dotnet/crash-reports/report-<timestamp>-<pid>.crashreport.json` underneath that root and also emits readable diagnostic output. Treat naming/schema as versioned diagnostics, not a durable ingestion contract. Without the explicit root, do not assume this fixture's file lifecycle or location.
+When DOTNET_DbgEnableMiniDump is enabled, createdump retains ownership of these report switches; do not claim the same in-process path. DOTNET_DbgMiniDumpName configures createdump naming, whereas DOTNET_CrashReportRootPath is the in-process reporter's root. In GA the latter creates `.dotnet/crash-reports/report-<timestamp>-<pid>.crashreport.json` underneath that root and also emits readable diagnostic output. Treat naming/schema as versioned diagnostics, not a durable ingestion contract. Without the explicit root, do not assume this fixture's file lifecycle or location.
 
 ## Migration
 
@@ -36,6 +36,6 @@ Keep reports private: stacks, modules, exception messages and memory diagnostics
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
-Two network-disabled disposable Linux x64 containers compile the actual canonical projects under SDK 10.0.403 and 11.0.100. A real child FailFast exits 134. The .NET 10 log identifies createdump and its report; RC2 identifies the in-process reporter, managed DispatchFailure frame and module list. The generated report file, rather than stderr alone, contains DispatchFailure. The helper records exact output/artifacts and removes the temporary crash directory. This is real capture, not a mock or cross-compilation. Other platforms, full memory dumps and production failure modes are not executed; GA reconciliation remains required.
+Two network-disabled disposable Linux x64 containers compile the actual canonical projects under SDK 10.0.403 and 11.0.100. A real child FailFast exits 134. The .NET 10 log identifies createdump and its report; GA identifies the in-process reporter, managed DispatchFailure frame and module list. The generated report file, rather than stderr alone, contains DispatchFailure. The helper records exact output/artifacts and removes the temporary crash directory. This is real capture, not a mock or cross-compilation. Other platforms, full memory dumps and production failure modes are not executed; GA checks are limited to the recorded scope.

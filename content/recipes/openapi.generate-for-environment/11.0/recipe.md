@@ -32,7 +32,7 @@ OpenApiGenerationEnvironment requires the supported .NET 11 build/tool assets, p
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Both actual net10.0/net11.0 projects compile and execute their real loopback checks. contracts.evidence.json separately records four actual build-time generations: older Development/Production process environments and newer Development/Production MSBuild selection. Each checks the calibration path and transformed title in a real generated document. This is execution of ApiDescription.Server's supported mock-host pipeline, not a mock test result or a claim of deployed HTTP behavior. The same records also capture a generated typed consumer for the ordinary 3.0 contract; that check is distinct from environment selection.
 

@@ -45,7 +45,7 @@
         "selectionNotes": [
           "The host framework and SDK are independent of the project being inspected. This net11 host really evaluates an imported net10 project.",
           "SDK10 retains a verified full-evaluation alternative but has no ProjectEvaluationStage API. No older-target partial route or new .NET10 foundation is advertised.",
-          "Partial state is guarded: RC2 Targets.Count throws rather than returning zero. Use Full for target discovery and execution."
+          "Partial state is guarded: GA Targets.Count throws rather than returning zero. Use Full for target discovery and execution."
         ],
         "requirements": {
           "runtime": {
@@ -98,8 +98,8 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Exact RC2 preview evidence is not actual GA. PIN-959/PIN-963 and unrelated Human gates remain open.",
-            "The API is not labelled experimental and needs no -mt switch. Preview7 target-count prose is superseded by actual RC2 getter guards."
+            "Exact GA preview evidence is limited to the recorded checks. PIN-959/PIN-963 and unrelated Human gates remain open.",
+            "The API is not labelled experimental and needs no -mt switch. Preview7 target-count prose is superseded by actual GA getter guards."
           ]
         },
         "sourceUrls": [

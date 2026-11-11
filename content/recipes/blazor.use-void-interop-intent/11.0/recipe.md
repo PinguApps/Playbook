@@ -53,7 +53,7 @@ Save all listed files in a separate BreakwaterLab directory. The complete app co
 
 ## Newer approach
 
-The .NET 11 increase handler awaits InvokeVoidAsync for announce. Keep InvokeAsync<IJSObjectReference> for importing the module because import really does return a reference. The source change follows the purpose of BL0010, without implementing an analyzer or claiming that a runtime API was newly introduced. The declared RC2 build also enforces BL0016 error handling; the complete component includes try/catch and module disposal.
+The .NET 11 increase handler awaits InvokeVoidAsync for announce. Keep InvokeAsync<IJSObjectReference> for importing the module because import really does return a reference. The source change follows the purpose of BL0010, without implementing an analyzer or claiming that a runtime API was newly introduced. The declared GA build also enforces BL0016 error handling; the complete component includes try/catch and module disposal.
 
 
 #### .NET 11: `global.json`
@@ -146,9 +146,9 @@ Blazor JS interop authoring only; analyzer internals, diagnostic implementation 
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
-API stability is stable in discovery/detail; the measured artifact is RC2, not GA.
+API stability is stable in discovery/detail; the measured artifact is GA.
 Compilation records preserve exact inputs, SDK, target, language, dependencies and
 source dirty state. Browser execution is separate from compilation. The focused
 receipts are documented in docs/verification/component-interop.md. This recipe makes no

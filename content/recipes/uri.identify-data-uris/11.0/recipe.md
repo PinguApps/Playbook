@@ -36,8 +36,8 @@ This single goal consolidates the provisional URI/MIME groupings: uri.handle-sch
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Actual net10.0 and net11.0 ContentDescriptions projects compile and execute checks for all five media types, uppercase DATA, HTTPS, invalid relative input and unknown formats. A malformed data payload is deliberately still recognised by its scheme, proving this is not payload validation. No network request, media decoding, safety check or playback was executed or claimed.
 
-The newer APIs are framework constants, with no external package/assets, workload, provider, rendering mode or experimental opt-in. There is no older-target route using newer framework APIs. Exact SDK/runtime/language artifacts and input hashes are saved with the samples; .NET 11 RC2 evidence does not establish GA verification.
+The newer APIs are framework constants, with no external package/assets, workload, provider, rendering mode or experimental opt-in. There is no older-target route using newer framework APIs. Exact SDK/runtime/language artifacts and input hashes are saved with the samples; .NET 11 GA evidence does not establish GA verification.

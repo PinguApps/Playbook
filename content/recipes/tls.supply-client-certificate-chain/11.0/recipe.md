@@ -99,7 +99,7 @@ from Linux's separate issuer-fetch budget.
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 `eng/Record-CertificateLinks.ps1 -VerifySources` first compiles both real consumers,
 capturing compiler/reference/CoreLib hashes and empty package dependencies. It then
@@ -108,7 +108,7 @@ libcrypto paths/hashes, OpenSSL version, OS/runtime/architecture, certificate in
 hashes, commands, callback chain status and cleanup are retained in separate
 `linux.evidence.json` records through the existing evidence workflow.
 
-| Case (client sends leaf only) | .NET10.0.13 | .NET11 RC2 |
+| Case (client sends leaf only) | .NET10.0.13 | .NET11 GA |
 | --- | --- | --- |
 | No custom chain policy | Success, one AIA request and data exchange | PartialChain, zero AIA requests, no accepted booking |
 | Server supplies intermediate; downloads disabled | Success, zero requests and data exchange | Success, zero requests and data exchange |
@@ -120,4 +120,4 @@ Compilation and native execution are classified separately. The ordinary packed,
 isolated local-feed-installed tool returns discovery ID/title/goal, full canonical
 Markdown, applicability and fresh evidence offline from an unrelated directory.
 No .NET10 edition is added; eight foundations and existing recipe identities remain
-intact. PIN-959/PIN-962 and existing Human gates remain open; RC2 is not GA proof.
+intact. PIN-959/PIN-962 and existing Human gates remain open; GA checks establish only the recorded scope.

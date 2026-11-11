@@ -35,7 +35,7 @@ Read decimal text as decimal, or use decimal literals, when that is the contract
 These runtime-parsed original inputs were executed on the paired pinned artifacts
 with two digits and `ToEven`:
 
-| Input / representation | .NET 10 | .NET 11 RC2 |
+| Input / representation | .NET 10 | .NET 11 GA |
 | --- | --- | --- |
 | double `10.025`, just above the decimal midpoint | 10.02 | 10.03 |
 | double `10.055`, just below the decimal midpoint | 10.06 | 10.05 |
@@ -102,12 +102,12 @@ account or service is required.
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Saved compile-and-run evidence records exact commands, input hashes, locked
 dependencies, runtime-parsed inputs, results and compiler/reference/runtime/package
 hashes. Windows x64 CoreCLR JIT is measured; interpreter, Native AOT, Mono and
-other OS/architecture execution are not established. RC2 is not actual-GA proof.
+other OS/architecture execution are not established. GA is limited to the recorded checks.
 The .NET 10 comparison is not a ninth foundation or a target10 catalogue edition.
 Comprehensive coverage, actual-GA reconciliation and existing Human gates remain open.
 

@@ -26,7 +26,7 @@ Start anchoring keeps new arrivals visible when already at the start. Away from 
 
 ## Migration
 
-1. Use Microsoft.NET.Sdk.Web, net11.0, C# 15.0, nullable and implicit usings. Reference Microsoft.AspNetCore.Components.QuickGrid 11. The canonical pins are SDK 11.0.100, QuickGrid/Internal.Assets 11.0.0. The actual older comparison uses SDK 10.0.403, net10.0, C# 14.0 and QuickGrid/Internal.Assets 10.0.14. SDK/package pins reproduce RC2 proof; no optional workload or external service is needed. No newer-package/older-target route is claimed.
+1. Use Microsoft.NET.Sdk.Web, net11.0, C# 15.0, nullable and implicit usings. Reference Microsoft.AspNetCore.Components.QuickGrid 11. The canonical pins are SDK 11.0.100, QuickGrid/Internal.Assets 11.0.0. The actual older comparison uses SDK 10.0.403, net10.0, C# 14.0 and QuickGrid/Internal.Assets 10.0.14. SDK/package pins reproduce GA proof; no optional workload or external service is needed. No newer-package/older-target route is claimed.
 2. Put ManifestPage.razor and Consignment.cs in namespace Playbook.Samples. Begin ManifestPage.razor with @page "/" and @rendermode InteractiveServer before the shown body. Set @namespace Playbook.Samples in _Imports.razor and import Microsoft.AspNetCore.Components, its Routing and Web namespaces, Web.Virtualization, QuickGrid, Playbook.Samples and static Microsoft.AspNetCore.Components.Web.RenderMode. For the older component also add @using Microsoft.JSInterop, @inject IJSRuntime JS and @implements IAsyncDisposable; put its JavaScript snippet in wwwroot/manifest.js. Keep the shared host:
 
 {{snippet:host}}
@@ -44,13 +44,13 @@ Start anchoring keeps new arrivals visible when already at the start. Away from 
 
 - QuickGrid Virtualize=true, a rendered instance and constant row heights matching ItemSize are required. Static SSR/prerender markup alone cannot perform these operations. Interactive Server is executed; WebAssembly/Auto need their own client composition and are not tested here.
 - The explicit Start mode is also the default. None disables edge pinning; End follows appended items only while at the end, disengaging when the reader moves away. Flags can combine Start and End. Those other modes are source-reviewed contracts, not the canonical sample's execution claim. This recipe is grid-specific; list anchoring and variable-height lists are separate goals.
-- RC2 removes ASP0030 from QuickGrid AnchorMode and ItemComparer. Use them without an obsolete experimental suppression. Earlier preview examples calling these parameters experimental describe older metadata. The pinned RC2 package exposes stable contracts, while prerelease artifacts are not GA verification.
+- GA removes ASP0030 from QuickGrid AnchorMode and ItemComparer. Use them without an obsolete experimental suppression. Earlier preview examples calling these parameters experimental describe older metadata. The pinned GA package exposes stable contracts, while verification is limited to the recorded artifacts and checks.
 - Initial positioning is not persistence storage. Supply the initial index from application state only after resolving the desired identity in the current ordered/filter context. The sample starts at a known index and does not implement URL state or row-click callbacks.
 - Anchoring needs usable overlap and stable identities. Arbitrary replacement of all results, removal of the anchor, changing sort/filter and remote provider races need an application policy; this sample does not promise to retain a vanished row.
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Both actual pinned Web SDK consumers compile with warnings as errors, separately from browser execution. Real Chrome Interactive Server checks measure rendered row identity, bounding rectangles, uniform 32px heights, a bounded virtualized window, initial/programmatic positioning and anchor retention through fresh-object reload, prepend and append. The T3 preview's standalone IntersectionObserver did not fire and its snapshot timed out; its failed synthetic moves are not application execution proof. Chrome is the rendered proof. No mock, calculated offset alone or cross-compilation substitutes for it.
 

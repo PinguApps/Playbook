@@ -21,7 +21,7 @@ The .NET 10 comparison uses SDK 10.0.403, C# 14, hostfxr and runtime 10.0.14:
 
 ## Newer approach
 
-The .NET 11 version uses SDK 11.0.100, C# 15 and matching RC2
+The .NET 11 version uses SDK 11.0.100, C# 15 and matching GA
 hostfxr/runtime. These exact pins reproduce the evidence; they are separate from
 the feature requirement, .NET 11's host behavior introduced in Preview 6.
 
@@ -47,7 +47,7 @@ not a magic filename the host reads automatically:
 
 Create a directory containing the matching project, `Program.cs`,
 `development.json` and a `global.json` pin for the stated SDK
-(`rollForward: "disable"`, `allowPrerelease: false` for RC2). From that directory,
+(`rollForward: "disable"`, `allowPrerelease: false` for GA). From that directory,
 invoke the matching installation's absolute `dotnet` executable with arguments
 `build TidalDiagnostics.csproj -c Release`. Copy `development.json` to
 `bin/Release/net10.0/TidalDiagnostics.runtimeconfig.dev.json` for the older
@@ -76,10 +76,10 @@ and the reported CoreLib path.
 
 ## Build and publish intentionally
 
-The actual SDK 10.0.403 and RC2 paths were evaluated and executed:
+The actual SDK 10.0.403 and GA paths were evaluated and executed:
 
 - For `Configuration=Release`, `GenerateRuntimeConfigDevFile` evaluates to
-  `false` in SDK 10 and is unset in RC2; neither emits a sidecar. Explicitly building
+  `false` in SDK 10 and is unset in GA; neither emits a sidecar. Explicitly building
   Release with `-p:GenerateRuntimeConfigDevFile=true` generates a dev file with
   `additionalProbingPaths`; it does not invent these application overrides.
 - Ordinary builds and framework-dependent publishes of these projects produced
@@ -119,13 +119,13 @@ This target-11 edition retains an actual .NET 10 comparison; it adds no historic
 .NET 10 foundation. Both samples are workload-free CoreCLR console applications
 with no NuGet dependencies, provider, browser/rendering mode or native compiler.
 The example's C# modes are sample pins, not language requirements for host merging.
-Execution evidence is Windows x64, SDK 10.0.403 / 11 RC2, hostfxr/CoreCLR
+Execution evidence is Windows x64, SDK 10.0.403 / 11 GA, hostfxr/CoreCLR
 10.0.13 / 11.0.0. Other platforms need their own artifact check.
-No API here is experimental; RC3 evidence is not GA verification.
+No API here is experimental; GA verification is limited to the recorded checks.
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 `eng/Test-RuntimeOverrides.ps1` compiles detached consumers in an isolated cache,
 runs all cases above and records host identity and copy/generation observations.

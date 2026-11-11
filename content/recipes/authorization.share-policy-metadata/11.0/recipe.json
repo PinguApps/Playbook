@@ -46,7 +46,7 @@
             "name": ".NET",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Actual net11.0 ASP.NET Core consumer; RC2 execution is not GA proof."
+            "reason": "Actual net11.0 ASP.NET Core consumer; GA execution is limited to the recorded checks."
           },
           "sdk": {
             "name": ".NET SDK",
@@ -96,7 +96,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Stable APIs with .NET 11 RC2 compilation/execution. This is not GA verification."
+            "Stable APIs with .NET 11 GA compilation/execution. Verification covers only the recorded checks."
           ]
         },
         "sourceUrls": [

@@ -192,7 +192,7 @@ nuget.org, and no real API key is required.
 
 ## Evidence and limits
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 `eng/Record-FoundryStaging.ps1` uses the existing sample-evidence workflow to
 build/run both actual dependency sets, pack original nupkg/snupkg inputs and
@@ -220,7 +220,7 @@ no applicable staging edition; the valid old publication comparison remains in
 this body. Retrieval executes no uploads. These are Windows x64 managed HTTP
 checks, not mock responses injected into NuGet, TLS/provider interoperability,
 performance, other-platform or GA evidence. The API requires no experimental
-diagnostic suppression or preview-language flag; the SDK itself is RC2/preview.
+diagnostic suppression or preview-language flag; the SDK itself is GA/preview.
 The exact eight approved .NET10 foundations, PIN-959 qualifying coverage/evidence,
 PIN-963 actual-GA reconciliation and unrelated Human gates remain open.
 

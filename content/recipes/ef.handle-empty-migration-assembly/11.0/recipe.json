@@ -46,7 +46,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Exact current-release proof uses SDK11 GA, not GA."
+            "reason": "Exact current-release proof uses SDK11 GA."
           },
           "language": {
             "name": "C#",
@@ -106,7 +106,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Stable API guidance prepared with exact RC2 packages; GA reconciliation remains pending."
+            "Stable API guidance prepared with exact GA packages; GA checks are limited to the recorded scope."
           ]
         },
         "conditional": false,

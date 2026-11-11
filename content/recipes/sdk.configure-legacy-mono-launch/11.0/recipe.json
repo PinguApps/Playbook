@@ -29,7 +29,7 @@
         "conditional": false,
         "usage": "primary",
         "selectionNotes": [
-          "Linux x64 Docker execution; SDK 10.0.403 and SDK 11 GA comparison. RC2 is not GA evidence.",
+          "Linux x64 Docker execution; SDK 10.0.403 and SDK 11 GA comparison. GA is limited to the recorded checks.",
           "Catalogue target 11.0 selects the SDK family; the actual consumer remains net472, not net11.0."
         ],
         "sharedAreas": [],
@@ -76,7 +76,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Current evidence uses SDK 11 GA, not GA."
+            "Current evidence uses SDK 11 GA."
           ]
         },
         "sourceUrls": [

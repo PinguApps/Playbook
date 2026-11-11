@@ -70,7 +70,7 @@ Both applications use this wwwroot/index.html, including complete CSS, and wwwro
 
 ## Actual generated .NET 11 client and assets
 
-These are the real RC2 template outputs after namespace substitution, LF normalization and canonical-region markers. They are not a handwritten substitute and do not copy a guide's worked example. Keep these file names and _content paths with the FossilWorker assembly name. If renamed, regenerate consistently. The SDK template package and immutable ASP.NET source were compared; exact hashes and generation provenance are recorded with this recipe's verification.
+These are the real GA template outputs after namespace substitution, LF normalization and canonical-region markers. They are not a handwritten substitute and do not copy a guide's worked example. Keep these file names and _content paths with the FossilWorker assembly name. If renamed, regenerate consistently. The SDK template package and immutable ASP.NET source were compared; exact hashes and generation provenance are recorded with this recipe's verification.
 
 FossilWorker/WebWorkerClient.cs:
 
@@ -90,22 +90,22 @@ The page import map resolves fingerprinted dotnet.js before passing its URL into
 
 1. Isolate CPU work and its transferable inputs/results. Retain JavaScript workers when they suit the existing calculation. Do not assume Task.Run or an async signature makes browser CPU work nonblocking.
 2. On .NET 11 generate the current blazorwebworker library, reference it from the WASM client, preserve both generated scripts and add original JSExport methods. Supply all SDK/package/project/document files above.
-3. Create after rendering, retain ownership during creation, serialize this RC2 client's calls and dispose the client when its owner ends. Use call cancellation and timeout to bound waiting; use termination when all worker execution must end. Design a separate cooperative job protocol if partial results or graceful cancellation are required.
+3. Create after rendering, retain ownership during creation, serialize this GA client's calls and dispose the client when its owner ends. Use call cancellation and timeout to bound waiting; use termination when all worker execution must end. Design a separate cooperative job protocol if partial results or graceful cancellation are required.
 4. From each FossilDesk directory, set DOTNET_ADD_GLOBAL_TOOLS_TO_PATH=0, restore with its matching absolute dotnet executable, then run dotnet run -c Release --no-restore --no-launch-profile --urls http://localhost:5831 for .NET 10 or http://localhost:5832 for .NET 11. Restore downloads pinned WebAssembly SDK/runtime packs. The supplied packages.lock.json captures the authoring closure; standalone reconstruction generates its lock on restore.
 5. Select Score specimens and immediately Mark another tray. The count must advance while Computing is still visible. On .NET 11, timeout/cancel the wait and observe Report's completion count still advance. Release worker interrupts its pending CPU call. Reload creates fresh in-memory state.
 
 ## Constraints
 
 - WASM/CSR; current blazorwebworker template; see E03. This edition selects .NET 11 only. The actual .NET 10 JavaScript worker comparison is not a new .NET 10 foundation or a compatible generated-client route. Static SSR cannot execute it; Interactive Server is a different server-side design. A hosted application's client can adopt a worker, but hosted/Auto composition is not executed here.
-- The reviewed generated client/JSExport route has no Experimental diagnostic. The actual package baseline is RC2, with C# 15 mode and .NET 11 assets; this is prerelease evidence, not GA verification. DevServer is only the local test host. RC2 emits a deprecation warning recommending future Gateway migration; that separate hosting change is outside this recipe.
+- The reviewed generated client/JSExport route has no Experimental diagnostic. The actual package baseline is GA, with C# 15 mode and .NET 11 assets; this is GA evidence for the recorded checks. DevServer is only the local test host. GA emits a deprecation warning recommending future Gateway migration; that separate hosting change is outside this recipe.
 - Creation timeout rejects and calls native terminate. In-flight creation cancellation cancels the managed JS await, which can lose the reference while the JavaScript creation promise continues. Retain and await eventual creation for ownership; the diagnostic probe intentionally shows the hazard and explicitly cleans it up.
 - Invocation timeout removes a pending result; the worker may still finish. Cancellation ends the managed JS await without cancelling the export. The real worker's completed counter proves work continued in both cases. Generated DisposeAsync invokes terminate and releases its JS reference: this forcibly ends the worker, not graceful per-job cancellation or an awaited business rollback.
-- RC2 invocation timeout cleanup reads the latest request ID instead of retaining the timed-out call's ID. Concurrent timed-out calls can disturb another pending request. This example serializes operations and does not claim concurrent timeout correctness or patch framework code. A bounded timeout is a waiting policy, not proof of job cancellation or a general memory-cleanup guarantee.
+- GA invocation timeout cleanup reads the latest request ID instead of retaining the timed-out call's ID. Concurrent timed-out calls can disturb another pending request. This example serializes operations and does not claim concurrent timeout correctness or patch framework code. A bounded timeout is a waiting policy, not proof of job cancellation or a general memory-cleanup guarantee.
 - Separate worker .NET startup/memory and message copying have costs. No speedup, background-tab timing, mobile suspension, AOT or production deployment proof is claimed. Browser refresh/close does not guarantee asynchronous component disposal or durable work; authoritative persistence and durable scheduling need a backend.
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Actual SDK 10.0.403/C#14 compiles the older standalone WASM application. Actual SDK 11.0.100/C#15 compiles the consuming app and generated worker library independently with locked dependencies. These records are compilation, not desktop execution or cross-compilation. No mocked worker/client substitutes for the runtime.
 

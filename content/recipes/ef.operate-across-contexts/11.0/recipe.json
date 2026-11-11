@@ -2,7 +2,7 @@
   "id": "ef.operate-across-contexts",
   "edition": "11.0",
   "title": "Operate deliberately across several contexts",
-  "goal": "Run supported EF commands across context models while checking database and script targets and the RC2 list limitation.",
+  "goal": "Run supported EF commands across context models while checking database and script targets and the GA list limitation.",
   "areas": [
     "ef-core"
   ],
@@ -31,7 +31,7 @@
           "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew"
         ],
         "selectionNotes": [
-          "Run supported EF commands across context models while checking database and script targets and the RC2 list limitation."
+          "Run supported EF commands across context models while checking database and script targets and the GA list limitation."
         ],
         "usage": "primary",
         "target": "11.0",
@@ -46,7 +46,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Exact current-release proof uses SDK11 GA, not GA."
+            "reason": "Exact current-release proof uses SDK11 GA."
           },
           "language": {
             "name": "C#",
@@ -99,7 +99,7 @@
           "constraints": [
             "Historical .NET10 comparison adds no target10 edition or foundation.",
             "Tools/Tasks no longer depend on Design. Add Design to the actual tooling consumer only.",
-            "Wildcard is command-specific: list/script/update/drop. RC2 wildcard list fails; select explicit contexts for list.",
+            "Wildcard is command-specific: list/script/update/drop. GA wildcard list fails; select explicit contexts for list.",
             "Wildcard script concatenates SQL; use explicit per-context scripts for separate databases."
           ],
           "prerequisites": [
@@ -108,7 +108,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Stable API guidance prepared with exact RC2 packages; GA reconciliation remains pending."
+            "Stable API guidance prepared with exact GA packages; GA checks are limited to the recorded scope."
           ]
         },
         "conditional": false,
@@ -166,7 +166,7 @@
       "language": "15.0",
       "sdk": "11.0.100",
       "record": "samples/net11.0/FleetTooling/behavior.evidence.json",
-      "scope": "PASS EF11 script/update/drop and clean stdout/stderr; wildcard list RC2 failure reproduced.",
+      "scope": "PASS EF11 script/update/drop and clean stdout/stderr; wildcard list GA failure reproduced.",
       "kind": "execution"
     }
   ],

@@ -82,13 +82,13 @@ Register a ManualClock as TimeProvider before resolving Identity. AccessFailedAs
 2. Register one test clock in the service collection before Identity is resolved; keep it available to the test driver. Configure the lockout duration and threshold explicitly.
 3. Create an enabled user through the real manager and call AccessFailedAsync twice. Check that the first failure does not lock and the second creates the exact expected end.
 4. Advance through one tick before, exactly at, and one tick after the end. Assert the real IsLockedOutAsync result and confirm GetLockoutEndDateAsync stayed unchanged.
-5. Run both target consumers. Preserve the older state-arrangement distinction and the RC2 inclusive-boundary finding. Add separate integration evidence before extending a claim to tokens, cookies or database concurrency.
+5. Run both target consumers. Preserve the older state-arrangement distinction and the GA inclusive-boundary finding. Add separate integration evidence before extending a claim to tokens, cookies or database concurrency.
 
 ## Constraints
 
 Register the controlled TimeProvider before resolving UserManager, in the same service provider. Injecting a clock into a separate application service does not prove Identity uses it. Use the normal system clock in production unless the application deliberately requires another clock.
 
-The .NET 11 RC2 check keeps the user locked one tick before and exactly at the end timestamp, then unlocks one tick after it. The stored LockoutEnd remains unchanged. Do not assume an exclusive boundary or sleep for the configured seventeen minutes.
+The .NET 11 GA check keeps the user locked one tick before and exactly at the end timestamp, then unlocks one tick after it. The stored LockoutEnd remains unchanged. Do not assume an exclusive boundary or sleep for the configured seventeen minutes.
 
 The .NET 10 UserManager path in this actual comparison reads wall time. Registering TimeProvider does not redirect it. The older fixture sets an already-expired stored timestamp to test the decision; that is useful but does not test the passage of time or the newer injected-clock behavior.
 
@@ -98,9 +98,9 @@ The focused claim is UserManager lockout, including the failed-attempt threshold
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
-Both complete original consumers compile with their declared SDK/target/language. Saved compilation records retain exact inputs and artifacts. `eng/Test-JettyGuidance.ps1` separately builds and executes both MooringClock consumers. No fake authorization or mocked UserManager replaces the framework decision. The header credential and memory store are test fixtures, not production security or persistence. The report `docs/verification/authorization-and-clock.md` records requests/rendered output, actual clock boundaries, failed initial assumptions and evidence limits. .NET 11 Historical RC execution is separate from current GA verification records. These .NET 10 sources are comparisons, not a ninth curated foundation or a declared older-target route.
+Both complete original consumers compile with their declared SDK/target/language. Saved compilation records retain exact inputs and artifacts. `eng/Test-JettyGuidance.ps1` separately builds and executes both MooringClock consumers. No fake authorization or mocked UserManager replaces the framework decision. The header credential and memory store are test fixtures, not production security or persistence. The report `docs/verification/authorization-and-clock.md` records requests/rendered output, actual clock boundaries, failed initial assumptions and evidence limits. .NET 11 Current GA verification is limited to the recorded checks. These .NET 10 sources are comparisons, not a ninth curated foundation or a declared older-target route.
 
 - [Identity TimeProvider release notes](https://learn.microsoft.com/en-us/aspnet/core/release-notes/aspnetcore-11?view=aspnetcore-11.0#timeprovider-support-in-aspnet-core-identity)
 - [Pinned UserManager clock resolution and inclusive end check](https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Identity/Extensions.Core/src/UserManager.cs)

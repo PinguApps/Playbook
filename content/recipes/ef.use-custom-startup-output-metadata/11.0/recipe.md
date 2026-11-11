@@ -25,7 +25,7 @@ EF11 reads the startup project output metadata. The example keeps AvocetStore as
 
 ## Constraints
 
-Original Windows x64 comparisons: SDK10.0.403/C#14/EF10.0.13 versus SDK11.0.100/C#15. EF11 tooling uses RC2; Cosmos uses RC3. EF11 requires net11.0; this is not an older-runtime EF11 route or GA proof. No language-preview opt-in. Console/database guidance has no rendering mode. Keep exact locks; restore requires network access. The installed guidance is offline. No additional .NET10 foundation or recurring platform matrix is introduced.
+Original Windows x64 comparisons: SDK10.0.403/C#14/EF10.0.13 versus SDK11.0.100/C#15. EF11 tooling uses GA; Cosmos uses GA. EF11 requires net11.0; this is not an older-runtime EF11 route or GA proof. No language-preview opt-in. Console/database guidance has no rendering mode. Keep exact locks; restore requires network access. The installed guidance is offline. No additional .NET10 foundation or recurring platform matrix is introduced.
 
 SQLite uses the actual bundled native Windows x64 engines. Matching EF/Design/dotnet-ef and patched Pkcs10.0.13 are tooling dependencies. Other platforms, encrypted engines, PMC and NativeAOT are not established.
 
@@ -136,7 +136,7 @@ SQLite uses the actual bundled native Windows x64 engines. Matching EF/Design/do
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Independent compilation uses each SDK pin and lock. Focused SQLite tooling and Cosmos emulator checks are recorded separately; compilation alone does not establish database behavior. Actual GA and other platforms remain unverified.
 

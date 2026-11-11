@@ -28,7 +28,7 @@ EF11 no longer escapes /, \, ? or # in generated composite/discriminator IDs. Th
 
 ## Constraints
 
-EF Cosmos11 requires net11.0, SDK11 and C#15 in this sample; the EF10 comparison uses net10.0, SDK10 and C#14. Exact pins are below and in applicability. Stable API guidance uses RC3 evidence, not GA verification. Windows x64 and the approved legacy Linux emulator only; no browser, renderer, cloud parity or performance claim.
+EF Cosmos11 requires net11.0, SDK11 and C#15 in this sample; the EF10 comparison uses net10.0, SDK10 and C#14. Exact pins are below and in applicability. Stable API guidance uses the recorded GA SDK and package evidence. Windows x64 and the approved legacy Linux emulator only; no browser, renderer, cloud parity or performance claim.
 
 ## Complete projects
 
@@ -62,11 +62,11 @@ EF Cosmos11 requires net11.0, SDK11 and C#15 in this sample; the EF10 comparison
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Paired exact-artifact records retain actual SDKs, dependencies, input hashes, compilation and local-emulator execution. They cover historical composite IDs, compatibility/collision checks and explicit undefined filtering/fallback versus JSON null. The EF11 consumer additionally checks default reachability and a legal new composite ID in a separate process.
 
-The shared consumer also records projection observations for `cosmos.handle-missing-projection`. Its documented undefined-exception contract requires a real GA retest; that separate limitation does not weaken the identity checks above. Actual GA reconciliation of this identity guidance also remains pending.
+The shared consumer also records projection observations for `cosmos.handle-missing-projection`. The GA rerun still omits a missing single-property projection while the multi-property projection throws. That provider discrepancy does not weaken the independently verified identity checks above.
 
 No mocks, cloud service parity, production data migration, performance result or GA execution is claimed. Installed offline retrieval separately checks canonical full Markdown, applicability and target11/edition11; older comparison samples add no target10 edition.
 

@@ -34,7 +34,7 @@ Framework APIs only; no NuGet package, native workload, rendering mode or experi
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 `eng/Record-NativeBoundaries.ps1 -VerifySources` compiles real SDK 10.0.403/C# 14/ref-runtime10.0.14 and SDK 11RC3/C# 15/ref-runtime11RC3 consumers on Windows x64 build26200. CNG HKDF opens successfully; the exact current implementation's selection field is true. Native bcrypt version/hash, compiler/reference/runtime hashes and deterministic input construction are saved through ordinary sample evidence.
 

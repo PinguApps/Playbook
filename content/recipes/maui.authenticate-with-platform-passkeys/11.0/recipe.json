@@ -33,7 +33,7 @@
             "name": ".NET",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Canonical current target; RC authoring is not GA execution."
+            "reason": "Canonical current target; RC authoring is limited to the recorded checks execution."
           },
           "sdk": {
             "name": ".NET SDK",
@@ -86,7 +86,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Stable public contract inspected in RC2; no GA execution claim."
+            "Stable public contract inspected in GA; no GA execution claim."
           ]
         },
         "sharedAreas": [],

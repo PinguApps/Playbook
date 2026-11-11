@@ -18,7 +18,7 @@
       "selectionNotes": ["Interactive; browser/layout dependent."],
       "requirements": {
         "runtime": {"name": ".NET", "version": "11.0", "match": "release-family", "reason": "Requires the .NET 11 Virtualize implementation and browser assets."},
-        "sdk": {"name": ".NET SDK", "version": "11.0", "match": "release-family", "reason": "Matching Razor/reference/browser assets; RC2 is the tested pin."},
+        "sdk": {"name": ".NET SDK", "version": "11.0", "match": "release-family", "reason": "Matching Razor/reference/browser assets; GA is the tested pin."},
         "language": {"name": "C#", "version": "15.0", "match": "exact", "reason": "Canonical language mode; anchoring itself does not require C# 15 syntax."},
         "frameworks": ["ASP.NET Core 11"],
         "packages": [],
@@ -39,7 +39,7 @@
           "The .NET 10 bounded nonvirtualized comparison is compiled/executed, not an older-target route for the new API. No WebAssembly/Auto, table/Safari, other-platform or GA execution is claimed."
         ],
         "optIns": [],
-        "stabilityLimitations": ["RC2; GA proof pending."]
+        "stabilityLimitations": ["GA; GA proof pending."]
       },
       "evidenceSamples": ["samples/net11.0/OrchardJournal/OrchardJournal.csproj"],
       "sourceUrls": [
@@ -57,7 +57,7 @@
   ],
   "evidence": [
     {"sample": "samples/net10.0/OrchardJournal/OrchardJournal.csproj", "target": "net10.0", "sdk": "10.0.403", "language": "14.0", "kind": "compile", "scope": "Actual bounded nonvirtualized Web SDK comparison. Separate real rendered Chrome checks exercise prepend/append/expansion and retained keyed row state; no mocked observers."},
-    {"sample": "samples/net11.0/OrchardJournal/OrchardJournal.csproj", "target": "net11.0", "sdk": "11.0.100", "language": "15.0", "kind": "compile", "scope": "Actual RC3 Web SDK consumer. Separate real rendered Chrome checks exercise anchoring, fresh provider identity, variable heights and explicit overscan; no cross-compilation or mocked observers."}
+    {"sample": "samples/net11.0/OrchardJournal/OrchardJournal.csproj", "target": "net11.0", "sdk": "11.0.100", "language": "15.0", "kind": "compile", "scope": "Actual GA Web SDK consumer. Separate real rendered Chrome checks exercise anchoring, fresh provider identity, variable heights and explicit overscan; no cross-compilation or mocked observers."}
   ],
   "snippets": {
     "older": {"path": "samples/net10.0/OrchardJournal/Journal.razor", "region": "journal", "language": "razor"},

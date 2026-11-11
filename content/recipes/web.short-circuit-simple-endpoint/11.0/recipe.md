@@ -112,7 +112,7 @@ The X-Test-Crew authentication scheme and developer exception page exist only to
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Nine real requests per target exercise three notices, three actual authorization decisions, a normal CORS response and two incompatible security-metadata controls. The safe handlers still return text, the before-routing trace remains, only marked endpoints skip the after-routing trace, and unsafe handlers stay at zero. CORS headers are checked at HTTP level, not through a browser.
 

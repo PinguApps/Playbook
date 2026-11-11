@@ -14,7 +14,7 @@ the unrelated unused method to be removed. Avoid broad rules preserving every
 class/member. If a class is already reachable, a keepclassmembers rule may suffice
 for its members; it does not itself keep an otherwise unreachable class alive.
 
-In .NET11 RC2, an R8-enabled build defaults to private-members: optimization is
+In .NET11 GA, an R8-enabled build defaults to private-members: optimization is
 active and private/package-private Java members may be renamed. Public/protected
 member and class names remain protected for managed interoperability. This does
 not make every private string lookup safe. Carry consumer rules with a Java
@@ -33,7 +33,7 @@ all Java members. Prefer precise rules once the dynamic entry points are known.
 .NET10's R8 policy already supports explicit keep rules. Its canonical sample uses
 the same rule and omits the new policy property. This is a valid older approach;
 the migration changes the optimizer policy rather than introducing Java reflection.
-RC2 does not ship experimental managed-assembly rewriting. Do not recommend that
+GA does not ship experimental managed-assembly rewriting. Do not recommend that
 design, runtime-remapping or label all R8 usage experimental.
 
 ## Migration
@@ -48,7 +48,7 @@ design, runtime-remapping or label all R8 usage experimental.
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 The .NET10 Android app builds. A separate real R8 classfile run of the canonical
 Java input preserves Beacon's constructor and private signal method while removing
@@ -59,11 +59,11 @@ are **not-tested** under PIN-699. No pending Human action or GA proof is claimed
 ## Constraints
 
 Requires .NET11 Android, C#15, Android API24+, matching Android SDK and JDK21/25.
-Gradle invoked using JDK25 needs9.1+. Canonical SDK is RC3; reviewed platform
-assets are RC2 37.2.0-rc.2.84, not a tested RC3 composition. No extra NuGet
+Gradle invoked using JDK25 needs9.1+. Canonical SDK is GA; reviewed platform
+assets are GA 37.2.29, not a tested GA composition. No extra NuGet
 package, external provider/account or Blazor rendering mode is required. The
 .NET10 comparison is not a supported older-target catalogue route. NativeAOT
-is experimental and outside this sample. RC evidence does not certify GA.
+is experimental and outside this sample. Recorded evidence does not certify GA.
 
 ## Canonical samples
 

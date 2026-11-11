@@ -38,8 +38,8 @@ This route is experimental CoreCLR managed execution, verified on Windows x64. N
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Canonical projects have fresh build/run records, including actual runtime identity and live/exception output. `eng/Test-RuntimeAsync.ps1` rebuilds flag-on/off variants, proves the bare public SDK property is inert, and launches a marked child with both removed variables set to zero. These are real compiler/runtime checks, not mocks, cross-compilation or a profiler/debugger integration test. The installed-tool check retrieves this entire body, applicability and evidence offline. GA reconciliation remains separate.
 
-Official sources: [.NET 11 runtime guidance](https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/runtime), [canonical removal of runtime switches](https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview4/runtime.md), [matching RC2 F# runtime contract](https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/docs/runtime-async.md).
+Official sources: [.NET 11 runtime guidance](https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/runtime), [canonical removal of runtime switches](https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview4/runtime.md), [matching GA F# runtime contract](https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/docs/runtime-async.md).

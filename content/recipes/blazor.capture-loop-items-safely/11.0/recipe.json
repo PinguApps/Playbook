@@ -32,7 +32,7 @@
         "conditional": false,
         "usage": "primary",
         "selectionNotes": [
-          "Click Feed tank 1 then Feed tank 3: selected output must be 1 then 3. The before control produces 4 then 4 on both runtimes. Click Check tank 1 and Check tank 3: foreach must produce 1 then 3 in both versions and both source variants. RC2 reports BL0014 before and none after.",
+          "Click Feed tank 1 then Feed tank 3: selected output must be 1 then 3. The before control produces 4 then 4 on both runtimes. Click Check tank 1 and Check tank 3: foreach must produce 1 then 3 in both versions and both source variants. GA reports BL0014 before and none after.",
           "The fixes are valid on .NET 10; only the diagnostic is new in the measured .NET 11 analyzer. No SDK-only older-target analyzer route, package backport or additional .NET 10 foundation is advertised.",
           "Interactive Server with prerender disabled is the executed route. No WASM, static SSR callback, Hybrid, AOT/trimming, arbitrary concurrency, performance or GA execution is established."
         ],
@@ -75,13 +75,13 @@
             "Use the complete files below. The implicit Microsoft.AspNetCore.App.Internal.Assets package is the only locked package on each actual project. No provider, account or external service."
           ],
           "constraints": [
-            "Click Feed tank 1 then Feed tank 3: selected output must be 1 then 3. The before control produces 4 then 4 on both runtimes. Click Check tank 1 and Check tank 3: foreach must produce 1 then 3 in both versions and both source variants. RC2 reports BL0014 before and none after.",
+            "Click Feed tank 1 then Feed tank 3: selected output must be 1 then 3. The before control produces 4 then 4 on both runtimes. Click Check tank 1 and Check tank 3: foreach must produce 1 then 3 in both versions and both source variants. GA reports BL0014 before and none after.",
             "The fixes are valid on .NET 10; only the diagnostic is new in the measured .NET 11 analyzer. No SDK-only older-target analyzer route, package backport or additional .NET 10 foundation is advertised.",
             "Interactive Server with prerender disabled is the executed route. No WASM, static SSR callback, Hybrid, AOT/trimming, arbitrary concurrency, performance or GA execution is established."
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "The demonstrated public APIs and diagnostics are not experimental. The 11.0 edition prepares release-family guidance using RC2 evidence; PIN-964 actual-GA and PIN-959 comprehensive coverage remain open."
+            "The demonstrated public APIs and diagnostics are not experimental. The 11.0 edition prepares release-family guidance using GA evidence; PIN-964 actual-GA and PIN-959 comprehensive coverage remain open."
           ]
         },
         "sourceUrls": [
@@ -131,7 +131,7 @@
       "sdk": "10.0.403",
       "language": "14.0",
       "kind": "execution",
-      "scope": "Click Feed tank 1 then Feed tank 3: selected output must be 1 then 3. The before control produces 4 then 4 on both runtimes. Click Check tank 1 and Check tank 3: foreach must produce 1 then 3 in both versions and both source variants. RC2 reports BL0014 before and none after.",
+      "scope": "Click Feed tank 1 then Feed tank 3: selected output must be 1 then 3. The before control produces 4 then 4 on both runtimes. Click Check tank 1 and Check tank 3: foreach must produce 1 then 3 in both versions and both source variants. GA reports BL0014 before and none after.",
       "record": "samples/net10.0/WillowQuay/behavior.evidence.json"
     },
     {
@@ -148,7 +148,7 @@
       "sdk": "11.0.100",
       "language": "15.0",
       "kind": "execution",
-      "scope": "Click Feed tank 1 then Feed tank 3: selected output must be 1 then 3. The before control produces 4 then 4 on both runtimes. Click Check tank 1 and Check tank 3: foreach must produce 1 then 3 in both versions and both source variants. RC2 reports BL0014 before and none after.",
+      "scope": "Click Feed tank 1 then Feed tank 3: selected output must be 1 then 3. The before control produces 4 then 4 on both runtimes. Click Check tank 1 and Check tank 3: foreach must produce 1 then 3 in both versions and both source variants. GA reports BL0014 before and none after.",
       "record": "samples/net11.0/WillowQuay/behavior.evidence.json"
     }
   ],

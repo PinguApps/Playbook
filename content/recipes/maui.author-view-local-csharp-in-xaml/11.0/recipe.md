@@ -116,7 +116,7 @@ The project boundary files isolate these version-specific examples from shared r
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 The .NET10 Windows comparison has actual Release compilation evidence with exact resolved packages and inputs. Compilation does not establish rendering, click handling or accessibility. The .NET11 source is official-review only: the existing SDK root lacks Microsoft.Maui.Sdk and the exact build fails NETSDK1147 before compilation. Its compilation, generated output and native execution are explicitly not-tested under PIN-699, not pending obligations to install a workload.
 

@@ -41,13 +41,13 @@
             "name": ".NET",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Current net11.0 guidance; measured RC2 where executed, not actual-GA proof."
+            "reason": "Current net11.0 guidance; measured GA where executed, within the recorded verification scope."
           },
           "sdk": {
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Build against the matching .NET11 reference/toolchain assets; exact RC3 is the reproduction baseline."
+            "reason": "Build against the matching .NET11 reference/toolchain assets; exact GA is the reproduction baseline."
           },
           "language": {
             "name": "C#",
@@ -70,7 +70,7 @@
               "name": "Matched CoreCLR browser-wasm native workload and packs",
               "version": "11.0",
               "match": "release-family",
-              "reason": "Intended RC2 CoreCLR toolchain composition is source-reviewed only; no compatible installed closure measured. Existing Mono wasm-tools label is insufficient."
+              "reason": "Intended GA CoreCLR toolchain composition is source-reviewed only; no compatible installed closure measured. Existing Mono wasm-tools label is insufficient."
             }
           ],
           "prerequisites": [
@@ -85,7 +85,7 @@
             "UseMonoRuntime=false; WasmBuildNative=true; experimental CoreCLR browser route"
           ],
           "stabilityLimitations": [
-            "Experimental CoreCLR WebAssembly/native relink route; source-reviewed only. Intended RC2 pins do not establish compilation, invocation or actual-GA support.",
+            "Experimental CoreCLR WebAssembly/native relink route; source-reviewed only. Intended GA pins do not establish compilation, invocation or actual-GA support.",
             "Not tested: Experimental CoreCLR browser-wasm route: exact .NET11RC2 official SDK/relink sources reviewed, Emscripten6.0.2 intended. Current native compilation/relink/browser invocation not-tested: matching packs/toolchain unavailable; existing Mono labels/assets are insufficient.",
             "Source review only: excluded sample has not been compiled or executed."
           ]

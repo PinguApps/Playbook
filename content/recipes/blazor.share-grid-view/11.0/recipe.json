@@ -45,7 +45,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Build against .NET 11 reference assemblies; exact RC2 is evidence, not an exact installation requirement."
+            "reason": "Build against .NET 11 reference assemblies; exact GA is evidence, not an exact installation requirement."
           },
           "language": {
             "name": "C#",
@@ -82,12 +82,12 @@
           ],
           "constraints": [
             "Each grid owns a distinct PaginationState and three unique query names.",
-            "RC2 uses Title as sort identity; no dedicated ColumnId exists. Keep Title keys immutable and unique per grid; separate visible captions with HeaderTemplate and refresh custom links on LocationChanged.",
+            "GA uses Title as sort identity; no dedicated ColumnId exists. Keep Title keys immutable and unique per grid; separate visible captions with HeaderTemplate and refresh custom links on LocationChanged.",
             "Windows x64 static SSR and Interactive Server executed. WebAssembly/Auto, EF/provider translation, other OS, accessibility assistive technology and GA execution are unverified."
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "RC2; reconcile GA."
+            "GA; reconcile GA."
           ]
         },
         "sourceUrls": [

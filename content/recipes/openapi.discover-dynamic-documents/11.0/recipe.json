@@ -40,7 +40,7 @@
             "name": ".NET",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Actual .NET 11 RC2 managed server/tool execution; final GA reconciliation is separate."
+            "reason": "Actual .NET 11 GA managed server/tool execution; final GA reconciliation is separate."
           },
           "sdk": {
             "name": ".NET SDK",
@@ -96,7 +96,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Nonexperimental public API in the pinned .NET 11 RC2 artifact; no opt-in or warning suppression. Actual GA reconciliation and PIN-959 comprehensive readiness remain open."
+            "Nonexperimental public API in the pinned .NET 11 GA artifact; no opt-in or warning suppression. Actual GA reconciliation and PIN-959 comprehensive readiness remain open."
           ]
         },
         "sourceUrls": [
@@ -179,7 +179,7 @@
   ],
   "humanProof": {
     "status": "not-required",
-    "scope": "Actual managed local HTTP and build-tool checks need no owner-only service or device. Existing Human, PIN-959/PIN-963/PIN-964 and actual-GA gates remain open."
+    "scope": "Actual managed local HTTP and build-tool checks need no owner-only service or device. Existing Human, PIN-959/PIN-963/PIN-964 and Unexecuted platform gates remain separate."
   },
   "snippets": {
     "n10-directory-build-props": {

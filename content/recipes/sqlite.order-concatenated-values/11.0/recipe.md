@@ -79,10 +79,10 @@ Program.cs
 
 SQLite 3.44+ is required for aggregate ORDER BY. The real current sample uses the provider native bundle and SQLite 3.53.4; the older sample uses 3.53.3. EF11 requires net11.0. This replaces client evaluation/workaround for the demonstrated query shape. Nulls, collation and separators require application-specific rules; this fixture has non-null text and integer order keys. No allocation or throughput improvement is measured.
 
-Stable API contract using RC2 evidence, without experimental opt-in; actual GA remains unverified. No web renderer, browser or workload is required. The previous sample is a comparison, not another .NET10 foundation.
+Stable API contract using the recorded GA evidence, without experimental opt-in. No web renderer, browser or workload is required. The previous sample is a comparison, not another .NET10 foundation.
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Actual in-memory native SQLite, deterministic two-group summaries including tied positions; EF11 generated SQL contains ordered group_concat. EF10 materializes rows before local grouping. Windows x64 only; no GA claim. Exact SDKs, dependencies, input hashes and actual output are retained in the paired verification records. Compilation and real execution are distinguished from source review. Offline installed MCP checks use the existing isolated feed/cache harness; unusable proxies demonstrate proxy independence, not operating-system network isolation.

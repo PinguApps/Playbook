@@ -37,7 +37,7 @@
             "name": ".NET"
           },
           "sdk": {
-            "reason": "Build against .NET 11 references; exact RC2 pin records verification.",
+            "reason": "Build against .NET 11 references; exact GA pin records verification.",
             "match": "release-family",
             "version": "11.0",
             "name": ".NET SDK"
@@ -69,7 +69,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "RC2 compilation/execution; GA reconciliation pending."
+            "GA compilation/execution; GA checks are limited to the recorded scope."
           ]
         },
         "sourceUrls": [
@@ -108,7 +108,7 @@
   "evidence": [
     {
       "sdk": "10.0.403",
-      "scope": "Real cleartext HTTP/2 peer with delayed SETTINGS: two initial HEADERS, peer limit three respected, six completions; older gate stays two; RC2 rejects zero.",
+      "scope": "Real cleartext HTTP/2 peer with delayed SETTINGS: two initial HEADERS, peer limit three respected, six completions; older gate stays two; GA rejects zero.",
       "sample": "samples/net10.0/HttpCapacity/HttpCapacity.csproj",
       "target": "net10.0",
       "kind": "compile-and-run",
@@ -116,7 +116,7 @@
     },
     {
       "sdk": "11.0.100",
-      "scope": "Real cleartext HTTP/2 peer with delayed SETTINGS: two initial HEADERS, peer limit three respected, six completions; older gate stays two; RC2 rejects zero.",
+      "scope": "Real cleartext HTTP/2 peer with delayed SETTINGS: two initial HEADERS, peer limit three respected, six completions; older gate stays two; GA rejects zero.",
       "sample": "samples/net11.0/HttpCapacity/HttpCapacity.csproj",
       "target": "net11.0",
       "kind": "compile-and-run",

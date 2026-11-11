@@ -31,7 +31,7 @@
           "runtime": {
             "name": ".NET",
             "match": "release-family",
-            "reason": "Primary net11.0 consumer; actual RC2 proof is distinct from GA verification.",
+            "reason": "Primary net11.0 consumer; actual GA proof is distinct from GA verification.",
             "version": "11.0"
           },
           "sdk": {
@@ -65,7 +65,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Verified with actual RC2 artifacts; final-GA reconciliation remains open. No experimental diagnostic opt-in on the selected APIs."
+            "Verified with actual GA artifacts; final-GA checks are limited to the recorded scope. No experimental diagnostic opt-in on the selected APIs."
           ]
         },
         "sharedAreas": [],
@@ -73,7 +73,7 @@
         "selectionNotes": [
           "Choose quotient and remainder conventions for signed integers when negative coordinates or divisor direction must have predictable results.",
           "Signed coordinate helper only; raw unsigned evidence is limited to uint truncation. Custom integer semantics and unsigned adjusted remainders are not claimed.",
-          "RC3 evidence is not actual-GA verification."
+          "GA verification is limited to the recorded checks."
         ],
         "evidenceSamples": [
           "samples/net11.0/CoordinateTiles/CoordinateTiles.csproj"

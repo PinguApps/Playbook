@@ -35,7 +35,7 @@
           "runtime": {
             "name": ".NET",
             "match": "release-family",
-            "reason": "Primary net11.0 consumer; actual RC2 proof is distinct from GA verification.",
+            "reason": "Primary net11.0 consumer; actual GA proof is distinct from GA verification.",
             "version": "11.0"
           },
           "sdk": {
@@ -70,24 +70,24 @@
           "workloads": [],
           "prerequisites": [
             "SDK console project with Nullable and ImplicitUsings enabled; place each complete canonical helper in its own .cs file and add the imports stated in the offline instructions.",
-            "Reviewed packages.lock.json and locked restore; no optional older-target RC2 package route is claimed."
+            "Reviewed packages.lock.json and locked restore; no optional older-target GA package route is claimed."
           ],
           "constraints": [
-            "CRC/Adler detect accidental corruption, not authentication. Exact package assets and equal input/output reflection only; optional RC2-on-net10 route is not advertised.",
+            "CRC/Adler detect accidental corruption, not authentication. Exact package assets and equal input/output reflection only; optional GA-on-net10 route is not advertised.",
             "Previous SDK10.0.403/C#14/ref-runtime10.0.14; current SDK11.0.100/C#15/ref-runtime11RC3. Exact proof pins are separate from supported prerequisites.",
             "Preserve the exact eight .NET10 foundations and existing recipe identities; comprehensive/actual-GA and existing Human gates remain open."
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Verified with actual RC2 artifacts; final-GA reconciliation remains open. No experimental diagnostic opt-in on the selected APIs."
+            "Verified with actual GA artifacts; final-GA checks are limited to the recorded scope. No experimental diagnostic opt-in on the selected APIs."
           ]
         },
         "sharedAreas": [],
         "usage": "primary",
         "selectionNotes": [
           "Match a binary format checksum using its Adler or CRC variant, reflection, initial/final parameters and byte order when detecting accidental corruption.",
-          "CRC/Adler detect accidental corruption, not authentication. Exact package assets and equal input/output reflection only; optional RC2-on-net10 route is not advertised.",
-          "RC3 evidence is not actual-GA verification."
+          "CRC/Adler detect accidental corruption, not authentication. Exact package assets and equal input/output reflection only; optional GA-on-net10 route is not advertised.",
+          "GA verification is limited to the recorded checks."
         ],
         "evidenceSamples": [
           "samples/net11.0/TelemetryFrames/TelemetryFrames.csproj"

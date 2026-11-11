@@ -6,13 +6,13 @@ Set a declarative map region and control overlay visibility, draw order and sele
 
 ## Constraints
 
-The original Quay Survey app maps fictional survey stations. .NET11 uses SDK11.0.100, C#15 and MAUI Controls/Maps11.0.0. .NET10 uses C#14 and Controls/Maps10.0.110; SDK10.0.403 for QuayAtlas and the actual installed native SDK10.0.402 for QuayWindows. These are preparation baselines, not GA verification.
+The original Quay Survey app maps fictional survey stations. .NET11 uses SDK11.0.100, C#15 and MAUI Controls/Maps11.0.0. .NET10 uses C#14 and Controls/Maps10.0.110; SDK10.0.403 for QuayAtlas and the actual installed native SDK10.0.402 for QuayWindows. These are preparation baselines, within the recorded verification scope.
 
 The canonical iOS app uses Apple MapKit; native compilation and interaction are **not-tested** because Mac/Xcode is unavailable. Android requires its own matched target/workload, Google Play Services and an authorized Google Maps SDK key. The guarded MapStyle JSON is Android-only; it has no effect on iOS, Mac Catalyst or Windows. No Android build or service execution is claimed. Do not request user location until the app has declared the platform usage descriptions and obtained location permission. The sample leaves IsShowingUser false.
 
 ## Older approach
 
-.NET10 uses MoveToRegion, ordinary labelled pins and a Circle. Removing/readding the circle is a valid way to control visibility. Actual neutral10.0.110 assembly metadata and its exact repository source lack Map.Region, built-in clustering, Pin.ImageSource, overlay IsVisible/ZIndex and CircleClicked; those are present in the declared11 RC2 artifacts. The previous sample uses24 ordinary pins and remove/re-add visibility rather than claiming those newer members exist. Keep this simple route when the marker count is small; no invented older clustering equivalent is claimed.
+.NET10 uses MoveToRegion, ordinary labelled pins and a Circle. Removing/readding the circle is a valid way to control visibility. Actual neutral10.0.110 assembly metadata and its exact repository source lack Map.Region, built-in clustering, Pin.ImageSource, overlay IsVisible/ZIndex and CircleClicked; those are present in the declared11 GA artifacts. The previous sample uses24 ordinary pins and remove/re-add visibility rather than claiming those newer members exist. Keep this simple route when the marker count is small; no invented older clustering equivalent is claimed.
 
 ## Newer approach
 
@@ -115,7 +115,7 @@ Windows is an explicitly unsupported route for these overlay, clustering, custom
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 eng/Test-QuayMaps.ps1 checks exact official source hashes, artifact repository commits and actual assembly metadata for present/absent APIs, plus downloaded Maps package assets in samples/QuayMaps/sources.json. QuayContracts links the canonical MauiProgram.cs files and compiles both releases against real Windows dependencies; it does not execute them. The .NET10 Windows fallback app compiles with installed SDK10.0.402. iOS native builds and interaction are not-tested (Mac/Xcode unavailable); .NET11 Windows MAUI build fails NETSDK1147 with SDK11 GA. Rendering and service calls have not run. Evidence records retain input freshness; no GA or map execution proof is claimed. Packed-tool list/get verifies offline delivery only.
 

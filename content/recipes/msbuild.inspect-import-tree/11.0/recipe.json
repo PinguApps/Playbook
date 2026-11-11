@@ -51,7 +51,7 @@
             "name": ".NET",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Declared net11.0 application and SDK-host runtime. Exact RC2 artifacts are evidence, not GA qualification."
+            "reason": "Declared net11.0 application and SDK-host runtime. Exact GA artifacts are evidence, within the recorded verification scope."
           },
           "sdk": {
             "name": ".NET SDK",
@@ -88,7 +88,7 @@
             "MSBuildProvideImportedProjects=true in the evaluated project or command line."
           ],
           "stabilityLimitations": [
-            "These controls are not designated experimental in the cited documentation. Actual verification uses RC2; PIN-959/PIN-963 and existing Human gates remain open."
+            "These controls are not designated experimental in the cited documentation. Actual verification uses GA; PIN-959/PIN-963 and existing Human gates remain open."
           ]
         },
         "sourceUrls": [

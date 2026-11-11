@@ -57,8 +57,8 @@ bound the whole operation. Retain the using scope for the socket's entire use.
    needed for this reviewed API. Exact SDK11RC3/runtime11RC3 versions below are
    verification pins, separate from the recipe's release-family requirements.
 2. Choose Default to retain the runtime's default sequential-address policy in
-   the reviewed RC2 implementation, or Parallel to race IPv4 and IPv6 attempts.
-   RC2 resolves the two address families separately for Parallel. It is not a
+   the reviewed GA implementation, or Parallel to race IPv4 and IPv6 attempts.
+   GA resolves the two address families separately for Parallel. It is not a
    promise to start every resolved address simultaneously, preserve an old
    scheduler's ordering/delay, prefer IPv6, or select a particular peer.
 3. Pass a DnsEndPoint without constraining its address family. Parallel requires
@@ -88,7 +88,7 @@ These are shared framework networking APIs with no provider selection or UI/
 rendering integration. Execution here is Windows x64 with Winsock/DNSAPI and both
 loopback families available; other platforms, WAN blackholes and DNS outage
 behaviour are not measured. The API has no experimental annotation in the
-reviewed RC2 reference. This does not establish final GA behaviour.
+reviewed GA reference. This does not establish final GA behaviour.
 
 If the application needs a single selected family, fixed address ordering, custom
 DNS records, an existing connection pool or a fully controlled stagger policy,
@@ -98,7 +98,7 @@ a production relay. No persistent DNS, hosts-file or route edit is required.
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 eng/Test-NetworkBuffers.ps1 -Record -VerifySources builds and executes the real
 paired consumers using SDK10.0.403/runtime10.0.14 and

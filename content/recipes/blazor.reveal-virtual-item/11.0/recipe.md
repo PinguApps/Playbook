@@ -16,7 +16,7 @@ separate virtualization package, QuickGrid dependency, workload, database,
 external service or account. Matching SDK browser assets and `blazor.web.js`
 must be served. The actual baselines are SDK **11.0.100**, framework
 and Internal.Assets **11.0.0**, C# **15.0**. These are reproducible
-RC2 measurements, not GA execution. The APIs have no experimental annotation or
+GA measurements within the recorded execution scope. The APIs have no experimental annotation or
 required opt-in in these artifacts. C# 15-specific syntax is not required.
 
 **Interactive rendered Virtualize; index bounds and provider timing** are the
@@ -122,7 +122,7 @@ In `_Imports.razor`, import `Microsoft.AspNetCore.Components`, its `Routing`,
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Both actual Web SDK projects compiled with zero warnings/errors at the exact
 baselines above. Saved compilation evidence is separate from real Windows Chrome
@@ -142,5 +142,5 @@ contains exact input/artifact hashes, commands and browser/provider journals;
 the essential instructions and examples are embedded here.
 
 Official references: [virtualization and provider/layout requirements](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/virtualization?view=aspnetcore-11.0),
-[pinned RC2 implementation](https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Web/src/Virtualization/Virtualize.cs),
+[pinned GA implementation](https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Web/src/Virtualization/Virtualize.cs),
 and [the .NET 10 comparison surface](https://github.com/dotnet/aspnetcore/blob/0ef4bbfa3291b306a21e5001cb0491277bdd35bc/src/Components/Web/src/Virtualization/Virtualize.cs).

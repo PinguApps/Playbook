@@ -30,11 +30,11 @@ Use char.Equals or Rune.Equals with StringComparison. The Turkish test deliberat
 
 A char can be only half of a surrogate pair; choose Rune when supplementary characters are possible. Culture-sensitive collation is not a universal identifier/security policy and can vary with ICU/NLS/platform versions. The recorded Turkish assertions are Windows globalization execution, not proof of every platform or every collation rule. Ordinal casing (ToUpperOrdinal/ToLowerOrdinal on char/string/Rune/spans) is separate from display casing or Unicode normalization; do not replace a culture-aware transform merely because both appear to uppercase ASCII.
 
-This edition targets .NET 11. It has no rendering mode, external provider, optional workload or experimental opt-in. It uses framework APIs and needs no additional package or package asset. The sample SDK pins 10.0.403 and 11.0.100 are reproducibility baselines, not mandatory exact consumer SDK installations. Historical RC execution is separate from current GA verification records. No .NET 10 catalogue edition or conditional older-target package route is advertised.
+This edition targets .NET 11. It has no rendering mode, external provider, optional workload or experimental opt-in. It uses framework APIs and needs no additional package or package asset. The sample SDK pins 10.0.403 and 11.0.100 are reproducibility baselines, not mandatory exact consumer SDK installations. Current GA verification is limited to the recorded checks. No .NET 10 catalogue edition or conditional older-target package route is advertised.
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 The original UnicodeText projects compile and run against their declared .NET 10/11 SDKs. Checks cover supplementary replacement, malformed-input position/replacement flags, Turkish comparison, invalid UTF byte/code-unit offsets, scalar search/trim/split, ordinal casing and mixed Unicode newlines including Singleline interaction.
 

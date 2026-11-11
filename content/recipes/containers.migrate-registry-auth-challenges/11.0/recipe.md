@@ -28,8 +28,8 @@ prerequisites. A real deployment needs an authorized registry and token service,
 trusted TLS certificates and a compatible runtime/base image. The fixture uses
 generated disposable credentials and a child-only CA bundle. It changes no host
 trust store, Docker daemon configuration, persistent environment or real login.
-There is no UI, rendering, workload or native compiler dependency. RC2 and the
-selected Beta base are not GA qualification or a production base-image recommendation.
+There is no UI, rendering, workload or native compiler dependency. GA and the
+selected Beta base cover only the recorded checks qualification or a production base-image recommendation.
 
 ## Older approach
 
@@ -125,7 +125,7 @@ own qualification. The current selected Azure Linux4 base remains Beta.
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 `eng/Test-EstuaryRegistry.ps1 -Record` seeds exact base manifests/blobs using ORAS,
 starts the disposable Distribution backend, and runs both pinned SDK containers

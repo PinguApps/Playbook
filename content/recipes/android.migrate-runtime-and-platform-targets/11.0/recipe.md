@@ -40,14 +40,14 @@ Supply `-p:JavaSdkDirectory=<JDK root>` and `-p:AndroidSdkDirectory=<SDK root>` 
 discovery does not select the intended installations. Inspect the merged manifest
 and generated Java before deploying. SDK selection alone does not install workloads.
 
-The .NET11 pin is RC3; exact reviewed platform/reference assets are Android
-37.2.0-rc.2.84 from RC2. That provenance is not a tested RC3 workload composition.
+The .NET11 pin is GA; exact reviewed platform/reference assets are Android
+37.2.29 GA. That provenance is not a tested GA workload composition.
 Obtain a compatible workload before building; do not mix pack directories manually.
 There is no provider/account or Blazor rendering prerequisite.
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 The .NET10 Release Android build and generated Java are authoring evidence.
 The .NET11 native build reports NETSDK1147; compilation, APK execution, JNI

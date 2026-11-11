@@ -20,7 +20,7 @@ set. A host-default build is useful for local development but does not establish
 support for both architectures. iOS devices use ios-arm64; simulator RIDs do not
 produce a device distribution. A Mac Catalyst universal app is not a universal iOS app.
 
-The RC2 Apple source selects CoreCLR by default on current iOS/tvOS/Mac Catalyst;
+The GA Apple source selects CoreCLR by default on current iOS/tvOS/Mac Catalyst;
 UseMonoRuntime=true is rejected. Remove inherited Mono-only interpreter settings
 when moving this workload forward. NativeAOT remains an explicit PublishAot=true
 choice. It disallows runtime code generation: use generated serialization and
@@ -110,9 +110,9 @@ The selected runtime, native toolchain and route policy must match applicability
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
-The canonical net11 Catalyst C# compiles against the pinned RC2 Mac Catalyst reference assembly via eng/Test-AppleRoutes.ps1 -CompileReference. This is reference compilation, not native workload compilation, publish output or execution.
+The canonical net11 Catalyst C# compiles against the pinned GA Mac Catalyst reference assembly via eng/Test-AppleRoutes.ps1 -CompileReference. This is reference compilation, not native workload compilation, publish output or execution.
 
 
 SDK10.0.402/C#14 and SDK11.0.100/C#15 are intended sample pins. No preview language syntax or experimental API opt-in is used. The .NET10 examples compile on Windows; no native app execution is claimed. Exact Apple RC2 sources at a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d are checked by eng/Test-AppleRoutes.ps1. Current workload compilation, native publishing/signing, controlled Apple endpoint behavior and runtime/registrar execution are explicitly not-tested under PIN-699 because Apple runtime/Xcode is unavailable. Source review is not compilation or execution. No pending Human proof, package publication or GA certification is claimed. Packed-tool list/get verifies offline guidance delivery only. See applicability for exact source and asset identities.

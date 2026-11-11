@@ -169,7 +169,7 @@ exercise that failure and check its stable error code.
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Run `eng/Record-DepotEvents.ps1` with absolute paths to the two complete SDK
 executables. It uses the existing sample-evidence workflow to compile and execute
@@ -190,7 +190,7 @@ for the generated directory and supplied SDK installation.
 
 ## Constraints
 
-This is managed Windows x64 RC2 proof, with no Visual Studio/.NET Framework,
+This is managed Windows x64 GA proof, with no Visual Studio/.NET Framework,
 independent package, NativeAOT, other-OS or universal server/reuse/performance claim.
 No unavailable older route is advertised. Missing a complete SDK or safe owned
 lifecycle blocks reproduction; a synthetic replacement would not qualify it.

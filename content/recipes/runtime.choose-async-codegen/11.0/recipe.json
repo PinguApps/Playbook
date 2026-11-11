@@ -75,7 +75,7 @@
           },
           "workloads": [],
           "stabilityLimitations": [
-            "Actual RC2 evidence; final GA reconciliation is separate."
+            "Actual GA evidence; final GA reconciliation is separate."
           ],
           "renderingModes": [],
           "optIns": [

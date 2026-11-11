@@ -89,7 +89,7 @@ package backport or older-target use of the new delegate is established.
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 `eng/Test-ExtensionContracts.ps1 -Record -VerifySources` builds and runs the actual
 ObservatoryVariables .NET10/.NET11 consumers. Exact pins are SDK10.0.403 and
@@ -113,5 +113,5 @@ through real stdio list/get from an unrelated directory. Discovery ID/title/goal
 full canonical Markdown, target11/edition11, applicability and fresh paired
 evidence are checked. Target10 has no applicable edition: its code is a comparison,
 not a ninth foundation. Retrieval with unusable proxies proves proxy independence,
-not network isolation. Windows x64 managed RC2 execution is not other-platform or
+not network isolation. Windows x64 managed GA execution is not other-platform or
 final-GA proof. PIN-959/PIN-962 and existing Human gates remain open.

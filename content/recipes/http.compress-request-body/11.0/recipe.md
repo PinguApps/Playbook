@@ -31,10 +31,10 @@ Here uploadUri and cancellationToken are supplied by the application. Use its re
 
 ## Constraints
 
-The receiver must decode the declared encoding and enforce limits on decompressed size. Compression does not encrypt data; consider length disclosure when secrets and attacker-controlled text share a compression context. This recipe covers desktop/server SocketsHttpHandler use, not a browser transport or rendering integration. Brotli/Zstandard wrappers are unsupported on browser/WASI; no browser/mobile route is claimed. The .NET 11 contracts have no experimental opt-in, but actual proof uses the pinned GA SDK/runtime, not GA reconciliation.
+The receiver must decode the declared encoding and enforce limits on decompressed size. Compression does not encrypt data; consider length disclosure when secrets and attacker-controlled text share a compression context. This recipe covers desktop/server SocketsHttpHandler use, not a browser transport or rendering integration. Brotli/Zstandard wrappers are unsupported on browser/WASI; no browser/mobile route is claimed. The .NET 11 contracts have no experimental opt-in, but actual proof uses the pinned GA SDK/runtime, within the recorded verification scope reconciliation.
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Both actual .NET 10/11 projects post through SocketsHttpHandler to a real TCP HTTP/1.1 receiver. It reads Content-Encoding and Content-Type, handles chunked or length framing, decompresses the transmitted bytes, verifies exact original text and checks that this repetitive fixture shrinks. The .NET 11 run exercises all three codecs; .NET 10 exercises gzip/br. This is real loopback protocol execution, not a mock or proof of support at an external server, proxy, TLS endpoint or every HTTP version. Exact artifacts and input hashes are served with the recipe.

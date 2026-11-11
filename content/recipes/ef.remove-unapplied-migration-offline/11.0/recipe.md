@@ -24,7 +24,7 @@ When connection selection is needed instead, EF11 supports `dotnet ef migrations
 
 ## Constraints
 
-Offline excludes force; applied state is not checked offline. Only known-unpublished local scaffolds are in scope. EF11 requires net11.0/SDK11 and matching dotnet-ef/Design; historical EF10 comparison remains net10.0. Windows x64 execution, no renderer/workload, no service contact for the offline step. RC2 evidence does not establish GA or PMC execution.
+Offline excludes force; applied state is not checked offline. Only known-unpublished local scaffolds are in scope. EF11 requires net11.0/SDK11 and matching dotnet-ef/Design; historical EF10 comparison remains net10.0. Windows x64 execution, no renderer/workload, no service contact for the offline step. GA evidence does not establish GA or PMC execution.
 
 ## Tool setup
 
@@ -62,7 +62,7 @@ Supply PLAYBOOK_SQL_CONNECTION_STRING only to the process that may use the chose
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Canonical compilation and focused real local execution are distinct from source review, mocks and cross-compilation. Exact SDKs, packages, input hashes and outputs are retained in the evidence records. Installed offline list/get checks full body, applicability and target11/edition11; target10 has no applicable edition. No cloud parity or GA execution is claimed.
 

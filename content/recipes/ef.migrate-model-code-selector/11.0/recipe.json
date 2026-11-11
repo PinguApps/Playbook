@@ -43,7 +43,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Measured SDK11 GA consumer; not GA evidence."
+            "reason": "Measured SDK11 GA consumer; verification covers only the recorded checks."
           },
           "language": {
             "name": "C#",
@@ -65,7 +65,7 @@
               "name": "Microsoft.EntityFrameworkCore.Sqlite",
               "version": "11.0",
               "match": "release-family",
-              "reason": "Provider and Design versions match; the tested graph pins RC2."
+              "reason": "Provider and Design versions match; the tested graph pins GA."
             },
             {
               "name": "System.Security.Cryptography.Pkcs",
@@ -95,7 +95,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "RC evidence; actual GA reconciliation remains separate."
+            "Recorded evidence; actual GA reconciliation remains separate."
           ]
         },
         "conditional": false,
@@ -118,7 +118,7 @@
   "evidence": [
     {
       "sdk": "10.0.403",
-      "scope": "Independent locked compilation and focused checks in canonical sample/runner; RC evidence only.",
+      "scope": "Independent locked compilation and focused checks in canonical sample/runner; Recorded evidence only.",
       "sample": "samples/net10.0/BitternScaffolding/BitternScaffolding.csproj",
       "kind": "compile",
       "language": "14.0",
@@ -135,7 +135,7 @@
     },
     {
       "sdk": "11.0.100",
-      "scope": "Independent locked compilation and focused checks in canonical sample/runner; RC evidence only.",
+      "scope": "Independent locked compilation and focused checks in canonical sample/runner; Recorded evidence only.",
       "sample": "samples/net11.0/BitternScaffolding/BitternScaffolding.csproj",
       "kind": "compile",
       "language": "15.0",

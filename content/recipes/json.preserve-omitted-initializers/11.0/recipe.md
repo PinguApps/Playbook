@@ -32,6 +32,6 @@ Requires framework System.Text.Json on net11.0 with SDK 11 / C# 15; no packages,
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
-Actual .NET 10/11 generated contracts compile and run. Both execute missing, explicit South and explicit null inputs and inspect the resulting value. Records preserve actual sample hashes and SDK/runtime output; installed list/get retains this full comparison, edition and applicability offline. No mocks or required Human proof; .NET 11 evidence is RC2 rather than GA.
+Actual .NET 10/11 generated contracts compile and run. Both execute missing, explicit South and explicit null inputs and inspect the resulting value. Records preserve actual sample hashes and SDK/runtime output; installed list/get retains this full comparison, edition and applicability offline. No mocks or required Human proof; .NET 11 evidence is GA rather than GA.

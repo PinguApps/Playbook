@@ -44,7 +44,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Build against .NET 11 reference assemblies; exact RC2 is evidence, not an exact installation requirement."
+            "reason": "Build against .NET 11 reference assemblies; exact GA is evidence, not an exact installation requirement."
           },
           "language": {
             "name": "C#",
@@ -83,7 +83,7 @@
             "Default CacheView memory store, or HybridCache local memory without IDistributedCache; both executed.",
             "ASP.NET Core server; Windows x64 execution. Other OS and multi-node providers untested.",
             "Static SSR GET only. Interactive rendering and CacheView inside a streaming subtree bypass caching.",
-            "Stable API in .NET 11 RC2; GA reconciliation pending. Local memory execution does not prove distributed eviction or multi-node consistency.",
+            "Stable API in .NET 11 GA; GA checks are limited to the recorded scope. Local memory execution does not prove distributed eviction or multi-node consistency.",
             "ASP.NET Core 11 Web SDK"
           ],
           "constraints": [
@@ -95,7 +95,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "RC2; GA pending"
+            "GA; GA pending"
           ]
         },
         "sourceUrls": [

@@ -43,7 +43,7 @@
             "name": ".NET / ASP.NET Core",
             "version": "11.0",
             "match": "release-family",
-            "reason": "This migration targets ASP.NET Core 11; exact reproduction uses RC2 and does not establish GA verification."
+            "reason": "This migration targets ASP.NET Core 11; exact reproduction uses GA and does not establish GA verification."
           },
           "sdk": {
             "name": ".NET SDK",
@@ -65,7 +65,7 @@
               "name": "Microsoft.AspNetCore.JsonPatch.SystemTextJson",
               "version": "11.0",
               "match": "release-family",
-              "reason": "Use the matching ASP.NET Core package family; the canonical reproduction pins the exact tested RC2 artifact."
+              "reason": "Use the matching ASP.NET Core package family; the canonical reproduction pins the exact tested GA artifact."
             }
           ],
           "workloads": [],
@@ -94,7 +94,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Stable API designation on the newer side; evidence uses SDK11.0.100 and runtime11.0.0, not actual GA. PIN-959/PIN-964 and unrelated Human gates remain open."
+            "Stable API designation on the newer side; evidence uses SDK11.0.100 and runtime11.0.0, within the recorded verification scope. PIN-959/PIN-964 and unrelated Human gates remain open."
           ]
         },
         "sourceUrls": [
@@ -142,7 +142,7 @@
       "sdk": "11.0.100",
       "language": "15.0",
       "kind": "compile-and-run",
-      "scope": "Actual .NET11 RC2 SystemTextJson package: six operations serialized/deserialized/applied over HTTP, conditional value/null and from-null metadata with retained spurious non-null from. Explicit/absent null inputs, invalid path/from, missing source, failed test, wrong type and partially failed working-copy rejection. Actual default CS0618 compiler control, audited package assets and separately recorded compiler/runtime identities; no older-default-serializer control claimed on this target, no security/Newtonsoft/GA guarantee."
+      "scope": "Actual .NET11 GA SystemTextJson package: six operations serialized/deserialized/applied over HTTP, conditional value/null and from-null metadata with retained spurious non-null from. Explicit/absent null inputs, invalid path/from, missing source, failed test, wrong type and partially failed working-copy rejection. Actual default CS0618 compiler control, audited package assets and separately recorded compiler/runtime identities; no older-default-serializer control claimed on this target, no security/Newtonsoft/GA guarantee."
     }
   ],
   "snippets": {

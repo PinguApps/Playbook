@@ -37,7 +37,7 @@
             "match": "release-family"
           },
           "sdk": {
-            "reason": "Build against .NET 11 Razor and reference assets; RC2 is the measured baseline.",
+            "reason": "Build against .NET 11 Razor and reference assets; GA is the measured baseline.",
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family"
@@ -86,7 +86,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "RC2; no ASP0030; GA pending."
+            "GA; no ASP0030; GA pending."
           ]
         },
         "usage": "primary",

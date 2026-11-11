@@ -46,7 +46,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Build against ASP.NET Core 11 reference assemblies; the exact RC2 pin is a test baseline."
+            "reason": "Build against ASP.NET Core 11 reference assemblies; the exact GA pin is a test baseline."
           },
           "language": {
             "name": "C#",
@@ -74,7 +74,7 @@
             "Microsoft.AspNetCore.Components.Endpoints and Components.Web runtime/reference assemblies from Microsoft.AspNetCore.App. The Web SDK resolves aligned Microsoft.AspNetCore.App.Internal.Assets; exact versions and lockfiles are verification baselines.",
             "ASP.NET Core server hosting with HTTP cookies; actual Windows x64 loopback Kestrel execution. No native workload or external service required.",
             "Static SSR only; interactive Server/WebAssembly/Auto values are not supplied after interactive activation.",
-            "Stable APIs measured on .NET 11 RC2; final GA reconciliation remains outstanding.",
+            "Stable APIs measured on .NET 11 GA; final GA checks are limited to the recorded scope.",
             "ISession/IDistributedCache; process-local memory demo, not durable.",
             "Microsoft.AspNetCore.App 11; Microsoft.NET.Sdk.Web"
           ],
@@ -87,7 +87,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "RC2 tested; GA pending"
+            "GA tested; GA pending"
           ],
           "providers": [
             "ISession/cache (memory)"

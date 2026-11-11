@@ -68,7 +68,7 @@ Set `HarbourTarget=net10.0`/`net11.0` and `HarbourLanguage=14.0`/`15.0` under
 the corresponding pinned SDK. `Mixed=true` runs both real target compilations
 under SDK11. In a separate SDK installation, pass `HarbourNet10Packs` as the
 absolute SDK10 `packs` directory: the net10 inner build needs the actual10.0.13
-reference packs, while net11 uses its matching RC2 packs. No SDK files are
+reference packs, while net11 uses its matching GA packs. No SDK files are
 installed/copied or persistent settings changed. A missing targeting pack is a
 prerequisite failure, not an empty metadata result.
 
@@ -99,7 +99,7 @@ exclude/include metadata is not a rule-enforcement contract on this SDK.
 The transitive privacy control removes the package from the downstream graph;
 that result does not establish new per-analyzer metadata consumption.
 
-The pinned RC2 also corrects the older Preview7 description: explicit true on
+The pinned GA also corrects the older Preview7 description: explicit true on
 this mixed project records metadata in **both** net10 and net11 target sections.
 Do not teach a net11-only gate or a new default from the older note. Unset and
 false are measured independently; the NuGet.targets default expression alone
@@ -125,7 +125,7 @@ does not prove a multi-target result.
 
 ## Evidence and limits
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 `eng/Record-PackageWorkshop.ps1` captures both real paired consumers through the
 existing sample-evidence workflow. The compiled `AnalyzerChecks` packs the

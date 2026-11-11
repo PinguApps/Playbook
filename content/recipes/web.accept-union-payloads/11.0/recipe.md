@@ -24,7 +24,7 @@ A default union has no active case. The .NET 11 endpoints reject that value and 
 
 Structural classification scans each object; changing case properties can change classification and break existing payloads. It does not support nested unions, polymorphic cases or reference-preserving deserialization. An explicit discriminator remains a useful alternative when the wire format can change. Avoid indistinguishable object shapes rather than relying on property values to select them.
 
-Numeric/string cases need care under Minimal API/MVC Web JSON defaults because numbers may be read from strings. SignalR JSON's defaults differ. This example deliberately uses two distinct object properties and verifies all three integrations; it does not claim arbitrary unions behave identically across serializers. The checks establish managed Windows x64 RC2 behavior, not GA, NativeAOT, trimming or a platform matrix.
+Numeric/string cases need care under Minimal API/MVC Web JSON defaults because numbers may be read from strings. SignalR JSON's defaults differ. This example deliberately uses two distinct object properties and verifies all three integrations; it does not claim arbitrary unions behave identically across serializers. The checks establish managed Windows x64 GA behavior, within the recorded verification scope, NativeAOT, trimming or a platform matrix.
 
 ## Older approach: .NET 10
 
@@ -90,7 +90,7 @@ Save this as `samples/net11.0/HarbourBodies/BodyChecks.cs` shared by both target
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 The exact SDK, language and package inputs are recorded with the samples. The saved compile-and-run records execute the real request runner. No mocks or cross-compilation are used. Installed-package checks independently compare the entire expanded body and applicability over stdio from an unrelated directory; that delivery check does not replace the runtime checks. GA reconciliation and comprehensive product publication gates remain outstanding.
 

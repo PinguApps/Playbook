@@ -29,7 +29,7 @@ bounded web source audit byte-for-byte:
 | Framework | DataProtection.Abstractions reference SHA-256 | DataProtection reference SHA-256 |
 | --- | --- | --- |
 | 10.0.13 | `7e8e871b7e5f32a141df2131fd7be09f9516d34b28fed1d3aa40e06e9d02d1e1` | `bdeb427e44dc8689a647e37d38f07db50478a38e158d8480d8c36604e8eb197b` |
-| 11 RC2 | `824e75212014f99bb2b0b10e26546fa6d4d12ae0205282b79789347d2dce3808` | `15180d442714c6daeb741c082011d1d66dee53edd5424a1c569dcb74f70fbd18` |
+| 11 GA | `824e75212014f99bb2b0b10e26546fa6d4d12ae0205282b79789347d2dce3808` | `15180d442714c6daeb741c082011d1d66dee53edd5424a1c569dcb74f70fbd18` |
 
 The installed compilers are Roslyn `5.9.0-1.26523.112` (SDK10) and
 `5.12.0-1.26522.148` (SDK11). The source audit pins ASP.NET source
@@ -43,8 +43,8 @@ The measured host is Windows x64, using the framework's real
 `Cng.CbcAuthenticatedEncryptor` with explicit AES-256-CBC/HMACSHA256. The OS supplies
 its cryptographic backend; there is no separately restored native asset. This
 does not establish other backends, operating systems, trimming or NativeAOT.
-The public APIs carry no experimental diagnostic in these artifacts, but **RC2
-execution is not actual-GA qualification**. PIN-959 coverage and PIN-964 web GA
+The public APIs carry no experimental diagnostic in these artifacts, but **GA
+execution is limited to the recorded checks qualification**. PIN-959 coverage and PIN-964 web GA
 reconciliation stay open; the exact eight approved .NET10 foundations and all
 existing recipe/edition identities remain unchanged.
 
@@ -132,7 +132,7 @@ array/envelope path in that integration instead of assuming a universal cast.
 
 ## Evidence: complete real-framework check program
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Save the following as the shared `Program.cs`. Each provider owns a fresh
 directory below a GUID-named temporary directory. All providers are disposed

@@ -78,7 +78,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "RC2 verification; GA reconciliation remains pending.",
+            "GA verification; GA checks are limited to the recorded scope.",
             "macOS native execution is unverified; Pingu explicitly accepted this evidence gap.",
             "Not tested: macOS execution: no Mac environment. Excluded under PIN-699; recorded Windows/Linux results remain separate."
           ]

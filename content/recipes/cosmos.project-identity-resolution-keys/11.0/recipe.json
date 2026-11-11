@@ -43,7 +43,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Measured SDK11 GA consumer; not GA evidence."
+            "reason": "Measured SDK11 GA consumer; verification covers only the recorded checks."
           },
           "language": {
             "name": "C#",
@@ -83,7 +83,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "RC evidence; actual GA reconciliation remains separate."
+            "Recorded evidence; actual GA reconciliation remains separate."
           ]
         },
         "conditional": false,

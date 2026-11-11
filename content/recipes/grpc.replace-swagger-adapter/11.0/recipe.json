@@ -40,7 +40,7 @@
             "name": ".NET / ASP.NET Core",
             "match": "release-family",
             "version": "11.0",
-            "reason": "Current route; exact execution uses RC2, not GA."
+            "reason": "Current route; exact execution uses GA."
           },
           "sdk": {
             "name": ".NET SDK",
@@ -112,7 +112,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Exact reproduction uses SDK10.0.403 / framework10.0.14 / C#14 versus SDK11.0.100 / framework11.0.0 / C#15. These are tested pins, not minimum supported versions. RC2 is not actual-GA proof. The exact eight approved .NET10 foundations, stable identities, PIN-959/PIN-963/PIN-964 and unrelated Human gates remain unchanged."
+            "Exact reproduction uses SDK10.0.403 / framework10.0.14 / C#14 versus SDK11.0.100 / framework11.0.0 / C#15. These are tested pins, not minimum supported versions. GA is limited to the recorded checks. The exact eight approved .NET10 foundations, stable identities, PIN-959/PIN-963/PIN-964 and unrelated Human gates remain unchanged."
           ]
         },
         "sourceUrls": [

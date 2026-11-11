@@ -96,7 +96,7 @@ never silently substitute one algorithm for another in an existing wire contract
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 eng/Test-ClassifierAuthentication.ps1 -Record -VerifySources executes both real
 consumers and requires positive local KMAC support. Checks cover known answers,
@@ -111,4 +111,4 @@ queried through real stdio list/get from an unrelated directory. Inspection chec
 ID/title/goal, complete canonical Markdown, target11/edition11, applicability,
 fresh evidence and matching structured/text JSON offline. Target10 returns
 no_applicable_edition. Exactly eight foundations and existing identities remain;
-PIN-959/PIN-962 and other Human gates stay open. RC2 proof is not final-GA proof.
+PIN-959/PIN-962 and other Human gates stay open. GA verification is limited to the recorded checks proof.

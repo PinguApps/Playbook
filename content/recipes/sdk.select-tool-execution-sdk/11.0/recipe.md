@@ -22,7 +22,7 @@ comparison pins SDK 10.0.403, C# 14 and runtime 10.0.14:
 
 ## Newer approach
 
-The .NET 11 comparison pins SDK 11.0.100, C# 15 and matching RC2
+The .NET 11 comparison pins SDK 11.0.100, C# 15 and matching GA
 runtime:
 
 {{snippet:newer-project}}
@@ -37,7 +37,7 @@ for each. The packages intentionally share ID/version while comparing distinct
 TFM assets; never put both into one feed/cache. No package dependencies are added.
 Save the matching project as `MuseumCatalogue.csproj` and the checker as
 `Program.cs`, alongside a `global.json` pin for the stated SDK with
-`rollForward: "disable"` (and `allowPrerelease: false` for RC2). Run that
+`rollForward: "disable"` (and `allowPrerelease: false` for GA). Run that
 installation's absolute `dotnet` executable with
 `pack ./MuseumCatalogue.csproj -c Release -o 'C:\museum proof\feed-10'`;
 use a separate `feed-11` path for the newer package. Keep environment overrides
@@ -98,7 +98,7 @@ separately. Do not equate SDK selection with the framework required by a tool.
 ## Verified selection cases
 
 The Windows check builds an isolated layout with actual SDKs 9.0.319, 10.0.403
-and 11 RC2. It copies each shipped 10.0.403 and RC2 wrapper unchanged, with its
+and 11 GA. It copies each shipped 10.0.403 and GA wrapper unchanged, with its
 hash recorded; the SDK/framework directories refer to the installed artifacts.
 It executes both original net10 and net11 tool packages in separate caches.
 
@@ -133,7 +133,7 @@ exact forwarded arguments, successful unique-card checks and duplicate exit 7.
 4. If choosing the wrapper, document its bypass behavior and identify the
    actual selected SDK. Recheck after servicing or changing the installation;
    the publisher's introduction boundary is 10.0.302 / 10.0.400, while the actual
-   tested serviced artifact here is 10.0.403, compared with RC2.
+   tested serviced artifact here is 10.0.403, compared with GA.
 
 ## Constraints
 
@@ -153,13 +153,13 @@ Child homes disable automatic global-tools PATH integration.
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 `eng/Test-ToolSdkSelection.ps1` reproduces the actual local package/SDK cases and
 its `-Record` mode saves fresh execution records after compilation capture.
 Exact SDK/framework/package hashes and commands are verification baselines,
 not a claim that the servicing boundary was independently binary-searched.
-No API is experimental; .NET 11 RC2 proof still requires actual GA reconciliation.
+No API is experimental; .NET 11 GA proof still requires actual GA reconciliation.
 
 ## Official references
 

@@ -84,11 +84,11 @@ No universal event order/count, polling latency, network-share behavior or brows
 WASI, iOS/tvOS support is promised. Null native watcher with polling is outside this
 recipe; `pollForChanges=false` requires a native watcher. For environments without
 file events, separately choose a supported polling/import strategy. No workload,
-rendering mode or experimental opt-in is needed. RC proof remains GA-pending.
+rendering mode or experimental opt-in is needed. GA proof is limited to the recorded checks.
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 `eng/Record-FileChain.ps1 -VerifySources` runs both overloads, null/invalid roots,
 unrelated and prefix siblings, old construction boundaries and real supported

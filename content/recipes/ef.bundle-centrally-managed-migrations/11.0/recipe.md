@@ -6,7 +6,7 @@ Build and execute a migration bundle with centrally managed application packages
 
 ## When to use
 
-Real Windows x64 framework-dependent SQLite migration bundles; matching Design/tool versions, inherited CPM and non-CPM control. SDK10.0.403 / EF10.0.13 versus SDK11 GA / EF11 RC2. No self-contained, NativeAOT, multi-context, encrypted provider, other-platform or GA claim.
+Real Windows x64 framework-dependent SQLite migration bundles; matching Design/tool versions, inherited CPM and non-CPM control. SDK10.0.403 / EF10.0.13 versus SDK11 GA / EF11 GA. No self-contained, NativeAOT, multi-context, encrypted provider, other-platform or GA claim.
 
 The Design tooling graph includes System.Security.Cryptography.Pkcs. The sample deliberately pins its patched 10.0.13 version, following the existing tooling consumers; this is a dependency qualification pin, rather than an application cryptography API used by the example.
 
@@ -89,9 +89,9 @@ The independently pinned .NET11 consumer records the actual RC boundary.
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
-Real Windows x64 framework-dependent SQLite migration bundles; matching Design/tool versions, inherited CPM and non-CPM control. SDK10.0.403 / EF10.0.13 versus SDK11 GA / EF11 RC2. No self-contained, NativeAOT, multi-context, encrypted provider, other-platform or GA claim.
+Real Windows x64 framework-dependent SQLite migration bundles; matching Design/tool versions, inherited CPM and non-CPM control. SDK10.0.403 / EF10.0.13 versus SDK11 GA / EF11 GA. No self-contained, NativeAOT, multi-context, encrypted provider, other-platform or GA claim.
 
 ## Constraints
 

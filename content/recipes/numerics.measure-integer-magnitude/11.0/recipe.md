@@ -69,7 +69,7 @@ There is no older-target Log10 route or additional .NET 10 foundation.
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 `eng/Test-IntegerFormats.ps1 -Record -VerifySources` compiles/runs both actual
 dependency sets. Independent BigInteger-generated inputs surround every power
@@ -82,6 +82,6 @@ The existing sample records retain commands, dependencies, actual runtime,
 input hashes, measured compiler/CoreLib and audit-matching references on Windows
 x64. Versioned official declarations/implementations qualify the API contract.
 Real installed offline list/get checks complete canonical Markdown, ID/title/goal,
-target11/edition11, applicability and current evidence. RC2 does not establish GA
+target11/edition11, applicability and current evidence. GA does not establish GA
 or other-platform execution; comprehensive PIN-959, GA PIN-962 and existing Human
 gates stay open. No recurring native/client matrix is added.

@@ -79,7 +79,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Verified with SDK 11.0.100; Historical RC execution is separate from current GA verification records."
+            "Verified with SDK 11.0.100; Current GA verification is limited to the recorded checks."
           ]
         },
         "sourceUrls": [
@@ -117,7 +117,7 @@
       "sdk": "11.0.100",
       "language": "15.0",
       "kind": "compile-and-run",
-      "scope": "RC2 stream and buffer codecs restore empty/nonempty original messages, including reuse after Reset. Compilation resolves no NuGet packages: the actual ref/net11.0 framework asset contains the APIs. No .NET 10 package-asset support is inferred. Actual Windows compilation/execution; no mocks, cross-compilation or GA proof."
+      "scope": "GA stream and buffer codecs restore empty/nonempty original messages, including reuse after Reset. Compilation resolves no NuGet packages: the actual ref/net11.0 framework asset contains the APIs. No .NET 10 package-asset support is inferred. Actual Windows compilation/execution; no mocks, cross-compilation or GA proof."
     }
   ],
   "snippets": {

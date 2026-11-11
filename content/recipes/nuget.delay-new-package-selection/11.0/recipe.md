@@ -20,7 +20,7 @@ For an existing source named quay, run `dotnet nuget update source quay --min-pu
 
 From the project directory under SDK 11, run `dotnet package add Quay.Manifest` or `dotnet package update`. With the controlled metadata, both select old 1.1.0 rather than fresh 1.2.0. Update also reports that a newer version has not reached the configured age.
 
-An explicit reference to 1.2.0 still restores successfully in the check. Cooldown is **not universal restore exclusion**. RC2 rejects both 1.* and 1.2.* floating references with NU1020, even though 1.* could match old versions. Do not promise that having an eligible old floating match makes restore valid on this baseline.
+An explicit reference to 1.2.0 still restores successfully in the check. Cooldown is **not universal restore exclusion**. GA rejects both 1.* and 1.2.* floating references with NU1020, even though 1.* could match old versions. Do not promise that having an eligible old floating match makes restore valid on this baseline.
 
 ## Migration
 
@@ -38,6 +38,6 @@ The served configuration is language-neutral; no application C# upgrade is neede
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Both real SDK consumers compile and execute. A temporary loopback V3 fixture supplies original nupkgs, registration publication timestamps and audit metadata to actual SDK commands with separate package/HTTP caches. The SDK-11 run checks both add and update select 1.1.0, explicit fresh restore succeeds, both floating forms fail with NU1020 and zero removes the setting. An unrelated disabled source retains its endpoint and disabled flag throughout these commands. These are real NuGet command results against **controlled synthetic metadata**, not production-feed or dependency-security proof. Windows x64 SDKs are 10.0.403 and 11.0.100. Offline packed-tool retrieval verifies the full body, applicability and target-11 edition; it performs no package selection itself. GA verification remains separate.

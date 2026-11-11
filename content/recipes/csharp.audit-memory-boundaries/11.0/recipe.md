@@ -69,4 +69,4 @@ The canonical .NET 10 and .NET 11 projects compile and execute identical checks 
 
 Official sources are included with the recipe response. Essential steps and code above are complete offline; references provide provenance rather than missing implementation.
 
-GA refresh (PIN-1287): the declared .NET 11 sample was rebuilt and executed with SDK 11.0.100 and runtime 11.0.0. Earlier RC observations above remain historical; this refresh does not establish broader platform or API behavior.
+GA refresh (PIN-1287): the declared .NET 11 sample was rebuilt and executed with SDK 11.0.100 and runtime 11.0.0. This refresh does not establish broader platform or API behavior.

@@ -78,7 +78,7 @@ and Int128: its positive quotient cannot fit. The helper does not convert that
 failure into a wrapped tile. Generic custom implementations can override the
 static operations; the constraint alone cannot certify their semantics.
 
-In the executed RC2 default, an unsupported mode on `6/3` returns `(2,0)` because
+In the executed GA default, an unsupported mode on `6/3` returns `(2,0)` because
 the zero-remainder shortcut precedes enum validation; `7/3` throws
 ArgumentException. Our helper rejects both first with ArgumentOutOfRangeException.
 Do not rely on the raw shortcut as a supported enum value. Unsigned evidence is
@@ -87,7 +87,7 @@ custom integers and other-platform execution are not advertised here.
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 `eng/Test-IntegerFormats.ps1 -Record -VerifySources` captures both real consumers
 through the existing Record-Evidence workflow. The shared checks execute int,
@@ -95,12 +95,12 @@ long, Int128 and BigInteger over five modes and all operand signs, compare an
 independent small-value quotient oracle, and verify the identity in BigInteger.
 Current generic Divide/Remainder agree with DivRem. Failures cover zero divisor,
 three signed-minimum overflows and invalid enum values on exact/inexact inputs;
-the raw RC2 shortcut and uint truncation are executed separately.
+the raw GA shortcut and uint truncation are executed separately.
 
 Saved records contain commands, inputs, exact dependencies, runtime location,
 compiler/CoreLib hashes and audit-matching reference hashes on Windows x64.
 Pinned official declarations and default implementation resolve availability and
 reachability. The ordinary locally installed package is inspected through real
 stdio list/get for ID/title/goal, full canonical Markdown, explicit target11 /
-edition11, applicability and fresh evidence. RC2 is not GA proof; PIN-959 and
+edition11, applicability and fresh evidence. GA checks establish only the recorded scope; PIN-959 and
 PIN-962 remain open, alongside existing Human gates. No recurring platform matrix.

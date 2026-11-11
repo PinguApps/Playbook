@@ -57,7 +57,7 @@
               "name": "Microsoft.AspNetCore.Components.Server.AutoPause",
               "version": "11.0.0",
               "match": "exact",
-              "reason": "Actual restored RC2 package supplying the initializer and AddAutoPause extension."
+              "reason": "Actual restored GA package supplying the initializer and AddAutoPause extension."
             }
           ],
           "workloads": [],
@@ -89,7 +89,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "RC2; GA pending."
+            "GA; GA pending."
           ]
         },
         "evidenceSamples": [
@@ -234,6 +234,6 @@
   },
   "humanProof": {
     "status": "not-required",
-    "scope": "Actual local .NET 10/RC2 desktop browser and server lifecycle proof is recorded. No external service or Human-only prerequisite is required for these routes. Mobile/distributed/GA behavior is not claimed."
+    "scope": "Actual local .NET 10/GA desktop browser and server lifecycle proof is recorded. No external service or Human-only prerequisite is required for these routes. Mobile/distributed/GA behavior is not claimed."
   }
 }

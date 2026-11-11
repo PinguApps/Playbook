@@ -55,7 +55,7 @@
           "packages": [
             {
               "match": "exact",
-              "reason": "Actual restored RC2 host and matching browser assets. DevServer at this version supplies local serving only.",
+              "reason": "Actual restored GA host and matching browser assets. DevServer at this version supplies local serving only.",
               "name": "Microsoft.AspNetCore.Components.WebAssembly",
               "version": "11.0.0"
             }
@@ -80,12 +80,12 @@
             "WASM browser lifetime; not durable work after tab/process termination.",
             "No public RunAsync cancellation overload exists. Browser close/reload/navigation do not guarantee asynchronous cleanup or StopAsync. Never depend on a final browser upload; durable work belongs to a backend.",
             "Timers are best effort and throttled in hidden/suspended tabs; hosted services do not create worker threads. Await short iterations and pass cancellation into real I/O.",
-            "RC2 host stop uses CancellationToken.None and suppresses stop errors; services must bound/report their own cleanup. Observe actual cancelled/stopped/root-disposed events, not merely a successful disposal return.",
+            "GA host stop uses CancellationToken.None and suppresses stop errors; services must bound/report their own cleanup. Observe actual cancelled/stopped/root-disposed events, not merely a successful disposal return.",
             "The .NET 10 manual owner is a compiled and executed comparison, not a route to the new integration. Static SSR, Interactive Server/Auto composition, mobile suspension, AOT and GA are not execution claims."
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "RC2; GA pending."
+            "GA; GA pending."
           ]
         },
         "evidenceSamples": [
@@ -199,7 +199,7 @@
     }
   },
   "humanProof": {
-    "scope": "Local real .NET 10/RC2 WebAssembly browser lifetime proof supplied; no account/resource or Human-only prerequisite. No guaranteed unload cleanup, mobile, hosted/Auto or GA claim.",
+    "scope": "Local real .NET 10/GA WebAssembly browser lifetime proof supplied; no account/resource or Human-only prerequisite. No guaranteed unload cleanup, mobile, hosted/Auto or GA claim.",
     "status": "not-required"
   }
 }

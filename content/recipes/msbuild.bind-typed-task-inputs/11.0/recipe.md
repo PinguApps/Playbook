@@ -11,8 +11,8 @@ the filter and exposure text; projects never share an output file.
 ## Choose the host before changing the task
 
 This edition targets .NET 11 and uses **SDK 11.0.100**,
-**MSBuild 18.12.0-1.26504.105**, **C# 15.0**, and the matching .NET 11 RC2 runtime
-and reference pack. `-mt` is experimental and explicitly opt-in. This is RC2
+**MSBuild 18.12.0-1.26504.105**, **C# 15.0**, and the matching .NET 11 GA runtime
+and reference pack. `-mt` is experimental and explicitly opt-in. This is GA
 evidence, not an actual-GA qualification. The older comparison uses SDK
 **10.0.403**, MSBuild **18.9.15**, C# **14.0**, runtime/reference pack **10.0.14**.
 Both MSBuild assembly identities are `15.1.0.0`; that is not their product version.
@@ -154,7 +154,7 @@ compatibility with arbitrary package replacements, older hosts or other platform
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 The saved compile-and-run records use the existing sample-evidence workflow.
 The executable harness creates two actual project files in a disposable tree,

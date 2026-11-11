@@ -39,7 +39,7 @@
             "name": ".NET",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Execute the ASP.NET Core 11 shared-framework API; the actual evidence is RC2, not GA."
+            "reason": "Execute the ASP.NET Core 11 shared-framework API; the actual evidence is GA."
           },
           "sdk": {
             "name": ".NET SDK",
@@ -117,7 +117,7 @@
       "sdk": "10.0.403",
       "language": "14.0",
       "kind": "compile-and-run",
-      "scope": "Both real consumers compile and execute through Record-Evidence.ps1. Four custom-renderer batches and four actual HTML outputs cover replacement, encoding, null and subsequent replacement. The RC2 consumer executes wrong-frame and both index-boundary failures; Test-StagedAttribute.ps1 compiles independent negative consumers for CS1061, ASP0032 and BL0006. No DOM, event-handler mutation, performance or cross-version renderer compatibility is claimed."
+      "scope": "Both real consumers compile and execute through Record-Evidence.ps1. Four custom-renderer batches and four actual HTML outputs cover replacement, encoding, null and subsequent replacement. The GA consumer executes wrong-frame and both index-boundary failures; Test-StagedAttribute.ps1 compiles independent negative consumers for CS1061, ASP0032 and BL0006. No DOM, event-handler mutation, performance or cross-version renderer compatibility is claimed."
     },
     {
       "sample": "samples/net11.0/MossGallery/MossGallery.csproj",
@@ -125,7 +125,7 @@
       "sdk": "11.0.100",
       "language": "15.0",
       "kind": "compile-and-run",
-      "scope": "Both real consumers compile and execute through Record-Evidence.ps1. Four custom-renderer batches and four actual HTML outputs cover replacement, encoding, null and subsequent replacement. The RC2 consumer executes wrong-frame and both index-boundary failures; Test-StagedAttribute.ps1 compiles independent negative consumers for CS1061, ASP0032 and BL0006. No DOM, event-handler mutation, performance or cross-version renderer compatibility is claimed."
+      "scope": "Both real consumers compile and execute through Record-Evidence.ps1. Four custom-renderer batches and four actual HTML outputs cover replacement, encoding, null and subsequent replacement. The GA consumer executes wrong-frame and both index-boundary failures; Test-StagedAttribute.ps1 compiles independent negative consumers for CS1061, ASP0032 and BL0006. No DOM, event-handler mutation, performance or cross-version renderer compatibility is claimed."
     }
   ],
   "snippets": {

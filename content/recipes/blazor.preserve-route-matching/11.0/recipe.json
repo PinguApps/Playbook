@@ -46,7 +46,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Build net11.0 against matching reference/browser assets. Exact RC2 pin records the test baseline, not a universal exact installation requirement."
+            "reason": "Build net11.0 against matching reference/browser assets. Exact GA pin records the test baseline, not a universal exact installation requirement."
           },
           "language": {
             "name": "C#",
@@ -81,7 +81,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Stable supported replacement APIs already exist in .NET 10. Current execution uses .NET 11 RC2; GA reconciliation remains pending. No conditional older-target package route is advertised."
+            "Stable supported replacement APIs already exist in .NET 10. Current execution uses .NET 11 GA; GA checks are limited to the recorded scope. No conditional older-target package route is advertised."
           ]
         },
         "sourceUrls": [

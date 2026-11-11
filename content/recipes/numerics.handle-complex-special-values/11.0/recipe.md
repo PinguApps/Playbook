@@ -89,7 +89,7 @@ claimed. The previous comparison is not an additional target10 foundation.
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Paired SignalPipeline consumers compile and execute with SDK10.0.403/C#14 /
 runtime10.0.14 and SDK11.0.100/C#15 /
@@ -98,5 +98,5 @@ division, reciprocal, magnitude, power and root; all named affected functions;
 NaN/infinity routing; signed zeros; and old/new failures and corrected results.
 Inputs are parsed at runtime, separating these observations from constant folding.
 Saved sample records contain commands, exact inputs/results and component bits.
-RC2 proof is not GA proof. Comprehensive coverage and actual-GA reconciliation
+Current GA checks establish only the recorded scope. Comprehensive coverage and actual-GA reconciliation
 remain open; no mocks or source-only claims replace these executions.

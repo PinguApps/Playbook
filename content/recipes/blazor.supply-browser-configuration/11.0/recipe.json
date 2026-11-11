@@ -57,7 +57,7 @@
               "name": "Microsoft.AspNetCore.Components.WebAssembly",
               "version": "11.0.0",
               "match": "exact",
-              "reason": "Executed RC2 baseline."
+              "reason": "Executed GA baseline."
             }
           ],
           "workloads": [],
@@ -86,7 +86,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "RC2; GA pending."
+            "GA; GA pending."
           ]
         },
         "evidenceSamples": [

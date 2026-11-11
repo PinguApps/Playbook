@@ -37,7 +37,7 @@
           "winforms"
         ],
         "selectionNotes": [
-          "Uses standard padded Base64, not Base64Url. Preserve unconsumed tails; RC2 TryDecodeFromChars can throw for malformed text."
+          "Uses standard padded Base64, not Base64Url. Preserve unconsumed tails; GA TryDecodeFromChars can throw for malformed text."
         ],
         "requirements": {
           "runtime": {
@@ -71,11 +71,11 @@
             "Use a net11.0 console project with LangVersion=15.0. Include the imports stated in the recipe."
           ],
           "constraints": [
-            "This is standard Base64, not Base64Url: alphabet and padding differ. Use GetEncodedLength/GetMaxDecodedLength for destination planning, and consume only the written portion. The OperationStatus forms preserve consumed/written and isFinalBlock semantics; retain unconsumed tails across blocks. The test proves a non-final two-byte tail returns NeedMoreData with zero consumption. In the actual RC2 artifact TryDecodeFromChars throws FormatException for malformed text; Try here is not a blanket promise of nonthrowing validation. Use the OperationStatus overload for InvalidData. A short destination is a separate condition. Encoding does not encrypt, authenticate or compress the payload."
+            "This is standard Base64, not Base64Url: alphabet and padding differ. Use GetEncodedLength/GetMaxDecodedLength for destination planning, and consume only the written portion. The OperationStatus forms preserve consumed/written and isFinalBlock semantics; retain unconsumed tails across blocks. The test proves a non-final two-byte tail returns NeedMoreData with zero consumption. In the actual GA artifact TryDecodeFromChars throws FormatException for malformed text; Try here is not a blanket promise of nonthrowing validation. Use the OperationStatus overload for InvalidData. A short destination is a separate condition. Encoding does not encrypt, authenticate or compress the payload."
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "RC2 verification; GA reconciliation remains pending."
+            "GA verification; GA checks are limited to the recorded scope."
           ]
         },
         "sourceUrls": [

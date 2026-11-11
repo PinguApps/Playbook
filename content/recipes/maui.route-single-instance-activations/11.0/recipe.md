@@ -26,11 +26,11 @@ This sample logs the complete URI only when it exactly matches the fixed synthet
 
 ## Constraints
 
-Windows only, native MAUI/WinUI; no web rendering mode, provider or account. The older app uses SDK10.0.402, C#14 and Controls10.0.110. Current intended pins are SDK11 GA, C#15 and Controls11 RC2 with matching MAUI Windows workload. Windows App SDK is a separate dependency, not evidence of a usable MAUI workload. No compatible .NET10 route for the new hook is claimed. The API is stable; RC artifact review is not GA verification.
+Windows only, native MAUI/WinUI; no web rendering mode, provider or account. The older app uses SDK10.0.402, C#14 and Controls10.0.110. Current intended pins are SDK11 GA, C#15 and Controls11 GA with matching MAUI Windows workload. Windows App SDK is a separate dependency, not evidence of a usable MAUI workload. No compatible .NET10 route for the new hook is claimed. The API is stable; RC artifact review is limited to the recorded checks.
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 The actual .NET10 Windows Release app compiled. Separate processes 79376 and 77072 established launch redirection: the second exited with code0 and both launch receipts were written by79376. A real Windows protocol launch delivered playbook-tern-pin919://callback/?ticket=919 to79376. An additional protocol URI with a synthetic code parameter was received as Protocol (redacted), without persisting its query. Temporary registration was removed, including its empty leftover root key. This is protocol delivery only, not WebAuthenticator/provider authentication. Current .NET11 compilation was attempted with SDK11 GA and failed NETSDK1147; current compilation/execution are explicitly not-tested under PIN-699. No MSIX deployment or trust change was tested.
 

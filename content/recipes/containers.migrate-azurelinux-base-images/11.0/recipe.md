@@ -11,7 +11,7 @@ image. A smaller base layer or changed AOT compiler alone supplies none of that 
 
 This recipe selects the ordinary **managed runtime** variant on Linux amd64.
 Azure Linux4 is **Beta** in the pinned Preview6 notes; this edition retains that
-status. It is a preparation route with actual RC2 execution, not an assertion of
+status. It is a preparation route with actual GA execution, not an assertion of
 GA OS support or production approval. NativeAOT, distroless-extra/composite,
 ARM64, GCC/Clang changes and image-size/performance comparisons are outside this
 bounded selection and require their own actual artifact/runtime checks.
@@ -89,7 +89,7 @@ and configuration are provided above; no generated sample or remote guide is nee
    `docker build --platform linux/amd64 --network none -t quay-worker:check <context>`.
    Image acquisition is online preparation; `--network none` constrains build
    steps. Run `docker run --rm --network none --read-only quay-worker:check`.
-   Expect Azure Linux4.0, the exact .NET11 RC2 runtime, architecture X64,
+   Expect Azure Linux4.0, the exact .NET11 GA runtime, architecture X64,
    fr-FR fee `1234,50`, a zlib version and a compression budget above 4096.
    The Dockerfile uses the image's non-root APP_UID. Compare the older image's
    equivalent output, which must report Azure Linux3.0 and .NET10.0.13.
@@ -120,7 +120,7 @@ relabel these exact Beta/RC artifacts as actual-GA evidence.
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 `eng/Test-QuayWorker.ps1 -Record` checks exact SDK/native-host/compiler/reference
 hashes, builds both real projects, compares Dockerfile pins with the reviewed

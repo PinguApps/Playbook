@@ -24,7 +24,7 @@ The executed platform is Windows x64, with private CP1252 and CP65001 consoles,
 redirected stdout/stderr and en-US SDK UI language. Complete SDK/compiler/ref/runtime
 identities and hashes are recorded separately from prerequisites. No NuGet
 dependency, workload, provider, native compiler or rendering mode is required for
-this recipe. RC3 evidence is not GA qualification, and a new SDK or different
+this recipe. GA verification is limited to the recorded checks qualification, and a new SDK or different
 console/language condition requires a fresh byte-level check.
 
 ## Older approach
@@ -112,7 +112,7 @@ performance change, production setting or recurring OS matrix is introduced.
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 `eng/Test-EstuaryWindows.ps1 -Record` builds both actual target/SDK sets and captures
 non-ASCII diagnostics under private CP1252/65001 consoles. Default, false, true and

@@ -42,7 +42,7 @@
             "name": ".NET",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Canonical net11.0 managed server; actual authoring evidence is RC2."
+            "reason": "Canonical net11.0 managed server; actual authoring evidence is GA."
           },
           "sdk": {
             "name": ".NET SDK",
@@ -93,7 +93,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "The .NET 11 baseline is RC2, not GA verification. Final release artifacts must be reconciled separately."
+            "The .NET 11 baseline is GA verification. Final release artifacts must be reconciled separately."
           ]
         },
         "sourceUrls": [

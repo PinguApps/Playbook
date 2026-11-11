@@ -18,7 +18,7 @@ JSON ID. Both implementations below store the same original array.
 The EF10 approach is valid on its stated baseline. Complex JSON collections also
 exist in EF10; they are not an EF11 invention. What changes in EF11 is the
 diagnostic for owned JSON collections using synthetic ordinal keys. Existing
-mapping continues to work on the measured RC2 release; this is a deprecation,
+mapping continues to work on the measured GA release; this is a deprecation,
 not an immediate removal. Owned references are a different case.
 
 If items need durable identities independent of their position, decide that
@@ -47,13 +47,13 @@ The real provider check ran on Windows x64. Previous SQLite3.53.3 comes through
 SQLitePCLRaw2.1.13; current SQLite3.53.4 comes through SQLitePCLRaw3.0.5 and the
 separate SQLite3.53.4 package. Suitable native assets are required on any host.
 There is no optional workload, browser/rendering mode, external service, account
-or experimental opt-in. Stable GA-targeted API guidance is backed by RC2
-execution, not GA evidence. Other providers and platforms require separate proof.
+or experimental opt-in. Stable GA-targeted API guidance is backed by GA
+execution, within the recorded verification scope. Other providers and platforms require separate proof.
 
-The pinned RC2 diagnostic is
+The pinned GA diagnostic is
 `RelationalEventId.OwnedEntityMappedToJsonCollectionWarning`, in
 `Microsoft.EntityFrameworkCore.Diagnostics`. The documentation's suppression
-example names `CoreEventId`; that is not the compiled RC2 member used here.
+example names `CoreEventId`; that is not the compiled GA member used here.
 The control context elevates the real event to an exception, then verifies the
 complex model initializes without that event. Suppression would only hide the
 warning; it would not change mapping or migrate data.
@@ -176,7 +176,7 @@ Dependency restore is online setup; installed Playbook guidance remains offline.
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 The canonical EF10 executable creates the actual SQLite file consumed by the
 canonical EF11 executable. `eng/Test-TrailCards.ps1 -Record` captures compilation
@@ -197,5 +197,5 @@ remain open; this guidance neither provisions resources nor publishes packages.
 
 - [EF11 owned JSON collection diagnostic and mitigations](https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/breaking-changes#owned-json-collections-obsolete).
 - [Reviewed immutable documentation baseline](https://github.com/dotnet/EntityFramework.Docs/blob/aa051c4c1cad21b2dc03fa401ac0e925c3644606/entity-framework/core/what-is-new/ef-core-11.0/breaking-changes.md).
-- [Package-matched RC2 relational validator](https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/efcore/src/EFCore.Relational/Infrastructure/RelationalModelValidator.cs).
+- [Package-matched GA relational validator](https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/efcore/src/EFCore.Relational/Infrastructure/RelationalModelValidator.cs).
 - [EF10 complex types and JSON](https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-10.0/whatsnew#complex-types).

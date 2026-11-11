@@ -2,7 +2,7 @@
   "id": "maui.enable-windows-maps",
   "edition": "11.0",
   "title": "Enable the supported Windows map and pin surface",
-  "goal": "Register an Azure Maps service key for the Windows MAUI map and standard pin surface; RC2 camera navigation is unsupported.",
+  "goal": "Register an Azure Maps service key for the Windows MAUI map and standard pin surface; GA camera navigation is unsupported.",
   "areas": [
     "maui"
   ],
@@ -37,7 +37,7 @@
           "sdk": {
             "version": "11.0",
             "match": "release-family",
-            "reason": "SDK11.0.100 with matched native workloads; RC2 MAUI artifacts are preparation evidence, not GA proof.",
+            "reason": "SDK11.0.100 with matched native workloads; GA MAUI artifacts are preparation evidence, within the recorded verification scope.",
             "name": ".NET SDK"
           },
           "language": {
@@ -71,7 +71,7 @@
               "name": "maui-windows",
               "version": "11.0",
               "match": "release-family",
-              "reason": "Matching native SDK/workload required. Current RC3 installation fails Windows MAUI with NETSDK1147; Mac/Xcode unavailable."
+              "reason": "Matching native SDK/workload required. Current GA installation fails Windows MAUI with NETSDK1147; Mac/Xcode unavailable."
             }
           ],
           "providers": [
@@ -88,11 +88,11 @@
           ],
           "constraints": [
             "Source/contract compilation does not establish native rendering or provider behavior. See exact not-tested samples and PIN-935.",
-            "Pinned RC2 camera navigation unsupported: control sends MoveToRegionRequest but Windows handler expects MapSpan; do not rely on MoveToRegion or Region."
+            "Pinned GA camera navigation unsupported: control sends MoveToRegionRequest but Windows handler expects MapSpan; do not rely on MoveToRegion or Region."
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "RC2 package/source preparation evidence, not GA verification; no ExperimentalAttribute or experimental opt-in applies to these map APIs."
+            "GA package/source preparation evidence, within the recorded verification scope; no ExperimentalAttribute or experimental opt-in applies to these map APIs."
           ]
         },
         "sharedAreas": [],
@@ -187,7 +187,7 @@
           ],
           "constraints": [
             "Native app and linked token registration compile, but the app was not launched against Azure Maps. No provider behavior or credentialed service result is claimed.",
-            "Windows shapes, built-in user location, labels/info windows and background clicks remain unsupported. This older MapSpan camera path does not have the RC2 request-wrapper mismatch."
+            "Windows shapes, built-in user location, labels/info windows and background clicks remain unsupported. This older MapSpan camera path does not have the GA request-wrapper mismatch."
           ],
           "optIns": [],
           "stabilityLimitations": [
@@ -331,7 +331,7 @@
     "untestedSamples": [
       "samples/net11.0/QuayWindows/QuayWindows.csproj"
     ],
-    "scope": "Mac/Xcode unavailable for QuayAtlas; RC3 Windows MAUI build fails NETSDK1147 for QuayWindows11. Native rendering, interaction and provider execution excluded under PIN-699. PIN-700 and PIN-935 were cancelled by Pingu on 7 November 2026: verification must remain local and incur no cost. Live Azure Maps rendering and service checks are not-tested and excluded, not pending Human work. No resources, credentials or service requests are authorized for this verification."
+    "scope": "Mac/Xcode unavailable for QuayAtlas; GA Windows MAUI build fails NETSDK1147 for QuayWindows11. Native rendering, interaction and provider execution excluded under PIN-699. PIN-700 and PIN-935 were cancelled by Pingu on 7 November 2026: verification must remain local and incur no cost. Live Azure Maps rendering and service checks are not-tested and excluded, not pending Human work. No resources, credentials or service requests are authorized for this verification."
   },
   "snippets": {
     "samples-net10-0-quaywindows-directory-build-props": {

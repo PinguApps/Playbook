@@ -104,7 +104,7 @@ exact eight .NET10 foundations and other existing identities.
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Record-SignaturePadding.ps1 captures SDK10.0.403/C#14/reference-runtime10.0.14 and
 SDK11.0.100/C#15/reference-runtime11RC3, commands, input hashes,
@@ -122,5 +122,5 @@ include them. None of these observations establishes the excluded macOS results.
 
 Ordinary packed/local-feed-installed MCP retrieval checks full canonical Markdown,
 ID/title/goal, target11/edition11, applicability, not-tested disclosures and fresh
-saved evidence offline. RC evidence leaves PIN-959/PIN-962 and existing Human
+saved evidence offline. Recorded evidence leaves PIN-959/PIN-962 and existing Human
 gates open; it does not establish GA or comprehensive release readiness.

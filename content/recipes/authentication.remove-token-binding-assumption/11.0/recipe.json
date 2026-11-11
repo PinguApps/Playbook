@@ -40,7 +40,7 @@
             "name": ".NET / ASP.NET Core",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Target release family; measured execution uses 11 RC2, not GA."
+            "reason": "Target release family; measured execution uses 11 GA."
           },
           "sdk": {
             "name": ".NET SDK",
@@ -130,7 +130,7 @@
       "sdk": "11.0.100",
       "language": "15.0",
       "kind": "compile-and-run",
-      "scope": "Actual same authorization/HTTPS outcomes after removing feature lookup; isolated historical-source recompilation emits ASPDEPR010 on real RC2 references. No replacement protocol, production sign-in, channel-binding, browser or GA proof."
+      "scope": "Actual same authorization/HTTPS outcomes after removing feature lookup; isolated historical-source recompilation emits ASPDEPR010 on real GA references. No replacement protocol, production sign-in, channel-binding, browser or GA proof."
     }
   ],
   "snippets": {

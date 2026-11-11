@@ -32,10 +32,10 @@ The .NET10 fragments preserve archive and symbol intent without claiming the new
 
 ## Constraints
 
-Requires a compatible .NET11 native workload composition and platform toolchain. Source preparation is RC2 evidence, not GA or native execution. Crash configuration requires no service account. Unavailable native checks are sample-specific not-tested exclusions under PIN-699; no Human proof is pending.
+Requires a compatible .NET11 native workload composition and platform toolchain. Source preparation is GA evidence, within the recorded verification scope or native execution. Crash configuration requires no service account. Unavailable native checks are sample-specific not-tested exclusions under PIN-699; no Human proof is pending.
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Run eng/Test-SandpiperFieldwork.ps1 -Record for exact official input hashes and feasible older configuration compilation. Canonical current native compilation and all native runtime behavior are explicitly not-tested under PIN-699. The current fragments have not been restored: their lock-file setting requests a lock file on a future supported restore, but no resolved dependency set or committed lock file is claimed. Packed stdio list/get verifies offline guidance delivery only. No GA, symbolication or crash collection is inferred; no Human proof is pending. The eight .NET10 foundations and comprehensive/GA gates remain unchanged.

@@ -46,4 +46,4 @@ The actual net10.0/C# 14 and net11.0/C# 15 projects compile and execute the same
 
 Saved sample records identify exact SDKs, runtimes, commands and hashed inputs, including the compiler-check script. The consumer checks run separately in eng/Verify.ps1; their output is not part of the sample execution record. Source review establishes the C# 15 runtime-gate change; no legacy-runtime compilation or execution is claimed. No mocks, cross-compilation or targeted Human proof are used for the declared net11.0 route.
 
-GA refresh (PIN-1287): the declared .NET 11 sample was rebuilt and executed with SDK 11.0.100 and runtime 11.0.0. Earlier RC observations above remain historical; this refresh does not establish broader platform or API behavior.
+GA refresh (PIN-1287): the declared .NET 11 sample was rebuilt and executed with SDK 11.0.100 and runtime 11.0.0. This refresh does not establish broader platform or API behavior.

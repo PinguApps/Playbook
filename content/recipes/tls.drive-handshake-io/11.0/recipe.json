@@ -76,7 +76,7 @@
             "Scoped SYSLIB5007 suppression after reviewing the experimental TLS contract."
           ],
           "stabilityLimitations": [
-            "Experimental SYSLIB5007 can change independently of runtime stability; RC2 execution, GA reconciliation pending."
+            "Experimental SYSLIB5007 can change independently of runtime stability; GA execution, GA checks are limited to the recorded scope."
           ]
         },
         "sourceUrls": [

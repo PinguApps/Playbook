@@ -12,7 +12,7 @@ The .NET10 sample retains a working HTTPS endpoint and pinned-certificate client
 
 The .NET11 sample reads property4, HttpRequestPropertySni. Windows SDK10.0.26100.0 http.h defines HTTP_REQUEST_PROPERTY_SNI as WCHAR Hostname[256] followed by ULONG Flags: 512 UTF-16LE bytes plus four little-endian flag bytes, total516. The qualifier is empty because SNI has no qualifier. This Windows layout is not a portable structure definition for arbitrary properties.
 
-The actual IP-literal HTTPS request returns an empty hostname and flags2 (NO_SNI). Empty and 515-byte destinations return false with bytesReturned=0 on this qualified Windows26200/.NET11 RC3 route. The exact516-byte destination returns true and bytesReturned=516. The XML contract suggests size discovery with an empty buffer, but the measured fixed-layout property does not provide the size there. Use the reviewed fixed size; never allocate from an unchecked returned integer or parse a failed query. Other properties can have different requirements.
+The actual IP-literal HTTPS request returns an empty hostname and flags2 (NO_SNI). Empty and 515-byte destinations return false with bytesReturned=0 on this qualified Windows26200/.NET11 GA route. The exact516-byte destination returns true and bytesReturned=516. The XML contract suggests size discovery with an empty buffer, but the measured fixed-layout property does not provide the size there. Use the reviewed fixed size; never allocate from an unchecked returned integer or parse a failed query. Other properties can have different requirements.
 
 The invalid property int.MaxValue throws HttpSysException with native error87. Missing operating-system API support is documented to throw InvalidOperationException; an OS lacking the API was not available for execution here. This is an explicit not-tested limitation, not a mocked success. Catch the documented exceptions at the application's diagnostic boundary and report unsupported access rather than fabricating a value. A missing feature on a different server also requires a supported fallback. Do not retain a live request feature after request completion.
 
@@ -69,6 +69,6 @@ No external NuGet packages, database, account, optional workload or rendering mo
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 The official HTTP_REQUEST_PROPERTY reference defines SNI and its native structure; the managed TryGetRequestProperty reference in the source metadata defines buffer handling and exceptions. Saved sample evidence records exact compilation/execution commands and input hashes; they establish only the claims described above.

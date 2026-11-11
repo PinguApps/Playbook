@@ -31,6 +31,6 @@ The validator applies to every name in this example. A validator owning one name
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
-Actual .NET 10/11 projects construct the Generic Host with real DI, await startup for crew 3, and require startup rejection for crew 9 against maximum 6. The canonical validator is the one those checks execute. No mocked container or generated-validator substitution is used. Exact SDK/shared-framework and input-hash records accompany the recipe. Windows x64 RC3 evidence is not GA or native/browser integration proof.
+Actual .NET 10/11 projects construct the Generic Host with real DI, await startup for crew 3, and require startup rejection for crew 9 against maximum 6. The canonical validator is the one those checks execute. No mocked container or generated-validator substitution is used. Exact SDK/shared-framework and input-hash records accompany the recipe. Windows x64 GA verification is limited to the recorded checks or native/browser integration proof.

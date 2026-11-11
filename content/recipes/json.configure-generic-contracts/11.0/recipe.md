@@ -34,6 +34,6 @@ Requires .NET 11 framework System.Text.Json, SDK 11 / C# 15; no extra packages, 
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
-Real .NET 10/11 builds and serializer executions verify the derived payload/discriminator, generated int-root metadata and int/string badge conversion. RC2 additionally executes a second derived closure and rejects an incompatible open registration. The diagnostic probe compiles an invalid generated registration and requires SYSLIB1229. Exact artifacts/input hashes are saved; installed MCP checks body, discovery and edition offline. RC proof is distinct from GA and from AOT execution. No required Human proof.
+Real .NET 10/11 builds and serializer executions verify the derived payload/discriminator, generated int-root metadata and int/string badge conversion. GA additionally executes a second derived closure and rejects an incompatible open registration. The diagnostic probe compiles an invalid generated registration and requires SYSLIB1229. Exact artifacts/input hashes are saved; installed MCP checks body, discovery and edition offline. RC proof is distinct from GA and from AOT execution. No required Human proof.

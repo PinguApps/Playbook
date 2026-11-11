@@ -50,7 +50,7 @@ setting and the original dispatch program below. Save the project under
 
 {{snippet:program}}
 
-The opt-in is `CheckSdkVulnerabilities=true`. In the measured RC2 build it defaults
+The opt-in is `CheckSdkVulnerabilities=true`. In the measured GA build it defaults
 to false. Actual warnings are **NETSDK1238** for vulnerabilities and **NETSDK1239**
 for end of life; the source draft's NETSDK1236/1237 numbers are superseded.
 Feature-band discontinuation is a separate NETSDK1240 warning. Do not suppress
@@ -101,7 +101,7 @@ PIN-959/PIN-963 remain separate gates.
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 `eng/Test-SkylarkBuild.ps1 -Record` compiles and executes both real projects with
 their actual reference/runtime sets. It runs actual restore/build against the six

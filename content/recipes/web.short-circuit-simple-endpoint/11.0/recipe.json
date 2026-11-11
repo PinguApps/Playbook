@@ -41,7 +41,7 @@
             "name": ".NET",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Actual net11.0 ASP.NET Core consumer; Historical RC execution is separate from current GA verification records."
+            "reason": "Actual net11.0 ASP.NET Core consumer; Current GA verification is limited to the recorded checks."
           },
           "sdk": {
             "name": ".NET SDK",
@@ -85,7 +85,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Stable framework APIs; .NET 11 evidence uses RC2 and is not GA verification."
+            "Stable framework APIs; .NET 11 evidence uses GA and is limited to the recorded checks."
           ]
         },
         "sourceUrls": [

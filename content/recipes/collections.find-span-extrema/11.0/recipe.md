@@ -76,7 +76,7 @@ no floating-specific/NaN, other-platform, performance or final-GA behavior claim
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 `eng/Test-ChannelExtrema.ps1 -Record -VerifySources` compiles/runs both original
 ObservatoryBatch consumers against actual artifacts. Checks cover value inputs,
@@ -89,6 +89,6 @@ The existing evidence workflow retains commands, resolved dependencies (none),
 measured SDK/compiler/CoreLib/runtime, input hashes and audit-matching reference
 identities. Immutable official sources qualify API availability and the contracts.
 The packed installed tool returns complete canonical Markdown, ID/title/goal,
-target11/edition11, applicability and fresh evidence offline. RC2 proof is not GA;
+target11/edition11, applicability and fresh evidence offline. GA verification is limited to the recorded checks;
 PIN-959, PIN-962 and existing Human gates stay open. No recurring native/client
 matrix is added.

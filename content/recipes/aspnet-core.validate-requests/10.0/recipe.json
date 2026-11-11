@@ -40,7 +40,7 @@
             "name": ".NET",
             "version": "10.0",
             "match": "release-family",
-            "reason": "Use the matching ASP.NET Core server runtime. Recorded .NET 11 execution uses RC2, not GA."
+            "reason": "Use the matching ASP.NET Core server runtime. Recorded .NET 11 execution uses GA."
           },
           "sdk": {
             "name": ".NET SDK",
@@ -79,7 +79,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Stable AddValidation/filter only; .NET 10 experimental APIs unused. .NET 11 RC2 proof; reconcile at GA."
+            "Stable AddValidation/filter only; .NET 10 experimental APIs unused. .NET 11 GA proof; reconcile at GA."
           ]
         },
         "evidenceSamples": [
@@ -106,7 +106,7 @@
             "name": ".NET",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Use the matching ASP.NET Core server runtime. Recorded .NET 11 execution uses RC2, not GA."
+            "reason": "Use the matching ASP.NET Core server runtime. Recorded .NET 11 execution uses GA."
           },
           "sdk": {
             "name": ".NET SDK",
@@ -145,7 +145,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Stable AddValidation/filter only; .NET 10 experimental APIs unused. .NET 11 RC2 proof; reconcile at GA."
+            "Stable AddValidation/filter only; .NET 10 experimental APIs unused. .NET 11 GA proof; reconcile at GA."
           ]
         },
         "evidenceSamples": [
@@ -204,7 +204,7 @@
       "target": "net11.0",
       "sdk": "11.0.100",
       "language": "15.0",
-      "scope": "Actual Windows x64 .NET 11 RC2 compilation/execution: four real HTTP requests prove invalid fields and malformed JSON return 400 before handler execution, a valid request executes once and a separate business conflict returns 409 from the handler. No mocks, cross-compilation or asynchronous validation. Generated model discovery is exercised by actual invalid-field rejection, not inferred from source."
+      "scope": "Actual Windows x64 .NET 11 GA compilation/execution: four real HTTP requests prove invalid fields and malformed JSON return 400 before handler execution, a valid request executes once and a separate business conflict returns 409 from the handler. No mocks, cross-compilation or asynchronous validation. Generated model discovery is exercised by actual invalid-field rejection, not inferred from source."
     }
   ],
   "humanProof": {

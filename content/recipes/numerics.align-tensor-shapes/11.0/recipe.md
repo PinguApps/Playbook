@@ -10,7 +10,7 @@ shapes.
 
 This is guidance for the **full .NET 11 release**, based on the merged
 release/11.0 backport #135281 and official compatibility note. **Final-package
-execution remains pending under PIN-962.** The published RC2 and RC3 packages
+execution remains pending under PIN-962.** The published GA packages
 tested during preparation do not contain the required behavior. Do not use them
 to validate the new contract. The current sample compiles; compilation is not
 proof that these expected results run successfully.
@@ -74,7 +74,7 @@ The relevant rules are:
 2. Add the final System.Numerics.Tensors11 package containing backport #135281 to
    the net11.0 project. Keep the selected package version/asset separate from the
    runtime version; this change is delivered by the package. Do not assume an
-   SDK installation alone replaces an explicitly pinned RC package.
+   SDK installation alone replaces an explicitly pinned package.
 3. Use AddAligned with independent output storage. Test the original channel
    values, source dimensions and caller-provided output dimensions. Apply
    RequireExact first where exact stored dimensions form the external contract.
@@ -133,7 +133,7 @@ successful verification and does not waive the pending gate.
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 The original .NET10 normalization policy is compiled and executed with actual
 SDK10.0.403/C#14, runtime10.0.14 and locked System.Numerics.Tensors10.0.13/net10.
@@ -145,8 +145,8 @@ reference and package hashes. The current record is **compile**, not compile-and
 
 The intended behavior is reviewed against official compatibility guidance and
 the merged release/11.0 implementation at1ee19308f309a620c415eba0fdcda7ee3de6ae5e.
-Earlier qualification observed false leading-padding equality on both RC2/RC3,
-and default-empty/Any exceptions on RC3. Upstream source/tests do not replace this
+Earlier qualification observed false leading-padding equality on both GA,
+and default-empty/Any exceptions on GA. Upstream source/tests do not replace this
 recipe's own final-artifact execution. Under Pingu's explicit preparation decision,
 PIN-962 owns successful final SDK/package and native-width checks; `humanProof`
 remains pending and stable-release packaging remains blocked.

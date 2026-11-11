@@ -46,7 +46,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Build a net11.0 consumer with its matching framework references; exact RC2 verification pins are separate."
+            "reason": "Build a net11.0 consumer with its matching framework references; exact GA verification pins are separate."
           },
           "language": {
             "name": "C#",
@@ -83,7 +83,7 @@
             "Advanced ISpanAuthenticatedEncryptor is for an existing envelope contract with matching AAD and external key selection. It is not a DataProtection payload or a new algorithm design."
           ],
           "stabilityLimitations": [
-            "No experimental attribute or suppression is required in these artifacts. RC2 verification is not actual-GA qualification.",
+            "No experimental attribute or suppression is required in these artifacts. GA verification is limited to the recorded checks qualification.",
             "No trimming, NativeAOT, other OS/native backend execution, universal zero-allocation, protocol design or automatic token expiry claim."
           ]
         },

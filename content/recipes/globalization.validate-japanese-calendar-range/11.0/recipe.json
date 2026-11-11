@@ -34,7 +34,7 @@
         "usage": "primary",
         "selectionNotes": [
           "Validate historical dates against the active Japanese calendar range and retain unsupported Gregorian values when importing records after a runtime upgrade.",
-          "Query the runtime minimum. Measured RC2 behavior is distinct from actual-GA reconciliation."
+          "Query the runtime minimum. Measured GA behavior is distinct from actual-GA reconciliation."
         ],
         "requirements": {
           "runtime": {
@@ -47,7 +47,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Build net11.0 references; pinned RC2 identifies measured evidence separately."
+            "reason": "Build net11.0 references; pinned GA identifies measured evidence separately."
           },
           "language": {
             "name": "C#",
@@ -76,7 +76,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Verified using .NET 11 RC2; GA reconciliation remains pending. These selected contracts have no publisher experimental annotation or required opt-in."
+            "Verified using .NET 11 GA; GA checks are limited to the recorded scope. These selected contracts have no publisher experimental annotation or required opt-in."
           ]
         },
         "sourceUrls": [

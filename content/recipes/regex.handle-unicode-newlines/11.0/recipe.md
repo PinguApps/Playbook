@@ -30,11 +30,11 @@ Apply AnyNewLine together with Multiline to ^.+$. The newer version recognizes m
 
 AnyNewLine changes authored regex newline handling; generator/code-fixer improvements are not extra APIs or automatic fixes to existing patterns. Multiline controls anchors and Singleline controls dot: Singleline still allows dot to consume line separators. The test checks this interaction and seven mixed-ending records. Preserve timeout/security policy for untrusted complex expressions; this small fixed pattern is not a general log parser. Normalization and direct matching can produce equal line values while retaining different source offsets. Do not promise the older normalized offsets equal the original positions.
 
-This edition targets .NET 11. It has no rendering mode, external provider, optional workload or experimental opt-in. It uses framework APIs and needs no additional package or package asset. The sample SDK pins 10.0.403 and 11.0.100 are reproducibility baselines, not mandatory exact consumer SDK installations. Historical RC execution is separate from current GA verification records. No .NET 10 catalogue edition or conditional older-target package route is advertised.
+This edition targets .NET 11. It has no rendering mode, external provider, optional workload or experimental opt-in. It uses framework APIs and needs no additional package or package asset. The sample SDK pins 10.0.403 and 11.0.100 are reproducibility baselines, not mandatory exact consumer SDK installations. Current GA verification is limited to the recorded checks. No .NET 10 catalogue edition or conditional older-target package route is advertised.
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 The original UnicodeText projects compile and run against their declared .NET 10/11 SDKs. Checks cover supplementary replacement, malformed-input position/replacement flags, Turkish comparison, invalid UTF byte/code-unit offsets, scalar search/trim/split, ordinal casing and mixed Unicode newlines including Singleline interaction.
 

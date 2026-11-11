@@ -49,7 +49,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Build the declared target. Exact recorded SDKs are verification baselines; current-release proof uses RC2, not GA."
+            "reason": "Build the declared target. Exact recorded SDKs are verification baselines; current-release proof uses GA."
           },
           "language": {
             "name": "C#",
@@ -92,7 +92,7 @@
             "EF9105 suppression accepts experimental vector API risk in the combined sample. Exact VECTOR_DISTANCE needs no PREVIEW_FEATURES opt-in. Preview vector indexes and VECTOR_SEARCH are outside this example."
           ],
           "stabilityLimitations": [
-            "Current sample uses EF11 RC2, not GA. Other client platforms and database engines unverified.",
+            "Current sample uses EF11 GA. Other client platforms and database engines unverified.",
             "Weighted similarity is application policy, not measured relevance quality. Embeddings are controlled fixtures, not generated semantic representations."
           ]
         },

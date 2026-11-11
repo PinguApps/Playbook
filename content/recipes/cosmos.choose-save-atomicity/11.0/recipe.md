@@ -25,7 +25,7 @@ The documentation calls the default Auto; the pinned enum spells it WhenNeeded. 
 
 ## Constraints
 
-Requires EF Cosmos11 on net11.0, C#15 mode, SDK11; the comparison uses EF10.0.13/net10.0/C#14. Exact GA packages, SDKs and transport are shown below. The SDK3.63.1 and Newtonsoft.Json13.0.4 dependencies and selected assets are recorded in metadata and lock files. Windows x64 execution with the approved Linux legacy emulator2.14.28.0 is the checked provider route. No web renderer, browser or additional workload is needed. API configuration is prepared from RC evidence; no GA or cloud parity claim.
+Requires EF Cosmos11 on net11.0, C#15 mode, SDK11; the comparison uses EF10.0.13/net10.0/C#14. Exact GA packages, SDKs and transport are shown below. The SDK3.63.1 and Newtonsoft.Json13.0.4 dependencies and selected assets are recorded in metadata and lock files. Windows x64 execution with the approved Linux legacy emulator2.14.28.0 is the checked provider route. No web renderer, browser or additional workload is needed. API configuration is prepared from Recorded evidence; no GA or cloud parity claim.
 
 ## Complete projects
 
@@ -59,9 +59,9 @@ Requires EF Cosmos11 on net11.0, C#15 mode, SDK11; the comparison uses EF10.0.13
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
-Actual same-partition save success and conflict rollback, cross-partition and cross-container mode outcomes; previous-release explicit SDK batch success and conflict rollback. No global transaction claim. Exact SDK/package pins, input hashes and actual execution output are retained in each sample's verification evidence. RC2 is not GA proof. The isolated installed-tool harness must retrieve full Markdown and applicability offline; proxy blocking does not establish OS network isolation.
+Actual same-partition save success and conflict rollback, cross-partition and cross-container mode outcomes; previous-release explicit SDK batch success and conflict rollback. No global transaction claim. Exact SDK/package pins, input hashes and actual execution output are retained in each sample's verification evidence. GA checks establish only the recorded scope. The isolated installed-tool harness must retrieve full Markdown and applicability offline; proxy blocking does not establish OS network isolation.
 
 ## References
 

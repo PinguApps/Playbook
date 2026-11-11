@@ -40,13 +40,13 @@
             "name": ".NET",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Current net11.0 guidance; measured RC2 where executed, not actual-GA proof."
+            "reason": "Current net11.0 guidance; measured GA where executed, within the recorded verification scope."
           },
           "sdk": {
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Build against the matching .NET11 reference/toolchain assets; exact RC3 is the reproduction baseline."
+            "reason": "Build against the matching .NET11 reference/toolchain assets; exact GA is the reproduction baseline."
           },
           "language": {
             "name": "C#",
@@ -72,7 +72,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "RC3 evidence is not actual-GA verification.",
+            "GA verification is limited to the recorded checks.",
             "Not tested: Portable .NET10/11 helpers compile/run on Windows x64; current single-instance concurrent writes and cancellation verified. iOS/tvOS native compilation, FileShare enforcement, background suspension and compatibility-switch execution are not-tested under PIN-699."
           ]
         },

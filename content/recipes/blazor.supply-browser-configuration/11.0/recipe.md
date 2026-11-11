@@ -22,7 +22,7 @@ The initial endpoint captures JSON precedence before the manual environment regi
 
 ## Newer approach
 
-Create a separate EstuaryBoard directory with these project/package/program files. Add global.json containing {"sdk":{"version":"11.0.100","rollForward":"disable","allowPrerelease":false}}. Use the actual .NET 11 GA SDK, C# 15 mode and matching RC3 browser/runtime assets. No C# 15-only syntax is needed. These APIs have no Experimental opt-in in the reviewed artifacts; prerelease verification still does not establish GA behavior.
+Create a separate EstuaryBoard directory with these project/package/program files. Add global.json containing {"sdk":{"version":"11.0.100","rollForward":"disable","allowPrerelease":false}}. Use the actual .NET 11 GA SDK, C# 15 mode and matching GA browser/runtime assets. No C# 15-only syntax is needed. These APIs have no Experimental opt-in in the reviewed artifacts; GA verification covers the recorded configuration.
 
 {{snippet:project-11}}
 
@@ -91,7 +91,7 @@ One artifact can move through testing and production without rebuilding its mana
 
 ## Run and inspect
 
-Use PowerShell 7, Node 24.21.0 and each pinned SDK at its actual sample directory. Set DOTNET_ADD_GLOBAL_TOOLS_TO_PATH=0 in every .NET child environment. For .NET 10 use C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe; for RC3 use C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe. Run restore, then publish -c Release --no-restore -p:PublishTrimmed=false with that absolute executable. This is interpreted, untrimmed WASM; no wasm-tools workload, native toolchain or AOT claim. The older runtime is 10.0.14; the newer runtime is 11.0.0. Initial restore is online; the returned guidance and later installed-tool retrieval are offline.
+Use PowerShell 7, Node 24.21.0 and each pinned SDK at its actual sample directory. Set DOTNET_ADD_GLOBAL_TOOLS_TO_PATH=0 in every .NET child environment. For .NET 10 use C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe; for GA use C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe. Run restore, then publish -c Release --no-restore -p:PublishTrimmed=false with that absolute executable. This is interpreted, untrimmed WASM; no wasm-tools workload, native toolchain or AOT claim. The older runtime is 10.0.14; the newer runtime is 11.0.0. Initial restore is online; the returned guidance and later installed-tool retrieval are offline.
 
 With each current directory still its sample root, run the absolute Node executable C:\Program Files\nodejs\node.exe with serve.mjs, bin/Release/net10.0/publish/wwwroot and port 5851 for the older app, or bin/Release/net11.0/publish/wwwroot and port 5852 for the newer app. First ensure the selected port is free. This occupies the terminal; Ctrl+C stops only that host. The fixture is local serving, not deployment guidance.
 
@@ -109,7 +109,7 @@ Open /?profile=Testing&duplicate=1: expect two environment providers, the second
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Both complete original projects compile using their actual declared SDKs and locked dependencies. Those records are compilation only. Separate real Chrome WASM execution verifies two profiles on unchanged assets, actual rendered IConfiguration values/provider order, the .NET 10 explicit-provider control and .NET 11 duplicate-provider migration. Exact inputs, artifacts, evaluated verifier identity and limits are recorded in docs/verification/browser-configuration.md. Source review, compilation and browser execution remain distinct; there are no configuration-host mocks or newer-SDK cross-compilation claims.
 

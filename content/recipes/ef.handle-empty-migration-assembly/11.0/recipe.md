@@ -25,11 +25,11 @@ EF11 throws by default when Migrate or MigrateAsync finds no migrations. The can
 
 ## Constraints
 
-Relational EF11 requires .NET11; paired EF10 targets .NET10. The canonical consumer uses C#15/14, matching SQLite/Design/Tools packages and no browser, renderer, workload, account or external database. Windows x64 is executed; other platforms and providers are not established by this SQLite check. Exact RC3 evidence is not GA evidence.
+Relational EF11 requires .NET11; paired EF10 targets .NET10. The canonical consumer uses C#15/14, matching SQLite/Design/Tools packages and no browser, renderer, workload, account or external database. Windows x64 is executed; other platforms and providers are not established by this SQLite check. Exact GA verification is limited to the recorded checks evidence.
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Real in-memory SQLite execution checks both migration entry points and reads a table created by another owner. No mocks, cross-compilation, Visual Studio execution or GA proof is claimed. The installed local-feed harness verifies full canonical body, applicability and edition11 from outside the checkout with unusable proxies; that establishes proxy independence, not OS network isolation.
 

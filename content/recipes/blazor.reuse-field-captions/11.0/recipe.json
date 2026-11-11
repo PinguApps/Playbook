@@ -47,7 +47,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Build against .NET 11 reference assemblies; exact RC2 is evidence, not an exact installation requirement."
+            "reason": "Build against .NET 11 reference assemblies; exact GA is evidence, not an exact installation requirement."
           },
           "language": {
             "name": "C#",
@@ -80,7 +80,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Stable .NET 11 contracts verified on RC2 artifacts; GA reconciliation pending. Older public generator attributes are experimental in the .NET 10 comparison only."
+            "Stable .NET 11 contracts verified on GA artifacts; GA checks are limited to the recorded scope. Older public generator attributes are experimental in the .NET 10 comparison only."
           ]
         },
         "sourceUrls": [

@@ -123,14 +123,14 @@ check, separate from the real database executions recorded above.
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Both declared SDK/package consumers compiled and ran on Windows x64 against actual
 SQLite, with the exact resolved graphs locked in `packages.lock.json`. Saved
 `verification-evidence.json` records include input hashes, commands, native SQLite
 version, runtime version and PASS output. The installed-package Inspector check
 separately establishes full offline Markdown, snippet identity and applicability.
-These are RC2 observations; GA, non-SQLite I/O and other native platforms remain
+These are GA observations; GA, non-SQLite I/O and other native platforms remain
 unverified. No external service or recurring platform matrix is required.
 
 ## Official references

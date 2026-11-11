@@ -12,7 +12,7 @@ The EF10 comparison uses the same original reef labels and actual provider. The 
 
 ## Newer approach
 
-An absent navigation segment produces Cosmos undefined, which is different from an explicitly stored JSON null. The documented EF11 contract throws InvalidOperationException for both single-property and multi-property anonymous/DTO projections when a path evaluates to undefined. Treat that as the upgrade contract; the RC discrepancy and required GA retest are recorded below. Filter with IsDefined when an absent value should exclude the record; CoalesceUndefined supplies a value while retaining the record. JSON null remains null in both examples. If the business rule also needs a fallback for null, add an explicit null-coalescing rule and test it separately.
+An absent navigation segment produces Cosmos undefined, which is different from an explicitly stored JSON null. The documented EF11 contract throws InvalidOperationException for both single-property and multi-property anonymous/DTO projections when a path evaluates to undefined. Treat that as the upgrade contract; the measured GA discrepancy is recorded below. Filter with IsDefined when an absent value should exclude the record; CoalesceUndefined supplies a value while retaining the record. JSON null remains null in both examples. If the business rule also needs a fallback for null, add an explicit null-coalescing rule and test it separately.
 
 {{snippet:n11-program-cs}}
 
@@ -26,7 +26,7 @@ An absent navigation segment produces Cosmos undefined, which is different from 
 
 ## Constraints
 
-EF Cosmos11 requires net11.0, SDK11 and C#15 in this sample; the EF10 comparison uses net10.0, SDK10 and C#14. Exact pins are below and in applicability. Stable API guidance uses RC3 evidence, not GA verification. Windows x64 and the approved legacy Linux emulator only; no browser, renderer, cloud parity or performance claim.
+EF Cosmos11 requires net11.0, SDK11 and C#15 in this sample; the EF10 comparison uses net10.0, SDK10 and C#14. Exact pins are below and in applicability. Stable API guidance uses the recorded GA SDK and package evidence. Windows x64 and the approved legacy Linux emulator only; no browser, renderer, cloud parity or performance claim.
 
 ## Complete projects
 
@@ -60,13 +60,13 @@ EF Cosmos11 requires net11.0, SDK11 and C#15 in this sample; the EF10 comparison
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Paired exact-artifact records retain actual SDKs, dependencies, input hashes, compilation and local-emulator execution. They cover historical composite IDs, compatibility/collision checks and explicit undefined filtering/fallback versus JSON null. The EF11 consumer additionally checks default reachability and a legal new composite ID in a separate process.
 
-**GA retest required:** the official .NET11 documentation defines the intended contract. Actual EF11 RC2 and RC3 single-property projections still emit `SELECT VALUE` and silently omit the absent nested path. The sample records both single- and multi-property observations; it does not label them GA proof. Pingu approved delivery with this discrepancy disclosed on 3 November 2026. When .NET11 goes GA, refresh the SDK/package pins, rerun against the real provider and verify that both projection shapes throw. The sample's `--verify-ga` mode enforces both exceptions. After updating GA pins, use the approved disposable route's Run action with `-CommandArguments @('run','-c','Release','--','--verify-ga')`, the absolute GA dotnet.exe as `-Executable`, and the absolute samples/net11.0/ReefIdentity directory as `-WorkingDirectory`. Create/remove the unique marked database as described by the local route; the child receives its connection environment from that route. Keep the safe IsDefined/CoalesceUndefined guidance regardless of query shape.
+**Measured GA discrepancy:** SDK 11.0.100 and EF11.0.0 still emit `SELECT VALUE` for the single-property projection and omit the absent row. The multi-property projection throws the documented undefined-value exception. The refreshed real-provider evidence records both results. Pingu's 3 November 2026 approval concerned the earlier documented discrepancy; it is retained as history, rather than a new approval of GA behavior. The optional `--verify-ga` regression gate requires both exceptions and therefore remains unsatisfied by this release. Keep the verified IsDefined/CoalesceUndefined workaround and recheck that gate after a provider update, using an owned disposable database.
 
-No mocks, cloud service parity, production data migration, performance result or GA execution is claimed. Installed offline retrieval separately checks canonical full Markdown, applicability and target11/edition11; older comparison samples add no target10 edition.
+No mocks, cloud service parity, production data migration or performance result is claimed. Installed offline retrieval separately checks canonical full Markdown, applicability and target11/edition11; older comparison samples add no target10 edition.
 
 ## References
 

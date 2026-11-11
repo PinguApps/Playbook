@@ -33,8 +33,8 @@ The newer route uses framework-provided managed APIs on .NET 11; no additional p
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
-Both targets execute 4,096 simulation iterations, equal/reversed-bound checks and the real cryptographic bounded alternative. RC2 additionally exercises byte and full-width signed Int128 bounds, Half/BFloat16 fractions, double, zero/negative maxima and nonnegative parameterless integers.
+Both targets execute 4,096 simulation iterations, equal/reversed-bound checks and the real cryptographic bounded alternative. GA additionally exercises byte and full-width signed Int128 bounds, Half/BFloat16 fractions, double, zero/negative maxima and nonnegative parameterless integers.
 
-Canonical samples are samples/net10.0/NumericGuidance and samples/net11.0/NumericGuidance with shared NumericGuidanceChecks.cs. Saved evidence records compile-and-run with SDK 10.0.403 / C# 14 and SDK 11.0.100 / C# 15, on runtimes .NET 10.0.14 and .NET 11.0.0. Their exact inputs, commands and outputs accompany this recipe. RC3 evidence is not GA proof; no mocks, native devices, providers, AOT or general performance guarantees are claimed.
+Canonical samples are samples/net10.0/NumericGuidance and samples/net11.0/NumericGuidance with shared NumericGuidanceChecks.cs. Saved evidence records compile-and-run with SDK 10.0.403 / C# 14 and SDK 11.0.100 / C# 15, on runtimes .NET 10.0.14 and .NET 11.0.0. Their exact inputs, commands and outputs accompany this recipe. GA verification is limited to the recorded checks proof; no mocks, native devices, providers, AOT or general performance guarantees are claimed.

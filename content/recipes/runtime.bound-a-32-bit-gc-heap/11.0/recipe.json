@@ -32,7 +32,7 @@
         "requirements": {
           "sdk": {
             "match": "release-family",
-            "reason": "Build against .NET 11 references; exact RC2 pins record measured artifacts.",
+            "reason": "Build against .NET 11 references; exact GA pins record measured artifacts.",
             "name": ".NET SDK",
             "version": "11.0"
           },
@@ -68,11 +68,11 @@
           "renderingModes": [],
           "optIns": [],
           "stabilityLimitations": [
-            "Actual RC2 verification, not final-GA proof; PIN-962 and PIN-959 remain open."
+            "Actual GA verification, within the recorded verification scope; PIN-962 and PIN-959 remain open."
           ],
           "constraints": [
             "Real x86 configured 32MiB managed heap, bounded allocation/OOM and separate RSS; older ignored-setting control and application admission budget.",
-            "Measured RC2 artifacts are not actual-GA evidence; PIN-959/PIN-962 remain open."
+            "Measured GA artifacts cover only the recorded checks; PIN-959/PIN-962 remain open."
           ]
         },
         "sourceUrls": [

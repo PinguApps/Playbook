@@ -34,7 +34,7 @@ This is Visual Studio on Windows with actual NuGet Package Manager Console and m
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Both original consumers compile and run. On 11 November 2026 Pingu repeated the actual Visual Studio PMC check with SDK 11.0.100 and EF Tools 11.0.0 GA. Add-Migration and Update-Database with NoBuild succeeded with the intervening Release builds. The unbuilt BasinCode change produced an empty migration; after rebuilding, the next migration added the column. A repeated migration name was correctly rejected. Agent inspection of generated sources and a read-only SQLite query confirmed Id, Label, BasinCode and all three applied migrations with ProductVersion 11.0.0. The PMC record distinguishes owner execution from agent artifact/database inspection; it does not establish every Visual Studio version.
 

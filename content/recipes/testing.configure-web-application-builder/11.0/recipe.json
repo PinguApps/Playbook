@@ -42,7 +42,7 @@
             "name": ".NET / ASP.NET Core",
             "version": "11.0",
             "match": "release-family",
-            "reason": "This migration targets ASP.NET Core 11; exact reproduction uses RC2 and does not establish GA verification."
+            "reason": "This migration targets ASP.NET Core 11; exact reproduction uses GA and does not establish GA verification."
           },
           "sdk": {
             "name": ".NET SDK",
@@ -64,13 +64,13 @@
               "name": "Microsoft.AspNetCore.Mvc.Testing",
               "version": "11.0",
               "match": "release-family",
-              "reason": "Use the matching ASP.NET Core package family; the canonical reproduction pins the exact tested RC2 artifact."
+              "reason": "Use the matching ASP.NET Core package family; the canonical reproduction pins the exact tested GA artifact."
             },
             {
               "name": "Microsoft.AspNetCore.TestHost",
               "version": "11.0",
               "match": "release-family",
-              "reason": "Use the matching ASP.NET Core package family; the canonical reproduction pins the exact tested RC2 artifact."
+              "reason": "Use the matching ASP.NET Core package family; the canonical reproduction pins the exact tested GA artifact."
             }
           ],
           "workloads": [],
@@ -99,7 +99,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Stable API designation on the newer side; evidence uses SDK11.0.100 and runtime11.0.0, not actual GA. PIN-959/PIN-964 and unrelated Human gates remain open."
+            "Stable API designation on the newer side; evidence uses SDK11.0.100 and runtime11.0.0, within the recorded verification scope. PIN-959/PIN-964 and unrelated Human gates remain open."
           ]
         },
         "sourceUrls": [

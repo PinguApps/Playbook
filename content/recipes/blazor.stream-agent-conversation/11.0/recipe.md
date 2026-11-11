@@ -100,11 +100,11 @@ The exact experimental package is 0.1.0-preview.1.26466.103, built from dotnet/d
 
 RawText is rendered as ordinary Razor text, including the deliberate script-like payload. Do not cast provider output to MarkupString or insert it as raw HTML. This sample does not render Markdown/rich nodes, execute tools, persist conversations, restore across circuits or connect to AG-UI. Content-block mapping beyond conversational text needs separate actual package/provider evidence.
 
-The in-view history belongs to one Interactive Server circuit with prerendering disabled. No browser/renderer matrix, durable storage, provider networking, model quality, retries or shared application state is claimed. The package and all associated UI contracts remain experimental throughout .NET 11; RC2 proof requires GA reconciliation.
+The in-view history belongs to one Interactive Server circuit with prerendering disabled. No browser/renderer matrix, durable storage, provider networking, model quality, retries or shared application state is claimed. The package and all associated UI contracts remain experimental throughout .NET 11; GA proof requires GA reconciliation.
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Both canonical consumers compile under their actual .NET 10/11 SDKs with zero warnings/errors. The real Windows Chrome renderer was observed at first-held, first-complete, second-held and second-complete states. The new assistant block changes Active to Inactive without changing survey-1's identity; the second stream retains the first turn and receives three input messages. Encoded text creates no script descendant.
 

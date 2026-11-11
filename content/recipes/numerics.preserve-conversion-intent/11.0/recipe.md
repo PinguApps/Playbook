@@ -34,7 +34,7 @@ Parsed runtime-input checks exercise constructors, casts, `Convert`, relevant `C
 
 The original decimal fixtures expose three different intermediate-rounding changes:
 
-| Source decimal | .NET 10 destination bits | .NET 11 RC2 destination bits |
+| Source decimal | .NET 10 destination bits | .NET 11 GA destination bits |
 | --- | --- | --- |
 | 3000000000000.015625 to double | 4285D3EF79800021 | 4285D3EF79800020 |
 | 3.000000119209289550781250001 to float | 40400000 | 40400001 |
@@ -62,17 +62,17 @@ Both net10 consumers use C# 14 and reference pack 10.0.14. SDK 10 embeds Nominal
 
 ## Constraints
 
-The compatibility note describes correctly rounded conversions; the concrete families and retained Half limitation above qualify that broad claim against the actual RC2 assets. The earlier sample also converts 2^80 + 2^27 + 1 to double: older bits end in 0000, newer bits end in 0001. Floating destinations still lose precision. Direct NaN/infinity-to-System.Decimal casts throw OverflowException; the archive helper instead explicitly rejects nonfinite input before formatting. Its significant-digit policy is not a general recreation of every historical algorithm or representation.
+The compatibility note describes correctly rounded conversions; the concrete families and retained Half limitation above qualify that broad claim against the actual GA assets. The earlier sample also converts 2^80 + 2^27 + 1 to double: older bits end in 0000, newer bits end in 0001. Floating destinations still lose precision. Direct NaN/infinity-to-System.Decimal casts throw OverflowException; the archive helper instead explicitly rejects nonfinite input before formatting. Its significant-digit policy is not a general recreation of every historical algorithm or representation.
 
 The newer route uses framework-provided managed APIs on .NET 11; no additional package/assets, workload, provider, UI rendering context or experimental opt-in is required. Language mode 15.0 and SDK 11 are the current sample configuration, not a claim that the archive helper requires new syntax. The ordinary comparison and SDK11/net10 constant experiment actually execute on .NET 10. They do not make BFloat16 available there or add a ninth .NET 10 foundation. No older-target package route is advertised.
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Real target executions assert the original decimal/BigInteger values plus all bounded archive, destination-width and rebuild checks above. This is not an exhaustive conversion audit, a Math.Round migration, a protocol bit-encoding implementation or an actual-GA claim.
 
-Canonical samples are samples/net10.0/NumericGuidance and samples/net11.0/NumericGuidance with shared NumericGuidanceChecks.cs. Saved evidence records compile-and-run with SDK 10.0.403 / C# 14 and SDK 11.0.100 / C# 15, on runtimes .NET 10.0.14 and .NET 11.0.0. Their exact inputs, commands and outputs accompany this recipe. RC3 evidence is not GA proof; no mocks, native devices, providers, AOT or general performance guarantees are claimed.
+Canonical samples are samples/net10.0/NumericGuidance and samples/net11.0/NumericGuidance with shared NumericGuidanceChecks.cs. Saved evidence records compile-and-run with SDK 10.0.403 / C# 14 and SDK 11.0.100 / C# 15, on runtimes .NET 10.0.14 and .NET 11.0.0. Their exact inputs, commands and outputs accompany this recipe. GA verification is limited to the recorded checks proof; no mocks, native devices, providers, AOT or general performance guarantees are claimed.
 
 The added canonical ArchiveNumbers/ArchiveChecks files are compiled by net10.0/InstrumentArchive, net11.0/InstrumentArchive and net10.0-sdk11/InstrumentArchive. The recorder captures exact compiler and selected reference-pack hashes, actual runtime assembly hashes, commands, inputs and empty package closures; SDK11's net10 reference pack is actually resolved from its restored 10.0.13 targeting pack. Supported consumer release families are separate from those reproducibility pins. Comprehensive publication, actual-GA reconciliation and existing Human gates stay open.
 

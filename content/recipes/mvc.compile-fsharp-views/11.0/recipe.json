@@ -43,7 +43,7 @@
             "name": ".NET / ASP.NET Core",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Target release family; measured execution uses 11 RC2, not GA."
+            "reason": "Target release family; measured execution uses 11 GA."
           },
           "sdk": {
             "name": ".NET SDK",

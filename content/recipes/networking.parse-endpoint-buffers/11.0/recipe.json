@@ -10,7 +10,7 @@
         "requirements": {
           "sdk": {
             "match": "release-family",
-            "reason": "Build against .NET 11 references; exact RC2 pin records tested artifacts.",
+            "reason": "Build against .NET 11 references; exact GA pin records tested artifacts.",
             "name": ".NET SDK",
             "version": "11.0"
           },
@@ -39,7 +39,7 @@
             "No provider selection."
           ],
           "stabilityLimitations": [
-            "Actual RC2 verification, not final-GA proof; PIN-962 and PIN-959 remain open."
+            "Actual GA verification, within the recorded verification scope; PIN-962 and PIN-959 remain open."
           ],
           "optIns": [],
           "renderingModes": [],

@@ -51,7 +51,7 @@ The route is experimental even though it targets the .NET 11 release family. Exp
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 The actual .NET 10 managed comparison compiles/runs with SDK 10.0.403/C# 14/runtime10.0.14. `eng/Record-NativeBoundaries.ps1 -VerifySources` verifies immutable runtime/SDK/relink/version sources and exact source/input hashes. The current project is evaluated only: target net11.0, browser-wasm, UseMonoRuntime=false and WasmBuildNative=true. This installation's _WebAssemblyTargetsFile is empty, so it has no qualified CoreCLR app-bundle integration. No native build is attempted or claimed.
 

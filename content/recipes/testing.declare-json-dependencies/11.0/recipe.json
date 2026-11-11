@@ -114,7 +114,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            ".NET11 SDK/runtime proof is RC2, not actual GA reconciliation. No experimental API switch is required.",
+            ".NET11 SDK/runtime proof is GA reconciliation. No experimental API switch is required.",
             "PIN-959 qualifying coverage/evidence and PIN-963 actual-GA reconciliation remain open."
           ]
         },
@@ -215,7 +215,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            ".NET11 SDK/runtime proof is RC2, not actual GA reconciliation. No experimental API switch is required.",
+            ".NET11 SDK/runtime proof is GA reconciliation. No experimental API switch is required.",
             "PIN-959 qualifying coverage/evidence and PIN-963 actual-GA reconciliation remain open."
           ]
         },

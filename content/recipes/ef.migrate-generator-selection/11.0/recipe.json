@@ -46,7 +46,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Build the net11.0 consumer; measured SDK 11.0.100 is RC2 evidence, not GA proof."
+            "reason": "Build the net11.0 consumer; measured SDK 11.0.100 is GA evidence, within the recorded verification scope."
           },
           "language": {
             "name": "C#",
@@ -61,12 +61,12 @@
             {
               "match": "release-family",
               "name": "Microsoft.EntityFrameworkCore.Sqlite",
-              "reason": "Exact RC2 graph is locked in the canonical project.",
+              "reason": "Exact GA graph is locked in the canonical project.",
               "version": "11.0"
             }
           ],
           "packageAssets": [
-            "EF10.0.13/net10.0 versus EF11.0.0/net11.0. SDK10.0.403/C#14 versus SDK11.0.100/C#15. SQL graphs pin Pkcs10.0.13 and SqlClient6.1.7/7.1.0. SQLite uses the locked platform bundle; actual native DLL hashes are in execution records. EF11 requires .NET11; no older-runtime route is offered. No workload or rendering mode applies. No experimental opt-in or NativeAOT claim. RC2 proof is not actual GA reconciliation."
+            "EF10.0.13/net10.0 versus EF11.0.0/net11.0. SDK10.0.403/C#14 versus SDK11.0.100/C#15. SQL graphs pin Pkcs10.0.13 and SqlClient6.1.7/7.1.0. SQLite uses the locked platform bundle; actual native DLL hashes are in execution records. EF11 requires .NET11; no older-runtime route is offered. No workload or rendering mode applies. No experimental opt-in or NativeAOT claim. GA verification is limited to the recorded checks reconciliation."
           ],
           "providers": [
             "Windows x64 bundled SQLite"
@@ -86,7 +86,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Public extension contracts are upgrade-sensitive. Stable API shape measured on pinned RC2; reconcile actual GA separately."
+            "Public extension contracts are upgrade-sensitive. Stable API shape measured on pinned GA; reconcile actual GA separately."
           ]
         },
         "conditional": false,

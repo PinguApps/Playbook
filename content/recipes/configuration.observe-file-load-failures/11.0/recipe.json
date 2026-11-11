@@ -33,20 +33,20 @@
         "selectionNotes": [
           "Observe file-configuration load failures separately from data-change notifications, and choose an explicit Ignore policy without assuming last-known-good values.",
           "Windows NTFS x64 real IO and notifications; custom-provider stream/GetFileInfo faults are separately synthetic.",
-          "Verified on .NET 11 RC2; actual-GA reconciliation remains open."
+          "Verified on .NET 11 GA; actual-GA checks are limited to the recorded scope."
         ],
         "requirements": {
           "runtime": {
             "name": ".NET",
             "version": "11.0",
             "match": "release-family",
-            "reason": ".NET 11 runtime for the current net11 consumer; RC2 is the measured artifact, not final GA proof."
+            "reason": ".NET 11 runtime for the current net11 consumer; GA is the measured artifact, within the recorded verification scope."
           },
           "sdk": {
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Build against the .NET 11 reference assemblies; exact RC3 is the reproduction baseline."
+            "reason": "Build against the .NET 11 reference assemblies; exact GA is the reproduction baseline."
           },
           "language": {
             "name": "C#",
@@ -85,7 +85,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "RC3 evidence is not actual-GA proof. No selected API experimental opt-in is required."
+            "GA verification is limited to the recorded checks proof. No selected API experimental opt-in is required."
           ]
         },
         "sourceUrls": [

@@ -32,6 +32,6 @@ Uses net11.0 framework System.Text.Json with SDK 11 / C# 15, ordinary metadata g
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Actual net10.0 and net11.0 builds/executions check exact wire shape and the restored seal through the public observer. The newer route is explicitly source-generated, including the private constructor, without reflection fallback. Saved inputs/toolchain records and complete installed offline MCP retrieval accompany it. No cross-compilation, mocks, Native AOT or GA execution is claimed; no targeted Human proof is needed.

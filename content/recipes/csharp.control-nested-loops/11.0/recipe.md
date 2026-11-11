@@ -61,4 +61,4 @@ Keep the flags for an older target when they already express the flow clearly. A
 
 The original .NET 10/C# 14 and .NET 11 GA/C# 15 projects compile and execute identical expected-trace checks. They exercise partial acceptance before skip, skip followed by a completed batch, stop before later batches, empty batches/input, normal completion and inside-out finally/using cleanup. Saved evidence identifies exact SDKs, sources/configuration hashes, commands, runtime output and dependencies. No mocks, native cross-compilation, service resources or extra client/platform matrix are claimed. The portable checks require no targeted Human proof. Official references and full applicability accompany this body in get_recipe.
 
-GA refresh (PIN-1287): the declared .NET 11 sample was rebuilt and executed with SDK 11.0.100 and runtime 11.0.0. Earlier RC observations above remain historical; this refresh does not establish broader platform or API behavior.
+GA refresh (PIN-1287): the declared .NET 11 sample was rebuilt and executed with SDK 11.0.100 and runtime 11.0.0. This refresh does not establish broader platform or API behavior.

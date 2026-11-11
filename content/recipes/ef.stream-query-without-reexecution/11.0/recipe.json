@@ -53,7 +53,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Build the declared target. Exact recorded SDKs are verification baselines; current-release proof uses RC2, not GA."
+            "reason": "Build the declared target. Exact recorded SDKs are verification baselines; current-release proof uses GA."
           },
           "language": {
             "name": "C#",
@@ -98,7 +98,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "GA-targeted stable contract, measured with .NET 11 RC2 packages/SDK. No experimental API opt-in required; actual GA reconciliation remains outstanding."
+            "GA-targeted stable contract, measured with .NET 11 GA packages/SDK. No experimental API opt-in required; actual GA checks are limited to the recorded scope."
           ]
         },
         "conditional": false,

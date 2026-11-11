@@ -33,7 +33,7 @@
             "name": ".NET",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Primary net11.0 consumer; RC2 evidence is distinct from GA verification."
+            "reason": "Primary net11.0 consumer; GA evidence is distinct from GA verification."
           },
           "sdk": {
             "name": ".NET SDK",
@@ -66,20 +66,20 @@
           ],
           "constraints": [
             "No older-target/newer-package route is advertised. Existing .NET10 comparison remains valid and adds no historical foundation.",
-            "No rendering mode, workload or experimental diagnostic opt-in; actual RC2 proof does not establish final-GA execution.",
+            "No rendering mode, workload or experimental diagnostic opt-in; actual GA proof does not establish final-GA execution.",
             "Protocol requires exactly32-byte tags. HMAC raw invalid lengths throw; KMAC raw nonempty length selects its output size, so validate protocol length first.",
             "Synthetic public fixture keys only. KMAC support is provider-dependent; measured native Windows versions/hashes are retained. No timing benchmark, replay protection or authorization claim."
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Selected APIs have no experimental diagnostic; final-GA reconciliation remains open."
+            "Selected APIs have no experimental diagnostic; final-GA checks are limited to the recorded scope."
           ]
         },
         "sharedAreas": [],
         "usage": "primary",
         "selectionNotes": [
           "No older-target/newer-package route is advertised. Existing .NET10 comparison remains valid and adds no historical foundation.",
-          "No rendering mode, workload or experimental diagnostic opt-in; actual RC2 proof does not establish final-GA execution.",
+          "No rendering mode, workload or experimental diagnostic opt-in; actual GA proof does not establish final-GA execution.",
           "Protocol requires exactly32-byte tags. HMAC raw invalid lengths throw; KMAC raw nonempty length selects its output size, so validate protocol length first.",
           "Synthetic public fixture keys only. KMAC support is provider-dependent; measured native Windows versions/hashes are retained. No timing benchmark, replay protection or authorization claim."
         ],

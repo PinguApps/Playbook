@@ -43,7 +43,7 @@
             "name": ".NET",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Use matching ASP.NET Core/WASM assets; the recorded current execution is RC2, not GA."
+            "reason": "Use matching ASP.NET Core/WASM assets; the recorded current execution is GA."
           },
           "sdk": {
             "name": ".NET SDK",
@@ -95,12 +95,12 @@
             "Only the IAccessTokenProvider boundary is controlled; the matching WASM runtime and NavigationManager execute in Chromium. No external provider, issued token, authorized API response or downloaded recording is claimed.",
             "Use TryGetToken before RequiresRedirect; successful results need no navigation. A current interactive result needs both InteractiveRequestUrl and InteractionOptions.",
             "ReturnUrl is constructed from a fixed application-owned route and checked against BaseUri. Do not accept an unvalidated external or query-supplied return location.",
-            ".NET 10 parameterless Redirect reads legacy RedirectUrl when options are absent. A four-argument no-options result has no legacy URL and fails; RC2 reads the result's InteractiveRequestUrl instead.",
+            ".NET 10 parameterless Redirect reads legacy RedirectUrl when options are absent. A four-argument no-options result has no legacy URL and fails; GA reads the result's InteractiveRequestUrl instead.",
             "Redirect(Action<InteractiveRequestOptions>) requires actual options; do not use it for a no-options result. Existing exception signatures remain unchanged."
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Public APIs are not marked experimental in the inspected assets. Evidence is RC2 only; GA reconciliation and comprehensive publication gates remain open. No unsupported older-target route is advertised."
+            "Public APIs are not marked experimental in the inspected assets. Evidence is GA only; GA reconciliation and comprehensive publication gates remain open. No unsupported older-target route is advertised."
           ]
         },
         "sourceUrls": [

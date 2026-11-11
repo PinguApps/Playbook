@@ -58,14 +58,14 @@
             }
           ],
           "packageAssets": [
-            "Controls.Core11 RC2 net11.0-ios27.0 and net11.0-windows10.0.20348 assets; matching native SDK/workloads required."
+            "Controls.Core11 GA net11.0-ios27.0 and net11.0-windows10.0.20348 assets; matching native SDK/workloads required."
           ],
           "workloads": [
             {
               "name": "maui-android / maui-ios / maui-windows (choose target)",
               "version": "11.0",
               "match": "release-family",
-              "reason": "Install the workload matching the selected target. Reviewed set11.0.100 selects MAUI11.0.0, Android37.2.0-rc.2.84 and Apple27.0.12212-net11-rc.2."
+              "reason": "Install the workload matching the selected target. Reviewed set11.0.100 selects MAUI11.0.0, Android37.2.29 and Apple27.0.12212-net11-rc.2."
             }
           ],
           "providers": [
@@ -87,7 +87,7 @@
             "UseWindowsCollectionView2Handler=false temporarily selects the legacy Windows default; custom registrations must also select their intended base class."
           ],
           "stabilityLimitations": [
-            "Stable API guidance based on pinned RC2 artifacts, not GA verification. No NativeAOT or trimming execution claim."
+            "Stable API guidance based on pinned GA artifacts, within the recorded verification scope. No NativeAOT or trimming execution claim."
           ]
         },
         "sharedAreas": [],

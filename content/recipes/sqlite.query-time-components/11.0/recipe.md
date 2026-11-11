@@ -131,11 +131,11 @@ Use these files in another directory; do not mix the older/current projects.
 
 The actual artifacts are SDK10.0.403, reference/runtime10.0.14, C#14 and
 EF/Sqlite10.0.13 versus SDK11.0.100,
-reference/runtime11.0.0, C#15 and matching EF/Sqlite RC2 packages.
+reference/runtime11.0.0, C#15 and matching EF/Sqlite GA packages.
 These are verification pins, separate from the current route's .NET/SDK/EF11
 release-family prerequisites. No C#15-specific feature is needed. The API is not
-publisher-designated experimental and needs no suppression/opt-in. RC2 execution
-is not final GA verification; PIN-965 retains that reconciliation.
+publisher-designated experimental and needs no suppression/opt-in. GA execution
+is limited to the recorded checks; PIN-965 retains that reconciliation.
 
 Resolved EF10/Core/Relational/Sqlite.Core assets are net10; direct Sqlite.Core10
 uses net8. EF11/Core/Relational/Sqlite.Core use net11, while Abstractions11 and
@@ -143,7 +143,7 @@ Sqlite.Core11 use net10. The independently locked native graphs execute SQLite
 3.53.3 (SQLitePCLRaw bundle/core/lib/provider2.1.13) and 3.53.4 (SQLitePCLRaw
 bundle/config/core/provider3.0.5 plus SQLite3.53.4). This is the normal packaged
 `e_sqlite3` route, initialized by the provider bundle. The audit's Preview6
-SQLite3MC headline does not override these actual RC2 artifacts. Retired bundles,
+SQLite3MC headline does not override these actual GA artifacts. Retired bundles,
 system/custom/encrypted engines and paid providers are separate choices.
 
 Only Windows x64 was executed. Matching native assets are required on any other
@@ -169,7 +169,7 @@ validated range predicate rather than treating a component as an interval.
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Both real native engines stored and read the following original fixture. Null
 components remain SQL NULL and are excluded by the explicit non-null predicate.

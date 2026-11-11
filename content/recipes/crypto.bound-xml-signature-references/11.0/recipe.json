@@ -38,7 +38,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Build against .NET 11 references; exact RC2 pins are verification baselines."
+            "reason": "Build against .NET 11 references; exact GA pins are verification baselines."
           },
           "runtime": {
             "name": ".NET",
@@ -60,7 +60,7 @@
               "name": "System.Security.Cryptography.Xml",
               "version": "11.0",
               "match": "release-family",
-              "reason": "Current reference-budget configuration; exact RC2 package and matching transitive Pkcs are locked in the sample."
+              "reason": "Current reference-budget configuration; exact GA package and matching transitive Pkcs are locked in the sample."
             }
           ],
           "packageAssets": [
@@ -81,7 +81,7 @@
           "renderingModes": [],
           "optIns": [],
           "stabilityLimitations": [
-            "Not marked experimental in the audited contract. Actual RC2 evidence, not final-GA verification; PIN-959/PIN-962 remain open."
+            "Not marked experimental in the audited contract. Actual GA evidence, within the recorded verification scope; PIN-959/PIN-962 remain open."
           ],
           "constraints": [
             "Configure System.Security.Cryptography.MaxReferencesPerSignedInfo once before cryptographic XML initializes cached settings; process-wide, not per request.",

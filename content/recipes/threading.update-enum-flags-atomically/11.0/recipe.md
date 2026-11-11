@@ -80,11 +80,11 @@ is claimed; the generic implementation may itself use CAS internally.
 
 The API is not marked experimental in the audited contract. Actual execution here
 is Windows x64 CoreCLR on the paired baselines. Other architectures/runtimes are
-unmeasured; .NET 11 RC2 evidence does not establish final-GA verification.
+unmeasured; .NET 11 GA evidence does not establish final-GA verification.
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 eng/Test-RuntimeCalls.ps1 -Record -VerifySources captures actual SDK10.0.403 /
 runtime10.0.14 and SDK11.0.100 /

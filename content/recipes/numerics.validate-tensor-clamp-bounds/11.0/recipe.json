@@ -30,20 +30,20 @@
         "usage": "primary",
         "selectionNotes": [
           "Reject invalid scalar or per-reading calibration bounds before writing output when tensor clamp behavior differs by numeric type or processing path.",
-          "Actual Windows x64 CoreCLR JIT RC2 execution; actual-GA reconciliation remains open."
+          "Actual Windows x64 CoreCLR JIT GA execution; actual-GA checks are limited to the recorded scope."
         ],
         "requirements": {
           "runtime": {
             "name": ".NET",
             "version": "11.0",
             "match": "release-family",
-            "reason": ".NET 11 managed runtime for the primary net11 package consumer; RC2 is the measured baseline."
+            "reason": ".NET 11 managed runtime for the primary net11 package consumer; GA is the measured baseline."
           },
           "sdk": {
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Build against the .NET 11 reference assemblies; exact RC3 is the reproduction baseline."
+            "reason": "Build against the .NET 11 reference assemblies; exact GA is the reproduction baseline."
           },
           "language": {
             "name": "C#",
@@ -79,7 +79,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Verified using .NET 11 RC2; GA reconciliation remains pending. These selected contracts have no publisher experimental annotation or required opt-in."
+            "Verified using .NET 11 GA; GA checks are limited to the recorded scope. These selected contracts have no publisher experimental annotation or required opt-in."
           ]
         },
         "sourceUrls": [

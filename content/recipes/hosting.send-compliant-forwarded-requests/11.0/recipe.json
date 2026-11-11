@@ -33,7 +33,7 @@
           "runtime": {
             "version": "11.0",
             "match": "release-family",
-            "reason": "Actual .NET 11 RC2 execution, not GA verification.",
+            "reason": "Actual .NET 11 GA execution, within the recorded verification scope.",
             "name": ".NET"
           },
           "sdk": {
@@ -74,7 +74,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Stable API intent for .NET 11, verified with RC2 under ADR 0004. Final GA reconciliation remains pending; RC2 differences are disclosed in the body."
+            "Stable API intent for .NET 11, verified with GA under ADR 0004. Final GA checks are limited to the recorded scope; GA differences are disclosed in the body."
           ]
         },
         "sharedAreas": [],
@@ -115,7 +115,7 @@
       "kind": "compile-and-run",
       "language": "15.0",
       "sample": "samples/net11.0/LanternForwarding/LanternForwarding.csproj",
-      "scope": "Actual .NET 11 RC2 TCP HTTP/1.1 ambiguous framing closes after processing; corrected pipeline reuses connection. Six raw HPACK HTTP/2 and QPACK HTTP/3 malformed/corrected pairs each: all malformed requests rejected, corrected requests return OK and the real origin checks absence of proxy credentials/challenges, Trailer and Connection-nominated fields. Handler count 15. Windows x64 MsQuic 2.5.11.159415436."
+      "scope": "Actual .NET 11 GA TCP HTTP/1.1 ambiguous framing closes after processing; corrected pipeline reuses connection. Six raw HPACK HTTP/2 and QPACK HTTP/3 malformed/corrected pairs each: all malformed requests rejected, corrected requests return OK and the real origin checks absence of proxy credentials/challenges, Trailer and Connection-nominated fields. Handler count 15. Windows x64 MsQuic 2.5.11.159415436."
     }
   ],
   "humanProof": {

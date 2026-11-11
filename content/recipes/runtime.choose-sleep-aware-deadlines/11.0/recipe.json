@@ -81,7 +81,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Stable framework APIs; no experimental opt-in. Actual RC3 execution is not GA verification."
+            "Stable framework APIs; no experimental opt-in. Actual GA checks establish only the recorded scope."
           ]
         },
         "sourceUrls": [

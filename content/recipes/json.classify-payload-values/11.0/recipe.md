@@ -66,7 +66,7 @@ bound input size separately. No streaming/allocation improvement is claimed.
    they are not a replacement source generator and are unnecessary for this route.
 5. Return only a registered candidate. Returning null means no match and raises
    JsonException. An unregistered return such as string raises NotSupportedException
-   in the measured RC2 polymorphic route. Treat both as failed imports; never use
+   in the measured GA polymorphic route. Treat both as failed imports; never use
    classification failure as permission to guess a fallback record.
 6. Test both property orders and complete selected payloads. For these ordinary
    reference types, JSON null becomes a null reference without invoking the
@@ -91,7 +91,7 @@ a different property-name goal; it is not proof of this value-based factory.
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 eng/Test-ClassifierAuthentication.ps1 -Record -VerifySources builds and executes
 both actual dependency sets and retains input hashes, exact commands, compiler,

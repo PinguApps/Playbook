@@ -36,7 +36,7 @@
           "sdk": {
             "version": "11.0",
             "match": "release-family",
-            "reason": "Compatible .NET 11 SDK with a matching native workload; current authoring SDK pin is RC3.",
+            "reason": "Compatible .NET 11 SDK with a matching native workload; current authoring SDK pin is GA.",
             "name": ".NET SDK"
           },
           "language": {
@@ -52,19 +52,19 @@
             {
               "match": "release-family",
               "name": "Microsoft.Maui.Controls",
-              "reason": "Exact Controls/Core/Essentials/Resizetizer RC2 assets are used; sample pins 11.0.0.",
+              "reason": "Exact Controls/Core/Essentials/Resizetizer GA assets are used; sample pins 11.0.0.",
               "version": "11.0"
             }
           ],
           "packageAssets": [
-            "Platform-specific .NET 11 MAUI RC2 assets; neutral assemblies alone do not establish native behavior."
+            "Platform-specific .NET 11 MAUI GA assets; neutral assemblies alone do not establish native behavior."
           ],
           "workloads": [
             {
               "name": "maui-android / maui-ios / maui-windows (choose target)",
               "version": "11.0",
               "match": "release-family",
-              "reason": "Reviewed RC2 workload set11.0.100 selects MAUI11.0.0, Android37.2.0-rc.2.84 and Apple27.0.12212-net11-rc.2. This is source/artifact provenance, not an installed workload for the pinned GA SDK; a matching native workload is still required and unavailable here."
+              "reason": "Reviewed GA workload set11.0.100 selects MAUI11.0.0, Android37.2.29 and Apple27.0.12212-net11-rc.2. This is source/artifact provenance, not an installed workload for the pinned GA SDK; a matching native workload is still required and unavailable here."
             }
           ],
           "providers": [
@@ -84,7 +84,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Stable contracts prepared from RC2 source/artifacts. No GA verification."
+            "Stable contracts prepared from Historical RC2 source and GA artifacts. No GA verification."
           ]
         },
         "sharedAreas": [],

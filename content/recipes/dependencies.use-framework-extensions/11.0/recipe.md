@@ -84,7 +84,7 @@ assembly's file entry. Removing that implementation reference prevents compilati
    net11-only warning or deleting the older dependency.
 5. Compare an intentional override with the actual framework version. The checked
    `Microsoft.Extensions.Logging.Abstractions` `[11.0.0]` reference
-   now matches the RC3 framework. Restore retains its exact package entry and
+   now matches the GA framework. Restore retains its exact package entry and
    reports NU1510; execution loads the framework assembly. The isolated control
    allows that specific warning to demonstrate the result. It no longer proves
    a newer-package override. Do not infer forward compatibility for a genuinely
@@ -119,7 +119,7 @@ dependency. Review intervening behavioural changes when upgrading old packages.
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 `eng/Test-ExtensionIdentity.ps1 -Record -VerifySources` runs the actual old/new
 consumers, missing-reference compile control, exact/minimum reference controls,
@@ -128,14 +128,14 @@ inspects real selected assets and package archive hashes, compiler/CoreLib and
 audit-matching framework references, executes framework-dependent published
 applications and verifies their dependencies, layout and loaded assemblies.
 The old selected net10 package assemblies identify audit commit 4099f839; new
-framework assemblies identify commit 820230c3. RC3 is confined to the override control.
+framework assemblies identify commit 820230c3. GA is confined to the override control.
 
 The ordinary tool is packed, installed from an isolated local-only feed/cache
 and inspected over real stdio from an unrelated directory. Discovery, full
 canonical Markdown/snippets, target11/edition11, applicability and fresh paired
 evidence must agree. Target10 returns no_applicable_edition; its comparison
 consumer adds no foundation. Unusable retrieval proxies demonstrate proxy
-independence, not network isolation. Windows x64 managed RC2 proof establishes no
+independence, not network isolation. Windows x64 managed GA proof establishes no
 other-platform, Native AOT, self-contained, single-file or final-GA deployment.
 PIN-959/PIN-962 and existing Human gates remain open; the exact eight foundations
 remain unchanged.

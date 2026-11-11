@@ -32,6 +32,6 @@ Wrapping is deterministic under a given wrapping key. It detects invalid key mat
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
-Both actual projects compile and execute key round trips and wrong-key/tampering rejection. The older comparison additionally wraps a 17-byte input; the newer rejects a 15-byte KW input, checks the 32-to-40 sizing and matches the published RFC 3394 section 4.1 conformance vector. The vector is attributed standards test data; the application code and prose are original. RC2 artifact execution is not GA/provider-matrix verification.
+Both actual projects compile and execute key round trips and wrong-key/tampering rejection. The older comparison additionally wraps a 17-byte input; the newer rejects a 15-byte KW input, checks the 32-to-40 sizing and matches the published RFC 3394 section 4.1 conformance vector. The vector is attributed standards test data; the application code and prose are original. GA artifact execution is limited to the recorded checks/provider-matrix verification.

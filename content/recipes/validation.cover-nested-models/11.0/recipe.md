@@ -57,12 +57,12 @@ Model files import System.ComponentModel, System.ComponentModel.DataAnnotations 
 
 Without discovered metadata, the Blazor fallback checks top-level properties. Missing graph metadata need not throw. A successful build or valid submission therefore cannot prove coverage. The intentionally incomplete /diagnostics/undiscovered fixture demonstrates this failure mode; don't use its configuration as a valid editor.
 
-Cross-assembly models need their own supported generator registration. This proof covers one assembly, concrete children, collections and a property opt-out, not arbitrary polymorphic graphs, external libraries or MVC/Razor Pages. Shared rule concepts remain in validation.validate-asynchronously and validation.format-localized-rules; this recipe owns graph discovery. Client coverage is separate: RC2 emitted only the root rule here while authoritative server validation rejected children.
+Cross-assembly models need their own supported generator registration. This proof covers one assembly, concrete children, collections and a property opt-out, not arbitrary polymorphic graphs, external libraries or MVC/Razor Pages. Shared rule concepts remain in validation.validate-asynchronously and validation.format-localized-rules; this recipe owns graph discovery. Client coverage is separate: GA emitted only the root rule here while authoritative server validation rejected children.
 
 The exact baselines are SDK 10.0.403 / ASP.NET Core 10.0.13 and SDK 11.0.100 / ASP.NET Core 11.0.0, Windows x64 and Chromium 152. The checks do not establish screen-reader operation, trimming/AOT proof or a platform/browser matrix. No conditional newer-package/older-runtime route or extra .NET 10 foundation edition is advertised.
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Actual HTTP posts reject root, child and collection failures, accept valid graphs with invalid skipped reference data, and expose the undiscovered-root boundary. Further posts verify global client opt-out. Real browser submissions repeat child/collection rejection after bypassing client checks in enhanced/plain forms. Both model versions compile; .NET 11 has no obsolete experimental suppression. Exact command/output and separate execution reports accompany the proof.

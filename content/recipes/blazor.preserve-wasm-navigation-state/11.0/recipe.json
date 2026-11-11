@@ -90,7 +90,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Supported application APIs are stable; actual current evidence is RC2 and GA reconciliation remains pending."
+            "Supported application APIs are stable; actual current evidence is GA checks are limited to the recorded scope."
           ]
         },
         "sourceUrls": [

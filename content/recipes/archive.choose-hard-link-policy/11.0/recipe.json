@@ -83,7 +83,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Exact RC2 artifacts were executed; this does not establish GA or other-platform verification. No ExperimentalAttribute or experimental opt-in on the APIs used."
+            "Exact GA artifacts were executed; this does not establish GA or other-platform verification. No ExperimentalAttribute or experimental opt-in on the APIs used."
           ]
         },
         "sourceUrls": [

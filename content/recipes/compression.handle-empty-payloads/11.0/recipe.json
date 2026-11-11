@@ -76,7 +76,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Verified with SDK 11.0.100; Historical RC execution is separate from current GA verification records."
+            "Verified with SDK 11.0.100; Current GA verification is limited to the recorded checks."
           ]
         },
         "sourceUrls": [
@@ -114,7 +114,7 @@
       "sdk": "11.0.100",
       "language": "15.0",
       "kind": "compile-and-run",
-      "scope": "The same original source executes on .NET 10 and RC2: no-write outputs are 0/0 bytes versus 2/20 bytes, and both APIs restore empty content. Nonempty payload round trips are checked separately. Actual Windows compilation/execution; no mocks, cross-compilation or GA proof."
+      "scope": "The same original source executes on .NET 10 and GA: no-write outputs are 0/0 bytes versus 2/20 bytes, and both APIs restore empty content. Nonempty payload round trips are checked separately. Actual Windows compilation/execution; no mocks, cross-compilation or GA proof."
     }
   ],
   "snippets": {

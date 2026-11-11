@@ -146,7 +146,7 @@ package major numbers. TranslationLayer/TestHost/ObjectModel select their actual
 matching Microsoft.NET.Test.Sdk/TestHost/ObjectModel. No workload, native compiler,
 provider, rendering mode, device, credential or external service is required.
 
-Public18.11 is a stable package set. The .NET11 SDK/runtime proof remains RC2;
+Public18.11 is a stable package set. The .NET11 SDK/runtime proof remains GA;
 no experimental opt-in is required for the replacement route. The SDK's bundled
 18.7.0-release-26505-111 and 18.11.0-release-26504-105 files are separate artifacts,
 not claimed byte-identical to public packages. The original package source commits
@@ -164,7 +164,7 @@ routes and the exact eight .NET10 foundations.
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Run eng/Test-TernTesting.ps1 with -Record and the two absolute dotnet executable
 paths to capture fresh verification-evidence.json records. The helper uses the

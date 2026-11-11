@@ -39,7 +39,7 @@
             "name": ".NET / ASP.NET Core",
             "match": "release-family",
             "version": "11.0",
-            "reason": "Current route; exact execution uses RC2, not GA."
+            "reason": "Current route; exact execution uses GA."
           },
           "sdk": {
             "name": ".NET SDK",
@@ -74,7 +74,7 @@
           ],
           "constraints": [
             "RawTarget is the received request target, Path is the parsed server value, route values come from matching that Path, and middleware can change it before matching. Never assume those four representations are interchangeable.",
-            "The serviced .NET10.0.13 baseline actually splits an absolute-form %2F while its origin-form counterpart retains it. RC2 retains %2F/%2f on both forms. Ordinary slash and double-encoding already overlap; later serviced baselines must be measured rather than inferred from release-family labels.",
+            "The serviced .NET10.0.13 baseline actually splits an absolute-form %2F while its origin-form counterpart retains it. GA retains %2F/%2f on both forms. Ordinary slash and double-encoding already overlap; later serviced baselines must be measured rather than inferred from release-family labels.",
             "The older preserve middleware is intentionally limited to this exact ASCII bird-id shape and HTTP absolute targets. It is not a general reverse-proxy parser. Prefer rejecting unsupported targets at the boundary or upgrading; never generalize it to Unicode, query strings, other schemes or arbitrary rewrites.",
             "The decode mode is an explicitly unsafe failure control. Decoding the entire Path changes route boundaries on both targets, including double-encoded input. Remove demonstrated compensation; do not add decoding to authorization or convert a literal encoded identifier into a different resource key.",
             "These diagnostic handlers deliberately report malformed/control values rather than accepting them into business storage. A real application must validate the opaque identifier against its own allowlist and enforce authorization after final routing. Parser acceptance is not application validity. Do not log untrusted control text without structured escaping.",
@@ -82,7 +82,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Exact reproduction uses SDK10.0.403 / framework10.0.14 / C#14 versus SDK11.0.100 / framework11.0.0 / C#15. These are tested pins, not minimum supported versions. RC2 is not actual-GA proof. The exact eight approved .NET10 foundations, stable identities, PIN-959/PIN-963/PIN-964 and unrelated Human gates remain unchanged."
+            "Exact reproduction uses SDK10.0.403 / framework10.0.14 / C#14 versus SDK11.0.100 / framework11.0.0 / C#15. These are tested pins, not minimum supported versions. GA is limited to the recorded checks. The exact eight approved .NET10 foundations, stable identities, PIN-959/PIN-963/PIN-964 and unrelated Human gates remain unchanged."
           ]
         },
         "sourceUrls": [

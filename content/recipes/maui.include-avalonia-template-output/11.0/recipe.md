@@ -6,7 +6,7 @@ Use the first-party MAUI template integration to add an Avalonia desktop target 
 
 ## Constraints
 
-Current examples pin SDK11.0.100, C#15 and MAUI11.0.0. Older comparisons pin SDK10.0.403, C#14 and MAUI10.0.110. These pins are actual RC2/.NET10 evidence, not GA certification or minimum-version promises. Keep independent SDK, native platform/workload and package-asset requirements separate. No provider, account or web-server rendering mode is implied.
+Current examples pin SDK11.0.100, C#15 and MAUI11.0.0. Older comparisons pin SDK10.0.403, C#14 and MAUI10.0.110. These pins are actual GA/.NET10 evidence, within the recorded verification scope certification or minimum-version promises. Keep independent SDK, native platform/workload and package-asset requirements separate. No provider, account or web-server rendering mode is implied.
 
 Use the first-party MAUI project template when the desired starting point includes an Avalonia desktop head. Avalonia implements the desktop rendering integration; Microsoft recognizing a template option does not make Avalonia a first-party MAUI platform implementation.
 
@@ -20,7 +20,7 @@ Select SDK11.0.100 and install Microsoft.Maui.Templates.net11::11.0.0-rc.2.26505
 
 For a separate desktop head use the first-party `maui-multiproject --avalonia` option; its desktop project is optional and separate. The single-project `--with-avalonia` option is ignored when XAML sample content is selected. Preserve resource XAML even when C# UI is chosen. Do not apply the template sample-content pages to the unsupported Avalonia combination.
 
-Override the template's floating preview.6.* Avalonia default with the exact matching package pair above. Also freeze Controls to11.0.0 and Logging.Debug to11.0.0 before restoring generated heads. The reviewed Avalonia RC2 packages target net11.0 and depend on this exact MAUI RC2 family, Avalonia12.1.4 and SkiaSharp4.151.0. These are actual package prerequisites, not versions inferred from the MAUI workload. Keep transitive resolution in a lock file. Do not offer a .NET10 route without independently compatible assets and evidence.
+Override the template's floating preview.6.* Avalonia default with the exact matching package pair above. Also freeze Controls to11.0.0 and Logging.Debug to11.0.0 before restoring generated heads. The reviewed Avalonia GA packages target net11.0 and depend on this exact MAUI GA family, Avalonia12.1.4 and SkiaSharp4.151.0. These are actual package prerequisites, not versions inferred from the MAUI workload. Keep transitive resolution in a lock file. Do not offer a .NET10 route without independently compatible assets and evidence.
 
 The wholly original QuayAvalonia consumer below deliberately isolates the neutral desktop package seam from unavailable native SDK resolution. It references Controls, Resizetizer and the two Avalonia packages explicitly, supplies its own C# MAUI screen, enables the packaged bootstrap generator and converts a raw MauiAsset. It is a package consumer, not an unchanged generated template head or a universal MAUI workload replacement. Keep UseMaui/SingleProject and matched workloads when building the ordinary generated native heads.
 
@@ -34,7 +34,7 @@ The wholly original QuayAvalonia consumer below deliberately isolates the neutra
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Real template generation and exact option/dependency inspection passed. The original neutral desktop package consumer compiles, with the actual bootstrap and raw-asset conversion targets. The canonical consumer also references Logging.Debug11.0.0 and compiles AddDebug, verifying the generated logging pin against its actual resolved dependency closure. No desktop window, native embedding, visual behavior or target-platform matrix was executed for it. Generated native heads retain the unavailable SDK11 MAUI boundary; compilation/interaction there is not-tested under PIN-699. No standalone third-party feature or production support guarantee is added.
 

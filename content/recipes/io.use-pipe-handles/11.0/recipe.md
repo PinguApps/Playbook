@@ -52,7 +52,7 @@ Framework APIs only, no package, provider account, optional workload, rendering 
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 `eng/Record-NativeBoundaries.ps1 -VerifySources` compiles and executes actual .NET 10.0.14/SDK 10.0.403 and .NET 11RC3/SDK 11RC3 consumers on Windows x64, then executes the same managed artifacts in digest-pinned network-none Linux containers. Canonical reports, connected-handle transfer/disposal, all four current blocking/nonblocking end combinations, FileStream ownership and EOF pass. The unchanged old constructor compiled against current references fails specifically with SYSLIB0063; supported code builds with warnings as errors.
 

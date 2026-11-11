@@ -70,13 +70,13 @@ EF11 IsConstrained(false) omits the database foreign key and uses a LEFT JOIN fo
 
 ## Constraints
 
-Independent locked EF10.0.13/net10.0/SDK10.0.403/C#14 and EF11.0.0/net11.0/SDK11.0.100/C#15 graphs. EF11 requires .NET11; no older-runtime EF11 route. Current proof uses RC2, not GA. No experimental attribute or opt-in is required on the exercised public contracts.
+Independent locked EF10.0.13/net10.0/SDK10.0.403/C#14 and EF11.0.0/net11.0/SDK11.0.100/C#15 graphs. EF11 requires .NET11; no older-runtime EF11 route. Current proof uses GA. No experimental attribute or opt-in is required on the exercised public contracts.
 
 SQL Server 2025 via the isolated local route. Executed on Windows x64. SQL2025 runs in the existing Linux container. Other providers/platforms and NativeAOT are unverified. No workload or rendering mode applies. Public extension contracts remain upgrade-sensitive.
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 eng/Test-LarkContracts.ps1 -Record: pinned real compilation and provider checks. No GA, NativeAOT or other-platform claim. Compilation receipts and behaviour records retain exact inputs, resolved dependencies, commands and actual outputs. The ordinary installed stdio harness checks full offline Markdown, canonical snippets, edition and applicability. No ninth .NET10 foundation is added. PIN-959 comprehensive readiness and PIN-965 actual GA reconciliation remain open.
 

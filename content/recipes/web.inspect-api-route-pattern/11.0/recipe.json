@@ -42,7 +42,7 @@
             "match": "release-family",
             "name": ".NET / ASP.NET Core",
             "version": "11.0",
-            "reason": "ApiDescription.RoutePattern is present in the ASP.NET Core 11 contract; the measured baseline is RC2, not GA."
+            "reason": "ApiDescription.RoutePattern is present in the ASP.NET Core 11 contract; the measured baseline is GA."
           },
           "sdk": {
             "match": "release-family",
@@ -86,7 +86,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "No ExperimentalAttribute on the actual property. Stable API designation with exact RC2 proof; actual-GA reconciliation PIN-964, comprehensive coverage PIN-959 and existing Human gates remain open."
+            "No ExperimentalAttribute on the actual property. Stable API designation with exact GA proof; actual-GA reconciliation PIN-964, comprehensive coverage PIN-959 and existing Human gates remain open."
           ]
         },
         "selectionNotes": [

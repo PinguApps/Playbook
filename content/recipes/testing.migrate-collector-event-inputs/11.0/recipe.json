@@ -102,7 +102,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Public VSTest18.11 packages are stable; .NET11 proof is RC2. No MTP, Framework, trimming, NativeAOT or arbitrary collector/test-framework compatibility claim."
+            "Public VSTest18.11 packages are stable; .NET11 proof is GA. No MTP, Framework, trimming, NativeAOT or arbitrary collector/test-framework compatibility claim."
           ]
         },
         "sourceUrls": [

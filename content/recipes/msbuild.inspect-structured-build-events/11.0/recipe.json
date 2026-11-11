@@ -94,7 +94,7 @@
           ],
           "optIns": [
             "MSBUILDUSESERVER=1 only in fixture children; MSBUILDUSESERVER=0 disables it. Requested server plus -nr:false produces NotUsed without -mt; no experimental -mt is used.",
-            "No ExperimentalAttribute diagnostic or preview-language suppression is required by these event APIs. GA SDK pin explicitly allows prerelease."
+            "No ExperimentalAttribute diagnostic or preview-language suppression is required by these event APIs. GA SDK pin disables preview selection."
           ],
           "stabilityLimitations": [
             "Preview-qualified exact SDK observation; new conflict records are gated by the18.12 feature wave. Do not disable the wave to claim typed emission.",
@@ -169,7 +169,7 @@
       "sdk": "11.0.100",
       "target": "net11.0",
       "sample": "samples/net11.0/DepotEventReader/DepotEventReader.csproj",
-      "scope": "Actual strong-named graph emits typed warning, non-warning dependency details and failed searches; matched binlog replay preserves victor/victim/loss/dependee/source/search fields. Actual Spawned/Reused same owned PID, requested no-reuse NotUsed reason, disabled absence; warning promotion fails with MSB3277. Event/text constructor controls and owned-handle cleanup; exact complete SDK closure. Windows x64 RC2 only.",
+      "scope": "Actual strong-named graph emits typed warning, non-warning dependency details and failed searches; matched binlog replay preserves victor/victim/loss/dependee/source/search fields. Actual Spawned/Reused same owned PID, requested no-reuse NotUsed reason, disabled absence; warning promotion fails with MSB3277. Event/text constructor controls and owned-handle cleanup; exact complete SDK closure. Windows x64 GA only.",
       "language": "15.0",
       "kind": "compile-and-run"
     }

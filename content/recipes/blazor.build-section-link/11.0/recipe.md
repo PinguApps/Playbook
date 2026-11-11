@@ -25,7 +25,7 @@ Use the NavigationManager extension in Microsoft.AspNetCore.Components.
 It starts from Nav.Uri, not Nav.BaseUri. It adds or replaces the fragment,
 accepts an optional leading #, and removes the fragment for null or empty input.
 The current API spelling is GetUriWithFragment; the historical GetUriWithHash
-name is not the RC2 contract.
+name is not the GA contract.
 
 {{snippet:fragment}}
 
@@ -59,7 +59,7 @@ id="packing" around the packing content. Render the page through Router and
 RouteView inside Routes, with InteractiveServer on Routes in App.razor. Import
 Microsoft.AspNetCore.Components.Routing and the static
 Microsoft.AspNetCore.Components.Web.RenderMode members. In the static document
-head use one BasePath component (Components namespace in RC2); load
+head use one BasePath component (Components namespace in GA); load
 @Assets["_framework/blazor.web.js"] at the end of body. The application-base
 recipe supplies the complete document shell. Ordinary anchors can also work
 from static SSR; interactive button navigation needs an interactive component.
@@ -80,12 +80,12 @@ targets in content that arrives later may need deliberate post-render scrolling;
 this recipe does not claim automatic discovery of delayed elements. No
 WebAssembly/Auto, accessibility focus behavior or reverse-proxy execution is
 established by the Interactive Server checks. No newer-package route on net10.0
-is claimed. The API is non-experimental; the exact .NET 11 evidence is RC3 and
+is claimed. The API is non-experimental; the exact .NET 11 evidence is GA and
 requires GA reconciliation later.
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Both actual apps compile at their declared SDK/language pins. Chromium follows
 packing links on both apps below /atlas/ and on the same newer binary below

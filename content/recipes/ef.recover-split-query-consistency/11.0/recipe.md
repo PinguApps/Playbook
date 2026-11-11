@@ -26,9 +26,9 @@ A single query removes this particular inter-command window but can increase row
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
-SDK10.0.403 / EF SQL Server10.0.13 and SDK11 GA / EF SQL Server11 RC2 compile. eng/Test-BrackenReads.ps1 -Record executes each in a separately owned disposable database on the approved SQL Server2025 route. It commits the separate writer before the child SELECT, observes EF11's actual exception and verifies complete fresh-context results 10/20/30 with one card each. race.evidence.json retains execution separately from compilation. RC evidence is not GA reconciliation; other providers and isolation levels remain untested.
+SDK10.0.403 / EF SQL Server10.0.13 and SDK11 GA / EF SQL Server11 GA compile. eng/Test-BrackenReads.ps1 -Record executes each in a separately owned disposable database on the approved SQL Server2025 route. It commits the separate writer before the child SELECT, observes EF11's actual exception and verifies complete fresh-context results 10/20/30 with one card each. race.evidence.json retains execution separately from compilation. Recorded evidence is limited to the recorded checks; other providers and isolation levels remain untested.
 
 ## Complete project files
 

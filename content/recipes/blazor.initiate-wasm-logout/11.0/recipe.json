@@ -35,7 +35,7 @@
         "usage": "primary",
         "selectionNotes": [
           "NavigateToLogout already works on .NET 10; .NET 11 removes SignOutSessionStateManager.",
-          "Both reject invalid non-null history. With null history .NET 10 checks session storage; RC2 accepts the request without that fallback.",
+          "Both reject invalid non-null history. With null history .NET 10 checks session storage; GA accepts the request without that fallback.",
           "Requires browser-hosted WASM, the framework auth route and a registered provider; not server cookie logout or authorization enforcement."
         ],
         "requirements": {
@@ -49,7 +49,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Build net11.0 with matching Blazor WASM assets. Exact RC2 test pins are separate evidence."
+            "reason": "Build net11.0 with matching Blazor WASM assets. Exact GA test pins are separate evidence."
           },
           "language": {
             "name": "C#",
@@ -94,12 +94,12 @@
           ],
           "constraints": [
             "NavigateToLogout already works on .NET 10; .NET 11 removes SignOutSessionStateManager.",
-            "Both reject invalid non-null history. With null history .NET 10 checks session storage; RC2 accepts the request without that fallback.",
+            "Both reject invalid non-null history. With null history .NET 10 checks session storage; GA accepts the request without that fallback.",
             "Requires browser-hosted WASM, the framework auth route and a registered provider; not server cookie logout or authorization enforcement."
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Stable supported replacements already available in .NET 10; current evidence is .NET 11 RC2, with GA reconciliation pending.",
+            "Stable supported replacements already available in .NET 10; current evidence is .NET 11 GA, with GA checks are limited to the recorded scope.",
             "No older-target/newer-package route is advertised. The separate net10.0 consumer uses matching 10.0.14 packages; the eight foundations remain unchanged."
           ]
         },

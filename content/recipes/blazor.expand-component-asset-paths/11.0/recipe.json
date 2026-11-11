@@ -42,7 +42,7 @@
             "name": ".NET",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Use matching ASP.NET Core/WASM assets; the recorded current execution is RC2, not GA."
+            "reason": "Use matching ASP.NET Core/WASM assets; the recorded current execution is GA."
           },
           "sdk": {
             "name": ".NET SDK",
@@ -84,7 +84,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Public APIs are not marked experimental in the inspected assets. Evidence is RC2 only; GA reconciliation and comprehensive publication gates remain open. No unsupported older-target route is advertised."
+            "Public APIs are not marked experimental in the inspected assets. Evidence is GA only; GA reconciliation and comprehensive publication gates remain open. No unsupported older-target route is advertised."
           ]
         },
         "sourceUrls": [

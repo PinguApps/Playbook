@@ -6,9 +6,9 @@ Fen survey notes can carry a survey code, explicitly clear it, or omit it. A pre
 
 ## Constraints
 
-Use .NET11/EF11 for the current approach. The exact proof uses SDK11.0.100 and matching EF11 RC2, not GA. The previous comparison uses SDK10.0.403/EF10.0.13. SQL path existence needs SQL2022+; containment needs SQL2025 and provider/database compatibility170. The combined executable exercises both on SQL2025 using native json columns. That complete sample requires SQL2025 even when demonstrating the SQL2022 path-existence function. A presence-only application can use textual JSON on SQL2022; actual2022 execution is not claimed. Changing provider compatibility does not upgrade a database.
+Use .NET11/EF11 for the current approach. The exact proof uses SDK11.0.100 and matching EF11 GA. The previous comparison uses SDK10.0.403/EF10.0.13. SQL path existence needs SQL2022+; containment needs SQL2025 and provider/database compatibility170. The combined executable exercises both on SQL2025 using native json columns. That complete sample requires SQL2025 even when demonstrating the SQL2022 path-existence function. A presence-only application can use textual JSON on SQL2022; actual2022 execution is not claimed. Changing provider compatibility does not upgrade a database.
 
-JsonPathExists is not marked experimental. JsonContains in the pinned EF11 RC2 package is experimental (EF9106); the sample explicitly accepts this risk with a local pragma. Its API may change or be removed. The current SQL JSON_CONTAINS reference carries no preview label; this does not stabilize JSON indexes or vector features, which are outside this recipe. Pin SqlClient6.1.7/7.1.0 and Pkcs10.0.13 as shown. The latter replaces an older transitive cryptography dependency. No renderer, workload or browser is needed. Exact assets and client/server limitations are in applicability.
+JsonPathExists is not marked experimental. JsonContains in the pinned EF11 GA package is experimental (EF9106); the sample explicitly accepts this risk with a local pragma. Its API may change or be removed. The current SQL JSON_CONTAINS reference carries no preview label; this does not stabilize JSON indexes or vector features, which are outside this recipe. Pin SqlClient6.1.7/7.1.0 and Pkcs10.0.13 as shown. The latter replaces an older transitive cryptography dependency. No renderer, workload or browser is needed. Exact assets and client/server limitations are in applicability.
 
 ## Older approach — .NET10 / EF10
 
@@ -88,7 +88,7 @@ The supplied SQL2025 build rejected JSON_CONTAINS over nvarchar(max) with SQL811
 
 ## Evidence and limitations
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 `eng/Test-JsonDocuments.ps1 -Record` compiles and executes both locked consumers against real SQL2025/170. Each query checks actual returned IDs as well as translation shape. Saved records identify runtime, SDK, dependency closure and source hashes. No mocks, older-engine execution, cross-compilation, throughput or actual-GA result is claimed. SQL2022 support for presence is official-source evidence; the executable was run on SQL2025. Complete installed stdio list/get checks prove offline content delivery separately from database behavior.
 

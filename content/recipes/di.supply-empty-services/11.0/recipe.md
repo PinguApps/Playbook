@@ -73,7 +73,7 @@ backport or older-target route for EmptyServiceProvider is claimed.
 
 This singleton has no application registrations; it does not literally resolve
 nothing. The pinned Preview7 description's broad null/false claim is contradicted
-by the actual RC2 implementation and the executed interface checks. A custom
+by the actual GA implementation and the executed interface checks. A custom
 provider that always returns null has a different built-in/enumerable/scope
 contract. Keep such a deliberately narrower contract only when callers expect it.
 
@@ -86,7 +86,7 @@ scope-owned resources or registered rules; this goal is separate from startup DI
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Earlier RC audit details below are historical; use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 `eng/Test-ExtensionContracts.ps1 -Record -VerifySources` builds/runs MuseumServices
 with SDK10.0.403/runtime10.0.14 and SDK11.0.100/runtime11RC3.
@@ -108,6 +108,6 @@ and inspected from an unrelated directory over actual stdio list/get. Discovery,
 complete canonical snippets/Markdown, target11/edition11 applicability and current
 paired evidence are checked. Target10 returns no_applicable_edition; its working
 comparison adds no foundation. Unusable retrieval proxies establish proxy
-independence, not network isolation. Windows x64 managed RC2 proof does not
+independence, not network isolation. Windows x64 managed GA proof does not
 establish other-runtime/platform or final-GA behaviour. PIN-959/PIN-962, pending
 Human gates and the exact eight .NET10 foundations remain unchanged.

@@ -11,7 +11,7 @@ namespace PinguApps.Playbook.Tests.Steps;
 [Binding]
 public sealed class InstalledToolSteps : IDisposable
 {
-    [Then("nested persistence retains canonical bodies applicability and RC2 restrictions")]
+    [Then("nested persistence retains canonical bodies applicability and GA constraints")]
     public async Task CheckNestedPersistenceAsync()
     {
         string[] ids = ["ef.key-nested-value", "ef.map-nested-values-with-inheritance"];
@@ -38,7 +38,7 @@ public sealed class InstalledToolSteps : IDisposable
             JsonElement recipe = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id, targetVersion = "11.0" }).ConfigureAwait(false)).GetProperty("recipe");
             Assert.All(recipe.GetProperty("evidence").EnumerateArray().Where(evidence => evidence.GetProperty("kind").GetString() == "execution"), evidence =>
                 Assert.Contains("PASS:", evidence.GetProperty("output").GetString(), StringComparison.Ordinal));
-            Assert.Contains("RC2", recipe.GetProperty("applicability").ToString(), StringComparison.Ordinal);
+            Assert.Contains("GA", recipe.GetProperty("applicability").ToString(), StringComparison.Ordinal);
             Assert.Equal("not-required", recipe.GetProperty("humanProof").GetProperty("status").GetString());
         }
 
@@ -535,7 +535,7 @@ public sealed class InstalledToolSteps : IDisposable
         }
 
         string markdown = recipe.GetProperty("markdown").GetString()!;
-        foreach (string contract in new[] { "Hidden chrome is not authorization", "IHostEnvironment", "IWebAssemblyHostEnvironment", "adapter", "ordinal case-insensitive", "Exclude wins", "prerender: false", "UseStaticWebAssets", "<WasmBuildNative>false</WasmBuildNative>", "RC2", "not a new .NET 10 foundation" })
+        foreach (string contract in new[] { "Hidden chrome is not authorization", "IHostEnvironment", "IWebAssemblyHostEnvironment", "adapter", "ordinal case-insensitive", "Exclude wins", "prerender: false", "UseStaticWebAssets", "<WasmBuildNative>false</WasmBuildNative>", "GA", "not a new .NET 10 foundation" })
         {
             Assert.Contains(contract, markdown, StringComparison.OrdinalIgnoreCase);
         }
@@ -875,7 +875,7 @@ public sealed class InstalledToolSteps : IDisposable
         Assert.Contains("Virtualize=\"true\"", markdown, StringComparison.Ordinal);
         Assert.Contains("ScrollToItemAsync", markdown, StringComparison.Ordinal);
         Assert.Contains("ItemComparer", markdown, StringComparison.Ordinal);
-        Assert.Contains("RC2 removes ASP0030", markdown, StringComparison.Ordinal);
+        Assert.Contains("GA removes ASP0030", markdown, StringComparison.Ordinal);
         Assert.Contains("rendered instance", route.GetProperty("requirements").GetProperty("constraints").ToString(), StringComparison.Ordinal);
     }
 
@@ -1507,7 +1507,7 @@ public sealed class InstalledToolSteps : IDisposable
             JsonElement requirements = Assert.Single(recipe.GetProperty("applicability").GetProperty("routes").EnumerateArray()).GetProperty("requirements");
             Assert.NotEmpty(requirements.GetProperty("providers").EnumerateArray());
             Assert.Empty(requirements.GetProperty("renderingModes").EnumerateArray());
-            Assert.Contains("RC2", requirements.GetProperty("stabilityLimitations").ToString(), StringComparison.Ordinal);
+            Assert.Contains("GA", requirements.GetProperty("stabilityLimitations").ToString(), StringComparison.Ordinal);
             Assert.Equal("not-required", recipe.GetProperty("humanProof").GetProperty("status").GetString());
             Assert.All(recipe.GetProperty("evidence").EnumerateArray(), evidence =>
             {
@@ -1788,7 +1788,7 @@ public sealed class InstalledToolSteps : IDisposable
             Assert.Empty(requirements.GetProperty("providers").EnumerateArray());
             Assert.Empty(requirements.GetProperty("renderingModes").EnumerateArray());
             Assert.Empty(requirements.GetProperty("optIns").EnumerateArray());
-            Assert.Contains("RC2", requirements.GetProperty("stabilityLimitations").ToString(), StringComparison.Ordinal);
+            Assert.Contains("GA", requirements.GetProperty("stabilityLimitations").ToString(), StringComparison.Ordinal);
             Assert.Equal("not-required", recipe.GetProperty("humanProof").GetProperty("status").GetString());
             Assert.Equal(2, recipe.GetProperty("evidence").GetArrayLength());
             Assert.All(recipe.GetProperty("evidence").EnumerateArray(), evidence =>
@@ -2071,7 +2071,7 @@ public sealed class InstalledToolSteps : IDisposable
                 string attribute = source.Split("// snippet:attribute\n", StringSplitOptions.None)[1]
                     .Split("// endsnippet:attribute", StringSplitOptions.None)[0].TrimEnd();
                 expected = expected.Replace("{{snippet:attribute}}", $"```fsharp\n{attribute}\n```", StringComparison.Ordinal);
-                Assert.Contains("RC2 BCL does not ship", expected, StringComparison.Ordinal);
+                Assert.Contains("GA BCL does not ship", expected, StringComparison.Ordinal);
                 Assert.Contains("FS3923", expected, StringComparison.Ordinal);
             }
 
@@ -2249,7 +2249,7 @@ public sealed class InstalledToolSteps : IDisposable
             Assert.Contains(term, summary.GetProperty("applicability").ToString(), StringComparison.Ordinal);
         }
 
-        foreach (string term in new[] { "private", "caller", "RC2" })
+        foreach (string term in new[] { "private", "caller", "GA" })
         {
             Assert.Contains(term, summary.GetProperty("applicability").ToString(), StringComparison.Ordinal);
             Assert.Contains(term, expected, StringComparison.Ordinal);
@@ -2307,7 +2307,7 @@ public sealed class InstalledToolSteps : IDisposable
         }
 
         Assert.NotEmpty(requirements.GetProperty("platforms").EnumerateArray());
-        Assert.Contains("RC2", Assert.Single(requirements.GetProperty("stabilityLimitations").EnumerateArray()).GetString(), StringComparison.Ordinal);
+        Assert.Contains("GA", Assert.Single(requirements.GetProperty("stabilityLimitations").EnumerateArray()).GetString(), StringComparison.Ordinal);
         Assert.NotEmpty(recipe.GetProperty("sources").EnumerateArray());
         Assert.Equal("not-required", recipe.GetProperty("humanProof").GetProperty("status").GetString());
         Assert.Equal(["net10.0", "net11.0"], recipe.GetProperty("evidence").EnumerateArray().Select(value => value.GetProperty("target").GetString()));
@@ -2368,7 +2368,7 @@ public sealed class InstalledToolSteps : IDisposable
             Assert.Empty(requirements.GetProperty(field).EnumerateArray());
         }
 
-        Assert.Contains("RC2", Assert.Single(requirements.GetProperty("stabilityLimitations").EnumerateArray()).GetString(), StringComparison.Ordinal);
+        Assert.Contains("GA", Assert.Single(requirements.GetProperty("stabilityLimitations").EnumerateArray()).GetString(), StringComparison.Ordinal);
         Assert.Equal("not-required", recipe.GetProperty("humanProof").GetProperty("status").GetString());
         Assert.Equal(2, recipe.GetProperty("evidence").GetArrayLength());
         Assert.All(recipe.GetProperty("evidence").EnumerateArray(), evidence =>
@@ -2432,7 +2432,7 @@ public sealed class InstalledToolSteps : IDisposable
                 Assert.Empty(requirements.GetProperty(field).EnumerateArray());
             }
 
-            Assert.Contains("RC2", Assert.Single(requirements.GetProperty("stabilityLimitations").EnumerateArray()).GetString(), StringComparison.Ordinal);
+            Assert.Contains("GA", Assert.Single(requirements.GetProperty("stabilityLimitations").EnumerateArray()).GetString(), StringComparison.Ordinal);
             Assert.Equal("not-required", recipe.GetProperty("humanProof").GetProperty("status").GetString());
             Assert.Equal(2, recipe.GetProperty("evidence").GetArrayLength());
             Assert.All(recipe.GetProperty("evidence").EnumerateArray(), evidence =>
@@ -2516,7 +2516,7 @@ public sealed class InstalledToolSteps : IDisposable
 
                 if (target == "11.0")
                 {
-                    Assert.Contains("RC2", Assert.Single(requirements.GetProperty("stabilityLimitations").EnumerateArray()).GetString(), StringComparison.Ordinal);
+                    Assert.Contains("GA", Assert.Single(requirements.GetProperty("stabilityLimitations").EnumerateArray()).GetString(), StringComparison.Ordinal);
                 }
 
                 Assert.Equal(foundation ? 3 : 2, recipe.GetProperty("evidence").GetArrayLength());

@@ -43,7 +43,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Use matching Web SDK, reference packs and browser assets; RC2 is the tested pin."
+            "reason": "Use matching Web SDK, reference packs and browser assets; GA is the tested pin."
           },
           "language": {
             "name": "C#",
@@ -59,7 +59,7 @@
               "name": "Microsoft.AspNetCore.Components.WebAssembly",
               "version": "11.0",
               "match": "release-family",
-              "reason": "Global client variant only; exact RC2 package is pinned in the example."
+              "reason": "Global client variant only; exact GA package is pinned in the example."
             },
             {
               "name": "Microsoft.AspNetCore.Components.WebAssembly.Server",
@@ -96,7 +96,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "RC2 verification; GA unverified. No experimental API opt-in."
+            "GA verification; GA unverified. No experimental API opt-in."
           ]
         },
         "evidenceSamples": [

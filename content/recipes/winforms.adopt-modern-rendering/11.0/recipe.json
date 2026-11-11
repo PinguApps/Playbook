@@ -33,7 +33,7 @@
           "runtime": {
             "version": "11.0",
             "match": "release-family",
-            "reason": "Actual .NET 11 RC2 execution, not GA verification.",
+            "reason": "Actual .NET 11 GA execution, within the recorded verification scope.",
             "name": ".NET"
           },
           "sdk": {
@@ -69,13 +69,13 @@
             "Use an STA thread and the declared exact SDK; available Windows Desktop reference packs are required."
           ],
           "constraints": [
-            "RC3 evidence is not GA evidence. No global accessibility setting is changed."
+            "GA verification is limited to the recorded checks evidence. No global accessibility setting is changed."
           ],
           "optIns": [
             "Enable visual styles, then select Net11 before creating windows."
           ],
           "stabilityLimitations": [
-            "Actual .NET11 RC2 evidence; GA reconciliation remains open."
+            "Actual .NET11 GA evidence; GA checks are limited to the recorded scope."
           ]
         },
         "sharedAreas": [],
@@ -120,7 +120,7 @@
       "target": "net11.0-windows",
       "sdk": "11.0.100",
       "language": "15.0",
-      "scope": "Real .NET11 RC2 shown settings screen, state retention and self-close; inherited requested mode, explicit classic child override and PropertyGrid fallback. No visual/accessibility judgment.",
+      "scope": "Real .NET11 GA shown settings screen, state retention and self-close; inherited requested mode, explicit classic child override and PropertyGrid fallback. No visual/accessibility judgment.",
       "kind": "compile-and-run"
     }
   ],

@@ -48,7 +48,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Build against .NET 11 references; exact RC2 pins identify measured proof."
+            "reason": "Build against .NET 11 references; exact GA pins identify measured proof."
           },
           "language": {
             "name": "C#",
@@ -84,7 +84,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "GA-targeted 11.0 guidance verified against RC2, not actual GA; inspected APIs carry no experimental opt-in."
+            "GA-targeted 11.0 guidance verified against GA; inspected APIs carry no experimental opt-in."
           ]
         },
         "sourceUrls": [
@@ -138,7 +138,7 @@
       "language": "14.0",
       "kind": "execution",
       "record": "samples/net10.0/LibraryBadges/behavior.evidence.json",
-      "scope": "Real cookie-authenticated SSR requests for two users; lifecycle counts and fresh output; RC2 captured parameter replay, conditional capture and refusal timing."
+      "scope": "Real cookie-authenticated SSR requests for two users; lifecycle counts and fresh output; GA captured parameter replay, conditional capture and refusal timing."
     },
     {
       "sample": "samples/net11.0/LibraryBadges/LibraryBadges.csproj",
@@ -155,7 +155,7 @@
       "language": "15.0",
       "kind": "execution",
       "record": "samples/net11.0/LibraryBadges/behavior.evidence.json",
-      "scope": "Real cookie-authenticated SSR requests for two users; lifecycle counts and fresh output; RC2 captured parameter replay, conditional capture and refusal timing."
+      "scope": "Real cookie-authenticated SSR requests for two users; lifecycle counts and fresh output; GA captured parameter replay, conditional capture and refusal timing."
     }
   ],
   "snippets": {

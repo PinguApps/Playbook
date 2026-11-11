@@ -71,7 +71,7 @@
           "renderingModes": [],
           "optIns": [],
           "stabilityLimitations": [
-            "Actual .NET10.0.14 and .NET11 RC3 evidence; final GA remains PIN-962 and PIN-959 work."
+            "Actual .NET10.0.14 and .NET11 GA evidence; final GA remains PIN-962 and PIN-959 work."
           ],
           "constraints": [
             "Strict HTTP/2 does not downgrade. Automatic retry does not grant credentials or authorisation.",

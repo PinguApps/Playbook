@@ -45,7 +45,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Build the net11.0 consumer; measured SDK 11.0.100 is RC2 evidence, not GA proof."
+            "reason": "Build the net11.0 consumer; measured SDK 11.0.100 is GA evidence, within the recorded verification scope."
           },
           "language": {
             "name": "C#",
@@ -60,12 +60,12 @@
             {
               "match": "release-family",
               "name": "Microsoft.EntityFrameworkCore.SqlServer",
-              "reason": "Exact RC2 graph is locked in the canonical project.",
+              "reason": "Exact GA graph is locked in the canonical project.",
               "version": "11.0"
             }
           ],
           "packageAssets": [
-            "Independent locked EF10.0.13/net10.0/SDK10.0.403/C#14 and EF11.0.0/net11.0/SDK11.0.100/C#15 graphs. EF11 requires .NET11; no older-runtime EF11 route. Current proof uses RC2, not GA. No experimental attribute or opt-in is required on the exercised public contracts."
+            "Independent locked EF10.0.13/net10.0/SDK10.0.403/C#14 and EF11.0.0/net11.0/SDK11.0.100/C#15 graphs. EF11 requires .NET11; no older-runtime EF11 route. Current proof uses GA. No experimental attribute or opt-in is required on the exercised public contracts."
           ],
           "providers": [
             "SQL Server 2025 via the isolated local route"
@@ -85,7 +85,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Public extension contracts are upgrade-sensitive. Stable API shape measured on pinned RC2; reconcile actual GA separately."
+            "Public extension contracts are upgrade-sensitive. Stable API shape measured on pinned GA; reconcile actual GA separately."
           ]
         },
         "conditional": false,
