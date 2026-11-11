@@ -14,7 +14,7 @@ Disposing a .NET 10 DeflateStream or GZipStream without writing emits zero bytes
 
 ## Newer approach
 
-Create the corresponding net11.0 / C# 15 project with the same imports and implicit usings. These are framework APIs, not an independently versioned compression package. The canonical sample is verified against .NET 11 RC2.
+Create the corresponding net11.0 / C# 15 project with the same imports and implicit usings. These are framework APIs, not an independently versioned compression package. The canonical sample is verified against .NET 11 GA.
 
 The same code on .NET 11 finalises a valid empty compressed stream. Dispose the compressor before inspecting output. Do not test compressed length==0 to infer whether the original payload was empty.
 
@@ -40,10 +40,12 @@ For the finite trusted payloads in this example, restore with the matching forma
 
 The exact two-byte raw Deflate and twenty-byte GZip outputs are measured baselines, not a protocol promise about all settings/future encoders. Deflate, ZLib and GZip use different framing and are not interchangeable; Brotli and Zstandard are separate formats too. This change concerns no writes at all; do not infer every stream operation from that case. Use decompressed content length or an explicit application envelope to distinguish empty payload from missing data. Flush alone does not finish a frame. leaveOpen retains ownership of the underlying stream; disposing the compressor still finalises its frame.
 
-This edition has no external provider, workload, rendering requirement or experimental opt-in. Shared Blazor applicability means server-side code; it is not browser execution proof. All sample dependencies are framework-provided. Exact SDK pins 10.0.403 and 11.0.100-rc.3.26522.148 are reproducibility baselines, not mandatory exact consumer installations. RC verification does not establish GA behaviour or every platform's behaviour.
+This edition has no external provider, workload, rendering requirement or experimental opt-in. Shared Blazor applicability means server-side code; it is not browser execution proof. All sample dependencies are framework-provided. Exact SDK pins 10.0.403 and 11.0.100 are reproducibility baselines, not mandatory exact consumer installations. GA verification is limited to the recorded platforms and checks.
 
 ## Evidence
 
-The same original source executes on .NET 10 and RC2: no-write outputs are 0/0 bytes versus 2/20 bytes, and both APIs restore empty content. Nonempty payload round trips are checked separately.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
+The same original source executes on .NET 10 and GA: no-write outputs are 0/0 bytes versus 2/20 bytes, and both APIs restore empty content. Nonempty payload round trips are checked separately.
 
 The actual declared .NET 10 and .NET 11 projects compile and execute on Windows with zero warnings/errors. Saved records identify source hashes, SDK/target/language, resolved dependencies, commands, host and output; freshness is checked at package build. These are execution records, not source-review-only, cross-compilation or mock claims. The existing installed-tool harness independently verifies the complete canonical body, target-11 applicability/edition and target-10 refusal offline from an unrelated directory. Comprehensive catalogue and public-release readiness remain separate gates.

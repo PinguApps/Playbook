@@ -27,7 +27,7 @@ try {
       [IO.File]::WriteAllText($path, $match.Groups[3].Value + "`n")
     }
     Copy-Item -LiteralPath (Join-Path $base 'TideDesk/Directory.Packages.props') -Destination (Join-Path $base 'TideDesk.Client/Directory.Packages.props')
-    $sdk = if ($target -eq 'net10.0') { '10.0.403' } else { '11.0.100-rc.3.26522.148' }
+    $sdk = if ($target -eq 'net10.0') { '10.0.403' } else { '11.0.100' }
     $dotnet = if ($target -eq 'net10.0') { (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source } else { (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source }
     foreach ($folder in @('TideDesk', 'TideDesk.Client')) {
       [IO.File]::WriteAllText((Join-Path $base "$folder/global.json"), ('{"sdk":{"version":"' + $sdk + '","rollForward":"disable"}}'))

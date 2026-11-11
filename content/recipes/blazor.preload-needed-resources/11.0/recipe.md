@@ -4,11 +4,11 @@
 
 Keep control of resources a destination actually needs when Blazor replaces a page through enhanced navigation. Add deliberate preload and modulepreload links through HeadContent, then keep the normal data fetch and module import. The fictional Tern dispatch ledger needs a JSON summary and a formatting module when its details open.
 
-Do not preload every page asset. A hint spends bandwidth and cache space before consumption; measure the destination's likely need. These stable HTML/Blazor APIs are tested with .NET 11 RC2, not GA; no Experimental API opt-in is involved.
+Do not preload every page asset. A hint spends bandwidth and cache space before consumption; measure the destination's likely need. These stable HTML/Blazor APIs are tested with .NET 11 GA; no Experimental API opt-in is involved.
 
 ## Older approach
 
-Explicit hints are already valid on .NET 10. The pinned Microsoft change guide describes a .NET 11 change to implicit framework hints, but the actual serviced 10.0.14 SSRRenderModeBoundary also returns early for enhanced-navigation requests. Selected RC2 has that guard too. Do not infer an all-10-versus-11 request difference from the guide's introduction label. There is no unavailable older public API to invent: the comparison deliberately preserves the same supported HeadContent pattern.
+Explicit hints are already valid on .NET 10. The pinned Microsoft change guide describes a .NET 11 change to implicit framework hints, but the actual serviced 10.0.14 SSRRenderModeBoundary also returns early for enhanced-navigation requests. Selected GA has that guard too. Do not infer an all-10-versus-11 request difference from the guide's introduction label. There is no unavailable older public API to invent: the comparison deliberately preserves the same supported HeadContent pattern.
 
 Initial/full navigation retains the framework's separate preload behavior. Framework PR 63544 also changes DOM synchronization of preload links; neither source change guarantees one network request in every browser. Our static SSR sample observes custom needed resources, not WebAssembly boot-preload generation.
 
@@ -22,7 +22,7 @@ Save Program.cs in both applications with these three imports before the program
 
 ## Newer approach
 
-Create a separate empty net11 directory. Save global.json containing exactly `{"sdk":{"version":"11.0.100-rc.3.26522.148","rollForward":"disable","allowPrerelease":true}}`. The actual newer framework/browser assets are 11.0.0-rc.3.26522.148, with C# 15. No external PackageReference, provider, native toolchain or optional workload is required. The SDK resolves its matching Microsoft.AspNetCore.App.Internal.Assets; standalone restore produces packages.lock.json. Repository captures use reviewed locked closure.
+Create a separate empty net11 directory. Save global.json containing exactly `{"sdk":{"version":"11.0.100","rollForward":"disable","allowPrerelease":false}}`. The actual newer framework/browser assets are 11.0.0, with C# 15. No external PackageReference, provider, native toolchain or optional workload is required. The SDK resolves its matching Microsoft.AspNetCore.App.Internal.Assets; standalone restore produces packages.lock.json. Repository captures use reviewed locked closure.
 
 Save TernLedger.csproj and Program.cs:
 
@@ -85,6 +85,8 @@ The selected static sample has no interactive SPA router or WASM runtime. It doe
 For request-derived application bases retrieve blazor.render-application-base/11.0; for current-path destinations retrieve blazor.navigate-within-current-path/11.0. Those goals remain separate.
 
 ## Evidence
+
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Canonical old/new applications compile with their actual pinned SDKs. Real browser checks separately observe enhanced HTTP requests, stable document identity, exact hint/resource URLs, module evaluation on demand, no-hint control and warm-cache/full-navigation behavior. Compilation is labelled compile, not execution; source review, browser behavior and packed-tool retrieval are distinct. docs/verification/navigation-resource-hints.md records exact input/artifact/payload hashes and reconstruction solely from installed expanded Markdown. No mocks, source-only substitution, cross-compilation, GA or universal preload requirement is asserted.
 

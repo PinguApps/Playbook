@@ -57,7 +57,7 @@
             "Only Interactive Server component removal and bounded file reading are executed; no remote upload/storage, removed stream-option migration, WebAssembly, trimming/AOT or actual-GA guarantee."
           ],
           "packageAssets": [
-            "Implicit SDK-aligned Microsoft.AspNetCore.App.Internal.Assets; measured lock pins 11.0.0-rc.3.26522.148. No additional PackageReference."
+            "Implicit SDK-aligned Microsoft.AspNetCore.App.Internal.Assets; measured lock pins 11.0.0. No additional PackageReference."
           ],
           "renderingModes": [
             "Blazor Interactive Server; sample disables prerender"
@@ -66,12 +66,12 @@
             "Use the complete original project files below with nullable and implicit usings enabled. Permit the normal local Blazor WebSocket connection and same-origin module/static asset loading."
           ],
           "stabilityLimitations": [
-            "GA-targeted 11.0 edition qualified on SDK 11.0.100-rc.3.26522.148 and framework RC2. No experimental suppression is required by the inspected API/analyzer."
+            "GA-targeted 11.0 edition qualified on SDK 11.0.100 and framework GA. No experimental suppression is required by the inspected API/analyzer."
           ],
           "packages": [],
           "sdk": {
             "version": "11.0",
-            "reason": "Build against .NET 11 references. Exact RC2 pins identify measured evidence, not GA verification.",
+            "reason": "Build against .NET 11 references. Exact GA pins identify measured GA evidence for the recorded checks.",
             "name": ".NET SDK",
             "match": "release-family"
           },
@@ -134,7 +134,7 @@
       "scope": "Actual pinned Web SDK/Razor compilation and locked implicit browser assets; execution is separate.",
       "kind": "compile",
       "language": "15.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "sample": "samples/net11.0/RestorationBench/RestorationBench.csproj",
       "target": "net11.0"
     },
@@ -143,7 +143,7 @@
       "kind": "execution",
       "language": "15.0",
       "record": "samples/net11.0/RestorationBench/behavior.evidence.json",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "sample": "samples/net11.0/RestorationBench/RestorationBench.csproj",
       "target": "net11.0"
     }

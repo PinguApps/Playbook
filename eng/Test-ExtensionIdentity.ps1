@@ -83,14 +83,14 @@ try {
         $runner = if ($target -eq 'net10.0') { $Net10Dotnet } else { $Net11Dotnet }
         $path = "bin/Release/$target/$name.dll"
         $result = (& $runner $path | Out-String).Trim()
-        if ($result -notmatch $(if ($name -eq 'Override') { 'OVERRIDE .*11.0.0-rc.3.26522.148' } else { "PASS $name " })) { throw "Supporting consumer failed: $name/$target" }
+        if ($result -notmatch $(if ($name -eq 'Override') { 'OVERRIDE .*11.0.0' } else { "PASS $name " })) { throw "Supporting consumer failed: $name/$target" }
         $checks += "COMMAND $runner $(Join-Path (Split-Path $project) $path)`n$result"
         Write-Host $result
       }
       $assets = Get-Content obj/project.assets.json -Raw | ConvertFrom-Json -AsHashtable
       $checks += "SUPPORT $name libraries=$($assets.libraries.Keys -join ',') targets=$($assets.targets | ConvertTo-Json -Depth 20 -Compress)"
       if ($name -eq 'Override') {
-        if (-not $assets.libraries.ContainsKey('Microsoft.Extensions.Logging.Abstractions/11.0.0-rc.3.26522.148')) { throw 'Exact matching-version reference disappeared unexpectedly' }
+        if (-not $assets.libraries.ContainsKey('Microsoft.Extensions.Logging.Abstractions/11.0.0')) { throw 'Exact matching-version reference disappeared unexpectedly' }
         if ($build -notmatch 'NU1510' -or $result -notmatch [regex]::Escape((Join-Path (Split-Path $Net11Dotnet) 'shared/Microsoft.NETCore.App'))) { throw 'Matching-version reference must warn and execute the framework assembly' }
       }
       foreach ($library in $assets.libraries.Keys) {

@@ -115,7 +115,7 @@ The original project is built and executed by eng/Verify.ps1; synthetic filter m
       $recipe.stability = 'experimental'
       foreach ($route in $recipe.applicability.routes) {
         $route.requirements.sdk.match = 'exact'
-        $route.requirements.sdk.version = '11.0.100-rc.3.26522.148'
+        $route.requirements.sdk.version = '11.0.100'
         $route.requirements.sdk.reason = 'Synthetic exact-pin contract case, not an installation requirement of the property recipe.'
         $route.requirements.packages = @(@{ name = 'Fixture.Contract'; version = '1.2.3'; match = 'exact'; reason = 'Synthetic package requirement for serialization only; no package/API execution is asserted.' })
         $route.requirements.workloads = @(@{ name = 'fixture-workload'; version = '1.0.0'; match = 'exact'; reason = 'Synthetic workload requirement for serialization only; not installed or executed.' })

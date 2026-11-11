@@ -36,7 +36,7 @@
           "sdk": {
             "version": "11.0",
             "match": "release-family",
-            "reason": "Compatible .NET 11 SDK and the selected native workload are required; sample pins SDK11 RC3.",
+            "reason": "Compatible .NET 11 SDK and the selected native workload are required; sample pins SDK11 GA.",
             "name": ".NET SDK"
           },
           "language": {
@@ -52,7 +52,7 @@
             {
               "match": "release-family",
               "name": "Microsoft.Maui.Controls",
-              "reason": "Controls11 SourceGen compiler and preview incremental reload engine; sample pins 11.0.0-rc.2.26505.5.",
+              "reason": "Controls11 SourceGen compiler and preview incremental reload engine; sample pins 11.0.0.",
               "version": "11.0"
             }
           ],
@@ -64,7 +64,7 @@
               "name": "maui-android / maui-ios / maui-windows (choose target)",
               "version": "11.0",
               "match": "release-family",
-              "reason": "Install the workload matching the selected target. Reviewed set11.0.100-rc.2.26513.2 selects MAUI11.0.0-rc.2.26505.5, Android37.2.0-rc.2.84 and Apple27.0.12212-net11-rc.2."
+              "reason": "Install the workload matching the selected target. Reviewed set11.0.100 selects MAUI11.0.0, Android37.2.29 and Apple27.0.12212-net11-rc.2."
             }
           ],
           "providers": [
@@ -78,7 +78,7 @@
           ],
           "prerequisites": [
             "Matching native SDK pack, platform tooling and a configured device/emulator for live checks; workload labels alone do not establish availability.",
-            "Android preparation uses JDK25 and Android SDK/build tools matching the reviewed workload; Apple preparation uses the reviewed Xcode27.0 RC2 composition."
+            "Android preparation uses JDK25 and Android SDK/build tools matching the reviewed workload; Apple preparation uses the reviewed Xcode27.0 GA composition."
           ],
           "constraints": [
             "No provider/account for Playbook retrieval. Device signing/trust is separate and not provisioned by this guidance.",
@@ -89,7 +89,7 @@
             "MauiXamlInflator=SourceGen; no EnablePreviewFeatures needed for these bindings."
           ],
           "stabilityLimitations": [
-            "RC2 preparation only, no GA verification. Native current sample is official-source reviewed only."
+            "GA preparation only, no GA verification. Native current sample is official-source reviewed only."
           ]
         },
         "sharedAreas": [],
@@ -178,7 +178,7 @@
     {
       "language": "15.0",
       "sample": "samples/net11.0/SignalDeck/SignalDeck.csproj",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "target": "net11.0-windows10.0.20348.0",
       "kind": "official-review",
       "scope": "Intended SDK/target. NETSDK1147 prevents compilation; pinned official binding tests, reload targets and release notes reviewed. No generated-output, trim or execution proof."
@@ -186,7 +186,7 @@
     {
       "language": "15.0",
       "sample": "samples/net11.0/SignalDeckAndroid/SignalDeckAndroid.csproj",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "target": "net11.0-android37.2",
       "kind": "official-review",
       "scope": "Intended target/SDK. Official review only; matching native workload and device unavailable. No compilation or live reload observed."
@@ -194,7 +194,7 @@
     {
       "language": "15.0",
       "sample": "samples/net11.0/SignalDeckiOS/SignalDeckiOS.csproj",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "target": "net11.0-ios27.0",
       "kind": "official-review",
       "scope": "Intended target/SDK. Official review only; matching native workload and device unavailable. No compilation or live reload observed."

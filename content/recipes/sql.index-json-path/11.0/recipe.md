@@ -24,7 +24,7 @@ EF11 supports creating and scaffolding JSON indexes. For database-first work, us
 
 Use one project in its own directory. Restore its locked packages with the pinned SDK, then run it only against an empty, exclusively owned disposable `playbook_` database. Supply `PLAYBOOK_SQL_CONNECTION_STRING` privately; do not put it in source or logs. The sample creates schema and synthetic data. The approved `eng/Test-DuneArchive.ps1 -Record` runner supplies this variable, creates separate databases and removes them in finally. It stops the local server afterward.
 
-Current: SDK11.0.100-rc.3.26522.148, C#15, EF SQL Server11.0.0-rc.2.26504.105, SqlClient7.1.0, Pkcs10.0.13. Previous: SDK10.0.403, C#14, EF SQL Server10.0.13, SqlClient6.1.7, Pkcs10.0.13. EF11 needs net11.0; no EF11/net10 route is offered. The previous sample is a comparison, not another .NET10 foundation.
+Current: SDK11.0.100, C#15, EF SQL Server11.0.0, SqlClient7.1.0, Pkcs10.0.13. Previous: SDK10.0.403, C#14, EF SQL Server10.0.13, SqlClient6.1.7, Pkcs10.0.13. EF11 needs net11.0; no EF11/net10 route is offered. The previous sample is a comparison, not another .NET10 foundation.
 
 EF11 uses lib/net11.0; EF10 uses lib/net10.0; the drivers select compatible net9.0 assets, with Windows runtime assets in these executions. Exact dependency closures are in the project locks and verification manifests. There are no workloads, web rendering modes, embedding services or accounts to configure. The synthetic three-dimensional vectors are test data, not a semantic model.
 
@@ -57,6 +57,8 @@ EF11 uses lib/net11.0; EF10 uses lib/net10.0; the drivers select compatible net9
 {{snippet:n11-program-cs}}
 
 ## Evidence
+
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 The locked consumers compile on their declared SDKs and execute supported JSON/index, exact-distance and persisted-projection checks on Windows against the local Linux SQL2025 route. Current vector-index DDL and exact/approximate VectorSearch are SQL-generation checks only. They do not prove application or execution of that branch. Pingu explicitly authorized this unavailable-engine execution exclusion on 2 November 2026. No mock, GA proof, production migration, reverse-engineering CLI execution, other platform or measured approximate recall is claimed. Installed-tool list/get verifies the complete offline body and applicability independently of consumer execution.
 

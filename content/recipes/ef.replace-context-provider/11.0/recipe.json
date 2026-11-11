@@ -59,7 +59,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Build the net11.0 consumer; measured SDK 11.0.100-rc.3.26522.148 is RC2 evidence, not GA proof."
+            "reason": "Build the net11.0 consumer; measured SDK 11.0.100 is GA evidence, within the recorded verification scope."
           },
           "language": {
             "name": "C#",
@@ -75,7 +75,7 @@
               "name": "Microsoft.EntityFrameworkCore.Sqlite",
               "match": "release-family",
               "version": "11.0",
-              "reason": "Matched EF11 provider graph; exact RC2 and native versions are locked in the sample."
+              "reason": "Matched EF11 provider graph; exact GA and native versions are locked in the sample."
             },
             {
               "name": "Microsoft.EntityFrameworkCore.InMemory",
@@ -86,7 +86,7 @@
           ],
           "packageAssets": [
             "EF Core, Relational and InMemory lib/net11.0; Microsoft.Data.Sqlite.Core lib/net10.0; actual resolved graph and content hashes pinned in packages.lock.json",
-            "Previous consumer: EF/SQLite 10.0.13 on net10.0, SDK 10.0.403, C# 14.0; current consumer: EF/SQLite 11.0.0-rc.2.26504.105 on net11.0, SDK 11.0.100-rc.3.26522.148, C# 15.0"
+            "Previous consumer: EF/SQLite 10.0.13 on net10.0, SDK 10.0.403, C# 14.0; current consumer: EF/SQLite 11.0.0 on net11.0, SDK 11.0.100, C# 15.0"
           ],
           "providers": [
             "Microsoft.EntityFrameworkCore.Sqlite and Microsoft.EntityFrameworkCore.InMemory; both execute isolated CRUD, only SQLite establishes the demonstrated relational unique-index failure",
@@ -112,7 +112,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Stable API shape in GA-targeted guidance, measured on RC2 packages and SDK. No experimental API suppression required. Actual GA reconciliation remains outstanding."
+            "Stable API shape in GA-targeted guidance, measured on GA packages and SDK. No experimental API suppression required. Actual GA checks are limited to the recorded scope."
           ]
         },
         "conditional": false,
@@ -162,7 +162,7 @@
       "sample": "samples/net11.0/ReedPermits/ReedPermits.csproj",
       "target": "net11.0",
       "kind": "compile-and-run",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "scope": "Four isolated full/configuration-only SQLite/InMemory replacements, descriptor and resolved lifetime checks, original callback/flags/connection exclusion, CRUD across scopes, SQLite unique-index failure versus InMemory acceptance; retained/mixed configuration controls. Current-only immutable WithoutExtension and extension-author RemoveExtension/no-op use real InMemory writes/reads; older route uses fresh options."
     }
   ],

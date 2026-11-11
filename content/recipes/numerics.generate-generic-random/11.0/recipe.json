@@ -44,7 +44,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Build against the .NET 11 reference assemblies; exact RC2 is the recorded test baseline."
+            "reason": "Build against the .NET 11 reference assemblies; exact GA is the recorded test baseline."
           },
           "language": {
             "name": "C#",
@@ -71,7 +71,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Verified using .NET 11 RC2; GA reconciliation remains pending. These selected contracts have no publisher experimental annotation or required opt-in."
+            "Verified using .NET 11 GA; GA checks are limited to the recorded scope. These selected contracts have no publisher experimental annotation or required opt-in."
           ]
         },
         "sourceUrls": [
@@ -113,15 +113,15 @@
       "sdk": "10.0.403",
       "language": "14.0",
       "kind": "compile-and-run",
-      "scope": "Both targets execute 4,096 simulation iterations, equal/reversed-bound checks and the real cryptographic bounded alternative. RC2 additionally exercises byte and full-width signed Int128 bounds, Half/BFloat16 fractions, double, zero/negative maxima and nonnegative parameterless integers. Actual managed execution; no mocks, cross-compilation or GA verification."
+      "scope": "Both targets execute 4,096 simulation iterations, equal/reversed-bound checks and the real cryptographic bounded alternative. GA additionally exercises byte and full-width signed Int128 bounds, Half/BFloat16 fractions, double, zero/negative maxima and nonnegative parameterless integers. Actual managed execution; no mocks, cross-compilation or GA verification."
     },
     {
       "sample": "samples/net11.0/NumericGuidance/NumericGuidance.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "kind": "compile-and-run",
-      "scope": "Both targets execute 4,096 simulation iterations, equal/reversed-bound checks and the real cryptographic bounded alternative. RC2 additionally exercises byte and full-width signed Int128 bounds, Half/BFloat16 fractions, double, zero/negative maxima and nonnegative parameterless integers. Actual managed execution; no mocks, cross-compilation or GA verification."
+      "scope": "Both targets execute 4,096 simulation iterations, equal/reversed-bound checks and the real cryptographic bounded alternative. GA additionally exercises byte and full-width signed Int128 bounds, Half/BFloat16 fractions, double, zero/negative maxima and nonnegative parameterless integers. Actual managed execution; no mocks, cross-compilation or GA verification."
     }
   ],
   "snippets": {

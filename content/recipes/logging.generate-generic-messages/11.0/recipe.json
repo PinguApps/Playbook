@@ -45,7 +45,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Build against .NET 11 reference assemblies; exact RC2 is evidence, not an exact installation requirement."
+            "reason": "Build against .NET 11 reference assemblies; exact GA is evidence, not an exact installation requirement."
           },
           "language": {
             "name": "C#",
@@ -59,7 +59,7 @@
           "packages": [
             {
               "name": "Microsoft.Extensions.Logging.Abstractions",
-              "version": "11.0.0-rc.2.26504.105",
+              "version": "11.0.0",
               "match": "exact",
               "reason": "The verified sample's private analyzer reference supplies the logging source generator; runtime types come from the framework."
             }
@@ -83,7 +83,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "RC2 compilation/execution; GA reconciliation pending. No experimental API opt-in."
+            "GA compilation/execution; GA checks are limited to the recorded scope. No experimental API opt-in."
           ]
         },
         "sourceUrls": [
@@ -129,7 +129,7 @@
     {
       "sample": "samples/net11.0/TracingLogging/TracingLogging.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "kind": "compile-and-run",
       "scope": "Real generated structured event 71 and fields through an in-process recording ILogger sink, enabled/disabled paths and expensive-argument guard; separate pinned failing/fixed SYSLIB1011/CA1873 builds."

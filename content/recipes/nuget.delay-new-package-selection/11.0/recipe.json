@@ -31,7 +31,7 @@
         "usage": "primary",
         "selectionNotes": [
           "Cooldown is source-scoped selection policy, not universal restore exclusion or vulnerability mitigation.",
-          "RC2 rejects both tested 1.* and 1.2.* floating references with NU1020; explicit 1.2.0 restores despite being fresh.",
+          "GA rejects both tested 1.* and 1.2.* floating references with NU1020; explicit 1.2.0 restores despite being fresh.",
           "Requires a source supplying publication metadata; do not infer production-feed behavior from a folder feed."
         ],
         "sharedAreas": [
@@ -57,7 +57,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "The documented .NET 11 SDK/MSBuild/NuGet command behavior; exact RC2 verification is recorded separately."
+            "reason": "The documented .NET 11 SDK/MSBuild/NuGet command behavior; exact GA verification is recorded separately."
           },
           "language": {
             "name": "C#",
@@ -80,14 +80,14 @@
           ],
           "constraints": [
             "Cooldown is source-scoped selection policy, not universal restore exclusion or vulnerability mitigation.",
-            "RC2 rejects both tested 1.* and 1.2.* floating references with NU1020; explicit 1.2.0 restores despite being fresh.",
+            "GA rejects both tested 1.* and 1.2.* floating references with NU1020; explicit 1.2.0 restores despite being fresh.",
             "Requires a source supplying publication metadata; do not infer production-feed behavior from a folder feed.",
             "Target 11 only. .NET 10 is a verified comparison, not an added foundation or a declared older-target route.",
             "Consulting Playbook serves embedded documentation only; no consumer build, package update, account or resource is created."
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Verified using SDK 11.0.100-rc.3.26522.148, not GA. No publisher-designated experimental API is used; GA reconciliation remains separate."
+            "Verified using SDK 11.0.100, within the recorded verification scope. No publisher-designated experimental API is used; GA reconciliation remains separate."
           ]
         },
         "sourceUrls": [
@@ -123,7 +123,7 @@
       "kind": "compile-and-run",
       "sample": "samples/net11.0/PackagePolicies/PackagePolicies.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "scope": "Actual compilation and execution of the original SDK behavior checks on Windows x64. Package tests use controlled loopback V3 metadata and synthetic advisories with real NuGet commands, not a production feed/security validation. Build tests verify XML outputs and wave diagnostics, not all historical wave internals."
     }

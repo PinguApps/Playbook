@@ -78,12 +78,14 @@ called directly from managed code. Keep calling conventions consistent with the
 native declaration and avoid exceptions crossing the boundary. This arithmetic
 example has no managed references in its signature. No provider, rendering mode
 or optional workload is involved. AssociatedSourceType is not an ownership,
-security or per-instance-lifetime mechanism. Actual RC3 evidence is not GA proof.
+security or per-instance-lifetime mechanism. Current GA records define measured coverage and retained exclusions.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 eng/Test-NativeBoundaries.ps1 -Lane Windows -Record builds real SDK10.0.403 / ILC
-10.0.13 and SDK11.0.100-rc.3.26522.148 / ILC11 RC2 artifacts. It captures locked
+10.0.13 and SDK11.0.100 / ILC11 GA artifacts. It captures locked
 dependencies, MSVC/linker/SDK identities, audit-matching references, export tables,
 DLL hashes and independent C invocation for five variants. Both previous/current
 consumers compile and execute their actual native artifacts. Empty source-type

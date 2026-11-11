@@ -50,12 +50,12 @@
             {
               "match": "exact",
               "name": "Microsoft.Maui.Controls",
-              "version": "11.0.0-rc.2.26505.5",
+              "version": "11.0.0",
               "reason": "Reviewed current MAUI artifact baseline."
             }
           ],
           "packageAssets": [
-            "Microsoft.Maui.Controls/Core 11.0.0-rc.2.26505.5 Windows assets; canonical target net11.0-windows10.0.20348.0."
+            "Microsoft.Maui.Controls/Core 11.0.0 Windows assets; canonical target net11.0-windows10.0.20348.0."
           ],
           "workloads": [
             {
@@ -78,13 +78,13 @@
             "See exact canonical pins and independent package locks; tool host itself requires no MAUI workload."
           ],
           "constraints": [
-            "RC2 preparation evidence, not GA verification. No verified older-target route. Native behavior exclusions and contract doubles are explicit in Evidence."
+            "GA preparation evidence, within the recorded verification scope. No verified older-target route. Native behavior exclusions and contract doubles are explicit in Evidence."
           ],
           "optIns": [
             "Template options are opt-in; no preview C# language opt-in."
           ],
           "stabilityLimitations": [
-            "No experimental API diagnostic identified for this contract; actual artifacts are RC2 preparation inputs."
+            "No experimental API diagnostic identified for this contract; actual artifacts are GA preparation inputs."
           ]
         },
         "sharedAreas": [],
@@ -193,7 +193,7 @@
       "sample": "samples/net11.0/QuayCSharp/QuayCSharp.csproj",
       "kind": "official-review",
       "target": "net11.0-windows10.0.20348.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "scope": "Actual compilation/execution classification; native and template limits are documented below."
     }

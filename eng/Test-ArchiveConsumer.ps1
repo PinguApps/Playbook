@@ -59,7 +59,7 @@ try {
   if ($RecordEvidence) {
     $manifest = Get-Content -LiteralPath verification.json -Raw | ConvertFrom-Json
     $record = [ordered]@{
-      kind = 'execution'; sample = $sample; target = 'net11.0'; sdk = '11.0.100-rc.3.26522.148'; language = '15.0'
+      kind = 'execution'; sample = $sample; target = 'net11.0'; sdk = '11.0.100'; language = '15.0'
       command = "eng/Test-ArchiveConsumer.ps1 -Dotnet '$Dotnet' -Net11Dotnet '$Net11Dotnet' -RecordEvidence"
       scope = 'Actual server OpenAPI 3.0 export, NSwag 14.7.1 generated C#, independent .NET 10 compilation and real loopback consumer; JSON extension data and expected text limitation.'
       recordedAt = [DateTimeOffset]::UtcNow.ToString('O'); sourceCommit = (& $git -C $root rev-parse HEAD).Trim(); sourceDirty = [bool](& $git -C $root status --porcelain -- samples eng/Test-ArchiveConsumer.ps1)

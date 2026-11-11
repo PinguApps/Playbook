@@ -38,13 +38,13 @@
             "name": ".NET",
             "version": "11.0",
             "match": "release-family",
-            "reason": "ASP.NET Core 11 supplies the new surface; exact observed runtime is RC2, not GA evidence."
+            "reason": "ASP.NET Core 11 supplies the new surface; exact observed runtime is GA evidence."
           },
           "sdk": {
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Build the net11.0 application with an SDK supporting that target; sample pin is 11.0.100-rc.3.26522.148."
+            "reason": "Build the net11.0 application with an SDK supporting that target; sample pin is 11.0.100."
           },
           "language": {
             "name": "C#",
@@ -77,7 +77,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Stable API intent prepared from pinned .NET 11 RC2 artifacts under ADR 0004; GA reconciliation remains pending. No experimental opt-in applies."
+            "Stable API intent prepared from pinned .NET 11 GA artifacts under ADR 0004; GA checks are limited to the recorded scope. No experimental opt-in applies."
           ]
         },
         "evidenceSamples": [
@@ -126,9 +126,9 @@
       "kind": "compile-and-run",
       "sample": "samples/net11.0/HarbourEncoding/HarbourEncoding.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
-      "scope": "Actual Windows x64 .NET 11 RC2 compilation/execution: raw zstd/gzip response negotiation and decompressed body equality, quality weighting/q=0, identity and unsupported fallback; real zstd/gzip uploads, unsupported/stacked 415 and decompressed 1024-byte limit returning 413 for both codecs. No browser/proxy/HTTPS or third-party peer test."
+      "scope": "Actual Windows x64 .NET 11 GA compilation/execution: raw zstd/gzip response negotiation and decompressed body equality, quality weighting/q=0, identity and unsupported fallback; real zstd/gzip uploads, unsupported/stacked 415 and decompressed 1024-byte limit returning 413 for both codecs. No browser/proxy/HTTPS or third-party peer test."
     }
   ],
   "humanProof": {

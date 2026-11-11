@@ -30,7 +30,7 @@ Use the shared host registration, imports and seed.js shown below. The .NET 10 A
 
 ## Newer approach
 
-Use two distinct contracts. BadgeLabel is for local rendering; SeedChoice contains only JSON-compatible data cases. The native union syntax is C# 15, with no preview language switch on the measured RC3 SDK.
+Use two distinct contracts. BadgeLabel is for local rendering; SeedChoice contains only JSON-compatible data cases. The native union syntax is C# 15, with no preview language switch on the measured GA SDK.
 
 {{snippet:choices}}
 
@@ -54,7 +54,7 @@ Put this script in wwwroot/seed.js:
 
 ## Migration
 
-1. Use Microsoft.NET.Sdk.Web, net11.0, LangVersion 15.0, nullable and implicit usings. The canonical build pins SDK 11.0.100-rc.3.26522.148 and locked Microsoft.AspNetCore.App.Internal.Assets 11.0.0-rc.3.26522.148. The .NET 10 comparison pins SDK 10.0.403, language 14.0 and Internal.Assets 10.0.14. These SDK pins reproduce evidence; applicability requires the matching release families. No explicit NuGet package, optional workload, provider or external account is needed.
+1. Use Microsoft.NET.Sdk.Web, net11.0, LangVersion 15.0, nullable and implicit usings. The canonical build pins SDK 11.0.100 and locked Microsoft.AspNetCore.App.Internal.Assets 11.0.0. The .NET 10 comparison pins SDK 10.0.403, language 14.0 and Internal.Assets 10.0.14. These SDK pins reproduce evidence; applicability requires the matching release families. No explicit NuGet package, optional workload, provider or external account is needed.
 2. Add Choices.cs, SeedBadge.razor, Labels.razor and BatchPanel.razor above to the Playbook.Samples namespace. In _Imports.razor import Microsoft.AspNetCore.Components, Microsoft.AspNetCore.Components.Routing, Microsoft.AspNetCore.Components.Web, Microsoft.JSInterop, static Microsoft.AspNetCore.Components.Web.RenderMode and Playbook.Samples; set @namespace Playbook.Samples.
 3. Replace the old parameter pair only if changing that public component contract is acceptable. Update every caller to Label and choose explicit fallback handling for an unset/default union. EditorRequired diagnoses missing markup arguments; it is not runtime validation.
 4. Use this complete Program.cs to register the real server rendering path:
@@ -77,9 +77,11 @@ C# 15; Blazor/Razor; distinguish static fragments and JSON-compatible values.
 - Union support does not make every case serializable. BadgeLabel's RenderFragment case is a delegate. Real component persistence, JavaScript interop and render-mode parameter serialization reject it with NotSupportedException. Keep it in one render context. The separate .NET 11 captured-static-content feature recognizes direct non-generic RenderFragment parameters; a union-wrapped fragment does not take that capture path. Generic fragments and live callbacks do not become serializable either.
 - SeedChoice's string/object cases have distinct JSON token shapes. System.Text.Json 11 performs case selection. Multiple object cases need an appropriate classifier; overlapping numeric/string contracts with web number handling can be ambiguous. A successful string/object example does not establish arbitrary case compatibility. JSON null/default can have no active case; this component renders No selection. Validate required values at the application boundary.
 - JSON-supported bodies/interop/state are distinct from route/query/form binding. A union parameter does not add conversion from those non-body sources. No such binding or older-target union package route is claimed here.
-- C# 15 stabilization is measured RC2 evidence with RC1 canonical confirmation. These APIs have no experimental attribute/opt-in on that baseline; GA reconciliation remains pending. This is an 11.0 edition with an actual .NET 10 comparison, not another .NET 10 foundation.
+- C# 15 stabilization is measured GA evidence with RC1 canonical confirmation. These APIs have no experimental attribute/opt-in on that baseline; GA checks are limited to the recorded scope. This is an 11.0 edition with an actual .NET 10 comparison, not another .NET 10 foundation.
 - Executed rendering is Windows x64 Static SSR plus Interactive Server in existing Chrome. WebAssembly/Auto require compatible client assets/types and their own execution checks; no trimming, Native AOT or alternate-platform execution is claimed.
 
 ## Evidence
+
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Both actual Web SDK projects compile with their declared SDKs, locked assets and language modes. Focused HTTP execution checks literal/bound text and original fragment output, plus actual component rejection of fragment persistence and union-wrapped fragment boundary transfer. Real Chrome activation checks both data cases restored from prerendered state, both JavaScript echo round trips and rejected fragment interop. No mocked JS runtime or renderer substitutes for these checks. Canonical compilation records and exact artifact/input hashes are retained in the repository PIN-779 verification record. Official release notes support literal inference and stabilization; serializer/framework sources support the general boundary restrictions. Broader classification rules are source review, not a claim that every permutation ran.

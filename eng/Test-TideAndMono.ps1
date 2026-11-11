@@ -17,7 +17,7 @@ try {
 set -eu
 apt-get update -qq
 DEBIAN_FRONTEND=noninteractive apt-get install -y -qq mono-devel clang zlib1g-dev curl >/tmp/setup.log 2>&1
-curl -fsSL https://builds.dotnet.microsoft.com/dotnet/Sdk/11.0.100-rc.3.26522.148/dotnet-sdk-11.0.100-rc.3.26522.148-linux-x64.tar.gz -o /tmp/sdk11.tar.gz
+curl -fsSL https://builds.dotnet.microsoft.com/dotnet/Sdk/11.0.100/dotnet-sdk-11.0.100-linux-x64.tar.gz -o /tmp/sdk11.tar.gz
 sha256sum /tmp/sdk11.tar.gz
 mkdir /sdk11 /work
 tar -xzf /tmp/sdk11.tar.gz -C /sdk11
@@ -42,7 +42,7 @@ sha256sum /usr/lib/mono/4.7.2-api/mscorlib.dll
  $native=@(('Mono/'+[regex]::Match($info,'Mono JIT compiler version ([^ ]+)').Groups[1].Value),
            ('Clang/'+[regex]::Match($info,'clang version ([^ ]+)').Groups[1].Value))
  foreach($major in '10','11'){
-  $sdk=if($major -eq '10'){'10.0.403'}else{'11.0.100-rc.3.26522.148'}
+  $sdk=if($major -eq '10'){'10.0.403'}else{'11.0.100'}
   $dotnet=if($major -eq '10'){'/usr/share/dotnet/dotnet'}else{'/sdk11/dotnet'}
   foreach($name in 'ObservatoryImporter','TideWindow'){
    $sample="samples/net$major.0/$name/$name.csproj"

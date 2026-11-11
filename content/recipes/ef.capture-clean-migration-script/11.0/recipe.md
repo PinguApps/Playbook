@@ -26,9 +26,11 @@ EF11 separates generated script stdout from diagnostic stderr. Capture the two s
 
 ## Constraints
 
-This stream behavior is for dotnet-ef11 scripting, not arbitrary application logging or other shell commands. Startup code must also avoid writing its own diagnostics to stdout. The sample uses a matching EF11 RC2 tool and net11.0 provider; no older-target route is declared. The historical comparison uses EF10.0.13/net10.0 with output. PowerShell7, SDK11 RC3/C#15 and SDK10.0.403/C#14 are the measured environment. SQLite local execution does not prove another provider or GA. No browser, renderer, workload, service account or production database is required.
+This stream behavior is for dotnet-ef11 scripting, not arbitrary application logging or other shell commands. Startup code must also avoid writing its own diagnostics to stdout. The sample uses a matching EF11 GA tool and net11.0 provider; no older-target route is declared. The historical comparison uses EF10.0.13/net10.0 with output. PowerShell7, SDK11 GA/C#15 and SDK10.0.403/C#14 are the measured environment. SQLite local execution does not prove another provider or GA. No browser, renderer, workload, service account or production database is required.
 
 ## Evidence
+
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Test-FleetTooling captures a real verbose EF11 migrations script with separate stdout/stderr, requires nonempty diagnostics and executes the unfiltered stdout payload against fresh SQLite. The expected model table is present. EF10's output-file script also executes. Canonical projects compile under their declared locked releases; these checks execute real CLI and database artifacts on Windows x64. Installed retrieval separately verifies the packaged full guidance offline. No deployment is performed.
 

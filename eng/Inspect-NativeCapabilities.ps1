@@ -3,7 +3,7 @@ param(
   [string]$Net10Dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source,
   [string]$Net11Dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source,
   [string]$Docker = 'C:/Program Files/Docker/Docker/resources/bin/docker.exe',
-  [string]$LinuxImage = 'mcr.microsoft.com/dotnet/sdk@sha256:9fc2f44fba54c579b9b650f6feea29beff050fb030d797eac697de85a94ad77f',
+  [string]$LinuxImage = 'mcr.microsoft.com/dotnet/sdk@sha256:65f3c7c6a25a239ab3e6719f2896147e7b68242ff2d8818dd70498bde6ef8bea',
   [switch]$NativeAot,
   [string]$VisualCppRoot = 'C:/Program Files (x86)/Microsoft Visual Studio/18/BuildTools/VC/Tools/MSVC/14.51.36231',
   [string]$WindowsSdkLibRoot = 'C:/Program Files (x86)/Windows Kits/10/Lib/10.0.26100.0',
@@ -122,7 +122,7 @@ try {
   $report = [ordered]@{ recordedAt = [DateTimeOffset]::UtcNow.ToString('O'); kind = 'authoring-preflight'; hosts = @() }
   foreach ($baseline in @(
     @{ dotnet = $Net10Dotnet; sdk = '10.0.403'; target = 'net10.0' },
-    @{ dotnet = $Net11Dotnet; sdk = '11.0.100-rc.3.26522.148'; target = 'net11.0' }
+    @{ dotnet = $Net11Dotnet; sdk = '11.0.100'; target = 'net11.0' }
   )) {
     $dotnet = (Resolve-Path -LiteralPath $baseline.dotnet).Path
     $directory = Join-Path $work $baseline.target

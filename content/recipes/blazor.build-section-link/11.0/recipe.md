@@ -25,7 +25,7 @@ Use the NavigationManager extension in Microsoft.AspNetCore.Components.
 It starts from Nav.Uri, not Nav.BaseUri. It adds or replaces the fragment,
 accepts an optional leading #, and removes the fragment for null or empty input.
 The current API spelling is GetUriWithFragment; the historical GetUriWithHash
-name is not the RC2 contract.
+name is not the GA contract.
 
 {{snippet:fragment}}
 
@@ -44,10 +44,10 @@ byte-for-byte equivalence for arbitrary inputs.
 ## Complete setup
 
 Use Microsoft.NET.Sdk.Web, net11.0 and C# 15.0; the comparison uses net10.0 and
-C# 14.0. Enable nullable and implicit usings. Pin SDK 11.0.100-rc.3.26522.148 or
+C# 14.0. Enable nullable and implicit usings. Pin SDK 11.0.100 or
 10.0.403 independently for reproducing the samples. These APIs come from the
 ASP.NET Core shared/reference framework. The measured Web SDK supplies aligned
-Internal.Assets browser files 11.0.0-rc.3.26522.148 or 10.0.14; no additional API
+Internal.Assets browser files 11.0.0 or 10.0.14; no additional API
 package, provider, native workload or account is required.
 
 {{snippet:startup}}
@@ -59,7 +59,7 @@ id="packing" around the packing content. Render the page through Router and
 RouteView inside Routes, with InteractiveServer on Routes in App.razor. Import
 Microsoft.AspNetCore.Components.Routing and the static
 Microsoft.AspNetCore.Components.Web.RenderMode members. In the static document
-head use one BasePath component (Components namespace in RC2); load
+head use one BasePath component (Components namespace in GA); load
 @Assets["_framework/blazor.web.js"] at the end of body. The application-base
 recipe supplies the complete document shell. Ordinary anchors can also work
 from static SSR; interactive button navigation needs an interactive component.
@@ -80,10 +80,11 @@ targets in content that arrives later may need deliberate post-render scrolling;
 this recipe does not claim automatic discovery of delayed elements. No
 WebAssembly/Auto, accessibility focus behavior or reverse-proxy execution is
 established by the Interactive Server checks. No newer-package route on net10.0
-is claimed. The API is non-experimental; the exact .NET 11 evidence is RC3 and
-requires GA reconciliation later.
+is claimed. The API is non-experimental; the recorded .NET 11 checks use GA artifacts. Broader catalogue readiness gates remain open.
 
 ## Evidence
+
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Both actual apps compile at their declared SDK/language pins. Chromium follows
 packing links on both apps below /atlas/ and on the same newer binary below

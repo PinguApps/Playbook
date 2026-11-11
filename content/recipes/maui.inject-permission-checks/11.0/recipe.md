@@ -29,9 +29,11 @@ Android API34+ can prefer an available mean-sea-level altitude and matching vert
 
 ## Constraints
 
-SDK/runtime11, C#15 and MAUI11 RC2 assets plus matching native workload are required for the current APIs. The .NET10 Android comparison uses SDK10.0.402, C#14 and Controls10.0.110. No older-target support for IPermissions or MinimumDistance is claimed. Native foreground UI only; no background location, notification scheduling, external provider or web rendering mode. APIs are stable contracts reviewed at RC2, not GA-tested behavior.
+SDK/runtime11, C#15 and MAUI11 GA assets plus matching native workload are required for the current APIs. The .NET10 Android comparison uses SDK10.0.402, C#14 and Controls10.0.110. No older-target support for IPermissions or MinimumDistance is claimed. Native foreground UI only; no background location, notification scheduling, external provider or web rendering mode. APIs are stable contracts reviewed at GA-tested behavior.
 
 ## Evidence
+
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 The actual .NET10 Android Release application compiled with RunAOTCompilation=false; no AOT success is claimed. .NET11 build failed NETSDK1147 before compilation. Android devices/emulators and Apple/Xcode are unavailable: permission prompts, iOS authorization and actual location updates are explicitly not-tested under PIN-699. Immutable permission/location implementation review supports the described ownership and metadata semantics; it is not sensor execution.
 

@@ -24,7 +24,7 @@ The signed SVE predicate activates only logical int positions before the exclusi
 
 {{snippet:newer}}
 
-The feature report queries the actual RC2 classes Sve, Sve2, SveSha3 and SveSm4. A true Sve2.IsSupported is not permission to call a separately guarded SHA3 or SM4 family. The cumulative notes use broader SVE2 feature terminology; the actual reference assembly uses the distinct names shown here. It exposes no separate SveAes class, so this recipe does not invent that class or use an AES capability claim as a dispatch condition. No cryptographic implementation is demonstrated.
+The feature report queries the actual GA classes Sve, Sve2, SveSha3 and SveSm4. A true Sve2.IsSupported is not permission to call a separately guarded SHA3 or SM4 family. The cumulative notes use broader SVE2 feature terminology; the actual reference assembly uses the distinct names shown here. It exposes no separate SveAes class, so this recipe does not invent that class or use an AES capability claim as a dispatch condition. No cryptographic implementation is demonstrated.
 
 ## Migration
 
@@ -39,11 +39,13 @@ The feature report queries the actual RC2 classes Sve, Sve2, SveSha3 and SveSm4.
 
 This recipe is experimental because of Arm SVE, even though the selected AVX2/VNNI contracts have no SYSLIB5003 opt-in. SVE needs an Arm64 execution environment with actual SVE support exposed by the OS/runtime; SVE2/SHA3/SM4 are separate capabilities. The V512 path needs the exact AVX512-VNNI-capable x86/x64 environment recognized by AvxVnni.V512.IsSupported. Unsupported ISA calls can throw PlatformNotSupportedException; generic Vector128 software fallback in the lane-layout recipe is a different contract. Cross-compilation, a container architecture label or emulation does not prove native instruction support.
 
-No extra NuGet package/assets, provider, workload or rendering mode is required. The APIs come from .NET 11; the exact RC2 build and C# 15 mode are the canonical baseline. There is no documented/tested older-target package route. This is numeric dispatch guidance, not a performance guarantee, hardware-detection library, encryption implementation or claim that every SVE2 operation is verified.
+No extra NuGet package/assets, provider, workload or rendering mode is required. The APIs come from .NET 11; the exact GA build and C# 15 mode are the canonical baseline. There is no documented/tested older-target package route. This is numeric dispatch guidance, not a performance guarantee, hardware-detection library, encryption implementation or claim that every SVE2 operation is verified.
 
 ## Evidence
 
-The actual .NET 10 and 11 SupportedInstructions projects compile and run on Windows x64, with AVX2=True and all inspected SVE families and AVX-VNNI-512=False on .NET 11. Both selected AVX2 operations agree with independently computed scalar results for lengths 0, 1, 7, 8, 9, 31, 32, 33 and 79, including negative values, overflow and tails. A forced-disabled run checks the scalar branches. SDK 10.0.403 / C# 14 and SDK 11.0.100-rc.3.26522.148 / C# 15 records retain exact input hashes, actual runtimes, commands and output.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
+The actual .NET 10 and 11 SupportedInstructions projects compile and run on Windows x64, with AVX2=True and all inspected SVE families and AVX-VNNI-512=False on .NET 11. Both selected AVX2 operations agree with independently computed scalar results for lengths 0, 1, 7, 8, 9, 31, 32, 33 and 79, including negative values, overflow and tails. A forced-disabled run checks the scalar branches. SDK 10.0.403 / C# 14 and SDK 11.0.100 / C# 15 records retain exact input hashes, actual runtimes, commands and output.
 
 **Not tested:** no SVE/SVE2-capable or AVX-VNNI-512-capable host is available. The native branches compile but have not executed, and their required-mode checks fail explicitly on this machine. PR delivery is authorized with this explicit CPU limitation. Package publication and release readiness are separate decisions. The not-tested status, exact samples and scope accompany the offline recipe. This declared hardware exclusion does not block publication; compilation and fallback execution do not verify those native branches. No mocks, native cross-compilation or GA proof are claimed.
 

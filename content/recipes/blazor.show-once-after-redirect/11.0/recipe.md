@@ -58,7 +58,7 @@ net11.0/Apply.razor body:
 {{snippet:apply}}
 
 The receiving component binds a key with SupplyParameterFromTempData. **Measured
-RC2 behavior:** its final property value is written back to TempData. Leaving a
+GA behavior:** its final property value is written back to TempData. Leaving a
 received message in that property repeats it on the next read. Copy it to a
 display field, then clear the bound property to consume the confirmation. The
 canonical sample proves this through a redirect and two separate GET requests;
@@ -105,7 +105,7 @@ Nullable and ImplicitUsings are enabled in the complete project blocks. Both pro
 SDK-aligned Microsoft.AspNetCore.App.Internal.Assets dependency. No explicit
 NuGet package reference, workload, browser asset or native toolchain is needed
 for these plain static forms. global.json pins 10.0.403 for the older capture and
-11.0.100-rc.3.26522.148 for the current capture; these are test baselines, not
+11.0.100 for the current capture; these are test baselines, not
 mandatory exact consumer SDK installations.
 
 net11.0/Program.cs registrations:
@@ -146,7 +146,7 @@ net10.0/global.json:
 
 net11.0/global.json:
 
-{"sdk":{"version":"11.0.100-rc.3.26522.148","rollForward":"disable"}}
+{"sdk":{"version":"11.0.100","rollForward":"disable"}}
 
 ## Constraints
 
@@ -157,7 +157,7 @@ An initial prerender does not make later circuit events an HTTP state workflow.
 The default provider encrypts cookies with Data Protection. Keep messages small
 and share the appropriate key ring across server instances. TempData is not
 authorisation, durable storage or a safe place for an entire form draft. Cookies
-and headers must be written before the response starts. On RC2, late cookie
+and headers must be written before the response starts. On GA, late cookie
 TempData writes emit a warning and are not persisted; the streamed response can
 still succeed. A successful response alone is insufficient evidence of storage.
 
@@ -176,16 +176,19 @@ one-dimensional arrays, lists, sets, collections and string-keyed dictionaries.
 Arbitrary custom JSON classes are not supported. Keys are case-insensitive;
 two supplied properties in the same render must not own the same key.
 
-These stable APIs have no experimental opt-in. All current execution here is
-RC2, not GA proof. Missing session middleware fails the static request; it is not
+These stable APIs have no experimental opt-in. SDK11.0.100 compilation and the
+separately recorded HTTP checks establish only their stated scopes; existing
+catalogue readiness gates remain open. Missing session middleware fails the static request; it is not
 a harmless empty value. Concurrent requests are not an exactly-once delivery
 transaction: this recipe proves sequential read consumption, not atomic receipt
 or replay prevention. Use application storage when that stronger guarantee matters.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Original samples compile as net10.0/C# 14.0 using SDK 10.0.403 and
-net11.0/C# 15.0 using SDK 11.0.100-rc.3.26522.148. The saved records are **compile**
+net11.0/C# 15.0 using SDK 11.0.100. The saved records are **compile**
 evidence. The separate real Kestrel HTTP report follows a 302, checks the first
 and second reads under both newer providers, and compares the valid older MVC
 bridge. A held streaming response proves a fresh session cookie arrives before
@@ -203,5 +206,5 @@ browser UI, multi-server provider, interactive or GA execution is claimed.
 
 Official source review: [Blazor server state](https://learn.microsoft.com/en-us/aspnet/core/blazor/state-management/server?view=aspnetcore-11.0),
 [older session and TempData](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/app-state?view=aspnetcore-10.0),
-[RC2 bound-property persistence](https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Endpoints/src/TempData/TempDataCascadingValueSupplier.cs)
-and [RC2 streaming persistence](https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Endpoints/src/DependencyInjection/TempDataService.cs).
+[Pinned bound-property persistence](https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Endpoints/src/TempData/TempDataCascadingValueSupplier.cs)
+and [Pinned streaming persistence](https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Endpoints/src/DependencyInjection/TempDataService.cs).

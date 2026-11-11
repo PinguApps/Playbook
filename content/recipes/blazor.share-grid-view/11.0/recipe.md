@@ -12,8 +12,8 @@ other list or an existing `scope=open` query value.
 
 The newer implementation targets **net11.0** with ASP.NET Core 11 and
 `Microsoft.AspNetCore.Components.QuickGrid` 11. Canonical verification uses SDK
-**11.0.100-rc.3.26522.148**, QuickGrid and SDK browser assets
-**11.0.0-rc.3.26522.148**, and C# **15.0**. These are RC2 measurements, not GA
+**11.0.100**, QuickGrid and SDK browser assets
+**11.0.0**, and C# **15.0**. These are GA measurements for this
 execution evidence. URL navigation is not marked experimental in these artifacts
 and requires no experimental opt-in. No workload, database/provider, native
 toolchain or account is required. The data below is in-memory `IQueryable`.
@@ -25,7 +25,7 @@ are not execution claims here. An `ItemsProvider` is an alternative for remote
 data, but must return an accurate total count for last-page resolution; provider
 translation and concurrency are outside this example.
 
-**Stable column identifiers in RC2:** there is no dedicated `ColumnId` property.
+**Stable column identifiers in GA:** there is no dedicated `ColumnId` property.
 QuickGrid matches the URL sort value against `ColumnBase.Title`. Treat `Title`
 as an immutable, unique key within that grid, such as `code` or `priority`.
 Render human-facing wording separately in `HeaderTemplate`. Changing “Job code”
@@ -41,7 +41,7 @@ Create a Web SDK project named `WorkshopViews`. For the newer comparison set
 `TargetFramework` to `net11.0`, `LangVersion` to `15.0`, `RootNamespace` to
 `Playbook.Samples`, and `RestorePackagesWithLockFile` to `true`. Add a
 `PackageReference` with `Include="Microsoft.AspNetCore.Components.QuickGrid"`
-and `Version="11.0.0-rc.3.26522.148"`. Pin the SDK above in `global.json` with
+and `Version="11.0.0"`. Pin the SDK above in `global.json` with
 `rollForward: disable`. Keep this version-specific sample outside an automated
 central package policy, or explicitly give it an isolated package boundary.
 Restore to produce `packages.lock.json`, then use locked restore for verification.
@@ -141,7 +141,7 @@ Save this as `Styles.razor` in either application:
 
 Do not use the AppContext switch
 `Microsoft.AspNetCore.Components.QuickGrid.EnableUrlBasedQuickGridNavigationAndSorting`
-as a way to restore purely in-memory behavior. In the measured RC2 implementation
+as a way to restore purely in-memory behavior. In the measured GA implementation
 it changes default anchors back to interactive buttons, while the navigation
 methods still read/write URLs. This recipe leaves the switch at its default.
 Custom templates remain responsible for their own markup.
@@ -174,6 +174,8 @@ grid matches declared column keys, and the older sample selects a fixed switch.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Both actual projects compile with their pinned SDKs, languages, package locks
 and framework/browser assets. Saved evidence is **compile**, separately from
 real loopback HTTP and Chromium execution. HTTP checks request bookmarks,
@@ -187,5 +189,5 @@ verification is substituted for that bounded evidence.
 The installed packed-tool harness retrieves the full canonical comparison and
 applicability over real stdio using an isolated feed/cache and unrelated working
 directory. It verifies target 11.0 edition selection and rejects target 10.0 for
-this edition. Source/API inspection established the RC2 `Title` identity and
+this edition. Source/API inspection established the GA `Title` identity and
 absence of `ColumnId`; it does not claim an API that the compiler rejected.

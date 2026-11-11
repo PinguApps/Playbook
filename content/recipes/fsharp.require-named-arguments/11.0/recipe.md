@@ -37,8 +37,8 @@ No provider, workload or rendering mode is required. This edition supports net11
 
 ## Evidence
 
-Saved records contain exact build/run commands, actual outputs, resolved packages, authoring host and input hashes for both canonical projects. The real installed-tool harness checks full Markdown and applicability offline. Compiler and external-consumer checks run separately in eng/Test-FSharpBoundaries.ps1. This is actual managed execution on the recorded host, not a mock or cross-compilation. No IDE tooltip, trimmed/Native AOT publish, UI framework, all-platform verification is claimed. GA compilation and bounded execution are recorded; historical RC evidence remains in Git.
+Saved records contain exact build/run commands, actual outputs, resolved packages, authoring host and input hashes for both canonical projects. The real installed-tool harness checks full Markdown and applicability offline. Compiler and external-consumer checks run separately in eng/Test-FSharpBoundaries.ps1. This is actual managed execution on the recorded host, not a mock or cross-compilation. No IDE tooltip, trimmed/Native AOT publish, UI framework, all-platform verification is claimed. GA compilation and bounded execution are recorded; historical Recorded evidence remains in Git.
 
 Official sources: [Official F# release contract](https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/rc2/fsharp.md); [F# implementation and tests](https://github.com/dotnet/fsharp/pull/20340).
 
-GA refresh: SDK 11.0.100, runtime 11.0.0 and FSharp.Core 11.0.101 were used for the newer consumer. Historical RC observations remain in Git at 307dc932. Experimental language modes remain required. See docs/planning/audits/ga-language-contracts.md for the bounded checks and exclusions.
+GA refresh: SDK 11.0.100, runtime 11.0.0 and FSharp.Core 11.0.101 were used for the newer consumer. Historical RC observations remain in Git at 307dc932. Use only the language opt-ins listed for the selected sample. See docs/planning/audits/ga-language-contracts.md for the bounded checks and exclusions.

@@ -104,6 +104,8 @@ Numeric route values must reach binding: a route constraint such as {dock:int} c
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Each target performs eight real requests across two ephemeral Development hosts: three scalar failures, valid arguments, a handler domain error, malformed JSON, wrong content type and the throw-enabled control. The checks distinguish filter/handler counters and response contracts. Malformed JSON returns an empty 400 before its filter on both runtimes; wrong media remains 415. No handler runs on failed binding.
 
 Saved compilation records identify exact source hashes, SDK/target/language, dependency inventory, host and build output. `eng/Test-EndpointGuidance.ps1` separately rebuilds and executes all four consumers and records artifact hashes. Source inspection, actual compilation and real requests are distinct evidence; none is a mock, cross-compilation or GA claim. The packed-tool test compares the entire independently expanded Markdown and applicability through actual installed stdio list/get. See `docs/verification/endpoint-policies.md` for the authoring receipt. Only edition 11.0 is served: the .NET 10 code remains a comparison, not a ninth foundation.

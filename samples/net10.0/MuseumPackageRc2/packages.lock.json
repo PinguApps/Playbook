@@ -4,9 +4,9 @@
     "net10.0": {
       "System.IO.Packaging": {
         "type": "Direct",
-        "requested": "[11.0.0-rc.2.26504.105, )",
-        "resolved": "11.0.0-rc.2.26504.105",
-        "contentHash": "0TtkJXskKCSAufj0VlnczydSEOBy7gpMEWWwnzJ24sIANg0YYSxx/lmhuLX55sufoJgrHniqVmb3NRxcrPDrGQ=="
+        "requested": "[11.0.0, )",
+        "resolved": "11.0.0",
+        "contentHash": "OGuoYphprhaXgQgzsCgLVpTn8STkTxFmf1Rv/2zkMMFsz1AsB4pYdUgDS2xAsByA2w3rsOphnaR12xJE3pUWeg=="
       }
     }
   }

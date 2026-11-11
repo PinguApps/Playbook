@@ -10,8 +10,8 @@
   ],
   "workloads": [],
   "dependencies": [
-    "Microsoft.AspNetCore.OpenApi/11.0.0-rc.2.26504.105",
-    "Microsoft.Extensions.ApiDescription.Server/11.0.0-rc.2.26504.105",
-    "Microsoft.OpenApi/3.10.2"
+    "Microsoft.AspNetCore.OpenApi/11.0.0",
+    "Microsoft.Extensions.ApiDescription.Server/11.0.0",
+    "Microsoft.OpenApi/3.11.0"
   ]
 }

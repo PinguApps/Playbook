@@ -76,7 +76,7 @@ try {
   $pins = @(
     @{ exe=$Net9Dotnet; sdk='9.0.319'; runtime='9.0.21' },
     @{ exe=$Net10Dotnet; sdk='10.0.403'; runtime='10.0.14' },
-    @{ exe=$Net11Dotnet; sdk='11.0.100-rc.3.26522.148'; runtime='11.0.0-rc.3.26522.148' }
+    @{ exe=$Net11Dotnet; sdk='11.0.100'; runtime='11.0.0' }
   )
   foreach ($pin in $pins) {
     $installation = Split-Path $pin.exe
@@ -100,8 +100,8 @@ try {
     $source = Split-Path (Join-Path $root $sample)
     $inputs = Get-EvidenceInputs $root $sample
     $firstLog = $log.Count
-    $sdk = if ($release -eq '10') { '10.0.403' } else { '11.0.100-rc.3.26522.148' }
-    $runtime = if ($release -eq '10') { '10.0.14' } else { '11.0.0-rc.3.26522.148' }
+    $sdk = if ($release -eq '10') { '10.0.403' } else { '11.0.100' }
+    $runtime = if ($release -eq '10') { '10.0.14' } else { '11.0.0' }
     $buildExe = if ($release -eq '10') { $Net10Dotnet } else { $Net11Dotnet }
     $feed = Join-Path $scratch "local feed $release"
     $null = Invoke-Sdk $buildExe $source @('pack','MuseumCatalogue.csproj','-c','Release','-o',$feed)
@@ -115,8 +115,8 @@ try {
     $scratch = Join-Path $scratchBefore "execution-$release"
     $null = New-Item -ItemType Directory -Path $scratch
     try {
-      foreach ($sdkPin in '9.0.319','10.0.403','11.0.100-rc.3.26522.148') {
-        @{sdk=@{version=$sdkPin;rollForward='disable';allowPrerelease=$true}} | ConvertTo-Json -Depth 5 | Set-Content -LiteralPath (Join-Path $museum 'global.json')
+      foreach ($sdkPin in '9.0.319','10.0.403','11.0.100') {
+        @{sdk=@{version=$sdkPin;rollForward='disable';allowPrerelease=$false}} | ConvertTo-Json -Depth 5 | Set-Content -LiteralPath (Join-Path $museum 'global.json')
         Assert-Text (Invoke-Sdk $dotnet $museum @('--version')) $sdkPin
         $toolArgs = @('Gullhaven.Museum.Catalogue@1.0.0','--configfile',$config,'--no-http-cache','--',$cards,'--gallery','east wing')
         if ($sdkPin -eq '9.0.319') {
@@ -146,10 +146,10 @@ try {
           $output = Invoke-Sdk "$layout/dnx.cmd" $museum $toolArgs $trace
           Assert-Text $output 'cards=2;unique=2'
           Assert-Text $output "runtime=.NET $runtime"
-          Assert-SdkTrace $trace '11.0.100-rc.3.26522.148'
+          Assert-SdkTrace $trace '11.0.100'
           $forwarded = [regex]::Match($output,'(?m)^arguments=(.+)$').Groups[1].Value | ConvertFrom-Json
           if ($forwarded.Count -ne 3 -or $forwarded[0] -cne $cards -or $forwarded[2] -cne 'east wing') { throw 'Wrapper argument forwarding changed.' }
-          $log.Add("wrapper=$wrapperSource;sha256=$((Get-FileHash -LiteralPath $wrapperSource).Hash.ToLowerInvariant());pin=$sdkPin;observed SDK=11.0.100-rc.3.26522.148;tool runtime=$runtime")
+          $log.Add("wrapper=$wrapperSource;sha256=$((Get-FileHash -LiteralPath $wrapperSource).Hash.ToLowerInvariant());pin=$sdkPin;observed SDK=11.0.100;tool runtime=$runtime")
         }
       }
       $failure = Invoke-Sdk $dotnet $museum @('dnx','Gullhaven.Museum.Catalogue@1.0.0','--configfile',$config,'--',$badCards) '' 7

@@ -17,7 +17,7 @@ function Invoke-Ef([string[]]$Arguments, [switch]$Failure) {
 try {
     $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH = '0'
     foreach ($r in '10','11') {
-        $expected = if ($r -eq '10') { '10.0.13' } else { '11.0.0-rc.2.26504.105' }
+        $expected = if ($r -eq '10') { '10.0.13' } else { '11.0.0' }
         $tools = @(Get-ChildItem "$root/artifacts/ef$r" -Filter dotnet-ef.dll -Recurse |
             Where-Object { $_.FullName.Contains($expected, [StringComparison]::Ordinal) })
         if ($tools.Count -ne 1) { throw "Install dotnet-ef $expected under artifacts/ef$r before running this check." }

@@ -27,13 +27,13 @@
           "runtime": {
             "version": "11.0",
             "match": "release-family",
-            "reason": "Actual .NET11 RC2 execution with bounded PIN-898 owner restoration and power-request proof; not GA verification.",
+            "reason": "Actual .NET11 GA execution with bounded PIN-898 owner restoration and power-request proof; verification covers only the recorded checks.",
             "name": ".NET"
           },
           "sdk": {
             "version": "11.0",
             "match": "release-family",
-            "reason": "Exact recorded pin 11.0.100-rc.3.26522.148; older sample 10.0.403.",
+            "reason": "Exact recorded pin 11.0.100; older sample 10.0.403.",
             "name": ".NET SDK"
           },
           "language": {
@@ -63,13 +63,13 @@
             "Use an STA thread and the declared exact SDK; available Windows Desktop reference packs are required."
           ],
           "constraints": [
-            "Recorded .NET11 RC2 and .NET10 comparison only; no GA or other-platform behavior claim."
+            "Recorded .NET11 GA and .NET10 comparison only; no GA or other-platform behavior claim."
           ],
           "optIns": [
             "STA entry point and Windows Desktop runtime. No experimental API diagnostic suppression is required."
           ],
           "stabilityLimitations": [
-            "Actual .NET11 RC2 evidence; GA reconciliation remains open."
+            "Actual .NET11 GA evidence; GA checks are limited to the recorded scope."
           ]
         },
         "sharedAreas": [],
@@ -110,10 +110,10 @@
       "sample": "samples/net10.0/FenPresentation/FenPresentation.csproj"
     },
     {
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "kind": "compile-and-run",
       "target": "net11.0-windows",
-      "scope": "Actual RC3 child-container resolution, normal restoration and maximized restoration on disposal. Pingu also verified normal/maximized F11/Escape transitions and elevated display/system request creation/removal on RC3 in owner-session.evidence.json.",
+      "scope": "Actual GA child-container resolution, normal restoration and maximized restoration on disposal. Pingu also verified normal/maximized F11/Escape transitions and elevated display/system request creation/removal on GA in owner-session.evidence.json.",
       "language": "15.0",
       "sample": "samples/net11.0/FenPresentation/FenPresentation.csproj"
     }

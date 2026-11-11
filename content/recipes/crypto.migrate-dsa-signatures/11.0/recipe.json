@@ -45,13 +45,13 @@
             "name": ".NET",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Current net11 consumer; actual RC3 is measured separately from final GA."
+            "reason": "Current net11 consumer; actual GA is measured separately from final GA."
           },
           "sdk": {
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Build current .NET11 references; exact RC3 is the reproduction baseline."
+            "reason": "Build current .NET11 references; exact GA is the reproduction baseline."
           },
           "language": {
             "name": "C#",
@@ -82,7 +82,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Stable APIs; actual .NET11 GA reconciliation remains open. RC3 evidence is not final-GA proof."
+            "Stable APIs; actual .NET11 GA checks are limited to the recorded scope. GA verification is limited to the recorded checks proof."
           ]
         },
         "sourceUrls": [
@@ -145,7 +145,7 @@
       "scope": "Windows paired compile/run: imported DSA fixture and real ECDSA P256/SHA256/DER signing, certificate and SPKI verification, tampering/encoding/unrelated-key/algorithm rejection and explicit unsupported legacy routing. macOS execution, DSA certificate boundaries and native assets not-tested under PIN-699.",
       "sample": "samples/net11.0/CoastalReports/CoastalReports.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0"
     }
   ],

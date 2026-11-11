@@ -51,7 +51,7 @@ try {
   }
   foreach ($baseline in @(
     @{ target='net10.0'; dotnet=$Net10Dotnet; sdk='10.0.403'; runtime='10.0.14' },
-    @{ target='net11.0'; dotnet=$Net11Dotnet; sdk='11.0.100-rc.3.26522.148'; runtime='11.0.0-rc.3.26522.148' }
+    @{ target='net11.0'; dotnet=$Net11Dotnet; sdk='11.0.100'; runtime='11.0.0' }
   )) {
     foreach ($name in 'WeatherImport','QuarryMaintenance') {
       $sample = "samples/$($baseline.target)/$name/$name.csproj"

@@ -14,7 +14,7 @@ Copy the complete StationNetwork class, its imports and Subscription helper into
 
 ## Newer approach
 
-.NET 11 adds NetworkChange.IsSupported. Check it before subscribing on the supported desktop route. Actual RC2 browser execution exposed an important limitation: the unsupported assembly stub throws even from this getter. Check browser/WASI before accessing the property; do not promise a universal nonthrowing capability probe. The canonical example retains that explicit guard and the same manual-refresh fallback.
+.NET 11 adds NetworkChange.IsSupported. Check it before subscribing on the supported desktop route. Actual GA browser execution exposed an important limitation: the unsupported assembly stub throws even from this getter. Check browser/WASI before accessing the property; do not promise a universal nonthrowing capability probe. The canonical example retains that explicit guard and the same manual-refresh fallback.
 
 {{snippet:newer}}
 
@@ -22,7 +22,7 @@ For example, a station service can mark its cached observations stale in invalid
 
 ## Migration
 
-1. Target net11.0 with a .NET 11 SDK/runtime. The sample declares C#15; SDK11.0.100-rc.3.26522.148/runtime11.0.0-rc.3.26522.148 identify tested artifacts, not final-GA proof.
+1. Target net11.0 with a .NET 11 SDK/runtime. The sample declares C#15; SDK11.0.100/runtime11.0.0 identify tested artifacts, within the recorded verification scope.
 2. Retain the older route for net10.0. Replace only the desktop allowlist with the capability property, keeping explicit browser/WASI exclusions before accessing it.
 3. Supply short, thread-safe callbacks. Marshal UI updates to the application's dispatcher. Do not throw from an event callback or treat notification as successful service connectivity.
 4. Retain and dispose the returned IDisposable with its owner. Unsubscription prevents future delivery registration, but does not drain a callback already queued or running. Coordinate owner teardown separately when needed.
@@ -37,6 +37,8 @@ IsSupported is not permission, adapter availability or reachability. Subscriptio
 
 ## Evidence
 
-eng/Record-SupportPaths.ps1 -Record captures paired pinned builds and real Windows console, Linux Docker and single-thread Mono Chromium checks. The isolated Linux test attaches an internal network after subscribing, observes a real address event, disposes and detaches that network, then verifies no callback for the second change. It changes no host adapter and removes its container/networks. Browser consumers select manual refresh; RC2's initially observed throwing getter required the explicit exclusion above.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
+eng/Record-SupportPaths.ps1 -Record captures paired pinned builds and real Windows console, Linux Docker and single-thread Mono Chromium checks. The isolated Linux test attaches an internal network after subscribing, observes a real address event, disposes and detaches that network, then verifies no callback for the second change. It changes no host adapter and removes its container/networks. Browser consumers select manual refresh; GA's initially observed throwing getter required the explicit exclusion above.
 
 Exact inputs, locked dependencies, commands and behavior records accompany the samples. The source manifest pins paired official contracts and implementations. Installed package inspection must verify offline discovery, Markdown, target11.0/edition11.0, applicability and canonical snippets. The eight .NET10 foundations are unchanged. PIN-959 and PIN-962 remain open; no publication, performance or GA verification is implied.

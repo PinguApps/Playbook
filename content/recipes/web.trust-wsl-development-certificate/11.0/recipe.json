@@ -28,13 +28,13 @@
           "runtime": {
             "version": "11.0",
             "match": "release-family",
-            "reason": "Canonical Kestrel service compiled and executed for .NET 11 RC3 with Windows Schannel and WSL OpenSSL curl; not GA verification.",
+            "reason": "Canonical Kestrel service compiled and executed for .NET 11 GA with Windows Schannel and WSL OpenSSL curl; verification covers only the recorded checks.",
             "name": ".NET"
           },
           "sdk": {
             "version": "11.0",
             "match": "release-family",
-            "reason": "Exact recorded pin 11.0.100-rc.3.26522.148; older sample 10.0.403.",
+            "reason": "Exact recorded pin 11.0.100; older sample 10.0.403.",
             "name": ".NET SDK"
           },
           "language": {
@@ -68,7 +68,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Actual .NET11 RC3 evidence; GA reconciliation remains open."
+            "Actual .NET11 GA evidence; GA checks are limited to the recorded scope."
           ]
         },
         "sharedAreas": [],
@@ -110,11 +110,11 @@
     },
     {
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "kind": "compile",
       "language": "15.0",
       "sample": "samples/net11.0/EstuaryHttps/EstuaryHttps.csproj",
-      "scope": "This record proves compilation. Separate controlled .NET11 RC3 execution with Windows Schannel and WSL OpenSSL curl is documented in docs/verification/wsl-certificate-trust.md."
+      "scope": "This record proves compilation. Separate controlled .NET11 GA execution with Windows Schannel and WSL OpenSSL curl is documented in docs/verification/wsl-certificate-trust.md."
     }
   ],
   "humanProof": {

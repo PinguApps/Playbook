@@ -52,7 +52,7 @@
             "version": "11.0",
             "name": ".NET SDK",
             "match": "release-family",
-            "reason": "Build the declared .NET 11 target; the exact RC2 pin is evidence, not a minimum SDK."
+            "reason": "Build the declared .NET 11 target; the exact GA pin is evidence, not a minimum SDK."
           },
           "language": {
             "version": "15.0",
@@ -85,7 +85,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "RC2 proof only; GA and other platforms unverified."
+            "GA proof only; GA and other platforms unverified."
           ]
         },
         "usage": "primary",
@@ -132,7 +132,7 @@
       "sample": "samples/net10.0/KeyMaterial/KeyMaterial.csproj"
     },
     {
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "kind": "compile-and-run",
       "scope": "Actual Linux x64/OpenSSL 3.5.5 round trips and rejection checks in a network-disabled authoring container. See output and recipe for exact claims.",
       "language": "15.0",

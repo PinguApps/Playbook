@@ -134,8 +134,10 @@ Windows desktop and STA execution are required. Current C# uses language15; prev
 
 ## Evidence
 
-Real C# default/resolved form selection and explicit override; real VB ApplyApplicationDefaults handler; both main forms reach Shown. No pixel timing or splash window execution. Exact SDK pins, locked dependency closure and input hashes are recorded beside each sample. The older build is a comparison, not a new .NET10 foundation. Windows x64 RC2 proof is not GA or other-platform proof. No service account, remote provider, workload installation or package publication is required.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
+Real C# default/resolved form selection and explicit override; real VB ApplyApplicationDefaults handler; both main forms reach Shown. No pixel timing or splash window execution. Exact SDK pins, locked dependency closure and input hashes are recorded beside each sample. The older build is a comparison, not a new .NET10 foundation. Windows x64 GA verification is limited to the recorded checks or other-platform proof. No service account, remote provider, workload installation or package publication is required.
 
 ## References
 
-[Official RC2 contracts](https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/rc2/winforms.md).
+[Official GA contracts](https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/rc2/winforms.md).

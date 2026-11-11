@@ -138,7 +138,7 @@ The property recipe provides the worked metadata and sample example below.
 
 ## Quick pull request check
 
-Ordinary PRs build/pack the tool and run one installed MCP smoke scenario. With PowerShell 7 and .NET SDK 10.0.403:
+Ordinary PRs build/pack the tool and run one installed MCP smoke scenario. With PowerShell 7 and .NET SDK 11.0.100:
 
 ```powershell
 Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
@@ -149,16 +149,16 @@ Expect one passed scenario and a final `PASS` message. This checks installation,
 
 ## Full verification
 
-Build prerequisites: PowerShell 7, .NET SDK **10.0.403**, **9.0.319** and **11.0.100-rc.3.26522.148**. The .NET 9 SDK is needed only for the historical comparison, never for installing or running Playbook. The .NET 11 SDK verifies that target and the optional older-target route of the shared edition. No optional workloads are used.
+Build prerequisites: PowerShell 7, .NET SDK **10.0.403**, **9.0.319** and **11.0.100**. The .NET 9 SDK is needed only for the historical comparison, never for installing or running Playbook. The .NET 11 SDK verifies that target and the optional older-target route of the shared edition. No optional workloads are used.
 
 ```powershell
 Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 pwsh -NoProfile -File ./eng/Verify.ps1
 ```
 
-If .NET 9 or 11 is installed separately, pass its executable with `-Net9Dotnet <path-to-dotnet>` or `-Net11Dotnet <path-to-dotnet>`. The script rejects the focused invalid-content fixture, compiles and executes the real .NET 9/10/11 samples, including a .NET 11 SDK build of a .NET 10 target, then builds the solution with analyzers/warnings as errors and checks real `pack --no-build` rejection of incomplete/stale content. It packs the ordinary artifact once and tests it; its SHA-256 identifies that package. A second package under `artifacts/release-fixture/` contains contract-only identities and is never published. Fixture packing restores ordinary build output afterwards.
+If a comparison SDK is installed separately, pass its executable with `-Net9Dotnet <path-to-dotnet>` or `-Net10Dotnet <path-to-dotnet>`. `-Dotnet` selects the exact SDK 11.0.100 used for the host; `-Net11Dotnet` can select a separate GA installation for samples. The script rejects the focused invalid-content fixture, compiles and executes the real .NET 9/10/11 samples, including a .NET 11 SDK build of a .NET 10 target, then builds the solution with analyzers/warnings as errors and checks real `pack --no-build` rejection of incomplete/stale content. It packs the ordinary artifact once and tests it; its SHA-256 identifies that package. A second package under `artifacts/release-fixture/` contains contract-only identities and is never published. Fixture packing restores ordinary build output afterwards.
 
-The `Rejected ...` and `Pack --no-build rejected ...` messages are expected passing checks. Temporary fixtures deliberately contain invalid content or stale/missing evidence; these messages confirm the guards refuse them. They do not mean your authored recipe or final package was rejected. A successful run ends with all selected scenarios passing, zero failures/skips and a package SHA-256. `NETSDK1057` is informational for the pinned RC SDK; a TRX overwrite warning replaces the previous report. An unhandled error, nonzero script exit or failed test indicates failure.
+The `Rejected ...` and `Pack --no-build rejected ...` messages are expected passing checks. Temporary fixtures deliberately contain invalid content or stale/missing evidence; these messages confirm the guards refuse them. They do not mean your authored recipe or final package was rejected. A successful run ends with all selected scenarios passing, zero failures/skips and a package SHA-256. SDK 11.0.100 must be selected without a preview-SDK warning; a TRX overwrite warning replaces the previous report. An unhandled error, nonzero script exit or failed test indicates failure.
 
 The focused Reqnroll scenarios install from a local-only feed and new cache under unrelated temporary directories. They exercise bare/help/version, stdio initialization/instructions, exactly two read-only tools and output schemas, required nonnullable target schemas, omitted/null/blank rejection on both tools, deliberate catalogue-only `latest`, independent list/get selection, complete structured/JSON-text equality, canonical snippets, aliases, coverage, unchanged edition reuse, retained changed editions, conditional routes, response-size budgets, empty-search recovery and actionable errors. The fixture scenario tests newest-compatible selection when editions overlap, a known ID without an applicable edition, and a pre-introduction conditional route. Generation also rejects that route without its conditional flag. Synthetic fixture introduction metadata is not API introduction or release coverage evidence. All scenarios require a clean shutdown and stderr diagnostics; none project-reference production code. Temporary installs are deleted afterwards.
 

@@ -35,7 +35,7 @@
         "requirements": {
           "sdk": {
             "match": "release-family",
-            "reason": "Build against .NET 11 references; exact RC2 pins record measured artifacts.",
+            "reason": "Build against .NET 11 references; exact GA pins record measured artifacts.",
             "name": ".NET SDK",
             "version": "11.0"
           },
@@ -59,7 +59,7 @@
               "name": "Microsoft.NET.Sdk.WebAssembly.Pack",
               "version": "11.0",
               "match": "release-family",
-              "reason": "The WebAssembly SDK resolves its matching pack; actual RC2 dependencies are locked and recorded."
+              "reason": "The WebAssembly SDK resolves its matching pack; actual GA dependencies are locked and recorded."
             }
           ],
           "packageAssets": [
@@ -70,7 +70,7 @@
               "name": "wasm-tools",
               "version": "11.0",
               "match": "release-family",
-              "reason": "Diagnostic-enabled browser native relinking requires the matching .NET 11 WebAssembly and Emscripten toolchain; actual RC2 manifest pins are retained in sample evidence."
+              "reason": "Diagnostic-enabled browser native relinking requires the matching .NET 11 WebAssembly and Emscripten toolchain; actual GA manifest pins are retained in sample evidence."
             }
           ],
           "prerequisites": [
@@ -78,7 +78,7 @@
             "UseMonoRuntime=false selects the experimental CoreCLR browser route; there is no .NET 10 CoreCLR-browser equivalent."
           ],
           "platforms": [
-            "Measured Chromium on Windows with .NET 10 Mono and RC2 Mono/CoreCLR; no other-browser/platform/AOT performance claim."
+            "Measured Chromium on Windows with .NET 10 Mono and GA Mono/CoreCLR; no other-browser/platform/AOT performance claim."
           ],
           "providers": [
             "Local EventPipe/EventSource diagnostic providers; no external provider service."
@@ -89,7 +89,7 @@
             "EnableDiagnostics=true for actual trace collection, with a matching native toolchain."
           ],
           "stabilityLimitations": [
-            "Measured RC2 artifacts are not GA verification; PIN-959/PIN-962 and existing Human gates remain open.",
+            "Measured GA artifacts cover only the recorded checks; PIN-959/PIN-962 and existing Human gates remain open.",
             "CoreCLR browser is opt-in preview; custom host APIs have no backwards compatibility guarantee."
           ],
           "constraints": [
@@ -150,7 +150,7 @@
     {
       "sample": "samples/net11.0/LanternHostMono/LanternHostMono.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "kind": "compile",
       "scope": "Actual managed browser build and TypeScript compilation against the exact shipped runtime declaration."
@@ -158,7 +158,7 @@
     {
       "sample": "samples/net11.0/LanternHostMono/LanternHostMono.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "kind": "execution",
       "scope": "Real Chromium startup, main return/keep-alive/exit rejection, configuration/arguments, resource loading/failure and diagnostic provider trace.",
@@ -167,7 +167,7 @@
     {
       "sample": "samples/net11.0/LanternHostCoreCLR/LanternHostCoreCLR.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "kind": "compile",
       "scope": "Actual managed browser build and TypeScript compilation against the exact shipped runtime declaration."
@@ -175,7 +175,7 @@
     {
       "sample": "samples/net11.0/LanternHostCoreCLR/LanternHostCoreCLR.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "kind": "execution",
       "scope": "Real Chromium startup, main return/keep-alive/exit rejection, configuration/arguments, resource loading/failure and diagnostic provider trace.",

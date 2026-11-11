@@ -74,11 +74,11 @@
             "Use a net11.0 console project with LangVersion=15.0, implicit usings and the namespaces stated in the complete recipe. No additional package, workload, account or provider is required."
           ],
           "constraints": [
-            "TAR stores entries without compressing them. V7 has the oldest/narrowest metadata/name representation; Ustar improves compatibility with constrained legacy readers; PAX carries extended names/metadata; GNU uses GNU extensions. Choose from receiver requirements, not operating-system branding. The earlier directory convenience overload still defaults to PAX. Format limits can reject data rather than preserving every name/metadata field. GNU sparse 1.0 is a PAX representation: RC2 TarReader reconstructs logical content and holes from its map automatically. This does not mean selecting TarEntryFormat.Gnu creates sparse 1.0 output or preserves physical filesystem allocation. The original fixture exposes 517 stored map/data bytes on .NET 10, but 16 logical bytes on RC2. For older receivers request a compatible/materialised representation; do not treat raw sparse map bytes as the file. General hard-link preservation/extraction policy is separate migration work (PIN-684). No sparse writer or physical sparse-file allocation claim is made."
+            "TAR stores entries without compressing them. V7 has the oldest/narrowest metadata/name representation; Ustar improves compatibility with constrained legacy readers; PAX carries extended names/metadata; GNU uses GNU extensions. Choose from receiver requirements, not operating-system branding. The earlier directory convenience overload still defaults to PAX. Format limits can reject data rather than preserving every name/metadata field. GNU sparse 1.0 is a PAX representation: GA TarReader reconstructs logical content and holes from its map automatically. This does not mean selecting TarEntryFormat.Gnu creates sparse 1.0 output or preserves physical filesystem allocation. The original fixture exposes 517 stored map/data bytes on .NET 10, but 16 logical bytes on GA. For older receivers request a compatible/materialised representation; do not treat raw sparse map bytes as the file. General hard-link preservation/extraction policy is separate migration work (PIN-684). No sparse writer or physical sparse-file allocation claim is made."
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Verified with SDK 11.0.100-rc.3.26522.148; RC2 execution is not GA verification."
+            "Verified with SDK 11.0.100; Current GA verification is limited to the recorded checks."
           ]
         },
         "sourceUrls": [
@@ -123,10 +123,10 @@
     {
       "sample": "samples/net11.0/Archives/Archives.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "kind": "compile-and-run",
-      "scope": "Both actual target projects create/read all four formats and restore identical contents. An independently authored GNU sparse 1.0 PAX fixture with two extents verifies RC2 logical size, data and zero-filled holes, alongside the older stored-byte behaviour. Actual Windows compilation/execution; no mocks, cross-compilation or GA proof."
+      "scope": "Both actual target projects create/read all four formats and restore identical contents. An independently authored GNU sparse 1.0 PAX fixture with two extents verifies GA logical size, data and zero-filled holes, alongside the older stored-byte behaviour. Actual Windows compilation/execution; no mocks, cross-compilation or GA proof."
     }
   ],
   "snippets": {

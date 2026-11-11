@@ -83,7 +83,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Exact RC2 artifacts were executed; this does not establish GA or other-platform verification. No ExperimentalAttribute or experimental opt-in on the APIs used."
+            "Exact GA artifacts were executed; this does not establish GA or other-platform verification. No ExperimentalAttribute or experimental opt-in on the APIs used."
           ]
         },
         "sourceUrls": [
@@ -133,7 +133,7 @@
     {
       "sample": "samples/net11.0/ObservatoryTar/ObservatoryTar.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "kind": "compile-and-run",
       "scope": "Real Windows NTFS identity checks; default and both writer modes sync/async; both extraction modes path/stream sync/async, overwrite rejection, reversed link order, pre-cancellation, unsafe paths/targets, partial extraction and cleanup. No link-incapable receiver test."

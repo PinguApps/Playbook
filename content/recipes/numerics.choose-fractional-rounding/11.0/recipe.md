@@ -35,7 +35,7 @@ Read decimal text as decimal, or use decimal literals, when that is the contract
 These runtime-parsed original inputs were executed on the paired pinned artifacts
 with two digits and `ToEven`:
 
-| Input / representation | .NET 10 | .NET 11 RC2 |
+| Input / representation | .NET 10 | .NET 11 GA |
 | --- | --- | --- |
 | double `10.025`, just above the decimal midpoint | 10.02 | 10.03 |
 | double `10.055`, just below the decimal midpoint | 10.06 | 10.05 |
@@ -55,7 +55,7 @@ checked; NFloat evidence here is the 64-bit Windows representation, not a 32-bit
 
 ## Batch measurements
 
-For the optional batch add `System.Numerics.Tensors` **11.0.0-rc.2.26504.105**
+For the optional batch add `System.Numerics.Tensors` **11.0.0**
 to the net11 project and put this class in `BatchExport.cs`. The package selects
 `lib/net11.0/System.Numerics.Tensors.dll`. The matching .NET 10 comparison uses
 package **10.0.13**, selecting its actual net10 asset; no newer-package-on-net10
@@ -93,7 +93,7 @@ this helper. Preserve bit patterns separately when the protocol requires them.
 
 The recipe's primary route is .NET 11 on CoreCLR. Reproduction pins are SDK
 10.0.403 / runtime and reference pack 10.0.14 / C# 14, and SDK
-11.0.100-rc.3.26522.148 / runtime and reference pack 11.0.0-rc.3.26522.148 /
+11.0.100 / runtime and reference pack 11.0.0 /
 C# 15. Those exact SDKs are test artifacts, separate from consumer release-family
 requirements. Scalar APIs need no package. The optional tensor package is pinned
 above. Actual selected types/rounding methods have no Experimental attribute and
@@ -102,10 +102,12 @@ account or service is required.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Saved compile-and-run evidence records exact commands, input hashes, locked
 dependencies, runtime-parsed inputs, results and compiler/reference/runtime/package
 hashes. Windows x64 CoreCLR JIT is measured; interpreter, Native AOT, Mono and
-other OS/architecture execution are not established. RC2 is not actual-GA proof.
+other OS/architecture execution are not established. GA is limited to the recorded checks.
 The .NET 10 comparison is not a ninth foundation or a target10 catalogue edition.
 Comprehensive coverage, actual-GA reconciliation and existing Human gates remain open.
 

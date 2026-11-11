@@ -30,9 +30,11 @@ Choose ReadOnlyMemoryStream for borrowed bytes, ReadOnlySequenceStream for segme
 
 Adapters do not transfer ownership or extend a pool/pipe buffer’s valid lifetime. Finish and dispose the reader/stream before returning memory to a pool or advancing a PipeReader; do not mutate it concurrently. ReadOnly means the stream cannot write, not that the original owner cannot change bytes. WritableMemoryStream writes into the supplied slice and cannot grow. StringStream needs an explicit Encoding and can allocate encoding working storage; avoiding a whole-input byte array is not a zero-allocation promise. Its ReadOnlyMemory<char> source must also remain valid. Encoding fallback/BOM detection are independent choices; this example uses UTF-8 and StreamReader’s ordinary BOM detection. Capability flags differ by adapter: inspect CanRead/CanWrite/CanSeek rather than assuming MemoryStream’s full contract.
 
-This edition targets .NET 11. It has no rendering mode, external provider, optional workload or experimental opt-in. It uses framework APIs and needs no additional package or package asset. The sample SDK pins 10.0.403 and 11.0.100-rc.3.26522.148 are reproducibility baselines, not mandatory exact consumer SDK installations. RC2 execution is not GA verification. No .NET 10 catalogue edition or conditional older-target package route is advertised.
+This edition targets .NET 11. It has no rendering mode, external provider, optional workload or experimental opt-in. It uses framework APIs and needs no additional package or package asset. The sample SDK pins 10.0.403 and 11.0.100 are reproducibility baselines, not mandatory exact consumer SDK installations. Current GA verification is limited to the recorded checks. No .NET 10 catalogue edition or conditional older-target package route is advertised.
 
 ## Evidence
+
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 The original BufferAdapters projects compile and run against their declared .NET 10/11 SDKs. Checks cover UTF-8 split across segments, encoded text, sliced writes, borrowed-memory mutation, fixed-size overflow and source-emptying with independent builder reuse.
 

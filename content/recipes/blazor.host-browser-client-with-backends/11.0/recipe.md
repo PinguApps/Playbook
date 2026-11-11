@@ -50,7 +50,7 @@ The client uses its entry origin as HttpClient.BaseAddress. The host's /api/{**c
 
 ## Newer approach
 
-Create a separate newer QuaysideRoutes directory with Client, Defaults and Backend subdirectories. The matching RC3 SDK is 11.0.100-rc.3.26522.148 with C# 15 mode; no C# 15-only syntax is required. Save the following common files at the root, and copy global.json into all three project directories. The new edition is target 11 only, not a new .NET 10 foundation.
+Create a separate newer QuaysideRoutes directory with Client, Defaults and Backend subdirectories. The matching GA SDK is 11.0.100 with C# 15 mode; no C# 15-only syntax is required. Save the following common files at the root, and copy global.json into all three project directories. The new edition is target 11 only, not a new .NET 10 foundation.
 
 `global.json`:
 
@@ -80,15 +80,15 @@ Create a separate newer QuaysideRoutes directory with Client, Defaults and Backe
 
 {{snippet:n11-client-appsettings-json}}
 
-StaticWebAssetSpaFallbackEnabled=true causes the SDK to add an index.html endpoint with a nonfile catch-all and last-match order to the static endpoint manifest. Without it this tested RC2 Gateway returns 404 for /berths/north. The project references Components.Gateway for build/tool assets, with PrivateAssets=all. There is no normal application lib API to call; BlazorGateway.BuildWebHost is explicitly framework-test-only. The bundled tool reads the actual generated development/static endpoint manifests.
+StaticWebAssetSpaFallbackEnabled=true causes the SDK to add an index.html endpoint with a nonfile catch-all and last-match order to the static endpoint manifest. Without it this tested GA Gateway returns 404 for /berths/north. The project references Components.Gateway for build/tool assets, with PrivateAssets=all. There is no normal application lib API to call; BlazorGateway.BuildWebHost is explicitly framework-test-only. The bundled tool reads the actual generated development/static endpoint manifests.
 
-Two service-discovery hops have different owners. The generated browser initializer fetches /_blazor/_configuration before managed startup and injects the public services__quays__http__0 variable. The RC2 configuration provider makes that value visible to the generated defaults library. AddBlazorClientServiceDefaults installs the service-discovery handlers for HttpClientFactory, so http://quays resolves to http://localhost:5912 and preserves api/quays/... . Gateway independently resolves http://quaybackend to loopback port 5914 before YARP forwards the request. The browser never needs direct access to the backend port or a CORS exception.
+Two service-discovery hops have different owners. The generated browser initializer fetches /_blazor/_configuration before managed startup and injects the public services__quays__http__0 variable. The GA configuration provider makes that value visible to the generated defaults library. AddBlazorClientServiceDefaults installs the service-discovery handlers for HttpClientFactory, so http://quays resolves to http://localhost:5912 and preserves api/quays/... . Gateway independently resolves http://quaybackend to loopback port 5914 before YARP forwards the request. The browser never needs direct access to the backend port or a CORS exception.
 
 The Client/appsettings.json file is server-side Gateway configuration, outside wwwroot. Only ConfigResponse is deliberately returned to the browser. ConfigResponse is a JSON string inside the outer JSON object. Keep service addresses/configuration public and omit secrets. Changing the entry origin or ports requires updating both the launch arguments and the public service-discovery value coherently.
 
 ## Generated service defaults
 
-The following library comes from the actual SDK RC2 blazorwasm-servicedefaults template, generated as QuaysideRoutes.Defaults with hosted=false. Its extension and initializer retain Microsoft's license and behavior; they are generated support code, not original application prose. Only project/pin/build integration is adapted. The referenced .csproj.in is the upstream template build input; it is not the exact generated project in the installed SDK nupkg. The generated project and resolved pins were inspected and compiled separately. Save these complete files, or generate the template with the exact SDK and reconcile all resulting files/pins against these declared artifacts. The template's description mentions resilience, but its actual RC2 Extensions.cs registers service discovery and optional OpenTelemetry only; this recipe claims no retry/resilience policy.
+The following library comes from the actual SDK GA blazorwasm-servicedefaults template, generated as QuaysideRoutes.Defaults with hosted=false. Its extension and initializer retain Microsoft's license and behavior; they are generated support code, not original application prose. Only project/pin/build integration is adapted. The referenced .csproj.in is the upstream template build input; it is not the exact generated project in the installed SDK nupkg. The generated project and resolved pins were inspected and compiled separately. Save these complete files, or generate the template with the exact SDK and reconcile all resulting files/pins against these declared artifacts. The template's description mentions resilience, but its actual GA Extensions.cs registers service discovery and optional OpenTelemetry only; this recipe claims no retry/resilience policy.
 
 `Defaults/QuaysideRoutes.Defaults.csproj`:
 
@@ -142,7 +142,7 @@ Newer Client/Berth.razor:
 
 ## Run and inspect
 
-Use PowerShell 7 and the actual pinned SDK at each sample root. Before every .NET child, set DOTNET_ADD_GLOBAL_TOOLS_TO_PATH=0; keep PATH unchanged. On the verified Windows host the SDK executables are C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe (10.0.403/runtime 10.0.14) and C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe (11.0.100-rc.3.26522.148/runtime 11.0.0-rc.3.26522.148). Initial NuGet restore is online; installed guidance retrieval is offline. Neither build requires wasm-tools, native compilation, AOT, a container or an account.
+Use PowerShell 7 and the actual pinned SDK at each sample root. Before every .NET child, set DOTNET_ADD_GLOBAL_TOOLS_TO_PATH=0; keep PATH unchanged. On the verified Windows host the SDK executables are C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe (10.0.403/runtime 10.0.14) and C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe (11.0.100/runtime 11.0.0). Initial NuGet restore is online; installed guidance retrieval is offline. Neither build requires wasm-tools, native compilation, AOT, a container or an account.
 
 For the older sample, restore/build Host/QuaysideRoutes.Host.csproj and Backend/QuaysideRoutes.Backend.csproj with the SDK 10 executable using build -c Release. The host builds the referenced client. In a separate terminal at Backend, launch that executable with bin/Release/net10.0/QuaysideRoutes.Backend.dll --urls http://127.0.0.1:5913. At Host, set ASPNETCORE_ENVIRONMENT=Development and launch bin/Release/net10.0/QuaysideRoutes.Host.dll --urls http://localhost:5911. The development environment loads the actual client static-web-assets manifest. Each launch occupies its terminal; Ctrl+C stops that process.
 
@@ -165,20 +165,22 @@ The dispatcher uses one entry URL while routing remains configurable. The browse
 ## Constraints
 
 - WASM; Components.Gateway, generated service-defaults library; Aspire dependency when used. This is standalone CSR, not Static SSR, Interactive Server or Auto.
-- Gateway and the generated template are RC2 artifacts. No Experimental API attribute/opt-in was found on the selected path; stable metadata describes that API classification, not GA proof. Refresh package/SDK/template/manifest/initializer evidence together for GA.
+- Gateway and the generated template are GA artifacts. No Experimental API attribute/opt-in was found on the selected path; stable metadata describes that API classification, within the recorded verification scope. Refresh package/SDK/template/manifest/initializer evidence together for GA.
 - Local HTTP deliberately disables Gateway HTTPS redirection and telemetry. Keep production TLS, authentication, authorization, proxy exposure and forwarded-header policy under the actual host's configuration. No production deployment or account/resource publication is claimed.
 - Source review, actual SDK compilation, real Chrome WASM/HTTP execution and installed offline stdio tests are separate evidence. No mock, newer-SDK older-target cross-compilation or framework TestHost result substitutes for the local browser proof. OTLP export, Aspire, CLI/watch/debugger, production publishing, alternate platforms/browsers, path bases and AOT remain unexecuted scope.
 
 ## Evidence
 
-All six actual old/new projects have matching-SDK compilation records and exact restored dependency closures. The real Chrome verifier checks the rendered client, increments the real backend counter, confirms path/query/header preservation, checks 404 boundaries and observes the generated RC2 initializer/configuration/service-discovery requests. Direct deep link, client navigation and deep-link reload are checked on both releases. Artifact/input hashes and the separate packed stdio/reconstructed-consumer evidence are recorded in docs/verification/browser-gateway.md. Dirty authoring captures are labelled as such and are not relabelled clean-head execution.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
+All six actual old/new projects have matching-SDK compilation records and exact restored dependency closures. The real Chrome verifier checks the rendered client, increments the real backend counter, confirms path/query/header preservation, checks 404 boundaries and observes the generated GA initializer/configuration/service-discovery requests. Direct deep link, client navigation and deep-link reload are checked on both releases. Artifact/input hashes and the separate packed stdio/reconstructed-consumer evidence are recorded in docs/verification/browser-gateway.md. Dirty authoring captures are labelled as such and are not relabelled clean-head execution.
 
 ## References
 
 - [Gateway implementation and configuration contract](https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Gateway/src/BlazorGateway.cs)
 - [Bundled Gateway MSBuild tool/manifest invocation](https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Gateway/src/build/Microsoft.AspNetCore.Components.Gateway.targets)
 - [Gateway proxy and service-discovery framework tests](https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Gateway/test/BlazorGatewayProxyTests.cs)
-- [Generated RC2 service-defaults implementation](https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/ProjectTemplates/Web.ProjectTemplates/content/BlazorWasmServiceDefaults-CSharp/Extensions.cs)
+- [Pinned service-defaults implementation](https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/ProjectTemplates/Web.ProjectTemplates/content/BlazorWasmServiceDefaults-CSharp/Extensions.cs)
 - [RC2 template build input; generated dependency pins come from the actual SDK nupkg](https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/ProjectTemplates/Web.ProjectTemplates/BlazorWasmServiceDefaults-CSharp.csproj.in)
 - [Generated runtime configuration initializer](https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/ProjectTemplates/Web.ProjectTemplates/content/BlazorWasmServiceDefaults-CSharp/wwwroot/BlazorWasm.ServiceDefaults1.lib.module.js)
 - [Official .NET 11 Blazor release notes](https://learn.microsoft.com/en-us/aspnet/core/release-notes/aspnetcore-11?view=aspnetcore-11.0)

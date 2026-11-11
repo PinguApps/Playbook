@@ -57,7 +57,7 @@ root dots from names; TXT strings are preserved individually.
 
 1. Build net11.0 with the .NET 11 SDK/shared framework. The canonical project
    declares C# 15.0, nullable and implicit usings. No workload, package, rendering
-   mode or experimental opt-in is needed. Exact RC2 pins identify the test, not
+   mode or experimental opt-in is needed. Exact GA pins identify the test, not
    an assertion about final GA behavior. Remove DnsClient only if no other use
    still needs it.
 2. Create ZoneInspector with a trusted IPEndPoint, keep it for repeated queries,
@@ -107,9 +107,11 @@ mobile/browser/WASI routes and other native configurations are not claimed.
 OS caching can affect results; unique fixture query names avoid cross-run answers.
 No DNS response authenticates a peer or authorizes connecting to it. Keep endpoint
 allowlists and TLS validation in the actual client. No experimental diagnostics
-exist in the reviewed RC2 contract; GA reconciliation remains PIN-962's work.
+exist in the reviewed GA contract; GA reconciliation remains PIN-962's work.
 
 ## Evidence
+
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 SDK 10.0.403/runtime 10.0.14 with DnsClient 1.8.0 and SDK 11RC3/runtime 11RC3 with
 framework-only APIs compile and execute against actual authoritative loopback UDP
@@ -120,7 +122,7 @@ native resolvers can normalize unequal TTLs within a set. Negative fixtures
 distinguish NODATA/NXDOMAIN, SOA TTL 120/MINIMUM 45 and absent
 SOA. Two server endpoints return different station metadata for the same name.
 Cancellation runs before a query and after a dropped request reaches the server.
-Windows RC2 also rejects a custom port and mixed address families.
+Windows GA also rejects a custom port and mixed address families.
 
 Separate Linux execution records use the exact digest-pinned 10.0.13/11RC2 runtime
 images, read-only application mounts, private tmpfs and --network none with
@@ -134,5 +136,5 @@ CoreLib, audit-matching name-resolution references and Windows DNSAPI identity.
 The consumer emits its loaded CoreLib path/version/hash and rejects a runtime
 outside the declared verification baseline before evidence can be saved. This
 fixture pin is separate from the recipe's release-family requirements.
-RC2 is not GA proof. PIN-959, PIN-962 and existing Human gates remain open, with
+GA checks establish only the recorded scope. PIN-959, PIN-962 and existing Human gates remain open, with
 exactly eight foundations and no new recurring OS/client/native matrix.

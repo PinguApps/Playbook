@@ -21,7 +21,7 @@ Call `JsonSerializer.Serialize(new CargoMeasure((Decimal32)2, (Decimal64)3, (Dec
 ## Migration
 
 1. Choose numeric range/precision and collection semantics explicitly; do not silently replace decimal/float contracts.
-2. Target net11.0 for the new framework numeric types/converters. The audited RC2 System.Text.Json package's net10.0 asset lacks the four numeric metadata converters; no blanket older-target route is claimed.
+2. Target net11.0 for the new framework numeric types/converters. The audited GA System.Text.Json package's net10.0 asset lacks the four numeric metadata converters; no blanket older-target route is claimed.
 3. Replace concrete-set DTO scaffolding with IReadOnlySet only where deserializing to HashSet is appropriate.
 4. Use string-keyed object/JsonElement read-only dictionary extension data deliberately; review the copy-and-overwrite behavior for initialized entries.
 5. Round-trip numeric values and inspect set/overflow output. Check number handling, dictionary keys and generated contracts for the paths the application actually uses.
@@ -32,4 +32,6 @@ Uses framework System.Text.Json and System.Numerics on net11.0, SDK 11 / C# 15; 
 
 ## Evidence
 
-Actual .NET 10/11 builds and executions verify the declared numeric representations, all four new converters, Decimal64 number-handling and dictionary-key round trips, duplicate set removal, generated read-only-set contracts, initialized extension-data merge/overwrite and JsonObject flattening. The pinned serialization asset audit establishes the net10/net11 converter difference. Installed offline MCP tests retrieve this complete body, requirements and edition. No mock execution, cross-compilation or required Human proof; .NET 11 is measured RC2 evidence.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
+Actual .NET 10/11 builds and executions verify the declared numeric representations, all four new converters, Decimal64 number-handling and dictionary-key round trips, duplicate set removal, generated read-only-set contracts, initialized extension-data merge/overwrite and JsonObject flattening. The pinned serialization asset audit establishes the net10/net11 converter difference. Installed offline MCP tests retrieve this complete body, requirements and edition. No mock execution, cross-compilation or required Human proof; .NET 11 is measured GA evidence.

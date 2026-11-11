@@ -37,13 +37,15 @@ For a supported mobile project, select its framework and device explicitly: `dot
 
 ## Constraints
 
-Mobile compilation and device selection are explicitly not tested under PIN-699. Guidance may ship with this disclosure; it is not verified mobile guidance. The available Android SDK has adb but no emulator directory or connected device. Installed preview workload manifests are not asserted to be the final RC2 composition. No Mac/Xcode route is available here. The primary metadata describes the managed Aspire host; the unverified mobile branch is not represented as a verified compatibility route.
+Mobile compilation and device selection are explicitly not tested under PIN-699. Guidance may ship with this disclosure; it is not verified mobile guidance. The available Android SDK has adb but no emulator directory or connected device. Installed preview workload manifests are not asserted to be the final GA composition. No Mac/Xcode route is available here. The primary metadata describes the managed Aspire host; the unverified mobile branch is not represented as a verified compatibility route.
 
 The host's Aspire package contributes its net10.0 assets on target 11; Aspire.Hosting.Orchestration.win-x64 and Aspire.Dashboard.Sdk.win-x64 13.4.6 supply the measured orchestration/dashboard assets. Windows is the measured authoring platform. Actual local dashboard startup may initialize Aspire settings/certificates; stop the watch process when finished. This example uses local-only HTTP endpoints during its bounded check and does not authorize exposing the dashboard externally.
 
-The SDK feature is distinct from the experimental status of any application API. No experimental API is used in this host. RC2 results do not establish GA verification. There is no browser-rendering, database-provider, container or mobile execution claim from this managed host compilation.
+The SDK feature is distinct from the experimental status of any application API. No experimental API is used in this host. GA results do not establish GA verification. There is no browser-rendering, database-provider, container or mobile execution claim from this managed host compilation.
 
 ## Evidence
+
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 The original net10.0/net11.0 Aspire hosts compile against their exact locked SDK, package and orchestration baseline. The bounded host check records real watch startup separately from compilation, with no mock or hot-reload inference. Full installed retrieval preserves the not-tested disclosure and exact sample identities. Mobile compilation and device selection are excluded; distributed hot reload is not established. A successful packed-tool check proves none of those behaviours.
 

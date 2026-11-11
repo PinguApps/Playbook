@@ -24,7 +24,7 @@ The Open button stops propagation so its click opens the record once. Without th
 
 ## Migration
 
-1. Use Microsoft.NET.Sdk.Web, net11.0, LangVersion 15.0, nullable and implicit usings. Add Microsoft.AspNetCore.Components.QuickGrid 11. The canonical sample pins SDK 11.0.100-rc.3.26522.148 and QuickGrid/Internal.Assets 11.0.0-rc.3.26522.148. The comparison pins SDK 10.0.403, C# 14.0 and QuickGrid/Internal.Assets 10.0.14. SDK pins reproduce evidence; requirements use release families. Sample packages are locked and maintained manually. No optional workload, provider or account is needed.
+1. Use Microsoft.NET.Sdk.Web, net11.0, LangVersion 15.0, nullable and implicit usings. Add Microsoft.AspNetCore.Components.QuickGrid 11. The canonical sample pins SDK 11.0.100 and QuickGrid/Internal.Assets 11.0.0. The comparison pins SDK 10.0.403, C# 14.0 and QuickGrid/Internal.Assets 10.0.14. SDK pins reproduce evidence; requirements use release families. Sample packages are locked and maintained manually. No optional workload, provider or account is needed.
 2. Put MuseumTable.razor in namespace Playbook.Samples. In _Imports.razor set @namespace Playbook.Samples and import Microsoft.AspNetCore.Components, Microsoft.AspNetCore.Components.Routing, Microsoft.AspNetCore.Components.Web, Microsoft.AspNetCore.Components.QuickGrid and static Microsoft.AspNetCore.Components.Web.RenderMode.
 3. Register the interactive server path in Program.cs:
 
@@ -44,8 +44,10 @@ The Open button stops propagation so its click opens the record once. Without th
 - Row clicks are a pointer shortcut. They do not make table rows focusable, keyboard-operable or announced as controls. Preserve table semantics and provide a real button or link for the same action. Do not turn tr into a button with role/tabindex. The canonical button works by keyboard.
 - A plain details link also works without an interactive circuit, and is appropriate when navigation is the whole goal. This sample instead opens local detail state to make the selected item observable. It does not implement URL sorting/paging or virtualization.
 - OnRowClick does not maintain a selection model, perform navigation, fetch data or authorize an operation. The application chooses those behaviors. Use a stable item identity when loading a real record and check authorization at the server operation. Handle failures/loading if the handler performs asynchronous work; return Task rather than async void.
-- The measured RC2 callback is not marked experimental and requires no opt-in or diagnostic suppression. Prerelease artifacts are not GA proof. No newer-package/older-target route is declared.
+- The measured GA callback is not marked experimental and requires no opt-in or diagnostic suppression. Verification is limited to the recorded artifacts and checks. No newer-package/older-target route is declared.
 
 ## Evidence
+
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Both actual pinned Web SDK consumers compile with zero warnings/errors. Separate real browser checks activate Interactive Server, click first/last data cells, verify the selected record and description, exercise the accessible button and its single-call propagation rule, and confirm the static control remains inert. Saved execution reports bind source inputs and built assemblies to those checks. Compilation, official source review and browser execution are distinct evidence; no mock or cross-compilation stands in for the row event. The existing packed-tool harness retrieves this entire comparison and applicability over real stdio from an unrelated directory with an isolated local feed/cache. Other operating systems, assistive technologies, WebAssembly/Auto and GA execution are unverified.

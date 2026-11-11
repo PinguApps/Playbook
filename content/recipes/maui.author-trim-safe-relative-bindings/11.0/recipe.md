@@ -12,7 +12,7 @@ SignalDeck uses typed `Binding.Create` delegates in its constructor. The entry a
 
 {{snippet:samples-net11-0-signaldeck-signalpage-xaml}}
 
-With `MauiXamlInflator=SourceGen`, `Echo` refers to the named `Callsign` Entry and binds its Text property. `Deck` searches for the containing SignalPage and binds its Title. A resolvable ancestor type produces a `TypedBinding<TAncestor,TProperty>` rather than a reflection-dependent string path. SourceGen resolves the reference element's actual type, including references from lazily created templates in RC2. Ordinary SourceGen bindings do not require preview C# expressions or `EnablePreviewFeatures`.
+With `MauiXamlInflator=SourceGen`, `Echo` refers to the named `Callsign` Entry and binds its Text property. `Deck` searches for the containing SignalPage and binds its Title. A resolvable ancestor type produces a `TypedBinding<TAncestor,TProperty>` rather than a reflection-dependent string path. SourceGen resolves the reference element's actual type, including references from lazily created templates in GA. Ordinary SourceGen bindings do not require preview C# expressions or `EnablePreviewFeatures`.
 
 An ancestor deriving from Element selects FindAncestor; a non-Element ancestor type selects FindAncestorBindingContext. Set the mode explicitly if that inference does not express the desired source. Moving a target to a different visual tree can change the ancestor it finds even though its property path compiles.
 
@@ -27,11 +27,13 @@ An ancestor deriving from Element selects FindAncestor; a non-Element ancestor t
 
 ## Constraints
 
-This edition targets .NET11 MAUI and Controls11 assets for the selected native platform, with the SourceGen build analyzer. The canonical project pins SDK11 RC3, C#15 and Controls11.0.0-rc.2.26505.5. Platform bindings, deployment floors and exact intended workload composition are in Applicability and the canonical project. Android needs its SDK/JDK and a device/emulator; iOS requires a Mac, matching Xcode, signing where needed and a simulator/device. Windows has a separate WinUI host. There is no web rendering mode or external provider.
+This edition targets .NET11 MAUI and Controls11 assets for the selected native platform, with the SourceGen build analyzer. The canonical project pins SDK11 GA, C#15 and Controls11.0.0. Platform bindings, deployment floors and exact intended workload composition are in Applicability and the canonical project. Android needs its SDK/JDK and a device/emulator; iOS requires a Mac, matching Xcode, signing where needed and a simulator/device. Windows has a separate WinUI host. There is no web rendering mode or external provider.
 
 Typed C# bindings remain useful when runtime ancestor selection is unnecessary. Preserve intentional runtime bindings on supported untrimmed paths rather than describing all older applications as broken. This recipe's bindings are stable framework guidance prepared from RC2; it makes no GA or AOT execution claim.
 
 ## Evidence
+
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 The original .NET10 Windows sample compiles in Release with zero warnings/errors. The .NET11 Windows attempt, restricted to that target, fails NETSDK1147 before compilation because this SDK root has no MAUI SDK pack. Android/iOS toolchains and devices are unavailable. Under PIN-699, current sample compilation, actual generated typed paths, negative diagnostics and trimmed/native execution are explicitly **not-tested**, rather than pending Human work. No upstream tests were executed. Official source tests and exact reviewed source hashes support the expected compiler behavior; they do not prove this sample ran.
 
@@ -225,4 +227,4 @@ Canonical inputs and freshness are recorded in verification.json/verification-ev
 - [Known official source](https://raw.githubusercontent.com/wiki/dotnet/macios/Known-issues-in-.NET11.md)
 - [Ios Fix official source](https://github.com/dotnet/macios/issues/25295#issuecomment-4994500229)
 
-- [MAUI RC2 iOS scene bootstrap](https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Templates/src/templates/maui-mobile/Platforms/iOS/Info.plist)
+- [MAUI GA iOS scene bootstrap](https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Templates/src/templates/maui-mobile/Platforms/iOS/Info.plist)

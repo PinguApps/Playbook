@@ -44,4 +44,4 @@ The route requires .NET 11 / SDK 11 / C# 15 with no experimental opt-in, workloa
 
 Both real target projects compile and execute queued/catalogued and null JSON round trips. An external consumer omitting Catalogued fails with CS8509. A direct external descendant fails with CS9382. The escaped identifiers compile. The saved sample evidence identifies exact artifacts and inputs; the compiler checks are reproduced by eng/Test-ClosedOutcomes.ps1 after building the .NET 11 sample. No mock or cross-compilation substitutes for the recorded portable executions; no targeted Human proof is required.
 
-GA refresh (PIN-1287): the declared .NET 11 sample was rebuilt and executed with SDK 11.0.100 and runtime 11.0.0. Earlier RC observations above remain historical; this refresh does not establish broader platform or API behavior.
+GA refresh (PIN-1287): the declared .NET 11 sample was rebuilt and executed with SDK 11.0.100 and runtime 11.0.0. This refresh does not establish broader platform or API behavior.

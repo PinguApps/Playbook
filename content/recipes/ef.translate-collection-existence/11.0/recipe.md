@@ -18,7 +18,7 @@ Osprey survey readings use nullable JSON integer lists and nullable binary signa
 
 ## Requirements and verification
 
-Use SDK10.0.403/C#14/EF10.0.13 versus SDK11.0.100-rc.3.26522.148/C#15/EF11.0.0-rc.2.26504.105. These are separate locked console consumers. Standard bundled SQLite initializes native access. SQL uses the existing disposable SQL2025 route. No workloads, browser rendering or experimental opt-ins are required. Compilation and actual database execution are recorded independently of installed-tool retrieval. No new .NET10 foundation is added.
+Use SDK10.0.403/C#14/EF10.0.13 versus SDK11.0.100/C#15/EF11.0.0. These are separate locked console consumers. Standard bundled SQLite initializes native access. SQL uses the existing disposable SQL2025 route. No workloads, browser rendering or experimental opt-ins are required. Compilation and actual database execution are recorded independently of installed-tool retrieval. No new .NET10 foundation is added.
 
 ## Older approach
 
@@ -96,5 +96,7 @@ Current Exists and binary Any execute inside the provider. The interceptor recor
 Nullable JSON integer lists and binary columns only. Null guards exclude null; empty values do not match. Arbitrary predicate methods and other providers are outside the route. Translation establishes neither index use nor a faster query plan.
 
 ## Evidence
+
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Both independently locked consumers compile and execute through eng/Test-OspreyReadings.ps1 -Record. Saved compilation and execution records include exact inputs and resolved dependencies. The ordinary installed tool is inspected separately through real stdio list/get with an isolated feed/cache and unrelated working directory.

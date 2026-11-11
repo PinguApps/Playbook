@@ -22,7 +22,7 @@ With the .NET 11 SDK, import this property group into the project being packed, 
 
 Run `dotnet pack Depot.csproj -c Release -o ./packages`. The fixed RFC3339 value opts in and is reused for archive entries. Replace the illustrative date with your release's chosen, repeatable value. Unix seconds such as `946684800` represent the same instant and were also exercised.
 
-`DeterministicTimestamp=true` uses the current build time for all entries in the measured RC2 implementation. It standardizes entry times **within** that package; it does not freeze time across separate builds. Use a fixed timestamp to reproduce another build. Omitting the property, or setting it to `false`, retains file modification times even with `Deterministic=true`. Do not assume the container `SOURCE_DATE_EPOCH` setting enables NuGet pack timestamps: RC1 removed that automatic fallback.
+`DeterministicTimestamp=true` uses the current build time for all entries in the measured GA implementation. It standardizes entry times **within** that package; it does not freeze time across separate builds. Use a fixed timestamp to reproduce another build. Omitting the property, or setting it to `false`, retains file modification times even with `Deterministic=true`. Do not assume the container `SOURCE_DATE_EPOCH` setting enables NuGet pack timestamps: RC1 removed that automatic fallback.
 
 ## Migration
 
@@ -36,12 +36,14 @@ Run `dotnet pack Depot.csproj -c Release -o ./packages`. The fixed RFC3339 value
 
 This is SDK/MSBuild-based packaging guidance, not a new runtime API or a container timestamp recipe. There is no language feature, provider, UI rendering mode, workload, account or service prerequisite. Configuration applies across project languages; the verification utility is C#.
 
-Repeatable timestamps do not make arbitrary builds reproducible. Generated files, dependency resolution, assembly paths, package metadata/order, compression toolchains, source content, signing and signature timestamps can still change the artifact. The measured fixed-input RC2 packages had equal bytes; that bounded observation is not a general guarantee. The older normalization helper must be used before signing and only on an archive whose contents you own.
+Repeatable timestamps do not make arbitrary builds reproducible. Generated files, dependency resolution, assembly paths, package metadata/order, compression toolchains, source content, signing and signature timestamps can still change the artifact. The measured fixed-input GA packages had equal bytes; that bounded observation is not a general guarantee. The older normalization helper must be used before signing and only on an archive whose contents you own.
 
-The recipe is catalogued for target 11. Its .NET 10 sample is comparison evidence, not an additional .NET 10 foundation or an advertised SDK 11/older-target route. The SDK change is not publisher-designated experimental; actual verification is RC2, so GA reconciliation is still required.
+The recipe is catalogued for target 11. Its .NET 10 sample is comparison evidence, not an additional .NET 10 foundation or an advertised SDK 11/older-target route. The SDK change is not publisher-designated experimental; actual verification is GA, so GA reconciliation is still required.
 
 ## Evidence
 
-Original C# utilities compiled and ran on Windows x64 with SDKs 10.0.403 and 11.0.100-rc.3.26522.148. They created real local packages using the selected SDK, isolated feed/cache/home and unrelated temporary directories. Older builds verified post-pack normalized entry times. Current builds verified repeated fixed-RFC3339 entry times and bytes, equivalent Unix seconds, `true` build time, and default/false preservation of payload modification times.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
+Original C# utilities compiled and ran on Windows x64 with SDKs 10.0.403 and 11.0.100. They created real local packages using the selected SDK, isolated feed/cache/home and unrelated temporary directories. Older builds verified post-pack normalized entry times. Current builds verified repeated fixed-RFC3339 entry times and bytes, equivalent Unix seconds, `true` build time, and default/false preservation of payload modification times.
 
 The attached current input-hashed records contain commands, runtime output and package SHA-256 values. These are actual compilation and execution, not mock builds or cross-compilation. No package was published; no Linux/macOS, signing-service or GA execution is claimed. Packed-tool checks separately establish offline list/get delivery, not reproducibility of all consumer packages.

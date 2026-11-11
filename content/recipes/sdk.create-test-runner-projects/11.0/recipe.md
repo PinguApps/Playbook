@@ -26,7 +26,7 @@ The alternative original xUnit MTP project uses its matching entry-point package
 
 {{snippet:xunit}}
 
-Choose one framework project; do not add both framework package sets to the same project merely to select a runner. With a global.json SDK pin of 11.0.100-rc.3.26522.148 and `"test": { "runner": "Microsoft.Testing.Platform" }`, run `dotnet test --project NUnitTests.csproj -c Release` or the equivalent --project RunnerTests.csproj command. These are original assertions rather than template tests:
+Choose one framework project; do not add both framework package sets to the same project merely to select a runner. With a global.json SDK pin of 11.0.100 and `"test": { "runner": "Microsoft.Testing.Platform" }`, run `dotnet test --project NUnitTests.csproj -c Release` or the equivalent --project RunnerTests.csproj command. These are original assertions rather than template tests:
 
 {{snippet:tests}}
 
@@ -43,5 +43,7 @@ Choose one framework project; do not add both framework package sets to the same
 These samples target net10.0/C#14 and net11.0/C#15 respectively, with independently pinned SDKs. The SDK-11 templates expose the options for C#, F# and VB, but only these original C# projects were compiled and executed. xunit.v3.mtp-v2 3.2.2 and NUnit 4.6.1/NUnit3TestAdapter 6.2.0 are the alternative example pins, not a requirement to install both sets in a consumer. Native MTP requires version 1.7 or later; exact transitive versions are in recorded evidence. No mobile workload, provider, rendering mode or experimental API is required. No account, service or package publication is involved.
 
 ## Evidence
+
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 The harness creates both SDK-11 templates with --no-restore inside an isolated global.json boundary and checks the generated runner contracts. The independently authored projects then compile and execute real assertions through their declared runners: older NUnit VSTest, xUnit MTP on both targets, and newer NUnit MTP. The template's default assertions are not presented as original verification. Actual packed-tool retrieval compares all canonical source snippets and the complete offline narrative with target-11 applicability. No F#/VB, mobile or GA execution claim is made.

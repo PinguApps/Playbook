@@ -11,7 +11,7 @@
   ],
   "workloads": [],
   "dependencies": [
-    "System.Security.Cryptography.Pkcs/11.0.0-rc.2.26504.105"
+    "System.Security.Cryptography.Pkcs/11.0.0"
   ],
   "nativeToolchains": [
     "OpenSSL/3.5.5"

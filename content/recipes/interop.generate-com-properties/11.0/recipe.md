@@ -57,7 +57,7 @@ helper. This is a direct native vtable proof; no COM registration is needed.
 3. Replace a verified get/set method pair with a property whose accessors are both
    declarations. Do not mix a declaration with a default accessor body. A property
    implemented entirely in the interface is managed default behavior, not a request
-   to generate half a native property. The actual RC2 compiler rejects the mixed
+   to generate half a native property. The actual GA compiler rejects the mixed
    sample with CS0525; the source audit also describes an all-or-nothing generator
    diagnostic. Do not depend on a particular diagnostic winning first.
 4. Keep marshalling explicit. StringMarshalling.Utf16 controls this interface's
@@ -93,8 +93,10 @@ more clearly. Validate errors and lifetimes for the real component protocol.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 The sample-evidence workflow records SDK10.0.403/runtime10.0.14 and
-SDK11.0.100-rc.3.26522.148/runtime11.0.0-rc.3.26522.148, actual reference/compiler/
+SDK11.0.100/runtime11.0.0, actual reference/compiler/
 generator identities, native MSVC19.51.36260.0/linker14.51.36260.0/helper hashes,
 inputs, commands, empty managed dependency sets and observed native checks.
 eng/Test-BeaconContracts.ps1 -Record and eng/Test-BeaconDiagnostics.ps1 run the

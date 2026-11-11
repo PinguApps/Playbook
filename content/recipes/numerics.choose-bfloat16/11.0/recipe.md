@@ -83,11 +83,13 @@ Bit-preserving binary encoding stays with numerics.roundtrip-float-bits; JSON
 contracts stay with json.use-numeric-collection-contracts.
 
 Reproduction artifacts are SDK10.0.403/C#14/ref-runtime10.0.14 and
-SDK11.0.100-rc.3.26522.148/C#15/ref-runtime11.0.0-rc.3.26522.148. These are
+SDK11.0.100/C#15/ref-runtime11.0.0. These are
 exact evidence pins, separate from release-family prerequisites. Windows x64
 execution is measured; other platforms, trimming/AOT and actual GA are unverified.
 
 ## Evidence
+
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 eng/Test-PrecisionDepth.ps1 -Record -VerifySources builds and executes both
 SensorArchive consumers using the existing recorder. Assertions cover exact and
@@ -100,5 +102,5 @@ The ordinary tool is built/packed and that exact artifact is installed from an
 isolated local-only feed/cache. Real stdio list/get from an unrelated directory
 checks ID/title/goal, complete canonical Markdown, target11/edition11, applicability,
 current paired evidence and equal structured/text responses. Target10 has no
-applicable edition: the comparison adds no ninth foundation. RC2 is not GA proof;
+applicable edition: the comparison adds no ninth foundation. GA checks establish only the recorded scope;
 PIN-959, PIN-962 and existing Human gates remain open.

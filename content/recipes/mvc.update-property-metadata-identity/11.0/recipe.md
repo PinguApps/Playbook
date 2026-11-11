@@ -87,17 +87,19 @@ Use a separate directory for this target. Restore/build/run with the same comman
 - For inherited/hidden properties, choose the intended PropertyInfo and container deliberately. PropertyInfo.DeclaringType need not equal the model whose properties are being described. This sample uses one simple known model and proves no general inheritance or trimming strategy.
 - The modelType argument describes the metadata's model type. This sample uses the property's declared string type; advanced providers may intentionally use another type and must retain that policy.
 - Actual metadata, display label and accessors are exercised without rendering a form. No browser, validation integration, data provider, NativeAOT or trimming claim is made.
-- Use matching ASP.NET Core framework/reference packs. No extra package, workload, service account or database is required. SDK 10.0.403 / 11.0.100-rc.3.26522.148 and C# 14 / 15 are the actual sample pins, not minimum language-feature requirements.
-- Stable migration APIs; no experimental opt-in. The exact .NET 11 evidence is RC3. This recipe exposes target 11 only; the older sample is a fair previous-release comparison and not an additional .NET 10 foundation.
+- Use matching ASP.NET Core framework/reference packs. No extra package, workload, service account or database is required. SDK 10.0.403 / 11.0.100 and C# 14 / 15 are the actual sample pins, not minimum language-feature requirements.
+- Stable migration APIs; no experimental opt-in. The exact .NET 11 evidence is GA. This recipe exposes target 11 only; the older sample is a fair previous-release comparison and not an additional .NET 10 foundation.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 A real DefaultModelMetadataProvider subclass produces the expected property metadata, custom display label and working getter/setter on both baselines; .NET 11 also preserves reflected PropertyInfo. The saved `verification-evidence.json` beside each project records actual matching-SDK compilation and execution, runtime output, commands and input hashes. No mock, cross-compilation or source-only result is being presented as execution. Build-time freshness checks validate those inputs before embedding the recipe.
 
-The original obsolete usages fail compilation against .NET 11; the migrated examples retain the intended outcome on the pinned artifacts. Official sources establish removal intent separately from those real consumer checks. Windows x64 loopback/managed execution establishes only the named behavior, not GA, browser, NativeAOT, trimming or every supported platform.
+The original obsolete usages fail compilation against .NET 11; the migrated examples retain the intended outcome on the pinned artifacts. Official sources establish removal intent separately from those real consumer checks. Windows x64 loopback/managed execution establishes only the named behavior, within the recorded verification scope, browser, NativeAOT, trimming or every supported platform.
 
 The installed-package Reqnroll `MvcMigration` scenario retrieves all three migrations using real stdio list/get from an isolated feed/cache and unrelated working directory, compares the full expanded canonical body and applicability, checks target-11 selection and rejects target-10 detail. Invalid proxy settings exercise proxy-independent retrieval; this is not OS-level network isolation.
 
 - [Official ASP.NET Core 11 migration and removed APIs](https://learn.microsoft.com/en-us/aspnet/core/breaking-changes/11/modelmetadataidentity-forproperty-removed)
-- [Pinned official migration source used for RC2 preparation](https://github.com/dotnet/AspNetCore.Docs/blob/ecf7aca5136aea60aa8db7330f66ac799d3edcf7/aspnetcore/breaking-changes/11/modelmetadataidentity-forproperty-removed.md)
+- [Pinned official migration source used for GA preparation](https://github.com/dotnet/AspNetCore.Docs/blob/ecf7aca5136aea60aa8db7330f66ac799d3edcf7/aspnetcore/breaking-changes/11/modelmetadataidentity-forproperty-removed.md)
 - [Pinned framework metadata provider and reflected property identity](https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Mvc/Mvc.Core/src/ModelBinding/Metadata/DefaultModelMetadataProvider.cs)

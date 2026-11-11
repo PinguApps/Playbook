@@ -15,9 +15,9 @@ internal static class ArtifactIdentity
         const string framework = "10.0.14";
         const string uiHash = "fbd7bbc2665767a342fdec21e1c13edb89f5e33b342a37c5b18487cf7613ba00";
 #else
-        const string sdk = "11.0.100-rc.3.26522.148";
-        const string framework = "11.0.0-rc.3.26522.148";
-        const string uiHash = "5dc1a5919cf11e62214f32537c7ea8fa4a56623e2d0ebaa51a00d21d24203249";
+        const string sdk = "11.0.100";
+        const string framework = "11.0.0";
+        const string uiHash = "849a6e78f2179019b235b1c052453f7802fe9ed8ad8e5dc9c2e3b93c7dc64829";
 #endif
         var identity = typeof(SignInManager<IdentityUser>).Assembly;
         var installation = Directory.GetParent(Path.GetDirectoryName(identity.Location)!)!.Parent!.Parent!.FullName;

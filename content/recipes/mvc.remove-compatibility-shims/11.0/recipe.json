@@ -42,7 +42,7 @@
             "name": ".NET / ASP.NET Core",
             "version": "11.0",
             "match": "release-family",
-            "reason": "An ASP.NET Core 11 migration; the recorded execution baseline is RC2, not GA."
+            "reason": "An ASP.NET Core 11 migration; the recorded execution baseline is GA."
           },
           "sdk": {
             "name": ".NET SDK",
@@ -83,7 +83,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Stable framework migration; .NET 11 compilation and execution evidence uses 11.0.100-rc.3.26522.148. GA reconciliation remains separate."
+            "Stable framework migration; .NET 11 compilation and execution evidence uses 11.0.100. GA reconciliation remains separate."
           ]
         },
         "sourceUrls": [
@@ -118,7 +118,7 @@
     {
       "sample": "samples/net11.0/QuayArchive/QuayArchive.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "kind": "compile-and-run",
       "scope": "Real Kestrel startup and GET /archive/crates/27 return the same representative MVC response on both baselines. Matching-SDK compilation and real execution; no mocks or cross-compilation. Windows x64 evidence does not establish GA or a platform matrix."

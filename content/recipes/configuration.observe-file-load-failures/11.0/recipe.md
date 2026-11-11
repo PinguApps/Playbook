@@ -39,7 +39,7 @@ OS write. Explicit `Load()` always uses the initial-style path, even after a
 successful load. The JSON parser retains its prior dictionary on that parse failure;
 other parsers can modify data before throwing.
 
-| Operation | Data after ignored failure | .NET 10 notify | RC2 notify |
+| Operation | Data after ignored failure | .NET 10 notify | GA notify |
 | --- | --- | --- | --- |
 | Successful initial load or reload | New parsed values | Yes | Yes |
 | Initial malformed JSON | Empty | Yes | No |
@@ -52,9 +52,9 @@ other parsers can modify data before throwing.
 | Recreate with valid JSON | New values | Yes | Yes |
 
 With `Ignore=false`, explicit parse/missing errors throw before notification.
-RC2 open failures also throw when unignored and preserve existing data without
+GA open failures also throw when unignored and preserve existing data without
 notification. An unignored malformed automatic reload clears data but does not
-notify; the RC2 provider contains the escaped failure. The separately reaped
+notify; the GA provider contains the escaped failure. The separately reaped
 children on both releases report the callback and remain alive after this physical
 reload. The old implementation does not provide the new provider-level catch;
 its observed physical notification path must not be generalized to every custom provider.
@@ -63,7 +63,7 @@ its observed physical notification path must not be generalized to every custom 
 
 1. Keep the same required/optional file policy. Reference
    `Microsoft.Extensions.Configuration.Json`; the checked current version is
-   `11.0.0-rc.2.26504.105`, with net11 assets. The old comparison locks 10.0.13.
+   `11.0.0`, with net11 assets. The old comparison locks 10.0.13.
 2. Create the physical file provider and the JSON provider with a reporting callback.
    Call `Load`, check required values and apply an explicit invalid-settings policy.
 3. Replace unconditional exception casts with type inspection or full exception
@@ -80,7 +80,7 @@ its observed physical notification path must not be generalized to every custom 
 ## Constraints
 
 Measured on Windows x64 NTFS with actual JSON files, SDK10.0.403/C#14/runtime10.0.14
-and SDK11.0.100-rc.3.26522.148/C#15/runtime11RC3. The full packages/selected assets
+and SDK11.0.100/C#15/runtime11RC3. The full packages/selected assets
 and compiler/reference/runtime hashes are recorded. FileExtensions and Json are
 not made available merely because some Extensions abstractions joined net11's
 shared framework. No newer-package/older-target route is taught.
@@ -95,6 +95,8 @@ There is no required workload, rendering mode or experimental opt-in.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 `eng/Record-FileChain.ps1 -VerifySources` captures paired real initial/explicit/
 automatic operations, exception types, Ignore, dictionary state and pre-operation
 tokens. Real Windows `FileShare.None` proves IO failure and recovery. The custom
@@ -105,6 +107,6 @@ Providers/registrations are disposed and temporary files removed. Exact dependen
 closures, commands, inputs and artifacts remain in the saved sample records.
 
 The ordinary packed/local-feed-installed tool must return this complete canonical
-body offline through real stdio list/get. RC2 is preparation evidence; PIN-959,
+body offline through real stdio list/get. GA is preparation evidence; PIN-959,
 PIN-962 and existing Human gates remain open, and the exact eight foundations
 are unchanged. Official references and applicability accompany this body offline.

@@ -4,7 +4,7 @@
 
 Keep encoded slashes inside identifiers when direct and proxy-style request targets reach Kestrel, and remove path compensation only after real wire-level comparison.
 
-Exact reproduction uses SDK10.0.403 / framework10.0.14 / C#14 versus SDK11.0.100-rc.3.26522.148 / framework11.0.0-rc.3.26522.148 / C#15. These are tested pins, not minimum supported versions. RC2 is not actual-GA proof. The exact eight approved .NET10 foundations, stable identities, PIN-959/PIN-963/PIN-964 and unrelated Human gates remain unchanged.
+Exact reproduction uses SDK10.0.403 / framework10.0.14 / C#14 versus SDK11.0.100 / framework11.0.0 / C#15. These are tested pins, not minimum supported versions. GA is limited to the recorded checks. The exact eight approved .NET10 foundations, stable identities, PIN-959/PIN-963/PIN-964 and unrelated Human gates remain unchanged.
 
 ## Older approach — .NET 10
 
@@ -42,7 +42,7 @@ This is a historical workaround, not a general proxy parser or an authorization 
 
 ## Newer approach — .NET 11
 
-The RC2 Kestrel parser preserves encoded slash segments in both request-target forms. The same original fixture compiles for .NET11; its NET10-only preserve branch is absent. Leave Request.Path intact in the recommended raw/preserve hosts. The decode negative control still changes the selected handler, so a parser upgrade cannot make arbitrary application decoding safe.
+The GA Kestrel parser preserves encoded slash segments in both request-target forms. The same original fixture compiles for .NET11; its NET10-only preserve branch is absent. Leave Request.Path intact in the recommended raw/preserve hosts. The decode negative control still changes the selected handler, so a parser upgrade cannot make arbitrary application decoding safe.
 
 Build/run these complete files in a separate directory using the pinned .NET11 SDK. Each run starts an ephemeral real server, writes paired structured results and exits. RawTarget, parser Path, middleware Path, selected endpoint, handler and route values are independent observations. The TCP request writer sends exact ASCII bytes and closes each connection, avoiding high-level URI normalization.
 
@@ -87,7 +87,7 @@ Build/run these complete files in a separate directory using the pinned .NET11 S
 
 RawTarget is the received request target, Path is the parsed server value, route values come from matching that Path, and middleware can change it before matching. Never assume those four representations are interchangeable.
 
-The serviced .NET10.0.13 baseline actually splits an absolute-form %2F while its origin-form counterpart retains it. RC2 retains %2F/%2f on both forms. Ordinary slash and double-encoding already overlap; later serviced baselines must be measured rather than inferred from release-family labels.
+The serviced .NET10.0.13 baseline actually splits an absolute-form %2F while its origin-form counterpart retains it. GA retains %2F/%2f on both forms. Ordinary slash and double-encoding already overlap; later serviced baselines must be measured rather than inferred from release-family labels.
 
 The older preserve middleware is intentionally limited to this exact ASCII bird-id shape and HTTP absolute targets. It is not a general reverse-proxy parser. Prefer rejecting unsupported targets at the boundary or upgrading; never generalize it to Unicode, query strings, other schemes or arbitrary rewrites.
 
@@ -100,6 +100,8 @@ No IIS, HTTP.sys, proxy, WAF, TLS, HTTP2/3, other OS or authorization-bypass pro
 The complete files, configuration, lock, native-tool acquisition conditions and migration steps above are included offline. Restore/download preparation can need network access; installed recipe retrieval does not execute the samples or acquire missing prerequisites. There is no new recurring platform/browser matrix or public publication.
 
 ## Evidence
+
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Actual raw TCP/Kestrel consumers execute nine paired targets in each of raw/preserve/decode modes per runtime, plus malformed request-line controls. They record RawTarget/Path/middleware/endpoint/handler/route values. Old encoded absolute targets split; the bounded older restoration works; current pairs retain the encoded segment without it. Ordinary slash, bad/incomplete escapes, double encoding and CRLF show the measured overlap. Encoded NUL is400 origin-form on both,200 absolute-form on10 and400 absolute-form on11; accepted CRLF is not asserted safe. Literal-space request lines return400. No mock context or proxy proof is substituted.
 

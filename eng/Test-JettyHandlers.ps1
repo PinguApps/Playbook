@@ -13,9 +13,9 @@ try {
         $text = [Text.Encoding]::UTF8.GetString($bytes)
         foreach ($token in $source.tokens) { if (-not $text.Contains($token)) { throw "Missing official contract: $token" } }
     }
-    $packageUrl = 'https://api.nuget.org/v3-flatcontainer/microsoft.maui.controls.core/11.0.0-rc.2.26505.5/microsoft.maui.controls.core.11.0.0-rc.2.26505.5.nupkg'
+    $packageUrl = 'https://api.nuget.org/v3-flatcontainer/microsoft.maui.controls.core/11.0.0/microsoft.maui.controls.core.11.0.0.nupkg'
     $package = $client.GetByteArrayAsync($packageUrl).GetAwaiter().GetResult()
-    if ([Convert]::ToHexString([Security.Cryptography.SHA256]::HashData($package)).ToLowerInvariant() -cne '92787cfc8a46b941b88adefc9966624ec2f183f73bf08c25102b04fff1833fcc') { throw 'Controls.Core RC2 artifact changed.' }
+    if ([Convert]::ToHexString([Security.Cryptography.SHA256]::HashData($package)).ToLowerInvariant() -cne '008a74d7853247f3f807fce9b9836c3ae18a7392a0f5059e81425833cab90a98') { throw 'Controls.Core 11.0.0 GA artifact changed.' }
     $zip = [IO.Compression.ZipArchive]::new([IO.MemoryStream]::new($package))
     try {
         foreach ($asset in 'net11.0-ios27.0','net11.0-windows10.0.20348') {

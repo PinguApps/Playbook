@@ -54,7 +54,7 @@ These complete helper files make the sample self-contained. PauseJournal.cs opti
 
 Call Circuit.RequestCircuitPauseAsync on captured live circuits. It returns Task<bool>; await it directly without AsTask. true means the framework accepted and asked the client to start pausing. The client can defer, and state capture/closure happen later.
 
-The inspected APIs have no experimental diagnostic. Their matching RC2 package/runtime assets are prerelease evidence; GA reconciliation remains outstanding.
+The inspected APIs have no experimental diagnostic. Their matching GA package/runtime assets are artifact-specific evidence; GA checks are limited to the recorded scope.
 
 {{snippet:project-11}}
 
@@ -109,10 +109,12 @@ For server-directed pause, cancellation of request is not guaranteed completed s
 
 ## Evidence
 
-Both original TideCharts projects compile with zero warnings/errors under SDK 10.0.403/C# 14 and SDK 11.0.100-rc.3.26522.148/C# 15. Saved compilation records contain exact inputs, dependencies and commands. Compilation is separate from browser/server execution.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
-Actual Chrome extension tests switch native tabs with focus emulation disabled. No document.hidden/visibilityState override or synthetic visibility event is used. RC2 idle execution observes down/closed, old-resource disposal, automatic return into a new circuit/resource and the original readings/sheet. A brief return before the delay prevents pause. A real held JS call keeps the resource alive beyond the delay; release allows pause. Enabled=false preserves a hidden circuit.
+Both original TideCharts projects compile with zero warnings/errors under SDK 10.0.403/C# 14 and SDK 11.0.100/C# 15. Saved compilation records contain exact inputs, dependencies and commands. Compilation is separate from browser/server execution.
 
-Actual StoppingAsync execution records pre-canceled false requests, accepted true requests, subsequent down/closed/disposal, completed drain and host exit. Two RC2 sessions retain independent one/two-reading drafts across process restart into new circuit/resource identities. The .NET 10 manual timer/bridge also executes real pause/resume and restart recovery; it is not an older-target route for newer APIs.
+Actual Chrome extension tests switch native tabs with focus emulation disabled. No document.hidden/visibilityState override or synthetic visibility event is used. GA idle execution observes down/closed, old-resource disposal, automatic return into a new circuit/resource and the original readings/sheet. A brief return before the delay prevents pause. A real held JS call keeps the resource alive beyond the delay; release allows pause. Enabled=false preserves a hidden circuit.
 
-[PIN-787 proof](https://github.com/PinguApps/Playbook/blob/main/docs/verification/circuit-persistence.md) records exact input/artifact hashes, native browser snapshots, lifecycle events, the negative ordering trace and packed offline MCP retrieval. See [official persistence guidance](https://learn.microsoft.com/en-us/aspnet/core/blazor/state-management/server?view=aspnetcore-11.0) and [pinned RC2 API source](https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Server/src/Circuits/Circuit.cs). No mock, cross-compilation or DOM-only observation replaces execution. GA, mobile, distributed storage and unrelated OS/client/native matrices are not verified.
+Actual StoppingAsync execution records pre-canceled false requests, accepted true requests, subsequent down/closed/disposal, completed drain and host exit. Two GA sessions retain independent one/two-reading drafts across process restart into new circuit/resource identities. The .NET 10 manual timer/bridge also executes real pause/resume and restart recovery; it is not an older-target route for newer APIs.
+
+[PIN-787 proof](https://github.com/PinguApps/Playbook/blob/main/docs/verification/circuit-persistence.md) records exact input/artifact hashes, native browser snapshots, lifecycle events, the negative ordering trace and packed offline MCP retrieval. See [official persistence guidance](https://learn.microsoft.com/en-us/aspnet/core/blazor/state-management/server?view=aspnetcore-11.0) and [pinned RC2 API source](https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Server/src/Circuits/Circuit.cs). No mock, cross-compilation or DOM-only observation replaces execution. Mobile, distributed storage and unrelated OS/client/native matrices are not verified.

@@ -60,10 +60,12 @@ Model files import System.ComponentModel, System.ComponentModel.DataAnnotations 
 
 This JavaScript path belongs to static SSR. Interactive forms use their .NET EditContext. Only supported built-in attributes have automatic client rules; custom attributes and nonnumeric Range constraints need separate browser implementations or remain server-only. Later streaming updates which insert fields into an existing form have an additional documented limitation.
 
-The measured RC2 sample emits only Model.Lead in client rules. Actual server posts reject its nested contact and collection entries; immediate nested client feedback is not established. Inspect emitted rules on the consumer's actual artifacts. Never remove server validation to make a bypass succeed.
+The measured GA sample emits only Model.Lead in client rules. Actual server posts reject its nested contact and collection entries; immediate nested client feedback is not established. Inspect emitted rules on the consumer's actual artifacts. Never remove server validation to make a bypass succeed.
 
-The exact baselines are SDK 10.0.403 / ASP.NET Core 10.0.14 and SDK 11.0.100-rc.3.26522.148 / ASP.NET Core 11.0.0-rc.3.26522.148, Windows x64 and Chromium 152. RC proof is not GA verification, screen-reader operation, trimming/AOT proof or a platform/browser matrix. No conditional newer-package/older-runtime route or extra .NET 10 foundation edition is advertised.
+The exact baselines are SDK 10.0.403 / ASP.NET Core 10.0.14 and SDK 11.0.100 / ASP.NET Core 11.0.0, Windows x64 and Chromium 152. The checks do not establish screen-reader operation, trimming/AOT proof or a platform/browser matrix. No conditional newer-package/older-runtime route or extra .NET 10 foundation edition is advertised.
 
 ## Evidence
+
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Both apps compile. The real browser blocks invalid submissions without increasing the server post count, accepts valid enhanced/plain posts and preserves a window sentinel only for enhanced posting. A formnovalidate bypass still produces server errors for a nested address and second diver. Actual HTTP tests additionally check per-form/global opt-outs. Compilation records and browser/HTTP reports are separate; none is a mocked consumer.

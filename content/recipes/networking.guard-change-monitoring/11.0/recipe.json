@@ -10,7 +10,7 @@
         "requirements": {
           "sdk": {
             "match": "release-family",
-            "reason": "Build against .NET 11 references; exact RC2 pin records tested artifacts.",
+            "reason": "Build against .NET 11 references; exact GA pin records tested artifacts.",
             "name": ".NET SDK",
             "version": "11.0"
           },
@@ -37,7 +37,7 @@
           ],
           "providers": [],
           "stabilityLimitations": [
-            "Actual RC2 verification, not final-GA proof; PIN-962 and PIN-959 remain open."
+            "Actual GA verification, within the recorded verification scope; PIN-962 and PIN-959 remain open."
           ],
           "optIns": [],
           "renderingModes": [],
@@ -49,7 +49,7 @@
           },
           "constraints": [
             "Address events are invalidation hints, not service reachability. A supported platform can still fail to subscribe for environmental reasons.",
-            "Exclude browser/WASI before reading the RC2 NetworkChange.IsSupported getter; dispose the subscription with its owner. Unsubscription does not drain already queued callbacks."
+            "Exclude browser/WASI before reading the GA NetworkChange.IsSupported getter; dispose the subscription with its owner. Unsubscription does not drain already queued callbacks."
           ]
         },
         "sharedAreas": [
@@ -80,7 +80,7 @@
         "requirements": {
           "sdk": {
             "match": "release-family",
-            "reason": "Build against .NET 11 references; exact RC2 pin records tested artifacts.",
+            "reason": "Build against .NET 11 references; exact GA pin records tested artifacts.",
             "name": ".NET SDK",
             "version": "11.0"
           },
@@ -96,7 +96,7 @@
           "packages": [
             {
               "match": "release-family",
-              "reason": "Browser proof host only; exact locked RC2 dependencies accompany the sample.",
+              "reason": "Browser proof host only; exact locked GA dependencies accompany the sample.",
               "name": "Microsoft.AspNetCore.Components.WebAssembly",
               "version": "11.0"
             }
@@ -114,7 +114,7 @@
           ],
           "providers": [],
           "stabilityLimitations": [
-            "Actual RC2 verification, not final-GA proof; PIN-962 and PIN-959 remain open."
+            "Actual GA verification, within the recorded verification scope; PIN-962 and PIN-959 remain open."
           ],
           "optIns": [],
           "renderingModes": [
@@ -122,13 +122,13 @@
           ],
           "runtime": {
             "match": "release-family",
-            "reason": "Matching interpreted Mono browser runtime assets; the explicit platform guard selects manual refresh before accessing the unsupported RC2 network getter.",
+            "reason": "Matching interpreted Mono browser runtime assets; the explicit platform guard selects manual refresh before accessing the unsupported GA network getter.",
             "name": ".NET",
             "version": "11.0"
           },
           "constraints": [
             "Address events are invalidation hints, not service reachability. A supported platform can still fail to subscribe for environmental reasons.",
-            "Exclude browser/WASI before reading the RC2 NetworkChange.IsSupported getter; dispose the subscription with its owner. Unsubscription does not drain already queued callbacks."
+            "Exclude browser/WASI before reading the GA NetworkChange.IsSupported getter; dispose the subscription with its owner. Unsubscription does not drain already queued callbacks."
           ]
         },
         "sharedAreas": [
@@ -146,7 +146,7 @@
           "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.NetworkInformation/src/System.Net.NetworkInformation.csproj"
         ],
         "selectionNotes": [
-          "Use manual refresh on Mono browser; exclude browser before accessing the unsupported RC2 network capability getter."
+          "Use manual refresh on Mono browser; exclude browser before accessing the unsupported GA network capability getter."
         ],
         "evidenceSamples": [
           "samples/net11.0/ReedStationBrowser/ReedStationBrowser.csproj"
@@ -253,7 +253,7 @@
     {
       "target": "net11.0",
       "kind": "compile-and-run",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "sample": "samples/net11.0/ReedStation/ReedStation.csproj",
       "scope": "Actual pinned Windows compilation and network subscription/disposal; real Linux events and browser fallback execute in the separate behavior receipt.",
       "language": "15.0"
@@ -262,7 +262,7 @@
       "kind": "execution",
       "target": "net11.0",
       "scope": "Real paired Linux address-change event and unsubscription, plus Mono Chromium manual-refresh fallback. No reachability, queued-callback-draining, other-platform or GA claim.",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "sample": "samples/net11.0/ReedStation/ReedStation.csproj",
       "record": "samples/net11.0/ReedStation/behavior.evidence.json",
       "language": "15.0"
@@ -270,7 +270,7 @@
     {
       "target": "net11.0",
       "kind": "compile",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "sample": "samples/net11.0/ReedStationBrowser/ReedStationBrowser.csproj",
       "scope": "Actual pinned Mono browser compilation; guarded manual-refresh fallback executes in the separate behavior receipt.",
       "language": "15.0"
@@ -279,7 +279,7 @@
       "kind": "execution",
       "target": "net11.0",
       "scope": "Real paired Linux address-change event and unsubscription, plus Mono Chromium manual-refresh fallback. No reachability, queued-callback-draining, other-platform or GA claim.",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "sample": "samples/net11.0/ReedStationBrowser/ReedStationBrowser.csproj",
       "record": "samples/net11.0/ReedStationBrowser/behavior.evidence.json",
       "language": "15.0"

@@ -33,7 +33,7 @@
           "https://learn.microsoft.com/en-us/ef/core/cli/msbuild"
         ],
         "selectionNotes": [
-          "Experimental MSBuild integration; documented stage properties. RC2/RC3 clean build generation failed; generated-artifact and NativeAOT proof pending.",
+          "Experimental MSBuild integration; documented stage properties. GA clean build generation failed; generated-artifact and NativeAOT proof pending.",
           "Provisional pre-GA guidance: pending behavior/final-artifact proof is not successful execution or GA verification."
         ],
         "usage": "primary",
@@ -64,19 +64,19 @@
             {
               "version": "11.0",
               "name": "Microsoft.EntityFrameworkCore.Sqlite",
-              "reason": "Exact matching RC2 packages pinned in canonical project; Design explicitly referenced.",
+              "reason": "Exact matching GA packages pinned in canonical project; Design explicitly referenced.",
               "match": "release-family"
             },
             {
               "version": "11.0",
               "name": "Microsoft.EntityFrameworkCore.Design",
-              "reason": "Exact matching RC2 packages pinned in canonical project; Design explicitly referenced.",
+              "reason": "Exact matching GA packages pinned in canonical project; Design explicitly referenced.",
               "match": "release-family"
             },
             {
               "version": "11.0",
               "name": "Microsoft.EntityFrameworkCore.Tasks",
-              "reason": "Exact matching RC2 packages pinned in canonical project; Design explicitly referenced.",
+              "reason": "Exact matching GA packages pinned in canonical project; Design explicitly referenced.",
               "match": "release-family"
             }
           ],
@@ -99,7 +99,7 @@
             "RC generation failed; user authorized documentation-based delivery on 4 November 2026."
           ],
           "prerequisites": [
-            "Pinned SDK11 RC3/EF11 RC2; historical SDK10.0.403/EF10.0.13.",
+            "Pinned SDK11 GA/EF11 GA; historical SDK10.0.403/EF10.0.13.",
             "win-x64 RID for intended publication; NativeAOT additionally needs a platform compiler."
           ],
           "optIns": [
@@ -148,7 +148,7 @@
     {
       "language": "15.0",
       "kind": "compile",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "scope": "Ordinary source compilation with both generation stages explicitly disabled. No generated-artifact, build/publish generation, runtime or NativeAOT success claimed.",
       "sample": "samples/net11.0/FernGeneration/FernGeneration.csproj",
       "target": "net11.0"

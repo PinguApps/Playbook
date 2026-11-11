@@ -44,13 +44,13 @@ The host fixes this desk's request policy to en-GB formatting and fr-FR translat
 
 ## Newer approach
 
-.NET 11 transfers both server cultures through built-in persistent state. AddLocalization makes the pinned RC2 default enable transfer. An explicit Components:UseCultureFromServer value of true or 1 enables it without relying on that default; false or 0 disables it even when localization is registered. Missing or unrecognized values fall back to IStringLocalizerFactory availability, so use recognized values for an intentional policy.
+.NET 11 transfers both server cultures through built-in persistent state. AddLocalization makes the pinned GA default enable transfer. An explicit Components:UseCultureFromServer value of true or 1 enables it without relying on that default; false or 0 disables it even when localization is registered. Missing or unrecognized values fall back to IStringLocalizerFactory availability, so use recognized values for an intentional policy.
 
 Use the parameterless AddInteractiveWebAssemblyComponents registration shown below. The cumulative release notes' former public WebAssemblyComponentsOptions.UseCultureFromServer callback was removed during Preview 7. Do not recreate that obsolete API or configure the internal options class. These original samples follow the actual pinned artifact/source route.
 
-Create a separate CultureHarbour directory for .NET 11 with the same Host/Client structure. Use SDK 11.0.100-rc.3.26522.148, matching ASP.NET/browser assets 11.0.0-rc.3.26522.148 and C# 15. Both Host/global.json and Client/global.json contain exactly this JSON: {"sdk":{"version":"11.0.100-rc.3.26522.148","rollForward":"disable","allowPrerelease":true}}.
+Create a separate CultureHarbour directory for .NET 11 with the same Host/Client structure. Use SDK 11.0.100, matching ASP.NET/browser assets 11.0.0 and C# 15. Both Host/global.json and Client/global.json contain exactly this JSON: {"sdk":{"version":"11.0.100","rollForward":"disable","allowPrerelease":false}}.
 
-The client Localization implementation is deliberately pinned to 10.0.14 in both comparisons. Its .NET 11 resolved abstractions/dependencies follow the WebAssembly RC2 graph; the committed locks and compilation records state that exact closure. No native workload, provider, credential or account is required. These APIs carry no reviewed Experimental diagnostic; prerelease RC3 execution does not establish GA behavior.
+The client Localization implementation is deliberately pinned to 10.0.14 in both comparisons. Its .NET 11 resolved abstractions/dependencies follow the WebAssembly GA graph; the committed locks and compilation records state that exact closure. No native workload, provider, credential or account is required. These APIs carry no reviewed Experimental diagnostic; GA execution is limited to the recorded configuration.
 
 ### .NET 11: Host/Host.csproj
 
@@ -128,7 +128,7 @@ Both initial HTTP documents contain en-GB, fr-FR, 19/07/2032, 12,345.67 and Gard
 
 Stop your host and run the same command with --IndependentClient=true appended. On .NET 11 the host sets Components:UseCultureFromServer=false; client Program genuinely chooses de-DE for both cultures before RunAsync. On .NET 10 the manual handoff instead chooses de-DE. Initial server HTML remains the same. Hydration intentionally changes it to de-DE, de-DE, 19.07.2032, 12.345,67 and Die blaue Kiste aufrecht halten. The German satellite must load before rendering, and Confirm manifest still works. Disabling transfer alone does not choose a different client policy; the explicit selection is essential.
 
-The server's RC2 emitted Blazor-Configuration comment was decoded in both modes. It contains environmentName and environmentVariables, with no applicationCulture member in these samples. The initial en-US comes from the shown webAssembly startup setting; the aligned en-GB/fr-FR comes from persisted state, not an inferred endpoint ApplicationCulture default.
+The server's GA emitted Blazor-Configuration comment was decoded in both modes. It contains environmentName and environmentVariables, with no applicationCulture member in these samples. The initial en-US comes from the shown webAssembly startup setting; the aligned en-GB/fr-FR comes from persisted state, not an inferred endpoint ApplicationCulture default.
 
 ## Migration
 
@@ -146,6 +146,8 @@ Culture transfer does not synchronize resource files, translate arbitrary text, 
 Satellite selection happens before the first interactive render. Late OnAfterRender changes or state restored after resource selection cannot establish correct initial translations. Additional lazy resources, production trimming/AOT, later language switches, deployment/CDN cache policy and a different browser require their own validation. No remote deployment, publication, provider or account is part of this example.
 
 ## Evidence
+
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 The two original Host and Client pairs compile with their declared SDKs and actual locked dependencies. Those records are compilation only. Separate actual Chrome 155 WASM runs verify all four edition/policy combinations: real HTTP SSR, different en-US startup, matching server cultures or explicit de-DE opt-out, localized resource text, date/number, actual French/German satellite response before first render, native WASM assets and a working confirmation handler.
 

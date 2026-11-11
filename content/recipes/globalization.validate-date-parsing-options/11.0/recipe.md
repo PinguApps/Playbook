@@ -20,7 +20,7 @@ Explicit application validation is a valid .NET 10 approach. The complete reader
 
 Create a reader once when loading the import configuration as shown, then reuse it in the row loop. Reject a constructor `ArgumentException` as a configuration failure before opening that loop. After successful construction, call `TryRead` for each row; `false` means at least one field is invalid. Ignore both output values when the result is false. No exception is used to classify a bad customer date.
 
-With .NET 11 RC2, invalid style arguments throw `ArgumentException` for the tested non-null string and span entry points. A null multiple-formats array throws `ArgumentException`, but null/empty entries throw **FormatException**, including when an earlier format could match. This differs from the compatibility note's broad ArgumentException wording. The reader's explicit contract gives the same deliberate configuration failure on both runtimes.
+With .NET 11 GA, invalid style arguments throw `ArgumentException` for the tested non-null string and span entry points. A null multiple-formats array throws `ArgumentException`, but null/empty entries throw **FormatException**, including when an earlier format could match. This differs from the compatibility note's broad ArgumentException wording. The reader's explicit contract gives the same deliberate configuration failure on both runtimes.
 
 Do not use a successful trial parse as an arbitrary-format validator. On both artifacts, `Q` as a single exact format throws `FormatException`, a custom format ending in a backslash returns `false`, and `Q` after an already matching format is not examined. Null string input can return `false` before invalid styles are checked. These observations are not a guarantee that every unsupported format follows one path. If arbitrary externally supplied formats are required, handle both `ArgumentException` and `FormatException` explicitly at that configuration boundary, without blanket-catching all row failures or inventing a complete format validator.
 
@@ -30,7 +30,7 @@ Do not use a successful trial parse as an arbitrary-format validator. On both ar
 2. Validate that contract when configuration loads. This example rejects empty lists, unknown formats and non-whitespace style bits, then owns copies of the accepted arrays.
 3. Keep the invariant provider and the same format/style policy in the row parser. Use `TryRead` string or span entry points; route a false result to the rejected-row workflow.
 4. Test valid rows, impossible dates/times, missing fields and configuration mistakes separately. Include single/multiple formats and string/span calls in upgrade checks; do not assume a method beginning with Try never throws for bad options.
-5. Recheck the actual deployed runtime. Preserve the documented RC2 format-exception discrepancy until final artifacts demonstrate otherwise.
+5. Recheck the actual deployed runtime. Preserve the documented GA format-exception discrepancy until final artifacts demonstrate otherwise.
 
 ## Constraints
 
@@ -40,9 +40,11 @@ Whitespace styles are the supported style family here, not timezone interpretati
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 `samples/net10.0/BookingImport/BookingReader.cs` is the canonical complete implementation. `BookingChecks.cs` executes both actual frameworks' raw APIs and the same configured importer, checking valid values, alternate formats, whitespace, malformed and missing fields, configuration rejection and array ownership. The fresh saved records include exact commands, input hashes, empty package closures, compiler/reference hashes and actual runtime assembly hashes. Both executions use the invariant provider on Windows x64 with ordinary globalization enabled; current UI culture is recorded separately. No mock, cross-compilation, native, provider or browser result substitutes for those executions.
 
-Verification pins are SDK 10.0.403 / runtime and references 10.0.14, and SDK 11.0.100-rc.3.26522.148 / runtime and references 11.0.0-rc.3.26522.148. These reproduce the observation; they are not universal installation requirements. The selected APIs carry no experimental opt-in. RC2 proof is not actual-GA proof; comprehensive coverage, final artifact reconciliation and existing Human gates remain open.
+Verification pins are SDK 10.0.403 / runtime and references 10.0.14, and SDK 11.0.100 / runtime and references 11.0.0. These reproduce the observation; they are not universal installation requirements. The selected APIs carry no experimental opt-in. GA verification is limited to the recorded checks proof; comprehensive coverage, final artifact reconciliation and existing Human gates remain open.
 
 - [Pinned Microsoft compatibility note](https://github.com/dotnet/docs/blob/a109e77898150ddb66e3000ce315d23fcc2700e9/docs/core/compatibility/core-libraries/11/dateonly-timeonly-tryparse-argumentexception.md).
 - [Pinned DateOnly implementation](https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/DateOnly.cs) and [TimeOnly implementation](https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/TimeOnly.cs), qualified by the measured binary results above.

@@ -35,20 +35,20 @@
         "neutralLanguages": [],
         "selectionNotes": [
           "Generate mcpserver with its remote HTTP transport, replace the demonstration with an original tool, and verify initialize, discovery and calls through an MCP client.",
-          "SDK-bundled mcpserver: no dotnet new install is needed on either measured SDK 10.0.403 or 11.0.100-rc.3.26522.148. This corrects the historical release-note implication of .NET 11 exclusivity; earliest servicing introduction was not established."
+          "SDK-bundled mcpserver: no dotnet new install is needed on either measured SDK 10.0.403 or 11.0.100. This corrects the historical release-note implication of .NET 11 exclusivity; earliest servicing introduction was not established."
         ],
         "requirements": {
           "runtime": {
             "name": ".NET",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Canonical net11.0 managed server; actual authoring evidence is RC2."
+            "reason": "Canonical net11.0 managed server; actual authoring evidence is GA."
           },
           "sdk": {
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Actual pin 11.0.100-rc.3.26522.148; SDK CLI/template behavior is verified independently of target selection."
+            "reason": "Actual pin 11.0.100; SDK CLI/template behavior is verified independently of target selection."
           },
           "language": {
             "name": "C#",
@@ -85,15 +85,15 @@
             "PowerShell 7 for the repository verification helper; exact .NET 10/11 SDK pins are included in canonical files."
           ],
           "constraints": [
-            "SDK-bundled mcpserver: no dotnet new install is needed on either measured SDK 10.0.403 or 11.0.100-rc.3.26522.148. This corrects the historical release-note implication of .NET 11 exclusivity; earliest servicing introduction was not established.",
+            "SDK-bundled mcpserver: no dotnet new install is needed on either measured SDK 10.0.403 or 11.0.100. This corrects the historical release-note implication of .NET 11 exclusivity; earliest servicing introduction was not established.",
             "Choose --transport remote explicitly: the template defaults to local stdio. The measured route uses stateless Streamable HTTP, framework-dependent managed execution and ModelContextProtocol.AspNetCore 2.1.0. Neither AOT nor self-contained publication is claimed.",
             "The SDK template emits an explicit package version. The canonical repository sample uses an isolated central version file and a versionless reference to keep the same dependency. Review generated references when moving it under another CPM boundary.",
             "Loopback demonstration only; the sample has no authentication, authorization or internet exposure. Production hosting security and resource access require separate design. No package publication, account or remote service provisioning is required.",
-            "This is an example agent-facing application, separate from Playbook's installed stdio documentation host. Template availability, MCP library maturity and .NET RC verification are separate facts."
+            "This is an example agent-facing application, separate from Playbook's installed stdio documentation host. Template availability, MCP library maturity and .NET GA SDK verification are separate facts."
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "The .NET 11 baseline is RC2, not GA verification. Final release artifacts must be reconciled separately."
+            "The .NET 11 baseline is GA verification. Final release artifacts must be reconciled separately."
           ]
         },
         "sourceUrls": [
@@ -139,7 +139,7 @@
       "kind": "compile",
       "sample": "samples/net11.0/BerthTools/BerthTools.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "scope": "Actual canonical sample compilation only. eng/Test-WebTooling.ps1 separately executes SDK-bundled generation and real HTTP MCP initialize/list/call on the generated project. No mocks, AOT or publication."
     }

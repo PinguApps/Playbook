@@ -10,7 +10,7 @@
         "requirements": {
           "sdk": {
             "match": "release-family",
-            "reason": "Build against .NET 11 references; exact RC2 pin records tested artifacts.",
+            "reason": "Build against .NET 11 references; exact GA pin records tested artifacts.",
             "name": ".NET SDK",
             "version": "11.0"
           },
@@ -37,7 +37,7 @@
           ],
           "providers": [],
           "stabilityLimitations": [
-            "Actual RC2 verification, not final-GA proof; PIN-962 and PIN-959 remain open."
+            "Actual GA verification, within the recorded verification scope; PIN-962 and PIN-959 remain open."
           ],
           "optIns": [],
           "renderingModes": [],
@@ -79,7 +79,7 @@
         "requirements": {
           "sdk": {
             "match": "release-family",
-            "reason": "Build against .NET 11 references; exact RC2 pin records tested artifacts.",
+            "reason": "Build against .NET 11 references; exact GA pin records tested artifacts.",
             "name": ".NET SDK",
             "version": "11.0"
           },
@@ -95,7 +95,7 @@
           "packages": [
             {
               "match": "release-family",
-              "reason": "Browser proof host only; exact locked RC2 dependencies accompany the sample.",
+              "reason": "Browser proof host only; exact locked GA dependencies accompany the sample.",
               "name": "Microsoft.AspNetCore.Components.WebAssembly",
               "version": "11.0"
             }
@@ -113,7 +113,7 @@
           ],
           "providers": [],
           "stabilityLimitations": [
-            "Actual RC2 verification, not final-GA proof; PIN-962 and PIN-959 remain open."
+            "Actual GA verification, within the recorded verification scope; PIN-962 and PIN-959 remain open."
           ],
           "optIns": [],
           "renderingModes": [
@@ -243,7 +243,7 @@
     {
       "target": "net11.0",
       "kind": "compile-and-run",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "sample": "samples/net11.0/ReedStation/ReedStation.csproj",
       "scope": "Actual pinned desktop compilation and execution: threading capability, deterministic score48 and caller pre-cancellation.",
       "language": "15.0"
@@ -252,7 +252,7 @@
       "kind": "execution",
       "target": "net11.0",
       "scope": "Real paired Windows/Linux threaded and Mono Chromium sequential execution: identical score48 and pre-cancellation; no scheduling in the false branch. No speedup, worker-count, in-flight browser cancellation, WASI or GA claim.",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "sample": "samples/net11.0/ReedStation/ReedStation.csproj",
       "record": "samples/net11.0/ReedStation/behavior.evidence.json",
       "language": "15.0"
@@ -260,7 +260,7 @@
     {
       "target": "net11.0",
       "kind": "compile",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "sample": "samples/net11.0/ReedStationBrowser/ReedStationBrowser.csproj",
       "scope": "Actual pinned Mono browser compilation; capability selection and sequential result/cancellation execute in the separate behavior receipt.",
       "language": "15.0"
@@ -269,7 +269,7 @@
       "kind": "execution",
       "target": "net11.0",
       "scope": "Real paired Windows/Linux threaded and Mono Chromium sequential execution: identical score48 and pre-cancellation; no scheduling in the false branch. No speedup, worker-count, in-flight browser cancellation, WASI or GA claim.",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "sample": "samples/net11.0/ReedStationBrowser/ReedStationBrowser.csproj",
       "record": "samples/net11.0/ReedStationBrowser/behavior.evidence.json",
       "language": "15.0"

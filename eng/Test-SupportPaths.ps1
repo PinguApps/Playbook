@@ -1,5 +1,9 @@
 [CmdletBinding()]
-param([string]$Image='mcr.microsoft.com/dotnet/sdk@sha256:9c7b6b263d9d4c2e4718e16dae6d75cd8f4b5ccf206f1e7d48a98eb429981b03')
+param(
+ [string]$Image='mcr.microsoft.com/dotnet/sdk@sha256:9c7b6b263d9d4c2e4718e16dae6d75cd8f4b5ccf206f1e7d48a98eb429981b03',
+ [string]$Net10Dotnet=(Get-Command dotnet -CommandType Application|Select-Object -First 1).Source,
+ [string]$Net11Dotnet=$Net10Dotnet
+)
 $ErrorActionPreference='Stop'
 $PSNativeCommandUseErrorActionPreference=$true
 $root=Split-Path $PSScriptRoot -Parent
@@ -9,7 +13,7 @@ $previous=@{}; foreach($key in 'DOTNET_ADD_GLOBAL_TOOLS_TO_PATH','DOTNET_GENERAT
 $docker='C:/Program Files/Docker/Docker/resources/bin/docker.exe'
 $runtimeArchive=Join-Path $root 'artifacts/support-paths/runtime11-rc3.tar.gz'
 $null=New-Item -ItemType Directory (Split-Path $runtimeArchive) -Force
-if(!(Test-Path $runtimeArchive)){Invoke-WebRequest 'https://builds.dotnet.microsoft.com/dotnet/Runtime/11.0.0-rc.3.26522.148/dotnet-runtime-11.0.0-rc.3.26522.148-linux-x64.tar.gz' -OutFile $runtimeArchive}
+if(!(Test-Path $runtimeArchive)){Invoke-WebRequest 'https://builds.dotnet.microsoft.com/dotnet/Runtime/11.0.0/dotnet-runtime-11.0.0-linux-x64.tar.gz' -OutFile $runtimeArchive}
 Write-Output "RUNTIME_ARCHIVE sha256=$((Get-FileHash $runtimeArchive).Hash)"
 $container='playbook-support-'+[guid]::NewGuid().ToString('N')
 $network=$container+'-net'
@@ -23,7 +27,7 @@ try {
  & $docker run --pull never -d --name $container --network ($network+'-base') --mount "type=bind,source=$root,target=/src,readonly" $Image sleep 300
  & $docker exec $container sh -ec 'mkdir /runtime11; tar -xzf /src/artifacts/support-paths/runtime11-rc3.tar.gz -C /runtime11'
  foreach($major in 10,11){
-   $dn=if($major -eq 10){(Get-Command dotnet -CommandType Application | Select-Object -First 1).Source}else{(Get-Command dotnet -CommandType Application | Select-Object -First 1).Source}
+   $dn=if($major -eq 10){$Net10Dotnet}else{$Net11Dotnet}
    Push-Location "$root/samples/net$major.0/ReedStation"
    try{ & $dn build -c Release }finally{Pop-Location}
    $runtime=if($major -eq 10){'/usr/share/dotnet/dotnet'}else{'/runtime11/dotnet'}

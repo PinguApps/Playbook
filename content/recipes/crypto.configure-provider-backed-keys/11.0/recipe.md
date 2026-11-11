@@ -41,7 +41,7 @@ Dispose both. Never log private material or retain test keys in production.
 
 1. Target net11.0 with a .NET 11 SDK/runtime. Samples pin C#15.0, compared with
    net10.0/C#14.0. These are framework APIs with no extra NuGet dependency,
-   workload, rendering mode or experimental opt-in. Actual RC2 pins below are
+   workload, rendering mode or experimental opt-in. Actual GA pins below are
    verification baselines, not minimum-version promises.
 2. Require a supported OpenSSL platform and provider installation. This route
    executes on Linux x64 with OpenSSL3.0.13; Android, browser, iOS, tvOS and
@@ -85,10 +85,12 @@ native provider behavior. No unsafe switch or experimental opt-in is needed.
 
 ## Evidence and limits
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 eng/Test-ProviderRequests.ps1 -Record verifies immutable official sources,
 audit-matching reference hashes and compiler identities, and records existing
 sample-evidence receipts. Paired SDK10.0.403/runtime10.0.14 and
-SDK11.0.100-rc.3.26522.148/runtime11.0.0-rc.3.26522.148 consumers compile on
+SDK11.0.100/runtime11.0.0 consumers compile on
 Windows; the OpenSSL consumers execute in a network-none, pinned Linux container.
 The fixture generates a fresh disposable RSA2048 PEM key, verifies signatures
 and tamper rejection, missing provider/key, independent safe-handle ownership,

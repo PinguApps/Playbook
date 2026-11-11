@@ -85,9 +85,11 @@ and other cultures/globalization configurations have not been executed here.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 The paired original HistoryImport consumers build and run using SDK10.0.403 /
-C#14 / runtime/ref10.0.14 and SDK11.0.100-rc.3.26522.148 / C#15 /
-runtime/ref11.0.0-rc.3.26522.148. They verify all four boundary records, actual
+C#14 / runtime/ref10.0.14 and SDK11.0.100 / C#15 /
+runtime/ref11.0.0. They verify all four boundary records, actual
 calendar operations/rejections, inclusive maximum, an older unsupported date,
 explicit routing and preservation of stored values. A separate real child with
 `DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1` must fail with
@@ -97,5 +99,5 @@ explicit routing and preservation of stored values. A separate real child with
 results, globalization mode, resolved dependencies and compiler/reference/runtime
 hashes in the existing sample records and checks four pinned official-source
 hashes. The ordinary installed artifact is exercised through real stdio list/get
-using the repository's Inspector harness. RC2 execution is not actual-GA proof;
+using the repository's Inspector harness. GA verification is limited to the recorded checks proof;
 PIN-959, PIN-962 and existing Human gates remain open.

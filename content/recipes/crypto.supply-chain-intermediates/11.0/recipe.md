@@ -84,13 +84,15 @@ this recipe keeps all state private instead.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 `eng/Record-FileChain.ps1 -VerifySources` first captures actual paired compilation,
 then executes four new containers per runtime using real native chain building.
 Each has network mode `none` (loopback remains available), a read-only root,
 temporary private HOME/cache, random ephemeral CA keys and an instrumented loopback
 HTTP issuer. No container shares certificate cache state with another.
 
-| Case | .NET10 | .NET11 RC2 |
+| Case | .NET10 | .NET11 GA |
 | --- | --- | --- |
 | Three missing intermediates, AIA allowed | Success; three issuer requests | PartialChain; two issuer requests |
 | All intermediates supplied, downloads disabled | Success; zero requests | Success; zero requests |
@@ -104,6 +106,6 @@ are edited. `verification-evidence.json` is compilation evidence;
 `linux.evidence.json` separately records execution and cleanup. The ordinary
 installed tool exposes both with canonical Markdown/applicability offline.
 
-RC evidence does not close PIN-959/PIN-962 or existing Human gates. The exact eight
+Recorded evidence does not close PIN-959/PIN-962 or existing Human gates. The exact eight
 foundations and recipe/edition identities remain intact; no native CI matrix or
 production/public publication is introduced.

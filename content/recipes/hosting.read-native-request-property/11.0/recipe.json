@@ -28,13 +28,13 @@
           "runtime": {
             "version": "11.0",
             "match": "release-family",
-            "reason": "Actual .NET 11 RC3 execution, not GA verification.",
+            "reason": "Actual .NET 11 GA execution, within the recorded verification scope.",
             "name": ".NET"
           },
           "sdk": {
             "version": "11.0",
             "match": "release-family",
-            "reason": "Exact recorded pin 11.0.100-rc.3.26522.148; older sample 10.0.403.",
+            "reason": "Exact recorded pin 11.0.100; older sample 10.0.403.",
             "name": ".NET SDK"
           },
           "language": {
@@ -68,7 +68,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Actual .NET11 RC3 evidence; GA reconciliation remains open."
+            "Actual .NET11 GA evidence; GA checks are limited to the recorded scope."
           ]
         },
         "sharedAreas": [],
@@ -110,16 +110,16 @@
     },
     {
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "kind": "compile-and-run",
       "language": "15.0",
       "sample": "samples/net11.0/HarbourRequests/HarbourRequests.csproj",
-      "scope": "Real .NET11 RC3 HTTP.sys Legacy/Medium/Strict anonymous HTTPS exposure, fixed SNI empty/small/exact buffers and native invalid-property error87. No authenticated relay-rejection or absent-native-API OS execution claim."
+      "scope": "SDK 11.0.100 GA compilation and real .NET11.0.0 HTTP.sys Legacy/Medium/Strict anonymous HTTPS exposure, fixed SNI empty/small/exact buffers and native invalid-property error87. Dedicated certificate/key, URL reservation and SSL binding removed after execution. No authenticated relay-rejection, IIS or absent-native-API OS execution claim."
     }
   ],
   "humanProof": {
     "status": "not-required",
-    "scope": "Owner prepared dedicated HTTPS certificate/binding; actual anonymous request checks executed by agent. Authentication enforcement, IIS execution and an OS without the native API are not tested, not inferred."
+    "scope": "Owner-authorized dedicated temporary HTTPS certificate, SSL binding and URL reservation were created, both samples ran, and exact owned resources were removed. Authentication enforcement, IIS and absent-native-API execution remain untested."
   },
   "snippets": {
     "n10-directory-build-props": {

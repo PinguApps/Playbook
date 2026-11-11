@@ -82,7 +82,7 @@ its own native bundle. Register the provider once, synchronously, before creatin
 connections or starting database workers; the selected provider is process-wide.
 Do not race different initialization paths or let a library choose another engine.
 
-Use a separate directory for this current-release sample. Core11 RC2 selects
+Use a separate directory for this current-release sample. Core11 GA selects
 `lib/net10.0` on net11.0. The system provider selects `netstandard2.0` and raw core
 selects `net8.0` managed assets. The native library comes from Windows, not from a
 NuGet native asset.
@@ -126,7 +126,7 @@ NuGet native asset.
 4. From each standalone sample directory, run restore, Release build and the
    resulting application with the matching SDK/runtime. Disable first-run tools
    integration in child environments with `DOTNET_ADD_GLOBAL_TOOLS_TO_PATH=0`.
-   The canonical SDK pins are 10.0.403 and 11.0.100-rc.3.26522.148. No workload is
+   The canonical SDK pins are 10.0.403 and 11.0.100. No workload is
    required. NuGet restore may need internet access; consulting this recipe does not.
 5. Expect a committed debit from three to two after closing and reopening the
    file, a password-support rejection, and the actual loaded native path/version
@@ -151,20 +151,22 @@ the first restore creates a new lock file; omit `--locked-mode` for that first r
 
 Preview6 notes announced SQLite3MC as a default dependency. The reviewed breaking
 article also discusses bundle2.1.12. Those historical statements do not describe
-our actual RC2 graph: the ordinary Microsoft.Data.Sqlite11 RC2 wrapper resolves
+our actual GA graph: the ordinary Microsoft.Data.Sqlite11 GA wrapper resolves
 bundle_e_sqlite3/core3.0.5 and SQLite3.53.4, as recorded separately by
 `sqlite.retain-supported-runtime`. This recipe deliberately avoids that wrapper.
 Neither that default graph nor this system graph proves encrypted-file compatibility.
 The upstream v3 note's SourceGear native package wording is historical too; do not
 infer an installed native package identity from that prose.
 
-This edition uses .NET11 RC3 SDK/provider artifacts and stable initialization APIs;
-there is no experimental API or opt-in. It is not GA proof. Direct Sqlite11 has
+This edition uses .NET11 GA SDK/provider artifacts and stable initialization APIs;
+there is no experimental API or opt-in. It is limited to the recorded checks. Direct Sqlite11 has
 net10.0 assets, whereas EF11 separately requires net11.0. Only the executed net11.0
 current route is advertised here; the net10.0 sample is the previous-release
 comparison. This adds no .NET10 foundation and changes none of the exact eight.
 
 ## Evidence
+
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 The saved records distinguish real compilation/execution from source review. Both
 samples actually loaded Windows x64 native SQLite, persisted a parameterized value
@@ -181,5 +183,5 @@ and GA release gates remain pending outside this bounded recipe.
 - [Microsoft native provider configuration](https://learn.microsoft.com/en-us/dotnet/standard/data/sqlite/custom-versions)
 - [Retained Windows system bundle 2.1.11](https://www.nuget.org/packages/SQLitePCLRaw.bundle_winsqlite3/2.1.11)
 - [Windows system provider 3.0.5](https://www.nuget.org/packages/SQLitePCLRaw.provider.winsqlite3/3.0.5)
-- [Direct managed provider RC2 target assets](https://www.nuget.org/packages/Microsoft.Data.Sqlite.Core/11.0.0-rc.2.26504.105)
-- [Preview 6 SQLite3MC dependency announcement, not the RC2 graph](https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/preview6/efcore.md)
+- [Direct managed provider GA target assets](https://www.nuget.org/packages/Microsoft.Data.Sqlite.Core/11.0.0-rc.2.26504.105)
+- [Preview 6 SQLite3MC dependency announcement, not the GA graph](https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/preview6/efcore.md)

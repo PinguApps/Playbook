@@ -64,11 +64,11 @@ warnings as errors; the projects below declare their own runtime/language,
 nullable/import behavior and executable SDKs.
 
 Place global.json in **each** project directory. Set sdk.version to
-10.0.403 for the previous release or 11.0.100-rc.3.26522.148 for the current
+10.0.403 for the previous release or 11.0.100 for the current
 release, and set `rollForward` to `disable`. For example, the complete
-current file is `{"sdk":{"version":"11.0.100-rc.3.26522.148","rollForward":"disable"}}`.
-Use C# 14/.NET 10.0.14 assets versus C# 15/.NET 11.0.0-rc.3.26522.148 assets.
-The exact pins are verification baselines; RC evidence is not GA certification.
+current file is `{"sdk":{"version":"11.0.100","rollForward":"disable"}}`.
+Use C# 14/.NET 10.0.14 assets versus C# 15/.NET 11.0.0 assets.
+The exact pins are verification baselines; recorded evidence establishes only the documented checks.
 
 Place the shown Directory.Packages.props in each of the three project directories. It isolates package
 versions from any consuming repository's central policy. If embedding these
@@ -206,6 +206,8 @@ consumer validation.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Open /legacy-server, /web-server and /web-wasm on each host, and / on the
 standalone client. Click Dispatch parcel: count must change from 0 to 1.
 Server pages invoke configureSignalR exactly once and observe timeout 45000.
@@ -221,7 +223,7 @@ reports are recorded separately in PIN-789's verification record. Compilation
 does not prove startup behavior; neither source review nor a promise-resolution
 test substitutes for the callback and responding-control checks.
 
-This stable API was checked using .NET 11 RC2 assets; GA reconciliation remains
+This stable API was checked using .NET 11 GA assets; GA reconciliation remains
 pending. Auto selection, Hybrid, other browsers/platforms and production
 deployment are outside this evidence. No newer-package/older-target route is
 claimed. .NET 10 examples are comparisons rather than a served older edition
@@ -246,8 +248,8 @@ does not infer those from a server build alone.
 - [Previous legacy Server](https://github.com/dotnet/aspnetcore/blob/0ef4bbfa3291b306a21e5001cb0491277bdd35bc/src/Components/Web.JS/src/Boot.Server.ts)
 - [Previous legacy WebAssembly](https://github.com/dotnet/aspnetcore/blob/0ef4bbfa3291b306a21e5001cb0491277bdd35bc/src/Components/Web.JS/src/Boot.WebAssembly.ts)
 - [Previous Web App groups](https://github.com/dotnet/aspnetcore/blob/0ef4bbfa3291b306a21e5001cb0491277bdd35bc/src/Components/Web.JS/src/Platform/WebStartOptions.ts)
-- [RC2 legacy Server normalization](https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Web.JS/src/Boot.Server.ts)
-- [RC2 legacy WebAssembly normalization](https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Web.JS/src/Boot.WebAssembly.ts)
-- [RC2 Web App options](https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Web.JS/src/Platform/WebStartOptions.ts)
-- [RC2 circuit callback contract](https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Web.JS/src/Platform/Circuits/CircuitStartOptions.ts)
-- [RC2 WebAssembly callback and culture](https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Web.JS/src/Platform/WebAssemblyStartOptions.ts)
+- [Pinned legacy Server normalization](https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Web.JS/src/Boot.Server.ts)
+- [Pinned legacy WebAssembly normalization](https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Web.JS/src/Boot.WebAssembly.ts)
+- [Pinned web App options](https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Web.JS/src/Platform/WebStartOptions.ts)
+- [Pinned circuit callback contract](https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Web.JS/src/Platform/Circuits/CircuitStartOptions.ts)
+- [Pinned webAssembly callback and culture](https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Web.JS/src/Platform/WebAssemblyStartOptions.ts)

@@ -16,8 +16,8 @@ executes two database queries. If repeated access to a bounded snapshot is wante
 materialize once with `ToListAsync`, then reuse that list and accept its memory cost.
 Do not start a second operation on the same context before the first completes.
 
-The primary sample uses EF11/SQLite 11.0.0-rc.2.26504.105, net11.0, SDK
-11.0.100-rc.3.26522.148 and C# 15 mode. The comparison uses EF/SQLite 10.0.13,
+The primary sample uses EF11/SQLite 11.0.0, net11.0, SDK
+11.0.100 and C# 15 mode. The comparison uses EF/SQLite 10.0.13,
 net10.0, SDK 10.0.403 and C# 14. No new language syntax or experimental opt-in is
 required. EF11 needs .NET11; the separate direct-SQLite older-target route does
 not make EF11 compatible with net10.0. Native SQLite versions and all transitive
@@ -123,12 +123,14 @@ check, separate from the real database executions recorded above.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Both declared SDK/package consumers compiled and ran on Windows x64 against actual
 SQLite, with the exact resolved graphs locked in `packages.lock.json`. Saved
 `verification-evidence.json` records include input hashes, commands, native SQLite
 version, runtime version and PASS output. The installed-package Inspector check
 separately establishes full offline Markdown, snippet identity and applicability.
-These are RC2 observations; GA, non-SQLite I/O and other native platforms remain
+These are GA observations; GA, non-SQLite I/O and other native platforms remain
 unverified. No external service or recurring platform matrix is required.
 
 ## Official references

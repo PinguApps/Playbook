@@ -54,7 +54,7 @@ compiler or third-party package is required. The example is explicitly Windows-o
 1. Target net11.0 using a .NET 11 SDK/runtime. The sample uses C#15.0 with
    AllowUnsafeBlocks=true, nullable/implicit usings and warnings as errors. No
    preview language switch, experimental opt-in, package, provider, workload or
-   rendering integration is required. Exact RC2 pins below record tested artifacts.
+   rendering integration is required. Exact GA pins below record tested artifacts.
 2. Before creating a DynamicMethod, test RuntimeFeature.IsDynamicCodeSupported.
    If false, fail clearly or choose an existing statically compiled adapter.
    These factories carry RequiresDynamicCode so callers see the generation
@@ -98,9 +98,11 @@ run on a runtime that forbids dynamic code.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 eng/Test-RuntimeCalls.ps1 -Record -VerifySources builds and runs actual
 net10.0/C#14 and net11.0/C#15 consumers using SDK10.0.403/runtime10.0.14 and
-SDK11.0.100-rc.3.26522.148/runtime11.0.0-rc.3.26522.148. Saved compilation records
+SDK11.0.100/runtime11.0.0. Saved compilation records
 include exact commands, inputs, empty resolved package sets, compiler and loaded
 CoreLib identities, and audit-matching System.Runtime, Reflection.Emit.ILGeneration
 and Reflection.Emit.Lightweight reference hashes. Paired official contracts and

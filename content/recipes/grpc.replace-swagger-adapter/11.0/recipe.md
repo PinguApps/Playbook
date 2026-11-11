@@ -4,7 +4,7 @@
 
 Keep a gRPC service's transcoded JSON interface discoverable after retiring its documentation adapter by generating and checking a protobuf-derived contract at build time.
 
-Exact reproduction uses SDK10.0.403 / framework10.0.14 / C#14 versus SDK11.0.100-rc.3.26522.148 / framework11.0.0-rc.3.26522.148 / C#15. These are tested pins, not minimum supported versions. RC2 is not actual-GA proof. The exact eight approved .NET10 foundations, stable identities, PIN-959/PIN-963/PIN-964 and unrelated Human gates remain unchanged.
+Exact reproduction uses SDK10.0.403 / framework10.0.14 / C#14 versus SDK11.0.100 / framework11.0.0 / C#15. These are tested pins, not minimum supported versions. GA is limited to the recorded checks. The exact eight approved .NET10 foundations, stable identities, PIN-959/PIN-963/PIN-964 and unrelated Human gates remain unchanged.
 
 ## Older approach — .NET 10
 
@@ -50,7 +50,7 @@ Create the complete standalone files below, restore locked packages, then run `d
 
 ## Newer approach — .NET 11
 
-The replacement moves documentation generation to the build. ASP.NET still serves gRPC and JSON through AddGrpc().AddJsonTranscoding(); only the deprecated documentation adapter and Swashbuckle dependencies are removed. Before implementing this service, actual protoc26.1 from Grpc.Tools2.64.0 and the pinned protoc-gen-openapiv2v2.31.0 release were executed on this original annotated proto with the exact JsonTranscoding RC2 Google imports. The generated operation/schema/comments were present, establishing this document route independently of generic AddOpenApi documentation.
+The replacement moves documentation generation to the build. ASP.NET still serves gRPC and JSON through AddGrpc().AddJsonTranscoding(); only the deprecated documentation adapter and Swashbuckle dependencies are removed. Before implementing this service, actual protoc26.1 from Grpc.Tools2.64.0 and the pinned protoc-gen-openapiv2v2.31.0 release were executed on this original annotated proto with the exact JsonTranscoding GA Google imports. The generated operation/schema/comments were present, establishing this document route independently of generic AddOpenApi documentation.
 
 Acquire the official `protoc-gen-openapiv2-v2.31.0-windows-x86_64.exe` and `grpc-gateway_2.31.0_checksums.txt` assets from the pinned release, using `gh release download v2.31.0 --repo grpc-ecosystem/grpc-gateway --pattern protoc-gen-openapiv2-v2.31.0-windows-x86_64.exe --pattern grpc-gateway_2.31.0_checksums.txt --dir <isolated-tools-directory>`. Check BOTH exact SHA256 values above and the executable's entry in the manifest before executing it. The release uses BSD-3-Clause; retain its release/license attribution when distributing the generator. NuGet packages retain their own notices/licenses. No Go SDK, gateway runtime, installer or PATH change is needed.
 
@@ -122,6 +122,8 @@ Use separate ephemeral HTTP1 and cleartext HTTP2 loopback ports only in the fixt
 The complete files, configuration, lock, native-tool acquisition conditions and migration steps above are included offline. Restore/download preparation can need network access; installed recipe retrieval does not execute the samples or acquire missing prerequisites. There is no new recurring platform/browser matrix or public publication.
 
 ## Evidence
+
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Both locked actual services compile/run. The old adapter produces a nonempty OpenAPI3 document with RPC/message/field comments; the new pinned generator produces Swagger2.0 with corresponding GET operation, path parameter and response schema/comments. Real gRPC and transcoded JSON return station willow, heightCm142 and observedAt2026-10-01T06:30:00Z. The checks resolve each actual document response reference and compare all returned wire-field types, int32 format and comments; unknown station is gRPC NotFound/JSON404, wrong method405 and wrong path404. Native protoc/gRPC C# plugin and independent generator hashes are retained. This proves the bounded primitive mapping, not all Google annotation patterns or generated-client interoperability.
 

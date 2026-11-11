@@ -20,9 +20,9 @@
 // snippet:instructions-4
 {
   "sdk": {
-    "version": "11.0.100-rc.2.26504.105",
+    "version": "11.0.100",
     "rollForward": "disable",
-    "allowPrerelease": true
+    "allowPrerelease": false
   }
 }
 // endsnippet:instructions-4

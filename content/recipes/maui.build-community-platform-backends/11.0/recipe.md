@@ -6,7 +6,7 @@ Integrate backend services, handler registration and neutral-target folder selec
 
 ## Constraints
 
-Current examples pin SDK11.0.100-rc.3.26522.148, C#15 and MAUI11.0.0-rc.2.26505.5. Older comparisons pin SDK10.0.403, C#14 and MAUI10.0.110. These pins are actual RC2/.NET10 evidence, not GA certification or minimum-version promises. Keep independent SDK, native platform/workload and package-asset requirements separate. No provider, account or web-server rendering mode is implied.
+Current examples pin SDK11.0.100, C#15 and MAUI11.0.0. Older comparisons pin SDK10.0.403, C#14 and MAUI10.0.110. These pins identify the recorded GA/.NET10 artifacts. They do not establish native execution or minimum supported versions. Keep independent SDK, native platform/workload and package-asset requirements separate. No provider, account or web-server rendering mode is implied.
 
 The fictional Quay backend demonstrates supported integration contracts without implementing a new native renderer. The contract-only scope excludes rendering, dialogs, pixels and real-view capture. The screenshot result is an explicit test double whose pixel APIs throw.
 
@@ -35,6 +35,8 @@ For neutral SingleProject builds, contribute MauiPlatformSpecificFolder with Bac
 3. Build the selected canonical consumer and run its focused checks. Treat unavailable native compilation/interaction and declared contract doubles exactly as described below; do not report them as rendered behavior.
 
 ## Evidence
+
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 The actual MAUI11 neutral assemblies compile and execute service, registration and screenshot-dispatch contracts. SingleProject selection uses the actual package targets, with both active and inactive results checked. These are contract checks with a declared screenshot double, not native rendering or device evidence. The Avalonia raw-asset consumer compiles separately. No external service, credentials, account or Human approval is required for this agreed scope. No third-party backend package is published or provisioned.
 

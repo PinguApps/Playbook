@@ -2,7 +2,7 @@
 
 ## Goal
 
-Use this when a large managed test suite needs a faster change-validation lane while retaining an ordinary full-test baseline. **Experimental, documentation-based guidance.** The original examples and command shapes below have not been compiled or executed as a composed affected-test consumer. The local registration/configuration documentation is unavailable; do not treat this as a turnkey setup or a verified .NET 11 RC2 route. Pingu authorized documentation-based delivery on 3 November 2026 while unreleased execution proof remains pending.
+Use this when a large managed test suite needs a faster change-validation lane while retaining an ordinary full-test baseline. **Experimental, documentation-based guidance.** The original examples and command shapes below have not been compiled or executed as a composed affected-test consumer. The local registration/configuration documentation is unavailable; do not treat this as a turnkey setup or a verified .NET 11 GA route. Pingu authorized documentation-based delivery on 3 November 2026 while unreleased execution proof remains pending.
 
 ## Older approach: run the complete suite
 
@@ -34,7 +34,7 @@ Audited assets are `netstandard2.0` and `net10.0`, with an MTP dependency minimu
 
 The packaged readme documents local `.cts/mappings` storage without an additional provider. Its linked `docs/cts/affectedteststorage.md` returns 404. The exact local storage configuration, change-policy schema and registration hook are therefore **unresolved here**. Do not invent a JSON property or builder method. Consult matching publisher documentation when available; until then use the ordinary full-test baseline. No Azure provider, account, token or remote storage is needed or authorized by this local-only recipe.
 
-The pinned TestFx rollout documents SDK **12.0.100-alpha.1.26509.101** for collection and empty-selection handshake fixes. Its newer moving documentation advances affected-test packages to **18.13.0-preview.26530.1**; that is source drift, not this recipe's reviewed package pin. Neither their Azure DevOps rollout nor SDK 11 RC3's command flags prove this local consumer works. This is a target-11 documentation edition, not a .NET 12 recipe or an advertised SDK12/net11 compatibility result. The sample SDK11 pin identifies intended inputs only.
+The pinned TestFx rollout documents SDK **12.0.100-alpha.1.26509.101** for collection and empty-selection handshake fixes. Its newer moving documentation advances affected-test packages to **18.13.0-preview.26530.1**; that is source drift, not this recipe's reviewed package pin. Neither their Azure DevOps rollout nor SDK 11 GA's command flags prove this local consumer works. This is a target-11 documentation edition, not a .NET 12 recipe or an advertised SDK12/net11 compatibility result. The sample SDK11 pin identifies intended inputs only.
 
 ## Migration
 
@@ -65,6 +65,8 @@ These are **acceptance checks to perform**, not observed results:
 Do not combine affected-test operations with device testing, parallel test modules or minimum-test policies. Do not ignore handshake failures, normalize child failures, or use a global zero-test-success switch. Do not infer test counts for an unselected module. No timing/performance improvement is claimed until measured against the full baseline.
 
 ## Evidence and limitations
+
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 The canonical .NET10 and .NET11 projects now have actual locked compilation records from Windows, using their declared SDKs and dependencies. The original official-source review is retained separately. Compilation of the rules/decoder library does not compile illustrative .cs.txt host integration or establish behavior.
 

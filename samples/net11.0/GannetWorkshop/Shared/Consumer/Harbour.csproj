@@ -11,6 +11,9 @@
          net10 inner build without installing or modifying either SDK. -->
     <NetCoreTargetingPackRoot Condition="'$(TargetFramework)' == 'net10.0' And '$(HarbourNet10Packs)' != ''">$(HarbourNet10Packs)</NetCoreTargetingPackRoot>
   </PropertyGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'net10.0' And '$(HarbourNet10Packs)' != ''">
+    <KnownFrameworkReference Update="@(KnownFrameworkReference)" TargetingPackVersion="10.0.14" />
+  </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Gannet.HarbourRules" Version="[1.0.0]" IncludeAssets="$(HarbourInclude)" ExcludeAssets="$(HarbourExclude)" PrivateAssets="$(HarbourPrivate)" />
   </ItemGroup>

@@ -4,7 +4,7 @@
 
 A station directory serves public cards for two customer stations. West pauses caching during maintenance while East keeps its cached card. When West changes its policy again, it must not revive a card stored under the previous revision. Unknown stations bypass caching.
 
-Use `IOutputCachePolicyProvider` on ASP.NET Core 11 when named policies come from current settings rather than a fixed `AddPolicy` table. This edition compares .NET 10 with .NET 11 RC2. It is not an additional .NET 10 foundation or a claim that the provider exists on .NET 10.
+Use `IOutputCachePolicyProvider` on ASP.NET Core 11 when named policies come from current settings rather than a fixed `AddPolicy` table. This edition compares .NET 10 with .NET 11 GA. It is not an additional .NET 10 foundation or a claim that the provider exists on .NET 10.
 
 ## Older approach — register a policy that dispatches per request
 
@@ -69,17 +69,19 @@ Save the newer files in a separate directory.
 
 ## Constraints and alternatives
 
-- Runtime/SDK/language: ASP.NET Core 11 for the provider; exact sample baselines are SDK 11.0.100-rc.3.26522.148 / C# 15 and SDK 10.0.403 / C# 14 with .NET 10.0.13. No .NET 10 route to the new provider is advertised.
+- Runtime/SDK/language: ASP.NET Core 11 for the provider; exact sample baselines are SDK 11.0.100 / C# 15 and SDK 10.0.403 / C# 14 with .NET 10.0.13. No .NET 10 route to the new provider is advertised.
 - Packages/assets: only the matching ASP.NET Core and .NET shared frameworks. The local build/package boundaries prevent inherited package settings when copied. No workload, external provider, account or experimental opt-in is required.
 - Platform/rendering: actual Windows x64 Kestrel HTTP execution. No browser, Blazor rendering mode, distributed cache, authenticated response cache, AOT, trimming or remote policy-store behavior was tested.
 - Provider lookup and cache-entry storage are separate concerns. Choosing a policy neither invalidates old entries nor provides a tenant authorization check. Frequent revisions can retain multiple entries until expiry; budget cache memory and lifetime accordingly.
 - Fixed options-based policies remain simpler for settings that never change at runtime. A custom policy remains useful when only one registered policy needs request-dependent behavior.
-- Stable API intent is prepared using RC2 under ADR 0004. GA reconciliation is still required; these records establish neither GA behavior nor product publication readiness.
+- Stable API intent is prepared using GA under ADR 0004. GA reconciliation is still required; these records establish neither GA behavior nor product publication readiness.
 
 ## Evidence
+
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Both complete pinned projects compiled and executed with real loopback requests through `eng/Record-Evidence.ps1`. Each recorded eleven requests and seven handler executions, including hits for two stations, cache bypass while disabled, a fresh entry after a revision change, the unaffected station's retained hit, and two uncached unknown-station requests. One rule read per request establishes snapshot selection across cache stages. These are local runtime checks, not mocks, cross-compilation or external-provider evidence.
 
 The existing packed-tool harness checks complete canonical Markdown, discovery title/goal, full applicability and edition 11.0 over real stdio list/get after an isolated local-feed/cache installation outside the checkout. Target 10.0 has no applicable edition. The stable identity is `caching.resolve-policy-dynamically` / WEB-072.
 
-Official context: [provider introduction](https://learn.microsoft.com/en-us/aspnet/core/release-notes/aspnetcore-11#ioutputcachepolicyprovider-interface), [output-cache policies](https://learn.microsoft.com/en-us/aspnet/core/performance/caching/output?view=aspnetcore-11.0), and [RC2 named-policy stages](https://github.com/dotnet/aspnetcore/blob/v11.0.0-rc.2.26504.105/src/Middleware/OutputCaching/src/Policies/NamedPolicy.cs). Essential implementation and constraints are included offline above.
+Official context: [provider introduction](https://learn.microsoft.com/en-us/aspnet/core/release-notes/aspnetcore-11#ioutputcachepolicyprovider-interface), [output-cache policies](https://learn.microsoft.com/en-us/aspnet/core/performance/caching/output?view=aspnetcore-11.0), and [Pinned named-policy stages](https://github.com/dotnet/aspnetcore/blob/v11.0.0-rc.2.26504.105/src/Middleware/OutputCaching/src/Policies/NamedPolicy.cs). Essential implementation and constraints are included offline above.

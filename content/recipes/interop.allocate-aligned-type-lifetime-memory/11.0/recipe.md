@@ -86,9 +86,11 @@ guarantee follows from one requested alignment.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 eng/Test-LifetimeSignatures.ps1 -Record -VerifySources builds and runs both
 TypeLedger consumers with SDK10.0.403/runtime10.0.14 and
-SDK11.0.100-rc.3.26522.148/runtime11.0.0-rc.3.26522.148. Saved records include
+SDK11.0.100/runtime11.0.0. Saved records include
 commands, exact input hashes, dependencies, compiler/CoreLib/CoreCLR identities
 and System.Runtime references matched to the source audit. Source pins separately
 qualify the public contract and native loader allocation. Both build without
@@ -99,5 +101,5 @@ type release, negative size, non-power-of-two alignments and current raw null/
 delegated type rejection and zero-size acceptance without dereference. Installed
 offline stdio list/get checks discovery, full canonical content, target11/edition11,
 applicability, fresh evidence and target10 rejection. This adds no .NET 10
-foundation. RC2 execution is not GA verification; PIN-959/PIN-962 and existing
+foundation. GA checks establish only the recorded scope; PIN-959/PIN-962 and existing
 Human gates remain open. No recurring platform matrix or publication is added.

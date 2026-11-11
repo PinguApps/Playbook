@@ -34,4 +34,6 @@ The key-selector factory is a .NET 11 framework contract with no extra package/a
 
 ## Evidence
 
-Both actual net10.0 and net11.0 BitCollections projects compile and execute the same checks: case-insensitive matches, default case-sensitive behavior, equal hashes for equal keys, distinct bay groups, null keys, comparison ties and the exact ticket order 6, 8, 1, 3, 4. The record's independent ticket field makes accidental whole-record equality observable. Saved input hashes, commands and output identify SDK 10.0.403 / C# 14 and SDK 11.0.100-rc.3.26522.148 / C# 15. This is real managed behavior, not provider execution, mocks, cross-compilation or GA verification.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
+Both actual net10.0 and net11.0 BitCollections projects compile and execute the same checks: case-insensitive matches, default case-sensitive behavior, equal hashes for equal keys, distinct bay groups, null keys, comparison ties and the exact ticket order 6, 8, 1, 3, 4. The record's independent ticket field makes accidental whole-record equality observable. Saved input hashes, commands and output identify SDK 10.0.403 / C# 14 and SDK 11.0.100 / C# 15. This is real managed behavior, not provider execution, mocks, cross-compilation or GA verification.

@@ -46,7 +46,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Exact current-release proof uses SDK11 RC3, not GA."
+            "reason": "Exact current-release proof uses SDK11 GA."
           },
           "language": {
             "name": "C#",
@@ -62,25 +62,25 @@
               "name": "Microsoft.EntityFrameworkCore.Sqlite",
               "version": "11.0",
               "match": "release-family",
-              "reason": "Canonical pin 11.0.0-rc.2.26504.105; historical comparison 10.0.13."
+              "reason": "Canonical pin 11.0.0; historical comparison 10.0.13."
             },
             {
               "name": "Microsoft.EntityFrameworkCore.Design",
               "version": "11.0",
               "match": "release-family",
-              "reason": "Canonical pin 11.0.0-rc.2.26504.105; historical comparison 10.0.13."
+              "reason": "Canonical pin 11.0.0; historical comparison 10.0.13."
             },
             {
               "name": "Microsoft.EntityFrameworkCore.Tools",
               "version": "11.0",
               "match": "release-family",
-              "reason": "Canonical pin 11.0.0-rc.2.26504.105; historical comparison 10.0.13."
+              "reason": "Canonical pin 11.0.0; historical comparison 10.0.13."
             },
             {
               "name": "dotnet-ef",
               "version": "11.0",
               "match": "release-family",
-              "reason": "Canonical pin 11.0.0-rc.2.26504.105; historical comparison 10.0.13."
+              "reason": "Canonical pin 11.0.0; historical comparison 10.0.13."
             }
           ],
           "packageAssets": [
@@ -103,13 +103,13 @@
             "Save, restore and build after model/package changes and after scaffolding before Update-Database."
           ],
           "prerequisites": [
-            "Exact SDK10.0.403 and SDK11 11.0.100-rc.3.26522.148 with matching locked EF packages.",
+            "Exact SDK10.0.403 and SDK11 11.0.100 with matching locked EF packages.",
             "Matching local dotnet-ef; run eng/Test-CanalDesign.ps1 -Record.",
             "Visual Studio with NuGet PMC and matching Microsoft.EntityFrameworkCore.Tools package loaded."
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Stable API guidance prepared with exact RC2 packages; GA reconciliation remains pending.",
+            "Stable API guidance prepared with exact GA packages; GA checks are limited to the recorded scope.",
             "Actual PMC execution pending H_PMC_PROOF; publication with this gap explicitly approved by Pingu."
           ]
         },
@@ -148,7 +148,7 @@
     {
       "sample": "samples/net11.0/CanalDesign/CanalDesign.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "kind": "compile-and-run",
       "scope": "Canonical compilation, real sync/async empty-migration behavior and external-owner SQLite read; no PMC or GA proof."
@@ -156,11 +156,11 @@
     {
       "sample": "samples/net11.0/CanalDesign/CanalDesign.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "kind": "execution",
       "record": "samples/net11.0/CanalDesign/pmc.evidence.json",
-      "scope": "Pingu performed real Visual Studio 18.11.0 PMC Add-Migration/Update-Database NoBuild on 5 November 2026; host 7.11.0.24, PowerShell 5.1.26100.9711, SDK11 RC3 and EF11 RC2. Generated migrations, unchanged stale DLL, rebuilt AddColumn and actual SQLite schema/history verified. Exact mixed baseline only; no EF RC3 or GA claim."
+      "scope": "Pingu performed real Visual Studio 18.11.0 PMC Add-Migration/Update-Database NoBuild on 5 November 2026; host 7.11.0.24, PowerShell 5.1.26100.9711, SDK11 GA and EF11 GA. Generated migrations, unchanged stale DLL, rebuilt AddColumn and actual SQLite schema/history verified. Exact mixed baseline only; no EF GA or GA claim."
     }
   ],
   "snippets": {
@@ -237,6 +237,6 @@
   },
   "humanProof": {
     "status": "verified",
-    "scope": "Pingu performed real Visual Studio 18.11.0 PMC Add-Migration/Update-Database NoBuild on 5 November 2026; host 7.11.0.24, PowerShell 5.1.26100.9711, SDK11 RC3 and EF11 RC2. Generated migrations, unchanged stale DLL, rebuilt AddColumn and actual SQLite schema/history verified. Exact mixed baseline only; no EF RC3 or GA claim."
+    "scope": "Pingu refreshed actual Visual Studio PMC NoBuild checks on 11 November 2026 with SDK11.0.100 and EF Tools11.0.0 GA. Agent inspected the empty stale migration, rebuilt BasinCode column and final read-only SQLite schema/history. Duplicate migration-name rejection followed a repeated user command. No other Visual Studio versions or production database claim."
   }
 }

@@ -22,16 +22,18 @@ The current project conditions select the .icon directory only for iOS or Mac Ca
 
 1. Build the older Android sample to establish the baseline image outputs. Replace the original silhouette only with your own artwork; preserve Android resource naming rules.
 2. Use a matching .NET11 native workload and the pinned Resizetizer package closure for the current sample. Keep exactly one platform-conditioned icon item.
-3. For a real Apple app, include the complete tern.icon directory in an iOS/Mac Catalyst host, with the matching Apple workload and its required Xcode. MAUI integration requires11 RC2; underlying Apple .icon support appeared earlier and does not establish MAUI support on an older target. This Android sample's conditions illustrate that host integration; it is not a runnable Apple application.
+3. For a real Apple app, include the complete tern.icon directory in an iOS/Mac Catalyst host, with the matching Apple workload and its required Xcode. MAUI integration requires11 GA; underlying Apple .icon support appeared earlier and does not establish MAUI support on an older target. This Android sample's conditions illustrate that host integration; it is not a runnable Apple application.
 4. Inspect generated monochrome and night-qualified Android resources and raster dimensions, then inspect launcher/light/dark startup on an actual device. For Apple, compile with actool and inspect the resulting app catalog. Those current native checks are excluded here under PIN-699, not reported as successful.
 
 ## Constraints
 
-Current intended pins: SDK11 RC3, C#15, MAUI Controls/Resizetizer11 RC2 and matching native workload. Apple requires .icon-capable Apple tooling (26.5.11720-net11-p6 or later; use the exact workload-compatible Xcode), plus normal host configuration. The comparison uses SDK10.0.402, C#14 and MAUI10.0.110. Native build assets, no provider/account or web rendering mode. No experimental API opt-in; no GA or visual quality guarantee from RC source review.
+Current intended pins: SDK11 GA, C#15, MAUI Controls/Resizetizer11 GA and matching native workload. Apple requires .icon-capable Apple tooling (26.5.11720-net11-p6 or later; use the exact workload-compatible Xcode), plus normal host configuration. The comparison uses SDK10.0.402, C#14 and MAUI10.0.110. Native build assets, no provider/account or web rendering mode. No experimental API opt-in; no GA or visual quality guarantee from RC source review.
 
 ## Evidence
 
-The actual .NET10 Android Release app compiled and generated its baseline assets with AOT disabled. Current .NET11 build failed NETSDK1147. Android device/emulator and Apple/Xcode are unavailable: current app compilation/packaging, themed launcher/startup, sampling appearance, Apple compilation and bundle appearance are explicitly not-tested under PIN-699. The real RC2 Resizetizer task assembly also executed on Windows with SDK10.0.403, without a MAUI workload: monochrome XML/PNG, distinct light/dark splash colors/PNGs and resized images were generated from canonical assets. This tests the task pipeline, not Android app compilation, packaging or visual quality. Exact task/input/output identities are retained in samples/TernGuidance/asset-task-results.json. Run the standalone project below with the pinned package DLL supplied as ResizetizerAssembly; no native workload is inferred from its success. Packed MCP retrieval establishes offline delivery, not native output quality.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
+The actual .NET10 Android Release app compiled and generated its baseline assets with AOT disabled. Current .NET11 build failed NETSDK1147. Android device/emulator and Apple/Xcode are unavailable: current app compilation/packaging, themed launcher/startup, sampling appearance, Apple compilation and bundle appearance are explicitly not-tested under PIN-699. The real GA Resizetizer task assembly also executed on Windows with SDK11.0.100, without a MAUI workload: monochrome XML/PNG, distinct light/dark splash colors/PNGs and resized images were generated from canonical assets. This tests the task pipeline, not Android app compilation, packaging or visual quality. Exact task/input/output identities are retained in samples/TernGuidance/asset-task-results.json. Run the standalone project below with the pinned package DLL supplied as ResizetizerAssembly; no native workload is inferred from its success. Packed MCP retrieval establishes offline delivery, not native output quality.
 
 ## Canonical inputs
 
@@ -152,6 +154,6 @@ The actual .NET10 Android Release app compiled and generated its baseline assets
 
 {{snippet:samples-net11-0-ternassets-ternassets-csproj}}
 
-### Standalone RC2 task check (Windows host)
+### Standalone GA task check (Windows host)
 
 {{snippet:asset-task-project}}

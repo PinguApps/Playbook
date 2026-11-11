@@ -37,7 +37,7 @@ try {
     try { $resolved = & $dotnet msbuild $project -t:ResolveFrameworkReferences -p:Configuration=Release -getItem:ResolvedTargetingPack | ConvertFrom-Json }
     finally { Pop-Location }
     $pack = @($resolved.Items.ResolvedTargetingPack | Where-Object Identity -CEQ 'Microsoft.NETCore.App')
-    $expectedRef = if ($variant -eq 'net10.0') { '10.0.14' } else { '11.0.0-rc.3.26522.148' }
+    $expectedRef = if ($variant -eq 'net10.0') { '10.0.14' } else { '11.0.0' }
     $validRef = $pack.Count -eq 1 -and $pack[0].TargetFramework -ceq $variant
     if ($validRef) {
       $validRef = if ($variant -eq 'net11.0' -and $RunReleaseChecks) {

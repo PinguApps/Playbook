@@ -36,8 +36,8 @@ EF11 used SQLitePCLRaw.bundle_e_sqlite3/config.e_sqlite3/core/provider.e_sqlite3
 EF11 selects net11.0 EF/Relational assets and net10.0 Microsoft.Data.Sqlite.Core;
 the latter asset does not make EF11 itself compatible with .NET 10.
 
-Compilation and execution used SDK 10.0.403 and 11.0.100-rc.3.26522.148 with EF
-10.0.13 and 11.0.0-rc.2.26504.105. Saved evidence records identify exact SDKs,
+Compilation and execution used SDK 10.0.403 and 11.0.100 with EF
+10.0.13 and 11.0.0. Saved evidence records identify exact SDKs,
 resolved dependencies, input hashes and executed commands. These are actual
 SQLite checks, not mocks, cross-compilation or GA proof. Server installation and
 offline guidance retrieval establish delivery separately from database behavior.
@@ -81,7 +81,7 @@ Use this complete .NET 10 project with its pinned EF10 provider. It solves the s
 
 ## Newer approach
 
-Use this complete .NET 11 project with the pinned RC2 provider. The model assertions and actual database round-trips check the intended mapping.
+Use this complete .NET 11 project with the pinned GA provider. The model assertions and actual database round-trips check the intended mapping.
 
 ### .NET 11
 
@@ -131,7 +131,9 @@ changing it to `EST-43` and reading that persisted update in another context.
 
 ## Evidence
 
-Both canonical projects compiled and ran against actual SQLite with locked dependencies. Their verification-evidence.json records pin source/configuration hashes, SDKs, resolved packages, host and captured PASS output. Installed stdio list/get checks separately verify complete canonical Markdown and applicability. These Windows x64 RC2 results establish neither other-provider behavior nor GA readiness.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
+Both canonical projects compiled and ran against actual SQLite with locked dependencies. Their verification-evidence.json records pin source/configuration hashes, SDKs, resolved packages, host and captured PASS output. Installed stdio list/get checks separately verify complete canonical Markdown and applicability. These Windows x64 GA results establish neither other-provider behavior nor GA readiness.
 
 ## Official references
 

@@ -42,7 +42,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Build net11.0 with matching Razor compiler/reference assets; exact RC2 pin records verification."
+            "reason": "Build net11.0 with matching Razor compiler/reference assets; exact GA pin records verification."
           },
           "language": {
             "name": "C#",
@@ -76,7 +76,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Actual evidence: .NET 10.0.13 / SDK 10.0.403 and .NET 11.0.0-rc.2.26504.105 / SDK 11.0.100-rc.3.26522.148. GA reconciliation and comprehensive publication gates remain open."
+            "Actual evidence: .NET 10.0.13 / SDK 10.0.403 and .NET 11.0.0 / SDK 11.0.100. GA reconciliation and comprehensive publication gates remain open."
           ]
         },
         "sourceUrls": [
@@ -116,7 +116,7 @@
     {
       "sample": "samples/net11.0/AsterObservatory/AsterObservatory.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "kind": "compile-and-run",
       "scope": "Real HtmlRenderer execution: derived-item content, HTML encoding and explicit null policy. Unsafe reverse assignment and older direct assignment are rejected separately by eng/Test-ArchiveFragments.ps1."

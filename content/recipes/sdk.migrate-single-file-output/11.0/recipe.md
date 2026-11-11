@@ -28,7 +28,7 @@ The corresponding independently compiled executable project is:
 
 {{snippet:newerproject}}
 
-Use an executable project targeting net11.0 and the SDK 11.0.100-rc.3.26522.148 baseline. The original diagnostic program observes the artifact directly:
+Use an executable project targeting net11.0 and the SDK 11.0.100 baseline. The original diagnostic program observes the artifact directly:
 
 {{snippet:program}}
 
@@ -48,4 +48,6 @@ This is not a cross-platform binary: the recorded profile is win-x64, framework-
 
 ## Evidence
 
-The real SDK-10 full-extraction artifact and SDK-11 default artifact execute from unrelated directories with the expected non-empty versus empty Assembly.Location. The SDK-11 compatibility publish actually emits NETSDK1244 and succeeds. A native-only-extraction publish is checked for acceptance, without claiming native extraction behavior absent a native dependency. Compilation records are separate from actual publish/executable output. Installed Playbook retrieval verifies the complete profiles/program snippets, discovery goal, target edition and applicability offline. These are Windows RC2 results, not cross-compilation, mock, AOT or GA evidence.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
+The real SDK-10 full-extraction artifact and SDK-11 default artifact execute from unrelated directories with the expected non-empty versus empty Assembly.Location. The SDK-11 compatibility publish actually emits NETSDK1244 and succeeds. A native-only-extraction publish is checked for acceptance, without claiming native extraction behavior absent a native dependency. Compilation records are separate from actual publish/executable output. Installed Playbook retrieval verifies the complete profiles/program snippets, discovery goal, target edition and applicability offline. These are Windows GA results, not cross-compilation, mock, AOT or GA evidence.

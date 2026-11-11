@@ -51,7 +51,7 @@ finite limits, deliberately rejecting -1 instead of inheriting runtime defaults.
    depth is zero and the first array/map consumes one level.
 2. Target net11.0 and reference System.Formats.Cbor 11. Use the complete current
    codec and shared traversal in separate source files with their imports.
-   The verified package pin is 11.0.0-rc.2.26504.105, selecting lib/net11.0;
+   The verified package pin is 11.0.0, selecting lib/net11.0;
    the older consumer pins 10.0.13 and selects lib/net10.0. Generate/review the
    package lock and restore locked when reproducing the comparison.
 3. Carry over conformance, multiple-root and indefinite-encoding choices explicitly.
@@ -78,8 +78,8 @@ finite limits, deliberately rejecting -1 instead of inheriting runtime defaults.
 ## Constraints
 
 Primary route: .NET11 SDK/runtime, net11.0/C#15, System.Formats.Cbor 11
-lib/net11.0. Exact proof uses SDK11.0.100-rc.3.26522.148 and package/runtime
-11.0.0-rc.2.26504.105. The valid older route uses SDK10.0.403, net10.0/C#14,
+lib/net11.0. Exact proof uses SDK11.0.100 and package/runtime
+11.0.0. The valid older route uses SDK10.0.403, net10.0/C#14,
 runtime10.0.14 and package10.0.13 lib/net10.0. Exact SDK patches identify
 reproduction; they are not universal consumer requirements.
 
@@ -93,6 +93,8 @@ multiple roots, canonical sorting and arbitrary CBOR schemas are outside this
 sample's claims. Runtime defaults are not an application-specific safety policy.
 
 ## Evidence
+
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 eng/Test-PrecisionDepth.ps1 -Record -VerifySources executes both actual
 CalibrationGroups consumers. Accepted outputs at depth0/1/7/8, maps/arrays and
@@ -114,4 +116,4 @@ real stdio list/get from an unrelated directory, checking ID/title/goal, complet
 canonical Markdown, target11/edition11, applicability, fresh evidence and matching
 structured/text JSON offline. Target10 returns no_applicable_edition. Existing
 IDs, exactly eight foundations, PIN-959/PIN-962 and Human gates remain unchanged;
-RC3 execution does not establish final-GA evidence or publication readiness.
+GA execution establishes the recorded behavior, not publication readiness.

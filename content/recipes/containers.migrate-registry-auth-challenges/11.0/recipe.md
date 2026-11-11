@@ -16,8 +16,8 @@ containerize tool requirement.
 
 | Layer | Older comparison | Current example |
 | --- | --- | --- |
-| SDK / compiler language | 10.0.403 / C#14 | 11.0.100-rc.3.26522.148 / C#15 |
-| Target / runtime | net10.0 / 10.0.13 | net11.0 / 11.0.0-rc.2.26504.105 |
+| SDK / compiler language | 10.0.403 / C#14 | 11.0.100 / C#15 |
+| Target / runtime | net10.0 / 10.0.13 | net11.0 / 11.0.0 |
 | Executed platform | Linux x64 Docker SDK image | Linux x64 Docker SDK image |
 | Published base variant | Azure Linux3 runtime10.0.13 | Azure Linux4 **Beta** runtime11RC2 |
 | Registry / copy helper | Distribution3.1.2; ORAS1.3.6 | Same disposable backend and helper |
@@ -28,8 +28,8 @@ prerequisites. A real deployment needs an authorized registry and token service,
 trusted TLS certificates and a compatible runtime/base image. The fixture uses
 generated disposable credentials and a child-only CA bundle. It changes no host
 trust store, Docker daemon configuration, persistent environment or real login.
-There is no UI, rendering, workload or native compiler dependency. RC2 and the
-selected Beta base are not GA qualification or a production base-image recommendation.
+There is no UI, rendering, workload or native compiler dependency. GA and the
+selected Beta base cover only the recorded checks qualification or a production base-image recommendation.
 
 ## Older approach
 
@@ -50,7 +50,7 @@ an unsafe realm.
 ## Newer approach
 
 Save the same program beside this current project. Select
-SDK11.0.100-rc.3.26522.148 using `global.json`, `rollForward: "disable"`.
+SDK11.0.100 using `global.json`, `rollForward: "disable"`.
 
 {{snippet:newer}}
 
@@ -124,6 +124,8 @@ hosted service interoperability and production authorization policy require thei
 own qualification. The current selected Azure Linux4 base remains Beta.
 
 ## Evidence
+
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 `eng/Test-EstuaryRegistry.ps1 -Record` seeds exact base manifests/blobs using ORAS,
 starts the disposable Distribution backend, and runs both pinned SDK containers

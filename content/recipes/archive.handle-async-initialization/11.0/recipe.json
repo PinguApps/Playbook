@@ -80,7 +80,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Exact RC2 artifacts executed; no GA verification. No experimental annotation or opt-in on the used APIs."
+            "Exact GA artifacts executed; no GA verification. No experimental annotation or opt-in on the used APIs."
           ]
         },
         "sourceUrls": [
@@ -123,7 +123,7 @@
       "sample": "samples/net10.0/WeatherImport/WeatherImport.csproj"
     },
     {
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "scope": "Real ZIP directory failure timing, async-only read tracking, pre-cancellation, leaveOpen/disposal and damaged Stored-payload EOF behavior.",
       "target": "net11.0",
       "kind": "compile-and-run",

@@ -47,7 +47,7 @@
             "name": ".NET",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Declared net11.0 application and SDK-host runtime. Exact RC2 artifacts are evidence, not GA qualification."
+            "reason": "Declared net11.0 application and SDK-host runtime. Exact GA artifacts are evidence, within the recorded verification scope."
           },
           "sdk": {
             "name": ".NET SDK",
@@ -73,7 +73,7 @@
           ],
           "renderingModes": [],
           "prerequisites": [
-            "Complete SDK/runtime/ref installations. Tested SDK10.0.403, runtime/ref10.0.14, C#14; SDK11.0.100-rc.3.26522.148, runtime/ref11RC3, C#15.",
+            "Complete SDK/runtime/ref installations. Tested SDK10.0.403, runtime/ref10.0.14, C#14; SDK11.0.100, runtime/ref11RC3, C#15.",
             "PowerShell7 for the reproducible checks. Original local package setup uses no remote source; installed guidance is embedded offline."
           ],
           "constraints": [
@@ -86,7 +86,7 @@
             "PublishReferencesSymbols=true or false; CopyOutputSymbolsToPublishDirectory separately controls application symbols."
           ],
           "stabilityLimitations": [
-            "These controls are not designated experimental in the cited documentation. Actual verification uses RC2; PIN-959/PIN-963 and existing Human gates remain open."
+            "These controls are not designated experimental in the cited documentation. Actual verification uses GA; PIN-959/PIN-963 and existing Human gates remain open."
           ]
         },
         "sourceUrls": [
@@ -127,7 +127,7 @@
       "kind": "compile-and-run",
       "sample": "samples/net11.0/BeaconBuild/BeaconBuild.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "scope": "Actual true/false/default/incorrect-singular publishes, DLL and portable PDB byte checks, application-versus-reference symbol control, snupkg boundary and execution of every published app. Windows x64 framework-dependent folders only."
     }

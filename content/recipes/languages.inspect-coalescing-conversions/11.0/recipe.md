@@ -97,7 +97,7 @@ The integer-nullable/long-fallback case reports numeric conversion for the non-n
 
 The served edition targets11 only;10 remains an executed comparison, preserving the exact eight foundations. `introducedIn:11.0` identifies this qualified release-family route, not a claim about the first nightly build or a new VB language version. Actual net11 hosts select package `lib/net10.0` assets. Their labels and the netstandard assets do not alone establish an older-target route; none is advertised here. No provider, rendering mode, workload, native toolchain, reflection, private casts or experimental suppression is needed. These public APIs were exercised on Windows x64; no recurring OS matrix is introduced.
 
-The package's repository metadata identifies dotnet/dotnet VMR820230c386db5b0106c5430b3e5aee92a7826bf5. The audit's Roslyn-main5.13 source is a separate snapshot, not these package bytes. The retained RC2 package executes on the GA host; this does not establish a stable public NuGet equivalent. PIN-967 remains the stable-readiness gate.
+The package's repository metadata identifies dotnet/dotnet VMR820230c386db5b0106c5430b3e5aee92a7826bf5. The audit's Roslyn-main5.13 source is a separate snapshot, not these package bytes. The retained GA package executes on the GA host; this does not establish a stable public NuGet equivalent. PIN-967 remains the stable-readiness gate.
 
 ## Evidence
 

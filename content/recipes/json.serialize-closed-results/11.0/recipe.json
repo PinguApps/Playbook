@@ -127,7 +127,7 @@
       "sdk": "10.0.403",
       "language": "14.0",
       "sample": "samples/net10.0/ClosedOutcomes/ClosedOutcomes.csproj",
-      "scope": "Original case/payload matching and generated-metadata JSON round trips, null/default and ambiguous-object rejection. RC2 additionally executes explicit-registration precedence and missing-generated-inference failure. Exact records captured by eng/Record-Evidence.ps1; eng/Verify.ps1 reruns samples.",
+      "scope": "Original case/payload matching and generated-metadata JSON round trips, null/default and ambiguous-object rejection. GA additionally executes explicit-registration precedence and missing-generated-inference failure. Exact records captured by eng/Record-Evidence.ps1; eng/Verify.ps1 reruns samples.",
       "kind": "compile-and-run"
     },
     {

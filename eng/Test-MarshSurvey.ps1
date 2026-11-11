@@ -1,5 +1,7 @@
 [CmdletBinding()]
-param([switch]$Record)
+param([switch]$Record,
+    [string]$Net10Dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source,
+    [string]$Net11Dotnet = $Net10Dotnet)
 
 $ErrorActionPreference = 'Stop'
 $PSNativeCommandUseErrorActionPreference = $true
@@ -13,7 +15,7 @@ try {
     $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH = '0'
     & $route -Action Start
     foreach ($release in '10','11') {
-        $dotnet = if ($release -eq '10') { (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source } else { (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source }
+        $dotnet = if ($release -eq '10') { $Net10Dotnet } else { $Net11Dotnet }
         $sample = "samples/net$release.0/MarshSurvey/MarshSurvey.csproj"
         $directory = Join-Path $root (Split-Path $sample)
         $database = 'playbook_marsh_' + [guid]::NewGuid().ToString('N')

@@ -25,7 +25,7 @@ try {
   foreach ($record in $records) {
     $version = $record.target.Substring(3)
     $dotnet = if ($version -eq '10.0') { $Net10Dotnet } else { $Net11Dotnet }
-    $pack = if ($version -eq '10.0') { '10.0.14' } else { '11.0.0-rc.3.26522.148' }
+    $pack = if ($version -eq '10.0') { '10.0.14' } else { '11.0.0' }
     $installation = Split-Path $dotnet -Parent
     $files = @(
       "sdk/$($record.sdk)/Sdks/Microsoft.NET.Sdk.Razor/source-generators/Microsoft.CodeAnalysis.Razor.Compiler.dll",

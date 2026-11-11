@@ -156,7 +156,7 @@ try {
   Add-Type -Path (Join-Path $Net10Root 'sdk/10.0.403/System.Reflection.MetadataLoadContext.dll')
   $baselines = @(
     @{ root=$Net10Root; sdk='10.0.403'; version='10.0.13'; runtime='10.0.14'; target='net10.0' },
-    @{ root=$Net11Root; sdk='11.0.100-rc.3.26522.148'; version='11.0.0-rc.2.26504.105'; runtime='11.0.0-rc.3.26522.148'; target='net11.0' }
+    @{ root=$Net11Root; sdk='11.0.100'; version='11.0.0'; runtime='11.0.0'; target='net11.0' }
   )
   $results = @()
   foreach ($baseline in $baselines) {
@@ -250,7 +250,7 @@ try {
       ($_.FullName -match '[\\/](EmptyWeb|WebApi|WebApiAot|StarterWeb|RazorPagesWeb|RazorClassLibrary|GrpcService|Worker)-(CSharp|FSharp)[\\/]' -or $_.FullName -match '[\\/]mcp[\\/]') -and
       $_.FullName -notmatch '[\\/](localize|bootstrap|lib)[\\/]|\.min\.|\.map$' -and $_.Extension -in @('.cs','.csproj','.fs','.fsproj','.cshtml','.json','.js','.css','.html','.props','.targets','.proto')
     } | Sort-Object FullName | ForEach-Object { Get-TextAsset $_.FullName $templateRoot })
-    $npmVersion=if ($baseline.target -eq 'net10.0') { '10.0.11' } else { '11.0.0-preview.7.26381.103' }
+    $npmVersion=if ($baseline.target -eq 'net10.0') { '10.0.11' } else { '11.0.0' }
     $npmUrl="https://registry.npmjs.org/@microsoft/signalr/-/signalr-$npmVersion.tgz"
     $npmArchive=Join-Path $temporary "signalr-$npmVersion.tgz"
     Invoke-WebRequest $npmUrl -OutFile $npmArchive

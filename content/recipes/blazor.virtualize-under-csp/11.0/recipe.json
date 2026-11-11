@@ -19,7 +19,7 @@
         "selectionNotes": ["Strict style CSP; trusted CSSOM layout."],
         "requirements": {
           "runtime": {"name": ".NET", "version": "11.0", "match": "release-family", "reason": "Virtualize's numeric layout attributes require the .NET 11 renderer and matching browser code."},
-          "sdk": {"name": ".NET SDK", "version": "11.0", "match": "release-family", "reason": "Use matching Web SDK/reference and Internal.Assets browser files; the RC2 pin reproduces this evidence."},
+          "sdk": {"name": ".NET SDK", "version": "11.0", "match": "release-family", "reason": "Use matching Web SDK/reference and Internal.Assets browser files; the GA pin reproduces this evidence."},
           "language": {"name": "C#", "version": "15.0", "match": "exact", "reason": "Canonical current sample language mode; this migration itself requires no new C# syntax."},
           "frameworks": ["ASP.NET Core 11"],
           "packages": [],
@@ -29,7 +29,7 @@
           "platforms": ["Browser"],
           "renderingModes": ["Interactive Server"],
           "prerequisites": [
-            "Use Microsoft.NET.Sdk.Web, net11.0, nullable and implicit usings. Virtualize is in Microsoft.AspNetCore.App; no separate virtualization package, provider, account or workload is required. The pinned SDK resolves Microsoft.AspNetCore.App.Internal.Assets 11.0.0-rc.3.26522.148.",
+            "Use Microsoft.NET.Sdk.Web, net11.0, nullable and implicit usings. Virtualize is in Microsoft.AspNetCore.App; no separate virtualization package, provider, account or workload is required. The pinned SDK resolves Microsoft.AspNetCore.App.Internal.Assets 11.0.0.",
             "Register Interactive Server, load matching blazor.web.js and allow the app's trusted boot script and local circuit connection. Put app styles in an allowed external stylesheet. The tested header enforces style-src 'self', style-src-elem 'self' and style-src-attr 'none'.",
             "Use a real scroll container, fixed-height rows and browser IntersectionObserver/MutationObserver/CSSOM support. Execute the policy controls and inspect actual visible distant IDs in the consumer browser."
           ],
@@ -41,7 +41,7 @@
             "The loopback ws://localhost:* connect-src allowance is solely for local Interactive Server testing. Use the deployed application's actual secure circuit origin and independent script policy; no deployment policy audit is claimed."
           ],
           "optIns": [],
-          "stabilityLimitations": ["RC2; GA unverified."]
+          "stabilityLimitations": ["GA artifacts; verification is limited to the recorded checks. Existing catalogue readiness gates remain open."]
         },
         "evidenceSamples": ["samples/net11.0/BeaconReadings/BeaconReadings.csproj"],
         "sourceUrls": [
@@ -62,7 +62,7 @@
   ],
   "evidence": [
     {"sample": "samples/net10.0/BeaconReadings/BeaconReadings.csproj", "target": "net10.0", "sdk": "10.0.403", "language": "14.0", "kind": "compile", "scope": "Actual pinned Web SDK build. Separate real Chrome execution compares the explicit attribute exception with the enforced strict failure, visible distant IDs and attribute/element/CSSOM controls; no mocks."},
-    {"sample": "samples/net11.0/BeaconReadings/BeaconReadings.csproj", "target": "net11.0", "sdk": "11.0.100-rc.3.26522.148", "language": "15.0", "kind": "compile", "scope": "Actual pinned Web SDK build. Separate real Chrome execution checks strict response header, actual visible distant rows, bounded DOM window, return scrolling and enforced attribute/element controls without virtualization exceptions; no mocks."}
+    {"sample": "samples/net11.0/BeaconReadings/BeaconReadings.csproj", "target": "net11.0", "sdk": "11.0.100", "language": "15.0", "kind": "compile", "scope": "Actual pinned Web SDK build. Separate real Chrome execution checks strict response header, actual visible distant rows, bounded DOM window, return scrolling and enforced attribute/element controls without virtualization exceptions; no mocks."}
   ],
   "snippets": {
     "older": {"path": "samples/net10.0/BeaconReadings/Program.cs", "region": "host", "language": "csharp"},

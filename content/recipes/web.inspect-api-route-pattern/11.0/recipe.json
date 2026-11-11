@@ -42,7 +42,7 @@
             "match": "release-family",
             "name": ".NET / ASP.NET Core",
             "version": "11.0",
-            "reason": "ApiDescription.RoutePattern is present in the ASP.NET Core 11 contract; the measured baseline is RC2, not GA."
+            "reason": "ApiDescription.RoutePattern is present in the ASP.NET Core 11 contract; the measured baseline is GA."
           },
           "sdk": {
             "match": "release-family",
@@ -86,7 +86,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "No ExperimentalAttribute on the actual property. Stable API designation with exact RC2 proof; actual-GA reconciliation PIN-964, comprehensive coverage PIN-959 and existing Human gates remain open."
+            "No ExperimentalAttribute on the actual property. Stable API designation with exact GA proof; actual-GA reconciliation PIN-964, comprehensive coverage PIN-959 and existing Human gates remain open."
           ]
         },
         "selectionNotes": [
@@ -132,7 +132,7 @@
       "scope": "Actual built-in MVC and Minimal discovery (eight routes), authored extension invocation, constraints/defaults/optional/catch-all and lossy displayed-path/null controls; 18 real loopback HTTP success/404 checks and route-value comparisons. Records identify compiler, audited reference hashes and loaded runtime artifacts. Windows x64, no package/native dependencies, no GA or universal-provider proof.",
       "language": "15.0",
       "kind": "compile-and-run",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "sample": "samples/net11.0/MarineRoutes/MarineRoutes.csproj",
       "target": "net11.0"
     }

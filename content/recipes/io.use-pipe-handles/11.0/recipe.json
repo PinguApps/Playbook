@@ -37,20 +37,20 @@
         "usage": "primary",
         "selectionNotes": [
           "Use low-level pipe handles without seeking assumptions, and inspect Unix async state and same-user named-pipe permissions before migrating handle-based I/O.",
-          "Actual Windows x64 and digest-pinned Linux x64 old/new execution; current handle types, four pipe-end flag combinations, ownership, EOF, regular-file async reads, SendPacketsElement constructor guards and Unix 0600 shared-path ratchet. Same-user only; RC2 is not GA proof."
+          "Actual Windows x64 and digest-pinned Linux x64 old/new execution; current handle types, four pipe-end flag combinations, ownership, EOF, regular-file async reads, SendPacketsElement constructor guards and Unix 0600 shared-path ratchet. Same-user only; GA checks establish only the recorded scope."
         ],
         "requirements": {
           "runtime": {
             "name": ".NET",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Current net11.0 guidance; measured RC2 where executed, not actual-GA proof."
+            "reason": "Current net11.0 guidance; measured GA where executed, within the recorded verification scope."
           },
           "sdk": {
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Build against the matching .NET11 reference/toolchain assets; exact RC3 is the reproduction baseline."
+            "reason": "Build against the matching .NET11 reference/toolchain assets; exact GA is the reproduction baseline."
           },
           "language": {
             "name": "C#",
@@ -68,15 +68,15 @@
           "renderingModes": [],
           "workloads": [],
           "prerequisites": [
-            "Previous comparison SDK10.0.403/C#14/runtime-reference10.0.14; current SDK11.0.100-rc.3.26522.148/C#15/runtime-reference11RC3. Evidence values describe actual observations except explicitly intended source-only pins."
+            "Previous comparison SDK10.0.403/C#14/runtime-reference10.0.14; current SDK11.0.100/C#15/runtime-reference11RC3. Evidence values describe actual observations except explicitly intended source-only pins."
           ],
           "constraints": [
-            "Actual Windows x64 and digest-pinned Linux x64 old/new execution; current handle types, four pipe-end flag combinations, ownership, EOF, regular-file async reads, SendPacketsElement constructor guards and Unix 0600 shared-path ratchet. Same-user only; RC2 is not GA proof.",
+            "Actual Windows x64 and digest-pinned Linux x64 old/new execution; current handle types, four pipe-end flag combinations, ownership, EOF, regular-file async reads, SendPacketsElement constructor guards and Unix 0600 shared-path ratchet. Same-user only; GA checks establish only the recorded scope.",
             "Comparison samples do not add a .NET10 catalogue route or a ninth foundation. Keep PIN-959 comprehensive coverage, PIN-962 actual-GA reconciliation and existing Human gates open."
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "RC3 evidence is not actual-GA verification."
+            "GA verification is limited to the recorded checks."
           ]
         },
         "sourceUrls": [
@@ -152,15 +152,15 @@
       "target": "net10.0",
       "sdk": "10.0.403",
       "language": "14.0",
-      "scope": "Actual Windows x64 and digest-pinned Linux x64 old/new execution; current handle types, four pipe-end flag combinations, ownership, EOF, regular-file async reads, SendPacketsElement constructor guards and Unix 0600 shared-path ratchet. Same-user only; RC2 is not GA proof."
+      "scope": "Actual Windows x64 and digest-pinned Linux x64 old/new execution; current handle types, four pipe-end flag combinations, ownership, EOF, regular-file async reads, SendPacketsElement constructor guards and Unix 0600 shared-path ratchet. Same-user only; GA checks establish only the recorded scope."
     },
     {
       "kind": "compile-and-run",
       "sample": "samples/net11.0/BuoyPipes/BuoyPipes.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
-      "scope": "Actual Windows x64 and digest-pinned Linux x64 old/new execution; current handle types, four pipe-end flag combinations, ownership, EOF, regular-file async reads, SendPacketsElement constructor guards and Unix 0600 shared-path ratchet. Same-user only; RC2 is not GA proof."
+      "scope": "Actual Windows x64 and digest-pinned Linux x64 old/new execution; current handle types, four pipe-end flag combinations, ownership, EOF, regular-file async reads, SendPacketsElement constructor guards and Unix 0600 shared-path ratchet. Same-user only; GA checks establish only the recorded scope."
     },
     {
       "kind": "execution",
@@ -168,16 +168,16 @@
       "target": "net10.0",
       "sdk": "10.0.403",
       "language": "14.0",
-      "scope": "Actual Windows x64 and digest-pinned Linux x64 old/new execution; current handle types, four pipe-end flag combinations, ownership, EOF, regular-file async reads, SendPacketsElement constructor guards and Unix 0600 shared-path ratchet. Same-user only; RC2 is not GA proof.",
+      "scope": "Actual Windows x64 and digest-pinned Linux x64 old/new execution; current handle types, four pipe-end flag combinations, ownership, EOF, regular-file async reads, SendPacketsElement constructor guards and Unix 0600 shared-path ratchet. Same-user only; GA checks establish only the recorded scope.",
       "record": "samples/net10.0/BuoyPipes/linux.evidence.json"
     },
     {
       "kind": "execution",
       "sample": "samples/net11.0/BuoyPipes/BuoyPipes.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
-      "scope": "Actual Windows x64 and digest-pinned Linux x64 old/new execution; current handle types, four pipe-end flag combinations, ownership, EOF, regular-file async reads, SendPacketsElement constructor guards and Unix 0600 shared-path ratchet. Same-user only; RC2 is not GA proof.",
+      "scope": "Actual Windows x64 and digest-pinned Linux x64 old/new execution; current handle types, four pipe-end flag combinations, ownership, EOF, regular-file async reads, SendPacketsElement constructor guards and Unix 0600 shared-path ratchet. Same-user only; GA checks establish only the recorded scope.",
       "record": "samples/net11.0/BuoyPipes/linux.evidence.json"
     }
   ],
@@ -205,6 +205,6 @@
   },
   "humanProof": {
     "status": "not-required",
-    "scope": "Actual Windows x64 and digest-pinned Linux x64 old/new execution; current handle types, four pipe-end flag combinations, ownership, EOF, regular-file async reads, SendPacketsElement constructor guards and Unix 0600 shared-path ratchet. Same-user only; RC2 is not GA proof. Feasible checks are automated. Pingu owns feasible interactive approvals and refresh coordination; no new Human gate."
+    "scope": "Actual Windows x64 and digest-pinned Linux x64 old/new execution; current handle types, four pipe-end flag combinations, ownership, EOF, regular-file async reads, SendPacketsElement constructor guards and Unix 0600 shared-path ratchet. Same-user only; GA checks establish only the recorded scope. Feasible checks are automated. Pingu owns feasible interactive approvals and refresh coordination; no new Human gate."
   }
 }

@@ -38,20 +38,20 @@
         "usage": "primary",
         "selectionNotes": [
           "Preserve background importer failures at the process boundary when the default Generic Host stops, while distinguishing cancellation, Ignore, logs and the chosen exit code.",
-          "Actual Windows x64 CoreCLR JIT RC2 execution; actual-GA reconciliation remains open."
+          "Actual Windows x64 CoreCLR JIT GA execution; actual-GA checks are limited to the recorded scope."
         ],
         "requirements": {
           "runtime": {
             "name": ".NET",
             "version": "11.0",
             "match": "release-family",
-            "reason": ".NET 11 managed runtime for the primary net11 package consumer; RC2 is the measured baseline."
+            "reason": ".NET 11 managed runtime for the primary net11 package consumer; GA is the measured baseline."
           },
           "sdk": {
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Build against the .NET 11 reference assemblies; exact RC3 is the reproduction baseline."
+            "reason": "Build against the .NET 11 reference assemblies; exact GA is the reproduction baseline."
           },
           "language": {
             "name": "C#",
@@ -63,7 +63,7 @@
           "packages": [
             {
               "name": "Microsoft.Extensions.Hosting",
-              "version": "11.0.0-rc.2.26504.105",
+              "version": "11.0.0",
               "match": "exact",
               "reason": "Pinned actual package consumer; no newer-package-on-net10 route is claimed."
             }
@@ -87,7 +87,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Verified using .NET 11 RC2; GA reconciliation remains pending. These selected contracts have no publisher experimental annotation or required opt-in."
+            "Verified using .NET 11 GA; GA checks are limited to the recorded scope. These selected contracts have no publisher experimental annotation or required opt-in."
           ]
         },
         "sourceUrls": [
@@ -140,7 +140,7 @@
       "kind": "compile-and-run",
       "scope": "Paired real processes: 35 lifecycle children plus canonical demo per release. Run/RunAsync, explicit start/stop, timed stop and sync/async shutdown waits; signalled single/multiple/shutdown failures with original identities, logs and exit policy, normal cancellation, Ignore nonshutdown, startup failure, disposal and child reaping. Windows x64 CoreCLR JIT; no browser/custom-host/uncaught numeric-exit/older-target-newer-package/GA proof.",
       "sample": "samples/net11.0/AquariumImport/AquariumImport.csproj",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "target": "net11.0"
     }

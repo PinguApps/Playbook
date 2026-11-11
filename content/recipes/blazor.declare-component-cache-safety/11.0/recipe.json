@@ -48,7 +48,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Build against .NET 11 references; exact RC2 pins identify measured proof."
+            "reason": "Build against .NET 11 references; exact GA pins identify measured proof."
           },
           "language": {
             "name": "C#",
@@ -62,7 +62,7 @@
           "packages": [],
           "workloads": [],
           "packageAssets": [
-            "SDK-aligned Microsoft.AspNetCore.App.Internal.Assets browser/static assets; implicit dependency locked at 11.0.0-rc.3.26522.148 in the measured sample. No additional PackageReference."
+            "SDK-aligned Microsoft.AspNetCore.App.Internal.Assets browser/static assets; implicit dependency locked at 11.0.0 in the measured sample. No additional PackageReference."
           ],
           "providers": [
             "Default process-local CacheView memory store; cookie authentication with Development-only fictional sign-in controls."
@@ -84,7 +84,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "GA-targeted 11.0 guidance verified against RC2, not actual GA; inspected APIs carry no experimental opt-in."
+            "GA-targeted 11.0 guidance verified against GA; inspected APIs carry no experimental opt-in."
           ]
         },
         "sourceUrls": [
@@ -138,12 +138,12 @@
       "language": "14.0",
       "kind": "execution",
       "record": "samples/net10.0/LibraryBadges/behavior.evidence.json",
-      "scope": "Real cookie-authenticated SSR requests for two users; lifecycle counts and fresh output; RC2 captured parameter replay, conditional capture and refusal timing."
+      "scope": "Real cookie-authenticated SSR requests for two users; lifecycle counts and fresh output; GA captured parameter replay, conditional capture and refusal timing."
     },
     {
       "sample": "samples/net11.0/LibraryBadges/LibraryBadges.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "kind": "compile",
       "scope": "Actual pinned Web SDK compilation with locked implicit assets. Does not establish browser/request behavior."
@@ -151,11 +151,11 @@
     {
       "sample": "samples/net11.0/LibraryBadges/LibraryBadges.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "kind": "execution",
       "record": "samples/net11.0/LibraryBadges/behavior.evidence.json",
-      "scope": "Real cookie-authenticated SSR requests for two users; lifecycle counts and fresh output; RC2 captured parameter replay, conditional capture and refusal timing."
+      "scope": "Real cookie-authenticated SSR requests for two users; lifecycle counts and fresh output; GA captured parameter replay, conditional capture and refusal timing."
     }
   ],
   "snippets": {

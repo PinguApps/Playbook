@@ -10,9 +10,9 @@ localized diagnostic text.
 
 ## Choose the actual producer and reader
 
-This edition is qualified with **SDK 11.0.100-rc.3.26522.148**, bundled
+This edition is qualified with **SDK 11.0.100**, bundled
 **MSBuild 18.12.0-1.26504.105**, **C# 15.0**, and runtime/reference pack
-**11.0.0-rc.2.26504.105** on **Windows x64**. It is preview evidence, not an
+**11.0.0** on **Windows x64**. It is preview evidence, not an
 actual-GA qualification. The older comparison uses **SDK 10.0.403**, MSBuild
 **18.9.15**, C# **14.0**, runtime/reference pack **10.0.14**. Both Framework
 assemblies identify as `15.1.0.0`; that is not the MSBuild product build.
@@ -169,6 +169,8 @@ exercise that failure and check its stable error code.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Run `eng/Record-DepotEvents.ps1` with absolute paths to the two complete SDK
 executables. It uses the existing sample-evidence workflow to compile and execute
 both actual dependency sets, record input hashes and SDK/language/dependency
@@ -188,7 +190,7 @@ for the generated directory and supplied SDK installation.
 
 ## Constraints
 
-This is managed Windows x64 RC2 proof, with no Visual Studio/.NET Framework,
+This is managed Windows x64 GA proof, with no Visual Studio/.NET Framework,
 independent package, NativeAOT, other-OS or universal server/reuse/performance claim.
 No unavailable older route is advertised. Missing a complete SDK or safe owned
 lifecycle blocks reproduction; a synthetic replacement would not qualify it.

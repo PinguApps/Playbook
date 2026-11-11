@@ -31,11 +31,13 @@ MinimumPressDuration defaults to 500ms, AllowableMovement to 10 pixels and Numbe
 
 ## Constraints
 
-The .NET11 edition requires native Controls11 assets; there is no verified older-target package route. SDK/runtime11, C#15 and RC2 package/workload pins are explicit in Applicability and canonical projects. No service/provider account, web renderer, preview C# or experimental opt-in is required. GA reconciliation remains separate. The older Windows Button implementation is a comparison, not proof of Apple behavior.
+The .NET11 edition requires native Controls11 assets; there is no verified older-target package route. SDK/runtime11, C#15 and GA package/workload pins are explicit in Applicability and canonical projects. No service/provider account, web renderer, preview C# or experimental opt-in is required. GA reconciliation remains separate. The older Windows Button implementation is a comparison, not proof of Apple behavior.
 
 ## Evidence
 
-The actual .NET10 Windows comparison compiles in Release. The token-aware overload, Boolean completion semantics, gesture event contract and Android/Windows backend limits were checked against pinned official implementation and the downloaded RC2 Controls.Core artifact. No upstream tests were executed. Current Windows compilation is not-tested because SDK11 lacks the MAUI SDK pack. iOS/Mac Catalyst/Android compilation and device interactions are not-tested because their native toolchains/devices are unavailable. All gesture/animation UI behavior is explicitly unexecuted; a Windows build or MCP retrieval does not establish it. PIN-699 and Pingu's 4 November clarification exclude those unavailable checks without requesting more hardware.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
+The actual .NET10 Windows comparison compiles in Release. The token-aware overload, Boolean completion semantics, gesture event contract and Android/Windows backend limits were checked against pinned official implementation and the downloaded GA Controls.Core artifact. No upstream tests were executed. Current Windows compilation is not-tested because SDK11 lacks the MAUI SDK pack. iOS/Mac Catalyst/Android compilation and device interactions are not-tested because their native toolchains/devices are unavailable. All gesture/animation UI behavior is explicitly unexecuted; a Windows build or MCP retrieval does not establish it. PIN-699 and Pingu's 4 November clarification exclude those unavailable checks without requesting more hardware.
 
 ### samples/net10.0/BeaconBoard/BeaconBoard.csproj
 

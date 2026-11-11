@@ -4,7 +4,7 @@
 
 Convert stored offsets and group readings into hours within SQL Server queries using EF11 translated members, constructors and DateTrunc. BeaconWatch keeps a name and an offset-bearing observation time for each navigation beacon. Its audit report needs both the history of renamed beacons and consistent hour buckets.
 
-DATETRUNC requires SQL Server2022 or later. This sample executes on SQL Server2025 at compatibility170 only. LocalDateTime uses the SQL Server time zone, not the application machine time zone. The translated one-argument DateTimeOffset constructor attaches UTC (+00:00) in this RC2 provider, unlike the local CLR constructor on an Unspecified DateTime. An offset is not a named time zone or a daylight-saving rule.
+DATETRUNC requires SQL Server2022 or later. This sample executes on SQL Server2025 at compatibility170 only. LocalDateTime uses the SQL Server time zone, not the application machine time zone. The translated one-argument DateTimeOffset constructor attaches UTC (+00:00) in this GA provider, unlike the local CLR constructor on an Unspecified DateTime. An offset is not a named time zone or a daylight-saving rule.
 
 ## Older approach — .NET10 / EF10
 
@@ -74,15 +74,17 @@ EF11 exposes temporal periods directly on the entity and translates the demonstr
 
 ## Constraints
 
-DATETRUNC requires SQL Server2022 or later. This sample executes on SQL Server2025 at compatibility170 only. LocalDateTime uses the SQL Server time zone, not the application machine time zone. The translated one-argument DateTimeOffset constructor attaches UTC (+00:00) in this RC2 provider, unlike the local CLR constructor on an Unspecified DateTime. An offset is not a named time zone or a daylight-saving rule.
+DATETRUNC requires SQL Server2022 or later. This sample executes on SQL Server2025 at compatibility170 only. LocalDateTime uses the SQL Server time zone, not the application machine time zone. The translated one-argument DateTimeOffset constructor attaches UTC (+00:00) in this GA provider, unlike the local CLR constructor on an Unspecified DateTime. An offset is not a named time zone or a daylight-saving rule.
 
 The generated periods represent SQL Server transaction time in UTC, not the observation timestamp or client clock. CLR values materialized as DateTime do not automatically carry a UTC Kind. An hour bucket retains its offset; normalize to the intended reporting offset before grouping observations with different offsets. Do not call provider-only DateTrunc on in-memory collections.
 
-No browser, rendering mode or workload is required. The EF11 sample requires net11.0 and C#15 as declared; no EF11-on-net10 route is offered. Stable API guidance is prepared with RC2 artifacts and still requires GA reconciliation. No experimental opt-in is used.
+No browser, rendering mode or workload is required. The EF11 sample requires net11.0 and C#15 as declared; no EF11-on-net10 route is offered. Stable API guidance is prepared with GA artifacts and still requires GA reconciliation. No experimental opt-in is used.
 
 ## Evidence
 
-eng/Test-BeaconHistory.ps1 -Record executes the complete original projects against separate restricted databases on the authorized SQL2025 container and removes them in finally. The exact SDKs are10.0.403 and11.0.100-rc.3.26522.148; EF packages are10.0.13 and11.0.0-rc.2.26504.105. SqlClient6.1.7/7.1.0 and Pkcs10.0.13, their locked transitive packages and source hashes accompany the compilation records.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
+eng/Test-BeaconHistory.ps1 -Record executes the complete original projects against separate restricted databases on the authorized SQL2025 container and removes them in finally. The exact SDKs are10.0.403 and11.0.100; EF packages are10.0.13 and11.0.0. SqlClient6.1.7/7.1.0 and Pkcs10.0.13, their locked transitive packages and source hashes accompany the compilation records.
 
 The checks require generated initial bounds, two adjacent historical periods, the original and renamed labels, and SQL Server error13537 for a direct period update. Time checks require actual wall/UTC/offset/bucket values; EF11 also checks server-local conversion, both constructors composed inside DateTrunc to force server translation, translation tokens and server grouping. These are real database checks, not mocks. Other engines and platforms, named-zone DST conversion and GA are unverified. PIN-959 and PIN-965 remain separate gates.
 

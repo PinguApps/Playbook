@@ -49,7 +49,7 @@ try {
               if ((Get-FileHash -LiteralPath (Join-Path $packageDirectory $asset.path)).Hash.ToLowerInvariant() -cne $asset.surface.sha256) { throw "Audited asset mismatch: $library" }
             }
           } elseif ($library -notin @(
-            'FSharp.Core/10.1.402','FSharp.Core/11.0.101-rc2.26504.105',
+            'FSharp.Core/10.1.402','FSharp.Core/11.0.101',
             'Microsoft.AspNetCore.Mvc.Razor.Extensions/6.0.0','Microsoft.AspNetCore.Razor.Language/6.0.0',
             'Microsoft.CodeAnalysis.Analyzers/3.3.2','Microsoft.CodeAnalysis.Common/4.0.0',
             'Microsoft.CodeAnalysis.CSharp/4.0.0','Microsoft.CodeAnalysis.Razor/6.0.0',

@@ -13,7 +13,7 @@ if ((Get-Item -LiteralPath $Generator).Length -ne 10039808 -or (Get-FileHash -Li
   throw 'Use the verified protoc-gen-openapiv2 v2.31.0 Windows x64 release artifact.'
 }
 $protocRoot = Join-Path $PackageRoot 'grpc.tools/2.64.0'
-$imports = Join-Path $PackageRoot 'microsoft.aspnetcore.grpc.jsontranscoding/11.0.0-rc.2.26504.105/content/protos'
+$imports = Join-Path $PackageRoot 'microsoft.aspnetcore.grpc.jsontranscoding/11.0.0/content/protos'
 $output = [IO.Path]::GetFullPath($OutputDirectory)
 New-Item -ItemType Directory -Force -Path $output | Out-Null
 & (Join-Path $protocRoot 'tools/windows_x64/protoc.exe') `

@@ -34,4 +34,6 @@ The new helper requires framework System.Text.Json on .NET 11, SDK 11 / C# 15. N
 
 ## Evidence
 
-Actual .NET 10 and .NET 11 RC2 executions cover required typed success, optional success, a generated-only Uri miss and a resolver deliberately throwing InvalidOperationException. The .NET 11 generic required lookup is also checked for NotSupportedException. These are real serializer/resolver calls; the intentionally failing resolver tests exception propagation rather than pretending to supply real metadata. Offline installed list/get verifies the entire body and applicability. Exact builds/input records are saved; GA and AOT remain unverified, no Human proof is required.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
+Actual .NET 10 and .NET 11 GA executions cover required typed success, optional success, a generated-only Uri miss and a resolver deliberately throwing InvalidOperationException. The .NET 11 generic required lookup is also checked for NotSupportedException. These are real serializer/resolver calls; the intentionally failing resolver tests exception propagation rather than pretending to supply real metadata. Offline installed list/get verifies the entire body and applicability. Exact builds/input records are saved; GA and AOT remain unverified, no Human proof is required.

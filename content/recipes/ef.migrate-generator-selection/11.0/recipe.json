@@ -46,7 +46,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Build the net11.0 consumer; measured SDK 11.0.100-rc.3.26522.148 is RC2 evidence, not GA proof."
+            "reason": "Build the net11.0 consumer; measured SDK 11.0.100 is GA evidence, within the recorded verification scope."
           },
           "language": {
             "name": "C#",
@@ -61,12 +61,12 @@
             {
               "match": "release-family",
               "name": "Microsoft.EntityFrameworkCore.Sqlite",
-              "reason": "Exact RC2 graph is locked in the canonical project.",
+              "reason": "Exact GA graph is locked in the canonical project.",
               "version": "11.0"
             }
           ],
           "packageAssets": [
-            "EF10.0.13/net10.0 versus EF11.0.0-rc.2.26504.105/net11.0. SDK10.0.403/C#14 versus SDK11.0.100-rc.3.26522.148/C#15. SQL graphs pin Pkcs10.0.13 and SqlClient6.1.7/7.1.0. SQLite uses the locked platform bundle; actual native DLL hashes are in execution records. EF11 requires .NET11; no older-runtime route is offered. No workload or rendering mode applies. No experimental opt-in or NativeAOT claim. RC2 proof is not actual GA reconciliation."
+            "EF10.0.13/net10.0 versus EF11.0.0/net11.0. SDK10.0.403/C#14 versus SDK11.0.100/C#15. SQL graphs pin Pkcs10.0.13 and SqlClient6.1.7/7.1.0. SQLite uses the locked platform bundle; actual native DLL hashes are in execution records. EF11 requires .NET11; no older-runtime route is offered. No workload or rendering mode applies. No experimental opt-in or NativeAOT claim. GA verification is limited to the recorded checks reconciliation."
           ],
           "providers": [
             "Windows x64 bundled SQLite"
@@ -82,11 +82,11 @@
             "EF10 already supports TrySelect and TryCreate. Its obsolete Select/Create members disappear in EF11. Move both selection callers and creation overrides; true must return a non-null generator and false reports no generator. EF10 persistence already invokes TryCreate: a legacy Create override alone compiled but did not generate the intended keys in the real fixture. Keep the working TryCreate override on EF10 too. The explicit legacy Select control throws NotSupportedException for decimal; the current TrySelect control returns false with null. The selector delegates unrelated properties to the base and registers through ReplaceService. The random application prefix is fictional; these keys offer uniqueness checks in the fixture, not ordered or globally coordinated identifiers."
           ],
           "prerequisites": [
-            "PowerShell7, pinned SDK10.0.403 and SDK11 RC3, restored locked graphs. SQL samples use the approved isolated SqlServer.ps1 route. Run eng/Test-TernExtensions.ps1 -Record."
+            "PowerShell7, pinned SDK10.0.403 and SDK11 GA, restored locked graphs. SQL samples use the approved isolated SqlServer.ps1 route. Run eng/Test-TernExtensions.ps1 -Record."
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Public extension contracts are upgrade-sensitive. Stable API shape measured on pinned RC2; reconcile actual GA separately."
+            "Public extension contracts are upgrade-sensitive. Stable API shape measured on pinned GA; reconcile actual GA separately."
           ]
         },
         "conditional": false,
@@ -123,7 +123,7 @@
     {
       "language": "15.0",
       "sample": "samples/net11.0/TernPermits/TernPermits.csproj",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "target": "net11.0",
       "kind": "compile",
       "scope": "eng/Test-TernExtensions.ps1 -Record: real compilation and bounded provider execution with cleanup. No GA/NativeAOT/other-platform guarantee."
@@ -131,7 +131,7 @@
     {
       "language": "15.0",
       "sample": "samples/net11.0/TernPermits/TernPermits.csproj",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "target": "net11.0",
       "kind": "execution",
       "record": "samples/net11.0/TernPermits/behavior.evidence.json",

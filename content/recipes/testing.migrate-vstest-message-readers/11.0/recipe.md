@@ -43,8 +43,8 @@ stable custom-serializer extension API or make internal converters supported.
 Do not copy SDK-root DLLs, add an imaginary CommunicationUtilities NuGet package,
 or mix platform release sets. Keep the complete resolved runtime closure.
 
-The new .NET 11 project uses SDK **11.0.100-rc.3.26522.148**, C# **15** and runtime
-**11.0.0-rc.2.26504.105**. CommunicationUtilities/ObjectModel still select their
+The new .NET 11 project uses SDK **11.0.100**, C# **15** and runtime
+**11.0.0**. CommunicationUtilities/ObjectModel still select their
 actual **lib/net8.0** compile and runtime assets:
 
 {{snippet:newer-project}}
@@ -59,7 +59,7 @@ package pin, SDK 10.0.403/C# 14/runtime 10.0.14:
 This conditional package-adoption route is not another .NET 10 foundation. No
 .NET 8/9/Framework route is advertised from asset-directory presence alone.
 TestHost 18.11.0 is a stable public package; the .NET 11 SDK/runtime proof remains
-RC2. The SDK's **18.11.0-release-26504-105** copies are separate artifacts, not the
+GA. The SDK's **18.11.0-release-26504-105** copies are separate artifacts, not the
 downloaded 18.11 bytes used here. No experimental API or opt-in is required.
 
 Save this common source as `samples/LaboratoryMessages/LabRun.cs`. The statistics
@@ -168,7 +168,7 @@ SDKs, runtimes and public packages stated above. No provider, rendering mode,
 workload or native toolchain is required. Arbitrary custom resolver/converter
 extension subgoals have no public replacement established here. Other payloads,
 Framework/older targets, other OS/architectures, test execution/transport,
-extension loading, trimming and Native AOT remain unverified. RC2 proof does not
+extension loading, trimming and Native AOT remain unverified. GA proof does not
 clear actual-GA, comprehensive-coverage or independently pending Human gates.
 
 ## Verification
@@ -193,6 +193,8 @@ commands, inputs, dependency hashes and runtime/SDK/compiler observations throug
 the existing verification.json/verification-evidence.json workflow.
 
 ## Evidence
+
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Saved compile-and-run records cover the old-net10, current-net10 and current-net11
 projects with exact dependency locks and input hashes. The compiler, published

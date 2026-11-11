@@ -44,7 +44,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Build against .NET 11 reference assemblies; exact RC2 is evidence, not an exact installation requirement."
+            "reason": "Build against .NET 11 reference assemblies; exact GA is evidence, not an exact installation requirement."
           },
           "language": {
             "name": "C#",
@@ -79,7 +79,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Stable rendering contract tested with .NET 11 RC2; GA reconciliation remains pending. No experimental opt-in."
+            "Stable rendering contract tested with .NET 11 GA; GA checks are limited to the recorded scope. No experimental opt-in."
           ]
         },
         "sourceUrls": [
@@ -129,7 +129,7 @@
     {
       "sample": "samples/net11.0/ArchiveCards/ArchiveCards.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "kind": "compile",
       "scope": "Actual newer Web SDK consumer compilation. Separate real HTTP/browser reports verify named/child capture, interactive rerendering, generic/delegate/prerender restrictions and a skipped captured callback.",
       "language": "15.0"

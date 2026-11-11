@@ -30,7 +30,7 @@
           "runtime": {
             "name": ".NET",
             "match": "release-family",
-            "reason": "Primary net11.0 consumer; actual RC2 proof is distinct from GA verification.",
+            "reason": "Primary net11.0 consumer; actual GA proof is distinct from GA verification.",
             "version": "11.0"
           },
           "sdk": {
@@ -60,12 +60,12 @@
           "constraints": [
             "Use a cancellation-aware concrete writer; arbitrary TextWriter subclasses can ignore tokens. Serial await before flush/disposal; cancellation does not roll back bytes and later cleanup can flush buffers.",
             "Windows x64 execution only; no universal cancellation, atomic publication, delivery/durability, other-platform or performance claim.",
-            "Previous proof SDK10.0.403/C#14/ref-runtime10.0.14; current SDK11.0.100-rc.3.26522.148/C#15/ref-runtime11RC3. Exact proof pins are distinct from supported release-family prerequisites.",
+            "Previous proof SDK10.0.403/C#14/ref-runtime10.0.14; current SDK11.0.100/C#15/ref-runtime11RC3. Exact proof pins are distinct from supported release-family prerequisites.",
             "No NuGet packages/assets, providers, workloads, rendering modes or experimental opt-ins; no additional .NET10 foundation or optional older-target API route."
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Verified with actual RC2 artifacts; final-GA reconciliation remains open. No experimental diagnostic opt-in on the selected APIs."
+            "Verified with actual GA artifacts; final-GA checks are limited to the recorded scope. No experimental diagnostic opt-in on the selected APIs."
           ]
         },
         "sharedAreas": [],
@@ -117,7 +117,7 @@
     },
     {
       "scope": "Real StreamWriter success/newlines, pre-cancelled text/line/blank line, in-flight forwarded token, retained partial bytes and TextWriter.Null limitation.",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "target": "net11.0",
       "kind": "compile-and-run",
       "sample": "samples/net11.0/MooringReport/MooringReport.csproj",

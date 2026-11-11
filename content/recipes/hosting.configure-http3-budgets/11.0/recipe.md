@@ -16,10 +16,9 @@ Linux/macOS support from a managed build. It fails if QUIC is unavailable and
 requires HTTP/3 exactly rather than accepting a silent HTTP/2 fallback.
 
 The exact older set is SDK10.0.403, .NET/ASP.NET10.0.13 and C#14. The newer set is
-SDK11.0.100-rc.3.26522.148, .NET/ASP.NET11.0.0-rc.2.26504.105 and C#15. Both load
+SDK11.0.100, .NET/ASP.NET11.0.0 and C#15. Both load
 MsQuic2.5.11.159415436. These are measured reproduction pins, not minimum patches.
-The newer migration targets the .NET11 release family; RC3 evidence is not actual
-GA evidence. No additional NuGet library, workload, hosted provider or browser
+The newer migration targets the .NET11 release family; GA evidence is limited to the recorded checks. No additional NuGet library, workload, hosted provider or browser
 rendering is required. The empty build/package boundary files prevent inherited
 project settings from changing this standalone example.
 
@@ -146,6 +145,8 @@ Copy every file below at its relative path into an independent directory.
 {{snippet:n11-program-cs}}
 
 ## Evidence
+
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Run eng/Test-WebResourceRecipes.ps1 -RecordEvidence from the task worktree to
 refresh the six actual consumers, diagnostic controls and audited artifact hashes.

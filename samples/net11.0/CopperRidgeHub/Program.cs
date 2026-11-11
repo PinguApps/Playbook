@@ -38,10 +38,14 @@ app.MapPost("/gateway/refresh", async (HttpContext context) =>
 {
     if (!AuthenticationHeaderValue.TryParse(context.Request.Headers.Authorization.ToString(), out var bearer) ||
         !string.Equals(bearer.Scheme, "Bearer", StringComparison.OrdinalIgnoreCase) || string.IsNullOrEmpty(bearer.Parameter)) return Results.Unauthorized();
+    if (!context.Request.Headers.TryGetValue("X-SignalR-Connection-Token", out var connectionToken) ||
+        connectionToken.Count != 1 || string.IsNullOrEmpty(connectionToken[0])) return Results.BadRequest();
     using var client = new HttpClient();
     // Select the trusted local binding; request Host cannot redirect credentials.
-    using var request = new HttpRequestMessage(HttpMethod.Post, $"{HubAddress(app)}/refresh?id={Uri.EscapeDataString(context.Request.Query["id"].ToString())}");
+    using var request = new HttpRequestMessage(HttpMethod.Post, $"{HubAddress(app)}/refresh");
     request.Headers.Authorization = bearer;
+    request.Headers.Add("X-SignalR-Connection-Token", connectionToken[0]);
+    request.Headers.Add("X-Requested-With", "XMLHttpRequest");
     using var response = await client.SendAsync(request);
     if (!response.IsSuccessStatusCode) return Results.StatusCode((int)response.StatusCode);
     var body = await response.Content.ReadFromJsonAsync<System.Text.Json.JsonElement>();
@@ -59,6 +63,10 @@ try
     using var client = new HttpClient();
     using var missing = await client.PostAsync(new Uri(address + "/gateway/refresh"), null);
     Require(missing.StatusCode == System.Net.HttpStatusCode.Unauthorized, "Missing gateway credentials must return 401");
+    using var missingToken = new HttpRequestMessage(HttpMethod.Post, address + "/gateway/refresh");
+    missingToken.Headers.Authorization = new AuthenticationHeaderValue("Bearer", "mara:visitor");
+    using var missingTokenResponse = await client.SendAsync(missingToken);
+    Require(missingTokenResponse.StatusCode == System.Net.HttpStatusCode.BadRequest, "Missing private connection token must return 400");
     using var redirect = new HttpRequestMessage(HttpMethod.Post, address + "/gateway/negotiate?negotiateVersion=1");
     redirect.Headers.Host = "127.0.0.1:1";
     redirect.Headers.Authorization = new AuthenticationHeaderValue("Bearer", "mara:visitor");

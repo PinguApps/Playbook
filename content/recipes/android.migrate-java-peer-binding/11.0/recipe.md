@@ -28,7 +28,7 @@ This is an owned managed peer library, not a replacement for binding a third-par
   callback. The older wrapper contains that exact Java method. Do not extrapolate
   this simple signature to every Export/ExportField, generic or custom-peer shape.
 - Replace overrides of `JavaFinalize` with deliberate lifetime handling.
-  The actual RC2 reference marks it obsolete. `Dispose(bool)` is suitable for
+  The actual GA reference marks it obsolete. `Dispose(bool)` is suitable for
   explicit managed cleanup; dispose managed objects only when `disposing` is true
   and call the base implementation. A C# finalizer is for separately owned
   unmanaged resources, not a place to access arbitrary managed state. Existing
@@ -42,8 +42,10 @@ does not establish it. This recipe requires no account or web rendering mode.
 
 ## Evidence
 
-The .NET10 build uses real Android36.1.118 packs. Current RC2 reference metadata
-and source are inspected independently; the RC3-pinned .NET11 build fails
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
+The .NET10 build uses real Android36.1.118 packs. Current GA reference metadata
+and source are inspected independently; the GA-pinned .NET11 build fails
 NETSDK1147. Its typemap generation and both editions' device callbacks/lifetimes
 are **not-tested** under PIN-699. Experimental Android NativeAOT is not executed.
 No older-target route or GA verification is claimed.
@@ -60,7 +62,7 @@ The .NET10 comparison uses Mono and the existing generated Java wrappers. Explic
 
 ## Constraints
 
-Requires Android API24+, a matching .NET11 Android workload, Android SDK and JDK21 or25. Gradle through JDK25 requires9.1+. RC3 SDK and reviewed RC2 platform assets are distinct inputs, not a tested composition. No external provider or web render mode. NativeAOT is experimental and unexecuted. Device execution and current native compilation remain not-tested under PIN-699; source review does not establish GA behavior.
+Requires Android API24+, a matching .NET11 Android workload, Android SDK and JDK21 or25. Gradle through JDK25 requires9.1+. GA SDK selection, stable platform artifacts and historical implementation sources are distinct inputs, not a tested native composition. No external provider or web render mode. NativeAOT is experimental and unexecuted. Device execution and current native compilation remain not-tested under PIN-699; source review does not establish GA behavior.
 
 ## Newer approach
 

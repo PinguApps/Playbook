@@ -37,10 +37,10 @@ retains the default application-base behavior.
 
 {{snippet:navigate}}
 
-RC2's resolver may render an absolute URI; do not depend on a root-relative
+GA's resolver may render an absolute URI; do not depend on a root-relative
 spelling described by earlier preview documentation. Follow the resolved
 destination. RelativeToCurrentUri defaults to false. The option requires a
-relative destination: RC2 rejects absolute URLs and leading-slash paths.
+relative destination: GA rejects absolute URLs and leading-slash paths.
 Use ordinary navigation for those destinations. A relative path can contain
 parent-directory segments; this option is not an authorization or confinement
 boundary. Choose destinations from trusted application routes.
@@ -49,9 +49,9 @@ boundary. Choose destinations from trusted application routes.
 
 Use Microsoft.NET.Sdk.Web with net11.0, LangVersion 15.0, Nullable enable and
 ImplicitUsings enable. The comparison uses net10.0/C# 14.0. The independently
-pinned SDKs are 11.0.100-rc.3.26522.148 and 10.0.403. No explicit NuGet reference
+pinned SDKs are 11.0.100 and 10.0.403. No explicit NuGet reference
 is needed for these framework APIs. Keep the SDK-provided browser assets aligned;
-the measured SDKs restore Internal.Assets 11.0.0-rc.3.26522.148 and 10.0.14.
+the measured SDKs restore Internal.Assets 11.0.0 and 10.0.14.
 No provider, native workload or service account is required.
 
 {{snippet:startup}}
@@ -64,7 +64,7 @@ Use a Routes component containing Router with AppAssembly="typeof(App).Assembly"
 and a Found template containing RouteView RouteData="route". Render Routes with
 @rendermode="InteractiveServer" in App.razor and import the static
 Microsoft.AspNetCore.Components.Web.RenderMode members. The document head needs
-one BasePath component (Microsoft.AspNetCore.Components in RC2). At the end of
+one BasePath component (Microsoft.AspNetCore.Components in GA). At the end of
 body, load the script with src='@Assets["_framework/blazor.web.js"]'.
 The companion base-path recipe includes the complete document shell.
 
@@ -86,10 +86,12 @@ shell. WebAssembly/Auto require their usual client services/assets and are not
 executed here. Relative navigation does not configure the proxy or deployment
 path. A reverse proxy must correctly establish the external request PathBase.
 There is no newer-package route claimed for net10.0. These contracts are
-non-experimental; the measured .NET 11 assets are RC2, with GA reconciliation
+non-experimental; the measured .NET 11 assets are GA, with GA reconciliation
 still pending.
 
 ## Evidence
+
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Both actual Web SDK projects compile at their declared target/language pins.
 Real HTTP requests load overview, notes, checklist and browser assets below

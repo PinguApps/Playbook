@@ -44,7 +44,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Build against .NET 11 reference assemblies; exact RC2 is evidence, not an exact installation requirement."
+            "reason": "Build against .NET 11 reference assemblies; exact GA is evidence, not an exact installation requirement."
           },
           "language": {
             "name": "C#",
@@ -79,11 +79,11 @@
           "prerequisites": [
             "Use the .NET 11 Web SDK/runtime with C# 15.0 and the locked sample assets. No workload, external service or experimental opt-in.",
             "Authenticate before rendering. Keep fresh authorization and per-request content outside CacheView; vary every value that changes cached output.",
-            "Framework Components/Endpoints assemblies; SDK-aligned Internal.Assets 11.0.0-rc.3.26522.148; optional HybridCache 10.11.0 net10.0 asset is executed by this net11.0 server.",
+            "Framework Components/Endpoints assemblies; SDK-aligned Internal.Assets 11.0.0; optional HybridCache 10.11.0 net10.0 asset is executed by this net11.0 server.",
             "Default CacheView memory store, or HybridCache local memory without IDistributedCache; both executed.",
             "ASP.NET Core server; Windows x64 execution. Other OS and multi-node providers untested.",
             "Static SSR GET only. Interactive rendering and CacheView inside a streaming subtree bypass caching.",
-            "Stable API in .NET 11 RC2; GA reconciliation pending. Local memory execution does not prove distributed eviction or multi-node consistency.",
+            "Stable API in .NET 11 GA; GA checks are limited to the recorded scope. Local memory execution does not prove distributed eviction or multi-node consistency.",
             "ASP.NET Core 11 Web SDK"
           ],
           "constraints": [
@@ -95,7 +95,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "RC2; GA pending"
+            "GA artifacts; verification is limited to the recorded checks. Existing catalogue readiness gates remain open."
           ]
         },
         "sourceUrls": [
@@ -155,7 +155,7 @@
     {
       "sample": "samples/net11.0/QuarryLedger/QuarryLedger.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "kind": "compile",
       "scope": "Actual newer Web SDK compilation. Separate real SSR checks prove complete cache hits, skipped lifecycle, identity/query/permission variation, revision invalidation, expiry, concurrent misses, bypass and a negative leak fixture with both memory providers.",
       "language": "15.0"

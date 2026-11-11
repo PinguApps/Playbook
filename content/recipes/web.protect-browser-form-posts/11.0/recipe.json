@@ -35,14 +35,14 @@
         "conditional": false,
         "usage": "primary",
         "selectionNotes": [
-          "RC2 behavior: automatic SSR/Minimal API and explicitly opted-in MVC; Razor Pages retains its token filter."
+          "GA behavior: automatic SSR/Minimal API and explicitly opted-in MVC; Razor Pages retains its token filter."
         ],
         "requirements": {
           "runtime": {
             "name": ".NET",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Actual net11.0 ASP.NET Core consumer; RC2 execution is not GA proof."
+            "reason": "Actual net11.0 ASP.NET Core consumer; GA execution is limited to the recorded checks."
           },
           "sdk": {
             "name": ".NET SDK",
@@ -83,8 +83,8 @@
             "Use every listed file in standalone QuayPermits. Preserve Pages/Permit.cshtml's first @page directive. Empty Directory files isolate parent build/package configuration. Restore matching framework assets before offline builds."
           ],
           "constraints": [
-            "Default automatic verdict is enforced at protected form consumers. SSR and form-bound Minimal APIs work without token middleware; MVC must opt in with RequireAntiforgeryToken in this RC2 artifact. ValidateAntiForgeryToken remains a token filter; do not combine both attributes. Razor Pages retains tokens because its automatic filter still demands them.",
-            "Retain AddAntiforgery/UseAntiforgery, form/cookie token pairs and IAntiforgeryAdditionalDataProvider when older browsers, additional token data or compliance require token defense. The sample --keep-tokens true does so; --reject-additional true is a deliberate negative control. RC2 token middleware can overwrite the automatic verdict, so coexistence is not proof of two independent enforced layers.",
+            "Default automatic verdict is enforced at protected form consumers. SSR and form-bound Minimal APIs work without token middleware; MVC must opt in with RequireAntiforgeryToken in this GA artifact. ValidateAntiForgeryToken remains a token filter; do not combine both attributes. Razor Pages retains tokens because its automatic filter still demands them.",
+            "Retain AddAntiforgery/UseAntiforgery, form/cookie token pairs and IAntiforgeryAdditionalDataProvider when older browsers, additional token data or compliance require token defense. The sample --keep-tokens true does so; --reject-additional true is a deliberate negative control. GA token middleware can overwrite the automatic verdict, so coexistence is not proof of two independent enforced layers.",
             "JSON endpoints are unchanged. Headerless non-browser requests are allowed by automatic protection; do not mistake this for authentication. Neither token defense nor CORS replaces authorization, input validation or HTTPS. The sample stores no application data and implements no authentication.",
             "Only explicit credentialed CORS trust is accepted: /trusted permits http://localhost:6019 with AllowCredentials. Wildcard or public-read policies do not grant CSRF trust. Do not opt browser/cookie endpoints out with DisableAntiforgery or IgnoreAntiforgeryToken merely to suppress a rejection."
           ],
@@ -92,7 +92,7 @@
             "MVC RequireAntiforgeryToken; retain --keep-tokens true for token-dependent consumers"
           ],
           "stabilityLimitations": [
-            "Stable API designation with RC2 artifact-specific evidence. Current migration prose overstates the tested MVC legacy-filter/Razor Pages integration; GA reconciliation remains required."
+            "Stable API designation with GA artifact-specific evidence. Current migration prose overstates the tested MVC legacy-filter/Razor Pages integration; GA checks are limited to the recorded scope."
           ]
         },
         "sourceUrls": [
@@ -142,7 +142,7 @@
     {
       "sample": "samples/net11.0/QuayPermits/QuayPermits.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "kind": "compile",
       "scope": "Actual matching-SDK compilation. docs/verification/streaming-and-form-protection.md separately records actual loopback requests and browser form posts, token/additional-data failures, CORS and JSON controls. No cross-compilation, live model/account, broad platform or GA execution claim."

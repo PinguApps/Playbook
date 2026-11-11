@@ -36,8 +36,8 @@
   ],
   "artifacts": [
     {
-      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.maui.essentials/11.0.0-rc.2.26505.5/microsoft.maui.essentials.11.0.0-rc.2.26505.5.nupkg",
-      "sha256": "e80398e3215866fd912a28d934c008cd4aa942b16370846a6d3ac399529fd718",
+      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.maui.essentials/11.0.0/microsoft.maui.essentials.11.0.0.nupkg",
+      "sha256": "623e8051989dc0bf27a4da07135f70bbe4f9b32921ea9ac61978fa5ea4fb5dac",
       "scope": "Actual package downloaded; XML contracts and asset paths reviewed. No native execution.",
       "assets": [
         "lib/net11.0-android37.0/Microsoft.Maui.Essentials.dll",
@@ -51,8 +51,8 @@
       ]
     },
     {
-      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.maui.core/11.0.0-rc.2.26505.5/microsoft.maui.core.11.0.0-rc.2.26505.5.nupkg",
-      "sha256": "47915931c89820f3623d287c46763308b8eb730f74c731c872eb666c62b300bc",
+      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.maui.core/11.0.0/microsoft.maui.core.11.0.0.nupkg",
+      "sha256": "2daa6350a186a98b647f46e6b048cdf25e93a75bdc8c62b5ed4a4387177b0976",
       "scope": "Actual package downloaded; XML contracts and asset paths reviewed. No native execution.",
       "assets": [
         "lib/net11.0-android37.0/Microsoft.Maui.dll",
@@ -66,8 +66,8 @@
       ]
     },
     {
-      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.maui.controls.core/11.0.0-rc.2.26505.5/microsoft.maui.controls.core.11.0.0-rc.2.26505.5.nupkg",
-      "sha256": "92787cfc8a46b941b88adefc9966624ec2f183f73bf08c25102b04fff1833fcc",
+      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.maui.controls.core/11.0.0/microsoft.maui.controls.core.11.0.0.nupkg",
+      "sha256": "008a74d7853247f3f807fce9b9836c3ae18a7392a0f5059e81425833cab90a98",
       "scope": "Actual package downloaded; XML contracts and asset paths reviewed. No native execution.",
       "assets": [
         "lib/net11.0-android37.0/Design/Microsoft.Maui.Controls.DesignTools.dll",

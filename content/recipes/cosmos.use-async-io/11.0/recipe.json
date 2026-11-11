@@ -45,7 +45,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Exact current-release proof uses SDK11 RC3, not GA."
+            "reason": "Exact current-release proof uses SDK11 GA."
           },
           "language": {
             "name": "C#",
@@ -61,7 +61,7 @@
               "match": "release-family",
               "version": "11.0",
               "name": "Microsoft.EntityFrameworkCore.Cosmos",
-              "reason": "Exact 11.0.0-rc.2.26504.105 baseline; comparison 10.0.13."
+              "reason": "Exact 11.0.0 baseline; comparison 10.0.13."
             },
             {
               "name": "Microsoft.Azure.Cosmos",
@@ -80,7 +80,7 @@
             "EF Cosmos11 lib/net11.0; EF Cosmos10 lib/net10.0. Both consumers select Microsoft.Azure.Cosmos3.63.1 lib/netstandard2.0 (Client, Core, Direct and Serialization.HybridRow) and Newtonsoft.Json13.0.4 lib/net6.0. Full transitive and native assets are pinned by each package lock."
           ],
           "providers": [
-            "EF Cosmos11 RC2 and EF Cosmos10.0.13, Cosmos SDK3.63.1, approved legacy Linux NoSQL emulator2.14.28.0 via loopback HTTPS gateway, unique marked database; no cloud parity."
+            "EF Cosmos11 GA and EF Cosmos10.0.13, Cosmos SDK3.63.1, approved legacy Linux NoSQL emulator2.14.28.0 via loopback HTTPS gateway, unique marked database; no cloud parity."
           ],
           "workloads": [],
           "platforms": [
@@ -99,7 +99,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Stable API guidance prepared with exact RC2 packages; GA reconciliation remains pending."
+            "Stable API guidance prepared with exact GA packages; GA checks are limited to the recorded scope."
           ]
         },
         "conditional": false,
@@ -129,7 +129,7 @@
     {
       "sample": "samples/net11.0/HarbourQueries/HarbourQueries.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "kind": "compile-and-run",
       "scope": "Actual async persistence, synchronous controls, model name inspection and independent stored JSON read."
@@ -209,6 +209,6 @@
   },
   "humanProof": {
     "status": "not-required",
-    "scope": "Agent-executable local verification; actual GA reconciliation remains pending."
+    "scope": "Agent-executable local verification; actual GA checks are limited to the recorded scope."
   }
 }

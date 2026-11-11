@@ -1,7 +1,11 @@
 {
   "dependencies": [],
   "workloads": [],
-  "additionalInputs": ["samples/NumericGuidanceChecks.cs", "eng/Record-Evidence.ps1", "eng/Evidence.ps1"],
+  "additionalInputs": [
+    "samples/NumericGuidanceChecks.cs",
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1"
+  ],
   "buildArguments": [],
   "nativeToolchains": []
 }

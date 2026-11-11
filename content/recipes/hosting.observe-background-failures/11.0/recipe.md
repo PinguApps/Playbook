@@ -11,7 +11,7 @@ chosen exit code; a log entry alone is not a process failure policy.
 
 Create an SDK console project with implicit usings and nullable enabled. Add
 `Microsoft.Extensions.Hosting`, pinned to **10.0.13** for net10/C#14 or
-**11.0.0-rc.2.26504.105** for net11/C#15. Full Hosting remains a package on net11;
+**11.0.0** for net11/C#15. Full Hosting remains a package on net11;
 moving some Extensions abstractions into the framework does not remove it.
 Put each complete snippet in its own `.cs` file. This original worker accepts the
 application's asynchronous import operation and records failures without replacing
@@ -68,7 +68,7 @@ ApplicationStarted. Explicit lifecycle cases also await StartAsync successfully.
 Each raw route uses a diagnostic boundary that records the exception and maps a
 caught failure to 17; it does not suppress it into exit 0.
 
-| StopHost case | .NET 10 raw run/stop/wait | .NET 11 RC2 raw run/stop/wait |
+| StopHost case | .NET 10 raw run/stop/wait | .NET 11 GA raw run/stop/wait |
 | --- | --- | --- |
 | One importer fails | logged, no boundary exception, exit 0 | original SensorImportException, exit 17 |
 | Two importers fail | both logged, no boundary exception, exit 0 | AggregateException containing both original objects, exit 17 |
@@ -111,7 +111,7 @@ describe the earlier API as incapable of throwing.
 Use the default Generic Host with Microsoft.Extensions.Hosting's actual net11
 package asset. Its dependency closure also uses framework-provided abstractions;
 exact resolved packages and assets are recorded separately. Reproduction uses
-SDK10.0.403 / C#14 / runtime-ref10.0.14 and SDK11.0.100-rc.3.26522.148 / C#15 /
+SDK10.0.403 / C#14 / runtime-ref10.0.14 and SDK11.0.100 / C#15 /
 runtime-ref11RC3, with the package pins above. Consumer requirements are the stated
 release-family SDK/runtime and package contract, not a promise that every preview
 contains the same implementation.
@@ -126,6 +126,8 @@ OperationCanceledException as success regardless of its token or lifecycle.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 The sample executes 35 actual child processes per release: seven boundaries times
 five scenarios. Both real dependency sets compile/run. Checks capture exact thrown
 type/reference identity, aggregate membership, separate host failure logs, OS child
@@ -136,7 +138,7 @@ bounded Program runs in its own child as well.
 
 `eng/Record-CalibrationHost.ps1` saves exact commands, input hashes, locked closures,
 compiler/reference/runtime/selected package asset identities in the existing sample
-evidence records. Only Windows x64 CoreCLR JIT is measured. RC2 is not actual-GA
+evidence records. Only Windows x64 CoreCLR JIT is measured. GA is limited to the recorded checks
 proof; PIN-962, comprehensive PIN-959 and existing Human gates stay open. The .NET10
 comparison preserves the exact eight foundations and adds no target10 catalogue edition.
 

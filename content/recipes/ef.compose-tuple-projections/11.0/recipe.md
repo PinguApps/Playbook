@@ -48,7 +48,7 @@ The independently pinned .NET10 consumer remains a valid comparison.
 
 ## Newer approach
 
-The independently pinned .NET11 consumer records the actual RC boundary.
+The independently pinned .NET11 consumer records the actual GA behavior.
 
 ### .NET11 Directory.Build.props
 
@@ -79,6 +79,8 @@ The independently pinned .NET11 consumer records the actual RC boundary.
 {{snippet:n11-program-cs}}
 
 ## Evidence
+
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Actual SQLite execution: ValueTuple/Tuple grouped keys, ValueTuple joined key, one-element arity and nested Rest. EF10 rejects these shapes; anonymous grouped key works. Arbitrary record constructors, all tuple arities, other providers and GA are excluded.
 

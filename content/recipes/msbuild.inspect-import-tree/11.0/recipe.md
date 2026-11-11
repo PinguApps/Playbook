@@ -16,9 +16,9 @@ separate verification baselines, not mandatory patch upgrades for every consumer
 
 | Layer | Older consumer | Current consumer |
 | --- | --- | --- |
-| SDK | 10.0.403 | 11.0.100-rc.3.26522.148 |
+| SDK | 10.0.403 | 11.0.100 |
 | C# compiler / language setting | 5.9.0-1.26523.112 / 14.0 | 5.12.0-1.26522.148 / 15.0 |
-| Framework / ref / runtime | net10.0 / 10.0.14 | net11.0 / 11.0.0-rc.3.26522.148 |
+| Framework / ref / runtime | net10.0 / 10.0.14 | net11.0 / 11.0.0 |
 | Bundled NuGet | 7.9.0-rc.611 | 8.0.0-rc.605 |
 | MSBuild product | 18.9.15 | 18.12.0-1.26504.105 |
 
@@ -28,7 +28,7 @@ compiler is needed. No separately distributed package is assumed byte-identical
 to a bundled tooling DLL. Windows x64 is the executed platform. There is no provider,
 UI rendering or optional workload requirement. The XML/CLI controls are language
 neutral; the compiled example uses supported C#14/15, without a preview-language
-switch. RC2 verification is not GA proof; PIN-959/PIN-963 and existing Human gates
+switch. GA verification is limited to the recorded checks; PIN-959/PIN-963 and existing Human gates
 remain open. These controls carry no experimental designation in the cited sources.
 
 ## Older approach
@@ -64,7 +64,7 @@ Save `Imports/Night.props`:
 
 Create `global.json` beside `Imports`, with
 `{"sdk":{"version":"10.0.403","rollForward":"disable"}}` for the older copy or
-`{"sdk":{"version":"11.0.100-rc.3.26522.148","rollForward":"disable"}}` for the
+`{"sdk":{"version":"11.0.100","rollForward":"disable"}}` for the
 current copy. Use that matching complete SDK executable. No NuGet package or
 restore is needed for these evaluation queries; the companion compiled evidence
 application has a separate local-only original package closure.
@@ -114,6 +114,8 @@ all expanded application items. Framework MSBuild, arbitrary SDK resolvers and
 other OS/toolchain closures are not qualified here.
 
 ## Evidence
+
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 `eng/Test-BeaconBuild.ps1 -Record` compiles/runs both accompanying real applications
 and separately invokes each matching actual CLI on this fixture. It checks SDK and

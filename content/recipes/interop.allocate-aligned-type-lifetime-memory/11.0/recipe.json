@@ -38,7 +38,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Build against .NET 11 references; exact RC2 pins are verification baselines."
+            "reason": "Build against .NET 11 references; exact GA pins are verification baselines."
           },
           "runtime": {
             "name": ".NET",
@@ -75,7 +75,7 @@
             "AllowUnsafeBlocks=true for pointer/span access."
           ],
           "stabilityLimitations": [
-            "Not marked experimental in the audited contract. Actual RC2 evidence, not final-GA verification; PIN-959/PIN-962 remain open."
+            "Not marked experimental in the audited contract. Actual GA evidence, within the recorded verification scope; PIN-959/PIN-962 remain open."
           ],
           "constraints": [
             "Use a real runtime Type; keep it strongly reachable until all pointer/span/native users finish. Never manually free runtime-owned memory.",
@@ -131,7 +131,7 @@
       "kind": "compile-and-run",
       "sample": "samples/net11.0/TypeLedger/TypeLedger.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "scope": "Actual Windows x64 alignment1/8/16/64/256, 257 initialized bytes across GC, collectible owner release, invalid size/alignment and raw current type/zero-size contracts. No post-release access, exact native reclamation timing, other-runtime or GA proof."
     }

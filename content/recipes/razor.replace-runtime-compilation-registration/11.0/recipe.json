@@ -38,13 +38,13 @@
             "name": ".NET",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Use the matching ASP.NET Core server runtime. Recorded .NET 11 execution uses RC2, not GA."
+            "reason": "Use the matching ASP.NET Core server runtime. Recorded .NET 11 execution uses GA."
           },
           "sdk": {
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "An SDK supporting this target is required; exact authoring pin is 11.0.100-rc.3.26522.148."
+            "reason": "An SDK supporting this target is required; exact authoring pin is 11.0.100."
           },
           "language": {
             "name": "C#",
@@ -77,7 +77,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "The used public API is stable/non-experimental; .NET 11 routes are prepared with RC2 evidence under ADR 0004 and await GA reconciliation. ASPDEPR003 marks obsoletion, not an experimental API or a runtime behavior change."
+            "The used public API is stable/non-experimental; .NET 11 routes are prepared with GA evidence under ADR 0004 and await GA reconciliation. ASPDEPR003 marks obsoletion, not an experimental API or a runtime behavior change."
           ]
         },
         "evidenceSamples": [
@@ -131,9 +131,9 @@
       "kind": "compile-and-run",
       "sample": "samples/net11.0/MossViews/MossViews.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
-      "scope": "Actual Windows x64 .NET 11 RC2 build and two loopback HTTP requests: MVC and Razor Pages render build-time compiled views and encode model data without any runtime-compilation package or registration. No browser/Hot Reload edit execution or GA claim."
+      "scope": "Actual Windows x64 .NET 11 GA build and two loopback HTTP requests: MVC and Razor Pages render build-time compiled views and encode model data without any runtime-compilation package or registration. No browser/Hot Reload edit execution or GA claim."
     }
   ],
   "humanProof": {

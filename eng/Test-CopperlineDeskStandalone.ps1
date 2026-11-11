@@ -27,7 +27,7 @@ foreach($file in @('Host/Program.cs','Client/Program.cs','Host/App.razor','Host/
 }
 foreach($v in @(10,11)){
  Copy-Item -LiteralPath (Join-Path $standalone "net$v.0/Host/Directory.Packages.props") -Destination (Join-Path $standalone "net$v.0/Client/Directory.Packages.props")
- $sdk=if($v -eq 10){'10.0.403'}else{'11.0.100-rc.3.26522.148'}
+ $sdk=if($v -eq 10){'10.0.403'}else{'11.0.100'}
  if(-not $body.Contains($sdk) -or -not $body.Contains('rollForward disable')){throw 'SDK setup missing from body'}
  foreach($part in @('Host','Client')){
   [IO.File]::WriteAllText((Join-Path $standalone "net$v.0/$part/global.json"),(@{sdk=@{version=$sdk;rollForward='disable';allowPrerelease=($v -eq 11)}}|ConvertTo-Json -Depth 5)+"`n")

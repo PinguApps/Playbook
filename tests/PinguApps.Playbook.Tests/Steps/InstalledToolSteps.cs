@@ -11,7 +11,7 @@ namespace PinguApps.Playbook.Tests.Steps;
 [Binding]
 public sealed class InstalledToolSteps : IDisposable
 {
-    [Then("nested persistence retains canonical bodies applicability and RC2 restrictions")]
+    [Then("nested persistence retains canonical bodies applicability and GA constraints")]
     public async Task CheckNestedPersistenceAsync()
     {
         string[] ids = ["ef.key-nested-value", "ef.map-nested-values-with-inheritance"];
@@ -38,7 +38,7 @@ public sealed class InstalledToolSteps : IDisposable
             JsonElement recipe = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id, targetVersion = "11.0" }).ConfigureAwait(false)).GetProperty("recipe");
             Assert.All(recipe.GetProperty("evidence").EnumerateArray().Where(evidence => evidence.GetProperty("kind").GetString() == "execution"), evidence =>
                 Assert.Contains("PASS:", evidence.GetProperty("output").GetString(), StringComparison.Ordinal));
-            Assert.Contains("RC2", recipe.GetProperty("applicability").ToString(), StringComparison.Ordinal);
+            Assert.Contains("GA", recipe.GetProperty("applicability").ToString(), StringComparison.Ordinal);
             Assert.Equal("not-required", recipe.GetProperty("humanProof").GetProperty("status").GetString());
         }
 
@@ -280,7 +280,7 @@ public sealed class InstalledToolSteps : IDisposable
             Assert.NotEmpty(actual.GetProperty("inputs").EnumerateObject());
             Assert.Contains("Build succeeded.", actual.GetProperty("output").GetString(), StringComparison.Ordinal);
             string sample = declaration.GetProperty("sample").GetString()!;
-            string recordPath = sample[..sample.LastIndexOf('/')] + "/verification-evidence.json";
+            string recordPath = sample[..sample.LastIndexOf('/', StringComparison.Ordinal)] + "/verification-evidence.json";
             using JsonDocument record = JsonDocument.Parse(await ReadSdkInputAsync(recordPath).ConfigureAwait(false));
             foreach (JsonProperty property in record.RootElement.EnumerateObject())
             {
@@ -304,7 +304,7 @@ public sealed class InstalledToolSteps : IDisposable
         }
 
         string markdown = recipe.GetProperty("markdown").GetString()!;
-        foreach (string contract in new[] { "Blazor enhanced navigation; only resources actually needed", "10.0.14", "blazor-enhanced-nav=on", "modulepreload does not execute", "warm cache", "not GA", "no unavailable older public API", "as=\"fetch\"", "crossorigin=\"anonymous\"", "data-enhance-nav=\"false\"" })
+        foreach (string contract in new[] { "Blazor enhanced navigation; only resources actually needed", "10.0.14", "blazor-enhanced-nav=on", "modulepreload does not execute", "warm cache", "11.0.100", "no unavailable older public API", "as=\"fetch\"", "crossorigin=\"anonymous\"", "data-enhance-nav=\"false\"" })
         {
             Assert.Contains(contract, markdown, StringComparison.OrdinalIgnoreCase);
         }
@@ -354,7 +354,7 @@ public sealed class InstalledToolSteps : IDisposable
             Assert.NotEmpty(actual.GetProperty("inputs").EnumerateObject());
             Assert.Contains("Build succeeded.", actual.GetProperty("output").GetString(), StringComparison.Ordinal);
             string sample = declaration.GetProperty("sample").GetString()!;
-            string recordPath = sample[..sample.LastIndexOf('/')] + "/verification-evidence.json";
+            string recordPath = sample[..sample.LastIndexOf('/', StringComparison.Ordinal)] + "/verification-evidence.json";
             using JsonDocument record = JsonDocument.Parse(await ReadSdkInputAsync(recordPath).ConfigureAwait(false));
             foreach (JsonProperty property in record.RootElement.EnumerateObject())
             {
@@ -378,7 +378,7 @@ public sealed class InstalledToolSteps : IDisposable
         }
 
         string markdown = recipe.GetProperty("markdown").GetString()!;
-        foreach (string contract in new[] { "MetricsSupport", "BlazorWebAssemblyDiagnosticsEnabled", "EventSourceSupport", "HttpActivityPropagationSupport", "1.20.1", "lib/net10.0", "HttpProtobuf", "/v1/metrics", "/v1/traces", "collector.yaml", "allowed_origins", "Content-Type", "ForceFlush", "tracing.configure-source-rules/11.0", "subscription", "not GA", "parentSpanId", "service.instance.id" })
+        foreach (string contract in new[] { "MetricsSupport", "BlazorWebAssemblyDiagnosticsEnabled", "EventSourceSupport", "HttpActivityPropagationSupport", "1.20.1", "lib/net10.0", "HttpProtobuf", "/v1/metrics", "/v1/traces", "collector.yaml", "allowed_origins", "Content-Type", "ForceFlush", "tracing.configure-source-rules/11.0", "subscription", "11.0.100", "parentSpanId", "service.instance.id" })
         {
             Assert.Contains(contract, markdown, StringComparison.OrdinalIgnoreCase);
         }
@@ -535,7 +535,7 @@ public sealed class InstalledToolSteps : IDisposable
         }
 
         string markdown = recipe.GetProperty("markdown").GetString()!;
-        foreach (string contract in new[] { "Hidden chrome is not authorization", "IHostEnvironment", "IWebAssemblyHostEnvironment", "adapter", "ordinal case-insensitive", "Exclude wins", "prerender: false", "UseStaticWebAssets", "<WasmBuildNative>false</WasmBuildNative>", "RC2", "not a new .NET 10 foundation" })
+        foreach (string contract in new[] { "Hidden chrome is not authorization", "IHostEnvironment", "IWebAssemblyHostEnvironment", "adapter", "ordinal case-insensitive", "Exclude wins", "prerender: false", "UseStaticWebAssets", "<WasmBuildNative>false</WasmBuildNative>", "GA", "not a new .NET 10 foundation" })
         {
             Assert.Contains(contract, markdown, StringComparison.OrdinalIgnoreCase);
         }
@@ -875,7 +875,7 @@ public sealed class InstalledToolSteps : IDisposable
         Assert.Contains("Virtualize=\"true\"", markdown, StringComparison.Ordinal);
         Assert.Contains("ScrollToItemAsync", markdown, StringComparison.Ordinal);
         Assert.Contains("ItemComparer", markdown, StringComparison.Ordinal);
-        Assert.Contains("RC2 removes ASP0030", markdown, StringComparison.Ordinal);
+        Assert.Contains("GA removes ASP0030", markdown, StringComparison.Ordinal);
         Assert.Contains("rendered instance", route.GetProperty("requirements").GetProperty("constraints").ToString(), StringComparison.Ordinal);
     }
 
@@ -1137,7 +1137,7 @@ public sealed class InstalledToolSteps : IDisposable
                     Assert.True(JsonElement.DeepEquals(property.Value, actual.GetProperty(property.Name)), $"Declared evidence {id}/{property.Name}");
                 }
 
-                string directory = sample[..sample.LastIndexOf('/')];
+                string directory = sample[..sample.LastIndexOf('/', StringComparison.Ordinal)];
                 using JsonDocument saved = JsonDocument.Parse(await ReadSdkInputAsync($"{directory}/verification-evidence.json").ConfigureAwait(false));
                 foreach (JsonProperty property in saved.RootElement.EnumerateObject().Where(property => property.Name != "scope"))
                 {
@@ -1176,7 +1176,7 @@ public sealed class InstalledToolSteps : IDisposable
                     Assert.True(JsonElement.DeepEquals(property.Value, actual.GetProperty(property.Name)), $"Declared Quay evidence {sample}/{property.Name}");
                 }
 
-                string directory = sample[..sample.LastIndexOf('/')];
+                string directory = sample[..sample.LastIndexOf('/', StringComparison.Ordinal)];
                 using JsonDocument saved = JsonDocument.Parse(await ReadSdkInputAsync($"{directory}/verification-evidence.json").ConfigureAwait(false));
                 foreach (JsonProperty property in saved.RootElement.EnumerateObject().Where(property => property.Name != "scope"))
                 {
@@ -1231,7 +1231,7 @@ public sealed class InstalledToolSteps : IDisposable
                     Assert.True(JsonElement.DeepEquals(property.Value, actual.GetProperty(property.Name)), $"Authored endpoint evidence {sample}/{property.Name}");
                 }
 
-                string directory = sample[..sample.LastIndexOf('/')];
+                string directory = sample[..sample.LastIndexOf('/', StringComparison.Ordinal)];
                 using JsonDocument saved = JsonDocument.Parse(await ReadSdkInputAsync($"{directory}/verification-evidence.json").ConfigureAwait(false));
                 foreach (JsonProperty property in saved.RootElement.EnumerateObject().Where(property => property.Name != "scope"))
                 {
@@ -1268,7 +1268,7 @@ public sealed class InstalledToolSteps : IDisposable
                 Assert.True(JsonElement.DeepEquals(property.Value, actual.GetProperty(property.Name)), $"SignalR evidence declaration {sample}/{property.Name}");
             }
 
-            string directory = sample[..sample.LastIndexOf('/')];
+            string directory = sample[..sample.LastIndexOf('/', StringComparison.Ordinal)];
             using JsonDocument saved = JsonDocument.Parse(await ReadSdkInputAsync($"{directory}/verification-evidence.json").ConfigureAwait(false));
             foreach (JsonProperty property in saved.RootElement.EnumerateObject().Where(property => property.Name != "scope"))
             {
@@ -1410,7 +1410,7 @@ public sealed class InstalledToolSteps : IDisposable
                 Assert.True(JsonElement.DeepEquals(property.Value, actual.GetProperty(property.Name)), $"Authored navigation evidence {sample}/{property.Name}");
             }
 
-            string directory = sample[..sample.LastIndexOf('/')];
+            string directory = sample[..sample.LastIndexOf('/', StringComparison.Ordinal)];
             using JsonDocument saved = JsonDocument.Parse(await ReadSdkInputAsync($"{directory}/verification-evidence.json").ConfigureAwait(false));
             foreach (JsonProperty property in saved.RootElement.EnumerateObject().Where(property => property.Name != "scope"))
             {
@@ -1507,7 +1507,7 @@ public sealed class InstalledToolSteps : IDisposable
             JsonElement requirements = Assert.Single(recipe.GetProperty("applicability").GetProperty("routes").EnumerateArray()).GetProperty("requirements");
             Assert.NotEmpty(requirements.GetProperty("providers").EnumerateArray());
             Assert.Empty(requirements.GetProperty("renderingModes").EnumerateArray());
-            Assert.Contains("RC2", requirements.GetProperty("stabilityLimitations").ToString(), StringComparison.Ordinal);
+            Assert.Contains("GA", requirements.GetProperty("stabilityLimitations").ToString(), StringComparison.Ordinal);
             Assert.Equal("not-required", recipe.GetProperty("humanProof").GetProperty("status").GetString());
             Assert.All(recipe.GetProperty("evidence").EnumerateArray(), evidence =>
             {
@@ -1627,7 +1627,7 @@ public sealed class InstalledToolSteps : IDisposable
         }
     }
 
-    [Then("configuration options and cache guidance retains complete bodies applicability and RC limitations")]
+    [Then("configuration options and cache guidance retains complete bodies applicability and measured limitations")]
     public async Task CheckConfigurationOptionsCacheAsync()
     {
         string[] ids = ["configuration.exclude-properties", "configuration.await-change-callback", "options.validate-with-di", "options.validate-asynchronously", "cache.observe-memory-cache", "cache.select-options-from-value"];
@@ -1674,7 +1674,7 @@ public sealed class InstalledToolSteps : IDisposable
             {
                 Assert.Contains("ignores LocalSize", summary.ToString(), StringComparison.Ordinal);
                 Assert.Contains("requests 24 units", expected, StringComparison.Ordinal);
-                Assert.Contains("GA reconciliation", expected, StringComparison.Ordinal);
+                Assert.Contains("GA rerun", expected, StringComparison.Ordinal);
                 Assert.Contains("10.11.0", requirements.GetProperty("packages").ToString(), StringComparison.Ordinal);
             }
             else if (id == "options.validate-asynchronously")
@@ -1788,7 +1788,7 @@ public sealed class InstalledToolSteps : IDisposable
             Assert.Empty(requirements.GetProperty("providers").EnumerateArray());
             Assert.Empty(requirements.GetProperty("renderingModes").EnumerateArray());
             Assert.Empty(requirements.GetProperty("optIns").EnumerateArray());
-            Assert.Contains("RC2", requirements.GetProperty("stabilityLimitations").ToString(), StringComparison.Ordinal);
+            Assert.Contains("GA", requirements.GetProperty("stabilityLimitations").ToString(), StringComparison.Ordinal);
             Assert.Equal("not-required", recipe.GetProperty("humanProof").GetProperty("status").GetString());
             Assert.Equal(2, recipe.GetProperty("evidence").GetArrayLength());
             Assert.All(recipe.GetProperty("evidence").EnumerateArray(), evidence =>
@@ -2071,7 +2071,7 @@ public sealed class InstalledToolSteps : IDisposable
                 string attribute = source.Split("// snippet:attribute\n", StringSplitOptions.None)[1]
                     .Split("// endsnippet:attribute", StringSplitOptions.None)[0].TrimEnd();
                 expected = expected.Replace("{{snippet:attribute}}", $"```fsharp\n{attribute}\n```", StringComparison.Ordinal);
-                Assert.Contains("RC2 BCL does not ship", expected, StringComparison.Ordinal);
+                Assert.Contains("GA BCL does not ship", expected, StringComparison.Ordinal);
                 Assert.Contains("FS3923", expected, StringComparison.Ordinal);
             }
 
@@ -2249,7 +2249,7 @@ public sealed class InstalledToolSteps : IDisposable
             Assert.Contains(term, summary.GetProperty("applicability").ToString(), StringComparison.Ordinal);
         }
 
-        foreach (string term in new[] { "private", "caller", "RC2" })
+        foreach (string term in new[] { "private", "caller", "GA" })
         {
             Assert.Contains(term, summary.GetProperty("applicability").ToString(), StringComparison.Ordinal);
             Assert.Contains(term, expected, StringComparison.Ordinal);
@@ -2307,7 +2307,7 @@ public sealed class InstalledToolSteps : IDisposable
         }
 
         Assert.NotEmpty(requirements.GetProperty("platforms").EnumerateArray());
-        Assert.Contains("RC2", Assert.Single(requirements.GetProperty("stabilityLimitations").EnumerateArray()).GetString(), StringComparison.Ordinal);
+        Assert.Contains("11.0.100", Assert.Single(requirements.GetProperty("stabilityLimitations").EnumerateArray()).GetString(), StringComparison.Ordinal);
         Assert.NotEmpty(recipe.GetProperty("sources").EnumerateArray());
         Assert.Equal("not-required", recipe.GetProperty("humanProof").GetProperty("status").GetString());
         Assert.Equal(["net10.0", "net11.0"], recipe.GetProperty("evidence").EnumerateArray().Select(value => value.GetProperty("target").GetString()));
@@ -2368,7 +2368,7 @@ public sealed class InstalledToolSteps : IDisposable
             Assert.Empty(requirements.GetProperty(field).EnumerateArray());
         }
 
-        Assert.Contains("RC2", Assert.Single(requirements.GetProperty("stabilityLimitations").EnumerateArray()).GetString(), StringComparison.Ordinal);
+        Assert.Contains("11.0.100", Assert.Single(requirements.GetProperty("stabilityLimitations").EnumerateArray()).GetString(), StringComparison.Ordinal);
         Assert.Equal("not-required", recipe.GetProperty("humanProof").GetProperty("status").GetString());
         Assert.Equal(2, recipe.GetProperty("evidence").GetArrayLength());
         Assert.All(recipe.GetProperty("evidence").EnumerateArray(), evidence =>
@@ -2432,7 +2432,7 @@ public sealed class InstalledToolSteps : IDisposable
                 Assert.Empty(requirements.GetProperty(field).EnumerateArray());
             }
 
-            Assert.Contains("RC2", Assert.Single(requirements.GetProperty("stabilityLimitations").EnumerateArray()).GetString(), StringComparison.Ordinal);
+            Assert.Contains("11.0.100", Assert.Single(requirements.GetProperty("stabilityLimitations").EnumerateArray()).GetString(), StringComparison.Ordinal);
             Assert.Equal("not-required", recipe.GetProperty("humanProof").GetProperty("status").GetString());
             Assert.Equal(2, recipe.GetProperty("evidence").GetArrayLength());
             Assert.All(recipe.GetProperty("evidence").EnumerateArray(), evidence =>
@@ -2516,7 +2516,7 @@ public sealed class InstalledToolSteps : IDisposable
 
                 if (target == "11.0")
                 {
-                    Assert.Contains("RC2", Assert.Single(requirements.GetProperty("stabilityLimitations").EnumerateArray()).GetString(), StringComparison.Ordinal);
+                    Assert.Contains("11.0.100", Assert.Single(requirements.GetProperty("stabilityLimitations").EnumerateArray()).GetString(), StringComparison.Ordinal);
                 }
 
                 Assert.Equal(foundation ? 3 : 2, recipe.GetProperty("evidence").GetArrayLength());
@@ -2733,7 +2733,7 @@ public sealed class InstalledToolSteps : IDisposable
         string runtimeConfig = Directory.GetFiles(Path.Combine(_directory, "tool", ".store"), "PinguApps.Playbook.runtimeconfig.json", SearchOption.AllDirectories).Single();
         using JsonDocument configuration = JsonDocument.Parse(await File.ReadAllTextAsync(runtimeConfig).ConfigureAwait(false));
         JsonElement runtime = configuration.RootElement.GetProperty("runtimeOptions");
-        Assert.Equal("net10.0", runtime.GetProperty("tfm").GetString());
+        Assert.Equal("net11.0", runtime.GetProperty("tfm").GetString());
         Assert.Equal("Major", runtime.GetProperty("rollForward").GetString());
         Assert.Equal("Microsoft.NETCore.App", runtime.GetProperty("framework").GetProperty("name").GetString());
         await using ZipArchive archive = await ZipFile.OpenReadAsync(package).ConfigureAwait(false);
@@ -2751,7 +2751,7 @@ public sealed class InstalledToolSteps : IDisposable
         Assert.Equal(128, System.Buffers.Binary.BinaryPrimitives.ReadInt32BigEndian(header.AsSpan(16, 4)));
         Assert.Equal(128, System.Buffers.Binary.BinaryPrimitives.ReadInt32BigEndian(header.AsSpan(20, 4)));
         Assert.Equal(6, header[25]); // RGBA: retain transparency in the packaged PNG.
-        await using Stream packedAssembly = await archive.GetEntry("tools/net10.0/any/PinguApps.Playbook.dll")!.OpenAsync().ConfigureAwait(false);
+        await using Stream packedAssembly = await archive.GetEntry("tools/net11.0/any/PinguApps.Playbook.dll")!.OpenAsync().ConfigureAwait(false);
         using FileStream installedAssembly = File.OpenRead(runtimeConfig.Replace(".runtimeconfig.json", ".dll", StringComparison.Ordinal));
         Assert.Equal(await SHA256.HashDataAsync(packedAssembly).ConfigureAwait(false), await SHA256.HashDataAsync(installedAssembly).ConfigureAwait(false));
     }
@@ -2922,14 +2922,15 @@ public sealed class InstalledToolSteps : IDisposable
                 Assert.Equal("10.0", alternative.GetProperty("requirements").GetProperty("runtime").GetProperty("version").GetString());
                 Assert.DoesNotContain("11", requirements.GetRawText(), StringComparison.Ordinal);
                 JsonElement baseline = Assert.Single(recipe.GetProperty("evidence").EnumerateArray(), item => item.GetProperty("sample").GetString()!.Contains("Sdk11", StringComparison.Ordinal));
-                Assert.Equal("11.0.100-rc.3.26522.148", baseline.GetProperty("sdk").GetString());
+                Assert.Equal("11.0.100", baseline.GetProperty("sdk").GetString());
                 Assert.Equal("net10.0", baseline.GetProperty("target").GetString());
                 Assert.Contains("Runtime: .NET 10.", baseline.GetProperty("output").GetString(), StringComparison.Ordinal);
             }
             else
             {
-                Assert.Contains("RC", primary.GetProperty("requirements").GetProperty("stabilityLimitations")[0].GetString(), StringComparison.Ordinal);
-                Assert.Contains("not GA verification", recipe.GetProperty("markdown").GetString(), StringComparison.Ordinal);
+                Assert.Contains("GA", primary.GetProperty("requirements").GetProperty("stabilityLimitations")[0].GetString(), StringComparison.Ordinal);
+                Assert.All(recipe.GetProperty("evidence").EnumerateArray().Where(item => item.GetProperty("sdk").GetString()!.StartsWith("11.", StringComparison.Ordinal)),
+                    item => Assert.Equal("11.0.100", item.GetProperty("sdk").GetString()));
             }
         }
     }
@@ -3170,7 +3171,7 @@ public sealed class InstalledToolSteps : IDisposable
         Assert.NotEmpty(combined.GetProperty("recipes")[3].GetProperty("applicability").GetProperty("routes")[0].GetProperty("requirements").GetProperty("optIns").EnumerateArray());
         JsonElement pinned = combined.GetProperty("recipes")[3].GetProperty("applicability").GetProperty("routes")[0].GetProperty("requirements");
         Assert.Equal("exact", pinned.GetProperty("sdk").GetProperty("match").GetString());
-        Assert.Equal("11.0.100-rc.3.26522.148", pinned.GetProperty("sdk").GetProperty("version").GetString());
+        Assert.Equal("11.0.100", pinned.GetProperty("sdk").GetProperty("version").GetString());
         Assert.Equal("1.2.3", Assert.Single(pinned.GetProperty("packages").EnumerateArray()).GetProperty("version").GetString());
         Assert.Equal("exact", pinned.GetProperty("packages")[0].GetProperty("match").GetString());
         Assert.Equal("1.0.0", Assert.Single(pinned.GetProperty("workloads").EnumerateArray()).GetProperty("version").GetString());

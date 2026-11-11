@@ -38,7 +38,7 @@
             "name": ".NET"
           },
           "sdk": {
-            "reason": "Build against .NET 11 references; exact RC2 pin records verification.",
+            "reason": "Build against .NET 11 references; exact GA pin records verification.",
             "match": "release-family",
             "version": "11.0",
             "name": ".NET SDK"
@@ -72,7 +72,7 @@
             "Scoped #pragma warning disable/restore SYSLIB5008 after reviewing the experimental callback."
           ],
           "stabilityLimitations": [
-            "Experimental SYSLIB5008 can change independently of release stability; RC2 execution, GA reconciliation pending."
+            "Experimental SYSLIB5008 can change independently of release stability; GA execution, GA checks are limited to the recorded scope."
           ]
         },
         "sourceUrls": [
@@ -116,15 +116,15 @@
   "evidence": [
     {
       "sdk": "10.0.403",
-      "scope": "Real keep-alive HTTP/1.1 transport identity: healthy reuse then finite-lifetime (.NET 10) or callback-driven (RC2) idle retirement/reconnection; no active-abort or DNS migration claim.",
+      "scope": "Real keep-alive HTTP/1.1 transport identity: healthy reuse then finite-lifetime (.NET 10) or callback-driven (GA) idle retirement/reconnection; no active-abort or DNS migration claim.",
       "sample": "samples/net10.0/HttpCapacity/HttpCapacity.csproj",
       "target": "net10.0",
       "kind": "compile-and-run",
       "language": "14.0"
     },
     {
-      "sdk": "11.0.100-rc.3.26522.148",
-      "scope": "Real keep-alive HTTP/1.1 transport identity: healthy reuse then finite-lifetime (.NET 10) or callback-driven (RC2) idle retirement/reconnection; no active-abort or DNS migration claim.",
+      "sdk": "11.0.100",
+      "scope": "Real keep-alive HTTP/1.1 transport identity: healthy reuse then finite-lifetime (.NET 10) or callback-driven (GA) idle retirement/reconnection; no active-abort or DNS migration claim.",
       "sample": "samples/net11.0/HttpCapacity/HttpCapacity.csproj",
       "target": "net11.0",
       "kind": "compile-and-run",

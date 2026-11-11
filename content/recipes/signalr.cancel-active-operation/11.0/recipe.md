@@ -52,7 +52,7 @@ Use the .NET 11 .NET client and ASP.NET Core 11 server together. The final token
 
 SoundingHub.Calculate returns one Task result, not a stream. The held calculation uses WaitAsync with the supplied token so the example can prove cancellation without hoping a timer fired at the right moment. Replace it with real token-aware I/O or bounded loops that check the same token. A canceled client Task is not proof that server work has stopped: the independent HTTP observation waits for the server's cancellation branch. The subsequent Echo and successful calculation demonstrate reuse of the same live connection.
 
-Create this complete alternative file set in a separate directory. The exact SDK 11.0.100-rc.3.26522.148, SignalR.Client 11.0.0-rc.2.26504.105 and C# 15 mode reproduce RC2 evidence; they are not claims that C# 15 syntax is necessary. Run the equivalent commands with the matching SDK and `net11.0` output path. No workloads, browser, external server, account or resource provisioning are required. The server chooses an ephemeral loopback port and shuts down automatically after the checks.
+Create this complete alternative file set in a separate directory. The exact SDK 11.0.100, SignalR.Client 11.0.0 and C# 15 mode reproduce GA evidence; they are not claims that C# 15 syntax is necessary. Run the equivalent commands with the matching SDK and `net11.0` output path. No workloads, browser, external server, account or resource provisioning are required. The server chooses an ephemeral loopback port and shuts down automatically after the checks.
 
 #### .NET 11: `Directory.Build.props`
 
@@ -110,13 +110,15 @@ The proof's singleton registry, HTTP controls, two parallel invocation slots, un
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Both original consumers compile against their declared SDK, target, language and locked package assets. The saved compile records identify every input and resolved dependency. `eng/Test-Soundings.ps1` separately executes actual .NET clients against actual ephemeral Kestrel servers for all four .NET 10/11 client/server pairs. The matching new pair observes server cancellation and continued connection use; each missing-capability control observes still-running work before proving the disconnect fallback. The normal new invocation completes after explicit release. No mocked transport or server decision substitutes for execution.
 
-The recipe preserves edition 11.0 and stable goal identity. The .NET 10 code is a comparison, not a ninth curated foundation. Stable cancellation APIs were exercised on .NET 11 RC2; this does not establish GA behavior or other platforms, transports, clients or hosting providers. See `docs/verification/invocation-cancellation.md` for exact artifact hashes, execution and packed offline list/get proof. No required Human proof is outstanding for this local managed scope.
+The recipe preserves edition 11.0 and stable goal identity. The .NET 10 code is a comparison, not a ninth curated foundation. Stable cancellation APIs were exercised on .NET 11 GA; this does not establish GA behavior or other platforms, transports, clients or hosting providers. See `docs/verification/invocation-cancellation.md` for exact artifact hashes, execution and packed offline list/get proof. No required Human proof is outstanding for this local managed scope.
 
 - [SignalR cancellation release notes](https://learn.microsoft.com/en-us/aspnet/core/release-notes/aspnetcore-11?view=aspnetcore-11.0#cancel-hub-invocations-from-the-client)
 - [The .NET client's cancellation contract](https://learn.microsoft.com/en-us/aspnet/core/signalr/dotnet-client?view=aspnetcore-11.0#cancel-a-hub-method-invocation)
-- [Pinned RC2 client cancellation implementation](https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/SignalR/clients/csharp/Client.Core/src/HubConnection.cs)
-- [Pinned RC2 server invocation dispatch](https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/SignalR/server/Core/src/Internal/DefaultHubDispatcher.cs)
-- [Pinned RC2 synthetic hub arguments](https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/SignalR/server/Core/src/Internal/HubMethodDescriptor.cs)
+- [Pinned client cancellation implementation](https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/SignalR/clients/csharp/Client.Core/src/HubConnection.cs)
+- [Pinned server invocation dispatch](https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/SignalR/server/Core/src/Internal/DefaultHubDispatcher.cs)
+- [Pinned synthetic hub arguments](https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/SignalR/server/Core/src/Internal/HubMethodDescriptor.cs)
 - [Previous-release client implementation](https://github.com/dotnet/aspnetcore/blob/v10.0.13/src/SignalR/clients/csharp/Client.Core/src/HubConnection.cs)

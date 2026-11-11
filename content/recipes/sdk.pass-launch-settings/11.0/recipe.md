@@ -36,8 +36,10 @@ The -e option is before -- and sets the launched process environment. Repeated -
 
 An environment variable, MSBuild property, profile argument and application option are different boundaries. MSBuild evaluation does not promise shell expansion or arbitrary command execution in commandLineArgs. Literal $(...) inside PowerShell double quotes invokes PowerShell substitution; preserve profile expressions in JSON or a single-quoted PowerShell string. The profile argument expansion and SDK -e item contract demonstrated here use SDK 11; target-10 SDK routes are not declared by this edition.
 
-This managed console route needs no provider, rendering mode, native workload or package. It does not establish environment behavior inside containers or child services. SDK 11 proof is RC2, not GA.
+This managed console route needs no provider, rendering mode, native workload or package. It does not establish environment behavior inside containers or child services. SDK 11 proof is GA.
 
 ## Evidence
+
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Actual .NET 10/11 programs report their process inputs as JSON. The real commands distinguish inherited and profile variables, the SDK 11 command-line override, evaluated AssemblyName expansion and literal arguments after --. Both projects compile independently. Installed stdio checks compare full canonical Markdown and applicability; these checks do not infer compatibility from SDK presence alone.

@@ -55,7 +55,7 @@ wwwroot/index.html with this complete body:
 
 {{snippet:html}}
 
-Use this minimal project with the actual tested RC2 package. Requirements above
+Use this minimal project with the actual tested GA package. Requirements above
 refer to the .NET11 release family; this pin records the artifact that ran.
 
 {{snippet:project}}
@@ -118,10 +118,12 @@ other-browser/OS, CoreCLR-browser, AOT or final-GA claim is made.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 eng/Test-InteropSoundings.ps1 -Record -VerifySources captures exact builds,
 resolved dependency sets, canonical inputs, compiler/reference/generator/generated
 stub hashes and deployed JS/wasm identities. Compilation uses SDK10.0.403 with
-10.0.13 packages/runtime and SDK11.0.100-rc.3.26522.148 with matching RC2 packages/runtime.
+10.0.13 packages/runtime and SDK11.0.100 with matching GA packages/runtime.
 The framework reference hashes match the original runtime-security asset audit.
 Paired official contracts and generator source are pinned in
 interop-soundings.sources.json; source alone is not browser proof.

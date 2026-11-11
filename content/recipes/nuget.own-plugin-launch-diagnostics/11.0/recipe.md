@@ -10,11 +10,11 @@ replacement helper is introduced.
 ## Requirements and exact comparison
 
 The real comparison uses Windows x64 SDK10.0.403/runtime+ref10.0.14/C#14 and
-SDK11.0.100-rc.3.26522.148/runtime+ref11.0.0-rc.3.26522.148/C#15. These pins are
+SDK11.0.100/runtime+ref11.0.0/C#15. These pins are
 tested artifacts, not a universal release-family compatibility promise. No
 provider installation, feed, account, real credential, native compiler, workload,
 device, UI/rendering mode or preview-language opt-in is required. Current SDK
-stability is RC2/preview, not actual GA.
+stability is GA/preview, within the recorded verification scope.
 
 The old helper's actual metadata reference is the complete SDK10 NuGet.Credentials
 7.9.0-rc.611 net8.0 closure (source a8dd0577), compared with SDK11's
@@ -120,7 +120,7 @@ The sample boundary and paired project settings are:
 {{snippet:settings}}
 
 Use an exact `global.json` SDK pin with `rollForward=disable` and explicit
-`allowPrerelease=true` for11, and clear remote sources in `NuGet.Config`. These
+`allowPrerelease=false` for11, and clear remote sources in `NuGet.Config`. These
 fixed executables restore no packages; shared source includes are canonical
 repository inputs. The MSBuild/NuGet.Common references support the companion
 cache proof only; `CourierLauncher` itself needs neither.
@@ -143,6 +143,8 @@ cache proof only; `CourierLauncher` itself needs neither.
    Qualify actual provider protocol/authentication separately before claiming it.
 
 ## Evidence and limits
+
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 `eng/Record-PackageWorkshop.ps1` captures the paired consumers through the
 existing sample-evidence workflow. Both fixed projects compile with zero

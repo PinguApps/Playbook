@@ -46,7 +46,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Build the declared target. Exact recorded SDKs are verification baselines; current-release proof uses RC2, not GA."
+            "reason": "Build the declared target. Exact recorded SDKs are verification baselines; current-release proof uses GA."
           },
           "language": {
             "name": "C#",
@@ -62,14 +62,14 @@
               "match": "release-family",
               "version": "11.0",
               "name": "Microsoft.EntityFrameworkCore.Sqlite",
-              "reason": "Exact RC2 baseline 11.0.0-rc.2.26504.105; previous comparison 10.0.13."
+              "reason": "Exact GA baseline 11.0.0; previous comparison 10.0.13."
             }
           ],
           "packageAssets": [
             "EF SQLite11 lib/net11.0 and EF SQLite10 lib/net10.0. Current SQLitePCLRaw config/core/provider3.0.5 select lib/net8.0; previous bundle/core2.1.13 select lib/netstandard2.0 and provider.e_sqlite3 selects lib/net6.0. Windows x64 native SQLite3.53.4 current/3.53.3 previous is executed. Exact managed/native closures remain in the sample locks."
           ],
           "providers": [
-            "EF Core SQLite11.0.0-rc.2.26504.105; native SQLite3.53.4 via SQLitePCLRaw bundle_e_sqlite3/config/core/provider3.0.5 and SQLite3.53.4 package. Previous EF10.0.13 uses SQLitePCLRaw2.1.13 and SQLite3.53.3. Aggregate ORDER BY requires SQLite3.44+."
+            "EF Core SQLite11.0.0; native SQLite3.53.4 via SQLitePCLRaw bundle_e_sqlite3/config/core/provider3.0.5 and SQLite3.53.4 package. Previous EF10.0.13 uses SQLitePCLRaw2.1.13 and SQLite3.53.3. Aggregate ORDER BY requires SQLite3.44+."
           ],
           "workloads": [],
           "platforms": [
@@ -88,7 +88,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Stable API contract prepared using .NET11 RC3 SDK/runtime and EF11 RC2 packages; no experimental opt-in. Actual GA reconciliation remains outstanding."
+            "Stable API contract prepared using .NET11 GA SDK/runtime and EF11 GA packages; no experimental opt-in. Actual GA checks are limited to the recorded scope."
           ]
         },
         "conditional": false,
@@ -118,7 +118,7 @@
     {
       "scope": "Actual in-memory native SQLite, deterministic two-group summaries including tied positions; EF11 generated SQL contains ordered group_concat. EF10 materializes rows before local grouping. Windows x64 only; no GA claim.",
       "language": "15.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "kind": "compile-and-run",
       "sample": "samples/net11.0/HarbourLabels/HarbourLabels.csproj",
       "target": "net11.0"

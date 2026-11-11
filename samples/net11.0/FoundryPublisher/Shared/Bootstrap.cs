@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.Loader;
 
 #if NET11_0
-const string sdk = "11.0.100-rc.3.26522.148";
+const string sdk = "11.0.100";
 #else
 const string sdk = "10.0.403";
 #endif

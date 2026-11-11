@@ -40,7 +40,7 @@
             "name": ".NET"
           },
           "sdk": {
-            "reason": "Build against .NET 11 references; exact RC2 pin records verification.",
+            "reason": "Build against .NET 11 references; exact GA pin records verification.",
             "match": "release-family",
             "version": "11.0",
             "name": ".NET SDK"
@@ -67,7 +67,7 @@
           ],
           "renderingModes": [],
           "prerequisites": [
-            "Console net11.0 project, C# 15.0, nullable and implicit usings; exact RC2 versions are tested baselines.",
+            "Console net11.0 project, C# 15.0, nullable and implicit usings; exact GA versions are tested baselines.",
             "Ephemeral P-256 signing provider for the local certificate round trip; encoder itself uses framework ASN.1/X509 APIs."
           ],
           "constraints": [
@@ -75,7 +75,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Actual RC2 verification; final-GA reconciliation and comprehensive coverage gates remain open."
+            "Actual GA verification; final-GA reconciliation and comprehensive coverage gates remain open."
           ]
         },
         "sourceUrls": [
@@ -136,7 +136,7 @@
       "language": "14.0"
     },
     {
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "scope": "Real Windows certificate export/reload, primitive SAN tags/OIDs/DNS, identical manual/new DER and invalid inputs; no trust validation.",
       "sample": "samples/net11.0/RegisteredIdentifiers/RegisteredIdentifiers.csproj",
       "target": "net11.0",

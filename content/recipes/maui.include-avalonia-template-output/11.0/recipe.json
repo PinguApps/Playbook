@@ -51,30 +51,30 @@
             {
               "match": "exact",
               "name": "Microsoft.Maui.Controls",
-              "version": "11.0.0-rc.2.26505.5",
+              "version": "11.0.0",
               "reason": "Reviewed current MAUI artifact baseline."
             },
             {
               "match": "exact",
               "name": "Avalonia.Controls.Maui",
-              "version": "11.0.0-rc.2.26287.618",
+              "version": "11.0.0",
               "reason": "Explicit third-party template integration prerequisite."
             },
             {
               "match": "exact",
               "name": "Avalonia.Controls.Maui.Desktop",
-              "version": "11.0.0-rc.2.26287.618",
+              "version": "11.0.0",
               "reason": "Explicit third-party template integration prerequisite."
             },
             {
               "match": "exact",
               "name": "Microsoft.Maui.Resizetizer",
-              "version": "11.0.0-rc.2.26505.5",
+              "version": "11.0.0",
               "reason": "Explicit neutral asset consumer prerequisite; ordinary generated UseMaui heads obtain matched asset tooling through the MAUI workload."
             },
             {
               "name": "Microsoft.Extensions.Logging.Debug",
-              "version": "11.0.0-rc.2.26504.105",
+              "version": "11.0.0",
               "match": "exact",
               "reason": "Generated logging pin compiled in the canonical neutral consumer with AddDebug."
             }
@@ -97,7 +97,7 @@
             "Neutral package consumer is workload-free; ordinary generated native heads require matched MAUI workloads and platform toolchains."
           ],
           "constraints": [
-            "RC2 preparation evidence, not GA verification. No verified older-target route. Native behavior exclusions and contract doubles are explicit in Evidence."
+            "GA preparation evidence, within the recorded verification scope. No verified older-target route. Native behavior exclusions and contract doubles are explicit in Evidence."
           ],
           "optIns": [
             "--with-avalonia or maui-multiproject --avalonia; AvaloniaControlsMauiGenerateBootstrap=true."
@@ -212,7 +212,7 @@
       "sample": "samples/net11.0/QuayAvalonia/QuayAvalonia.csproj",
       "kind": "compile",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "scope": "Actual compilation/execution classification; native and template limits are documented below."
     }

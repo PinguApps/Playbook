@@ -32,4 +32,6 @@ The primary route uses framework System.Text.Json on .NET 10, SDK 10 / C# 14. Th
 
 ## Evidence
 
-Actual .NET 9.0.21, .NET 10.0.13 and .NET 11 RC2 samples compile and execute. All run valid/missing/duplicate/additional/null/quoted-number inputs and demonstrate that a negative crate count still needs business rules. The .NET 11 sample verifies retaining edition 10.0, not inventing a new foundation or an implicit compatibility route. Installed stdio list/get checks the full original body and selected applicability for both supported targets offline. Exact SDK/source-input records are saved; no mocks or required Human proof, and RC2 is not GA evidence.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
+Actual .NET 9.0.21, .NET 10.0.13 and .NET 11 GA samples compile and execute. All run valid/missing/duplicate/additional/null/quoted-number inputs and demonstrate that a negative crate count still needs business rules. The .NET 11 sample verifies retaining edition 10.0, not inventing a new foundation or an implicit compatibility route. Installed stdio list/get checks the full original body and selected applicability for both supported targets offline. Exact SDK/source-input records are saved; no mocks or required Human proof, and GA is limited to the recorded checks.

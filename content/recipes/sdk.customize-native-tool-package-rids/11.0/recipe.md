@@ -16,9 +16,9 @@ mode, workload, public feed publication or production resource is involved.
 
 | Input or route | Older comparison | Current example |
 | --- | --- | --- |
-| SDK / Roslyn | 10.0.403 / 5.9.0-1.26523.112 | 11.0.100-rc.3.26522.148 / 5.12.0-1.26522.148 |
+| SDK / Roslyn | 10.0.403 / 5.9.0-1.26523.112 | 11.0.100 / 5.12.0-1.26522.148 |
 | Managed target/language | net10.0 / C#14.0 | net11.0 / C#15.0 |
-| Runtime/reference/ILCompiler | 10.0.14 | 11.0.0-rc.3.26522.148 |
+| Runtime/reference/ILCompiler | 10.0.14 | 11.0.0 |
 | Declared package RID | win-x64 | win-x64 |
 | Candidate defaults inspected separately | No new hook | win-x64; win-arm64 |
 | Delivered native RID | win-x64, explicit per-RID pack | win-x64, selected outer/inner pack |
@@ -32,7 +32,7 @@ library directories through `SkylarkMsvcLibraries`, `SkylarkUmLibraries` and
 `SkylarkUcrtLibraries`. `IlcUseEnvironmentalTools=true` avoids automatic tool discovery
 and child-shell PATH setup. No persistent PATH or shell integration is required.
 The exact ILCompiler/ILLink packages and their complete closures are locked; sample
-dependencies remain manually maintained. Current proof is RC2, not GA.
+dependencies remain manually maintained. Current proof is GA.
 
 ## Older approach
 
@@ -51,7 +51,7 @@ Save as `samples/net10.0/SkylarkNative/SkylarkNative.csproj` and pin its
 ## Newer approach
 
 Save the current project under `samples/net11.0/SkylarkNative`, pinning
-`global.json` to **11.0.100-rc.3.26522.148**, `rollForward: "disable"`:
+`global.json` to **11.0.100**, `rollForward: "disable"`:
 
 {{snippet:newer}}
 
@@ -118,6 +118,8 @@ PIN-959/PIN-963/Human gates unchanged. Local packing/installing grants no public
 publication authority.
 
 ## Evidence
+
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 `eng/Test-SkylarkBuild.ps1 -Record` compiles/runs both actual managed projects,
 uses real ILC and MSVC-link to pack native executables, checks package counts and

@@ -43,7 +43,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Build net11.0 references; the exact RC3 SDK is an evidence baseline."
+            "reason": "Build net11.0 references; the exact GA SDK is an evidence baseline."
           },
           "language": {
             "name": "C#",
@@ -74,7 +74,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Verified on RC2 artifacts; reconcile final .NET 11 GA contracts before release."
+            "Verified on GA artifacts; reconcile final .NET 11 GA contracts before release."
           ]
         },
         "sourceUrls": [
@@ -126,7 +126,7 @@
       "kind": "compile-and-run",
       "sample": "samples/net11.0/CrashEvidence/CrashEvidence.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "scope": "Actual Linux x64 child FailFast under each pinned SDK/runtime; report includes the original DispatchFailure frame. .NET 10 createdump versus .NET 11 in-process report. No production, Apple, mobile or NativeAOT execution."
     }

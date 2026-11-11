@@ -40,13 +40,13 @@
             "name": ".NET",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Canonical net11.0 managed server; actual authoring evidence is RC2."
+            "reason": "Canonical net11.0 managed server; actual authoring evidence is GA."
           },
           "sdk": {
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Actual pin 11.0.100-rc.3.26522.148; SDK CLI/template behavior is verified independently of target selection."
+            "reason": "Actual pin 11.0.100; SDK CLI/template behavior is verified independently of target selection."
           },
           "language": {
             "name": "C#",
@@ -60,13 +60,13 @@
           "packages": [
             {
               "name": "Microsoft.AspNetCore.Authentication.JwtBearer",
-              "version": "11.0.0-rc.2.26504.105",
+              "version": "11.0.0",
               "match": "exact",
               "reason": "Actual authoring dependency; inspect package assets and lock file before updating."
             }
           ],
           "packageAssets": [
-            "Microsoft.AspNetCore.Authentication.JwtBearer 11 RC2 lib/net11.0; comparison 10.0.13 lib/net10.0. Transitive packages are pinned in packages.lock.json."
+            "Microsoft.AspNetCore.Authentication.JwtBearer 11 GA lib/net11.0; comparison 10.0.13 lib/net10.0. Transitive packages are pinned in packages.lock.json."
           ],
           "workloads": [],
           "providers": [
@@ -90,7 +90,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "The .NET 11 baseline is RC2, not GA verification. Final release artifacts must be reconciled separately."
+            "The .NET 11 baseline is GA verification. Final release artifacts must be reconciled separately."
           ]
         },
         "sourceUrls": [
@@ -131,7 +131,7 @@
       "kind": "compile",
       "sample": "samples/net11.0/QuayTokens/quay.cs",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "scope": "Actual canonical sample compilation only. eng/Test-WebTooling.ps1 separately executes the matching selector and signed/absent/invalid-token requests in an isolated user-secrets home. No mocks, AOT or publication."
     }

@@ -4,7 +4,7 @@
 
 Coordinate Quay Lantern processes belonging to one user, or deliberately share a
 named mutex across users. Provide writable storage for UID-only Linux containers.
-The default changed in .NET10.0.13 and .NET11 RC2, as well as .NET8.0.32 and
+The default changed in .NET10.0.13 and .NET11 GA, as well as .NET8.0.32 and
 .NET9.0.21. This is not an exclusively .NET11 feature.
 
 ## Older approach
@@ -51,13 +51,13 @@ session and change only their UIDs.
    /run/quay_a, /run/quay_b and /run/quay_unknown directories and changes ownership
    to the matching test UIDs. These are disposable container paths, not host edits.
 4. Do not prescribe HOME as the user-database fallback or remedy. The source
-   documentation specifies user-database home lookup; the measured RC2 unknown-UID
+   documentation specifies user-database home lookup; the measured GA unknown-UID
    control instead reported a wrapped storage failure under the supplied,
    inaccessible HOME. This is a pinned-artifact/source discrepancy, not a stable
    HOME contract. The verified remedy on both baselines is owned XDG_RUNTIME_DIR.
 5. Acquire and release on the same thread and dispose the handle. The complete
    sample calls WaitOne(0), releases only when acquired, and reports storage
-   failures including the measured RC2 TypeInitializationException wrapper.
+   failures including the measured GA TypeInitializationException wrapper.
    Real applications also need an explicit policy for abandoned mutexes; a mutex
    does not repair shared state after a crashed owner.
 6. Run eng/Test-QuayMutex.ps1 -Record. It compiles both actual consumers and uses
@@ -72,7 +72,7 @@ session and change only their UIDs.
 Only Linux x64 Docker execution is measured. macOS per-user TMPDIR selection and
 other Unix platforms are not execution claims. Both pinned baselines already
 contain the changed default. The actual .NET10.0.12 runtime is an isolated
-historical control, not a recommended rollback. SDK10.0.403/C#14 and SDK11 RC3/C#15
+historical control, not a recommended rollback. SDK10.0.403/C#14 and SDK11 GA/C#15
 are exact comparison pins; no package, optional workload, provider or UI is needed.
 
 The source also documents System.Threading.Mutex.UnsafeDefaultMutexScopeGlobal
@@ -84,8 +84,10 @@ refer to the same object. A build or mocked lock cannot establish these claims.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Saved sample-evidence records contain actual Linux .NET10.0.12, .NET10.0.13 and
-.NET11.0.0-rc.2.26504.105 observations, exact image/archive hashes, build/run
+.NET11.0.0 observations, exact image/archive hashes, build/run
 commands, UIDs, scope inputs and cleanup. Same-session process tests verify the
 older global default and the two pinned changed defaults; unknown-UID failure and
 XDG_RUNTIME_DIR recovery execute for both pinned baselines. Official source and

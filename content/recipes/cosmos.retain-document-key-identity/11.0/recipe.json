@@ -46,7 +46,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Build the declared target. Exact recorded SDKs are verification baselines; current-release proof uses RC3, not GA."
+            "reason": "Build the declared target. Exact recorded SDKs are verification baselines; current-release proof uses GA."
           },
           "language": {
             "name": "C#",
@@ -62,7 +62,7 @@
               "match": "release-family",
               "version": "11.0",
               "name": "Microsoft.EntityFrameworkCore.Cosmos",
-              "reason": "Exact RC3 baseline 11.0.0-rc.3.26522.148; previous comparison 10.0.13."
+              "reason": "Exact GA baseline 11.0.0; previous comparison 10.0.13."
             },
             {
               "name": "Microsoft.Azure.Cosmos",
@@ -81,7 +81,7 @@
             "EF Cosmos11 lib/net11.0; EF Cosmos10 lib/net10.0. Both consumers select Microsoft.Azure.Cosmos3.63.1 lib/netstandard2.0 (Client, Core, Direct and Serialization.HybridRow) and Newtonsoft.Json13.0.4 lib/net6.0. Full transitive and native assets are pinned by each package lock."
           ],
           "providers": [
-            "Microsoft.EntityFrameworkCore.Cosmos11.0.0-rc.3.26522.148 and Microsoft.Azure.Cosmos3.63.1 against the approved legacy Linux NoSQL emulator2.14.28.0, loopback HTTPS gateway and a uniquely marked playbook_ database. No cloud/account parity."
+            "Microsoft.EntityFrameworkCore.Cosmos11.0.0 and Microsoft.Azure.Cosmos3.63.1 against the approved legacy Linux NoSQL emulator2.14.28.0, loopback HTTPS gateway and a uniquely marked playbook_ database. No cloud/account parity."
           ],
           "workloads": [],
           "platforms": [
@@ -100,7 +100,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Stable API contract prepared using .NET11 RC3 SDK/runtime and EF11 RC3 packages; no experimental opt-in. Actual GA reconciliation remains outstanding."
+            "Stable API contract prepared using .NET11 GA SDK/runtime and EF11 GA packages; no experimental opt-in. Actual GA checks are limited to the recorded scope."
           ]
         },
         "conditional": false,
@@ -130,8 +130,8 @@
     {
       "sample": "samples/net11.0/ReefIdentity/ReefIdentity.csproj",
       "language": "15.0",
-      "scope": "Actual default/compatibility composite-ID reachability, collision, legal-key persistence and IsDefined/CoalesceUndefined execution. Undefined exception observations are RC evidence only; documented consistency requires GA retest.",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "scope": "Actual default/compatibility composite-ID reachability, collision, legal-key persistence and IsDefined/CoalesceUndefined execution. The GA rerun observes omitted single-property undefined values and a multi-property undefined exception. The IsDefined/CoalesceUndefined workaround is verified; the stronger both-exceptions regression gate remains unsatisfied.",
+      "sdk": "11.0.100",
       "target": "net11.0",
       "kind": "compile-and-run"
     }
@@ -209,7 +209,7 @@
     }
   },
   "humanProof": {
-    "scope": "No separate Human execution required for this local identity route. Actual GA reconciliation remains outstanding.",
+    "scope": "No separate Human execution required for this local identity route. Actual GA checks are limited to the recorded scope.",
     "status": "not-required"
   }
 }

@@ -67,7 +67,8 @@ try {
         }
         if ($name -eq 'EstuaryBudgets') {
           $native = Join-Path $installation "shared/Microsoft.NETCore.App/$($baseline.referencePack)/msquic.dll"
-          if ([Diagnostics.FileVersionInfo]::GetVersionInfo($native).FileVersion -cne '2.5.11.159415436') { throw 'Requalify actual MsQuic version before recording.' }
+          $expectedMsQuic = if ($release -eq '10') { '2.5.11.159415436' } else { '2.5.12.161031966' }
+          if ([Diagnostics.FileVersionInfo]::GetVersionInfo($native).FileVersion -cne $expectedMsQuic) { throw 'Requalify actual MsQuic version before recording.' }
         }
         # Diagnostic controls use complete independent source copies, never mutate
         # a canonical source or its saved freshness inputs during a build.
@@ -98,7 +99,7 @@ try {
         }
         if ($RecordEvidence) {
           [string[]]$nativeVersions = @()
-          if ($name -eq 'EstuaryBudgets') { $nativeVersions += 'MsQuic/2.5.11.159415436' }
+          if ($name -eq 'EstuaryBudgets') { $nativeVersions += "MsQuic/$expectedMsQuic" }
           & (Join-Path $PSScriptRoot 'Record-Evidence.ps1') -Sample $sample -Dotnet $hostDotnet -RuntimeDotnet $hostDotnet -NativeToolchains $nativeVersions
           $record = Get-Content 'verification-evidence.json' -Raw | ConvertFrom-Json -AsHashtable
           $record.output += "`n" + ($observations -join "`n")

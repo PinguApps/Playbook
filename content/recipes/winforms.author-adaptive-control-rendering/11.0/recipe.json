@@ -30,13 +30,13 @@
           "runtime": {
             "version": "11.0",
             "match": "release-family",
-            "reason": "Actual .NET 11 RC2 execution, not GA verification.",
+            "reason": "Actual .NET 11 GA execution, within the recorded verification scope.",
             "name": ".NET"
           },
           "sdk": {
             "version": "11.0",
             "match": "release-family",
-            "reason": "Exact recorded pin 11.0.100-rc.3.26522.148; older sample 10.0.403.",
+            "reason": "Exact recorded pin 11.0.100; older sample 10.0.403.",
             "name": ".NET SDK"
           },
           "language": {
@@ -66,13 +66,13 @@
             "Use an STA thread and the declared exact SDK; available Windows Desktop reference packs are required."
           ],
           "constraints": [
-            "Recorded .NET11 RC2 and .NET10 comparison only; no GA or other-platform behavior claim."
+            "Recorded .NET11 GA and .NET10 comparison only; no GA or other-platform behavior claim."
           ],
           "optIns": [
             "STA entry point and Windows Desktop runtime. No experimental API diagnostic suppression is required."
           ],
           "stabilityLimitations": [
-            "Actual .NET11 RC2 evidence; GA reconciliation remains open."
+            "Actual .NET11 GA evidence; GA checks are limited to the recorded scope."
           ]
         },
         "sharedAreas": [],
@@ -112,11 +112,11 @@
       "kind": "compile-and-run",
       "target": "net11.0-windows",
       "sample": "samples/net11.0/FenStatus/FenStatus.csproj",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0"
     },
     {
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "kind": "execution",
       "scope": "PIN-897: owner-reported visual check and actual AccentColor/HighContrast notifications with Net11 -> Classic -> Net11, restoring High Contrast to its initial disabled state. No automated pixel, broad accessibility or GA verification.",
@@ -126,8 +126,8 @@
     }
   ],
   "humanProof": {
-    "scope": "PIN-897 owner check refreshed for SDK/runtime RC3 on 5 November 2026 in samples/net11.0/FenStatus/owner-settings.evidence.json. Pingu confirmed readable system-colour text with the decorative accent hidden in high contrast. Actual log shows initial disabled -> enabled/Classic -> restored disabled/Net11. Owner-reported readability; no broad accessibility or GA claim.",
-    "status": "verified"
+    "status": "verified",
+    "scope": "Pingu refreshed the owner contrast check on 11 November 2026 using SDK11.0.100/runtime11.0.0 GA. Actual log records Net11 -> Classic under high contrast -> Net11 after restoration; Pingu confirmed readable text and the decorative accent behavior. Readability is owner-reported; no broad accessibility claim."
   },
   "snippets": {
     "n10-fenstatus-directory-build-props": {

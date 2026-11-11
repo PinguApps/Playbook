@@ -41,7 +41,7 @@
             "name": "SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Build against .NET 11 reference assets; RC2 is the exact measured sample pin, not a mandatory exact installation for every consumer."
+            "reason": "Build against .NET 11 reference assets; GA is the exact measured sample pin, not a mandatory exact installation for every consumer."
           },
           "language": {
             "name": "C#",
@@ -66,21 +66,21 @@
           ],
           "prerequisites": [
             "Configure the server request PathBase before routing, static assets and component endpoints. A proxy must preserve or correctly establish the external path base.",
-            "Use one base element with trailing slash. BasePath is Microsoft.AspNetCore.Components.BasePath in RC2, in the Endpoints assembly; it is for the server-rendered Blazor Web App shell.",
+            "Use one base element with trailing slash. BasePath is Microsoft.AspNetCore.Components.BasePath in GA, in the Endpoints assembly; it is for the server-rendered Blazor Web App shell.",
             "Canonical samples use net10.0/C# 14 and net11.0/C# 15 with independent global.json and locked SDK-aligned browser assets. No external provider, native workload or service account is required.",
-            "Microsoft.AspNetCore.Components.dll, Microsoft.AspNetCore.Components.Web.dll and Microsoft.AspNetCore.Components.Endpoints.dll from the .NET 11 shared/reference framework; SDK-aligned Microsoft.AspNetCore.App.Internal.Assets 11.0.0-rc.3.26522.148 supplies browser files in the measured SDK.",
+            "Microsoft.AspNetCore.Components.dll, Microsoft.AspNetCore.Components.Web.dll and Microsoft.AspNetCore.Components.Endpoints.dll from the .NET 11 shared/reference framework; SDK-aligned Microsoft.AspNetCore.App.Internal.Assets 11.0.0 supplies browser files in the measured SDK.",
             "Blazor Web App static document shell with BasePath; declarative links can be server-rendered.",
             "Interactive Server canonical routed pages and imperative event handlers; WebAssembly/Auto not executed."
           ],
           "constraints": [
             "Blazor routing: NavigationManager.Uri is the current absolute URI; BaseUri is the application root. RelativeToCurrentUri defaults to false and uses the current route directory only when true.",
-            "Use relative destinations with RelativeToCurrentUri; RC2 rejects leading-slash and absolute destinations. It is not a path confinement or authorization mechanism.",
+            "Use relative destinations with RelativeToCurrentUri; GA rejects leading-slash and absolute destinations. It is not a path confinement or authorization mechanism.",
             "GetUriWithFragment changes the current URI, preserving path/query and replacing the old fragment. Null/empty removes it; a leading # is optional. Supply a valid fragment; the helper does not escape arbitrary input.",
             "No .NET 10 package/SDK compatibility route is claimed for the new APIs. The .NET 10 implementations are previous-release comparisons only."
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "RC2; GA pending"
+            "GA artifacts; verification is limited to the recorded checks. Existing catalogue readiness gates remain open."
           ]
         },
         "sourceUrls": [
@@ -150,7 +150,7 @@
     {
       "sample": "samples/net11.0/NavigationAtlas/NavigationAtlas.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "kind": "compile",
       "scope": "Actual target-specific Web SDK project compilation. Separate real loopback HTTP/Chromium reports verify non-root nested declarative/imperative navigation, generated base markup and fragment following. No mocks, cross-compilation or GA execution claimed."

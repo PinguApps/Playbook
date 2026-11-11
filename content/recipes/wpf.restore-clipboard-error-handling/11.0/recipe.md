@@ -71,14 +71,16 @@ The native provider is a controlled failing fixture. It executes WPF's real COM 
 
 ## Constraints
 
-Windows desktop, STA execution, SDK10.0.403/C#14 and SDK11.0.100-rc.3.26522.148/C#15. No added NuGet package, service account or remote provider. The current edition targets .NET11; the older sample is comparison evidence, not a .NET10 foundation or backport. Framework-reference and runtime assets must match their declared targets. No experimental API opt-in is required by these compiled samples. RC3 execution does not establish GA verification.
+Windows desktop, STA execution, SDK10.0.403/C#14 and SDK11.0.100/C#15. No added NuGet package, service account or remote provider. The current edition targets .NET11; the older sample is comparison evidence, not a .NET10 foundation or backport. Framework-reference and runtime assets must match their declared targets. No experimental API opt-in is required by these compiled samples. Current GA verification is limited to the recorded checks.
 
 ## Evidence
+
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Both canonical projects compile and execute on Windows x64 with runtime10.0.14 or runtime11RC3. Saved verification-evidence.json records exact inputs and commands. See metadata for each sample's actual scope. No global Windows settings are changed. No external clipboard-owner failure, pixel-level rendering, High Contrast transition, Designer round trip or GA behavior is claimed. Existing Human and final-release gates remain open.
 
 ## References
 
-[Official RC2 desktop contracts](https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/rc2/winforms.md).
+[Official GA desktop contracts](https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/rc2/winforms.md).
 
 [Pinned shared clipboard switch caching implementation](https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/winforms/src/System.Private.Windows.Core/src/System/Private/Windows/CoreAppContextSwitches.cs).

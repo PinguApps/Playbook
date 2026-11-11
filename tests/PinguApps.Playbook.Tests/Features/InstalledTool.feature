@@ -21,7 +21,7 @@ Feature: Installed offline guidance
   Scenario: Nested inheritance keys and indexes retain verified offline guidance
     Given the actual package is installed from an isolated local feed and cache
     When a client initializes the installed stdio server outside the checkout
-    Then nested persistence retains canonical bodies applicability and RC2 restrictions
+    Then nested persistence retains canonical bodies applicability and GA constraints
     When the client closes its input
     Then the server exits cleanly with diagnostics on stderr
 
@@ -342,10 +342,10 @@ Feature: Installed offline guidance
     Then archive and compression guidance retains complete canonical bodies applicability and editions
     When the client closes its input
     Then the server exits cleanly with diagnostics on stderr
-  Scenario: Configuration options and cache recipes preserve lifecycle contracts and RC evidence
+  Scenario: Configuration options and cache recipes preserve lifecycle contracts and GA evidence
     Given the actual package is installed from an isolated local feed and cache
     When a client initializes the installed stdio server outside the checkout
-    Then configuration options and cache guidance retains complete bodies applicability and RC limitations
+    Then configuration options and cache guidance retains complete bodies applicability and measured limitations
     When the client closes its input
     Then the server exits cleanly with diagnostics on stderr
 

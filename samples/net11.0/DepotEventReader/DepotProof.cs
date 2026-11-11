@@ -195,7 +195,7 @@ internal static class DepotProof
 
     private static void MakeGraph(string root, string sdkRoot)
     {
-        string version = Path.GetFileName(sdkRoot).StartsWith("11.", StringComparison.Ordinal) ? "11.0.0-rc.3.26522.148" : "10.0.14";
+        string version = Path.GetFileName(sdkRoot).StartsWith("11.", StringComparison.Ordinal) ? "11.0.0" : "10.0.14";
         string tfm = version.StartsWith("11.", StringComparison.Ordinal) ? "net11.0" : "net10.0";
         string reference = Path.Combine(Path.GetDirectoryName(Environment.ProcessPath)!, "packs", "Microsoft.NETCore.App.Ref", version, "ref", tfm, "System.Runtime.dll");
         // Disposable strong-name identity only; never used as a credential or shipped key.

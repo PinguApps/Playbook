@@ -35,7 +35,7 @@
           "sdk": {
             "version": "11.0",
             "match": "release-family",
-            "reason": "Compatible .NET 11 SDK with a matching native workload; current authoring SDK pin is RC3.",
+            "reason": "Compatible .NET 11 SDK with a matching native workload; current authoring SDK pin is GA.",
             "name": ".NET SDK"
           },
           "language": {
@@ -51,12 +51,12 @@
             {
               "match": "release-family",
               "name": "Microsoft.Maui.Controls",
-              "reason": "Exact Controls/Core/Essentials/Resizetizer RC2 assets are used; sample pins 11.0.0-rc.2.26505.5.",
+              "reason": "Exact Controls/Core/Essentials/Resizetizer GA assets are used; sample pins 11.0.0.",
               "version": "11.0"
             }
           ],
           "packageAssets": [
-            "Platform-specific .NET 11 MAUI RC2 assets; neutral assemblies alone do not establish native behavior."
+            "Platform-specific .NET 11 MAUI GA assets; neutral assemblies alone do not establish native behavior."
           ],
           "workloads": [
             {
@@ -83,7 +83,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Stable contracts prepared from RC2 source/artifacts. No GA verification."
+            "Stable contracts prepared from Historical RC2 source and GA artifacts. No GA verification."
           ]
         },
         "sharedAreas": [],
@@ -189,7 +189,7 @@
       "scope": "Immutable source/artifact review. Native build attempted and failed NETSDK1147; compilation and execution not-tested under PIN-699.",
       "sample": "samples/net11.0/TernActivation/TernActivation.csproj",
       "kind": "official-review",
-      "sdk": "11.0.100-rc.3.26522.148"
+      "sdk": "11.0.100"
     },
     {
       "language": "14.0",

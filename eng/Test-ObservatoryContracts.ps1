@@ -15,7 +15,7 @@ foreach($scope in 'Process','User','Machine') {$paths[$scope]=[Environment]::Get
 try {
  $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH='0'
  $releases=Invoke-RestMethod 'https://builds.dotnet.microsoft.com/dotnet/release-metadata/11.0/releases.json'
- $file=($releases.releases | Where-Object release-version -EQ '11.0.0-rc.1').runtime.files |
+ $file=($releases.releases | Where-Object release-version -EQ '11.0.0').runtime.files |
    Where-Object { $_.rid -eq 'win-x64' -and $_.name -eq 'dotnet-runtime-win-x64.zip' }
  if(@($file).Count -ne 1) {throw 'Expected one exact RC1 runtime'}
  $zip=Join-Path $work 'rc1.zip'
@@ -33,8 +33,8 @@ try {
  }
  foreach($v in 10,11) {
   $exe=if($v -eq 10){$Net10Dotnet}else{$Net11Dotnet}
-  $sdk=if($v -eq 10){'10.0.403'}else{'11.0.100-rc.3.26522.148'}
-  $runtime=if($v -eq 10){'10.0.14'}else{'11.0.0-rc.3.26522.148'}
+  $sdk=if($v -eq 10){'10.0.403'}else{'11.0.100'}
+  $runtime=if($v -eq 10){'10.0.14'}else{'11.0.0'}
   foreach($name in 'ObservatoryResults','ObservatoryBulletins') {
    $sample="samples/net$v.0/$name/$name.csproj"
    & (Join-Path $PSScriptRoot 'Record-Evidence.ps1') -Sample $sample -Dotnet $exe
@@ -51,12 +51,12 @@ try {
    if($v -eq 11 -and $name -eq 'ObservatoryResults') {
     $app=Join-Path $root "samples/net11.0/ObservatoryResults/bin/Release/net11.0/ObservatoryResults.dll"
     $rc1Exe=Join-Path $rc1 'dotnet.exe'
-    $observed=(& $rc1Exe exec --fx-version 11.0.0-rc.1.26425.128 $app --observe | Out-String).Trim()
+    $observed=(& $rc1Exe exec --fx-version 11.0.0 $app --observe | Out-String).Trim()
     if($observed -notmatch '1.414250203437893161687265742266675E-17') {throw 'Expected actual RC1 cancellation-sensitive result'}
     $record.output += "`nRC1 archive=$($file.url) sha512=$($file.hash)`n$observed"
-    $core=Join-Path $rc1 'shared/Microsoft.NETCore.App/11.0.0-rc.1.26425.128/System.Private.CoreLib.dll'
+    $core=Join-Path $rc1 'shared/Microsoft.NETCore.App/11.0.0/System.Private.CoreLib.dll'
     $record.output += "`nRC1 CoreLib version=$([Diagnostics.FileVersionInfo]::GetVersionInfo($core).ProductVersion) sha256=$((Get-FileHash $core -Algorithm SHA256).Hash)"
-    $record.command += "; $rc1Exe exec --fx-version 11.0.0-rc.1.26425.128 $app --observe"
+    $record.command += "; $rc1Exe exec --fx-version 11.0.0 $app --observe"
    }
    $record.command += '; SHA256 compiler/reference/runtime assets'
    $record | ConvertTo-Json -Depth 40 | Set-Content -LiteralPath $recordPath

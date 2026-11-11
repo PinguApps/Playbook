@@ -22,7 +22,7 @@ The status tile reads the immutable current settings snapshot rather than cachin
 
 ## Owner check: recorded PIN-897
 
-Run the current compiled sample with --manual. Keep it open while changing Windows Settings > Accessibility > Contrast themes, then restore the original theme. Inspect message legibility, the removed accent strip and STATE/SETTINGS console receipts. Pingu performed this check on 3 November 2026 and reported: "It seemed to work to me." The retained owner execution record shows AccentColor/HighContrast notifications and effective Net11 -> Classic -> Net11, with High Contrast restored to its initial disabled state. The source, project and DLL still match the prepared sample. The exact contrast-theme name was not reported; visual success is owner-reported, not a pixel assertion or broad accessibility certification. This bounded Human gate is satisfied; comprehensive coverage and GA gates remain separate.
+Run the current compiled sample with --manual. Keep it open while changing Windows Settings > Accessibility > Contrast themes, then restore the original theme. On 11 November 2026 Pingu repeated this check on the GA build and confirmed it worked as expected: system-colour text stayed readable, the decorative accent disappeared in high contrast and returned after restoration. The actual .NET11.0.0 log records disabled/Net11 -> enabled/Classic -> restored disabled/Net11. Visual readability is owner-reported, not an automated pixel assertion or broad accessibility certification. This bounded Human gate is satisfied; unrelated comprehensive coverage gates remain separate.
 
 ## Migration
 
@@ -86,8 +86,10 @@ Windows desktop and STA execution are required. Current C# uses language15; prev
 
 ## Evidence
 
-Real control handle, renderer selection, inherited requested mode and paint. Pingu separately executed the Contrast-theme change/restoration recorded in owner-settings.evidence.json; visual judgment is owner-reported. Exact SDK pins, locked dependency closure and input hashes are recorded beside each sample. The older build is a comparison, not a new .NET10 foundation. Windows x64 RC2 proof is not GA or other-platform proof. No service account, remote provider, workload installation or package publication is required.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
+Real control handle, renderer selection, inherited requested mode and paint. Pingu separately executed the Contrast-theme change/restoration recorded in owner-settings.evidence.json; visual judgment is owner-reported. Exact SDK pins, locked dependency closure and input hashes are recorded beside each sample. The older build is a comparison, not a new .NET10 foundation. The current records cover Windows x64 GA; they do not establish other platforms. No service account, remote provider, workload installation or package publication is required.
 
 ## References
 
-[Official RC2 contracts](https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/rc2/winforms.md).
+[Official GA contracts](https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/rc2/winforms.md).

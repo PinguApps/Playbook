@@ -57,7 +57,7 @@
         "usage": "primary",
         "selectionNotes": [
           "Align differently ranked measurement batches while preserving requested dimensions; final .NET 11 package behavior and native-width execution remain pending.",
-          "Prepared for the full .NET 11 release from the merged release/11.0 backport. Published RC2/RC3 packages lack the required behavior. Current sample evidence is compilation only; final execution is tracked by PIN-962.",
+          "Prepared for the full .NET 11 release from the merged release/11.0 backport. Published GA packages lack the required behavior. Current sample evidence is compilation only; final execution is tracked by PIN-962.",
           "Provisional pre-GA guidance: pending behavior/final-artifact proof is not successful execution or GA verification."
         ],
         "requirements": {
@@ -71,7 +71,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Use final .NET 11 SDK for GA verification. The installed RC3 SDK is only the current compilation baseline."
+            "reason": "Use final .NET 11 SDK for GA verification. The installed GA SDK is only the current compilation baseline."
           },
           "language": {
             "name": "C#",
@@ -85,11 +85,11 @@
               "name": "System.Numerics.Tensors",
               "version": "11.0",
               "match": "release-family",
-              "reason": "Requires a final .NET 11 package containing release/11.0 backport #135281. RC2/RC3 compilation assets do not implement this contract; final package verification is pending."
+              "reason": "Requires a final .NET 11 package containing release/11.0 backport #135281. GA compilation assets do not implement this contract; final package verification is pending."
             }
           ],
           "packageAssets": [
-            "Canonical route: lib/net11.0/System.Numerics.Tensors.dll. Current compilation uses package11.0.0-rc.2.26504.105, previous execution uses10.0.13/lib/net10.0; neither proves final behavior."
+            "Canonical route: lib/net11.0/System.Numerics.Tensors.dll. Current compilation uses package11.0.0, previous execution uses10.0.13/lib/net10.0; neither proves final behavior."
           ],
           "providers": [],
           "platforms": [
@@ -110,7 +110,7 @@
           "optIns": [],
           "stabilityLimitations": [
             "Pending final SDK/runtime/package behavior, all five scalar/pairwise Any families, views/extrema and native traversal beyond int.MaxValue. PIN-962 owns refresh; pending proof blocks stable-release packaging.",
-            "No experimental annotation was required by the selected types/signatures on actual compilation assets. Full-release guidance is not an advertisement for RC2/RC3 behavior.",
+            "No experimental annotation was required by the selected types/signatures on actual compilation assets. Full-release guidance is not an advertisement for GA behavior.",
             "Provisional pre-GA guidance: pending behavior/final-artifact proof is not successful execution or GA verification."
           ]
         },
@@ -162,9 +162,9 @@
     },
     {
       "kind": "compile",
-      "scope": "Actual SDK11 RC3 and locked tensor11 RC2 net11 compilation of the full-release policy and shape/view/Any/native-width checks. The package lacks the release/11.0 shape backport; no successful new behavior or large/native/final-artifact execution is claimed. Final proof remains pending under PIN-962.",
+      "scope": "Actual SDK11 GA and locked tensor11 GA net11 compilation of the full-release policy and shape/view/Any/native-width checks. The package lacks the release/11.0 shape backport; no successful new behavior or large/native/final-artifact execution is claimed. Final proof remains pending under PIN-962.",
       "sample": "samples/net11.0/InstrumentBatch/InstrumentBatch.csproj",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "target": "net11.0"
     }

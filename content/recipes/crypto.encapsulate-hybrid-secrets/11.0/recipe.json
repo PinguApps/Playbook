@@ -2,7 +2,7 @@
   "id": "crypto.encapsulate-hybrid-secrets",
   "edition": "11.0",
   "title": "Negotiate experimental composite key encapsulation",
-  "goal": "Negotiate supported experimental composite ML-KEM; distinguish experimental HPKE, which implements classical suites in RC2.",
+  "goal": "Negotiate supported experimental composite ML-KEM; distinguish experimental HPKE, which implements classical suites in GA.",
   "areas": [
     "libraries"
   ],
@@ -29,7 +29,7 @@
       {
         "selectionNotes": [
           "Experimental SYSLIB5006/5009; contracts may change.",
-          "RC2 HPKE: classical DHKEM only, despite ML-KEM/composite enum names.",
+          "GA HPKE: classical DHKEM only, despite ML-KEM/composite enum names.",
           "No composite CMS or silent algorithm downgrade."
         ],
         "target": "11.0",
@@ -53,7 +53,7 @@
             "version": "11.0",
             "name": ".NET SDK",
             "match": "release-family",
-            "reason": "Build the declared .NET 11 target; the exact RC2 pin is evidence, not a minimum SDK."
+            "reason": "Build the declared .NET 11 target; the exact GA pin is evidence, not a minimum SDK."
           },
           "language": {
             "version": "15.0",
@@ -81,15 +81,15 @@
           ],
           "constraints": [
             "Experimental SYSLIB5006 and SYSLIB5009; contracts may change.",
-            "RC2 HPKE implements classical DHKEM only; ML-KEM/composite enum names do not establish support.",
-            "CompositeMLKem CMS decryption is unavailable in RC2; do not silently downgrade a negotiated algorithm.",
+            "GA HPKE implements classical DHKEM only; ML-KEM/composite enum names do not establish support.",
+            "CompositeMLKem CMS decryption is unavailable in GA; do not silently downgrade a negotiated algorithm.",
             "No account, resource provisioning, persistent key store, authenticated protocol, FIPS certification or unverified older-target package route is claimed."
           ],
           "optIns": [
             "Explicit experimental opt-ins: NoWarn SYSLIB5006 (composite), SYSLIB5009 (HPKE)."
           ],
           "stabilityLimitations": [
-            "RC2 proof only; GA and other platforms unverified.",
+            "GA proof only; GA and other platforms unverified.",
             "Experimental APIs may change or be removed after GA."
           ]
         },
@@ -142,7 +142,7 @@
       "sample": "samples/net10.0/PostQuantum/PostQuantum.csproj"
     },
     {
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "kind": "compile-and-run",
       "scope": "Actual Linux x64/OpenSSL 3.5.5 round trips and rejection checks in a network-disabled authoring container. See output and recipe for exact claims.",
       "language": "15.0",

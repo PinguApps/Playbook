@@ -33,10 +33,20 @@
       "skipArtifactsUpdate": true
     },
     {
-      "description": "Maintain reviewed .NET 10 host packages within their approved release line.",
+      "description": "Maintain the reviewed .NET 11 host package within its approved stable release line.",
       "matchManagers": ["nuget"],
       "matchFileNames": ["Directory.Packages.props"],
-      "matchPackageNames": ["Microsoft.Extensions.Hosting", "Microsoft.SourceLink.GitHub"],
+      "matchPackageNames": ["Microsoft.Extensions.Hosting"],
+      "enabled": true,
+      "allowedVersions": "[11.0.0,12.0.0)",
+      "matchDepTypes": ["nuget"],
+      "matchCurrentValue": "/^\\d+\\.\\d+\\.\\d+$/"
+    },
+    {
+      "description": "Maintain the reviewed SourceLink package within its approved release line.",
+      "matchManagers": ["nuget"],
+      "matchFileNames": ["Directory.Packages.props"],
+      "matchPackageNames": ["Microsoft.SourceLink.GitHub"],
       "enabled": true,
       "allowedVersions": "[10.0.0,11.0.0)",
       "matchDepTypes": ["nuget"],

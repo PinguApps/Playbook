@@ -17,14 +17,14 @@ Windows x64 is the executed platform; other platforms need their own qualificati
 
 | Layer | Older comparison | Current example |
 | --- | --- | --- |
-| SDK | 10.0.403 | 11.0.100-rc.3.26522.148 |
+| SDK | 10.0.403 | 11.0.100 |
 | C# compiler / language setting | 5.9.0-1.26523.112 / 14.0 | 5.12.0-1.26522.148 / 15.0 |
-| Framework, reference pack and runtime | net10.0 / 10.0.14 | net11.0 / 11.0.0-rc.3.26522.148 |
+| Framework, reference pack and runtime | net10.0 / 10.0.14 | net11.0 / 11.0.0 |
 | Build task | No SDK vulnerability target/task | Inbox Microsoft.NET.Build.Tasks and SdkVulnerabilityCheck.targets |
 
 These exact test pins do not mean a future SDK is automatically qualified. The
 supported prerequisite is an SDK shipping the documented check; use the complete
-official distribution, not a copied task DLL. RC3 evidence is not GA proof.
+official distribution, not a copied task DLL. Current GA records define measured coverage and retained exclusions.
 
 ## Older approach
 
@@ -41,7 +41,7 @@ Save this project as `SkylarkServicing.csproj` under `samples/net10.0/SkylarkSer
 
 ## Newer approach
 
-Use SDK **11.0.100-rc.3.26522.148**, `rollForward: "disable"`, the supported C#15
+Use SDK **11.0.100**, `rollForward: "disable"`, the supported C#15
 setting and the original dispatch program below. Save the project under
 `samples/net11.0/SkylarkServicing`. Both projects link the same source at
 `samples/net10.0/SkylarkServicing/Program.cs`.
@@ -50,7 +50,7 @@ setting and the original dispatch program below. Save the project under
 
 {{snippet:program}}
 
-The opt-in is `CheckSdkVulnerabilities=true`. In the measured RC2 build it defaults
+The opt-in is `CheckSdkVulnerabilities=true`. In the measured GA build it defaults
 to false. Actual warnings are **NETSDK1238** for vulnerabilities and **NETSDK1239**
 for end of life; the source draft's NETSDK1236/1237 numbers are superseded.
 Feature-band discontinuation is a separate NETSDK1240 warning. Do not suppress
@@ -100,6 +100,8 @@ network-isolation or live-advisory freshness claim is made. SDK11 GA artifacts a
 PIN-959/PIN-963 remain separate gates.
 
 ## Evidence
+
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 `eng/Test-SkylarkBuild.ps1 -Record` compiles and executes both real projects with
 their actual reference/runtime sets. It runs actual restore/build against the six

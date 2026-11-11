@@ -53,7 +53,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Build the declared target. Exact recorded SDKs are verification baselines; current-release proof uses RC2, not GA."
+            "reason": "Build the declared target. Exact recorded SDKs are verification baselines; current-release proof uses GA."
           },
           "language": {
             "name": "C#",
@@ -69,7 +69,7 @@
               "name": "Microsoft.EntityFrameworkCore.Sqlite",
               "version": "11.0",
               "match": "release-family",
-              "reason": "Current capability/analyzer verified with 11.0.0-rc.2.26504.105; each independent project has CPM pins and a resolved lock file."
+              "reason": "Current capability/analyzer verified with 11.0.0; each independent project has CPM pins and a resolved lock file."
             }
           ],
           "packageAssets": [
@@ -98,7 +98,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "GA-targeted stable contract, measured with .NET 11 RC2 packages/SDK. No experimental API opt-in required; actual GA reconciliation remains outstanding."
+            "GA-targeted stable contract, measured with .NET 11 GA packages/SDK. No experimental API opt-in required; actual GA checks are limited to the recorded scope."
           ]
         },
         "conditional": false,
@@ -148,7 +148,7 @@
       "target": "net11.0",
       "language": "15.0",
       "kind": "compile-and-run",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "scope": "Actual EF11 query: AsAsyncEnumerable and the pinned runtime11 ToAsyncEnumerable fast path issue asynchronous commands; deferred/repeated execution, real reader disposal on break/consumer exception, pre-cancellation. EF1004 red/green reproduction is separate in eng/Test-EfQueryAdapter.ps1."
     }
   ],

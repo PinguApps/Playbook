@@ -72,11 +72,11 @@
             "Use a net11.0 console project with LangVersion=15.0. Include the imports stated in the recipe."
           ],
           "constraints": [
-            "The exercised Linux route uses TERM=xterm-256color and Console.ForegroundColor/ResetColor with stdout redirected. Windows RC2 execution emitted no ANSI in either mode: this recipe does not claim FORCE_COLOR enables Windows redirected Console colouring. macOS follows the Unix implementation but has no native execution proof here. Other logging libraries and tools may interpret these conventions differently. FORCE_COLOR does not change IsOutputRedirected or guarantee renderer support. Child-local Environment entries do not mutate the parent, user or machine environment."
+            "The exercised Linux route uses TERM=xterm-256color and Console.ForegroundColor/ResetColor with stdout redirected. Windows GA execution emitted no ANSI in either mode: this recipe does not claim FORCE_COLOR enables Windows redirected Console colouring. macOS follows the Unix implementation but has no native execution proof here. Other logging libraries and tools may interpret these conventions differently. FORCE_COLOR does not change IsOutputRedirected or guarantee renderer support. Child-local Environment entries do not mutate the parent, user or machine environment."
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "RC2 verification; GA reconciliation remains pending.",
+            "GA verification; GA checks are limited to the recorded scope.",
             "macOS native execution is unverified; Pingu explicitly accepted this evidence gap.",
             "Not tested: macOS execution: no Mac environment. Excluded under PIN-699; recorded Windows/Linux results remain separate."
           ]
@@ -123,7 +123,7 @@
     {
       "sample": "samples/net11.0/ProcessExecution/ProcessExecution.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "kind": "compile-and-run",
       "scope": "Actual ProcessExecution compilation and focused execution on Windows. Additional Linux native execution is recorded separately; macOS has not been executed."
@@ -131,7 +131,7 @@
     {
       "sample": "samples/net11.0/ProcessExecution/ProcessExecution.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "kind": "compile-and-run",
       "scope": "Actual Linux x64 compilation/execution of native processes in a pinned network-disabled container; suspended startup is excluded on Linux. macOS has not been executed.",

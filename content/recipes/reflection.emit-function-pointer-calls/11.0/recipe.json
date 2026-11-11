@@ -34,7 +34,7 @@
         "requirements": {
           "sdk": {
             "match": "release-family",
-            "reason": "Build against .NET 11 references; exact RC2 pins record measured artifacts.",
+            "reason": "Build against .NET 11 references; exact GA pins record measured artifacts.",
             "name": ".NET SDK",
             "version": "11.0"
           },
@@ -72,7 +72,7 @@
           "renderingModes": [],
           "optIns": [],
           "stabilityLimitations": [
-            "Actual RC2 verification, not final-GA proof; PIN-962 and PIN-959 remain open."
+            "Actual GA verification, within the recorded verification scope; PIN-962 and PIN-959 remain open."
           ],
           "constraints": [
             "Requires runtime code generation and trusted IL inputs; no Native AOT execution route.",
@@ -147,7 +147,7 @@
       "kind": "compile-and-run",
       "sample": "samples/net11.0/QuarryCalls/QuarryCalls.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "scope": "Actual Windows x64 CoreCLR DynamicMethod managed and native MulDiv calls, arguments/results, direct typed-pointer comparison, safe failure sentinels and signature rejection. Injected false guard only; no AOT/x86/other-platform/GA execution claim."
     }

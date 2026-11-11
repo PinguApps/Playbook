@@ -9,7 +9,7 @@ The provider is a circuit-scoped local demonstration. Its grant/revoke buttons e
 ## Migration steps
 
 1. Keep the authentication provider scoped to the circuit and obtain an initial state. Do not keep a captured `HttpContext.User` as the circuit's permanent source.
-2. Subscribe to `AuthenticationStateChanged` before loading initial content. RC2 BL0013 warns when a component reads state without subscribing; analyzer silence alone does not prove UI updates.
+2. Subscribe to `AuthenticationStateChanged` before loading initial content. GA BL0013 warns when a component reads state without subscribing; analyzer silence alone does not prove UI updates.
 3. Await the supplied state task and reload user-specific content through `InvokeAsync`, which enters the renderer dispatcher. Request rendering after the external notification. The sample's in-memory lookup completes synchronously; production asynchronous loads need cancellation/latest-result and error handling appropriate to that data source.
 4. Unsubscribe when the component is disposed. Do not force a full page reload to refresh a local view. The older explicit Refresh action remains an alternative for a deliberately manual UX, including on .NET 10.
 5. Enforce authorization again when serving protected data and executing operations. Hiding an atlas title does not revoke a download, authorize a request or terminate work already running.
@@ -20,7 +20,7 @@ Run the selected complete Web project with its matching SDK, `dotnet run -c Rele
 
 ## Constraints
 
-Interactive Server with prerender disabled is the executed mode. The notification/subscription technique also exists on .NET 10; the new edition explains the .NET 11 analyzer and refreshed-state context, not a newly invented subscription API. SDK 10.0.403/framework 10.0.14 and SDK 11.0.100-rc.3.26522.148/framework RC2 are measured pins. Implicit Internal.Assets packages are locked. No remote identity provider, cookie/JWT refresh, automatic SignalR-to-provider propagation, cross-tab revocation, protected-data authorization, concurrent loader, WASM/Auto/Hybrid, AOT or GA behaviour is proved. No experimental opt-in is required by the inspected notification API.
+Interactive Server with prerender disabled is the executed mode. The notification/subscription technique also exists on .NET 10; the new edition explains the .NET 11 analyzer and refreshed-state context, not a newly invented subscription API. SDK 10.0.403/framework 10.0.14 and SDK 11.0.100/framework GA are measured pins. Implicit Internal.Assets packages are locked. No remote identity provider, cookie/JWT refresh, automatic SignalR-to-provider propagation, cross-tab revocation, protected-data authorization, concurrent loader, WASM/Auto/Hybrid, AOT or GA behaviour is proved. No experimental opt-in is required by the inspected notification API.
 
 ## Older approach
 
@@ -103,5 +103,7 @@ The complete current consumer uses the new refresh or notification contract.
 {{snippet:n11-program-cs}}
 
 ## Evidence
+
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 The saved evidence names the exact commands, inputs, SDKs, resolved packages and actual execution. `eng/Record-LiveIdentity.ps1` captures the real .NET/TypeScript and browser checks. Installed stdio inspection verifies delivery separately; it does not prove production identity-provider support.

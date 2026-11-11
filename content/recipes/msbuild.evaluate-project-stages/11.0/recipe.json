@@ -45,18 +45,18 @@
         "selectionNotes": [
           "The host framework and SDK are independent of the project being inspected. This net11 host really evaluates an imported net10 project.",
           "SDK10 retains a verified full-evaluation alternative but has no ProjectEvaluationStage API. No older-target partial route or new .NET10 foundation is advertised.",
-          "Partial state is guarded: RC2 Targets.Count throws rather than returning zero. Use Full for target discovery and execution."
+          "Partial state is guarded: GA Targets.Count throws rather than returning zero. Use Full for target discovery and execution."
         ],
         "requirements": {
           "runtime": {
             "name": ".NET",
-            "version": "11.0.0-rc.2.26504.105",
+            "version": "11.0.0",
             "match": "exact",
             "reason": "Exact qualified external MSBuild host runtime. Actual GA remains unqualified."
           },
           "sdk": {
             "name": ".NET SDK",
-            "version": "11.0.100-rc.3.26522.148",
+            "version": "11.0.100",
             "match": "exact",
             "reason": "Compile and execute against the complete matching installed SDK/MSBuild 18.12.0-1.26504.105 closure and SDK resolver."
           },
@@ -86,7 +86,7 @@
           ],
           "renderingModes": [],
           "prerequisites": [
-            "Install the complete exact SDK/runtime from official .NET distributions; a lone DLL is insufficient. Use exact global.json with rollForward=disable and allowPrerelease=true.",
+            "Install the complete exact SDK/runtime from official .NET distributions; a lone DLL is insufficient. Use exact global.json with rollForward=disable and allowPrerelease=false.",
             "Launch the host DLL through the matching absolute dotnet executable; the bootstrap derives the SDK path from that executable. Register Locator before loading MSBuild types, and use one SDK per disposable process.",
             "Use trusted project/import inputs. PowerShell7 is needed for repository evidence/inspection; Node22.19+ and SDK10 are additionally needed for packed-tool inspection. Inspect inherited build/package configuration."
           ],
@@ -98,8 +98,8 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Exact RC2 preview evidence is not actual GA. PIN-959/PIN-963 and unrelated Human gates remain open.",
-            "The API is not labelled experimental and needs no -mt switch. Preview7 target-count prose is superseded by actual RC2 getter guards."
+            "Exact GA preview evidence is limited to the recorded checks. PIN-959/PIN-963 and unrelated Human gates remain open.",
+            "The API is not labelled experimental and needs no -mt switch. Preview7 target-count prose is superseded by actual GA getter guards."
           ]
         },
         "sourceUrls": [
@@ -162,8 +162,8 @@
       "language": "14.0"
     },
     {
-      "sdk": "11.0.100-rc.3.26522.148",
-      "scope": "Actual SDK11 RC3 host/Locator1.11.2: all partial stages, property-set/import equality, item values/metadata/counts versus Full, omitted/default Full, unavailable state failures, all three mutable factories rejecting every partial stage and undefined enum failure. Real CLI property/item outputs and explicit target control, actual SDK imports and complete loaded assembly closure. Exact artifact hashes checked. Windows x64 preview; no speed, down-level partial or actual-GA claim.",
+      "sdk": "11.0.100",
+      "scope": "Actual SDK11 GA host/Locator1.11.2: all partial stages, property-set/import equality, item values/metadata/counts versus Full, omitted/default Full, unavailable state failures, all three mutable factories rejecting every partial stage and undefined enum failure. Real CLI property/item outputs and explicit target control, actual SDK imports and complete loaded assembly closure. Exact artifact hashes checked. Windows x64 preview; no speed, down-level partial or actual-GA claim.",
       "target": "net11.0",
       "sample": "samples/net11.0/MuseumInventory/MuseumInventory.csproj",
       "kind": "compile-and-run",

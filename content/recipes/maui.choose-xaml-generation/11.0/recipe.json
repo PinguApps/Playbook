@@ -85,8 +85,8 @@
             "MauiXamlInflator=SourceGen; the separate companion page also enables preview expressions."
           ],
           "stabilityLimitations": [
-            "RC2 preparation evidence; no GA verification. x:Code/C# expressions are preview, including in the companion migration sample.",
-            "Reviewed Controls and Build.Tasks 11.0.0-rc.2.26505.5 artifacts; intended SDK 11.0.100-rc.3.26522.148. The current native dependency closure was not resolved because the SDK pack is unavailable; these are preparation baselines, not required downgrades."
+            "GA preparation evidence; no GA verification. x:Code/C# expressions are preview, including in the companion migration sample.",
+            "Reviewed Controls and Build.Tasks 11.0.0 artifacts; intended SDK 11.0.100. The current native dependency closure was not resolved because the SDK pack is unavailable; these are preparation baselines, not required downgrades."
           ]
         },
         "sharedAreas": [],
@@ -159,7 +159,7 @@
     {
       "language": "15.0",
       "sample": "samples/net11.0/QuayBoard/QuayBoard.csproj",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "target": "net11.0-windows10.0.20348.0",
       "kind": "official-review",
       "scope": "Pinned official SourceGen source reviewed; build failed NETSDK1147 before compilation. No generated-output or execution proof."

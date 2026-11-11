@@ -27,9 +27,11 @@ This finite example sends two readings so execution can check the entire respons
 
 Standard itemSchema requires OpenAPI 3.2. Choosing an earlier document version leaves the actual SSE response unchanged but moves this metadata into an extension; confirm your exact parser, generator or UI understands it. The generated NSwag client included in the shared fixture consumes only the ordinary status endpoint from a deliberately selected 3.0 document. It is not evidence of generated SSE support. The real stream check uses HttpClient and parses each received frame.
 
-The sample's case-sensitive schema checks follow its actual System.Text.Json web defaults. No union, browser EventSource, authentication, replay store, heartbeat or reconnect policy is claimed. Stable framework APIs use no experimental opt-ins. .NET 11 RC2 evidence prepares the release-family recipe; final GA behavior remains to be reconciled.
+The sample's case-sensitive schema checks follow its actual System.Text.Json web defaults. No union, browser EventSource, authentication, replay store, heartbeat or reconnect policy is claimed. Stable framework APIs use no experimental opt-ins. .NET 11 GA evidence prepares the release-family recipe; final GA behavior remains to be reconciled.
 
 ## Evidence
+
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Both actual SDK/package sets compiled and executed. The .NET 11 check resolves itemSchema's payload reference, checks the integer exposure type and envelope fields, and confirms the 3.1 extension distinction. Both servers deliver two real frames with expected payload/name/id and a separate raw JSON array. This is actual local execution, not source review, cross-compilation or a mock HTTP response. Saved verification-evidence.json records identify exact inputs, resolved dependencies, commands and runtime output. The build generator itself uses the framework's mock hosting server; those build documents are separate evidence from Kestrel/SSE execution.
 

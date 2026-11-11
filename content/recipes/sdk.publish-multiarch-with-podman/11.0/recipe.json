@@ -57,7 +57,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "The documented newer SDK family; exact sample pin is unbuilt RC2, not GA evidence."
+            "reason": "The documented newer SDK family; exact sample pin is unbuilt GA evidence."
           },
           "language": {
             "name": "C#",
@@ -89,7 +89,7 @@
           "optIns": [],
           "stabilityLimitations": [
             "Theoretical guidance: source review only; samples have not been compiled or executed. Pending proof blocks stable readiness; preview publication requires a named approved exception.",
-            "Official .NET 11 RC documentation and source were reviewed; the pinned RC2 samples are uncompiled. No experimental API is intentionally used; GA reconciliation remains separate.",
+            "Official .NET 11 RC documentation and source were reviewed; the pinned GA samples are uncompiled. No experimental API is intentionally used; GA reconciliation remains separate.",
             "Provisional pre-GA guidance: pending behavior/final-artifact proof is not successful execution or GA verification."
           ]
         },
@@ -133,7 +133,7 @@
       "sample": "samples/net11.0/ContainerPublishing/ContainerPublishing.csproj",
       "record": "samples/net11.0/ContainerPublishing/source-review.evidence.json",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "scope": "Official-source review and original sample authoring only. SDK/target/language values describe intended inputs, not observed compilation. No compilation, cross-compilation, mock, execution, artifact or installed MCP proof."
     },
@@ -151,7 +151,7 @@
       "sample": "samples/net11.0/ContainerPublishing/ContainerPublishing.csproj",
       "record": "samples/net11.0/ContainerPublishing/verification-evidence.json",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "scope": "Actual locked compilation of this canonical project on Windows. This is not composed-host, provider, telemetry, archive, engine or final-GA behavior proof; .cs.txt integration inputs are not compiled."
     }

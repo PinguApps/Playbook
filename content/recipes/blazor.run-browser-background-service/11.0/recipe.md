@@ -26,7 +26,7 @@ OwnedBrowserLifetime.cs stops the services before disposing the renderer and ser
 
 ## Newer approach
 
-Create a separate BeaconWatch directory for .NET 11. Use these complete project/package files and a global.json with sdk.version 11.0.100-rc.3.26522.148, sdk.rollForward disable and sdk.allowPrerelease true. The canonical mode is C# 15; this example needs no C# 15-only syntax. Exact RC2 packages and matching framework/browser assets are required for the recorded proof. Hosting.Abstractions is already available through the .NET 11 reference set; adding its redundant explicit reference raises NU1510 with warnings treated as errors.
+Create a separate BeaconWatch directory for .NET 11. Use these complete project/package files and a global.json with sdk.version 11.0.100, sdk.rollForward disable and sdk.allowPrerelease false. The canonical mode is C# 15; this example needs no C# 15-only syntax. Exact GA packages and matching framework/browser assets are required for the recorded proof. Hosting.Abstractions is already available through the .NET 11 reference set; adding its redundant explicit reference raises NU1510 with warnings treated as errors.
 
 {{snippet:project-11}}
 
@@ -62,7 +62,7 @@ Save wwwroot/watch-lifetime.js. Its event journal and external controls make the
 
 The document includes the complete demonstration CSS.
 
-From each directory, restore and run with its matching absolute dotnet executable. SDK 10.0.403 uses Microsoft.NETCore.App 10.0.13; the .NET 11 SDK uses runtime 11.0.0-rc.2.26504.105. Set DOTNET_ADD_GLOBAL_TOOLS_TO_PATH=0 before invoking either SDK. Run dotnet restore, then dotnet run --configuration Release --no-restore --no-launch-profile --urls http://localhost:5811 for the older app or http://localhost:5812 for the newer app. DevServer is a local development host, not a deployment recommendation. The RC2 DevServer emits a deprecation warning recommending Components.Gateway for future migration; this deliberately pinned comparison still runs it and does not broaden into that separate hosting migration. Initial restore downloads the matching WebAssembly SDK/runtime packs; interpreted WASM needs no installed wasm-tools workload, native compiler or AOT. Repository packages.lock.json files retain the exact resolved dependency closure; a fresh standalone directory generates its own lock on restore.
+From each directory, restore and run with its matching absolute dotnet executable. SDK 10.0.403 uses Microsoft.NETCore.App 10.0.14; the .NET 11 SDK uses runtime 11.0.0. Set DOTNET_ADD_GLOBAL_TOOLS_TO_PATH=0 before invoking either SDK. Run dotnet restore, then dotnet run --configuration Release --no-restore --no-launch-profile --urls http://localhost:5811 for the older app or http://localhost:5812 for the newer app. DevServer is a local development host, not a deployment recommendation. The GA DevServer emits a deprecation warning recommending Components.Gateway for future migration; this deliberately pinned comparison still runs it and does not broaden into that separate hosting migration. Initial restore downloads the matching WebAssembly SDK/runtime packs; interpreted WASM needs no installed wasm-tools workload, native compiler or AOT. Repository packages.lock.json files retain the exact resolved dependency closure; a fresh standalone directory generates its own lock on restore.
 
 ## Migration
 
@@ -78,13 +78,15 @@ Registration places startup and stop beside the host's lifecycle instead of a pa
 
 - This edition selects .NET 11 only. The compiled .NET 10 manual-owner sample is a previous-release comparison, not a compatible route to native WASM hosted-service integration. No new .NET 10 foundation is added.
 - The route is browser-side WebAssembly/CSR. Static SSR cannot run it, and Interactive Server has a different server lifetime. Hosted or Interactive Auto apps need separate client startup ownership and must avoid duplicate server/client work; those compositions are not executed here.
-- IHostedService and these host APIs have no Experimental diagnostic in the reviewed RC2 artifacts. The package baseline remains prerelease RC2 evidence, not GA verification.
+- IHostedService and these host APIs have no Experimental diagnostic in the reviewed GA artifacts. The package baseline remains GA evidence, within the recorded verification scope.
 - RunAsync() has no public cancellation-token overload. Its task normally never completes. Calling the public DisposeAsync while the document is alive is the demonstrated resource-shutdown path; it does not imply a general imperative runtime-exit API.
 - Browser close, refresh, navigation, crashes and process termination do not guarantee StopAsync or asynchronous disposal. Do not promise final uploads or durable work after the tab/process ends. Move durable scheduling and authoritative persistence to an appropriate backend with its own delivery guarantees.
 - Background-tab throttling, sleep and suspension change timing. Keep each iteration short and asynchronous so the UI remains usable. IHostedService does not create a worker thread or make CPU-heavy work nonblocking.
 - The pinned host passes CancellationToken.None to its stop executor and catches stop exceptions during disposal. Bound real shutdown work in your own service and report failures; this sample's already cancellable timer has no external I/O. A successful DisposeAsync return alone is not proof every service succeeded.
 
 ## Evidence
+
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Both complete canonical projects are built with their actual SDKs and locked dependencies. Those captures are compilation only. Separate real Chrome WebAssembly execution checks compare .NET 10 registration-only inactivity and manual startup with .NET 11 automatic startup, advancing ticks and a working counter, then stop-requested, cancelled, stopped and root-disposed events, awaited disposal and no further ticks in the still-loaded document. Exact inputs and executed browser artifact hashes are recorded in docs/verification/browser-service-lifetime.md. No desktop .NET host mocks or cross-compilation substitute for browser execution.
 

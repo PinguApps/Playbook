@@ -9,12 +9,12 @@ the next build asks for it. Keep live resources with the operation using them.
 
 ## Requirements and tested artifacts
 
-This edition qualifies the complete Windows x64 **SDK11.0.100-rc.3.26522.148**
-installation, runtime/reference11.0.0-rc.3.26522.148 and C#15 mode, compared with
+This edition qualifies the complete Windows x64 **SDK11.0.100**
+installation, runtime/reference11.0.0 and C#15 mode, compared with
 SDK10.0.403, runtime/reference10.0.14 and C#14. These are exact tested pins,
 not a promise for every member of either release family. No workload, provider,
 account, native compiler, rendering mode or preview-language switch is needed.
-The current SDK is RC2, so actual GA remains unqualified.
+The current SDK is GA, so actual GA remains unqualified.
 
 SDK10 carries NuGet7.9.0-rc.611 (source a8dd0577); SDK11 carries
 NuGet8.0.0-rc.605 (source820230c3). Their NuGet DLL TFMs are net8.0/net10.0,
@@ -105,7 +105,7 @@ Their exact older/current project settings are:
 {{snippet:settings}}
 
 Use `global.json` with `rollForward=disable`, exact SDK version above and
-`allowPrerelease=true` for11. Clear package sources in `NuGet.Config`; these
+`allowPrerelease=false` for11. Clear package sources in `NuGet.Config`; these
 projects restore no packages. The shared compile includes are canonical repository
 paths; the test fixture and artifact manifest are source inputs, not hidden
 downloaded implementations.
@@ -144,6 +144,8 @@ that such a bug surfaces and is removed in `finally`.
    is only a unit check, and two CLI processes are not a reused-host proof.
 
 ## Evidence and limits
+
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 `eng/Record-PackageWorkshop.ps1` uses the existing sample-evidence workflow.
 Both actual SDK consumers reproduce `moor-A` leaking into build2 expecting

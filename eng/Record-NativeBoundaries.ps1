@@ -38,7 +38,7 @@ try {
   }
   foreach ($variant in 'net10.0','net11.0') {
     $dotnet = if ($variant -eq 'net10.0') { $Net10Dotnet } else { $Net11Dotnet }
-    $runtime = if ($variant -eq 'net10.0') { '10.0.14' } else { '11.0.0-rc.3.26522.148' }
+    $runtime = if ($variant -eq 'net10.0') { '10.0.14' } else { '11.0.0' }
     $names = @('TelemetryKeys','BuoyPipes','MobileJournal')
     if ($variant -eq 'net10.0') { $names += 'ShoreCalibration' }
     foreach ($name in $names) {
@@ -93,7 +93,7 @@ try {
       [IO.File]::WriteAllText($recordPath, ($record | ConvertTo-Json -Depth 40).Replace("`r`n","`n") + "`n")
       if ($name -eq 'BuoyPipes') {
         $image = if ($variant -eq 'net10.0') { 'mcr.microsoft.com/dotnet/runtime@sha256:6b0cde57a2d55aa6ef5b9c9eafbc156e3c0e0b7c114134111103bc0a3e474517' }
-          else { 'mcr.microsoft.com/dotnet/runtime@sha256:811515cabb3edf04bbbef8da41adbd51beb7f973716046d80de77822d2c1dece' }
+          else { 'mcr.microsoft.com/dotnet/runtime@sha256:3fe5f5495141c97986a49d3a4e76061f6225c3f93f94e8a7e522781376193863' }
         $before = Get-EvidenceInputs $root $sample
         $container = 'playbook-buoy-' + [guid]::NewGuid().ToString('N')
         # Copy to private tmpfs to avoid executing mapped binaries while the host builds.
@@ -125,7 +125,7 @@ try {
   try { $evaluation = (& $Net11Dotnet msbuild ShoreCalibration.csproj -getProperty:TargetFramework,UseMonoRuntime,RuntimeIdentifier,_WebAssemblyTargetsFile,WasmBuildNative | Out-String).Trim() }
   finally { Pop-Location }
   $record = [ordered]@{
-    kind='official-review'; sample=$sample; target='net11.0'; sdk='11.0.100-rc.3.26522.148'; language='15.0'
+    kind='official-review'; sample=$sample; target='net11.0'; sdk='11.0.100'; language='15.0'
     command='Review pinned native-boundaries.sources.json CoreCLR relink target, SDK selection, Emscripten6.0.2 requirements and exact canonical C/C#/project/JS inputs; evaluate project properties only'
     scope='Intended SDK/C# pins; official source review plus property evaluation only, no build/native compilation/relink/browser execution. Matching CoreCLR browser runtime/WebAssembly/Emscripten6.0.2 packs are unavailable locally and in the existing Docker authoring image; Mono workload labels and older3.1.56 assets do not qualify. PIN-699 sample-specific not-tested exclusion.'
     recordedAt=[DateTimeOffset]::UtcNow.ToString('O'); sourceCommit=(& 'C:/Program Files/Git/cmd/git.exe' -C $root rev-parse HEAD).Trim(); sourceDirty=$true

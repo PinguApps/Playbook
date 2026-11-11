@@ -86,7 +86,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Exact recorded artifacts establish only the exercised routes; EF11 uses RC2 rather than GA."
+            "Exact recorded artifacts establish only the exercised routes; EF11 uses GA."
           ]
         },
         "conditional": false,
@@ -123,7 +123,7 @@
       "language": "15.0",
       "scope": "Canonical source compilation against its declared locked EF/SDK baseline; execution is recorded separately.",
       "sample": "samples/net11.0/BrackenReads/BrackenReads.csproj",
-      "sdk": "11.0.100-rc.3.26522.148"
+      "sdk": "11.0.100"
     },
     {
       "target": "net10.0",
@@ -140,7 +140,7 @@
       "language": "15.0",
       "scope": "Real SQL2025 concurrent insert caused DbQueryConcurrencyException; failed context discarded; one whole-read retry in a fresh context returned 10/20/30 with one card each. No isolation, other-provider or GA proof.",
       "sample": "samples/net11.0/BrackenReads/BrackenReads.csproj",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "record": "samples/net11.0/BrackenReads/race.evidence.json"
     }
   ],

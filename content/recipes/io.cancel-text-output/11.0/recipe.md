@@ -67,6 +67,8 @@ before cleanup. Do not promise universal interruption or automatic rollback.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 `eng/Test-TextBoundaries.ps1 -SampleNames MooringReport -Record -VerifySources`
 captures both successful consumers with the existing evidence workflow. Real
 StreamWriter checks cover complete text/newline output, no bytes after a
@@ -74,10 +76,10 @@ pre-cancelled operation plus flush, in-flight token forwarding and the retained
 partial prefix. The Null writer exercises the subclass limitation.
 
 Exact SDK/reference/runtime pins: 10.0.403 / 10.0.14 and
-11.0.100-rc.3.26522.148 / 11.0.0-rc.2.26504.105. Compiler/CoreLib identities,
+11.0.100 / 11.0.0. Compiler/CoreLib identities,
 audit-matching reference hashes, commands, inputs and resolved dependencies (none)
 are saved. These reproduction pins are separate from release-family prerequisites.
 Pinned official TextWriter/StreamWriter sources establish availability and dispatch.
 The ordinary installed package returns full canonical Markdown, applicability,
-current paired evidence and explicit target11/edition11 offline. RC2 is not GA;
+current paired evidence and explicit target11/edition11 offline. GA is limited to the recorded checks;
 PIN-959/PIN-962 and existing Human gates remain open.

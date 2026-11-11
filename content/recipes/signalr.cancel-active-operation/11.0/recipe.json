@@ -43,7 +43,7 @@
             "name": ".NET",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Actual net11.0 ASP.NET Core consumer; RC3 execution does not establish GA verification."
+            "reason": "Actual net11.0 ASP.NET Core consumer; Current GA verification is limited to the recorded checks."
           },
           "sdk": {
             "name": ".NET SDK",
@@ -63,10 +63,10 @@
           ],
           "packages": [
             {
-              "version": "11.0.0-rc.2.26504.105",
+              "version": "11.0.0",
               "name": "Microsoft.AspNetCore.SignalR.Client",
               "match": "exact",
-              "reason": "Exact tested RC2 client baseline with non-streaming cancellation; matching server capability is also required."
+              "reason": "Exact tested GA client baseline with non-streaming cancellation; matching server capability is also required."
             }
           ],
           "packageAssets": [
@@ -84,7 +84,7 @@
             "Non-streaming server hub invocation from a .NET client; no Blazor rendering mode required"
           ],
           "prerequisites": [
-            "Both client and server must support non-streaming invocation cancellation. The canonical complete consumers pin SDK 10.0.403 / 11.0.100-rc.3.26522.148, C# 14 / 15 and client packages 10.0.13 / 11.0.0-rc.2.26504.105. Restore matching packs/packages before offline sample use; Playbook itself is offline."
+            "Both client and server must support non-streaming invocation cancellation. The canonical complete consumers pin SDK 10.0.403 / 11.0.100, C# 14 / 15 and client packages 10.0.13 / 11.0.0. Restore matching packs/packages before offline sample use; Playbook itself is offline."
           ],
           "constraints": [
             "Non-streaming invocation; matched new client/server capabilities. No .NET 10 target route is declared. Tested mixed pairs retain only local wait cancellation until the connection is stopped.",
@@ -95,7 +95,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Stable framework APIs; .NET 11 evidence uses RC2 and is not GA verification."
+            "Stable framework APIs; .NET 11 evidence uses GA and is limited to the recorded checks."
           ]
         },
         "sourceUrls": [
@@ -149,9 +149,9 @@
     },
     {
       "language": "15.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "sample": "samples/net11.0/Soundings/Soundings.csproj",
-      "scope": "Matching-SDK compilation with exact locked client assets. Actual .NET-client/Kestrel WebSocket cancellation and mixed-pair execution is recorded separately by eng/Test-Soundings.ps1 and docs/verification/invocation-cancellation.md. No mocks, cross-compilation, browser, external provider, platform matrix or GA proof.",
+      "scope": "Matching-SDK compilation with exact locked client assets. Actual .NET-client/Kestrel WebSocket cancellation and mixed-pair execution is recorded separately by eng/Test-Soundings.ps1 and docs/verification/invocation-cancellation.md. No mocks, cross-compilation, browser, external provider, platform matrix. This entry establishes compilation only; execution has its separate recorded scope.",
       "kind": "compile",
       "target": "net11.0"
     }

@@ -8,7 +8,7 @@ New-Item -ItemType Directory -Path ./artifacts/pin788 -Force | Out-Null
 & $dotnet build ./src/PinguApps.Playbook -c Release
 & $node 'C:\Program Files\nodejs\node_modules\npm\bin\npm-cli.js' install --prefix ./artifacts/inspector --ignore-scripts --no-audit --no-fund @modelcontextprotocol/inspector@2.11.0
 $inspector = (Resolve-Path ./artifacts/inspector/node_modules/@modelcontextprotocol/inspector/clients/launcher/build/index.js).Path
-$server = (Resolve-Path ./src/PinguApps.Playbook/bin/Release/net10.0/PinguApps.Playbook.dll).Path
+$server = (Resolve-Path ./src/PinguApps.Playbook/bin/Release/net11.0/PinguApps.Playbook.dll).Path
 $common = @('--cli', '--format', 'json', '--quiet', '--method', 'tools/call', '--tool-arg', 'targetVersion="11.0"')
 $list = & $node $inspector @common --tool-name list_recipes --tool-arg query=tide-policy -- $dotnet $server mcp | ConvertFrom-Json
 $list.result.structuredContent.recipes | Format-List id, title, goal

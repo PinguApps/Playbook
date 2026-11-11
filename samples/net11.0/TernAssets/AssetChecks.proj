@@ -13,9 +13,9 @@
     <Splash Include="$(Source)/Splash/day.svg" DarkFile="$(Source)/Splash/night.svg" Color="#F2E8D0" DarkColor="#183848" BaseSize="128,128" ResizeQuality="Best" />
   </ItemGroup>
   <Target Name="Check">
-    <Error Condition="!Exists('$(Tasks)')" Text="Pass ResizetizerAssembly for the pinned Microsoft.Maui.Resizetizer 11.0.0-rc.2.26505.5 package." />
+    <Error Condition="!Exists('$(Tasks)')" Text="Pass ResizetizerAssembly for the pinned Microsoft.Maui.Resizetizer 11.0.0 package." />
     <MakeDir Directories="$(Out)" />
-    <WriteLinesToFile File="$(Out)inputs.txt" Lines="Original Tern canonical metadata; direct RC2 task execution only" Overwrite="true" />
+    <WriteLinesToFile File="$(Out)inputs.txt" Lines="Original Tern canonical metadata; direct GA task execution only" Overwrite="true" />
     <ResizetizeImages PlatformType="android" Images="@(Artwork)" IntermediateOutputPath="$(Out)images/" InputsFile="$(Out)inputs.txt" />
     <GenerateSplashAndroidResources MauiSplashScreen="@(Splash)" IntermediateOutputPath="$(Out)splash/" InputsFile="$(Out)inputs.txt" />
   </Target>

@@ -12,7 +12,7 @@ EF10 has no EF bulk switch. Use SDK AllowBulkExecution and concurrent asynchrono
 
 ## Newer approach
 
-The documentation currently spells the switch BulkExecutionEnabled; the pinned RC2 assembly exposes BulkExecutionAllowed. The compiled sample uses the actual pinned API. EF11 BulkExecutionAllowed opts in. Set AutoTransactionBehavior.Never explicitly to use individual writes rather than transactional batches. Await completion, inspect failures and persisted data before retrying. Bulk uses fully automatic SDK session management in this baseline. The actual SDK rejects explicit per-request session options with bulk execution, so the sample uses a separate non-bulk manual-token context. Bound production concurrency. This eight-document check measures correctness, not throughput. Bulk scheduling does not make an import atomic.
+The documentation currently spells the switch BulkExecutionEnabled; the pinned GA assembly exposes BulkExecutionAllowed. The compiled sample uses the actual pinned API. EF11 BulkExecutionAllowed opts in. Set AutoTransactionBehavior.Never explicitly to use individual writes rather than transactional batches. Await completion, inspect failures and persisted data before retrying. Bulk uses fully automatic SDK session management in this baseline. The actual SDK rejects explicit per-request session options with bulk execution, so the sample uses a separate non-bulk manual-token context. Bound production concurrency. This eight-document check measures correctness, not throughput. Bulk scheduling does not make an import atomic.
 
 {{snippet:n11-program-cs}}
 
@@ -24,7 +24,7 @@ The documentation currently spells the switch BulkExecutionEnabled; the pinned R
 
 ## Constraints
 
-Requires EF Cosmos11/net11.0/C#15/SDK11; comparison EF10.0.13/net10.0/C#14. Both pin Cosmos SDK3.63.1 and Newtonsoft.Json13.0.4. Exact assets and requirements are in applicability. Execution uses Windows x64 and the approved legacy Linux emulator2.14.28.0. No renderer, additional workload, Azure account or production migration is needed. Stable API guidance uses RC2 execution evidence; actual GA reconciliation remains pending. Local session handoff does not establish cloud consistency enforcement, multi-region behavior or replica lag. No throughput improvement is measured.
+Requires EF Cosmos11/net11.0/C#15/SDK11; comparison EF10.0.13/net10.0/C#14. The comparison pins Cosmos SDK3.63.1 and the GA consumer pins3.63.2 and Newtonsoft.Json13.0.4. Exact assets and requirements are in applicability. Execution uses Windows x64 and the approved legacy Linux emulator2.14.28.0. No renderer, additional workload, Azure account or production migration is needed. Stable API guidance uses the recorded GA SDK and package evidence. Local session handoff does not establish cloud consistency enforcement, multi-region behavior or replica lag. No throughput improvement is measured.
 
 ## Complete projects
 
@@ -57,6 +57,8 @@ Requires EF Cosmos11/net11.0/C#15/SDK11; comparison EF10.0.13/net10.0/C#14. Both
 {{snippet:n11-reefdocuments-csproj}}
 
 ## Evidence
+
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Eight opted-in writes persist; a duplicate fails and leaves the original value intact. No throughput, RU or atomicity claim. Exact input hashes, SDK/compiler/dependency identities, artifact hashes and actual output are retained in paired verification records. No mocks or cross-compilation are presented as execution. Installed offline retrieval separately checks full canonical Markdown, applicability and target11/edition11; target10 has no applicable edition.
 

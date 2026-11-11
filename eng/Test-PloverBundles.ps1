@@ -1,10 +1,10 @@
 #Requires -Version 7.3
 [CmdletBinding()]
-param([switch]$Record)
+param([switch]$Record,
+    [string]$Dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source)
 $ErrorActionPreference = 'Stop'
 $PSNativeCommandUseErrorActionPreference = $true
 $root = Split-Path $PSScriptRoot -Parent
-$dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source
 $saved = @{}
 foreach ($key in 'TEMP','TMP','DOTNET_ADD_GLOBAL_TOOLS_TO_PATH') { $saved[$key] = [Environment]::GetEnvironmentVariable($key) }
 $paths = @{}
@@ -14,7 +14,7 @@ try {
     $run = Join-Path $root ('artifacts/plover-bundles-' + [guid]::NewGuid().ToString('N'))
     New-Item -ItemType Directory $run -Force | Out-Null
     foreach ($release in '10','11') {
-        $version = if ($release -eq '10') { '10.0.13' } else { '11.0.0-rc.2.26504.105' }
+        $version = if ($release -eq '10') { '10.0.13' } else { '11.0.0' }
         $proof = @()
         if ($Record) { & "$PSScriptRoot/Record-Evidence.ps1" -Sample "samples/net$release.0/PloverBundle/PloverBundle.csproj" -Dotnet $dotnet -Kind compile }
         $tools = Join-Path $run "tools$release"

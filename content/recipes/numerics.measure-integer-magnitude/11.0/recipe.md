@@ -55,8 +55,8 @@ digit budget; it does not count signs, separators, padding or other formatting.
 
 Primary route: net11.0/.NET 11 framework APIs and canonical C# 15 sample mode.
 No NuGet dependency, provider, workload, rendering mode, external service or
-experimental opt-in. Reproduction pins: SDK 11.0.100-rc.3.26522.148,
-reference/runtime 11.0.0-rc.3.26522.148; comparison SDK 10.0.403, C# 14,
+experimental opt-in. Reproduction pins: SDK 11.0.100,
+reference/runtime 11.0.0; comparison SDK 10.0.403, C# 14,
 reference/runtime 10.0.14. Requirements are release-family prerequisites;
 the exact pins identify actual proof, not a requirement for that precise SDK.
 
@@ -69,6 +69,8 @@ There is no older-target Log10 route or additional .NET 10 foundation.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 `eng/Test-IntegerFormats.ps1 -Record -VerifySources` compiles/runs both actual
 dependency sets. Independent BigInteger-generated inputs surround every power
 of ten from 10 through 10^38, with exact conversions back to the original value.
@@ -80,6 +82,6 @@ The existing sample records retain commands, dependencies, actual runtime,
 input hashes, measured compiler/CoreLib and audit-matching references on Windows
 x64. Versioned official declarations/implementations qualify the API contract.
 Real installed offline list/get checks complete canonical Markdown, ID/title/goal,
-target11/edition11, applicability and current evidence. RC2 does not establish GA
+target11/edition11, applicability and current evidence. GA does not establish GA
 or other-platform execution; comprehensive PIN-959, GA PIN-962 and existing Human
 gates stay open. No recurring native/client matrix is added.

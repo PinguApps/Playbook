@@ -79,17 +79,17 @@
           ],
           "renderingModes": [],
           "prerequisites": [
-            "A net11.0 console project; implicit usings and System.IO.Packaging. Add System.IO.Packaging 11 and review its selected asset. Exact tested package: 11.0.0-rc.2.26504.105. No Open XML SDK."
+            "A net11.0 console project; implicit usings and System.IO.Packaging. Add System.IO.Packaging 11 and review its selected asset. Exact tested package: 11.0.0. No Open XML SDK."
           ],
           "constraints": [
             "Use a freshly opened Read stream. Sequential readers need no copy. Do not depend on Position or Seek unless CanSeek is true. Length remains available for the tested PackagePart streams.",
             "Bound the uncompressed part bytes before buffering and guard growth during the copy. The byte budget is not an exact total process-memory cap: MemoryStream capacity, a 4096-byte copy block and parser allocations add overhead. Use a bounded temporary-file design for larger documents.",
             "ReadWrite compressed/unmodified parts become forward-only on the net11 asset; stored/already-modified parts remain seekable. Read-only packages already return forward-only compressed streams. Opening read-only does not restore seeking.",
-            "The RC2 package on a real net10 consumer selects its net10 asset and retains older ReadWrite behavior. No conditional target10 catalogue route is advertised."
+            "The GA package on a real net10 consumer selects its net10 asset and retains older ReadWrite behavior. No conditional target10 catalogue route is advertised."
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Exact RC2 artifacts were executed; this does not establish GA or other-platform verification. No ExperimentalAttribute or experimental opt-in on the APIs used."
+            "Exact GA artifacts were executed; this does not establish GA or other-platform verification. No ExperimentalAttribute or experimental opt-in on the APIs used."
           ]
         },
         "sourceUrls": [
@@ -134,10 +134,10 @@
     {
       "sample": "samples/net11.0/MuseumPackage/MuseumPackage.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "kind": "compile-and-run",
-      "scope": "Actual RC2/net11 access matrix, direct-parser failure and bounded-parser success, capabilities/Length/content, pre-read size rejection, growth control and cleanup."
+      "scope": "Actual GA/net11 access matrix, direct-parser failure and bounded-parser success, capabilities/Length/content, pre-read size rejection, growth control and cleanup."
     },
     {
       "sample": "samples/net10.0/MuseumPackageRc2/MuseumPackageRc2.csproj",
@@ -145,7 +145,7 @@
       "sdk": "10.0.403",
       "language": "14.0",
       "kind": "compile-and-run",
-      "scope": "Actual RC2 package on runtime10, selected net10 assembly TFM/version/SHA256 and complete access matrix; not inferred from package TFMs or cross-compilation."
+      "scope": "Actual GA package on runtime10, selected net10 assembly TFM/version/SHA256 and complete access matrix; not inferred from package TFMs or cross-compilation."
     }
   ],
   "snippets": {

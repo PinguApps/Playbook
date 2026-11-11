@@ -59,9 +59,11 @@ The recipe edition targets .NET 11. Its paired comparison is a real .NET 10 appl
 
 Use the matching ASP.NET Core shared runtime, Web SDK/reference pack and SDK-aligned browser assets. The current canonical project declares C# 15; the previous project declares C# 14. No new language syntax, experimental opt-in, native workload, external provider or account is required. Interactive Server requires a working browser circuit connection. WebAssembly, Auto, authorization, reverse proxies, ambiguous identical routes and custom route tables were not exercised here.
 
-The exact verification pins are SDK 10.0.403 / framework and browser assets 10.0.14, and SDK 11.0.100-rc.3.26522.148 / framework and browser assets 11.0.0-rc.3.26522.148. They are recorded test artifacts, not universal exact consumer prerequisites. The stable replacement API does not make RC3 execution into GA evidence.
+The exact verification pins are SDK 10.0.403 / framework and browser assets 10.0.14, and SDK 11.0.100 / framework and browser assets 11.0.0. They are recorded test artifacts, not universal exact consumer prerequisites. The stable replacement API does not make GA execution into GA evidence.
 
 ## Evidence
+
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Both original TidalStations projects compiled with their own SDK pin, language mode, matching framework references and locked browser asset dependency. Saved compilation records include input hashes, exact commands and dependencies. Separate freshness-checked execution records contain actual static HTTP responses and Chromium 153 navigation through both routes with prerender disabled and a same-document marker retained.
 

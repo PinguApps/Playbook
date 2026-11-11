@@ -15,12 +15,12 @@ JsonPatchDocument<GardenRecord> and apply it to a fresh working copy. This is a
 real serializer/request pipeline, not reflection-only proof or a mocked patch.
 
 Exact reproduction: SDK10.0.403/framework10.0.14/C#14 with package10.0.13, versus
-SDK11.0.100-rc.3.26522.148/framework11.0.0-rc.3.26522.148/C#15 and the matching RC2
+SDK11.0.100/framework11.0.0/C#15 and the matching GA
 package. Use the matching framework/package family; these precise sample pins
 are evidence, not minimum supported servicing versions. Windows x64 is the
 executed managed lane. No package-native assets, workloads, browser rendering
 or external provider are involved. This is stable API guidance prepared with
-RC2 artifacts, not proof of actual GA. No experimental opt-in is needed.
+GA artifacts, not proof of actual GA. No experimental opt-in is needed.
 
 The separate Microsoft.AspNetCore.JsonPatch implementation uses Newtonsoft.Json
 and its own contracts. It is unchanged by this migration. Do not install both
@@ -145,6 +145,8 @@ Copy every file below at its relative path into an independent directory.
 {{snippet:n11-program-cs}}
 
 ## Evidence
+
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Run eng/Test-WebResourceRecipes.ps1 -RecordEvidence from the task worktree to
 refresh the six actual consumers, diagnostic controls and audited artifact hashes.

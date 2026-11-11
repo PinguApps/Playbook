@@ -14,7 +14,7 @@ The false branch explicitly refuses an automatic policy the older path writer do
 
 ## Newer approach
 
-Use a net11.0 / C# 15 console project, implicit usings and System.Formats.Tar from the framework. There is no separate TAR package dependency. The tested reference/runtime artifact is 11.0.0-rc.3.26522.148.
+Use a net11.0 / C# 15 console project, implicit usings and System.Formats.Tar from the framework. There is no separate TAR package dependency. The tested reference/runtime artifact is 11.0.0.
 
 Specify the writer policy for the receiver. PreserveLink writes one regular file then a HardLink pointing at its first archive name; CopyContents writes independent regular file data. The third equal-byte file remains regular in both cases:
 
@@ -44,10 +44,12 @@ The framework validates entry paths and link targets during extraction; the focu
 
 Extraction is not transactional: a late collision, cancellation or other failure can leave earlier files. The caller owns rollback/discard and publication of staging. A pre-cancelled task is tested; no atomic cancellation or rollback guarantee is made. TarEntry.ExtractToFile has no TarExtractOptions overload and rejects HardLink entries; use TarFile for this policy.
 
-SDK 10.0.403 / 11.0.100-rc.3.26522.148 and reference/runtime packs 10.0.14 / 11.0.0-rc.2.26504.105 are exact evidence baselines, separate from release-family prerequisites. The options are not experimental on the inspected RC2 assets and need no experimental opt-in. No separate NuGet/older-target route is advertised. There is no provider, workload or rendering requirement; shared Blazor applicability is server-side file processing, not browser execution. RC2 proof is not GA proof.
+SDK 10.0.403 / 11.0.100 and reference/runtime packs 10.0.14 / 11.0.0 are exact evidence baselines, separate from release-family prerequisites. The options are not experimental on the inspected GA assets and need no experimental opt-in. No separate NuGet/older-target route is advertised. There is no provider, workload or rendering requirement; shared Blazor applicability is server-side file processing, not browser execution. Current GA checks establish only the recorded scope.
 
 ## Evidence
 
-Paired real consumers create two actual NTFS hard links and a distinct equal-byte control. Native volume/file IDs prove input identity. They inspect entry types, names, LinkName, order and content; .NET 10 writes duplicates and .NET 11 defaults to linking. RC2 exercises both writer modes sync/async, both extraction modes with path/stream sync/async, verifies actual output identities and bytes, rejects overwrite, checks reverse input order, pre-cancellation, unsafe paths/targets and a demonstrated partial extraction. Handles close and owned directories are removed.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
+Paired real consumers create two actual NTFS hard links and a distinct equal-byte control. Native volume/file IDs prove input identity. They inspect entry types, names, LinkName, order and content; .NET 10 writes duplicates and .NET 11 defaults to linking. GA exercises both writer modes sync/async, both extraction modes with path/stream sync/async, verifies actual output identities and bytes, rejects overwrite, checks reverse input order, pre-cancellation, unsafe paths/targets and a demonstrated partial extraction. Handles close and owned directories are removed.
 
 Saved compilation/execution records include source hashes, exact artifact assembly identities/SHA256, OS/filesystem, commands and dependencies. Ordinary build/pack validates freshness; the installed ordinary tool serves canonical Markdown, discovery and target11/edition11 applicability offline and refuses target10. Existing format/corruption recipes, the eight foundations, PIN-959 comprehensive gate and PIN-962 GA reconciliation remain separate.

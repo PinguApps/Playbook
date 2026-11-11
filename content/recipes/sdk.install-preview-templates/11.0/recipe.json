@@ -42,7 +42,7 @@
           },
           "packages": [],
           "stabilityLimitations": [
-            "The .NET 11 authoring baseline is RC2; GA reconciliation is pending."
+            "The .NET 11 authoring baseline is SDK 11.0.100 GA. Current records and exclusions define measured coverage."
           ],
           "constraints": [
             "Playbook serves guidance offline; it does not install consumer dependencies, inspect a project or execute these commands.",
@@ -122,7 +122,7 @@
       "language": "15.0",
       "sample": "samples/net11.0/SdkWorkflows/SdkWorkflows.csproj",
       "kind": "compile-and-run",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "target": "net11.0"
     },
     {
@@ -139,7 +139,7 @@
       "language": "15.0",
       "sample": "samples/net11.0/SdkWorkflows/SdkWorkflows.csproj",
       "kind": "execution",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "record": "samples/net11.0/SdkWorkflows/commands.evidence.json",
       "target": "net11.0"
     }

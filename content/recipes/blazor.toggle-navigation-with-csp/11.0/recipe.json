@@ -43,7 +43,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Use matching Web SDK, reference packs and browser assets; RC2 is the tested pin."
+            "reason": "Use matching Web SDK, reference packs and browser assets; GA is the tested pin."
           },
           "language": {
             "name": "C#",
@@ -59,7 +59,7 @@
               "name": "Microsoft.AspNetCore.Components.WebAssembly",
               "version": "11.0",
               "match": "release-family",
-              "reason": "Global client variant only; exact RC2 package is pinned in the example."
+              "reason": "Global client variant only; exact GA package is pinned in the example."
             },
             {
               "name": "Microsoft.AspNetCore.Components.WebAssembly.Server",
@@ -96,7 +96,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "RC2 verification; GA unverified. No experimental API opt-in."
+            "GA verification; GA unverified. No experimental API opt-in."
           ]
         },
         "evidenceSamples": [
@@ -160,7 +160,7 @@
     {
       "sample": "samples/net11.0/BrackenMenu/Host/BrackenMenu.Host.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "kind": "compile",
       "scope": "Actual pinned SDK consumer compilation. Separate real Chrome enforcement/navigation and complete returned-Markdown reconstruction are recorded in PIN-798; compilation is not browser execution, a mock or cross-compilation."
@@ -168,7 +168,7 @@
     {
       "sample": "samples/net11.0/BrackenMenu/Client/BrackenMenu.Client.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "kind": "compile",
       "scope": "Actual pinned SDK consumer compilation. Separate real Chrome enforcement/navigation and complete returned-Markdown reconstruction are recorded in PIN-798; compilation is not browser execution, a mock or cross-compilation."

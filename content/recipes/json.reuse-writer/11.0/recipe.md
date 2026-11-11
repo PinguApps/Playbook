@@ -32,4 +32,6 @@ Requires framework System.Text.Json on net11.0 with SDK 11 / C# 15. No packages,
 
 ## Evidence
 
-Actual .NET 10 and RC2 .NET 11 samples compile and execute. Checks inspect the first indented document, exact compact second output, still-writable streams after disposal and the .NET 11 buffer/options Reset overload. The .NET 10 sample constructs two writers honestly rather than pretending its Reset can replace options. Installed list/get verifies the complete original comparison and target constraints offline. No mocks or targeted Human proof; GA reconciliation remains pending.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
+Actual .NET 10 and GA .NET 11 samples compile and execute. Checks inspect the first indented document, exact compact second output, still-writable streams after disposal and the .NET 11 buffer/options Reset overload. The .NET 10 sample constructs two writers honestly rather than pretending its Reset can replace options. Installed list/get verifies the complete original comparison and target constraints offline. No mocks or targeted Human proof; GA checks are limited to the recorded scope.

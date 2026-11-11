@@ -51,8 +51,10 @@ Display.GetName takes precedence; a null result allows fallback. ResourceType ne
 
 The caption cache is culture-sensitive and process-lived. Request culture selection is proven here; live WebAssembly culture switching and trimming of reflection/resource metadata aren't. Caption resources don't enable translated validation messages; that is a separate generated-validation goal.
 
-The exact baselines are SDK 10.0.403 / ASP.NET Core 10.0.14 and SDK 11.0.100-rc.3.26522.148 / ASP.NET Core 11.0.0-rc.3.26522.148, Windows x64 and Chromium 152. RC proof is not GA verification, screen-reader operation, trimming/AOT proof or a platform/browser matrix. No conditional newer-package/older-runtime route or extra .NET 10 foundation edition is advertised.
+The exact baselines are SDK 10.0.403 / ASP.NET Core 10.0.14 and SDK 11.0.100 / ASP.NET Core 11.0.0, Windows x64 and Chromium 152. The checks do not establish screen-reader operation, trimming/AOT proof or a platform/browser matrix. No conditional newer-package/older-runtime route or extra .NET 10 foundation edition is advertised.
 
 ## Evidence
+
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 The compiled .NET 10 helper and .NET 11 component render matching captions. Actual browser inspection checks precedence, both fallback paths and French resource loading with document language fr. Actual HTTP rendering repeats localization for both artifacts. No localizer mock or screen-reader session is presented as proof.

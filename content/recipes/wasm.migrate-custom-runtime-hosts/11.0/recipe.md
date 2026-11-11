@@ -64,7 +64,7 @@ checks distinguish a live runtime from a page that merely loaded JavaScript.
    Configuration is SDK-generated; preserve the complete published asset set.
 4. Replace legacy custom configuration and assets deliberately. withConfigSrc is
    deprecated and documented as unsupported in the current declarations. A missing
-   legacy configuration fails on .NET 10; actual RC2 Mono/CoreCLR ignore this
+   legacy configuration fails on .NET 10; actual GA Mono/CoreCLR ignore this
    override and still start with generated configuration. DotnetModuleConfig.configSrc,
    AssetEntry, behavior/virtualPath/loadRemote and the old thread-module asset path
    must not be copied into the new schema. Current packages export typed Asset,
@@ -73,7 +73,7 @@ checks distinguish a live runtime from a page that merely loaded JavaScript.
    filesystem hooks are not Mono removals. Let the matching SDK generate resources
    unless the application actually owns and verifies a full custom schema.
 5. Use withResourceLoader for a deliberate alternate resource location. Return a
-   usable URL for JavaScript modules; the RC2 runtime rejects undefined there even
+   usable URL for JavaScript modules; the GA runtime rejects undefined there even
    though a previous default-loading callback could return it. The samples return
    the provided URL for every observed request, preserving the SDK's selected file
    and normal loading path. Real tests observe those callbacks and deliberately
@@ -103,7 +103,7 @@ checks distinguish a live runtime from a page that merely loaded JavaScript.
 ## Constraints and alternatives
 
 CoreCLR browser remains opt-in preview in the reviewed publisher notes. Its
-runtime productVersion string can read 11.0.0 while the actual archive is RC2;
+runtime productVersion string can read 11.0.0 while the actual archive is GA;
 record archive/compiler hashes and commit rather than claiming GA verification.
 Custom loader interfaces have no backwards-compatibility guarantee. This recipe
 makes no support claim for every exported native/Emscripten helper, browser,
@@ -116,6 +116,8 @@ separate findings; do not blanket-delete the old Mono contract.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 eng/Test-LanternHosts.ps1 compiles the canonical TypeScript against all three actual
 packaged declarations, checks rejected legacy fields/provider spellings, builds
 and publishes each real managed/native dependency set, then runs Chromium through
@@ -123,7 +125,7 @@ eng/Test-LanternHosts.mjs. Saved compilation and browser records retain exact
 commands, inputs, dependencies, runtime/reference/compiler/declaration/native asset
 identities and browser version. The workload setup is worktree-local under ignored
 artifacts; it does not change PATH or global tools. .NET10 uses Emscripten3.1.56;
-RC2 uses Emscripten6.0.2. SDK and package pins record the measured prerequisites
+GA uses Emscripten6.0.2. SDK and package pins record the measured prerequisites
 separately from release-family applicability.
 
 The ordinary packed tool is inspected offline through real installed stdio

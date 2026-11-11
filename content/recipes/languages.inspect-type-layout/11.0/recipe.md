@@ -46,7 +46,7 @@ Use a separate directory with the same four filenames. Pin SDK11.0.100 in `globa
 
 Only target11/edition11 is served. The valid net10 comparison adds no foundation. `introducedIn:11.0` identifies the measured release-family route; no exact first-nightly claim is made. Selected Common/CSharp assets are `lib/net10.0`; no older-target support is inferred merely from that label or from netstandard assets. No provider, rendering mode, native dependency, optional workload or experimental opt-in is required. C# is canonical for this shared symbol API; no separate VB route is needed to explain the same property. Real execution was Windows x64, with no runtime-layout or other-platform execution claim.
 
-The5.12 package identifies VMR820230c386db5b0106c5430b3e5aee92a7826bf5. Its public source definition agrees with the measured property and types. The earlier Roslyn-main5.13 audit is not relabelled as RC2. The retained Roslyn package is preview; GA SDK execution does not promote it to stable. PIN-967 remains the stable-readiness gate.
+The5.12 package identifies VMR820230c386db5b0106c5430b3e5aee92a7826bf5. Its public source definition agrees with the measured property and types. The earlier Roslyn-main5.13 audit is not relabelled as GA. The retained Roslyn package is preview; GA SDK execution does not promote it to stable. PIN-967 remains the stable-readiness gate.
 
 ## Evidence
 

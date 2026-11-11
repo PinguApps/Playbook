@@ -87,7 +87,7 @@ ECDSA helpers also compile/run in the .NET10 comparison: ECDSA is not new in11.
 
 Application route: .NET11 runtime/reference family and SDK, C#15 canonical sample
 mode, macOS ECDSA provider with usable P-256 certificate/key access. Exact pins
-below describe measured Windows evidence, not a requirement to use an RC in an
+below describe measured Windows evidence, not a universal minimum-patch requirement for an
 application. This is stable framework API guidance with no experimental opt-in,
 NuGet package, workload, rendering mode, production key migration or external
 certificate issuer. Host console build is workload-free; it is not a Mac app build.
@@ -104,8 +104,10 @@ exact eight .NET10 foundations and other existing identities.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Record-SignaturePadding.ps1 captures SDK10.0.403/C#14/reference-runtime10.0.14 and
-SDK11.0.100-rc.3.26522.148/C#15/reference-runtime11RC3, commands, input hashes,
+SDK11.0.100/C#15/reference-runtime11RC3, commands, input hashes,
 empty dependency/workload closures and compiler/reference/managed/native Windows
 artifact identities. The versioned source manifest qualifies the old/current
 macOS dispatch and removal independently of those Windows artifacts.
@@ -120,5 +122,5 @@ include them. None of these observations establishes the excluded macOS results.
 
 Ordinary packed/local-feed-installed MCP retrieval checks full canonical Markdown,
 ID/title/goal, target11/edition11, applicability, not-tested disclosures and fresh
-saved evidence offline. RC evidence leaves PIN-959/PIN-962 and existing Human
+saved evidence offline. Recorded evidence leaves PIN-959/PIN-962 and existing Human
 gates open; it does not establish GA or comprehensive release readiness.

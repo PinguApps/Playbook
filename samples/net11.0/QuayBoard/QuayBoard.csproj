@@ -12,7 +12,7 @@
     <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
     <MauiXamlInflator>SourceGen</MauiXamlInflator><EnablePreviewFeatures>true</EnablePreviewFeatures>
   </PropertyGroup>
-  <ItemGroup><PackageReference Include="Microsoft.Maui.Controls" Version="11.0.0-rc.2.26505.5" /></ItemGroup>
+  <ItemGroup><PackageReference Include="Microsoft.Maui.Controls" Version="11.0.0" /></ItemGroup>
 </Project>
 
 <!-- endsnippet:complete -->

@@ -71,7 +71,7 @@ try {
                 foreach ($key in $package.packs.Keys) {
                     if ($data.packs[$key].version -cne $package.packs[$key]) { throw "Pack selection changed: $key" }
                 }
-                $platformManifests[$package.id.Replace('.Manifest-11.0.100-rc.2','')] = $package.version
+                $platformManifests[$package.id.Replace('.Manifest-11.0.100','')] = $package.version
                 Write-Output "$($package.id): $($package.version); $($package.packs.Count) selected pack versions checked"
             }
             elseif ($package.kind -eq 'ai') {
@@ -116,7 +116,7 @@ try {
     }
     foreach ($key in $platformManifests.Keys) {
         foreach ($set in $sets) {
-            if ($set[$key] -cne "$($platformManifests[$key])/11.0.100-rc.2") { throw "Manifest/set mismatch: $key" }
+            if ($set[$key] -cne "$($platformManifests[$key])/11.0.100") { throw "Manifest/set mismatch: $key" }
         }
     }
     Write-Output "PASS: $($texts.Count) pinned source snapshots, $($manifest.checks.Count) source assertions, $($manifest.packages.Count) package hashes/provenance; two identical 18-entry sets. No installation, compilation or native execution."

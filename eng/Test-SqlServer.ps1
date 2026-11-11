@@ -20,12 +20,12 @@ try {
   $peerCreated = $true
   foreach ($baseline in @(
     @{ Target = 'net10.0'; Sdk = '10.0.403'; Provider = '10.0.13'; Driver = '6.1.7'; Dotnet = $Net10Dotnet },
-    @{ Target = 'net11.0'; Sdk = '11.0.100-rc.3.26522.148'; Provider = '11.0.0-rc.2.26504.105'; Driver = '7.1.0'; Dotnet = $Net11Dotnet }
+    @{ Target = 'net11.0'; Sdk = '11.0.100'; Provider = '11.0.0'; Driver = '7.1.0'; Dotnet = $Net11Dotnet }
   )) {
     $directory = Join-Path $temporary $baseline.Target
     $null = New-Item -ItemType Directory -Path $directory
     # Outside the checkout: no inherited build, package or SDK policy.
-    @{ sdk = @{ version = $baseline.Sdk; rollForward = 'disable'; allowPrerelease = $true } } |
+    @{ sdk = @{ version = $baseline.Sdk; rollForward = 'disable'; allowPrerelease = $false } } |
       ConvertTo-Json -Depth 3 | Set-Content -LiteralPath (Join-Path $directory 'global.json')
     @"
 <Project Sdk="Microsoft.NET.Sdk">

@@ -55,9 +55,9 @@
           "packages": [
             {
               "name": "Microsoft.AspNetCore.Components.Server.AutoPause",
-              "version": "11.0.0-rc.3.26522.148",
+              "version": "11.0.0",
               "match": "exact",
-              "reason": "Actual restored RC2 package supplying the initializer and AddAutoPause extension."
+              "reason": "Actual restored GA package supplying the initializer and AddAutoPause extension."
             }
           ],
           "workloads": [],
@@ -89,7 +89,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "RC2; GA pending."
+            "GA artifacts; verification is limited to the recorded checks. Existing catalogue readiness gates remain open."
           ]
         },
         "evidenceSamples": [
@@ -129,7 +129,7 @@
     {
       "sample": "samples/net11.0/TideCharts/TideCharts.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "kind": "compile",
       "scope": "Actual pinned Web SDK compilation. Separate real Chrome/native-hidden-tab and host lifecycle execution proves circuit closure, resource disposal, saved-state resume and process-restart recovery. Exact inputs/artifacts and negative ordering trace: docs/verification/circuit-persistence.md. No mocks or cross-compilation."
@@ -234,6 +234,6 @@
   },
   "humanProof": {
     "status": "not-required",
-    "scope": "Actual local .NET 10/RC2 desktop browser and server lifecycle proof is recorded. No external service or Human-only prerequisite is required for these routes. Mobile/distributed/GA behavior is not claimed."
+    "scope": "Actual local .NET 10/GA desktop browser and server lifecycle proof is recorded. No external service or Human-only prerequisite is required for these routes. Mobile/distributed/GA behavior is not claimed."
   }
 }

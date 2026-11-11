@@ -34,4 +34,6 @@ This is a managed .NET 11 framework API with no additional NuGet package, packag
 
 ## Evidence
 
-The actual net10.0 and net11.0 BitCollections projects compile and execute the shared BitCollectionChecks.cs. Checks cover sliced input, copied storage, exact byte/bool/int positions, counts, truncation, inversion with a partial storage word, 35 true bits and empty input. Saved records identify SDK 10.0.403 / C# 14 and SDK 11.0.100-rc.3.26522.148 / C# 15, plus actual runtimes and input hashes. This is managed execution, not mocks, cross-compilation, a performance measurement or GA proof. The full original body, canonical snippets and applicability are bundled offline.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
+The actual net10.0 and net11.0 BitCollections projects compile and execute the shared BitCollectionChecks.cs. Checks cover sliced input, copied storage, exact byte/bool/int positions, counts, truncation, inversion with a partial storage word, 35 true bits and empty input. Saved records identify SDK 10.0.403 / C# 14 and SDK 11.0.100 / C# 15, plus actual runtimes and input hashes. This is managed execution, not mocks, cross-compilation, a performance measurement or GA proof. The full original body, canonical snippets and applicability are bundled offline.

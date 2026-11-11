@@ -13,9 +13,9 @@ try {
         $hash = [Convert]::ToHexString([Security.Cryptography.SHA256]::HashData($bytes)).ToLowerInvariant()
         if ($hash -cne $source.sha256) { throw "Official source changed: $($source.url)" }
     }
-    $url = 'https://api.nuget.org/v3-flatcontainer/microsoft.maui.controls.core/11.0.0-rc.2.26505.5/microsoft.maui.controls.core.11.0.0-rc.2.26505.5.nupkg'
+    $url = 'https://api.nuget.org/v3-flatcontainer/microsoft.maui.controls.core/11.0.0/microsoft.maui.controls.core.11.0.0.nupkg'
     $bytes = $client.GetByteArrayAsync($url).GetAwaiter().GetResult()
-    if ([Convert]::ToHexString([Security.Cryptography.SHA256]::HashData($bytes)).ToLowerInvariant() -cne '92787cfc8a46b941b88adefc9966624ec2f183f73bf08c25102b04fff1833fcc') { throw 'Controls.Core package hash changed.' }
+    if ([Convert]::ToHexString([Security.Cryptography.SHA256]::HashData($bytes)).ToLowerInvariant() -cne '008a74d7853247f3f807fce9b9836c3ae18a7392a0f5059e81425833cab90a98') { throw 'Controls.Core package hash changed.' }
     $zip = [IO.Compression.ZipArchive]::new([IO.MemoryStream]::new($bytes))
     try {
         $reader = [IO.StreamReader]::new($zip.GetEntry('lib/net11.0/Microsoft.Maui.Controls.xml').Open())
@@ -48,9 +48,9 @@ try {
             $directory = Split-Path (Join-Path $root $sample)
             $target = if ($sample -like '*HarbourAndroid*') { 'net11.0-android37.0' } else { 'net11.0-windows10.0.20348.0' }
             $receipt = [ordered]@{
-                kind='official-review'; sample=$sample; target=$target; sdk='11.0.100-rc.3.26522.148'; language='15.0'
+                kind='official-review'; sample=$sample; target=$target; sdk='11.0.100'; language='15.0'
                 command='eng/Test-HarbourNavigation.ps1 -Record'
-                scope='Pinned official source and actual Controls.Core RC2 artifact review; not compilation or native execution.'
+                scope='Pinned official source and actual Controls.Core 11.0.0 GA artifact review; not compilation or native execution.'
                 recordedAt=[DateTimeOffset]::UtcNow.ToString('O'); sourceCommit=(& 'C:/Program Files/Git/cmd/git.exe' -C $root rev-parse HEAD).Trim(); sourceDirty=$sourceDirty
                 inputs=(Get-EvidenceInputs $root $sample); dependencies=@(); workloads=@(); nativeToolchains=@()
                 host=[Runtime.InteropServices.RuntimeInformation]::OSDescription

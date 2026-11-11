@@ -47,7 +47,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Exact RC3 SDK is a verification baseline, not a minimum patch requirement."
+            "reason": "Exact GA SDK is a verification baseline, not a minimum patch requirement."
           },
           "language": {
             "name": "C#",
@@ -63,7 +63,7 @@
               "match": "release-family",
               "version": "11.0",
               "name": "Microsoft.EntityFrameworkCore.Cosmos",
-              "reason": "Exact RC2 baseline 11.0.0-rc.2.26504.105; previous comparison 10.0.13."
+              "reason": "Exact GA baseline 11.0.0; previous comparison 10.0.13."
             },
             {
               "name": "Microsoft.Azure.Cosmos",
@@ -82,7 +82,7 @@
             "EF Cosmos11 lib/net11.0; EF Cosmos10 lib/net10.0. Both consumers select Microsoft.Azure.Cosmos3.63.1 lib/netstandard2.0 (Client, Core, Direct and Serialization.HybridRow) and Newtonsoft.Json13.0.4 lib/net6.0. Full transitive and native assets are pinned by each package lock."
           ],
           "providers": [
-            "Microsoft.EntityFrameworkCore.Cosmos11.0.0-rc.2.26504.105 and Microsoft.Azure.Cosmos3.63.1 against the approved legacy Linux NoSQL emulator2.14.28.0, loopback HTTPS gateway and a uniquely marked playbook_ database. No cloud/account parity."
+            "Microsoft.EntityFrameworkCore.Cosmos11.0.0 and Microsoft.Azure.Cosmos3.63.1 against the approved legacy Linux NoSQL emulator2.14.28.0, loopback HTTPS gateway and a uniquely marked playbook_ database. No cloud/account parity."
           ],
           "workloads": [],
           "platforms": [
@@ -101,7 +101,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Stable contract prepared with SDK/EF11 RC2; no GA execution or cloud parity claimed."
+            "Stable contract prepared with SDK/EF11 GA; no GA execution or cloud parity claimed."
           ]
         },
         "conditional": false,
@@ -136,7 +136,7 @@
       "sample": "samples/net11.0/ReefMaterialization/ReefMaterialization.csproj",
       "language": "15.0",
       "scope": "Real empty/nonempty owned-list and optional-reference round-trips; positive/negative int, long and decimal projections and explicit rounding.",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "target": "net11.0",
       "kind": "compile-and-run"
     }

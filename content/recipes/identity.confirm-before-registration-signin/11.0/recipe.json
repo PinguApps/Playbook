@@ -43,7 +43,7 @@
             "name": ".NET / ASP.NET Core",
             "version": "11.0",
             "match": "release-family",
-            "reason": "The default Identity UI now consults all configured confirmation requirements. Exact measured execution is RC2, not GA."
+            "reason": "The default Identity UI now consults all configured confirmation requirements. Exact measured execution is GA."
           },
           "sdk": {
             "name": ".NET SDK",
@@ -68,19 +68,19 @@
               "name": "Microsoft.AspNetCore.Identity.UI",
               "version": "11.0",
               "match": "release-family",
-              "reason": "Use a mutually compatible Identity UI/store/EF provider closure; the complete example locks RC2 and all transitives."
+              "reason": "Use a mutually compatible Identity UI/store/EF provider closure; the complete example locks GA and all transitives."
             },
             {
               "name": "Microsoft.AspNetCore.Identity.EntityFrameworkCore",
               "version": "11.0",
               "match": "release-family",
-              "reason": "Use a mutually compatible Identity UI/store/EF provider closure; the complete example locks RC2 and all transitives."
+              "reason": "Use a mutually compatible Identity UI/store/EF provider closure; the complete example locks GA and all transitives."
             },
             {
               "name": "Microsoft.EntityFrameworkCore.Sqlite",
               "version": "11.0",
               "match": "release-family",
-              "reason": "Use a mutually compatible Identity UI/store/EF provider closure; the complete example locks RC2 and all transitives."
+              "reason": "Use a mutually compatible Identity UI/store/EF provider closure; the complete example locks GA and all transitives."
             }
           ],
           "workloads": [],
@@ -111,7 +111,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "No experimental opt-in for this stable Identity API surface. Actual .NET11 evidence uses RC2; PIN-959, PIN-963, PIN-964, actual-GA reconciliation and unrelated Human gates remain open."
+            "No experimental opt-in for this stable Identity API surface. Actual .NET11 evidence uses GA; PIN-959, PIN-963, PIN-964, actual-GA reconciliation and unrelated Human gates remain open."
           ]
         },
         "sourceUrls": [
@@ -175,7 +175,7 @@
     {
       "sample": "samples/net11.0/AquariumVolunteers/AquariumVolunteers.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "kind": "compile-and-run",
       "scope": "Real matching-dependency build/run: 16 new registrations across packaged/original UI, password/external and three individual requirements plus allowed control. Fresh SQLite rows, redirects, application/external cookies, new-request principal, confirmed/denied later sign-in and request guards. Older packaged email/phone bypass is a measured negative comparison, never the recommended route."
@@ -183,7 +183,7 @@
     {
       "sample": "samples/net11.0/AquariumVolunteers/AquariumVolunteers.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "kind": "execution",
       "record": "samples/net11.0/AquariumVolunteers/artifacts.evidence.json",

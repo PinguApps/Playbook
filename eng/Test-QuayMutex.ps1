@@ -12,7 +12,7 @@ $log=[Collections.Generic.List[string]]::new()
 $container='playbook-quay-'+[guid]::NewGuid().ToString('N')
 $created=$false
 try {
- foreach($version in '11.0.0-rc.3.26522.148','10.0.12'){
+ foreach($version in '11.0.0','10.0.12'){
   $file=Join-Path $scratch "$version.tar.gz"
   if(-not(Test-Path $file)){Invoke-WebRequest "https://builds.dotnet.microsoft.com/dotnet/Runtime/$version/dotnet-runtime-$version-linux-x64.tar.gz" -OutFile $file}
   $log.Add("RUNTIME_ARCHIVE=$version;sha256=$((Get-FileHash $file).Hash)")
@@ -25,11 +25,11 @@ try {
  $log.Add("DOCKER_IMAGE=$image")
  $null=Invoke-Estuary $Docker $root @('run','--detach','--name',$container,'--network','none','--mount',"type=bind,source=$root,target=/src,readonly",'--mount',"type=bind,source=$scratch,target=/proof,readonly",$image,'sleep','600')
  $created=$true
- $setup='mkdir /runtime11 /runtimeold; tar -xzf /proof/11.0.0-rc.3.26522.148.tar.gz -C /runtime11; tar -xzf /proof/10.0.12.tar.gz -C /runtimeold; useradd -m -u 24101 quay_a; useradd -m -u 24102 quay_b; mkdir /run/quay_a /run/quay_b /run/quay_unknown; chown 24101:24101 /run/quay_a; chown 24102:24102 /run/quay_b; chown 24103:24103 /run/quay_unknown; chmod 700 /run/quay_*'
+ $setup='mkdir /runtime11 /runtimeold; tar -xzf /proof/11.0.0.tar.gz -C /runtime11; tar -xzf /proof/10.0.12.tar.gz -C /runtimeold; useradd -m -u 24101 quay_a; useradd -m -u 24102 quay_b; mkdir /run/quay_a /run/quay_b /run/quay_unknown; chown 24101:24101 /run/quay_a; chown 24102:24102 /run/quay_b; chown 24103:24103 /run/quay_unknown; chmod 700 /run/quay_*'
  $null=Invoke-Estuary $Docker $root @('exec',$container,'sh','-ec',$setup)
  foreach($major in '10','11'){
   $dotnet=if($major -eq '10'){$Net10Dotnet}else{$Net11Dotnet}
-  $sdk=if($major -eq '10'){'10.0.403'}else{'11.0.100-rc.3.26522.148'}
+  $sdk=if($major -eq '10'){'10.0.403'}else{'11.0.100'}
   $lang=if($major -eq '10'){'14.0'}else{'15.0'}
   $sample="samples/net$major.0/QuayMutex/QuayMutex.csproj"
   $directory=Split-Path (Join-Path $root $sample)
@@ -62,7 +62,7 @@ echo CROSS_USER_VERIFIED
    $actual=Invoke-Estuary $Docker $root @('exec',$container,'sh','-ec',$test.Replace("`r`n","`n"))
    Assert-Estuary $actual 'SAME_USER_EXCLUDED'
    Assert-Estuary $actual 'CROSS_USER_VERIFIED'
-   $expectedVersion=if($mode -eq 'historical'){'.NET 10.0.12'}elseif($major -eq '10'){'.NET 10.0.14'}else{'.NET 11.0.0-rc.3.26522.148'}
+   $expectedVersion=if($mode -eq 'historical'){'.NET 10.0.12'}elseif($major -eq '10'){'.NET 10.0.14'}else{'.NET 11.0.0'}
    Assert-Estuary $actual $expectedVersion
   }
   $unknown=Invoke-Estuary $Docker $root @('exec','--user','24103',$container,'env','-u','XDG_RUNTIME_DIR','HOME=/home/quay_a',$runtime,$dll,'default',"unknown-$major") -Exit 21

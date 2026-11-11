@@ -38,4 +38,4 @@ This is stabilized C# 15 syntax according to canonical RC1 notes, with GA SDK 11
 
 The canonical net10.0/C# 14 and net11.0/C# 15 CollectionLike projects compile and run the same behavior checks. Saved records identify exact SDKs (10.0.403 and 11.0.100), actual runtime output, source/configuration hashes and commands. Execution checks order/duplicates, reserved capacity, case-insensitive lookup/addition, configured/default builder overloads and the escaped method call. Official source review supplies the broader target restrictions; those are not all separate negative compiler tests. No mocks, cross-compilation or native checks are claimed. The package embeds this full body and canonical snippets for offline retrieval.
 
-GA refresh (PIN-1287): the declared .NET 11 sample was rebuilt and executed with SDK 11.0.100 and runtime 11.0.0. Earlier RC observations above remain historical; this refresh does not establish broader platform or API behavior.
+GA refresh (PIN-1287): the declared .NET 11 sample was rebuilt and executed with SDK 11.0.100 and runtime 11.0.0. This refresh does not establish broader platform or API behavior.

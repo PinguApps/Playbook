@@ -36,7 +36,7 @@
           "sdk": {
             "version": "11.0",
             "match": "release-family",
-            "reason": "Matching .NET 11 SDK and native workload required; pins below are intended RC2 authoring inputs.",
+            "reason": "Matching .NET 11 SDK and native workload required; pins below are intended GA authoring inputs.",
             "name": ".NET SDK"
           },
           "language": {
@@ -52,19 +52,19 @@
             {
               "match": "release-family",
               "name": "Microsoft.Maui.Controls",
-              "reason": "Canonical samples pin Controls11.0.0-rc.2.26505.5; exact Core package downloaded and inspected.",
+              "reason": "Canonical samples pin Controls11.0.0; exact Core package downloaded and inspected.",
               "version": "11.0"
             }
           ],
           "packageAssets": [
-            "Microsoft.Maui.Controls.Core and Microsoft.Maui.Core 11.0.0-rc.2.26505.5: net11.0-ios27.0 platform assets."
+            "Microsoft.Maui.Controls.Core and Microsoft.Maui.Core 11.0.0: net11.0-ios27.0 platform assets."
           ],
           "workloads": [
             {
               "name": "maui-android / maui-ios / maui-windows (choose target)",
               "version": "11.0",
               "match": "release-family",
-              "reason": "Install the workload matching the selected target. Reviewed set11.0.100-rc.2.26513.2 selects MAUI11.0.0-rc.2.26505.5, Android37.2.0-rc.2.84 and Apple27.0.12212-net11-rc.2."
+              "reason": "Install the workload matching the selected target. Reviewed set11.0.100 selects MAUI11.0.0, Android37.2.29 and Apple27.0.12212-net11-rc.2."
             }
           ],
           "providers": [
@@ -86,7 +86,7 @@
             "MauiHybridWebViewSupported=true; analyzers enabled; generated interceptor namespace enabled; PublishAot=true only for experimental Apple publishing."
           ],
           "stabilityLimitations": [
-            "RC2 preparation, not GA verification. Apple NativeAOT remains experimental."
+            "GA preparation, within the recorded verification scope. Apple NativeAOT remains experimental."
           ]
         },
         "sharedAreas": [],
@@ -145,12 +145,12 @@
       "sample": "samples/net11.0/MarshBridge/MarshBridge.csproj",
       "kind": "official-review",
       "target": "net11.0-ios27.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "scope": "Pinned official source and package contract review; native runtime behaviour not tested."
     },
     {
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "sample": "samples/net11.0/MarshDispatch/MarshDispatch.csproj",
       "language": "15.0",
       "scope": "Actual neutral MAUI package generated invocation and JSON executed as a Windows x64 NativeAOT executable; no iOS or native WebView execution.",

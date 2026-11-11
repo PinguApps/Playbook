@@ -48,7 +48,7 @@
         "usage": "primary",
         "selectionNotes": [
           "Distinguish undefined results from directed infinities and preserve signed-zero expectations when upgrading a double-based complex signal pipeline.",
-          "Nongeneric Complex remains valid. RC2 execution is distinct from actual-GA reconciliation."
+          "Nongeneric Complex remains valid. GA execution is distinct from actual-GA reconciliation."
         ],
         "requirements": {
           "runtime": {
@@ -61,7 +61,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Build the current sample against .NET 11 references; exact RC2 is a reproducibility baseline."
+            "reason": "Build the current sample against .NET 11 references; exact GA is a reproducibility baseline."
           },
           "language": {
             "name": "C#",
@@ -89,7 +89,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Verified using .NET 11 RC2; GA reconciliation remains pending. These selected contracts have no publisher experimental annotation or required opt-in."
+            "Verified using .NET 11 GA; GA checks are limited to the recorded scope. These selected contracts have no publisher experimental annotation or required opt-in."
           ]
         },
         "sourceUrls": [
@@ -127,7 +127,7 @@
       "kind": "compile-and-run",
       "scope": "Actual paired nongeneric Complex arithmetic, named multiply/divide, zero divisors, reciprocal/magnitude/power, elementary/trigonometric/hyperbolic/inverse cases, component bits and signed-zero controls; finite controls and application classification. Exact SDK/reference/runtime identities and inputs/results recorded. Windows x64 CoreCLR JIT; no other engine/platform or GA proof.",
       "sample": "samples/net11.0/SignalPipeline/SignalPipeline.csproj",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "target": "net11.0"
     }

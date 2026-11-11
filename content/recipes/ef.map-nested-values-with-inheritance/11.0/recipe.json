@@ -2,7 +2,7 @@
   "id": "ef.map-nested-values-with-inheritance",
   "edition": "11.0",
   "title": "Persist nested values across separate inheritance tables",
-  "goal": "Combine complex scalar and JSON values with TPT or TPC inheritance in EF Core 11; use the verified concrete-subtype JSON route on RC2, where inherited-base TPC JSON reads fail.",
+  "goal": "Combine complex scalar and JSON values with TPT or TPC inheritance in EF Core 11; use the verified concrete-subtype JSON route on GA, where inherited-base TPC JSON reads fail.",
   "areas": [
     "ef-core"
   ],
@@ -39,7 +39,7 @@
         "selectionNotes": [
           "EF Core 11 relational; verify provider support for the actual JSON path. TPT base scalar/JSON, TPC base scalar and TPC concrete-subtype JSON are the executed routes.",
           "Provider-specific keys use required non-collection complex scalar paths. Keys exclude complex collections, nullable complex paths and JSON document properties.",
-          "RC2: inherited-base JSON under TPC fails materialization; nested-key FindAsync fails translation. Use concrete-subtype JSON and explicit LINQ identity predicates as shown. No later-build fix is claimed."
+          "GA: inherited-base JSON under TPC fails materialization; nested-key FindAsync fails translation. Use concrete-subtype JSON and explicit LINQ identity predicates as shown. No later-build fix is claimed."
         ],
         "usage": "primary",
         "target": "11.0",
@@ -54,7 +54,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Build the declared target. Exact recorded SDKs are verification baselines; current-release proof uses RC2, not GA."
+            "reason": "Build the declared target. Exact recorded SDKs are verification baselines; current-release proof uses GA."
           },
           "language": {
             "name": "C#",
@@ -70,7 +70,7 @@
               "name": "Microsoft.EntityFrameworkCore.SqlServer",
               "version": "11.0",
               "match": "release-family",
-              "reason": "EF SQL Server 11.0.0-rc.2.26504.105, SqlClient 7.1.0 and Pkcs 10.0.13 are pinned; no EF11-on-net10 route."
+              "reason": "EF SQL Server 11.0.0, SqlClient 7.1.0 and Pkcs 10.0.13 are pinned; no EF11-on-net10 route."
             }
           ],
           "packageAssets": [
@@ -89,7 +89,7 @@
           "constraints": [
             "EF Core 11 relational; verify provider support for the actual JSON path. TPT base scalar/JSON, TPC base scalar and TPC concrete-subtype JSON are the executed routes.",
             "Provider-specific keys use required non-collection complex scalar paths. Keys exclude complex collections, nullable complex paths and JSON document properties.",
-            "RC2: inherited-base JSON under TPC fails materialization; nested-key FindAsync fails translation. Use concrete-subtype JSON and explicit LINQ identity predicates as shown. No later-build fix is claimed.",
+            "GA: inherited-base JSON under TPC fails materialization; nested-key FindAsync fails translation. Use concrete-subtype JSON and explicit LINQ identity predicates as shown. No later-build fix is claimed.",
             "SQL Server JSON path indexes require native json and a clustered primary key. No collection/wildcard index, optimizer plan, speed improvement, production migration or GA verification is claimed.",
             "Previous .NET10/EF10 comparison uses value-converted inherited locations, flat keys/lookup columns and a computed JSON lookup index. It is historical evidence, not another .NET10 foundation."
           ],
@@ -100,7 +100,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Stable API contract prepared using .NET11 RC3 SDK/runtime and EF11 RC2 packages; no experimental opt-in. Actual GA reconciliation remains outstanding."
+            "Stable API contract prepared using .NET11 GA SDK/runtime and EF11 GA packages; no experimental opt-in. Actual GA checks are limited to the recorded scope."
           ]
         },
         "conditional": false,
@@ -151,9 +151,9 @@
       "sample": "samples/net11.0/FenStore/FenStore.csproj",
       "target": "net11.0",
       "language": "15.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "kind": "compile-and-run",
-      "scope": "Real SQL Server TPT scalar/JSON, TPC scalar and concrete-subtype JSON round-trips; nested scalar key/index, physical JSON index, LINQ identity resolution and duplicate rejection. Inherited-base TPC JSON and nested-key FindAsync are failing excluded RC2 paths."
+      "scope": "Real SQL Server TPT scalar/JSON, TPC scalar and concrete-subtype JSON round-trips; nested scalar key/index, physical JSON index, LINQ identity resolution and duplicate rejection. Inherited-base TPC JSON and nested-key FindAsync are failing excluded GA paths."
     }
   ],
   "snippets": {

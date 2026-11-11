@@ -75,7 +75,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "RC2 execution; GA unverified"
+            "GA execution; GA unverified"
           ]
         },
         "sourceUrls": [
@@ -115,7 +115,7 @@
     {
       "sample": "samples/net11.0/CairnSignals/CairnSignals.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "kind": "compile",
       "scope": "Actual pinned SDK compilation, not cross-compilation. Separate real Chrome native-beforeinput receipts and served JS/DLL hashes in docs/verification/custom-event-alias.md establish old double delivery, new same-name rejection and renamed payload dispatch. Compilation alone is not browser proof."
@@ -225,6 +225,6 @@
   },
   "humanProof": {
     "status": "not-required",
-    "scope": "Local real browser/component checks require no account or Human-only action. RC2 on one Windows Chrome; no GA/deployment/other-browser claim."
+    "scope": "Local real browser/component checks require no account or Human-only action. GA on one Windows Chrome; no GA/deployment/other-browser claim."
   }
 }

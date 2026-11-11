@@ -78,7 +78,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Verified with SDK 11.0.100-rc.3.26522.148; RC2 execution is not GA verification."
+            "Verified with SDK 11.0.100; Current GA verification is limited to the recorded checks."
           ]
         },
         "sourceUrls": [
@@ -123,10 +123,10 @@
     {
       "sample": "samples/net11.0/Archives/Archives.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "kind": "compile-and-run",
-      "scope": "Original Stored ZIP payload bytes are flipped while preserving recorded CRCs; RC2 rejects the full read and .NET 10 returns changed bytes. A valid Ustar header name is changed without recomputing its checksum; RC2 rejects it while .NET 10 accepts it. Actual Windows compilation/execution; no mocks, cross-compilation or GA proof."
+      "scope": "Original Stored ZIP payload bytes are flipped while preserving recorded CRCs; GA rejects the full read and .NET 10 returns changed bytes. A valid Ustar header name is changed without recomputing its checksum; GA rejects it while .NET 10 accepts it. Actual Windows compilation/execution; no mocks, cross-compilation or GA proof."
     }
   ],
   "snippets": {

@@ -1,1 +1,11 @@
-{"dependencies":[],"workloads":[],"additionalInputs":["samples/InstructionChecks.cs","eng/Record-Evidence.ps1","eng/Evidence.ps1"],"buildArguments":[],"nativeToolchains":[]}
+{
+  "dependencies": [],
+  "workloads": [],
+  "additionalInputs": [
+    "samples/InstructionChecks.cs",
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1"
+  ],
+  "buildArguments": [],
+  "nativeToolchains": []
+}

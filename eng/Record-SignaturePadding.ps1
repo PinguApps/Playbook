@@ -32,8 +32,8 @@ try {
   }
   foreach ($variant in 'net10.0','net11.0') {
     $dotnet = if ($variant -eq 'net10.0') { $Net10Dotnet } else { $Net11Dotnet }
-    $sdk = if ($variant -eq 'net10.0') { '10.0.403' } else { '11.0.100-rc.3.26522.148' }
-    $ref = if ($variant -eq 'net10.0') { '10.0.14' } else { '11.0.0-rc.3.26522.148' }
+    $sdk = if ($variant -eq 'net10.0') { '10.0.403' } else { '11.0.100' }
+    $ref = if ($variant -eq 'net10.0') { '10.0.14' } else { '11.0.0' }
     foreach ($name in 'CoastalReports','InstrumentGateway') {
       $sample = "samples/$variant/$name/$name.csproj"
       $kind = if ($name -eq 'InstrumentGateway') { 'compile' } else { 'compile-and-run' }
@@ -96,7 +96,7 @@ try {
   foreach ($mode in 'old-send','new-exchange','old-receive') {
     $variant = if ($mode -eq 'new-exchange') { 'net11.0' } else { 'net10.0' }
     $dotnet = if ($variant -eq 'net10.0') { $Net10Dotnet } else { $Net11Dotnet }
-    $runtime = if ($variant -eq 'net10.0') { '10.0.14' } else { '11.0.0-rc.3.26522.148' }
+    $runtime = if ($variant -eq 'net10.0') { '10.0.14' } else { '11.0.0' }
     $dll = Join-Path $root "samples/$variant/InstrumentGateway/bin/Release/$variant/InstrumentGateway.dll"
     $commands += "$dotnet $dll $mode $fixture`n"
     $output = (& $dotnet $dll $mode $fixture | Out-String).Trim()
@@ -117,7 +117,7 @@ try {
     $record.kind = 'compile-and-run'
     $record.command += "; $commands"
     $record.output += "`n$execution"
-    $record.scope = 'Actual Windows CAPI provider24 ephemeral RSA2048 key exported only to private temporary fixture: old Boolean/current explicit cross-decryption in both directions for false/Pkcs1 and true/OaepSHA1, canonical/explicit equivalence on each runtime, wrong-padding/zeroed-ciphertext rejection and same-provider OAEP-SHA256 encrypt/decrypt failure. Current unchanged old-source SYSLIB0064 probe fails without suppression; supported consumer warnings-as-errors. No production key/container, stronger-provider redesign, other-platform or GA claim.'
+    $record.scope = 'Actual Windows CAPI provider24 ephemeral RSA2048 key exported only to private temporary fixture: old Boolean/current explicit cross-decryption in both directions for false/Pkcs1 and true/OaepSHA1, canonical/explicit equivalence on each runtime, wrong-padding/zeroed-ciphertext rejection or plaintext mismatch, oversized-ciphertext rejection and same-provider OAEP-SHA256 encrypt/decrypt failure. Current unchanged old-source SYSLIB0064 probe fails without suppression; supported consumer warnings-as-errors. No production key/container, stronger-provider redesign, other-platform or GA claim.'
     $record.output += "`nCLEANUP private key/ciphertext/diagnostic fixture removed and absence checked; no persistent/named container created"
     [IO.File]::WriteAllText($recordPath, ($record | ConvertTo-Json -Depth 40).Replace("`r`n","`n") + "`n")
   }

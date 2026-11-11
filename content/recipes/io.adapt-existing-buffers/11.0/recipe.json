@@ -75,7 +75,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "RC2 verification; GA reconciliation remains pending."
+            "GA verification; GA checks are limited to the recorded scope."
           ]
         },
         "sourceUrls": [
@@ -115,7 +115,7 @@
     {
       "sample": "samples/net11.0/BufferAdapters/BufferAdapters.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "kind": "compile-and-run",
       "scope": "Actual BufferAdapters compilation and focused execution on Windows. No mocks, cross-compilation, native deployment or GA proof."

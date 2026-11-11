@@ -14,9 +14,9 @@
   "buildArguments": [],
   "workloads": [],
   "dependencies": [
-    "Microsoft.Extensions.DependencyInjection/11.0.0-rc.2.26504.105",
-    "Microsoft.Extensions.Localization.Abstractions/11.0.0-rc.2.26504.105",
-    "Microsoft.Extensions.Validation/11.0.0-rc.2.26504.105"
+    "Microsoft.Extensions.DependencyInjection/11.0.0",
+    "Microsoft.Extensions.Localization.Abstractions/11.0.0",
+    "Microsoft.Extensions.Validation/11.0.0"
   ],
   "nativeToolchains": []
 }

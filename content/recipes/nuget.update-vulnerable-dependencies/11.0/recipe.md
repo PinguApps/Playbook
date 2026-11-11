@@ -22,7 +22,7 @@ Keep the project's original strict policy:
 
 Run `dotnet package update --vulnerable` from the project directory using SDK 11. Its in-memory preview restore handles audit warnings NU1901 through NU1904 without turning them into the failure that prevents locating the fix. The policy file itself is not relaxed. The controlled example updates 1.0.0 to safe 1.1.0 and a subsequent ordinary strict restore succeeds.
 
-The exception is local to this command's preview operation. It does not establish general warning suppression, disable audit on subsequent restores, or make unrelated dependency failures acceptable. With Quay.Missing 1.0.0 also referenced, ordinary restore reports NU1101 and the vulnerability update fails without changing Quay.Manifest 1.0.0. RC2's command prints Restore failed rather than repeating NU1101; inspect the ordinary restore for the diagnostic.
+The exception is local to this command's preview operation. It does not establish general warning suppression, disable audit on subsequent restores, or make unrelated dependency failures acceptable. With Quay.Missing 1.0.0 also referenced, ordinary restore reports NU1101 and the vulnerability update fails without changing Quay.Manifest 1.0.0. GA's command prints Restore failed rather than repeating NU1101; inspect the ordinary restore for the diagnostic.
 
 ## Migration
 
@@ -40,4 +40,6 @@ This language-neutral project policy requires no application-language migration.
 
 ## Evidence
 
-Real SDK-10/11 builds execute a loopback V3 fixture with synthetic vulnerability information and actual package payloads. Both reproduce strict NU1903 restore failure. SDK 10 requires the demonstrated temporary exception; RC2 updates without it. Both reach 1.1.0, restore with strict policy afterwards, and stop on a missing unrelated package while retaining 1.0.0. This is execution against controlled metadata, not a mocked CLI or production security proof. Exact baselines are SDK 10.0.403 and 11.0.100-rc.3.26522.148 on Windows x64. The actual packed-tool scenario separately verifies complete offline guidance, applicability and edition safety. GA reconciliation remains separate.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
+Real SDK-10/11 builds execute a loopback V3 fixture with synthetic vulnerability information and actual package payloads. Both reproduce strict NU1903 restore failure. SDK 10 requires the demonstrated temporary exception; GA updates without it. Both reach 1.1.0, restore with strict policy afterwards, and stop on a missing unrelated package while retaining 1.0.0. This is execution against controlled metadata, not a mocked CLI or production security proof. Exact baselines are SDK 10.0.403 and 11.0.100 on Windows x64. The actual packed-tool scenario separately verifies complete offline guidance, applicability and edition safety. GA reconciliation remains separate.

@@ -2,7 +2,7 @@
   "id": "signalr.refresh-live-credentials",
   "edition": "11.0",
   "title": "Refresh credentials without replacing a live hub connection",
-  "goal": "Update roles and claims on an existing SignalR connection, reject unacceptable identities and handle refresh results; includes .NET and a pinned source-built TypeScript client.",
+  "goal": "Update roles and claims on an existing SignalR connection, reject unacceptable identities and handle refresh results; includes .NET and published SignalR TypeScript clients.",
   "areas": [
     "aspnetcore"
   ],
@@ -37,7 +37,7 @@
         "usage": "primary",
         "selectionNotes": [
           "Original old/new comparison; exact eight .NET 10 foundations unchanged.",
-          "Source-built TypeScript client prerequisite; no Azure Service support claim."
+          "Published SignalR 11.0.0 TypeScript client; no Azure Service support claim."
         ],
         "requirements": {
           "runtime": {
@@ -50,7 +50,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Build against .NET 11 reference assets; exact RC pins identify test evidence."
+            "reason": "Build against .NET 11 reference assets; exact GA pins identify the recorded test evidence."
           },
           "language": {
             "name": "C#",
@@ -71,7 +71,7 @@
           ],
           "packageAssets": [
             "Implicit SDK-aligned Internal.Assets; actual dependencies and exact pins are in evidence.",
-            "TypeScript requires the explicitly pinned first-party source build, not published Preview7 npm. Complete preparation below; MIT notice retained."
+            "TypeScript uses published SignalR 11.0.0; the older comparison uses the pinned signalr-previous alias for 10.0.11."
           ],
           "providers": [
             "Local demonstration identity; production trusted authentication is application-owned."
@@ -86,14 +86,14 @@
           "optIns": [],
           "prerequisites": [
             "Complete original projects below; local ephemeral listeners and matching SDKs.",
-            "Node/npm and PowerShell plus tar for source-client preparation; network only during setup. TypeScript runs on Node."
+            "Node/npm and PowerShell for locked client setup and TypeScript compilation; network only during setup. TypeScript runs on Node."
           ],
           "constraints": [
             "Local deterministic identity is test data, not production authentication.",
             "No older-target refresh backport, provider/cloud, AOT or actual-GA guarantee."
           ],
           "stabilityLimitations": [
-            "GA-targeted edition verified on .NET 11 RC2; final GA reconciliation remains open."
+            "Current SDK 11.0.100 and published SignalR 11.0.0 clients verified with local direct/redirected refresh controls. Broader provider and publication gates remain separate."
           ]
         },
         "sourceUrls": [
@@ -148,7 +148,7 @@
       "kind": "compile-and-run",
       "sample": "samples/net11.0/CopperRidgeHub/CopperRidgeHub.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "scope": "Actual real hub .NET or TypeScript accept/reject/events and original reconnect comparison."
     },
@@ -156,7 +156,7 @@
       "kind": "execution",
       "sample": "samples/net11.0/CopperRidgeHub/CopperRidgeHub.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "scope": "Actual real hub .NET or TypeScript accept/reject/events and original reconnect comparison.",
       "record": "samples/net11.0/CopperRidgeHub/behavior.evidence.json"

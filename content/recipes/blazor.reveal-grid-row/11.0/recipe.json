@@ -37,7 +37,7 @@
             "match": "release-family"
           },
           "sdk": {
-            "reason": "Build against .NET 11 Razor and reference assets; RC2 is the measured baseline.",
+            "reason": "Build against .NET 11 Razor and reference assets; GA is the measured baseline.",
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family"
@@ -73,7 +73,7 @@
             "Interactive Server"
           ],
           "prerequisites": [
-            "Use the .NET 11 Web SDK/runtime, C# 15.0 and locked QuickGrid/Internal.Assets 11.0.0-rc.3.26522.148 net11.0 assets. No optional workload or service.",
+            "Use the .NET 11 Web SDK/runtime, C# 15.0 and locked QuickGrid/Internal.Assets 11.0.0 net11.0 assets. No optional workload or service.",
             "Local in-memory IQueryable with stable unique IDs and overlapping windows; no database/provider is executed.",
             "ASP.NET Core server on Windows x64 with real Chrome. Other OS and browser engines are untested.",
             "Interactive Server after rendering. Static SSR/prerender alone cannot scroll; WebAssembly/Auto are not execution evidence.",
@@ -86,7 +86,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "RC2; no ASP0030; GA pending."
+            "GA; no ASP0030; GA pending."
           ]
         },
         "usage": "primary",
@@ -140,7 +140,7 @@
       "language": "15.0",
       "kind": "compile",
       "scope": "Actual Web SDK compilation; separate real Chrome rendering measures row identity, geometry and anchoring.",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "sample": "samples/net11.0/HarbourManifest/HarbourManifest.csproj",
       "target": "net11.0"
     }

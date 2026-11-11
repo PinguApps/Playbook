@@ -40,7 +40,7 @@
             "name": ".NET / ASP.NET Core",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Target release family; measured execution uses 11 RC2, not GA."
+            "reason": "Target release family; measured execution uses 11 GA."
           },
           "sdk": {
             "name": ".NET SDK",
@@ -82,7 +82,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Stable migration goal prepared with SDK11.0.100-rc.3.26522.148/framework11.0.0-rc.3.26522.148. Actual-GA reconciliation, PIN-959/PIN-964 and unrelated Human gates remain open. No new experimental API opt-in."
+            "Stable migration goal prepared with SDK11.0.100/framework11.0.0. Actual-GA reconciliation, PIN-959/PIN-964 and unrelated Human gates remain open. No new experimental API opt-in."
           ]
         },
         "sourceUrls": [
@@ -127,10 +127,10 @@
     {
       "sample": "samples/net11.0/NightArchive/NightArchive.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "kind": "compile-and-run",
-      "scope": "Actual same authorization/HTTPS outcomes after removing feature lookup; isolated historical-source recompilation emits ASPDEPR010 on real RC2 references. No replacement protocol, production sign-in, channel-binding, browser or GA proof."
+      "scope": "Actual same authorization/HTTPS outcomes after removing feature lookup; isolated historical-source recompilation emits ASPDEPR010 on real GA references. No replacement protocol, production sign-in, channel-binding, browser or GA proof."
     }
   ],
   "snippets": {

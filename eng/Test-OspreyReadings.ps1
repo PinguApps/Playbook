@@ -1,10 +1,9 @@
 #Requires -Version 7.3
 [CmdletBinding()]
-param([switch]$Record)
+param([switch]$Record, [string]$Dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source)
 $ErrorActionPreference = 'Stop'
 $PSNativeCommandUseErrorActionPreference = $true
 $root = Split-Path $PSScriptRoot -Parent
-$dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source
 $shell = (Get-Process -Id $PID).Path
 $paths = @{}
 foreach ($scope in 'Process','User','Machine') { $paths[$scope] = [Environment]::GetEnvironmentVariable('PATH',$scope) }

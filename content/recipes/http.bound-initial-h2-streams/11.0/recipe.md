@@ -29,8 +29,10 @@ Avoid an initial burst above a known server's concurrent-stream capacity while a
 
 ## Constraints
 
-Most applications should retain the default. This tuning does not increase a server's capacity or override its advertised limit. All handler settings must be chosen before first use; zero/negative initial values fail. Desktop/server SocketsHttpHandler is demonstrated; browser/WASI/mobile transports are excluded. The API is not experimental in the reviewed contract; actual compilation/execution is RC2, with GA reconciliation pending.
+Most applications should retain the default. This tuning does not increase a server's capacity or override its advertised limit. All handler settings must be chosen before first use; zero/negative initial values fail. Desktop/server SocketsHttpHandler is demonstrated; browser/WASI/mobile transports are excluded. The API is not experimental in the reviewed contract; actual compilation/execution is GA, with checks limited to the recorded scope.
 
 ## Evidence
+
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 A real TCP HTTP/2 peer withholds its SETTINGS frame. Six concurrent client requests produce only two initial HEADERS streams during a bounded observation window. The peer then advertises three: the .NET 11 client admits a third and stays within that limit while responses are held; the older shared gate retains two. The peer completes all six requests using real HTTP/2 frames. The newer check also rejects zero. This is actual protocol execution, not a mock, Kestrel configuration assertion, timing benchmark or new native CI matrix. A bounded absence observation is not a proof of every scheduler/interleaving; source contracts establish the general rule.

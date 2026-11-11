@@ -33,7 +33,7 @@
         "usage": "primary",
         "selectionNotes": [
           "Compare and retain calculated IEEE-decimal results after numerical corrections using explicit tolerances and reversible, versioned output migration.",
-          "Exact RC evidence does not establish final GA verification."
+          "Exact Recorded evidence does not establish final GA verification."
         ],
         "requirements": {
           "runtime": {
@@ -46,7 +46,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Build against the .NET 11 reference assemblies; exact RC2 is the recorded test baseline."
+            "reason": "Build against the .NET 11 reference assemblies; exact GA is the recorded test baseline."
           },
           "language": {
             "name": "C#",
@@ -72,7 +72,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "RC1/RC2 numeric outputs differ; these functions are not guaranteed correctly rounded. Actual GA reconciliation remains open."
+            "RC1/GA numeric outputs differ; these functions are not guaranteed correctly rounded. Actual GA checks are limited to the recorded scope."
           ]
         },
         "sourceUrls": [
@@ -157,7 +157,7 @@
     },
     {
       "language": "15.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "scope": "Actual .NET11RC2 cancellation-sensitive independent bound, alternate decimal input representations, Decimal32/64 ordinary controls, explicit-base Log, signed zero/nonfinite policy, stale-RC1 rejection, overflow fail-closed regression and reversible versioned proposal checks. Actual RC1 execution compares the same compiled consumer using the pinned RC1 runtime; no RC1 compilation or GA claim.",
       "kind": "compile-and-run",
       "sample": "samples/net11.0/ObservatoryResults/ObservatoryResults.csproj",

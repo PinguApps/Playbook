@@ -31,7 +31,7 @@
         "usage": "primary",
         "selectionNotes": [
           "Select multiple same-typed scoped component values with a custom attribute when named cascades are insufficient. Framework integration seam; retain explicit notification and disposal ownership.",
-          "ComponentState is a framework implementation seam. Actual RC2 access emits no BL0006; a RenderTree.Renderer control does. No suppression, ExperimentalAttribute opt-in, thread-safety, trimming or NativeAOT guarantee."
+          "ComponentState is a framework implementation seam. Actual GA access emits no BL0006; a RenderTree.Renderer control does. No suppression, ExperimentalAttribute opt-in, thread-safety, trimming or NativeAOT guarantee."
         ],
         "requirements": {
           "runtime": {
@@ -44,7 +44,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Build net11.0 with matching Razor compiler/reference assets; exact RC2 pin records verification."
+            "reason": "Build net11.0 with matching Razor compiler/reference assets; exact GA pin records verification."
           },
           "language": {
             "name": "C#",
@@ -75,11 +75,11 @@
             "Only CollectionContext properties on IArchiveSubscriber components are supported; reject unknown collection names and other property types.",
             "Mutate the same context object and dispatch notifications on the owning renderer. RefreshArchiveAsync rerenders it; no replacement-value or SetParametersAsync/lifecycle replay contract is provided.",
             "Remove children through the renderer; custom subscriptions unsubscribe once. Dispose the DI scope after its renderer to clean subscriptions still active at full renderer teardown.",
-            "ComponentState is a framework implementation seam. Actual RC2 access emits no BL0006; a RenderTree.Renderer control does. No suppression, ExperimentalAttribute opt-in, thread-safety, trimming or NativeAOT guarantee."
+            "ComponentState is a framework implementation seam. Actual GA access emits no BL0006; a RenderTree.Renderer control does. No suppression, ExperimentalAttribute opt-in, thread-safety, trimming or NativeAOT guarantee."
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Actual evidence: .NET 10.0.13 / SDK 10.0.403 and .NET 11.0.0-rc.2.26504.105 / SDK 11.0.100-rc.3.26522.148. GA reconciliation and comprehensive publication gates remain open.",
+            "Actual evidence: .NET 10.0.13 / SDK 10.0.403 and .NET 11.0.0 / SDK 11.0.100. GA reconciliation and comprehensive publication gates remain open.",
             "Custom supplier is public but accepts framework-facing ComponentState; analyzer silence does not promise compatibility."
           ]
         },
@@ -130,7 +130,7 @@
     {
       "sample": "samples/net11.0/ReedArchive/ReedArchive.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "kind": "compile-and-run",
       "scope": "Real HtmlRenderer execution: attribute/named selection, independent DI scopes and rendered updates; current custom subscriptions dispose once on child removal and scoped teardown fallback."

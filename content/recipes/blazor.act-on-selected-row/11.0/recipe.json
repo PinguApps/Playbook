@@ -34,7 +34,7 @@
             "match": "release-family"
           },
           "sdk": {
-            "reason": "Build net11.0 with matching Razor/reference assets; the RC2 pin reproduces verification.",
+            "reason": "Build net11.0 with matching Razor/reference assets; the GA pin reproduces verification.",
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family"
@@ -79,7 +79,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "RC2; GA proof pending."
+            "GA artifacts; verification is limited to the recorded checks. Existing catalogue readiness gates remain open."
           ]
         },
         "usage": "primary",
@@ -123,7 +123,7 @@
       "language": "15.0",
       "kind": "compile",
       "scope": "Actual pinned Web SDK consumer. Separate real browser execution checks correct selected item, keyboard button, callback count and static SSR exclusion; no mocks.",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "sample": "samples/net11.0/MuseumRows/MuseumRows.csproj",
       "target": "net11.0"
     }

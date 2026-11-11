@@ -72,12 +72,14 @@ Only byte components have the demonstrated packed uint helpers. MAUI colour
 inheritance migration and native painting remain separate goals.
 
 Exact reproduction: SDK10.0.403/C#14/reference-runtime10.0.14 versus
-SDK11.0.100-rc.3.26522.148/C#15/reference-runtime11.0.0-rc.3.26522.148.
+SDK11.0.100/C#15/reference-runtime11.0.0.
 These identify measured artifacts; the route requires the release family rather
 than that exact SDK patch. Execution was Windows x64 only. Other-platform,
 performance and final-GA execution are not claimed.
 
 ## Evidence
+
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 `eng/Test-ChannelExtrema.ps1 -Record -VerifySources` builds/runs both original
 SignalLegend consumers through the existing evidence recorder. Distinct channel
@@ -90,5 +92,5 @@ Saved records retain exact commands, dependencies (none), SDK/compiler/CoreLib
 identity, actual runtime and input hashes. Selected reference hashes match the
 original data/I/O audit; pinned official sources qualify availability and limits.
 Ordinary installed stdio list/get checks full canonical Markdown, ID/title/goal,
-explicit target11/edition11, applicability and fresh evidence offline. RC2 evidence
-is not GA verification; PIN-959, PIN-962 and existing Human gates remain open.
+explicit target11/edition11, applicability and fresh evidence offline. GA evidence
+is limited to the recorded checks; PIN-959, PIN-962 and existing Human gates remain open.

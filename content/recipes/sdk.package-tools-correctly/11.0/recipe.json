@@ -51,7 +51,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "SDK family supplying the newer commands and build tasks; exact RC2 pin is evidence."
+            "reason": "SDK family supplying the newer commands and build tasks; exact GA pin is evidence."
           },
           "language": {
             "name": "C#",
@@ -78,7 +78,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            ".NET 11 evidence uses RC2, not GA. No API taught here is designated experimental; reconcile final SDK contracts at GA."
+            ".NET 11 evidence uses GA. No API taught here is designated experimental; reconcile final SDK contracts at GA."
           ]
         },
         "sourceUrls": [
@@ -118,7 +118,7 @@
       "target": "net10.0",
       "sdk": "10.0.403",
       "language": "14.0",
-      "scope": "Actual declared build; only compile-and-run entries execute the managed assembly. Separate execution records contain runner, install and publish behavior. Windows x64, not GA or native-platform proof."
+      "scope": "Actual declared build; only compile-and-run entries execute the managed assembly. Separate execution records contain runner, install and publish behavior. Windows x64, within the recorded verification scope or native-platform proof."
     },
     {
       "kind": "execution",
@@ -133,16 +133,16 @@
       "kind": "compile-and-run",
       "sample": "samples/net11.0/DeliveryTool/DeliveryTool.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
-      "scope": "Actual declared build; only compile-and-run entries execute the managed assembly. Separate execution records contain runner, install and publish behavior. Windows x64, not GA or native-platform proof."
+      "scope": "Actual declared build; only compile-and-run entries execute the managed assembly. Separate execution records contain runner, install and publish behavior. Windows x64, within the recorded verification scope or native-platform proof."
     },
     {
       "kind": "execution",
       "sample": "samples/net11.0/DeliveryTool/DeliveryTool.csproj",
       "record": "samples/net11.0/DeliveryTool/commands.evidence.json",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "scope": "Real bounded SDK commands and artifacts on Windows x64; no mocks, container deployment, mobile or GA claim."
     }

@@ -40,13 +40,13 @@
             "name": ".NET",
             "version": "11.0",
             "match": "release-family",
-            "reason": "New server behavior is verified with the actual .NET 11 RC2 runtime; not a GA execution claim."
+            "reason": "New server behavior is verified with the actual .NET 11 GA runtime; not a GA execution claim."
           },
           "sdk": {
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Sample pin 11.0.100-rc.3.26522.148; restore/build net11.0 assets."
+            "reason": "Sample pin 11.0.100; restore/build net11.0 assets."
           },
           "language": {
             "name": "C#",
@@ -62,11 +62,11 @@
               "name": "Microsoft.AspNetCore.OpenApi",
               "version": "11.0",
               "match": "release-family",
-              "reason": "net11.0 built-in document generator; actual verification pin 11.0.0-rc.2.26504.105."
+              "reason": "net11.0 built-in document generator; actual verification pin 11.0.0."
             }
           ],
           "packageAssets": [
-            "Microsoft.AspNetCore.App net11.0; Microsoft.AspNetCore.OpenApi 11.0.0-rc.2.26504.105 and Microsoft.OpenApi 3.10.2 net11.0-compatible assets in saved locked restore. Older comparison uses OpenApi 10.0.13 and Microsoft.OpenApi 2.12.2 on net10.0."
+            "Microsoft.AspNetCore.App net11.0; Microsoft.AspNetCore.OpenApi 11.0.0 and Microsoft.OpenApi 3.10.2 net11.0-compatible assets in saved locked restore. Older comparison uses OpenApi 10.0.13 and Microsoft.OpenApi 2.12.2 on net10.0."
           ],
           "workloads": [],
           "providers": [
@@ -88,7 +88,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Stable framework capability, prepared with .NET 11 RC2 artifacts under ADR 0004. GA source/package/runtime reconciliation remains separate."
+            "Stable framework capability, prepared with .NET 11 GA artifacts under ADR 0004. GA source/package/runtime reconciliation remains separate."
           ]
         },
         "sourceUrls": [
@@ -131,7 +131,7 @@
       "kind": "compile-and-run",
       "sample": "samples/net11.0/ArchiveContracts/ArchiveContracts.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "scope": "Real .NET 10/11 compilation and loopback execution: all four Minimal API/MVC buffered/streamed file contracts resolved as string/binary in OpenAPI 3.1 and matched to 200 ZIP responses, filename and exact bytes."
     }

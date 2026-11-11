@@ -81,7 +81,7 @@ try {
       if ($RecordEvidence) {
         $manifest = Get-Content -LiteralPath verification.json -Raw | ConvertFrom-Json
         $record = [ordered]@{
-          kind='execution'; sample=$sample; target="net$release.0"; sdk=if ($release -eq '10') { '10.0.403' } else { '11.0.100-rc.3.26522.148' }; language=if ($release -eq '10') { '14.0' } else { '15.0' }
+          kind='execution'; sample=$sample; target="net$release.0"; sdk=if ($release -eq '10') { '10.0.403' } else { '11.0.100' }; language=if ($release -eq '10') { '14.0' } else { '15.0' }
           command="eng/Test-SkyLedger.ps1 -Dotnet '$Dotnet' -Net11Dotnet '$Net11Dotnet' -RecordEvidence"
           scope='Real build-time documents in Development/Production; .NET 10 process environment versus .NET 11 OpenApiGenerationEnvironment; endpoint and transformer differences; NSwag 14.7.1 generated typed client from selected OpenAPI 3.0, independently compiled on .NET 10 and executed against this actual server. No SSE client-generator or OpenAPI 3.2 generator support claim.'
           recordedAt=[DateTimeOffset]::UtcNow.ToString('O'); sourceCommit=(& $git -C $root rev-parse HEAD).Trim(); sourceDirty=[bool](& $git -C $root status --porcelain -- samples eng/Test-SkyLedger.ps1)

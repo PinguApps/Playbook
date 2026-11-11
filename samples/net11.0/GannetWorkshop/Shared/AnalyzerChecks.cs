@@ -34,7 +34,7 @@ internal static class AnalyzerChecks
             string source = Path.Combine(repository, "samples", "net11.0", "GannetWorkshop", "Shared", "Consumer");
             foreach (string file in new[] { "Harbour.csproj", "Harbour.cs" }) File.Copy(Path.Combine(source, file), Path.Combine(folder, file));
             string sdk = Path.GetFileName(sdkRoot);
-            await File.WriteAllTextAsync(Path.Combine(folder, "global.json"), JsonSerializer.Serialize(new { sdk = new { version = sdk, rollForward = "disable", allowPrerelease = true } }));
+            await File.WriteAllTextAsync(Path.Combine(folder, "global.json"), JsonSerializer.Serialize(new { sdk = new { version = sdk, rollForward = "disable", allowPrerelease = false } }));
             await File.WriteAllTextAsync(Path.Combine(folder, "Directory.Build.props"), "<Project><PropertyGroup><TreatWarningsAsErrors>true</TreatWarningsAsErrors></PropertyGroup></Project>");
             await File.WriteAllTextAsync(Path.Combine(folder, "NuGet.Config"), $"<configuration><packageSources><clear/><add key=\"local\" value=\"{System.Security.SecurityElement.Escape(feed)}\"/></packageSources></configuration>");
             if (corrected) await File.WriteAllTextAsync(Path.Combine(folder, "Harbour.cs"), "namespace Gannet.Consumer; public class SafeHarbour { }");

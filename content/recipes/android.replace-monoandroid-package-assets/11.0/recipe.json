@@ -42,7 +42,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "RC3 compiler check; RC2 native preparation baseline is separate from installed workload availability."
+            "reason": "GA compiler check; reviewed native preparation baseline is separate from installed workload availability."
           },
           "language": {
             "name": "C#",
@@ -73,7 +73,7 @@
             "Native consumer library; no browser rendering."
           ],
           "prerequisites": [
-            "RC2 preparation SDK11.0.100-rc.2.26504.105; workload set11.0.100-rc.2.26513.2. Android37.2.0-rc.2.84 or Apple27.0.12212-net11-rc.2 respectively. Apple requires Xcode27.0/macOS26.6+; no arbitrary later pairing implied."
+            "GA preparation SDK11.0.100; workload set11.0.100. Android37.2.29 or Apple27.0.12212-net11-rc.2 respectively. Apple requires Xcode27.0/macOS26.6+; no arbitrary later pairing implied."
           ],
           "constraints": [
             "Eight .NET10 foundations unchanged; older samples are comparisons only.",
@@ -82,7 +82,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "RC preparation evidence; actual GA reconciliation remains open."
+            "GA artifact-specific evidence; actual GA checks are limited to the recorded scope."
           ]
         },
         "sourceUrls": [
@@ -114,7 +114,7 @@
       "sample": "samples/net11.0/WhimbrelTrail/WhimbrelTrail.csproj",
       "language": "15.0",
       "target": "net11.0-android37.2",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "scope": "Pinned official source review; native compilation and execution not-tested."
     }
   ],

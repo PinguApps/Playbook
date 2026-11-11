@@ -28,10 +28,11 @@ foreach (bool useOaep in new[] { false, true })
     Equal(reading, GatewayCipher.Decrypt(key, own, useOaep), "canonical roundtrip");
     Equal(reading, key.Decrypt(own, padding), "explicit overload decrypts canonical output");
     Equal(reading, GatewayCipher.Decrypt(key, key.Encrypt(reading, padding), useOaep), "canonical decrypts explicit output");
-    Reject(() => GatewayCipher.Decrypt(key, own, !useOaep), "wrong padding");
+    RejectOrMismatch(() => GatewayCipher.Decrypt(key, own, !useOaep), reading, "wrong padding");
     byte[] tampered = (byte[])own.Clone();
-    Array.Clear(tampered); // Destroy the real ciphertext; deterministic invalid RSA block.
-    Reject(() => GatewayCipher.Decrypt(key, tampered, useOaep), "zeroed ciphertext");
+    Array.Clear(tampered);
+    RejectOrMismatch(() => GatewayCipher.Decrypt(key, tampered, useOaep), reading, "zeroed ciphertext");
+    Reject(() => GatewayCipher.Decrypt(key, new byte[own.Length + 1], useOaep), "oversized ciphertext");
     if (mode == "old-send") File.WriteAllBytes(Path.Combine(directory, $"old-{name}.bin"), own);
     else
     {
@@ -41,7 +42,7 @@ foreach (bool useOaep in new[] { false, true })
         Console.WriteLine($"PASS {peer}->current-consumer {name}; ciphertextSha256={Hash(ciphertext)}");
         if (mode == "new-exchange") File.WriteAllBytes(Path.Combine(directory, $"new-{name}.bin"), own);
     }
-    Console.WriteLine($"PASS {name}: canonical/explicit compatibility; wrong-padding/zeroed-input rejection; ciphertextBytes={own.Length}");
+    Console.WriteLine($"PASS {name}: canonical/explicit compatibility; wrong-padding/zeroed-input cannot recover reading; oversized-input rejection; ciphertextBytes={own.Length}");
 }
 Reject(() => key.Encrypt(reading, RSAEncryptionPadding.OaepSHA256), "same CAPI provider OAEP-SHA256 encrypt");
 Reject(() => key.Decrypt(new byte[key.KeySize / 8], RSAEncryptionPadding.OaepSHA256), "same CAPI provider OAEP-SHA256 decrypt");
@@ -57,4 +58,12 @@ static void Reject(Func<byte[]> action, string claim)
     try { action(); }
     catch (CryptographicException error) { Console.WriteLine($"REJECT {claim}: {error.GetType().Name}; hresult={error.HResult:X8}"); return; }
     throw new Exception($"Accepted {claim}");
+}
+static void RejectOrMismatch(Func<byte[]> action, byte[] expected, string claim)
+{
+    byte[] actual;
+    try { actual = action(); }
+    catch (CryptographicException error) { Console.WriteLine($"REJECT {claim}: {error.GetType().Name}; hresult={error.HResult:X8}"); return; }
+    if (actual.AsSpan().SequenceEqual(expected)) throw new Exception($"Recovered reading with {claim}");
+    Console.WriteLine($"MISMATCH {claim}: returned {actual.Length} bytes, different from the reading; decryption is not authentication");
 }

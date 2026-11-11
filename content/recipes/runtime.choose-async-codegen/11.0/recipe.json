@@ -28,7 +28,7 @@
     "routes": [
       {
         "selectionNotes": [
-          "Experimental CoreCLR compiler flag. Public RC3 SDK requires Features; UseRuntimeAsync alone was inert."
+          "Experimental CoreCLR compiler flag. Public GA SDK requires Features; UseRuntimeAsync alone was inert."
         ],
         "usage": "primary",
         "sharedAreas": [
@@ -71,11 +71,11 @@
             "match": "release-family",
             "name": "C#",
             "version": "15.0",
-            "reason": "The public RC2 compiler accepts the explicit feature under C# 15; no preview-language opt-in is required."
+            "reason": "The public GA compiler accepts the explicit feature under C# 15; no preview-language opt-in is required."
           },
           "workloads": [],
           "stabilityLimitations": [
-            "Actual RC2 evidence; final GA reconciliation is separate."
+            "Actual GA evidence; final GA reconciliation is separate."
           ],
           "renderingModes": [],
           "optIns": [
@@ -114,7 +114,7 @@
       "scope": "Actual restored dependencies, compilation and managed execution on Windows x64. Focused emitted-code/lifetime/compiler/host checks are documented in docs/verification/runtime-async.md; no mocks, cross-compilation, native/AOT, debugger integration or GA proof.",
       "kind": "compile-and-run",
       "language": "15.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "sample": "samples/net11.0/RuntimeAsync/RuntimeAsync.csproj",
       "target": "net11.0"
     }

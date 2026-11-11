@@ -42,7 +42,7 @@ Logging.Abstractions, Options and Primitives (all names have the
 Microsoft.Extensions prefix). This is a closed list. Hosting.Abstractions does
 not include the Hosting implementation; FileProviders.Abstractions does not
 include PhysicalFileProvider. The checked implementation control retains
-`Microsoft.Extensions.FileProviders.Physical` `[11.0.0-rc.2.26504.105]`, selects
+`Microsoft.Extensions.FileProviders.Physical` `[11.0.0]`, selects
 its and FileSystemGlobbing's lib/net11.0 assets, and reads its own
 assembly's file entry. Removing that implementation reference prevents compilation.
 
@@ -57,7 +57,7 @@ assembly's file entry. Removing that implementation reference prevents compilati
    consumer. Restore and build, then inspect obj/project.assets.json: `compile`
    and `runtime` entries show actual selected assets. Do not infer selection from
    the package name or version alone. Refresh reviewed lock files deliberately.
-3. Interpret NU1510 with the actual version syntax. On the pinned RC3 SDK,
+3. Interpret NU1510 with the actual version syntax. On the pinned GA SDK,
    direct `10.0.13` minimum-version references produce nine NU1510 warnings;
    exact `[10.0.13]` references produce none. Both controls retain package entries.
    Minimum-version references have `_._` compile/runtime placeholders; exact pins
@@ -83,8 +83,8 @@ assembly's file entry. Removing that implementation reference prevents compilati
    for multitarget libraries; review selection per TFM rather than assuming a
    net11-only warning or deleting the older dependency.
 5. Compare an intentional override with the actual framework version. The checked
-   `Microsoft.Extensions.Logging.Abstractions` `[11.0.0-rc.3.26522.148]` reference
-   now matches the RC3 framework. Restore retains its exact package entry and
+   `Microsoft.Extensions.Logging.Abstractions` `[11.0.0]` reference
+   now matches the GA framework. Restore retains its exact package entry and
    reports NU1510; execution loads the framework assembly. The isolated control
    allows that specific warning to demonstrate the result. It no longer proves
    a newer-package override. Do not infer forward compatibility for a genuinely
@@ -103,7 +103,7 @@ assembly's file entry. Removing that implementation reference prevents compilati
 
 Application requirements are SDK/runtime11 for the base-framework route, and a
 compatible language/project system. Exact SDK10.0.403/runtime10.0.14 and
-SDK11.0.100-rc.3.26522.148/runtime11RC3 identify the measured consumers; C#14/15
+SDK11.0.100/runtime11RC3 identify the measured consumers; C#14/15
 are their declared language modes, not a new syntax requirement for project edits.
 The primary net11 consumer has an empty NuGet closure. Samples retain isolated
 package/build boundaries and exact locks; no root update permission is broadened.
@@ -119,6 +119,8 @@ dependency. Review intervening behavioural changes when upgrading old packages.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 `eng/Test-ExtensionIdentity.ps1 -Record -VerifySources` runs the actual old/new
 consumers, missing-reference compile control, exact/minimum reference controls,
 multitarget library/consumer, retained implementation and newer override. It
@@ -126,14 +128,14 @@ inspects real selected assets and package archive hashes, compiler/CoreLib and
 audit-matching framework references, executes framework-dependent published
 applications and verifies their dependencies, layout and loaded assemblies.
 The old selected net10 package assemblies identify audit commit 4099f839; new
-framework assemblies identify commit 820230c3. RC3 is confined to the override control.
+framework assemblies identify commit 820230c3. GA is confined to the override control.
 
 The ordinary tool is packed, installed from an isolated local-only feed/cache
 and inspected over real stdio from an unrelated directory. Discovery, full
 canonical Markdown/snippets, target11/edition11, applicability and fresh paired
 evidence must agree. Target10 returns no_applicable_edition; its comparison
 consumer adds no foundation. Unusable retrieval proxies demonstrate proxy
-independence, not network isolation. Windows x64 managed RC2 proof establishes no
+independence, not network isolation. Windows x64 managed GA proof establishes no
 other-platform, Native AOT, self-contained, single-file or final-GA deployment.
 PIN-959/PIN-962 and existing Human gates remain open; the exact eight foundations
 remain unchanged.

@@ -37,7 +37,7 @@ The default archive is an uncompressed `.tar`. `Compression="GZip"` is the docum
 1. Keep the app project on its intended framework and inspect its SDK/global.json. Copy the canonical target into a `.targets` file imported by that project, or place it in the project itself. The original projects import `BuildRecipes.targets` and explicitly copy the dispatch sheet.
 2. Keep `DispatchArchive` and `DispatchExtract` outside `TargetDir`. The sample uses the project's intermediate `obj` directory. An archive placed inside its own source tree can accidentally become an input.
 3. On the older comparison, build and invoke `ArchiveDispatch` with the absolute selected SDK executable also supplied as `-p:BuildDotnet=<absolute-dotnet-path>`. The helper's runtime and tar behavior are separate from the MSBuild host.
-4. On the newer comparison, the candidate command from its directory is `dotnet build -c Release -t:ArchiveDispatch` using the selected SDK's absolute executable. The target depends on `Build`; successful execution should create `obj/dispatch.tar` and the extracted output. This command was attempted on SDK 11 RC3 and failed inside the SDK archive task; successful newer extraction remains unverified.
+4. On the newer comparison, the candidate command from its directory is `dotnet build -c Release -t:ArchiveDispatch` using the selected SDK's absolute executable. The target depends on `Build`; successful execution should create `obj/dispatch.tar` and the extracted output. This command was attempted on SDK 11 GA and failed inside the SDK archive task; successful newer extraction remains unverified.
 5. In a future check, inspect the actual tar entries and compare extracted `payload/departures.txt` bytes with the copied build output. Check the existing-archive case, a repeated extraction and a changed file deliberately. An `Exists` guard only detects a missing file, not content equality or incremental correctness.
 6. Remove the old helper only when its other callers no longer need it. Keep a custom helper or another archive format when the inbox tasks do not meet the workflow's requirements.
 
@@ -53,8 +53,10 @@ The private/draft fixture files support the independent glob recipe. They are no
 
 ## Evidence and limitations
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 The canonical .NET10 and .NET11 projects now have actual locked compilation records from Windows, using their declared SDKs and dependencies. The original official-source review is retained separately. Compilation alone does not execute `ArchiveDispatch` or prove tar/extraction behavior.
 
 The pre-GA preview is explicitly provisional. Pending proof remains visible in discovery/detail and blocks stable readiness. The approved preview evidence register names this exact edition, canonical samples, limitations and its final-reconciliation owner; it does not claim successful unperformed checks.
 
-The older archive helper extracted payload bytes correctly. SDK11 RC3 TarDirectory failed internally, including a single-node retry. The documented GA implementation is retained; newer extraction and incremental behavior are not verified.
+The older archive helper extracted payload bytes correctly. SDK11 GA TarDirectory failed internally, including a single-node retry. The documented GA implementation is retained; newer extraction and incremental behavior are not verified.

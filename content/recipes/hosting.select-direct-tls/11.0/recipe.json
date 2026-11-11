@@ -43,13 +43,13 @@
             "name": ".NET",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Intended net11.0 consumer; exact RC compilation baseline is recorded separately, not GA behaviour proof."
+            "reason": "Intended net11.0 consumer using SDK11.0.100. Source review and any recorded compilation establish separate scopes and do not prove runtime behavior."
           },
           "sdk": {
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Use matching Razor/compiler assets; sample pins RC2. Documentation-only blocked TLS sample has no successful current build."
+            "reason": "Use matching Razor/compiler assets; sample pins GA. Documentation-only blocked TLS sample has no successful current build."
           },
           "language": {
             "name": "C#",
@@ -63,7 +63,7 @@
           "packages": [
             {
               "name": "Microsoft.AspNetCore.Server.Kestrel.Transport.DirectTls",
-              "version": "11.0.0-rc.1.26425.128",
+              "version": "11.0.0",
               "match": "exact",
               "reason": "Exact reviewed package; availability and compile status are disclosed in Evidence, not an assertion of runtime support."
             }
@@ -134,7 +134,7 @@
     {
       "sample": "samples/net11.0/HarbourTls/HarbourTls.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "kind": "official-review",
       "scope": "Documentation-based endpoint example; actual compilation blocked with CS0246 for absent DirectTlsEndpoint. Native Linux/OpenSSL/TLS behaviour and GA support unverified.",

@@ -71,8 +71,8 @@
   ],
   "packages": [
     {
-      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.maui.templates.net11/11.0.0-rc.2.26505.5/microsoft.maui.templates.net11.11.0.0-rc.2.26505.5.nupkg",
-      "sha256": "f79b83f8c93756b9ba812043ef204c06b51640bedf5b807012f04db916b710b7"
+      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.maui.templates.net11/11.0.0/microsoft.maui.templates.net11.11.0.0.nupkg",
+      "sha256": "6b4059cf2b9dfa5b0bf3dfb258a7f87d8e28fa1a7fa12f5899da2bc2fde4048d"
     },
     {
       "url": "https://api.nuget.org/v3-flatcontainer/avalonia.controls.maui/11.0.0-rc.2.26287.618/avalonia.controls.maui.11.0.0-rc.2.26287.618.nupkg",
@@ -83,8 +83,8 @@
       "sha256": "4ecc25d3714d1dd1460851be65f053ba795f35013bf00572b13c74606587c9fb"
     },
     {
-      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.aspnetcore.components.webview.maui/11.0.0-rc.2.26505.5/microsoft.aspnetcore.components.webview.maui.11.0.0-rc.2.26505.5.nupkg",
-      "sha256": "9414d9f05bbbf29d87cbf447bd0e64388499614b13c082f7e78762b8fb423d55"
+      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.aspnetcore.components.webview.maui/11.0.0/microsoft.aspnetcore.components.webview.maui.11.0.0.nupkg",
+      "sha256": "dfec73c4b70943d56c0417b4b07e8e09944bef8dd92af1a8da9d69a96af5eb3c"
     }
   ]
 }

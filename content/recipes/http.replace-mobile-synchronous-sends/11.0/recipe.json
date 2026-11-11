@@ -32,7 +32,7 @@
         "requirements": {
           "sdk": {
             "match": "release-family",
-            "reason": "Build against .NET 11 references; exact RC2 pins record measured artifacts.",
+            "reason": "Build against .NET 11 references; exact GA pins record measured artifacts.",
             "name": ".NET SDK",
             "version": "11.0"
           },
@@ -68,7 +68,7 @@
           "renderingModes": [],
           "optIns": [],
           "stabilityLimitations": [
-            "Actual RC2 verification, not final-GA proof; PIN-962 and PIN-959 remain open."
+            "Actual GA verification, within the recorded verification scope; PIN-962 and PIN-959 remain open."
           ],
           "constraints": [
             "Await through the caller chain; no Result/Wait/GetAwaiter().GetResult or Task.Run wrapper.",
@@ -148,7 +148,7 @@
       "kind": "compile-and-run",
       "sample": "samples/net11.0/MoorlandReports/MoorlandReports.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "scope": "Real Windows desktop HTTP success, status failure, in-flight cancellation and transport failure. Synthetic Android analyzer call site; actual Android/iOS/tvOS native build/runtime not-tested under PIN-699."
     }

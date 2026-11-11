@@ -109,7 +109,7 @@ Keep current projects in their own directories under `samples/net10.0` or
 sources. The historical project lives directly in `samples/WeatherJson` and
 explicitly compiles only WeatherChecks.cs.
 Each directory has its own central package file and SDK pin. In `global.json`,
-set `sdk.version` to **10.0.403** or **11.0.100-rc.3.26522.148**,
+set `sdk.version` to **10.0.403** or **11.0.100**,
 `sdk.rollForward` to `disable`, and `test.runner` to **VSTest**. C# mode is
 declared in the project. Use nuget.org as the explicit package source.
 
@@ -183,8 +183,8 @@ under `artifacts/json-dependencies`. It does not install a global tool or publis
 
 ## Constraints and alternatives
 
-The exact evidence is Windows x64, SDK 10.0.403 / 11 RC2, C# 14 / 15 and runtimes
-10.0.13 / 11.0.0-rc.2.26504.105. No C# 15 feature, provider, native compiler,
+The exact evidence is Windows x64, SDK 10.0.403 / 11 GA, C# 14 / 15 and runtimes
+10.0.13 / 11.0.0. No C# 15 feature, provider, native compiler,
 workload, rendering mode, device, cloud resource or Human-only step is required.
 Test.Sdk brings CodeCoverage, but these checks run a **managed custom collector**;
 they do not enable native coverage or promise every shipped native asset works.
@@ -210,11 +210,11 @@ temporary choice, but it does not repair a newer deployment's missing assets.
 Adding Newtonsoft cannot restore removed communication APIs such as
 `Message.Payload`, `VersionedMessage` or the old public converter/resolver types.
 That requires a separate supported API migration; this recipe deliberately uses
-only the public adapter/collector contracts. RC execution does not establish
-actual .NET 11 GA support. PIN-959 qualifying coverage/evidence and PIN-963 actual-GA
-reconciliation remain open; the exact eight .NET 10 foundations are unchanged.
+only the public adapter/collector contracts. GA execution covers these public adapter/collector contracts, rather than a full legacy-contract migration. Existing qualifying coverage gates remain separate; the exact eight .NET 10 foundations are unchanged.
 
 ## Evidence
+
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 All seven project closures have fresh compilation/execution records. Three real
 runner/test-host lanes each produce exactly one passed rainfall test, a successful

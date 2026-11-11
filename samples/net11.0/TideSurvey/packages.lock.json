@@ -31,9 +31,9 @@
       },
       "Microsoft.AspNetCore.Grpc.JsonTranscoding": {
         "type": "Direct",
-        "requested": "[11.0.0-rc.2.26504.105, 11.0.0-rc.2.26504.105]",
-        "resolved": "11.0.0-rc.2.26504.105",
-        "contentHash": "ho5pmdxvUOKIQSudAJ9WYnNAZKqX99UZKqJH9oJCcgWrzG/haDozdwVLryhASHgYB+OazsWp7LGoaK1Ysl8ikQ==",
+        "requested": "[11.0.0, 11.0.0]",
+        "resolved": "11.0.0",
+        "contentHash": "m2gtPxOrz4giSR+382IihjGCsY7j3O2g1sHLQu+Wn/wI95BNgvJlFLPWj4rMVL0Syi4pa9LDwm1MsplPdKb2qg==",
         "dependencies": {
           "Google.Api.CommonProtos": "2.15.0",
           "Google.Protobuf": "3.27.0",

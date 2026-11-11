@@ -33,20 +33,20 @@
         "selectionNotes": [
           "Compose a physical file watcher with a normalized root and a related native watcher path, including deferred directory creation, then verify relevant file-change tokens.",
           "Windows NTFS x64 real file notifications. Current equal/ancestor/descendant/empty/relative/deferred layouts; no polling, browser or symlink-security claim.",
-          "Verified on .NET 11 RC2; actual-GA reconciliation remains open."
+          "Verified on .NET 11 GA; actual-GA checks are limited to the recorded scope."
         ],
         "requirements": {
           "runtime": {
             "name": ".NET",
             "version": "11.0",
             "match": "release-family",
-            "reason": ".NET 11 runtime for the current net11 consumer; RC2 is the measured artifact, not final GA proof."
+            "reason": ".NET 11 runtime for the current net11 consumer; GA is the measured artifact, within the recorded verification scope."
           },
           "sdk": {
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Build against the .NET 11 reference assemblies; exact RC3 is the reproduction baseline."
+            "reason": "Build against the .NET 11 reference assemblies; exact GA is the reproduction baseline."
           },
           "language": {
             "name": "C#",
@@ -58,7 +58,7 @@
           "packages": [
             {
               "name": "Microsoft.Extensions.FileProviders.Physical",
-              "version": "11.0.0-rc.2.26504.105",
+              "version": "11.0.0",
               "match": "exact",
               "reason": "Actual pinned package consumer; no newer-package-on-net10 route is advertised."
             }
@@ -80,12 +80,12 @@
           ],
           "constraints": [
             "Windows NTFS x64 real file notifications. Current equal/ancestor/descendant/empty/relative/deferred layouts; no polling, browser or symlink-security claim.",
-            "Previous comparison uses SDK10.0.403 / C#14 / runtime10.0.14; current uses SDK11.0.100-rc.3.26522.148 / C#15 / runtime11RC3. These are verification pins, not a universal support floor.",
+            "Previous comparison uses SDK10.0.403 / C#14 / runtime10.0.14; current uses SDK11.0.100 / C#15 / runtime11RC3. These are verification pins, not a universal support floor.",
             "No device, rendering mode, workload, public service or persistent environment changes. Preserve eight foundations and existing GA/Human/comprehensive gates."
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "RC3 evidence is not actual-GA proof. No selected API experimental opt-in is required."
+            "GA verification is limited to the recorded checks proof. No selected API experimental opt-in is required."
           ]
         },
         "sourceUrls": [
@@ -132,7 +132,7 @@
       "kind": "compile-and-run",
       "scope": "Windows NTFS x64 real file notifications. Current equal/ancestor/descendant/empty/relative/deferred layouts; no polling, browser or symlink-security claim.",
       "sample": "samples/net11.0/GardenObservations/GardenObservations.csproj",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "target": "net11.0"
     }

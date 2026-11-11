@@ -6,9 +6,9 @@
   ],
   "buildArguments": [],
   "dependencies": [
-    "Microsoft.DotNet.ILCompiler/11.0.0-rc.3.26522.148",
-    "Microsoft.NET.ILLink.Tasks/11.0.0-rc.3.26522.148",
-    "runtime.linux-x64.Microsoft.DotNet.ILCompiler/11.0.0-rc.3.26522.148"
+    "Microsoft.DotNet.ILCompiler/11.0.0",
+    "Microsoft.NET.ILLink.Tasks/11.0.0",
+    "runtime.linux-x64.Microsoft.DotNet.ILCompiler/11.0.0"
   ],
   "workloads": [],
   "nativeToolchains": [

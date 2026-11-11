@@ -147,9 +147,11 @@ The adapter only accepts one Surface button per renderer, on one browser thread,
 
 There is no verified alternative that gives the removed init setter useful behavior. Preserve working hook overrides on .NET 10. Revalidate internal protocol, construction and event behavior whenever upgrading the framework.
 
-Previous exact baseline: SDK 10.0.403, net10.0/C# 14, ASP.NET Core packages and browser runtime 10.0.14. Current exact baseline: SDK 11.0.100-rc.3.26522.148, net11.0/C# 15, packages/runtime 11.0.0-rc.3.26522.148. These are verification pins, separate from release-family application prerequisites. Matching WebAssembly and development-server packages are explicitly pinned. Default interpreted build/serve requires no optional workload, native SDK or external provider; AOT/linking and production publish are unverified. Stable application APIs do not require experimental opt-ins; renderer internal-contract risk remains separately disclosed. RC3 evidence is not GA proof. This edition is selected only for target 11.0 and adds no .NET 10 foundation.
+Previous exact baseline: SDK 10.0.403, net10.0/C# 14, ASP.NET Core packages and browser runtime 10.0.14. Current exact baseline: SDK 11.0.100, net11.0/C# 15, packages/runtime 11.0.0. These are verification pins, separate from release-family application prerequisites. Matching WebAssembly and development-server packages are explicitly pinned. Default interpreted build/serve requires no optional workload, native SDK or external provider; AOT/linking and production publish are unverified. Stable application APIs do not require experimental opt-ins; renderer internal-contract risk remains separately disclosed. Current GA records define measured coverage and retained exclusions. This edition is selected only for target 11.0 and adds no .NET 10 foundation.
 
 ## Evidence
+
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Fresh canonical compile records retain exact SDK/dependency closure, commands and input hashes. The real reference/package artifact audit was rerun and matched the committed inventory. Separate real T3 integrated Chromium 152 browser checks, using actual WASM runtime assets, establish the focused behavior in docs/verification/blazor-renderer-navigation.md. They do not use mocked JS interop.
 

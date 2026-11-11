@@ -54,7 +54,9 @@ automatic redirect/disposal fixes as independent migration steps.
 
 ## Evidence
 
-The .NET10 app compiles with the actual Android workload. Pinned RC2 handler source
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
+The .NET10 app compiles with the actual Android workload. Pinned GA handler source
 supports the exception mapping and cancellation-aware body stream. Android device
 execution, the controlled-endpoint cases above and .NET11 native compilation are
 **not-tested** under PIN-699. These are instructions for checking behavior, not
@@ -64,11 +66,11 @@ the Android contract. No pending Human proof is owed for these unavailable check
 ## Constraints
 
 Requires .NET11 Android, C#15, Android API24+, matching Android SDK and JDK21/25.
-Gradle invoked using JDK25 needs9.1+. Canonical SDK is RC3; reviewed platform
-assets are RC2 37.2.0-rc.2.84, not a tested RC3 composition. No extra NuGet
+Gradle invoked using JDK25 needs9.1+. Canonical SDK is GA; reviewed platform
+assets are GA 37.2.29, not a tested GA composition. No extra NuGet
 package, external provider/account or Blazor rendering mode is required. The
 .NET10 comparison is not a supported older-target catalogue route. NativeAOT
-is experimental and outside this sample. RC evidence does not certify GA.
+is experimental and outside this sample. Recorded evidence does not certify GA.
 
 ## Canonical samples
 

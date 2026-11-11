@@ -15,16 +15,16 @@ approach on both measured SDKs; no newer-only reader API is claimed.
 
 | Layer | Older comparison | Current example |
 | --- | --- | --- |
-| SDK | 10.0.403 | 11.0.100-rc.3.26522.148 |
+| SDK | 10.0.403 | 11.0.100 |
 | Compiler / language | 5.9.0-1.26523.112 / C#14 | 5.12.0-1.26522.148 / C#15 |
-| Target / reference and runtime | net10.0 / 10.0.14 | net11.0 / 11.0.0-rc.3.26522.148 |
+| Target / reference and runtime | net10.0 / 10.0.14 | net11.0 / 11.0.0 |
 | Reader | PowerShell7; .NET ProcessStartInfo and explicit decoder | Same existing reader APIs |
 
 The executed platform is Windows x64, with private CP1252 and CP65001 consoles,
 redirected stdout/stderr and en-US SDK UI language. Complete SDK/compiler/ref/runtime
 identities and hashes are recorded separately from prerequisites. No NuGet
 dependency, workload, provider, native compiler or rendering mode is required for
-this recipe. RC3 evidence is not GA qualification, and a new SDK or different
+this recipe. GA verification is limited to the recorded checks qualification, and a new SDK or different
 console/language condition requires a fresh byte-level check.
 
 ## Older approach
@@ -46,7 +46,7 @@ fixture; this is not advice to relax an application's build policy.
 
 Save this project under `samples/net11.0/EstuaryEncoding`, retaining its relative
 link to the older program. Pin that directory's SDK to
-11.0.100-rc.3.26522.148 with roll-forward disabled.
+11.0.100 with roll-forward disabled.
 
 {{snippet:newer}}
 
@@ -111,6 +111,8 @@ subgoal remains explicit. No unsupported switch, older-target feature, invisible
 performance change, production setting or recurring OS matrix is introduced.
 
 ## Evidence
+
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 `eng/Test-EstuaryWindows.ps1 -Record` builds both actual target/SDK sets and captures
 non-ASCII diagnostics under private CP1252/65001 consoles. Default, false, true and

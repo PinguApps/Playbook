@@ -114,9 +114,11 @@ success. No optional older-target package route is claimed.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Both actual SDK-pinned projects compile. The loopback test holds valid and invalid
 HTTP rules, observes entered=1/completed=0/accepted=0 while the request remains
 unfinished, then releases each. The valid request yields 204/completed=1/accepted=1;
 the invalid one yields 400/completed=1/accepted=0. This establishes execution
 ordering through real endpoint filters, not a mock repository or direct attribute
-invocation. Exact inputs/artifacts and RC2 limitations accompany the evidence.
+invocation. Exact inputs/artifacts and GA limitations accompany the evidence.

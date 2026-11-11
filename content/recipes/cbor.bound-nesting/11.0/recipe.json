@@ -31,7 +31,7 @@
           "runtime": {
             "name": ".NET",
             "match": "release-family",
-            "reason": "Primary net11.0 consumer; actual RC2 proof is distinct from GA verification.",
+            "reason": "Primary net11.0 consumer; actual GA proof is distinct from GA verification.",
             "version": "11.0"
           },
           "sdk": {
@@ -52,7 +52,7 @@
               "name": "System.Formats.Cbor",
               "version": "11.0",
               "match": "release-family",
-              "reason": "Per-instance depth options are in package11. Exact RC2 test pin and dependency lock identify reproduction."
+              "reason": "Per-instance depth options are in package11. Exact GA test pin and dependency lock identify reproduction."
             }
           ],
           "packageAssets": [
@@ -66,18 +66,18 @@
           "workloads": [],
           "prerequisites": [
             "SDK console project with Nullable and ImplicitUsings enabled; put complete canonical helpers in separate .cs files with their imports.",
-            "Reference System.Formats.Cbor11. The verified exact pin is11.0.0-rc.2.26504.105; restore the reviewed package lock when reproducing."
+            "Reference System.Formats.Cbor11. The verified exact pin is11.0.0; restore the reviewed package lock when reproducing."
           ],
           "constraints": [
-            "Previous SDK10.0.403/C#14/ref-runtime10.0.14; current SDK11.0.100-rc.3.26522.148/C#15/ref-runtime11RC3. Exact proof pins are separate from release-family requirements.",
+            "Previous SDK10.0.403/C#14/ref-runtime10.0.14; current SDK11.0.100/C#15/ref-runtime11RC3. Exact proof pins are separate from release-family requirements.",
             "No provider, native assets, workloads, rendering modes or experimental diagnostic opt-ins. Older comparisons remain valid and add no foundation; no additional older-target API route is advertised.",
             "Complete finite-buffer schema; one Int32 leaf in single-child arrays/maps. Strict conformance, one root, indefinite containers preserved. Depth does not bound payload bytes or string lengths.",
             "Explicit finite budget8. Zero forbids containers, -1 selects current runtime defaults64/1000; read and write failures differ. The older10.0.13 reader already has the64 backport.",
-            "Windows x64 RC2 execution; no incremental, arbitrary-schema, newer-package-on-net10, trimming/AOT or final-GA claim."
+            "Windows x64 GA execution; no incremental, arbitrary-schema, newer-package-on-net10, trimming/AOT or final-GA claim."
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Verified with actual RC2 artifacts; final-GA reconciliation remains open. No experimental diagnostic opt-in on the selected APIs."
+            "Verified with actual GA artifacts; final-GA checks are limited to the recorded scope. No experimental diagnostic opt-in on the selected APIs."
           ]
         },
         "sharedAreas": [],
@@ -85,7 +85,7 @@
         "selectionNotes": [
           "Complete finite-buffer schema; one Int32 leaf in single-child arrays/maps. Strict conformance, one root, indefinite containers preserved. Depth does not bound payload bytes or string lengths.",
           "Explicit finite budget8. Zero forbids containers, -1 selects current runtime defaults64/1000; read and write failures differ. The older10.0.13 reader already has the64 backport.",
-          "Windows x64 RC2 execution; no incremental, arbitrary-schema, newer-package-on-net10, trimming/AOT or final-GA claim."
+          "Windows x64 GA execution; no incremental, arbitrary-schema, newer-package-on-net10, trimming/AOT or final-GA claim."
         ],
         "evidenceSamples": [
           "samples/net11.0/CalibrationGroups/CalibrationGroups.csproj"
@@ -155,7 +155,7 @@
     },
     {
       "scope": "Arrays/maps, definite/indefinite encoding, accepted depths0/1/7/8 and rejection9, separate failures, default64/1000, zero, sentinel-1 and below-1; actual old reader backport and complete writer1001.",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "target": "net11.0",
       "kind": "compile-and-run",
       "sample": "samples/net11.0/CalibrationGroups/CalibrationGroups.csproj",

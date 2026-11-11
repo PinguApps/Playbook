@@ -18,7 +18,7 @@ pages below; a framework upgrade does not rewrite them.
 | Comparison | Exact tested set | Working route |
 | --- | --- | --- |
 | Previous | SDK10.0.403, .NET/ASP.NET10.0.13, C#14; Identity.UI/Identity.EntityFrameworkCore/EF SQLite10.0.13 | Original Razor Pages gate with CanSignInAsync on both registration paths |
-| Current | SDK11.0.100-rc.3.26522.148, matching runtime/framework and three packages, C#15 | Packaged Identity UI, or the same explicit custom-page gate |
+| Current | SDK11.0.100, matching runtime/framework and three packages, C#15 | Packaged Identity UI, or the same explicit custom-page gate |
 
 These pins identify the reproduction, not minimum servicing releases. The served
 edition targets .NET11; the compiled .NET10 comparison preserves a working older
@@ -45,7 +45,7 @@ Razor Pages renders the real forms; requests obtain antiforgery cookies/tokens a
 post them over loopback HTTP. No browser or interactive Blazor rendering is needed
 for this server-policy claim. HTML response checks do not establish layout,
 accessibility or client-side validation. The API surface needs no experimental
-switch; the measured .NET11 baseline is **RC2, not GA**. PIN-959/PIN-963/PIN-964,
+switch; the measured .NET11 baseline is **GA**. PIN-959/PIN-963/PIN-964,
 actual-GA reconciliation and unrelated Human gates stay open.
 
 ## Constraints: policy and observed outcomes
@@ -151,6 +151,8 @@ passkey/lockout/recovery matrix, security deployment, browser ceremony or GA
 execution is claimed. PIN-812's passkey denial remains a separate goal.
 
 ## Evidence
+
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 The saved compile-and-run records contain fresh execution of 16 registrations per
 target, plus denied/confirmed later sign-in and request guards. Separate artifact

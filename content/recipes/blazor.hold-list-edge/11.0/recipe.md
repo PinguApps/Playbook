@@ -29,8 +29,8 @@ Use a separate folder for each target, outside any unrelated shared build files.
 The following setup is complete; no repository checkout is needed. Install the
 chosen SDK and its matching ASP.NET Core runtime/assets before working offline.
 Use SDK `10.0.403`, `net10.0`, C# `14.0` and framework/assets `10.0.14` for the
-older app; use SDK `11.0.100-rc.3.26522.148`, `net11.0`, C# `15.0` and its matching
-RC2 framework/assets for the newer app.
+older app; use SDK `11.0.100`, `net11.0`, C# `15.0` and its matching
+GA framework/assets for the newer app.
 
 1. Create `global.json` with an `sdk` object: set `version` to the chosen exact
    SDK above and `rollForward` to `disable`. Create `OrchardJournal.csproj` with
@@ -170,25 +170,27 @@ default to a grid. Measure your content before overriding it.
 
 The primary route is net11.0/ASP.NET Core 11, SDK 11 and the sample's explicit
 C# 15 mode; the anchoring API itself does not require new language syntax.
-Actual pins are SDK `11.0.100-rc.3.26522.148` and matching ASP.NET Core reference,
+Actual pins are SDK `11.0.100` and matching ASP.NET Core reference,
 runtime and SDK `Microsoft.AspNetCore.App.Internal.Assets` browser assets. No
 separate Virtualize NuGet package, optional workload, database or service account
 is required. The previous comparison is net10.0/C# 14, SDK `10.0.403` and framework/
 Internal.Assets `10.0.14`. It is not a compatible older-target route for new APIs.
 
-RC2's actual list parameters carry no experimental attribute or required opt-in;
+GA's actual list parameters carry no experimental attribute or required opt-in;
 no obsolete experimental suppression is taught. The cumulative release page's
 BL0011 wording differs from the pinned analyzer/Virtualize source, which still
 warns on `ItemsProvider` without explicit `ItemComparer`. This sample assigns a
-sound comparer and needs no diagnostic suppression. RC2 also fixes initial
+sound comparer and needs no diagnostic suppression. GA also fixes initial
 provider-load End anchoring. Release-note reconciliation does not prove browser
 execution, and stable API metadata does not mean GA has been tested.
 
 Official sources are included in the recipe metadata: the versioned virtualization
-contract, immutable RC2 implementation/browser sources and RC2 release notes.
+contract, immutable GA implementation/browser sources and RC2 release notes.
 The source-disposition register maps WEB-015/016 to this single stable goal.
 
 ## Evidence
+
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Both actual pinned applications compile; separate saved real Chrome/Windows
 Interactive Server measurements exercise variable-height prepend/append/expand,

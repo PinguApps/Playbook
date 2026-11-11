@@ -42,7 +42,7 @@ generated RSA2048/SHA256 signatures over same-document permit IDs.
 
 1. Use the demonstrated net11.0/C#15 route with a .NET 11 SDK/runtime and
    System.Security.Cryptography.Xml11 release family. Actual evidence pins
-   11.0.0-rc.2.26504.105, selects lib/net11.0 and resolves matching Pkcs. The
+   11.0.0, selects lib/net11.0 and resolves matching Pkcs. The
    package also contains a net10.0 asset, but this recipe does not claim a verified
    older-target/new-package route. There is no workload, unsafe or experimental
    opt-in or rendering requirement. The tested provider is Windows x64 CNG RSA.
@@ -90,9 +90,11 @@ cannot express the required policy. Keep package/security maintenance deliberate
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 eng/Test-LifetimeSignatures.ps1 -Record -VerifySources compiles/runs PermitManifest
 on SDK10.0.403/runtime10.0.14/Xml10.0.13 and
-SDK11.0.100-rc.3.26522.148/runtime11RC3/Xml11RC2. Locked dependency sets include
+SDK11.0.100/runtime11RC3/Xml11RC2. Locked dependency sets include
 matching Pkcs. Recorded reference/package archive/selected/executed XML hashes
 match the runtime-security audit; compiler/CoreLib/CoreCLR and Windows crypto
 binary identities are retained separately from supported prerequisites.
@@ -107,6 +109,6 @@ Keys are disposable process-local test keys; no production key or service is use
 The ordinary package's installed offline stdio list/get verifies discovery,
 complete canonical Markdown, target11/edition11 applicability, fresh paired
 evidence and target10 rejection. The eight .NET 10 foundations are unchanged.
-Windows x64 RC2 is measured; other providers/platforms and final GA remain
+Windows x64 GA is measured; other providers/platforms and final GA remain
 unverified. PIN-959/PIN-962 and existing Human gates remain open; no recurring
 native/client/OS matrix, public publication or persistent setting change is added.

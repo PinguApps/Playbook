@@ -61,10 +61,12 @@ desktop components and other applications need their own compatibility checks.
 The host needs Mono, not a .NET 11 runtime to execute this net472 importer. SDK 11
 is used to build and evaluate the new launch configuration. No package, provider,
 rendering mode, workload, experimental opt-in or public deployment is involved.
-No machine/user environment or PATH changes are required. SDK 11 RC3 establishes
+No machine/user environment or PATH changes are required. SDK 11 GA establishes
 the measured behavior only; final GA reconciliation remains separate.
 
 ## Evidence
+
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 `eng/Test-TideAndMono.ps1 -Record` compiles both SDK variants against the actual
 Mono references and executes both defaults and explicit launches on Linux x64.

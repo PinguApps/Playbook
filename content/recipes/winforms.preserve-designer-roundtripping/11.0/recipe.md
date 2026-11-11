@@ -27,7 +27,7 @@ WFO2000 warns about a getter returning a newly allocated reference. Decide the c
 | WFO3006–3008/3010 | Remove conditional/coalescing/conditional-access/lambda logic from generated initialization. |
 | WFO3011/3012 | VB Designer controls use WithEvents and named Handles methods. |
 
-The RC2 framework analyzer assets supply these rules. WFO2000/3002/3005/3009 default to warnings; the other new Designer rules default to errors. The samples treat warnings as errors and use no blanket suppression. Both VB samples pin language16.9; no new VB version is inferred.
+The GA framework analyzer assets supply these rules. WFO2000/3002/3005/3009 default to warnings; the other new Designer rules default to errors. The samples treat warnings as errors and use no blanket suppression. Both VB samples pin language16.9; no new VB version is inferred.
 
 ## Migration
 
@@ -38,9 +38,11 @@ The RC2 framework analyzer assets supply these rules. WFO2000/3002/3005/3009 def
 
 ## Constraints
 
-Windows Desktop runtime and STA are required. Current SDK11.0.100-rc.3.26522.148/C#15 is compared with SDK10.0.403/C#14; VB16.9 on both. No additional package, provider account, Blazor rendering mode or experimental opt-in. No .NET10 analyzer backport is claimed. The Designer is a Visual Studio tool and is not proved by the framework compiler alone. RC2 results are not GA proof.
+Windows Desktop runtime and STA are required. Current SDK11.0.100/C#15 is compared with SDK10.0.403/C#14; VB16.9 on both. No additional package, provider account, Blazor rendering mode or experimental opt-in. No .NET10 analyzer backport is claimed. The Designer is a Visual Studio tool and is not proved by the framework compiler alone. GA results cover only the recorded checks.
 
 ## Evidence
+
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 All four actual projects compiled and executed a real shown form, one button click, a stable collection getter and independently allocated snapshots. The first current C# build rejected a field placed before InitializeComponent with WFO3002; moving it after the method fixed the emitted error. Native Visual Studio C# and VB Designer edit/save/close/reopen passed on exact canonical-source scratch copies: confirm moved from X20 to X21 and reopened correctly. Saved C# Click wiring and VB WithEvents/Handles remained intact. Both Designer-saved projects built and passed real click/identity checks. The compact designer-roundtrip.evidence.json retains original input identities and actual saved Designer source. No complete diagnostic-trigger matrix, code-fix execution or GA claim.
 

@@ -51,7 +51,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Build the declared target. Exact recorded SDKs are verification baselines; current-release proof uses RC2, not GA."
+            "reason": "Build the declared target. Exact recorded SDKs are verification baselines; current-release proof uses GA."
           },
           "language": {
             "name": "C#",
@@ -67,7 +67,7 @@
               "name": "Microsoft.Data.Sqlite",
               "version": "11.0",
               "match": "release-family",
-              "reason": "Current capability verified with 11.0.0-rc.2.26504.105; each independent project has CPM pins and a resolved lock file."
+              "reason": "Current capability verified with 11.0.0; each independent project has CPM pins and a resolved lock file."
             }
           ],
           "packageAssets": [
@@ -94,7 +94,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "GA-targeted stable contract, measured with .NET 11 RC2 packages/SDK. No experimental API opt-in required; actual GA reconciliation remains outstanding."
+            "GA-targeted stable contract, measured with .NET 11 GA packages/SDK. No experimental API opt-in required; actual GA checks are limited to the recorded scope."
           ]
         },
         "conditional": false,
@@ -125,7 +125,7 @@
             "name": ".NET SDK",
             "version": "10.0",
             "match": "release-family",
-            "reason": "Build the declared target. Exact recorded SDKs are verification baselines; current-release proof uses RC2, not GA."
+            "reason": "Build the declared target. Exact recorded SDKs are verification baselines; current-release proof uses GA."
           },
           "language": {
             "name": "C#",
@@ -141,7 +141,7 @@
               "name": "Microsoft.Data.Sqlite",
               "version": "11.0",
               "match": "release-family",
-              "reason": "Current capability verified with 11.0.0-rc.2.26504.105; each independent project has CPM pins and a resolved lock file."
+              "reason": "Current capability verified with 11.0.0; each independent project has CPM pins and a resolved lock file."
             }
           ],
           "packageAssets": [
@@ -168,7 +168,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "GA-targeted stable contract, measured with .NET 11 RC2 packages/SDK. No experimental API opt-in required; actual GA reconciliation remains outstanding."
+            "GA-targeted stable contract, measured with .NET 11 GA packages/SDK. No experimental API opt-in required; actual GA checks are limited to the recorded scope."
           ]
         },
         "conditional": true,
@@ -206,7 +206,7 @@
       "target": "net11.0",
       "language": "15.0",
       "kind": "compile-and-run",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "scope": "Real in-memory SQLite: direct UInt128 binding; full-width/zero/power-of-ten boundaries, exact 39-digit TEXT, ordered values and parameter range comparison; explicit GetString/Parse only."
     },
     {

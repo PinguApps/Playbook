@@ -27,17 +27,18 @@ try {
   }
   $matrix = @(
     @{ variant='net10.0'; name='BookingImport'; dotnet=$Net10Dotnet; runtime=$Net10Dotnet; sdk='10.0.403'; ref='10.0.14'; tfm='net10.0' },
-    @{ variant='net11.0'; name='BookingImport'; dotnet=$Net11Dotnet; runtime=$Net11Dotnet; sdk='11.0.100-rc.3.26522.148'; ref='11.0.0-rc.3.26522.148'; tfm='net11.0' },
+    @{ variant='net11.0'; name='BookingImport'; dotnet=$Net11Dotnet; runtime=$Net11Dotnet; sdk='11.0.100'; ref='11.0.0'; tfm='net11.0' },
     @{ variant='net10.0'; name='InstrumentArchive'; dotnet=$Net10Dotnet; runtime=$Net10Dotnet; sdk='10.0.403'; ref='10.0.14'; tfm='net10.0' },
-    @{ variant='net11.0'; name='InstrumentArchive'; dotnet=$Net11Dotnet; runtime=$Net11Dotnet; sdk='11.0.100-rc.3.26522.148'; ref='11.0.0-rc.3.26522.148'; tfm='net11.0' },
-    @{ variant='net10.0-sdk11'; name='InstrumentArchive'; dotnet=$Net11Dotnet; runtime=$Net10Dotnet; sdk='11.0.100-rc.3.26522.148'; ref='10.0.14'; tfm='net10.0' }
+    @{ variant='net11.0'; name='InstrumentArchive'; dotnet=$Net11Dotnet; runtime=$Net11Dotnet; sdk='11.0.100'; ref='11.0.0'; tfm='net11.0' },
+    @{ variant='net10.0-sdk11'; name='InstrumentArchive'; dotnet=$Net11Dotnet; runtime=$Net10Dotnet; sdk='11.0.100'; ref='10.0.15'; runtimeVersion='10.0.14'; tfm='net10.0' }
   )
   foreach ($entry in $matrix) {
     $sample = "samples/$($entry.variant)/$($entry.name)/$($entry.name).csproj"
     & (Join-Path $PSScriptRoot 'Record-Evidence.ps1') -Sample $sample -Dotnet $entry.dotnet -RuntimeDotnet $entry.runtime
     $recordPath = Join-Path $root "samples/$($entry.variant)/$($entry.name)/verification-evidence.json"
     $record = Get-Content -LiteralPath $recordPath -Raw | ConvertFrom-Json -AsHashtable
-    if (-not $record.output.Contains("runtime=.NET $($entry.ref);")) { throw "Wrong actual runtime for $sample" }
+    $runtimeVersion = if ($entry.ContainsKey('runtimeVersion')) { $entry.runtimeVersion } else { $entry.ref }
+    if (-not $record.output.Contains("runtime=.NET $runtimeVersion;")) { throw "Wrong actual runtime for $sample" }
     $project = Join-Path $root $sample
     Push-Location (Split-Path $project)
     try {

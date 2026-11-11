@@ -30,7 +30,7 @@
         "conditional": false,
         "usage": "primary",
         "selectionNotes": [
-          "Linux x64 Docker execution; SDK 10.0.403 and SDK 11 RC3 comparison. RC2 is not GA evidence.",
+          "Linux x64 Docker execution; SDK 10.0.403 and SDK 11 GA comparison. GA is limited to the recorded checks.",
           "macOS publication, .dylib naming, packaging, symbols and C invocation are source-reviewed and not-tested; static libraries remain unsupported/unresolved."
         ],
         "sharedAreas": [],
@@ -73,7 +73,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Current evidence uses SDK 11 RC3, not GA."
+            "Current evidence uses SDK 11 GA."
           ]
         },
         "sourceUrls": [
@@ -107,7 +107,7 @@
     },
     {
       "kind": "compile-and-run",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "sample": "samples/net11.0/TideWindow/TideWindow.csproj",
       "language": "15.0",
       "target": "net11.0",

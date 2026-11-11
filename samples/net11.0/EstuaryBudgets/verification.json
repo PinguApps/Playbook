@@ -10,6 +10,6 @@
   "dependencies": [],
   "workloads": [],
   "nativeToolchains": [
-    "MsQuic/2.5.11.159415436"
+    "MsQuic/2.5.12.161031966"
   ]
 }

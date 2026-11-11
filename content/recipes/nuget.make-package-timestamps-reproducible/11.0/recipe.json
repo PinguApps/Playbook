@@ -53,7 +53,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "The documented .NET 11 SDK/MSBuild/NuGet command behavior; exact RC2 verification is recorded separately."
+            "reason": "The documented .NET 11 SDK/MSBuild/NuGet command behavior; exact GA verification is recorded separately."
           },
           "language": {
             "name": "C#",
@@ -81,7 +81,7 @@
             "Deterministic=true with a fixed DeterministicTimestamp, e.g. 2000-01-01T00:00:00Z."
           ],
           "stabilityLimitations": [
-            "Verified with SDK 11.0.100-rc.3.26522.148 (RC2), not GA. No publisher-designated experimental API; GA reconciliation remains separate."
+            "Verified with SDK 11.0.100 (GA), within the recorded verification scope. No publisher-designated experimental API; GA reconciliation remains separate."
           ]
         },
         "sourceUrls": [
@@ -119,11 +119,11 @@
       "target": "net10.0"
     },
     {
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "kind": "compile-and-run",
       "language": "15.0",
       "sample": "samples/net11.0/PackageTimestamps/PackageTimestamps.csproj",
-      "scope": "Actual Windows x64 compilation and RC3 SDK local packing with isolated feed/cache/home: fixed RFC3339/Unix timestamp repeatability, bounded equal package bytes, true build time and default/false payload modification times. Not signing, general whole-build reproducibility or GA proof.",
+      "scope": "Actual Windows x64 compilation and GA SDK local packing with isolated feed/cache/home: fixed RFC3339/Unix timestamp repeatability, bounded equal package bytes, true build time and default/false payload modification times. Not signing, general whole-build reproducibility or GA proof.",
       "target": "net11.0"
     }
   ],

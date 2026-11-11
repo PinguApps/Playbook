@@ -31,7 +31,7 @@
         "conditional": false,
         "usage": "primary",
         "selectionNotes": [
-          "Both actual SDK10.0.403/NuGet7.9 and SDK11 RC3/NuGet8 honour this switch. Do not infer newer-only availability from release notes.",
+          "Both actual SDK10.0.403/NuGet7.9 and SDK11 GA/NuGet8 honour this switch. Do not infer newer-only availability from release notes.",
           "Scope is disposable clean builds; normal incremental development keeps the default. No cache/no-op equivalence or speed saving is claimed."
         ],
         "sharedAreas": [
@@ -47,7 +47,7 @@
             "name": ".NET",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Declared net11.0 application and SDK-host runtime. Exact RC2 artifacts are evidence, not GA qualification."
+            "reason": "Declared net11.0 application and SDK-host runtime. Exact GA artifacts are evidence, within the recorded verification scope."
           },
           "sdk": {
             "name": ".NET SDK",
@@ -73,11 +73,11 @@
           ],
           "renderingModes": [],
           "prerequisites": [
-            "Complete SDK/runtime/ref installations. Tested SDK10.0.403, runtime/ref10.0.14, C#14; SDK11.0.100-rc.3.26522.148, runtime/ref11RC3, C#15.",
+            "Complete SDK/runtime/ref installations. Tested SDK10.0.403, runtime/ref10.0.14, C#14; SDK11.0.100, runtime/ref11RC3, C#15.",
             "PowerShell7 for the reproducible checks. Original local package setup uses no remote source; installed guidance is embedded offline."
           ],
           "constraints": [
-            "Both actual SDK10.0.403/NuGet7.9 and SDK11 RC3/NuGet8 honour this switch. Do not infer newer-only availability from release notes.",
+            "Both actual SDK10.0.403/NuGet7.9 and SDK11 GA/NuGet8 honour this switch. Do not infer newer-only availability from release notes.",
             "Scope is disposable clean builds; normal incremental development keeps the default. No cache/no-op equivalence or speed saving is claimed.",
             "Only target11 is advertised. The real .NET10 comparison adds no ninth foundation or general SDK11-on-net10 route.",
             "No optional workload, provider, native compiler, rendering mode, production resource or public publication is required."
@@ -86,7 +86,7 @@
             "RestoreDoNotWriteDependencyGraphSpec=true only for the chosen disposable restore."
           ],
           "stabilityLimitations": [
-            "These controls are not designated experimental in the cited documentation. Actual verification uses RC2; PIN-959/PIN-963 and existing Human gates remain open."
+            "These controls are not designated experimental in the cited documentation. Actual verification uses GA; PIN-959/PIN-963 and existing Human gates remain open."
           ]
         },
         "sourceUrls": [
@@ -122,7 +122,7 @@
       "kind": "compile-and-run",
       "sample": "samples/net11.0/BeaconBuild/BeaconBuild.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "scope": "Original package pack and fresh local-only locked restores with true/false/default, exact package hash and equal selected compile/runtime assets; all build/run, default incremental repeat and missing-package failure. Windows x64 only."
     }

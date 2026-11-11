@@ -10,9 +10,9 @@ the filter and exposure text; projects never share an output file.
 
 ## Choose the host before changing the task
 
-This edition targets .NET 11 and uses **SDK 11.0.100-rc.3.26522.148**,
-**MSBuild 18.12.0-1.26504.105**, **C# 15.0**, and the matching .NET 11 RC2 runtime
-and reference pack. `-mt` is experimental and explicitly opt-in. This is RC2
+This edition targets .NET 11 and uses **SDK 11.0.100**,
+**MSBuild 18.12.0-1.26504.105**, **C# 15.0**, and the matching .NET 11 GA runtime
+and reference pack. `-mt` is experimental and explicitly opt-in. This is GA
 evidence, not an actual-GA qualification. The older comparison uses SDK
 **10.0.403**, MSBuild **18.9.15**, C# **14.0**, runtime/reference pack **10.0.14**.
 Both MSBuild assembly identities are `15.1.0.0`; that is not their product version.
@@ -76,8 +76,8 @@ sources separately; those are unnecessary in your task library.
 
 {{snippet:settings}}
 
-Pin `global.json` to `11.0.100-rc.3.26522.148`, `rollForward: disable` and
-`allowPrerelease: true` in this qualification environment. Build in that directory
+Pin `global.json` to `11.0.100`, `rollForward: disable` and
+`allowPrerelease: false` in this qualification environment. Build in that directory
 with the matching dotnet executable. Only the two SDK references are required;
 leave their `Private` flags false. Copy the complete class above into the library.
 
@@ -153,6 +153,8 @@ and error policy. This exact SDK/reference/runtime qualification does not imply
 compatibility with arbitrary package replacements, older hosts or other platforms.
 
 ## Evidence
+
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 The saved compile-and-run records use the existing sample-evidence workflow.
 The executable harness creates two actual project files in a disposable tree,

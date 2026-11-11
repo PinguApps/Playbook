@@ -22,10 +22,10 @@ on it remaining available in an interactive circuit.
 
 BasePath emits the base element using NavigationManager.BaseUri. Put it in the
 Blazor Web App's document head before links or browser assets need resolution.
-Keep only one base element. In RC2 the component namespace is
+Keep only one base element. In GA the component namespace is
 Microsoft.AspNetCore.Components, even though its assembly is
 Microsoft.AspNetCore.Components.Endpoints.dll. Earlier preview Endpoints
-namespace examples do not compile against the measured RC2 assets.
+namespace examples do not compile against the measured GA assets.
 
 {{snippet:base}}
 
@@ -41,9 +41,9 @@ request path.
 
 Use Microsoft.NET.Sdk.Web, net11.0, LangVersion 15.0, Nullable enable and
 ImplicitUsings enable, with RootNamespace Playbook.Samples. The comparison uses
-net10.0/C# 14.0. Each project has its own global.json: SDK 11.0.100-rc.3.26522.148
+net10.0/C# 14.0. Each project has its own global.json: SDK 11.0.100
 or 10.0.403. The measured SDK restores aligned
-Microsoft.AspNetCore.App.Internal.Assets browser files (11.0.0-rc.3.26522.148 or
+Microsoft.AspNetCore.App.Internal.Assets browser files (11.0.0 or
 10.0.14); no explicit framework API package, provider, native workload or service
 account is required. Preserve the SDK-aligned assets and lock file on restore.
 
@@ -68,7 +68,7 @@ shows the full declarative/imperative controls for that page.
 1. Preserve the current server/proxy path-base setup and verify the external path
    reaches ASP.NET Core correctly. Set it before routing, static assets and endpoints.
 2. Replace the manual base element in the static App document head with BasePath.
-   Use the RC2 Components namespace and remove the duplicate base element.
+   Use the GA Components namespace and remove the duplicate base element.
 3. Request a nested URL directly, inspect the generated HTML, then follow a link
    and load a framework asset. Repeat at a different configured prefix.
 
@@ -80,9 +80,11 @@ BasePath does not rewrite that file. The canonical routes use Interactive Server
 while the document shell is static server-rendered. No WebAssembly/Auto or actual
 reverse-proxy execution is claimed. The .NET 10 sample is a comparison, not a
 conditional package route for BasePath. Contracts are non-experimental; .NET 11
-execution uses RC2, with final GA reconciliation pending.
+execution uses GA, with checks limited to the recorded scope.
 
 ## Evidence
+
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 The actual .NET 10 and .NET 11 apps compile independently. Real HTTP requests
 return the generated base and all three nested routes plus blazor.web.js beneath

@@ -2,7 +2,7 @@
   "id": "threading.choose-unix-mutex-scope",
   "edition": "11.0",
   "title": "Choose Unix named-mutex scope",
-  "goal": "Choose user isolation or deliberate cross-user coordination for Unix named mutexes, and configure writable user-owned storage for UID-only containers; apply this to .NET 10.0.13 servicing and .NET 11 RC2 or later.",
+  "goal": "Choose user isolation or deliberate cross-user coordination for Unix named mutexes, and configure writable user-owned storage for UID-only containers; apply this to .NET 10.0.13 servicing and .NET 11 GA or later.",
   "areas": [
     "libraries"
   ],
@@ -33,7 +33,7 @@
         "requirements": {
           "sdk": {
             "match": "release-family",
-            "reason": "Build against .NET 11 references; exact RC2 pins record measured artifacts.",
+            "reason": "Build against .NET 11 references; exact GA pins record measured artifacts.",
             "name": ".NET SDK",
             "version": "11.0"
           },
@@ -69,11 +69,11 @@
           "renderingModes": [],
           "optIns": [],
           "stabilityLimitations": [
-            "Actual RC2 verification, not final-GA proof; PIN-962 and PIN-959 remain open."
+            "Actual GA verification, within the recorded verification scope; PIN-962 and PIN-959 remain open."
           ],
           "constraints": [
-            "Real same-user exclusion, cross-user isolation/global opt-in and unknown-UID failure/remedy on 10.0.13 and RC2; real 10.0.12 historical control.",
-            "Measured RC2 artifacts are not actual-GA evidence; PIN-959/PIN-962 remain open."
+            "Real same-user exclusion, cross-user isolation/global opt-in and unknown-UID failure/remedy on 10.0.13 and GA; real 10.0.12 historical control.",
+            "Measured GA artifacts cover only the recorded checks; PIN-959/PIN-962 remain open."
           ]
         },
         "sourceUrls": [
@@ -83,7 +83,7 @@
         ],
         "selectionNotes": [
           "Measured Linux x64 Docker, two real UIDs in one Unix session; no macOS or other Unix claim.",
-          "Real same-user exclusion, cross-user isolation/global opt-in and unknown-UID failure/remedy on 10.0.13 and RC2; real 10.0.12 historical control."
+          "Real same-user exclusion, cross-user isolation/global opt-in and unknown-UID failure/remedy on 10.0.13 and GA; real 10.0.12 historical control."
         ],
         "evidenceSamples": [
           "samples/net11.0/QuayMutex/QuayMutex.csproj"
@@ -107,7 +107,7 @@
   ],
   "evidence": [
     {
-      "scope": "Real same-user exclusion, cross-user isolation/global opt-in and unknown-UID failure/remedy on 10.0.13 and RC2; real 10.0.12 historical control.",
+      "scope": "Real same-user exclusion, cross-user isolation/global opt-in and unknown-UID failure/remedy on 10.0.13 and GA; real 10.0.12 historical control.",
       "sample": "samples/net10.0/QuayMutex/QuayMutex.csproj",
       "target": "net10.0",
       "language": "14.0",
@@ -115,12 +115,12 @@
       "sdk": "10.0.403"
     },
     {
-      "scope": "Real same-user exclusion, cross-user isolation/global opt-in and unknown-UID failure/remedy on 10.0.13 and RC2; real 10.0.12 historical control.",
+      "scope": "Real same-user exclusion, cross-user isolation/global opt-in and unknown-UID failure/remedy on 10.0.13 and GA; real 10.0.12 historical control.",
       "sample": "samples/net11.0/QuayMutex/QuayMutex.csproj",
       "target": "net11.0",
       "language": "15.0",
       "kind": "compile-and-run",
-      "sdk": "11.0.100-rc.3.26522.148"
+      "sdk": "11.0.100"
     }
   ],
   "humanProof": {

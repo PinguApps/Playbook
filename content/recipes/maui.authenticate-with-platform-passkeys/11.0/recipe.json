@@ -33,13 +33,13 @@
             "name": ".NET",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Canonical current target; RC authoring is not GA execution."
+            "reason": "Canonical current target; RC authoring is limited to the recorded checks execution."
           },
           "sdk": {
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Exact authoring pin is 11.0.100-rc.3.26522.148."
+            "reason": "Exact authoring pin is 11.0.100."
           },
           "language": {
             "name": "C#",
@@ -53,7 +53,7 @@
           "packages": [
             {
               "name": "Microsoft.Maui.Essentials",
-              "version": "11.0.0-rc.2.26505.5",
+              "version": "11.0.0",
               "match": "exact",
               "reason": "Exact inspected sample asset baseline."
             }
@@ -86,7 +86,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Stable public contract inspected in RC2; no GA execution claim."
+            "Stable public contract inspected in GA; no GA execution claim."
           ]
         },
         "sharedAreas": [],
@@ -128,7 +128,7 @@
     {
       "sample": "samples/net11.0/HeronKeys/HeronKeys.csproj",
       "target": "net11.0-windows10.0.19041.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "kind": "compile",
       "scope": "Actual Windows contract compilation; no native host or ceremony execution."

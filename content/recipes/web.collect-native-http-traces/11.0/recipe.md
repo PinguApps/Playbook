@@ -38,7 +38,7 @@ The newer HTTP-only pipeline removes the instrumentation package and registers `
 
 For the successful route, the measured native route is `Station/Index/{id?}`; for the error route it is `Station/Fault/{id?}`. The native failed activity has `ActivityStatusCode.Error`, a null `StatusDescription`, and `error.type=System.InvalidOperationException`. An exporter should read the supported tags and status rather than assuming a description contains diagnostic text.
 
-**RC2 observation:** this fixture receives no native exception event. Current documentation describes one, but its presence was not established by these artifacts. If exception-event export is required, configure and verify that path explicitly, with appropriate handling of sensitive messages/stacks. Do not infer it from a null status description or silently claim it exists.
+**GA observation:** this fixture receives no native exception event. Current documentation describes one, but its presence was not established by these artifacts. If exception-event export is required, configure and verify that path explicitly, with appropriate handling of sensitive messages/stacks. Do not infer it from a null status description or silently claim it exists.
 
 ### Directory.Build.props
 {{snippet:n11-directory-build-props}}
@@ -65,19 +65,21 @@ For the successful route, the measured native route is `Station/Index/{id?}`; fo
 3. Preserve other instrumentation the application actually uses. If the existing ASP.NET Core instrumentation registration also enables additional framework sources, metrics, filtering or enrichers, inventory those before removing it. Keeping a compatible instrumentation package can be appropriate; removing this example's HTTP-only dependency is not universal package-removal advice.
 4. Update dashboards/exporters for resolved conventional routes and null exception descriptions. Keep route templates for aggregation; never replace `http.route` with raw user paths or identifiers. Do not duplicate the native HTTP attributes in the domain processor.
 5. Save each complete file set separately, restore with its SDK, build Release and execute the built DLL using the absolute `dotnet` host. The newer executable starts a second fresh process for the suppression control; run the DLL through `dotnet`, as the evidence helper does.
-6. Confirm two HTTP responses, two distinct exported server spans, the expected source and route/status attributes, and retained business tags. The fresh suppression process must continue exporting two spans but show absent native method/status/route tags, an `Unset` error activity and null description in RC2.
-7. If temporarily enabling `Microsoft.AspNetCore.Hosting.SuppressActivityOpenTelemetryData`, do so before host creation. Treat it as a narrow switch, then rerun the actual exporter contract. It is not a full pre-11 rollback and does not recreate the old exception description or raw conventional-route tag. Reconcile these exact RC2 observations at GA.
+6. Confirm two HTTP responses, two distinct exported server spans, the expected source and route/status attributes, and retained business tags. The fresh suppression process must continue exporting two spans but show absent native method/status/route tags, an `Unset` error activity and null description in GA.
+7. If temporarily enabling `Microsoft.AspNetCore.Hosting.SuppressActivityOpenTelemetryData`, do so before host creation. Treat it as a narrow switch, then rerun the actual exporter contract. It is not a full pre-11 rollback and does not recreate the old exception description or raw conventional-route tag. Reconcile these exact GA observations at GA.
 
 ## Constraints
 
-- Applicability: ASP.NET Core 11 server requests. This edition does not expose a .NET 10 native-default route; the older example deliberately includes the compatible instrumentation dependency instead. C# 15 / SDK 11 RC3 and C# 14 / SDK 10.0.403 are verification pins.
+- Applicability: ASP.NET Core 11 server requests. This edition does not expose a .NET 10 native-default route; the older example deliberately includes the compatible instrumentation dependency instead. C# 15 / SDK 11 GA and C# 14 / SDK 10.0.403 are verification pins.
 - Managed dependencies: `OpenTelemetry` 1.20.1 plus its exact resolved API/provider-builder assets in the saved lock. The .NET 10 comparison additionally references `OpenTelemetry.Instrumentation.AspNetCore` 1.20.1. The framework source is not an extra NuGet package.
 - Platform/rendering: actual Windows x64 loopback MVC execution; no browser, database, workload, secret or cloud provider. The exporter records real completed activities locally. It does not demonstrate remote collector delivery, retries, retention or backend pricing.
 - Error metrics can gain an `error.type` dimension; review backend cardinality separately. No metrics/exporter-backend execution is claimed here. The suppression control proves continued activity creation and domain enrichment, not every switch interaction in every instrumentation package.
-- Suppression in the measured RC2 also removes the error status and route tag. It cannot be relied on to restore older route formatting, exception descriptions or a complete former exporter contract. This observed qualification is retained alongside the current official description rather than relabelling RC proof as GA behavior.
-- Stable API intent requires no experimental opt-in. Final .NET 11 GA source/runtime reconciliation remains outstanding under ADR 0004. Native error-event differences must be rechecked with final artifacts.
+- Suppression in the measured GA also removes the error status and route tag. It cannot be relied on to restore older route formatting, exception descriptions or a complete former exporter contract. This measured GA qualification is retained alongside the official description.
+- Stable API intent requires no experimental opt-in. The recorded GA runtime checks cover this Windows route. Other native error-event routes require separate verification.
 
 ## Evidence
+
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Both actual projects compile and run with their declared locked dependencies. Real successful and unhandled-error MVC requests flow through OpenTelemetry processors and a concrete exporter. Each run asserts exactly two distinct exported server spans, source identity, application enrichment, route format and relevant status/tags. The newer default run also launches a fresh-process switch control, avoiding an invalid attempt to reset static framework initialization in one process.
 

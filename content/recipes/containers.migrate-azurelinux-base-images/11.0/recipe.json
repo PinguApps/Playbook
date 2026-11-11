@@ -34,7 +34,7 @@
         "usage": "primary",
         "selectionNotes": [
           "Only target11 is advertised; the actual .NET10 comparison adds no ninth foundation. Existing recipe/edition identities and PIN-959/PIN-963/Human gates are preserved.",
-          "Azure Linux4 remains Beta under the reviewed official source. Exact RC2 execution is not actual-GA qualification.",
+          "Azure Linux4 remains Beta under the reviewed official source. Exact GA verification is limited to the recorded checks qualification.",
           "Managed framework-dependent runtime variant only. NativeAOT, ARM64, other variants and performance are unqualified.",
           "The missing-native control selects libquay_missing.so; it does not uninstall the base image library. Actual zlib export/call and non-invariant fr-FR formatting are checked."
         ],
@@ -67,13 +67,13 @@
           ],
           "renderingModes": [],
           "prerequisites": [
-            "Complete SDK10.0.403/ref10.0.13/C#14 and SDK11.0.100-rc.3.26522.148/ref11 RC2/C#15 for paired sample reproduction.",
+            "Complete SDK10.0.403/ref10.0.13/C#14 and SDK11.0.100/ref11 GA/C#15 for paired sample reproduction.",
             "Public MCR access for image acquisition; a working Linux amd64 Docker engine. Installed guidance is embedded offline.",
             "Selected Azure Linux3/4 runtime images must provide glibc, zlib libz.so.1 and ICU; InvariantGlobalization=false. No native compiler."
           ],
           "constraints": [
             "Only target11 is advertised; the actual .NET10 comparison adds no ninth foundation. Existing recipe/edition identities and PIN-959/PIN-963/Human gates are preserved.",
-            "Azure Linux4 remains Beta under the reviewed official source. Exact RC2 execution is not actual-GA qualification.",
+            "Azure Linux4 remains Beta under the reviewed official source. Exact GA verification is limited to the recorded checks qualification.",
             "Managed framework-dependent runtime variant only. NativeAOT, ARM64, other variants and performance are unqualified.",
             "The missing-native control selects libquay_missing.so; it does not uninstall the base image library. Actual zlib export/call and non-invariant fr-FR formatting are checked."
           ],
@@ -81,7 +81,7 @@
             "Explicit authored azurelinux4.0 base-image selection; Beta support decision required."
           ],
           "stabilityLimitations": [
-            "Azure Linux4 Beta status is retained. Actual RC2 and .NET10 servicing evidence does not qualify GA or arbitrary other tool/image versions."
+            "Azure Linux4 Beta status is retained. Actual GA and .NET10 servicing evidence does not qualify GA or arbitrary other tool/image versions."
           ]
         },
         "sourceUrls": [
@@ -122,7 +122,7 @@
       "kind": "compile-and-run",
       "sample": "samples/net11.0/QuayWorker/QuayWorker.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "scope": "Actual paired worker compilation and pinned Linux runtime execution; OS/native/globalization/missing-library failure. No AOT, other architecture, performance or GA claim."
     }

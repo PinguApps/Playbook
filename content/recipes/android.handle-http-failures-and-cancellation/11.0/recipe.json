@@ -44,7 +44,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Sample pins RC3; reviewed Android RC2 assets are not a tested RC3 workload composition."
+            "reason": "Sample pins GA; reviewed Android GA assets are not a tested GA workload composition."
           },
           "language": {
             "name": "C#",
@@ -61,11 +61,11 @@
               "name": "android",
               "version": "11.0",
               "match": "release-family",
-              "reason": "Compatible .NET11 Android workload required. Reviewed RC2 manifest/reference assets are37.2.0-rc.2.84; no compatible RC3 workload composition was tested."
+              "reason": "Compatible .NET11 Android workload required. Reviewed GA manifest/reference assets are37.2.29; no compatible GA workload composition was tested."
             }
           ],
           "packageAssets": [
-            "Microsoft.Android.Ref.37.2/37.2.0-rc.2.84 ref/net11.0/Mono.Android.dll"
+            "Microsoft.Android.Ref.37.2/37.2.29 ref/net11.0/Mono.Android.dll"
           ],
           "providers": [
             "No external service or account"
@@ -86,7 +86,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "RC source/artifact evidence, not GA certification.",
+            "Pinned source/artifact review only; no native compilation or device execution is established.",
             "Android NativeAOT remains experimental."
           ]
         },
@@ -127,10 +127,10 @@
     {
       "sample": "samples/net11.0/BreakwaterRequests/BreakwaterRequests.csproj",
       "language": "15.0",
-      "scope": "Pinned RC2 source contracts; RC3 native compilation unavailable.",
+      "scope": "Pinned RC2 source contracts; GA native compilation unavailable.",
       "kind": "official-review",
       "target": "net11.0-android37.2",
-      "sdk": "11.0.100-rc.3.26522.148"
+      "sdk": "11.0.100"
     }
   ],
   "humanProof": {

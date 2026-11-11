@@ -34,7 +34,7 @@
         ],
         "selectionNotes": [
           "Model SQL Server full-text catalogs and indexes, then retrieve relevance ranks with table-valued search functions.",
-          "Measured Windows x64 / SQL2025 CU10; EF11 RC3 evidence is not GA proof."
+          "Measured Windows x64 / SQL2025 CU10; EF11 GA records define measured coverage and retained exclusions."
         ],
         "usage": "primary",
         "target": "11.0",
@@ -49,7 +49,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Build the declared target. Exact recorded SDKs are verification baselines; current-release proof uses RC2, not GA."
+            "reason": "Build the declared target. Exact recorded SDKs are verification baselines; current-release proof uses GA."
           },
           "language": {
             "name": "C#",
@@ -65,7 +65,7 @@
               "name": "Microsoft.EntityFrameworkCore.SqlServer",
               "version": "11.0",
               "match": "release-family",
-              "reason": "EF11 SQL translation/defaults; actual baseline 11.0.0-rc.2.26504.105. Pin SqlClient7.1.0 and Pkcs10.0.13 as in the complete standalone project."
+              "reason": "EF11 SQL translation/defaults; actual baseline 11.0.0. Pin SqlClient7.1.0 and Pkcs10.0.13 as in the complete standalone project."
             }
           ],
           "packageAssets": [
@@ -92,7 +92,7 @@
             "EF9105 suppression accepts experimental vector API risk in the combined sample. Exact VECTOR_DISTANCE needs no PREVIEW_FEATURES opt-in. Preview vector indexes and VECTOR_SEARCH are outside this example."
           ],
           "stabilityLimitations": [
-            "Current sample uses EF11 RC2, not GA. Other client platforms and database engines unverified.",
+            "Current sample uses EF11 GA. Other client platforms and database engines unverified.",
             "Weighted similarity is application policy, not measured relevance quality. Embeddings are controlled fixtures, not generated semantic representations."
           ]
         },
@@ -129,7 +129,7 @@
       "target": "net11.0",
       "language": "15.0",
       "kind": "compile-and-run",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "scope": "Real SQL2025 CU10 full-text creation, CONTAINSTABLE/FREETEXTTABLE ranking, combined exact cosine-distance weighted query retaining semantic-only rows, and reverse cleanup. EF11 additionally generates forward/reverse migration commands from its model. No mocks or cross-compilation."
     }
   ],

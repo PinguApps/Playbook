@@ -22,7 +22,7 @@ comparison pins SDK 10.0.403, C# 14 and runtime 10.0.14:
 
 ## Newer approach
 
-The .NET 11 comparison pins SDK 11.0.100-rc.3.26522.148, C# 15 and matching RC2
+The .NET 11 comparison pins SDK 11.0.100, C# 15 and matching GA
 runtime:
 
 {{snippet:newer-project}}
@@ -37,7 +37,7 @@ for each. The packages intentionally share ID/version while comparing distinct
 TFM assets; never put both into one feed/cache. No package dependencies are added.
 Save the matching project as `MuseumCatalogue.csproj` and the checker as
 `Program.cs`, alongside a `global.json` pin for the stated SDK with
-`rollForward: "disable"` (and `allowPrerelease: true` for RC2). Run that
+`rollForward: "disable"` (and `allowPrerelease: false` for GA). Run that
 installation's absolute `dotnet` executable with
 `pack ./MuseumCatalogue.csproj -c Release -o 'C:\museum proof\feed-10'`;
 use a separate `feed-11` path for the newer package. Keep environment overrides
@@ -72,7 +72,7 @@ From that museum directory, invoke the intended installation's absolute `dotnet`
 executable with arguments `--version`, then with
 `dnx Gullhaven.Museum.Catalogue@1.0.0 --configfile NuGet.Config --no-http-cache -- "east wing cards.txt" --gallery "east wing"`.
 For the older route, use the SDK 10.0.403 installation and the `feed-10` package.
-For the primary route, use the SDK 11.0.100-rc.3.26522.148 installation, the newer
+For the primary route, use the SDK 11.0.100 installation, the newer
 project and its separate `feed-11` package/cache. Both packages retain version
 1.0.0. All paths refer to your authored files; no Playbook checkout is required.
 
@@ -98,15 +98,15 @@ separately. Do not equate SDK selection with the framework required by a tool.
 ## Verified selection cases
 
 The Windows check builds an isolated layout with actual SDKs 9.0.319, 10.0.403
-and 11 RC2. It copies each shipped 10.0.403 and RC2 wrapper unchanged, with its
+and 11 GA. It copies each shipped 10.0.403 and GA wrapper unchanged, with its
 hash recorded; the SDK/framework directories refer to the installed artifacts.
 It executes both original net10 and net11 tool packages in separate caches.
 
 | Working-directory pin | Explicit `dotnet dnx` | Either serviced wrapper in that layout |
 | --- | --- | --- |
-| SDK 9.0.319 | Fails: SDK has no dnx command; no tool execution | Runs with SDK 11 RC3 |
-| SDK 10.0.403 | Runs the net10 package with SDK 10.0.403 | Runs with SDK 11 RC3 |
-| SDK 11 RC3 | Runs with SDK 11 RC3 | Runs with SDK 11 RC3 |
+| SDK 9.0.319 | Fails: SDK has no dnx command; no tool execution | Runs with SDK 11 GA |
+| SDK 10.0.403 | Runs the net10 package with SDK 10.0.403 | Runs with SDK 11 GA |
+| SDK 11 GA | Runs with SDK 11 GA | Runs with SDK 11 GA |
 
 SDK 11 runs the net10 package on runtime 10.0.14. SDK 10.0.403 **rejects this
 net11-only package**, even with runtime 11 installed: its actual diagnostic is
@@ -133,7 +133,7 @@ exact forwarded arguments, successful unique-card checks and duplicate exit 7.
 4. If choosing the wrapper, document its bypass behavior and identify the
    actual selected SDK. Recheck after servicing or changing the installation;
    the publisher's introduction boundary is 10.0.302 / 10.0.400, while the actual
-   tested serviced artifact here is 10.0.403, compared with RC2.
+   tested serviced artifact here is 10.0.403, compared with GA.
 
 ## Constraints
 
@@ -153,11 +153,13 @@ Child homes disable automatic global-tools PATH integration.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 `eng/Test-ToolSdkSelection.ps1` reproduces the actual local package/SDK cases and
 its `-Record` mode saves fresh execution records after compilation capture.
 Exact SDK/framework/package hashes and commands are verification baselines,
 not a claim that the servicing boundary was independently binary-searched.
-No API is experimental; .NET 11 RC2 proof still requires actual GA reconciliation.
+No API is experimental; .NET 11 GA proof still requires actual GA reconciliation.
 
 ## Official references
 

@@ -1,7 +1,7 @@
 [CmdletBinding()]
 param(
   [string]$Docker = (Get-Command docker -CommandType Application | Select-Object -First 1).Source,
-  [string]$Image = 'mcr.microsoft.com/dotnet/sdk@sha256:9fc2f44fba54c579b9b650f6feea29beff050fb030d797eac697de85a94ad77f'
+  [string]$Image = 'mcr.microsoft.com/dotnet/sdk@sha256:65f3c7c6a25a239ab3e6719f2896147e7b68242ff2d8818dd70498bde6ef8bea'
 )
 
 $ErrorActionPreference = 'Stop'
@@ -43,7 +43,7 @@ $actual = Get-Content (Join-Path $results 'linux.json') -Raw | ConvertFrom-Json
 $after = Get-EvidenceInputs $root $sample
 if ((ConvertTo-Json $before -Compress) -cne (ConvertTo-Json $after -Compress)) { throw 'Process inputs changed during Linux verification.' }
 $record = [ordered]@{
-  kind = 'compile-and-run'; sample = $sample; target = 'net11.0'; sdk = '11.0.100-rc.3.26522.148'; language = '15.0'
+  kind = 'compile-and-run'; sample = $sample; target = 'net11.0'; sdk = '11.0.100'; language = '15.0'
   command = "eng/Test-ProcessPlatforms.ps1 -Docker '$Docker' -Image '$Image'; container: /usr/share/dotnet/dotnet build ProcessExecution.csproj --configuration Release -p:RestoreLockedMode=true; /usr/share/dotnet/dotnet ./bin/Release/net11.0/ProcessExecution.dll"
   scope = 'Linux x64 native process execution in an isolated network-disabled container; original input files copied unchanged. macOS not executed.'
   recordedAt = [DateTimeOffset]::UtcNow.ToString('O'); sourceCommit = (& (Get-Command git -CommandType Application).Source -C $root rev-parse HEAD).Trim()

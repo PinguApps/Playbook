@@ -13,13 +13,15 @@ The local `LocalTicket` scheme accepts deterministic test strings. It is deliber
 3. Use `OnAuthenticationRefresh` to reject disallowed claims. This local policy allows only visitor/surveyor clearance and rejects missing, unknown or suspended clearance. The built-in same-user check also remains: refresh is not a way to change the connection's user. Reconnect when identity/routing needs to change. Production policy must validate tenant and other application boundaries too.
 4. Handle success and failure events. Rejection is HTTP 403; the example proves the connection retains its last accepted principal. A failed refresh does not itself disconnect. Do not retry a policy rejection blindly; obtain valid credentials or sign in again. Expiry still closes the connection when configured.
 5. Override `OnAuthenticationRefreshedAsync` for post-refresh work. Later hub calls see accepted claims. Work already in progress and application-owned caches/groups need their own policy; this sample makes no concurrent-invocation or group-recalculation promise.
-6. For negotiate redirection, keep the application-token factory. The original application's `/refresh` endpoint must implement the redirecting server's refresh contract, including any replacement transport token. The local gateway below forwards refresh to its final local hub and returns a replacement token. Removing it yields HTTP 404 at `/gateway/refresh`, even though initial negotiation connects successfully. This bounded local gateway check establishes no Azure SignalR Service capability.
+6. For negotiate redirection, keep the application-token factory. The original application's `/refresh` endpoint must implement the redirecting server's refresh contract, including any replacement transport token. The local gateway forwards the private X-SignalR-Connection-Token header to its trusted local hub and returns a replacement token. Missing credentials return 401; a missing private connection token returns 400. Removing it yields HTTP 404 at `/gateway/refresh`, even though initial negotiation connects successfully. This bounded local gateway check establishes no Azure SignalR Service capability.
 
 ## TypeScript artifact qualification and offline setup
 
-At verification, npm `@microsoft/signalr` latest was 10.0.11 and next was 11.0.0-preview.7.26381.103. The latter lacks the final refresh API. Do not install a fictional matching RC2 npm version. The current comparison builds actual first-party sources at `4a70870818bf5662f21b0c28f9a8c267dccb77f0`, with its MIT license retained in generated output. The resulting client is a **development source build**, not a Microsoft-published/supported RC2 npm package. A production consumer needs a qualified matching client artifact; this recipe does not silently substitute the published Preview7 client.
+The current TypeScript comparison uses the published @microsoft/signalr 11.0.0 GA
+package. The older comparison keeps 10.0.11 through the signalr-previous npm
+alias. No development source build is required.
 
-Save the complete TypeScript files together. Run Node's npm CLI by absolute path to install dependencies with scripts disabled; `npm install --ignore-scripts --no-audit --no-fund` creates a lock, or use `npm ci` with the repository's supplied lock. Run `Build-Client.ps1`, then the local `node_modules/typescript/bin/tsc --project tsconfig.json`. The build downloads and SHA-256 checks the pinned first-party archive; network access is needed for this preparation. No source fetch is needed to read the installed guidance. The TypeScript 4.9.5 compiler and Node 24.21.0 identify verification, not a general production support policy.
+Save the complete TypeScript files together. Run Node's npm CLI by absolute path to install dependencies with scripts disabled; `npm install --ignore-scripts --no-audit --no-fund` creates a lock, or use `npm ci` with the repository's supplied lock. Run `Build-Client.ps1`, then the local `node_modules/typescript/bin/tsc --project tsconfig.json`. The package lock pins both published client dependency graphs; network access is needed to install them. Build-Client.ps1 checks the GA refresh APIs before the original TypeScript checks compile. No source fetch is needed to read the installed guidance. The TypeScript 4.9.5 compiler and Node 24.21.0 identify verification, not a general production support policy.
 
 Run each .NET project with `dotnet run -c Release` to execute its actual .NET client checks. To run the TypeScript check against that server, run the project with `-- --serve --urls http://127.0.0.1:5198`, then `node check.js http://127.0.0.1:5198/quarry 10` for the older server or `11` for current. Also run the current check with `/gateway`. Use your resolved absolute executables and the matching project SDK. These are local ephemeral test listeners, not production resources.
 
@@ -35,7 +37,7 @@ cannot redirect credentials. Its token strings are still test data, not a cloud
 transport-token issuer. Query-string tickets are accepted only on the hub path;
 production systems must avoid logging token-bearing query strings.
 
-Measured SDKs are 10.0.403 and 11.0.100-rc.3.26522.148; frameworks and .NET SignalR packages are 10.0.13 and 11.0.0-rc.2.26504.105. Locked dependencies and source/tool hashes accompany the evidence. No down-level client/server refresh route, automatic expiry scheduling, Windows authentication, cloud provider, browser TypeScript transport, every SignalR transport, trimming/AOT or actual-GA support is proved. TypeScript ran on Node with WebSockets. Use TLS and trusted token validation in production.
+Measured SDKs are 10.0.403 and 11.0.100; frameworks and .NET SignalR packages are 10.0.13 and 11.0.0. Locked dependencies and source/tool hashes accompany the evidence. No down-level client/server refresh route, automatic expiry scheduling, Windows authentication, cloud provider, browser TypeScript transport, every SignalR transport, trimming/AOT or universal provider support is proved. TypeScript ran on Node with WebSockets. Use TLS and trusted token validation in production.
 
 Blazor UI refresh is a separate subscription concern: see `blazor.react-to-refreshed-identity`. Framework propagation is context, not proof that an arbitrary authentication provider refreshes itself.
 
@@ -118,5 +120,7 @@ The complete current consumer uses the new refresh or notification contract.
 {{snippet:ts-check-ts}}
 
 ## Evidence
+
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 The saved evidence names the exact commands, inputs, SDKs, resolved packages and actual execution. `eng/Record-LiveIdentity.ps1` captures the real .NET/TypeScript and browser checks. Installed stdio inspection verifies delivery separately; it does not prove production identity-provider support.

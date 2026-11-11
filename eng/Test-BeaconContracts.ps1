@@ -1,5 +1,7 @@
 [CmdletBinding()]
-param([switch]$Record,[switch]$VerifySources)
+param([switch]$Record,[switch]$VerifySources,
+ [string]$Net10Dotnet=(Get-Command dotnet -CommandType Application|Select-Object -First 1).Source,
+ [string]$Net11Dotnet=$Net10Dotnet)
 $ErrorActionPreference='Stop'
 $PSNativeCommandUseErrorActionPreference=$true
 $root=Split-Path $PSScriptRoot -Parent
@@ -18,7 +20,7 @@ try {
  & $linker /NOLOGO /DLL /NOENTRY /NODEFAULTLIB /MACHINE:X64 "/OUT:$native/beacon.dll" "$native/beacon.obj"
  $toolchains=@("MSVC/$((Get-Item $compiler).VersionInfo.FileVersion)","MSVC-link/$((Get-Item $linker).VersionInfo.FileVersion)")
  foreach($target in 'net10.0','net11.0') {
-  $dotnet=if($target -eq 'net10.0'){(Get-Command dotnet -CommandType Application | Select-Object -First 1).Source}else{(Get-Command dotnet -CommandType Application | Select-Object -First 1).Source}
+  $dotnet=if($target -eq 'net10.0'){$Net10Dotnet}else{$Net11Dotnet}
   $sample="samples/$target/BeaconContracts/BeaconContracts.csproj"
   Push-Location "samples/$target/BeaconContracts"
   try { & $dotnet build -c Release -p:RestoreLockedMode=true } finally {Pop-Location}

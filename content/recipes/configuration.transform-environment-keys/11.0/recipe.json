@@ -32,7 +32,7 @@
         "requirements": {
           "sdk": {
             "match": "release-family",
-            "reason": "Build against .NET 11 references; exact RC2 pins record measured artifacts.",
+            "reason": "Build against .NET 11 references; exact GA pins record measured artifacts.",
             "name": ".NET SDK",
             "version": "11.0"
           },
@@ -70,7 +70,7 @@
           "renderingModes": [],
           "optIns": [],
           "stabilityLimitations": [
-            "Actual RC2 verification, not final-GA proof; PIN-962 and PIN-959 remain open."
+            "Actual GA verification, within the recorded verification scope; PIN-962 and PIN-959 remain open."
           ],
           "constraints": [
             "Mapping replaces default normalization; eliminate transformed-name collisions rather than depending on environment enumeration order.",
@@ -135,7 +135,7 @@
       "kind": "compile-and-run",
       "sample": "samples/net11.0/ObservatoryVariables/ObservatoryVariables.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "scope": "Actual Windows x64 child-process provider loading: default/null/custom/colon-dot maps, exact leaf keys/values, prefix/case, runs1-8, collision and precedence boundaries; current constructor/null-result failures. No special connection strings, other-platform or GA proof."
     }

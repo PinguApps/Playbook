@@ -35,13 +35,15 @@ The getter and setter retain the same external contract as the explicit-field ve
 
 ## Verified targets and optional SDK route
 
-This unchanged edition serves explicitly verified .NET 10 and .NET 11 application targets with the same canonical snippets and migration. Detail returns only the selected target's applicability routes. The .NET 11 target uses its own runtime, SDK family and exact-target evidence; it does not change the feature's introduction or the .NET 10 requirements. Only .NET 11 RC artifacts were executed; GA reconciliation is pending. Stable C# 14 syntax does not establish .NET 11 GA verification.
+This unchanged edition serves explicitly verified .NET 10 and .NET 11 application targets with the same canonical snippets and migration. Detail returns only the selected target's applicability routes. The .NET 11 target uses its own runtime, SDK family and exact-target evidence; it does not change the feature's introduction or the .NET 10 requirements. Current evidence uses SDK 11.0.100 GA. The configured C# 14 language mode remains independent of the SDK and runtime baseline.
 
 A newer SDK can build an older target. This **optional alternative** uses the .NET 11 SDK family while keeping `TargetFramework=net10.0`, `LangVersion=14.0` and the .NET 10 targeting pack/runtime. The primary .NET 10 SDK route above needs no .NET 11 installation. Playbook has not inspected the caller's environment. This route does not claim supported C# 15 syntax on .NET 10.
 
-The exact tested SDK was `11.0.100-rc.3.26522.148`; that is a reproducibility baseline, not a mandatory installation pin or an inferred minimum version. It compiled the same canonical source and ran the same checks on .NET 10. This is RC evidence, not GA verification.
+The exact tested SDK was `11.0.100`; that is a reproducibility baseline, not a mandatory installation pin or an inferred minimum version. It compiled the same canonical source and ran the same checks on .NET 10. Current GA records identify the measured compiler, target and runtime independently.
 
 ## Evidence and alternatives
+
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 The original projects use independent SDK pins and compile against their actual target frameworks. Their shared executable checks cover construction, normalization, null/blank/length rejection and preservation of the previous value. Run `eng/Verify.ps1` to rerun these checks. Compilation and these local execution checks establish only the demonstrated behavior, not application integration or concurrent safety.
 

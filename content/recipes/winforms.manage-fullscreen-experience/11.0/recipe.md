@@ -27,9 +27,11 @@ AlwaysOn defaults false and is independent of FullScreen. Enabling it requests b
 
 ## Constraints
 
-Windows Desktop runtime and STA are required. Current SDK11.0.100-rc.3.26522.148/C#15 is compared with SDK10.0.403/C#14. The framework supplies WindowsDesktop assets; no extra NuGet package, provider account, Blazor rendering mode or experimental opt-in. No .NET10 backport is claimed. RC2 compilation is not GA verification.
+Windows Desktop runtime and STA are required. Current SDK11.0.100/C#15 is compared with SDK10.0.403/C#14. The framework supplies WindowsDesktop assets; no extra NuGet package, provider account, Blazor rendering mode or experimental opt-in. No .NET10 backport is claimed. GA compilation is limited to the recorded checks.
 
 ## Evidence
+
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Both actual canonical projects compiled and ran. The .NET10 sample checked manual normal-window restoration. The .NET11 sample checked child-container resolution, normal restoration and maximized restoration on component disposal. In Pingu's approved Windows build26200 session, UI automation observed F11/Escape restoration from normal and maximized windows. Elevated powercfg /requests reported the component's display and system requests while the visible sample ran; both were absent before launch and after normal close. The sample and observer processes exited. The compact owner-session.evidence.json retains exact input/DLL identity and observations; Pingu confirmed: Yes, both looked correct. This satisfies the bounded PIN-898 owner check. No timed idle-to-sleep, screensaver, policy override, pointer hiding, other-platform or GA behaviour is proved.
 

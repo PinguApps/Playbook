@@ -61,7 +61,7 @@ throughput claim is made.
 6. Verify behavior beyond the old curated set before changing an allowlist.
    The framework's broader descriptive mapping must not silently expand accepted
    upload formats. Mapping data and ambiguous preferences can evolve between
-   releases; this recipe records observed RC2 cases, not a frozen universal table.
+   releases; this recipe records observed GA cases, not a frozen universal table.
 
 ## Constraints and alternatives
 
@@ -82,9 +82,11 @@ No network or registry lookup occurs in these demonstrated framework table calls
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 eng/Test-AttachmentFacts.ps1 -Record -VerifySources compiles and runs
 AttachmentLabels with SDK10.0.403/runtime10.0.14 and
-SDK11.0.100-rc.3.26522.148/runtime11.0.0-rc.3.26522.148. Both actual consumers use
+SDK11.0.100/runtime11.0.0. Both actual consumers use
 only framework dependencies, zero warnings/errors and no workloads. Saved records
 contain exact commands/input hashes, compiler/CoreLib identities and
 System.Runtime/System.Net.Mail references matched to the source audit.
@@ -101,7 +103,7 @@ of complete old/new table equivalence is made.
 The ordinary installed package is inspected offline through real stdio list/get
 using an isolated local feed/cache from an unrelated directory. Discovery,
 complete canonical Markdown, target11/edition11 applicability, explicit target10
-rejection and fresh paired evidence are checked. Windows x64 RC2 was executed;
+rejection and fresh paired evidence are checked. Windows x64 GA was executed;
 other platform path rules and final-GA mapping stability are unverified. The API
 is not marked experimental in the audited contract. PIN-959/PIN-962, other Human
 gates and the exact eight .NET 10 foundations retain their existing obligations.

@@ -38,7 +38,7 @@
             "name": ".NET"
           },
           "sdk": {
-            "reason": "Build against .NET 11 references; exact RC2 pin records verification.",
+            "reason": "Build against .NET 11 references; exact GA pin records verification.",
             "match": "release-family",
             "version": "11.0",
             "name": ".NET SDK"
@@ -70,7 +70,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "RC2 compilation/execution; GA reconciliation pending."
+            "GA compilation/execution; GA checks are limited to the recorded scope."
           ]
         },
         "sourceUrls": [
@@ -121,7 +121,7 @@
       "language": "14.0"
     },
     {
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "scope": "Real TCP HTTP/1.1 upload: wire encodings/media type, compressed bytes and exact decompression. .NET 10 gzip/br; .NET 11 also zstd.",
       "sample": "samples/net11.0/HttpCapacity/HttpCapacity.csproj",
       "target": "net11.0",

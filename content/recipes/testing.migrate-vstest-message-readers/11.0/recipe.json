@@ -46,13 +46,13 @@
             "name": ".NET",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Observed Windows x64 runtime 10.0.14 or runtime 11.0.0-rc.3.26522.148, separately from SDK/compiler selection."
+            "reason": "Observed Windows x64 runtime 10.0.14 or runtime 11.0.0, separately from SDK/compiler selection."
           },
           "sdk": {
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Actual sample SDK 10.0.403 and SDK 11.0.100-rc.3.26522.148; compiler versions recorded by executing their real csc.dll."
+            "reason": "Actual sample SDK 10.0.403 and SDK 11.0.100; compiler versions recorded by executing their real csc.dll."
           },
           "language": {
             "name": "C#",
@@ -104,7 +104,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "The .NET 11 SDK/runtime evidence is RC2, not actual GA reconciliation; TestHost 18.11.0 is the actual public stable package. No experimental API or opt-in is required.",
+            "The .NET 11 SDK/runtime evidence is GA reconciliation; TestHost 18.11.0 is the actual public stable package. No experimental API or opt-in is required.",
             "PIN-959 qualifying coverage/evidence and PIN-963 actual-GA/Human gates remain open."
           ]
         },
@@ -133,13 +133,13 @@
             "name": ".NET",
             "version": "10.0",
             "match": "release-family",
-            "reason": "Observed Windows x64 runtime 10.0.14 or runtime 11.0.0-rc.3.26522.148, separately from SDK/compiler selection."
+            "reason": "Observed Windows x64 runtime 10.0.14 or runtime 11.0.0, separately from SDK/compiler selection."
           },
           "sdk": {
             "name": ".NET SDK",
             "version": "10.0",
             "match": "release-family",
-            "reason": "Actual sample SDK 10.0.403 and SDK 11.0.100-rc.3.26522.148; compiler versions recorded by executing their real csc.dll."
+            "reason": "Actual sample SDK 10.0.403 and SDK 11.0.100; compiler versions recorded by executing their real csc.dll."
           },
           "language": {
             "name": "C#",
@@ -191,7 +191,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "The .NET 11 SDK/runtime evidence is RC2, not actual GA reconciliation; TestHost 18.11.0 is the actual public stable package. No experimental API or opt-in is required.",
+            "The .NET 11 SDK/runtime evidence is GA reconciliation; TestHost 18.11.0 is the actual public stable package. No experimental API or opt-in is required.",
             "PIN-959 qualifying coverage/evidence and PIN-963 actual-GA/Human gates remain open."
           ]
         },
@@ -250,7 +250,7 @@
     {
       "kind": "compile-and-run",
       "sample": "samples/net11.0/LaboratoryBridge/LaboratoryBridge.csproj",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "scope": "Actual audited 18.7/18.11 advanced-host closures, independent framework-dependent deployments, typed laboratory platform graphs, protocol 1/2 foreign wires, null/malformed/header/version failures, every removed public symbol, retained serializer operations and a real old-binary/new-platform ABI control. Concrete statistics limitation retained.",
       "target": "net11.0",
       "language": "15.0"

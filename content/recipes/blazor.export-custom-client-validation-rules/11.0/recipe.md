@@ -40,7 +40,7 @@ Rule names are case-sensitive, registrations are app-wide, and a repeated name r
 
 ## Migration
 
-1. Keep the server rule authoritative. Use Microsoft.NET.Sdk.Web, net11.0, C# 15.0, nullable and implicit usings enabled. The comparison uses net10.0/C# 14.0. No optional workload, native toolchain or experimental opt-in is required. The exact measured pins are SDK 10.0.403/framework and Internal.Assets 10.0.14 versus SDK 11.0.100-rc.3.26522.148/framework and Internal.Assets 11.0.0-rc.3.26522.148. SDK-aligned Internal.Assets is an implicit dependency, locked in each packages.lock.json; no additional PackageReference is required.
+1. Keep the server rule authoritative. Use Microsoft.NET.Sdk.Web, net11.0, C# 15.0, nullable and implicit usings enabled. The comparison uses net10.0/C# 14.0. No optional workload, native toolchain or experimental opt-in is required. The exact measured pins are SDK 10.0.403/framework and Internal.Assets 10.0.14 versus SDK 11.0.100/framework and Internal.Assets 11.0.0. SDK-aligned Internal.Assets is an implicit dependency, locked in each packages.lock.json; no additional PackageReference is required.
 2. Put AccessionAttribute, PlantEntry, Entry.razor and SubmissionCounts in namespace Playbook.Samples. Use _Imports.razor with @namespace Playbook.Samples and @using Microsoft.AspNetCore.Components, Microsoft.AspNetCore.Components.Forms, Microsoft.AspNetCore.Components.Routing, Microsoft.AspNetCore.Http and Playbook.Samples. Use this static document:
 
 {{snippet:document}}
@@ -61,8 +61,10 @@ Static SSR only, including enhanced and plain forms. Interactive forms use EditC
 
 Browser validation improves feedback and can always be bypassed. Never use it for authorization, uniqueness, persistence or accepting input. The sample accepts only in OnValidSubmit; a rejected post leaves the acceptance count unchanged. Antiforgery still applies to plain/direct posts.
 
-Requirements describe the .NET 11 release family; exact pins describe measured RC2 evidence. No optional older-target package route, trimming/AOT, WebAssembly/Auto transition, other-browser, screen-reader or actual-GA execution claim is made. The new APIs have no experimental annotation in the inspected RC2 assets.
+Requirements describe the .NET 11 release family; exact pins describe measured GA evidence. No optional older-target package route, trimming/AOT, WebAssembly/Auto transition, other-browser, screen-reader or actual-GA execution claim is made. The new APIs have no experimental annotation in the inspected GA assets.
 
 ## Evidence
 
-Four enhanced/plain browser runs across the two releases exercise six invalid shapes, valid acceptance, correct document preservation/navigation, and a bypass rejected by the server. Four corresponding direct-request sets exercise seven values with real antiforgery tokens. RC2 checks additionally inspect the actual custom rule mapping and execute per-form/global opt-outs. Canonical compile and separate execution records bind the actual inputs; browser/request tests are real, not metadata-only or mocked. Installed-package list/get checks verify the full offline body and snippet identity separately.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
+Four enhanced/plain browser runs across the two releases exercise six invalid shapes, valid acceptance, correct document preservation/navigation, and a bypass rejected by the server. Four corresponding direct-request sets exercise seven values with real antiforgery tokens. GA checks additionally inspect the actual custom rule mapping and execute per-form/global opt-outs. Canonical compile and separate execution records bind the actual inputs; browser/request tests are real, not metadata-only or mocked. Installed-package list/get checks verify the full offline body and snippet identity separately.

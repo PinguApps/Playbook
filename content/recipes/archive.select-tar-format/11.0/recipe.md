@@ -14,7 +14,7 @@ TarWriter already selects a format. This finite example explicitly walks immedia
 
 ## Newer approach
 
-Create the corresponding net11.0 / C# 15 project with the same imports and implicit usings. These are framework APIs, not an independently versioned compression package. The canonical sample is verified against .NET 11 RC2.
+Create the corresponding net11.0 / C# 15 project with the same imports and implicit usings. These are framework APIs, not an independently versioned compression package. The canonical sample is verified against .NET 11 GA.
 
 The format overload on TarFile.CreateFromDirectory removes the manual walk and handles the directory tree. Pass the receiver's agreed TarEntryFormat rather than assuming every tool accepts PAX. The corresponding CreateFromDirectoryAsync overload accepts format and a cancellation token.
 
@@ -32,12 +32,14 @@ Read the selected representation through TarReader; sparse 1.0 reconstruction is
 
 ## Constraints
 
-TAR stores entries without compressing them. V7 has the oldest/narrowest metadata/name representation; Ustar improves compatibility with constrained legacy readers; PAX carries extended names/metadata; GNU uses GNU extensions. Choose from receiver requirements, not operating-system branding. The earlier directory convenience overload still defaults to PAX. Format limits can reject data rather than preserving every name/metadata field. GNU sparse 1.0 is a PAX representation: RC2 TarReader reconstructs logical content and holes from its map automatically. This does not mean selecting TarEntryFormat.Gnu creates sparse 1.0 output or preserves physical filesystem allocation. The original fixture exposes 517 stored map/data bytes on .NET 10, but 16 logical bytes on RC2. For older receivers request a compatible/materialised representation; do not treat raw sparse map bytes as the file. General hard-link preservation/extraction policy is separate migration work (PIN-684). No sparse writer or physical sparse-file allocation claim is made.
+TAR stores entries without compressing them. V7 has the oldest/narrowest metadata/name representation; Ustar improves compatibility with constrained legacy readers; PAX carries extended names/metadata; GNU uses GNU extensions. Choose from receiver requirements, not operating-system branding. The earlier directory convenience overload still defaults to PAX. Format limits can reject data rather than preserving every name/metadata field. GNU sparse 1.0 is a PAX representation: GA TarReader reconstructs logical content and holes from its map automatically. This does not mean selecting TarEntryFormat.Gnu creates sparse 1.0 output or preserves physical filesystem allocation. The original fixture exposes 517 stored map/data bytes on .NET 10, but 16 logical bytes on GA. For older receivers request a compatible/materialised representation; do not treat raw sparse map bytes as the file. General hard-link preservation/extraction policy is separate migration work (PIN-684). No sparse writer or physical sparse-file allocation claim is made.
 
-This edition has no external provider, workload, rendering requirement or experimental opt-in. Shared Blazor applicability means server-side code; it is not browser execution proof. All sample dependencies are framework-provided. Exact SDK pins 10.0.403 and 11.0.100-rc.3.26522.148 are reproducibility baselines, not mandatory exact consumer installations. RC verification does not establish GA behaviour or every platform's behaviour.
+This edition has no external provider, workload, rendering requirement or experimental opt-in. Shared Blazor applicability means server-side code; it is not browser execution proof. All sample dependencies are framework-provided. Exact SDK pins 10.0.403 and 11.0.100 are reproducibility baselines, not mandatory exact consumer installations. GA verification is limited to the recorded platforms and checks.
 
 ## Evidence
 
-Both actual target projects create/read all four formats and restore identical contents. An independently authored GNU sparse 1.0 PAX fixture with two extents verifies RC2 logical size, data and zero-filled holes, alongside the older stored-byte behaviour.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
+Both actual target projects create/read all four formats and restore identical contents. An independently authored GNU sparse 1.0 PAX fixture with two extents verifies GA logical size, data and zero-filled holes, alongside the older stored-byte behaviour.
 
 The actual declared .NET 10 and .NET 11 projects compile and execute on Windows with zero warnings/errors. Saved records identify source hashes, SDK/target/language, resolved dependencies, commands, host and output; freshness is checked at package build. These are execution records, not source-review-only, cross-compilation or mock claims. The existing installed-tool harness independently verifies the complete canonical body, target-11 applicability/edition and target-10 refusal offline from an unrelated directory. Comprehensive catalogue and public-release readiness remain separate gates.

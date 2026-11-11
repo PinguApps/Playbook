@@ -31,8 +31,10 @@ The compiled value can be observed directly rather than inferred from a director
 
 This is an SDK/default-selection change, not a change to Debug or Release semantics in the runtime. Explicit project properties and custom targets can introduce their own behavior. CLI option precedence does not make every downstream MSBuild property immune to authored overrides. Publish here means creating files locally; no deployment, account or registry publication is performed.
 
-The canonical C# managed projects require no provider, rendering mode, package or native workload. No performance, trimming or AOT claim follows from their configuration labels. SDK 11 evidence uses RC2.
+The canonical C# managed projects require no provider, rendering mode, package or native workload. No performance, trimming or AOT claim follows from their configuration labels. SDK 11 evidence uses GA.
 
 ## Evidence
+
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Actual SDK-10/11 publish commands with ambient Debug produce Release/Debug respectively. Both run commands honour an explicit -c Debug even under ambient Release or whitespace. The published assemblies are executed and report their compiled configurations as JSON. Saved compilation and command records plus installed full-body/applicability checks keep the documented distinction traceable.

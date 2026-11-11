@@ -1,5 +1,5 @@
 {
-  "taskPackage": "Microsoft.Maui.Resizetizer/11.0.0-rc.2.26505.5",
+  "taskPackage": "Microsoft.Maui.Resizetizer/11.0.0",
   "outputs": [
     {
       "sha256": "1c4050364f1c16ac92b296944bea7a78893d99fbe1dafe6d698d6bf40bb51d66",
@@ -26,12 +26,12 @@
       "path": "splash/values-night/maui_colors.xml"
     }
   ],
-  "command": "dotnet msbuild samples/net11.0/TernAssets/AssetChecks.proj -t:Check -p:ResizetizerAssembly=<actual pinned package assembly>",
-  "scope": "Real Windows execution of RC2 task assembly on SDK10.0.403, original canonical assets. Monochrome XML/PNG, distinct day/night splash colors/PNGs and resized marker generated. Not Android app compilation/packaging, launcher execution, pixel-quality assessment or Apple actool.",
-  "sdk": "10.0.403",
-  "projectSha256": "6683556e0d80f0b684abc5d8692b7feb8ec80fef616cc004306a0b40d6db0dcb",
-  "taskAssemblySha256": "09c8085df46134d4b8375629a8d074760e9a90af8a524e426f3d425c72ecdf22",
-  "recordedAt": "2026-11-06T14:36:53.3856847+00:00",
+  "command": "C:/Users/pingu/AppData/Local/dotnetup/dotnet/dotnet.exe msbuild samples/net11.0/TernAssets/AssetChecks.proj -t:Check -p:ResizetizerAssembly=C:/Users/pingu/.nuget/packages/microsoft.maui.resizetizer/11.0.0/buildTransitive/Microsoft.Maui.Resizetizer.dll -p:Out=V:/_worktrees/Playbook/t3-1fc79082/artifacts/ga-tern-assets-ga/",
+  "scope": "Actual Microsoft.Maui.Resizetizer 11.0.0 tasks executed on Windows with SDK11.0.100: monochrome icon resources, resized images and distinct light/dark splash resources. No native app compilation, packaging, device rendering or visual-quality claim.",
+  "sdk": "11.0.100",
+  "projectSha256": "d536fa51d5de6f9ee00dda86465f03ccef2c801b778094367e14869b1e218961",
+  "taskAssemblySha256": "fd0deebdd2d8396dadae741b534c0afbd9aa7c69e27a17ab0c524c6c70314f88",
+  "recordedAt": "2026-11-11T02:11:26.4738952+00:00",
   "project": "samples/net11.0/TernAssets/AssetChecks.proj",
   "sourceInputs": [
     {

@@ -39,7 +39,7 @@
             "name": ".NET / ASP.NET Core",
             "match": "release-family",
             "version": "11.0",
-            "reason": "Current route; exact execution uses RC2, not GA."
+            "reason": "Current route; exact execution uses GA."
           },
           "sdk": {
             "name": ".NET SDK",
@@ -97,13 +97,13 @@
           ],
           "constraints": [
             "Changing the property selects packaged UI/assets; it does not rewrite customized Razor or CSS. Only the bounded form/checkbox/button selectors shown here are migrated.",
-            "Bootstrap4 still builds in the measured RC2 package but produces an obsolete-support warning. Do not suppress that warning as a migration. Remove BOTH IdentityUIFrameworkVersion and an inherited IdentityDefaultUIFramework when choosing defaults. An empty GLOBAL MSBuild property is not equivalent to removing it.",
+            "Bootstrap4 still builds in the measured GA package but produces an obsolete-support warning. Do not suppress that warning as a migration. Remove BOTH IdentityUIFrameworkVersion and an inherited IdentityDefaultUIFramework when choosing defaults. An empty GLOBAL MSBuild property is not equivalent to removing it.",
             "Keep existing confirmation/lockout/session policy and antiforgery. This fixture uses PasswordSignInAsync, requires confirmed accounts, validates local return URLs and checks denied/allowed fresh principals. The form is not a complete production Identity replacement: add the application's existing 2FA, recovery, external-login and accessibility requirements when applicable.",
             "Fixture-only accounts, ephemeral keys, EnsureCreated database and HTTP loopback are test infrastructure; use production key storage, HTTPS, schema migrations and legitimate account lifecycle services. The browser checks are one Windows Chromium viewport, not all assistive technology or mobile proof."
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Exact reproduction uses SDK10.0.403 / framework10.0.14 / C#14 versus SDK11.0.100-rc.3.26522.148 / framework11.0.0-rc.3.26522.148 / C#15. These are tested pins, not minimum supported versions. RC2 is not actual-GA proof. The exact eight approved .NET10 foundations, stable identities, PIN-959/PIN-963/PIN-964 and unrelated Human gates remain unchanged."
+            "Exact reproduction uses SDK10.0.403 / framework10.0.14 / C#14 versus SDK11.0.100 / framework11.0.0 / C#15. These are tested pins, not minimum supported versions. GA is limited to the recorded checks. The exact eight approved .NET10 foundations, stable identities, PIN-959/PIN-963/PIN-964 and unrelated Human gates remain unchanged."
           ]
         },
         "sourceUrls": [
@@ -161,7 +161,7 @@
     },
     {
       "scope": "Both actual dependency sets compile. Published HTTP checks cover custom layout/CSS, missing-token 400, validation, denied unconfirmed account, allowed confirmed account and rejected external return URL. Actual package targets produce the Bootstrap4 warning. Both explicit5 and property-removal copies publish and execute. Chromium152/Electron44 on Windows at1280x800 rendered login and validation for all three publishes: loaded local stylesheets, labeled inputs, 480px panels, 414px buttons, readable red error text and no horizontal overflow; screenshots were visually inspected. This is server validation, not unobtrusive/client JavaScript proof.",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "sample": "samples/net11.0/VolunteerAccess/VolunteerAccess.csproj",
       "kind": "compile",
       "language": "15.0",
@@ -170,7 +170,7 @@
     {
       "scope": "Actual selected managed/native/tool/package/compiler/reference qualification and published behavior where applicable; no mock, cross-compilation or source review substitutes for execution.",
       "record": "samples/net11.0/VolunteerAccess/artifacts.evidence.json",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "sample": "samples/net11.0/VolunteerAccess/VolunteerAccess.csproj",
       "kind": "execution",
       "language": "15.0",
@@ -179,7 +179,7 @@
     {
       "scope": "Actual published Chromium login/validation layout and local CSS observations, with visually inspected retained screenshots. Current explicit5 and property-removal publishes both exercised. Not client JavaScript, all accessibility/mobile or GA proof.",
       "record": "samples/net11.0/VolunteerAccess/browser.evidence.json",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "sample": "samples/net11.0/VolunteerAccess/VolunteerAccess.csproj",
       "kind": "execution",
       "language": "15.0",

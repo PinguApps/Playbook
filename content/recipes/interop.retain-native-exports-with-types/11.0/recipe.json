@@ -32,7 +32,7 @@
         "requirements": {
           "sdk": {
             "match": "release-family",
-            "reason": "Build against .NET 11 references; exact RC2 pins record measured artifacts.",
+            "reason": "Build against .NET 11 references; exact GA pins record measured artifacts.",
             "name": ".NET SDK",
             "version": "11.0"
           },
@@ -53,7 +53,7 @@
           ],
           "packages": [],
           "packageAssets": [
-            "PublishAot implicitly restores Microsoft.DotNet.ILCompiler and runtime.win-x64.Microsoft.DotNet.ILCompiler at publish time; no explicit PackageReference is required. Comparison lock files pin actual 10.0.13 and 11 RC2 assets."
+            "PublishAot implicitly restores Microsoft.DotNet.ILCompiler and runtime.win-x64.Microsoft.DotNet.ILCompiler at publish time; no explicit PackageReference is required. Comparison lock files pin actual 10.0.13 and 11 GA assets."
           ],
           "workloads": [],
           "prerequisites": [
@@ -68,11 +68,11 @@
           "renderingModes": [],
           "optIns": [],
           "stabilityLimitations": [
-            "Actual RC2 verification, not final-GA proof; PIN-962 and PIN-959 remain open."
+            "Actual GA verification, within the recorded verification scope; PIN-962 and PIN-959 remain open."
           ],
           "constraints": [
             "Real retained/trimmed AOT shared-library exports and independent C invocation; old unconditional-export and unnamed-export controls.",
-            "Measured RC2 artifacts are not actual-GA evidence; PIN-959/PIN-962 remain open."
+            "Measured GA artifacts cover only the recorded checks; PIN-959/PIN-962 remain open."
           ]
         },
         "sourceUrls": [
@@ -119,7 +119,7 @@
       "target": "net11.0",
       "language": "15.0",
       "kind": "compile-and-run",
-      "sdk": "11.0.100-rc.3.26522.148"
+      "sdk": "11.0.100"
     }
   ],
   "humanProof": {

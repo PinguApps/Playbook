@@ -32,6 +32,8 @@ The documented native mappings are MLDsa44WithECDsaP256, MLDsa65WithECDsaP256, M
 
 ## Evidence
 
-On Windows 10.0.26200, actual .NET 10.0.13 and .NET 11 RC2 consumers both sign/verify and reject tampered data using 44/P256. Only that ECDSA set was exercised. The older RSA2048/PSS composite succeeds; the current exact-set probe returns false and the canonical boundary throws PlatformNotSupportedException. Other native sets and Windows builds are not claimed.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
-Canonical projects: samples/net10.0/ObservatoryBulletins and samples/net11.0/ObservatoryBulletins. Record-Evidence.ps1 captures actual SDK/runtime output, input identity and native DLL versions/hashes. RC2 does not establish GA behavior. The original immutable dispatch, mapping and migration-note references accompany the offline metadata.
+On Windows 10.0.26200, actual .NET 10.0.13 and .NET 11 GA consumers both sign/verify and reject tampered data using 44/P256. Only that ECDSA set was exercised. The older RSA2048/PSS composite succeeds; the current exact-set probe returns false and the canonical boundary throws PlatformNotSupportedException. Other native sets and Windows builds are not claimed.
+
+Canonical projects: samples/net10.0/ObservatoryBulletins and samples/net11.0/ObservatoryBulletins. Record-Evidence.ps1 captures actual SDK/runtime output, input identity and native DLL versions/hashes. GA does not establish GA behavior. The original immutable dispatch, mapping and migration-note references accompany the offline metadata.

@@ -42,7 +42,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "RC3 SDK intended; pinned Apple RC2 source/artifact review is separate from a tested native workload composition."
+            "reason": "GA SDK intended; pinned Apple Historical RC2 source and GA artifact review is separate from a tested native workload composition."
           },
           "language": {
             "name": "C#",
@@ -59,7 +59,7 @@
               "match": "release-family",
               "version": "11.0",
               "name": "ios",
-              "reason": "Compatible workload required; RC3 native composition not built."
+              "reason": "Compatible workload required; GA native composition not built."
             }
           ],
           "packageAssets": [
@@ -77,11 +77,11 @@
           ],
           "prerequisites": [
             "Matching Apple workload and Xcode for actual native app/binding builds.",
-            "Verification uses SDK11.0.100-rc.3.26522.148, exact RC2 Apple artifacts; no experimental API opt-in."
+            "Verification uses SDK11.0.100, exact GA Apple artifacts; no experimental API opt-in."
           ],
           "constraints": [
             ".NET10 comparisons do not add a catalogue edition or older-target route.",
-            "RC3 compiler/MSBuild plus RC2 tools/reference tests are not a complete supported native workload composition.",
+            "GA compiler/MSBuild plus GA tools/reference tests are not a complete supported native workload composition.",
             "Xcode/native build, signing and device execution are not-tested under PIN-699.",
             "No package publication, provisioning, trust change or Human action is authorized or pending."
           ],
@@ -154,8 +154,8 @@
       "sample": "samples/net11.0/OystercatcherManifest/OystercatcherManifest.csproj",
       "language": "15.0",
       "target": "net11.0-ios27.0",
-      "sdk": "11.0.100-rc.3.26522.148",
-      "scope": "Pinned source/artifact review; real RC2 plist/strip task output and generated nullable factory/consumer reference compilation. No native workload compilation/execution or GA claim."
+      "sdk": "11.0.100",
+      "scope": "Pinned source/artifact review; real GA plist/strip task output and generated nullable factory/consumer reference compilation. No native workload compilation/execution or GA claim."
     }
   ],
   "humanProof": {

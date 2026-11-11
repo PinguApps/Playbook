@@ -29,9 +29,9 @@ try {
   foreach($check in $source.checks){if(-not [Text.Encoding]::UTF8.GetString($bytes).Contains($check)){throw "Missing source contract: $check"}}
  }
  $dotnetRoot=Split-Path $Dotnet -Parent
- $sdk='11.0.100-rc.3.26522.148'
+ $sdk='11.0.100'
  $compiler="$dotnetRoot/sdk/$sdk/Roslyn/bincore/csc.dll"
- $referenceFiles=@(Get-ChildItem "$dotnetRoot/packs/Microsoft.NETCore.App.Ref/11.0.0-rc.3.26522.148/ref/net11.0/*.dll")
+ $referenceFiles=@(Get-ChildItem "$dotnetRoot/packs/Microsoft.NETCore.App.Ref/11.0.0/ref/net11.0/*.dll")
  $ios="$scratch/reference/ref/net11.0/Microsoft.iOS.dll"
  $attributes="$scratch/sdk/tools/lib/Xamarin.Apple.BindingAttributes.dll"
  $references=@($referenceFiles | ForEach-Object {'/r:'+ $_.FullName})+@("/r:$ios","/r:$attributes")

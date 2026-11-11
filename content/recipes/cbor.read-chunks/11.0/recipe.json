@@ -63,7 +63,7 @@
               "name": "System.Formats.Cbor",
               "version": "11.0",
               "match": "release-family",
-              "reason": "Incremental reader APIs are in System.Formats.Cbor 11; exact RC2 pins are recorded in sample evidence."
+              "reason": "Incremental reader APIs are in System.Formats.Cbor 11; exact GA pins are recorded in sample evidence."
             }
           ],
           "packageAssets": [
@@ -79,11 +79,11 @@
             "Use a net11.0 console project with LangVersion=15.0 and a System.Formats.Cbor 11 package reference. Include the imports stated in the recipe."
           ],
           "constraints": [
-            "Incremental mode requires Lax; Strict/Canonical modes reject a non-final initial block in RC2. NeedsMoreData means obtain a larger valid window, not retry the same read in a busy loop. SlideData must preserve unconsumed bytes; a chunk can end inside one token. This narrow parser accepts one definite/indefinite measurement array of Int32 values, rejects other states and trailing roots, and retains all decoded results in a List: it does not promise bounded total result memory. Bound incoming chunk/token size and total measurements at the application boundary for untrusted data. Lax is a conformance choice, not permission to trust malformed or unlimited input. Default nesting limits/options are a separate goal; this single-level parser does not change them."
+            "Incremental mode requires Lax; Strict/Canonical modes reject a non-final initial block in GA. NeedsMoreData means obtain a larger valid window, not retry the same read in a busy loop. SlideData must preserve unconsumed bytes; a chunk can end inside one token. This narrow parser accepts one definite/indefinite measurement array of Int32 values, rejects other states and trailing roots, and retains all decoded results in a List: it does not promise bounded total result memory. Bound incoming chunk/token size and total measurements at the application boundary for untrusted data. Lax is a conformance choice, not permission to trust malformed or unlimited input. Default nesting limits/options are a separate goal; this single-level parser does not change them."
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "RC2 verification; GA reconciliation remains pending."
+            "GA verification; GA checks are limited to the recorded scope."
           ]
         },
         "sourceUrls": [
@@ -118,7 +118,7 @@
     {
       "sample": "samples/net11.0/BinaryData/BinaryData.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "kind": "compile-and-run",
       "scope": "Actual BinaryData compilation and focused execution on Windows. No mocks, cross-compilation, native deployment or GA proof."

@@ -45,8 +45,10 @@ The sample's `LocalRegistry=Podman` is an explicit destination choice, not a req
 
 ## Evidence and limitations
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 The canonical .NET10 and .NET11 projects now have actual locked compilation records from Windows, using their declared SDKs and dependencies. The original official-source review is retained separately. Compilation alone does not compare image indexes, manifests/configs/layers or archive bytes across independent publishes.
 
 The pre-GA preview is explicitly provisional. Pending proof remains visible in discovery/detail and blocks stable readiness. The approved preview evidence register names this exact edition, canonical samples, limitations and its final-reconciliation owner; it does not claim successful unperformed checks.
 
-Two SDK11 publishes separated by a clean produced matching OCI image-index identities and matching content hashes for all 19 regular archive entries. Archive-file hashes differed. This is bounded RC3 image-object evidence, not archive-byte or final-GA reproducibility.
+Two SDK11 publishes separated by a clean produced matching OCI image-index identities and matching content hashes for all 19 regular archive entries. Archive-file hashes differed. This is bounded GA image-object evidence, not archive-byte or final-GA reproducibility.

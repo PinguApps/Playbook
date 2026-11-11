@@ -43,7 +43,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Build net11.0 references; the exact RC3 SDK is an evidence baseline."
+            "reason": "Build net11.0 references; the exact GA SDK is an evidence baseline."
           },
           "language": {
             "name": "C#",
@@ -76,7 +76,7 @@
             "Scoped SYSLIB5007 suppression after reviewing the experimental TLS contract."
           ],
           "stabilityLimitations": [
-            "Experimental SYSLIB5007 can change independently of runtime stability; RC2 execution, GA reconciliation pending."
+            "Experimental SYSLIB5007 can change independently of runtime stability; GA execution, GA checks are limited to the recorded scope."
           ]
         },
         "sourceUrls": [
@@ -133,7 +133,7 @@
       "kind": "compile-and-run",
       "sample": "samples/net11.0/CallerTls/CallerTls.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "scope": "Windows real TLS: older SslStream TCP echo; newer caller-owned memory transfers with fragmented handshake, 50000-byte records, wrong-host rejection and close_notify. No socket-session or other-provider proof."
     }

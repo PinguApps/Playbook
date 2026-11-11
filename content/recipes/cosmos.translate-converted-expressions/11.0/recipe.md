@@ -16,7 +16,7 @@ EF11 accepts the numeric cast expression without a translation failure. The meas
 
 ## Migration
 
-1. Pin the actual SDK, target and provider graph shown below. Restore the independent locks; EF11 requires net11.0. The historical audit used SDK10.0.402 and SDK11 RC2; these consumers use SDK10.0.403 and SDK11 RC3 with Cosmos11 RC3.
+1. Pin the actual SDK, target and provider graph shown below. Restore the independent locks; EF11 requires net11.0. The historical audit used SDK10.0.402 and SDK11 GA; these consumers use SDK10.0.403 and SDK11 GA with Cosmos11 GA.
 2. Keep a selective server predicate before the EF10 materialization boundary. The original comparison reads only the valid document before doing client math and concatenation. Avoid materializing an unbounded container.
 3. On EF11, compose numeric casts with the math expression and label in the query. Inspect ToQueryString and execute it. The example checks the actual returned label, not merely SQL text.
 4. Treat numeric casts carefully: Cosmos omits numeric casts in the measured command. A cast to int does not establish CLR truncation or range validation. The range control still labels 1e100; do not use the cast as a business validation rule. Rounding/truncation migration remains the separate numeric-projection recipe.
@@ -89,4 +89,6 @@ Windows x64 and the approved digest-pinned Cosmos emulator in gateway mode were 
 
 ## Evidence
 
-Independent locked builds and real focused execution were recorded on Windows x64 with SDK10.0.403 and SDK11 RC3. Compilation, service execution and installed offline retrieval establish separate claims. Review the embedded evidence entries for exact inputs, dependencies and command outputs; freshness describes package-build inputs, not the consumer machine or GA. Cosmos uses the approved loopback emulator; cloud parity remains unverified.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
+Independent locked builds and real focused execution were recorded on Windows x64 with SDK10.0.403 and SDK11 GA. Compilation, service execution and installed offline retrieval establish separate claims. Review the embedded evidence entries for exact inputs, dependencies and command outputs; freshness describes package-build inputs, not the consumer machine or GA. Cosmos uses the approved loopback emulator; cloud parity remains unverified.

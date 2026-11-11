@@ -59,8 +59,10 @@ Generated IDs follow field expressions; they aren't random instance identifiers.
 
 A wrapping label should contain one intended labelable control. DisplayName renders text and doesn't associate it with an input. Built-in static SSR inputs are verified here; custom InputBase implementations and interactive transitions need their own checks.
 
-The exact baselines are SDK 10.0.403 / ASP.NET Core 10.0.14 and SDK 11.0.100-rc.3.26522.148 / ASP.NET Core 11.0.0-rc.3.26522.148, Windows x64 and Chromium 152. RC proof is not GA verification, screen-reader operation, trimming/AOT proof or a platform/browser matrix. No conditional newer-package/older-runtime route or extra .NET 10 foundation edition is advertised.
+The exact baselines are SDK 10.0.403 / ASP.NET Core 10.0.14 and SDK 11.0.100 / ASP.NET Core 11.0.0, Windows x64 and Chromium 152. The checks do not establish screen-reader operation, trimming/AOT proof or a platform/browser matrix. No conditional newer-package/older-runtime route or extra .NET 10 foundation edition is advertised.
 
 ## Evidence
+
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Both apps compile and render four editable controls. Real browser DOM checks prove every label.control association, unique IDs across two repeated editors, wrapping contact and separate lead/diver labels. The older manually supplied IDs and newer generated IDs identify corresponding controls. Enhanced/plain submission tests exercise the actual rendered forms; no screen-reader claim is made.

@@ -83,10 +83,12 @@ EF Core11 requires .NET11 and a supporting relational translation. These exact s
 
 Both query styles select results in the database. The comparison is about composition and clarity, with no throughput claim. Integer scores and unique Id tie breakers define the winner. Seed codes are unique and non-null: duplicate keys in a real full join produce every matching pair, and nullable keys/collations require their own business rules. This sample makes no multi-query snapshot or concurrent-write guarantee. Non-entity missing projections belong to the separate materialization guidance.
 
-The stable API contract is prepared from RC2 evidence with no experimental opt-in. GA reconciliation remains outstanding. The historical .NET10 comparison adds no target10 edition or foundation.
+The stable API contract is prepared from GA evidence with no experimental opt-in. GA checks are limited to the recorded scope. The historical .NET10 comparison adds no target10 edition or foundation.
 
 ## Evidence
 
-The original paired MarshSurvey projects declare SDK10.0.403/EF10.0.13/SqlClient6.1.7 and SDK11.0.100-rc.3.26522.148/EF11.0.0-rc.2.26504.105/SqlClient7.1.0; both pin Pkcs10.0.13. Their locks/manifests retain the complete dependency closures. Saved compile-and-run records hash the actual sources and effective inputs.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
+The original paired MarshSurvey projects declare SDK10.0.403/EF10.0.13/SqlClient6.1.7 and SDK11.0.100/EF11.0.0/SqlClient7.1.0; both pin Pkcs10.0.13. Their locks/manifests retain the complete dependency closures. Saved compile-and-run records hash the actual sources and effective inputs.
 
 eng/Test-MarshSurvey.ps1 -Record executes each standalone consumer on Windows x64 against unique SQL Server2025 17.0.5035.5 databases in the authorized local Docker route, then removes its databases/logins and stops the server. Assertions compare actual winner records and related names plus all three reconciliation outcomes. These are provider executions, not mocks, cross-compilation or SQL-only checks. Installed packed-tool inspection compares full canonical Markdown, applicability and selected edition with unusable retrieval proxies; proxy independence is not operating-system network isolation. No other provider, platform, GA release or comprehensive catalogue closure is established.

@@ -66,8 +66,8 @@ internal static class ArtifactIdentity
 {
     public static void Verify()
     {
-        const string sdk = "11.0.100-rc.3.26522.148";
-        const string framework = "11.0.0-rc.3.26522.148";
+        const string sdk = "11.0.100";
+        const string framework = "11.0.0";
         var asp = typeof(ApiDescription).Assembly;
         var runtimeRoot = Directory.GetParent(Path.GetDirectoryName(asp.Location)!)!.Parent!.Parent!.FullName;
         foreach (var assembly in new[] { typeof(object).Assembly, asp, typeof(IApiDescriptionGroupCollectionProvider).Assembly, typeof(RoutePattern).Assembly })
@@ -81,9 +81,9 @@ internal static class ArtifactIdentity
         }
         var references = new Dictionary<string, string>
         {
-            ["Microsoft.AspNetCore.Mvc.Abstractions.dll"] = "880ed6d937391a4d0d2627d6746eaf8458cd12b50488d3d41647f3d5b49b9067",
-            ["Microsoft.AspNetCore.Mvc.ApiExplorer.dll"] = "995696026a03db699d883c9d945f2be1bdd86104e0cb763c70ce5164098ea3dc",
-            ["Microsoft.AspNetCore.Routing.dll"] = "59f0e0e47cd79b62d6c60f6f80df71866073ca0345d93dff4eead801ecc16cd5",
+            ["Microsoft.AspNetCore.Mvc.Abstractions.dll"] = "ef3b840454a6c2aaf65f97310e085655f1f0f1fa3dbfa0514194c787d104f07e",
+            ["Microsoft.AspNetCore.Mvc.ApiExplorer.dll"] = "1d20447f793f1724f0612d470cb2edcae47dd02e63b34c1c55f94a84c567a95b",
+            ["Microsoft.AspNetCore.Routing.dll"] = "849ce79e1f5909dcd7c8f9515ec18c533e505bb67ec8b3facca3e8677b178614",
         };
         foreach (var pair in references)
         {

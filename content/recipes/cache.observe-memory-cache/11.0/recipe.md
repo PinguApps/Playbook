@@ -26,10 +26,12 @@ Observe a harbour's in-process tide-table cache using built-in instruments, with
 
 ## Constraints
 
-The instruments are dotnet.cache.requests (observable counter, hit/miss tag dotnet.cache.request.result), dotnet.cache.evictions (observable counter), dotnet.cache.entries (observable up/down counter) and dotnet.cache.estimated_size (observable gauge). RC2 identifies the cache with dotnet.cache.name. Estimated size has unit 1 and is application accounting, not managed heap or process memory. Without SizeLimit, CurrentEstimatedSize is null and that gauge has no value. With TrackStatistics disabled, GetCurrentStatistics is null and these statistical observations have no values.
+The instruments are dotnet.cache.requests (observable counter, hit/miss tag dotnet.cache.request.result), dotnet.cache.evictions (observable counter), dotnet.cache.entries (observable up/down counter) and dotnet.cache.estimated_size (observable gauge). GA identifies the cache with dotnet.cache.name. Estimated size has unit 1 and is application accounting, not managed heap or process memory. Without SizeLimit, CurrentEstimatedSize is null and that gauge has no value. With TrackStatistics disabled, GetCurrentStatistics is null and these statistical observations have no values.
 
 The eviction count is not a count of every removal. In the pinned implementation, explicit Remove and Clear do not increment it; the sample uses compaction, which does. Request counts include only this cache's lookups, not backend requests or HybridCache-wide hit ratios. Metrics collection/export transport and distributed cache behavior are separate integrations. No account, rendering mode, external provider or native workload is required.
 
 ## Evidence
 
-Actual .NET 10/11 RC2 projects compile and execute real MemoryCache/MeterListener workloads. The newer path checks hit=1, miss=1, entries=1, estimated_size=12 rows, name/result tags and compaction evictions=1. This establishes managed cache behavior, not an exporter/dashboard or exact process memory measurement. Canonical snippets, exact artifacts and fresh input hashes are bundled; GA reconciliation remains required.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
+Actual .NET 10/11 GA projects compile and execute real MemoryCache/MeterListener workloads. The newer path checks hit=1, miss=1, entries=1, estimated_size=12 rows, name/result tags and compaction evictions=1. This establishes managed cache behavior, not an exporter/dashboard or exact process memory measurement. Canonical snippets, exact artifacts and fresh input hashes are bundled; GA checks are limited to the recorded scope.

@@ -57,7 +57,7 @@ try {
     $lane=Join-Path $scratch "net$major.0";$null=New-Item -ItemType Directory $lane
     $name=$network+"-sdk$major";$owned.Add($name)
     $arguments=@('run','--name',$name,'--network',$network,'--add-host','estuary.test:127.0.0.1','--add-host','auth.estuary.test:127.0.0.1',
-      '--env','DOTNET_ADD_GLOBAL_TOOLS_TO_PATH=0','--env','DOTNET_CLI_TELEMETRY_OPTOUT=1','--env','DOTNET_ROLL_FORWARD=Major','--env','DOTNET_ROLL_FORWARD_TO_PRERELEASE=1',
+      '--env','DOTNET_ADD_GLOBAL_TOOLS_TO_PATH=0','--env','DOTNET_CLI_TELEMETRY_OPTOUT=1','--env','DOTNET_ROLL_FORWARD=Major',
       '--mount',"type=bind,source=$source,target=/source,readonly",'--mount',"type=bind,source=$lane,target=/work",'--mount',
       "type=bind,source=$(Join-Path $root 'samples/EstuarySdk/RegistryFixture/bin/Release/net10.0'),target=/fixture,readonly",
       $pin.sdkImage,'/usr/share/dotnet/dotnet','/fixture/RegistryFixture.dll','/source','/work',"http://${backend}:5000",$major)

@@ -14,7 +14,7 @@ The .NET 10 reader can return damaged Stored ZIP bytes despite the recorded CRC,
 
 ## Newer approach
 
-Create the corresponding net11.0 / C# 15 project with the same imports and implicit usings. These are framework APIs, not an independently versioned compression package. The canonical sample is verified against .NET 11 RC2.
+Create the corresponding net11.0 / C# 15 project with the same imports and implicit usings. These are framework APIs, not an independently versioned compression package. The canonical sample is verified against .NET 11 GA.
 
 Keep the complete read inside the error boundary. The reader methods return bytes only after the stream copy succeeds. Quarantine the input and reject the import on InvalidDataException; do not catch that failure and continue with partial results.
 
@@ -40,10 +40,12 @@ The corresponding complete ZIP readers are:
 
 ZIP CRC validation requires reading an entry through EOF; opening an archive or reading only a prefix is insufficient. TAR validates headers, not a cryptographic digest of entry payloads. CRC32 and TAR checksums detect damage and do not establish authenticity or resist deliberate tampering. Dispose readers and entry streams after failure. Extraction is not transactional; validate into staging before promoting output. Truncated/structurally invalid archives can fail earlier and may raise other documented I/O errors. No disable-validation switch is recommended. These bounded byte-array examples are not safe arbitrary-size ingestion: separately limit entry counts, expanded bytes, paths and links for untrusted input.
 
-This edition has no external provider, workload, rendering requirement or experimental opt-in. Shared Blazor applicability means server-side code; it is not browser execution proof. All sample dependencies are framework-provided. Exact SDK pins 10.0.403 and 11.0.100-rc.3.26522.148 are reproducibility baselines, not mandatory exact consumer installations. RC verification does not establish GA behaviour or every platform's behaviour.
+This edition has no external provider, workload, rendering requirement or experimental opt-in. Shared Blazor applicability means server-side code; it is not browser execution proof. All sample dependencies are framework-provided. Exact SDK pins 10.0.403 and 11.0.100 are reproducibility baselines, not mandatory exact consumer installations. GA verification is limited to the recorded platforms and checks.
 
 ## Evidence
 
-Original Stored ZIP payload bytes are flipped while preserving recorded CRCs; RC2 rejects the full read and .NET 10 returns changed bytes. A valid Ustar header name is changed without recomputing its checksum; RC2 rejects it while .NET 10 accepts it.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
+Original Stored ZIP payload bytes are flipped while preserving recorded CRCs; GA rejects the full read and .NET 10 returns changed bytes. A valid Ustar header name is changed without recomputing its checksum; GA rejects it while .NET 10 accepts it.
 
 The actual declared .NET 10 and .NET 11 projects compile and execute on Windows with zero warnings/errors. Saved records identify source hashes, SDK/target/language, resolved dependencies, commands, host and output; freshness is checked at package build. These are execution records, not source-review-only, cross-compilation or mock claims. The existing installed-tool harness independently verifies the complete canonical body, target-11 applicability/edition and target-10 refusal offline from an unrelated directory. Comprehensive catalogue and public-release readiness remain separate gates.

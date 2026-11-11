@@ -148,11 +148,11 @@ program is included so its assertions, lifetimes and failure controls remain off
 ## Constraints
 
 The previous consumer uses SDK 10.0.403, .NET 10.0.13, C# 14 and EF SQLite/InMemory
-10.0.13. The current consumer uses SDK 11.0.100-rc.3.26522.148, runtime
-11.0.0-rc.2.26504.105, C# 15 and EF SQLite/InMemory 11.0.0-rc.2.26504.105. Those
+10.0.13. The current consumer uses SDK 11.0.100, runtime
+11.0.0, C# 15 and EF SQLite/InMemory 11.0.0. Those
 are measured artifacts, separate from the route's .NET/SDK 11 release-family
 prerequisite. No C#15-specific syntax or experimental suppression is required;
-these APIs are not publisher-designated experimental. RC2 is not actual GA proof.
+these APIs are not publisher-designated experimental. GA is limited to the recorded checks.
 EF11 selects EF/Relational/InMemory net11.0 assets and requires .NET11. Direct
 Microsoft.Data.Sqlite.Core11 selects net10.0, which does not make EF11 run on net10.0.
 The older comparison adds no .NET10 discovery route or ninth approved foundation.
@@ -183,6 +183,8 @@ all untyped `DbContextOptions` aliases in a multi-context container. Those shape
 need their own registration/service checks; none is advertised here.
 
 ## Evidence
+
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 The canonical sample `verification-evidence.json` records contain fresh actual
 build/run commands, SDK/runtime output, exact resolved dependencies, input hashes,

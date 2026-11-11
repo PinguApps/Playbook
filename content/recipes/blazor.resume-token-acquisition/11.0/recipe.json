@@ -43,7 +43,7 @@
             "name": ".NET",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Use matching ASP.NET Core/WASM assets; the recorded current execution is RC2, not GA."
+            "reason": "Use matching ASP.NET Core/WASM assets; the recorded current execution is GA."
           },
           "sdk": {
             "name": ".NET SDK",
@@ -65,13 +65,13 @@
               "name": "Microsoft.AspNetCore.Components.WebAssembly",
               "version": "11.0",
               "match": "release-family",
-              "reason": "Use the actual matching lib/net11.0 assets; recorded comparison packages are 10.0.14 and current packages 11.0.0-rc.3.26522.148."
+              "reason": "Use the actual matching lib/net11.0 assets; recorded comparison packages are 10.0.14 and current packages 11.0.0."
             },
             {
               "name": "Microsoft.AspNetCore.Components.WebAssembly.Authentication",
               "version": "11.0",
               "match": "release-family",
-              "reason": "Use the actual matching lib/net11.0 assets; recorded comparison packages are 10.0.14 and current packages 11.0.0-rc.3.26522.148."
+              "reason": "Use the actual matching lib/net11.0 assets; recorded comparison packages are 10.0.14 and current packages 11.0.0."
             }
           ],
           "packageAssets": [
@@ -88,19 +88,19 @@
             "Standalone interactive WebAssembly, base /archive/; no SSR authentication equivalence"
           ],
           "prerequisites": [
-            "SDK 10.0.403 / framework-packages 10.0.14 / C# 14 comparison and SDK 11.0.100-rc.3.26522.148 / framework-packages 11.0.0-rc.3.26522.148 / C# 15 current test pins; pins are not universal exact prerequisites.",
+            "SDK 10.0.403 / framework-packages 10.0.14 / C# 14 comparison and SDK 11.0.100 / framework-packages 11.0.0 / C# 15 current test pins; pins are not universal exact prerequisites.",
             "Build the complete offline project and use the matching package/runtime assets."
           ],
           "constraints": [
             "Only the IAccessTokenProvider boundary is controlled; the matching WASM runtime and NavigationManager execute in Chromium. No external provider, issued token, authorized API response or downloaded recording is claimed.",
             "Use TryGetToken before RequiresRedirect; successful results need no navigation. A current interactive result needs both InteractiveRequestUrl and InteractionOptions.",
             "ReturnUrl is constructed from a fixed application-owned route and checked against BaseUri. Do not accept an unvalidated external or query-supplied return location.",
-            ".NET 10 parameterless Redirect reads legacy RedirectUrl when options are absent. A four-argument no-options result has no legacy URL and fails; RC2 reads the result's InteractiveRequestUrl instead.",
+            ".NET 10 parameterless Redirect reads legacy RedirectUrl when options are absent. A four-argument no-options result has no legacy URL and fails; GA reads the result's InteractiveRequestUrl instead.",
             "Redirect(Action<InteractiveRequestOptions>) requires actual options; do not use it for a no-options result. Existing exception signatures remain unchanged."
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Public APIs are not marked experimental in the inspected assets. Evidence is RC2 only; GA reconciliation and comprehensive publication gates remain open. No unsupported older-target route is advertised."
+            "Public APIs are not marked experimental in the inspected assets. Evidence is GA only; GA reconciliation and comprehensive publication gates remain open. No unsupported older-target route is advertised."
           ]
         },
         "sourceUrls": [
@@ -166,7 +166,7 @@
     {
       "sample": "samples/net11.0/HydrophoneArchive/HydrophoneArchive.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "kind": "compile",
       "scope": "Actual matching target, SDK and locked dependencies."
@@ -174,7 +174,7 @@
     {
       "sample": "samples/net11.0/HydrophoneArchive/HydrophoneArchive.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "kind": "execution",
       "scope": "Real browser success, RequiresRedirect and exception history-state branches; controlled token-provider boundary, no issuance.",

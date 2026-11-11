@@ -5,7 +5,7 @@
     <TargetFramework>net11.0</TargetFramework>
     <LangVersion>15.0</LangVersion>
     <ImplicitUsings>enable</ImplicitUsings>
-    <RuntimeFrameworkVersion>11.0.0-rc.3.26522.148</RuntimeFrameworkVersion>
+    <RuntimeFrameworkVersion>11.0.0</RuntimeFrameworkVersion>
     <RollForward>Disable</RollForward>
     <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
   </PropertyGroup>

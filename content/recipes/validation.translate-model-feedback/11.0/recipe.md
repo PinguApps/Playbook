@@ -137,15 +137,17 @@ services to the client, and configure its culture; server request middleware alo
 cannot change browser execution. The actual comparisons execute static SSR and
 Interactive Server, not WebAssembly/Auto, AOT or trimming.
 
-RC2 removed IValidationMessageFormatter. Do not implement that earlier interface
+GA removed IValidationMessageFormatter. Do not implement that earlier interface
 or install the removed Microsoft.Extensions.Validation.Localization package and
 AddValidationLocalization API. Cumulative docs can retain that preview text; the
 recorded pinned source and actual override build establish this recipe's contract.
-There is no experimental opt-in for this .NET 11 route. Its evidence is RC2, not GA.
+There is no experimental opt-in for this .NET 11 route. Its evidence is GA.
 Keep CurrentCulture for numeric formatting separate from CurrentUICulture for
 resource lookup; translated input parsing is another policy.
 
 ## Evidence
+
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Both actual projects compile. Real endpoint requests and static Blazor posts yield
 exactly "Party size: choose between 1 and 6 guests." in en-GB and

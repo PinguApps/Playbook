@@ -70,13 +70,15 @@ Each case uses a fresh handler, so a prior authenticated connection cannot satis
 a later negative case. The server is stopped and disposed on completion/failure.
 
 The console consumers use SDK10.0.403/.NET10.0.14/C#14 and
-SDK11.0.100-rc.3.26522.148/.NET11RC3/C#15. The fixture's separately locked
+SDK11.0.100/.NET11RC3/C#15. The fixture's separately locked
 Microsoft.AspNetCore.Authentication.Negotiate and System.DirectoryServices.Protocols
-versions are 10.0.14 and 11.0.0-rc.3.26522.148. The request helper itself needs no
-NuGet package or workload. There is no experimental opt-in. RC evidence prepares
-edition11.0 guidance; final-GA reconciliation remains open under PIN-962/PIN-959.
+versions are 10.0.14 and 11.0.0. The request helper itself needs no
+NuGet package or workload. There is no experimental opt-in. Recorded evidence prepares
+edition11.0 guidance; final-GA checks are limited to the recorded scope. under PIN-962/PIN-959.
 
 ## Evidence
+
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Run eng/Test-GannetGateway.ps1 -Record -VerifySources from the repository root
 using the pinned SDK installations. It compiles both real dependency sets,

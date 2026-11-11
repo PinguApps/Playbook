@@ -106,7 +106,7 @@ assert(config.reviewers.includes('pingu2k4'));
 
 const reviewed = new Map([
   ['Microsoft.CodeAnalysis.BannedApiAnalyzers', 5],
-  ['Microsoft.Extensions.Hosting', 10],
+  ['Microsoft.Extensions.Hosting', 11],
   ['Microsoft.NET.Test.Sdk', 18],
   ['Microsoft.SourceLink.GitHub', 10],
   ['ModelContextProtocol', 2],

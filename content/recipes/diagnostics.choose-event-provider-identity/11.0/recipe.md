@@ -47,7 +47,7 @@ it when its owner ends. A GUID is a diagnostic identity, not authentication.
    configuration deliberately; changing identity can change what subscribers select.
 2. Choose either actual new overload: `new EventSource(name, guid)` or
    `new EventSource(name, guid, settings, traits)`. The simple overload defaults
-   to **EtwManifestEventFormat** in the measured RC2 implementation. The canonical
+   to **EtwManifestEventFormat** in the measured GA implementation. The canonical
    longer overload explicitly requests EtwSelfDescribingEventFormat for dynamic
    writes and passes alternating trait keys/values. These settings affect native
    event formatting; receiving a managed event does not certify an ETW format.
@@ -86,7 +86,7 @@ it when its owner ends. A GUID is a diagnostic identity, not authentication.
 ## Constraints and alternatives
 
 The application route needs .NET11 SDK/runtime framework contracts. Exact
-SDK11.0.100-rc.3.26522.148/runtime11.0.0-rc.3.26522.148 and C#15 identify measured
+SDK11.0.100/runtime11.0.0 and C#15 identify measured
 evidence; the older real consumer uses SDK10.0.403/runtime10.0.14/C#14. These are
 ordinary public APIs, not marked experimental in the audited artifacts; no preview
 syntax, package, workload, external provider, account, rendering mode or opt-in
@@ -101,6 +101,8 @@ evidence. No native trace session is started here.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 `eng/Test-ExtensionIdentity.ps1 -Record -VerifySources` compiles and executes
 BorealSignals against both actual dependency sets. A managed EventListener
 checks names/GUIDs, exact payload fields/values, selected settings/traits,
@@ -114,6 +116,6 @@ The ordinary installed package's real stdio list/get returns reusable discovery,
 complete canonical Markdown, explicit target11/edition11, applicability and current
 paired evidence from an unrelated directory. Target10 returns no_applicable_edition;
 the comparison is not a new foundation. Retrieval with unusable proxies establishes
-proxy independence, not network isolation. Windows x64 RC2 proof is not native
+proxy independence, not network isolation. Windows x64 GA proof is not native
 collector, other-platform or final-GA proof. PIN-959/PIN-962, existing Human gates
 and the exact eight approved .NET10 foundations remain unchanged.

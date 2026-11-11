@@ -28,10 +28,12 @@ Both commands print `slots=11`. A negative count or malformed row fails; checked
 
 ## Constraints
 
-The foundation requires a .NET 10 SDK, not merely a .NET 10 runtime. Canonical pins are 10.0.403 and, for retained use on target 11, 11.0.100-rc.3.26522.148. A repository global.json can select a different SDK even when another dotnet executable is launched. .NET 9 remains comparison-only; Playbook has no .NET 9 catalogue target.
+The foundation requires a .NET 10 SDK, not merely a .NET 10 runtime. Canonical pins are 10.0.403 and, for retained use on target 11, 11.0.100. A repository global.json can select a different SDK even when another dotnet executable is launched. .NET 9 remains comparison-only; Playbook has no .NET 9 catalogue target.
 
 Build with `dotnet build slots.cs -c Release`; generated output normally lives in the SDK's per-user temporary runfile cache. Do not assume a conventional bin directory beside the file. Keep package locks and repository-wide properties intentional. The serviced include directive and newer DLL/reference metadata have separate requirements explained by sdk.compose-file-apps.
 
 ## Evidence
 
-Actual net9.0 project and net10.0/net11.0 file applications were compiled and executed. The command check runs the original sources with nondefault inputs and verifies rejected negative counts. Saved compilation records hash the source, effective shared configuration and capture helper; the installed-tool scenario checks complete canonical Markdown and target selection. .NET 11 evidence is RC2, not GA verification.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
+Actual net9.0 project and net10.0/net11.0 file applications were compiled and executed. The command check runs the original sources with nondefault inputs and verifies rejected negative counts. Saved compilation records hash the source, effective shared configuration and capture helper; the installed-tool scenario checks complete canonical Markdown and target selection. .NET 11 evidence is GA verification.

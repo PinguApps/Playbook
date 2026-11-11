@@ -20,7 +20,7 @@ For the older project, set TargetFramework=net10.0, LangVersion=14.0, nullable/i
 
 ## Migration
 
-1. Use net11.0/C# 15.0 and System.Net. These APIs are framework assets, with no extra package/workload or experimental diagnostic in the reviewed RC2 contract. The older package need not remain merely for this SRV operation; check other package uses before removing it.
+1. Use net11.0/C# 15.0 and System.Net. These APIs are framework assets, with no extra package/workload or experimental diagnostic in the reviewed GA contract. The older package need not remain merely for this SRV operation; check other package uses before removing it.
 2. Select system configuration via Dns.ResolveSrvAsync(name, token), or supply trusted server endpoints to DnsResolver. Do not change machine DNS settings to run this sample. Example for an application-owned DNS endpoint:
 
 {{snippet:usage}}
@@ -37,4 +37,6 @@ Windows uses DnsQueryEx. Custom servers must all use one address family, and por
 
 ## Evidence
 
-Actual .NET 10 and RC2 executables query a controlled UDP DNS server bound only to loopback (127.0.0.1:53 on Windows; an ephemeral port elsewhere). It returns the original collector.harbour.test record with port 4719, priority 7, weight 11 and TTL 90. Unique query names avoid stale cross-run cache answers. Both checks assert every projected field, distinguish NXDOMAIN/NODATA and check cancellation; the Windows RC2 run also checks custom-port rejection. No system resolver settings, hosts entries, accounts or external zones are changed. This is a real resolver/wire exchange, not a mock, external DNS proof, endpoint-connection test or GA reconciliation.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
+Actual .NET 10 and GA executables query a controlled UDP DNS server bound only to loopback (127.0.0.1:53 on Windows; an ephemeral port elsewhere). It returns the original collector.harbour.test record with port 4719, priority 7, weight 11 and TTL 90. Unique query names avoid stale cross-run cache answers. Both checks assert every projected field, distinguish NXDOMAIN/NODATA and check cancellation; the Windows GA run also checks custom-port rejection. No system resolver settings, hosts entries, accounts or external zones are changed. This is a real resolver/wire exchange, not a mock, external DNS proof, endpoint-connection test or GA reconciliation.

@@ -2,7 +2,7 @@
   "id": "sqlite.replace-retired-native-bundle",
   "edition": "11.0",
   "title": "Restore SQLite startup after a native bundle is retired",
-  "goal": "Replace a retired convenience bundle with initialization for the native engine the app already needs. Executed free Windows x64 system-provider route; encrypted/custom engines need separate compatibility proof. Current-release evidence is RC2, not GA.",
+  "goal": "Replace a retired convenience bundle with initialization for the native engine the app already needs. Executed free Windows x64 system-provider route; encrypted/custom engines need separate compatibility proof. Current-release evidence is GA.",
   "areas": [
     "sqlite"
   ],
@@ -34,7 +34,7 @@
         "usage": "primary",
         "selectionNotes": [
           "Applies when replacing bundle_winsqlite3 while retaining the Windows system native engine and unencrypted storage.",
-          "Windows x64 execution only. SQLitePCLRaw is external; encryption/paid alternatives are conditional decisions, never defaults. RC2 proof is not GA proof."
+          "Windows x64 execution only. SQLitePCLRaw is external; encryption/paid alternatives are conditional decisions, never defaults. Current GA checks establish only the recorded scope."
         ],
         "requirements": {
           "runtime": {
@@ -47,7 +47,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Compile net11.0; exact RC3 SDK below is the observed baseline."
+            "reason": "Compile net11.0; exact GA SDK below is the observed baseline."
           },
           "language": {
             "name": "C#",
@@ -63,7 +63,7 @@
               "name": "Microsoft.Data.Sqlite.Core",
               "version": "11.0",
               "match": "release-family",
-              "reason": "Use Core to avoid an automatically selected native bundle; observed pin 11.0.0-rc.2.26504.105."
+              "reason": "Use Core to avoid an automatically selected native bundle; observed pin 11.0.0."
             },
             {
               "name": "SQLitePCLRaw.provider.winsqlite3",
@@ -77,7 +77,7 @@
             "Previous net10.0 comparison selects Core10 lib/net8.0, bundle/provider.winsqlite3 2.1.11 and core2.1.13. The old bundle is a valid historical convenience, not a 3.x replacement."
           ],
           "providers": [
-            "Microsoft.Data.Sqlite.Core11 RC2 -> SQLitePCLRaw.core/provider.winsqlite3 3.0.5 -> Windows system winsqlite3.dll. SQLitePCLRaw is an external community dependency, not Microsoft-owned."
+            "Microsoft.Data.Sqlite.Core11 GA -> SQLitePCLRaw.core/provider.winsqlite3 3.0.5 -> Windows system winsqlite3.dll. SQLitePCLRaw is an external community dependency, not Microsoft-owned."
           ],
           "workloads": [],
           "platforms": [
@@ -101,7 +101,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Stable provider-initialization API; no experimental API or opt-in. Current managed package and SDK evidence is .NET11 RC2, not actual GA. Existing PIN-965 GA reconciliation and catalogue Human/release gates remain in place."
+            "Stable provider-initialization API; no experimental API or opt-in. Current managed package and SDK evidence is .NET11 GA. Existing PIN-965 GA reconciliation and catalogue Human/release gates remain in place."
           ]
         },
         "sourceUrls": [
@@ -161,7 +161,7 @@
     {
       "sample": "samples/net11.0/CanalPermits/CanalPermits.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "kind": "compile-and-run",
       "scope": "Actual Windows x64 native system SQLite initialization, parameterized permit debit, committed transaction, file reopen, refusal of a password, loaded native path/version/SHA256 and cleanup. No mocks or cross-compilation."
@@ -169,7 +169,7 @@
     {
       "sample": "samples/net11.0/CanalPermits/CanalPermits.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "kind": "execution",
       "scope": "Fresh-process real Core11/provider3 consumer with initialization omitted fails with SQLitePCLRaw SetProvider diagnostic. Exact compiled consumer; not a mock.",

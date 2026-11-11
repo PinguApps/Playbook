@@ -54,7 +54,7 @@ try {
     foreach ($id in $ids) {
       $detail = & $node $entry @options --method tools/call --tool-name get_recipe --tool-arg "id=$id" --tool-arg 'targetVersion="11.0"' -- $tool mcp | ConvertFrom-Json
       $recipe = $detail.result.structuredContent.recipe
-      $expected = @(Get-Content (Join-Path $root 'src/PinguApps.Playbook/obj/Release/net10.0/Generated/compiled-catalogue.json') -Raw | ConvertFrom-Json | Where-Object id -CEQ $id)[0]
+      $expected = @(Get-Content (Join-Path $root 'src/PinguApps.Playbook/obj/Release/net11.0/Generated/compiled-catalogue.json') -Raw | ConvertFrom-Json | Where-Object id -CEQ $id)[0]
       if ($recipe.markdown -cne $expected.markdown) { throw 'Installed Markdown differs from canonical compiled snippets.' }
       $recipe | ConvertTo-Json -Depth 100 | Set-Content (Join-Path $OutputDirectory "$id.json")
       $recipe.markdown

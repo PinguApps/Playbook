@@ -37,7 +37,7 @@
         "requirements": {
           "sdk": {
             "match": "release-family",
-            "reason": "Build against .NET 11 references; exact RC2 pins record measured artifacts.",
+            "reason": "Build against .NET 11 references; exact GA pins record measured artifacts.",
             "name": ".NET SDK",
             "version": "11.0"
           },
@@ -61,24 +61,24 @@
               "reason": "Pinned demonstrated package composition; no unverified version or backport route.",
               "name": "Microsoft.Extensions.Validation",
               "match": "exact",
-              "version": "11.0.0-rc.2.26504.105"
+              "version": "11.0.0"
             },
             {
               "reason": "Pinned demonstrated package composition; no unverified version or backport route.",
               "name": "Microsoft.Extensions.DependencyInjection",
               "match": "exact",
-              "version": "11.0.0-rc.2.26504.105"
+              "version": "11.0.0"
             },
             {
               "reason": "Pinned demonstrated package composition; no unverified version or backport route.",
               "name": "Microsoft.Extensions.Localization.Abstractions",
               "match": "exact",
-              "version": "11.0.0-rc.2.26504.105"
+              "version": "11.0.0"
             }
           ],
           "packageAssets": [
-            "Microsoft.Extensions.Validation 11.0.0-rc.2.26504.105 lib/net11.0 and its shipped generator; no net10 asset.",
-            "DependencyInjection 11 RC2 lib/net11.0; Localization.Abstractions 11 RC2 lib/net11.0; other moved abstractions from the base framework."
+            "Microsoft.Extensions.Validation 11.0.0 lib/net11.0 and its shipped generator; no net10 asset.",
+            "DependencyInjection 11 GA lib/net11.0; Localization.Abstractions 11 GA lib/net11.0; other moved abstractions from the base framework."
           ],
           "workloads": [],
           "prerequisites": [
@@ -95,7 +95,7 @@
             "For generated validation: InterceptorsNamespaces includes Microsoft.Extensions.Validation.Generated and Microsoft.AspNetCore.Http.Validation.Generated."
           ],
           "stabilityLimitations": [
-            "Actual RC2 verification, not final-GA proof; PIN-962 and PIN-959 remain open."
+            "Actual GA verification, within the recorded verification scope; PIN-962 and PIN-959 remain open."
           ],
           "constraints": [
             "Bounded non-web TankReport/PumpReport resolver, not a general DataAnnotations engine or endpoint adapter.",
@@ -242,7 +242,7 @@
       "target": "net10.0"
     },
     {
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "scope": "Actual Windows x64 non-web custom metadata, valid/invalid/nested type and parameter execution, required service, awaited completion/failure/cancellation. Current sync/property/structured errors, generated metadata, LocalizerProvider and isolated ASP0033/ASP0035/ASP0038 failing/fixed builds; old bases fail on current package and current package rejects net10. No endpoint/AOT/GA proof.",
       "kind": "compile-and-run",

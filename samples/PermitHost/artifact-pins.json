@@ -76,73 +76,73 @@
     {
       "root": "sdk11",
       "path": "Microsoft.Build.dll",
-      "sha256": "b77b9eab540ee37d6838d42a05345b9ddf6f595b9016d3a7c89ab788954caaa5",
-      "productVersion": "18.12.0-1.26522.148+5254d8bcf59917edc1e1abc33bdf2442b77b1c70"
+      "sha256": "3718f3e1e9d7ab120ffd5c83ad805391f76fed60833fc75cfa2d41f110dd9438",
+      "productVersion": "18.12.2-1.26529.118+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f"
     },
     {
       "root": "sdk11",
       "path": "Microsoft.Build.Framework.dll",
-      "sha256": "77362edf9879cb172b65b4588b9677af90d15e7cf0630e2819484295f79dbd5f",
-      "productVersion": "18.12.0-1.26522.148+5254d8bcf59917edc1e1abc33bdf2442b77b1c70"
+      "sha256": "253054c72bd28f72b2ee2a8d004f559126759d1866c1a8f394c5c9d81b6f8d38",
+      "productVersion": "18.12.2-1.26529.118+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f"
     },
     {
       "root": "sdk11",
       "path": "Microsoft.Build.Utilities.Core.dll",
-      "sha256": "7c33f4c9b1f8159579779b979012209ae7cdbf751d64ce60fb2253ae85457146",
-      "productVersion": "18.12.0-1.26522.148+5254d8bcf59917edc1e1abc33bdf2442b77b1c70"
+      "sha256": "546c5c45b0916489737d4100fe4d7bbc13bc273edae209a170d88522d2be588b",
+      "productVersion": "18.12.2-1.26529.118+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f"
     },
     {
       "root": "sdk11",
       "path": "Roslyn/bincore/Microsoft.CodeAnalysis.CSharp.dll",
-      "sha256": "25ed04eabedf0b2acf994d4606f4fd40328379106156c028aeb7d4a75154f442",
-      "productVersion": "5.12.0-1.26522.148+5254d8bcf59917edc1e1abc33bdf2442b77b1c70"
+      "sha256": "4caaec68ef7d6648d913dfe64131e939f1b8cb8ba66d79df7641803c3c774735",
+      "productVersion": "5.12.0-1.26529.118+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f"
     },
     {
       "root": "sdk11",
       "path": "Roslyn/bincore/csc.dll",
-      "sha256": "a3c6fcd1fb9ae921a985e7d55f79ce921eee79a5a61a11f6d8ce9776baf81172",
-      "productVersion": "5.12.0-1.26522.148+5254d8bcf59917edc1e1abc33bdf2442b77b1c70"
+      "sha256": "f468d8dc285bccf5ea3b7fbb415aa6d8b42a6bf80be9a91d5e91530a40f274eb",
+      "productVersion": "5.12.0-1.26529.118+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f"
     },
     {
       "root": "sdk11",
-      "path": "../../host/fxr/11.0.0-rc.3.26522.148/hostfxr.dll",
-      "sha256": "5cab1c94d75f7b1d709bf18684a46f9cc0788059b745594e44fb1d521ca2d111",
-      "productVersion": "11.0.0-rc.3.26522.148 @Commit: 5254d8bcf59917edc1e1abc33bdf2442b77b1c70"
+      "path": "../../host/fxr/11.0.0/hostfxr.dll",
+      "sha256": "be21f1cb81f19454f7e5f5d599e69bc240e8087e3c527a453b2caf2af96814d2",
+      "productVersion": "11.0.0 @Commit: 297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f"
     },
     {
       "root": "sdk11",
-      "path": "../../shared/Microsoft.NETCore.App/11.0.0-rc.3.26522.148/coreclr.dll",
-      "sha256": "46a09d97ad8dd30d400a86c90af707bee7593b585d3ccb8586c4fffca404d1e2",
-      "productVersion": "11,0,26,52348 @Commit: 5254d8bcf59917edc1e1abc33bdf2442b77b1c70"
+      "path": "../../shared/Microsoft.NETCore.App/11.0.0/coreclr.dll",
+      "sha256": "606465533979071e8a38855ca5a7cb581dd02c810b77879857920250b063ac7b",
+      "productVersion": "11,0,26,53018 @Commit: 297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f"
     },
     {
       "root": "sdk11",
-      "path": "../../packs/Microsoft.NETCore.App.Ref/11.0.0-rc.3.26522.148/ref/net11.0/System.Runtime.dll",
-      "sha256": "ea358813fe5a242da6941ca041575ee0dab159028f533ec37786dd54e64618b4",
-      "productVersion": "11.0.0-rc.3.26522.148+5254d8bcf59917edc1e1abc33bdf2442b77b1c70"
+      "path": "../../packs/Microsoft.NETCore.App.Ref/11.0.0/ref/net11.0/System.Runtime.dll",
+      "sha256": "bf6f2f2426dc1d43078c1aa0310264459c9d3d115f55eb7ec15027381816f46e",
+      "productVersion": "11.0.0+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f"
     },
     {
       "root": "sdk11",
       "path": "Microsoft.Build.NuGetSdkResolver.dll",
-      "sha256": "a9ec8a527072d3b5073a8788427f0f906928669e8206e0a6f983ea09560c040a",
-      "productVersion": "8.0.0-rc.2448+5254d8bcf59917edc1e1abc33bdf2442b77b1c70.5254d8bcf59917edc1e1abc33bdf2442b77b1c70"
+      "sha256": "0280b2291f03dc33522dd7f0436b9b347215a8cc051f622de3e76abad23bc793",
+      "productVersion": "8.0.0-rc.53118+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f.297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f"
     },
     {
       "root": "sdk11",
       "path": "Microsoft.NET.StringTools.dll",
-      "sha256": "f6f6676c70f02af8dab0866b70e886af2bb82e02d5b8b4974a7f386ca528239c",
-      "productVersion": "18.12.0-1.26522.148+5254d8bcf59917edc1e1abc33bdf2442b77b1c70"
+      "sha256": "26a3e17805cff49938778d07675e8c3e32dd69573dd9a071781d967f3daf25c1",
+      "productVersion": "18.12.2-1.26529.118+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f"
     },
     {
       "root": "sdk11",
       "path": "MSBuild.deps.json",
-      "sha256": "6090113cb369c9c7eeefcf50e65ee36e2c8f32bce55d688205b4cd7ee2b83230",
+      "sha256": "6f809c9d7fbf3b4ac990cedb9495eef161cafbd59b6c9e03ef27706e0a85c1eb",
       "productVersion": null
     },
     {
       "root": "sdk11",
       "path": "MSBuild.runtimeconfig.json",
-      "sha256": "dcfa6bf5e17674b606e3906804ed962c3526ad3629a3073f9ad503a151be58f3",
+      "sha256": "34ecbf0b164d02fb1a219b3d8c20e0ebbe3853d310dce44d842f2861354a11db",
       "productVersion": null
     },
     {
@@ -183,9 +183,9 @@
     },
     {
       "root": "packages",
-      "path": "runtime.win-x64.microsoft.dotnet.ilcompiler/11.0.0-rc.3.26522.148/tools/ilc.exe",
-      "sha256": "2effdc8ed06533686323af4e5899dd0eedfba26a457413361bf3933a317b3a8e",
-      "productVersion": "11.0.0-rc.3.26522.148+5254d8bcf59917edc1e1abc33bdf2442b77b1c70"
+      "path": "runtime.win-x64.microsoft.dotnet.ilcompiler/11.0.0/tools/ilc.exe",
+      "sha256": "efa9fed65bf97a23ea91f2fa47a7dff5fc8c4bb81474b6bdb1194a90f2b6e18c",
+      "productVersion": "11.0.0-rtm.26529.118+297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f"
     },
     {
       "root": "vc",
@@ -225,14 +225,14 @@
     },
     {
       "root": "packages",
-      "path": "microsoft.netcore.app.runtime.nativeaot.win-x64/11.0.0-rc.3.26522.148/runtimes/win-x64/native/Runtime.WorkstationGC.lib",
-      "sha256": "9479b8c298b690e4202945bb2953fa820872b8caaff60034dd2b42f5b97e7f80",
+      "path": "microsoft.netcore.app.runtime.nativeaot.win-x64/11.0.0/runtimes/win-x64/native/Runtime.WorkstationGC.lib",
+      "sha256": "43cbe1e8403310077055e60b97366c7ac0694deb0a45443c4cacb3d38b5ba65f",
       "productVersion": null
     },
     {
       "root": "packages",
-      "path": "microsoft.netcore.app.runtime.nativeaot.win-x64/11.0.0-rc.3.26522.148/runtimes/win-x64/native/bootstrapper.obj",
-      "sha256": "0c91e31463ea6fa4b14223ce5f06199c6844aa6044ce0b191786b7d54c030da4",
+      "path": "microsoft.netcore.app.runtime.nativeaot.win-x64/11.0.0/runtimes/win-x64/native/bootstrapper.obj",
+      "sha256": "3f54545636c2fc70faeeb01bfa22aeeb1e899f648938fe4ef3be08cb6d563cc6",
       "productVersion": null
     }
   ]

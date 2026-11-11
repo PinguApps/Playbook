@@ -102,13 +102,15 @@ Save the following files under the indicated names in a separate directory. Rest
 
 ## Constraints
 
-Application route: ASP.NET Core11 with its matching SDK; F#11 plus Razor's C# view compiler and matching FSharp.Core. No runtime-compilation package on the migrated side. Exact reproduction uses SDK10.0.403/framework10.0.14 versus SDK11.0.100-rc.3.26522.148/framework11.0.0-rc.3.26522.148. The source audit's Http.Features/MVC references and F# MVC template artifacts are reconciled separately from these runtime checks. Compiler, runtime, selected package assets, commands and input hashes are retained in the existing sample-evidence records.
+Application route: ASP.NET Core11 with its matching SDK; F#11 plus Razor's C# view compiler and matching FSharp.Core. No runtime-compilation package on the migrated side. Exact reproduction uses SDK10.0.403/framework10.0.14 versus SDK11.0.100/framework11.0.0. The source audit's Http.Features/MVC references and F# MVC template artifacts are reconciled separately from these runtime checks. Compiler, runtime, selected package assets, commands and input hashes are retained in the existing sample-evidence records.
 
 The old FSharp.Core10.1.402/RuntimeCompilation10.0.13 graph and current FSharp.Core11.0.101-rc2.26504.105 graph are exact test pins, not minimum supported versions. The current build emits and actually loads the separate .Views.dll from the default application load context. The fresh published consumer contains no source views or runtime compiler; a fresh disabled-compilation publish demonstrates the missing-view failure. Build-time compilation can also be configured on older targets; no untested older-target route is advertised here.
 
-Server-rendered MVC HTML and model encoding through real HTTP. No browser, Blazor, live edit or Hot Reload session is claimed. Windows x64 is the executed lane. No package-native assets, workloads, external provider, resource provisioning or public publication are required. Stable migration guidance is based on RC2 evidence; actual-GA reconciliation and comprehensive readiness remain open. The eight approved .NET10 foundations and existing recipe/edition identities remain unchanged.
+Server-rendered MVC HTML and model encoding through real HTTP. No browser, Blazor, live edit or Hot Reload session is claimed. Windows x64 is the executed lane. No package-native assets, workloads, external provider, resource provisioning or public publication are required. Stable migration guidance is based on GA evidence; actual-GA reconciliation and comprehensive readiness remain open. The eight approved .NET10 foundations and existing recipe/edition identities remain unchanged.
 
 ## Evidence and local verification
+
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Fresh sample records contain actual paired compilation/rendering, exact artifact qualification and the .NET11 clean published-consumer controls. The positive page renders encoded model data; the fresh disabled-compilation publish observes the specific missing-view exception. A build-only result would not satisfy this claim.
 

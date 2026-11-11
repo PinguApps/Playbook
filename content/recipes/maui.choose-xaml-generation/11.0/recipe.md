@@ -10,7 +10,7 @@ The fictional Quay Board page uses explicit MAUI and x namespace mappings, a cus
 
 ## Newer approach
 
-The reviewed RC2 Controls targets select SourceGen by default. Set MauiXamlInflator=SourceGen explicitly when making the migration intentional. Ordinary SourceGen does not need EnablePreviewFeatures. The companion page enables that property solely to demonstrate preview expressions and x:Code.
+The reviewed GA Controls targets select SourceGen by default. Set MauiXamlInflator=SourceGen explicitly when making the migration intentional. Ordinary SourceGen does not need EnablePreviewFeatures. The companion page enables that property solely to demonstrate preview expressions and x:Code.
 
 Implicit standard namespaces allow the current root to omit its default and x declarations. Keep xmlns:local for the custom badge and helper; custom libraries, ambiguous names and external assemblies can still require explicit mappings. Do not remove every xmlns declaration mechanically. The old AllowImplicitXmlnsDeclarationAttribute opt-out is obsolete and ignored in the reviewed source.
 
@@ -24,7 +24,7 @@ Implicit standard namespaces allow the current root to omit its default and x de
 
 First keep the explicit namespaces and code-behind, select SourceGen and resolve actual generator diagnostics. Preserve x:Class and x:Name values and event signatures. Only then remove redundant standard mappings. The companion current sample also moves its small handler into preview x:Code; that is an independent optional step, described by maui.author-view-local-csharp-in-xaml.
 
-To retain the XamlC route for ordinary markup, choose MauiXamlInflator=XamlC and restore explicit namespace declarations. The pinned RC2 targets emit MAUI1001 when selecting XamlC or Runtime because those inflators are deprecated; this is a compatibility fallback, not the preferred authoring route. Keep the warning visible. Runtime inflation is a separate fallback; neither fallback supports the preview expressions. Remove those expressions/x:Code first and restore the older handler/property assignments. Rebuild rather than suppressing unknown diagnostics.
+To retain the XamlC route for ordinary markup, choose MauiXamlInflator=XamlC and restore explicit namespace declarations. The pinned GA targets emit MAUI1001 when selecting XamlC or Runtime because those inflators are deprecated; this is a compatibility fallback, not the preferred authoring route. Keep the warning visible. Runtime inflation is a separate fallback; neither fallback supports the preview expressions. Remove those expressions/x:Code first and restore the older handler/property assignments. Rebuild rather than suppressing unknown diagnostics.
 
 ## Constraints
 
@@ -115,6 +115,8 @@ The project boundary files isolate these version-specific examples from shared r
 {{snippet:n11-quayboard-csproj}}
 
 ## Evidence
+
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 The .NET10 Windows comparison has actual Release compilation evidence with exact resolved packages and inputs. Compilation does not establish rendering, click handling or accessibility. The .NET11 source is official-review only: the existing SDK root lacks Microsoft.Maui.Sdk and the exact build fails NETSDK1147 before compilation. Its compilation, generated output and native execution are explicitly not-tested under PIN-699, not pending obligations to install a workload.
 

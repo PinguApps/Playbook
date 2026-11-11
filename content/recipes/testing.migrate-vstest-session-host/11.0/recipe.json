@@ -45,13 +45,13 @@
             "name": ".NET",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Observed Windows x64 runtime 10.0.14 or runtime 11.0.0-rc.3.26522.148, separately from SDK/compiler selection."
+            "reason": "Observed Windows x64 runtime 10.0.14 or runtime 11.0.0, separately from SDK/compiler selection."
           },
           "sdk": {
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Actual sample SDK 10.0.403 and SDK 11.0.100-rc.3.26522.148; compiler versions recorded by executing their real csc.dll."
+            "reason": "Actual sample SDK 10.0.403 and SDK 11.0.100; compiler versions recorded by executing their real csc.dll."
           },
           "language": {
             "name": "C#",
@@ -100,7 +100,7 @@
           ],
           "renderingModes": [],
           "prerequisites": [
-            "PowerShell7; exact sample SDK10.0.403/runtime10.0.14 and SDK11.0.100-rc.3.26522.148/runtime11.0.0-rc.3.26522.148; public NuGet restore; no workload, native compiler, credentials, service or device.",
+            "PowerShell7; exact sample SDK10.0.403/runtime10.0.14 and SDK11.0.100/runtime11.0.0; public NuGet restore; no workload, native compiler, credentials, service or device.",
             "Isolate samples from root central packages; retain generated locks and use locked restore. Use absolute dotnet executables and DOTNET_ADD_GLOBAL_TOOLS_TO_PATH=0 for isolated CLI homes."
           ],
           "constraints": [
@@ -113,7 +113,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Public18.11 packages are stable; .NET11 SDK/runtime proof is RC2. No experimental opt-in is required for the current route; removed old pooling was unfinished/obsolete.",
+            "Public18.11 packages are stable; .NET11 SDK/runtime proof is GA. No experimental opt-in is required for the current route; removed old pooling was unfinished/obsolete.",
             "PIN-959 coverage/evidence, PIN-963 actual-GA reconciliation and Human gates remain open; preserve the exact eight .NET10 foundations."
           ]
         },
@@ -148,13 +148,13 @@
             "name": ".NET",
             "version": "10.0",
             "match": "release-family",
-            "reason": "Observed Windows x64 runtime 10.0.14 or runtime 11.0.0-rc.3.26522.148, separately from SDK/compiler selection."
+            "reason": "Observed Windows x64 runtime 10.0.14 or runtime 11.0.0, separately from SDK/compiler selection."
           },
           "sdk": {
             "name": ".NET SDK",
             "version": "10.0",
             "match": "release-family",
-            "reason": "Actual sample SDK 10.0.403 and SDK 11.0.100-rc.3.26522.148; compiler versions recorded by executing their real csc.dll."
+            "reason": "Actual sample SDK 10.0.403 and SDK 11.0.100; compiler versions recorded by executing their real csc.dll."
           },
           "language": {
             "name": "C#",
@@ -203,7 +203,7 @@
           ],
           "renderingModes": [],
           "prerequisites": [
-            "PowerShell7; exact sample SDK10.0.403/runtime10.0.14 and SDK11.0.100-rc.3.26522.148/runtime11.0.0-rc.3.26522.148; public NuGet restore; no workload, native compiler, credentials, service or device.",
+            "PowerShell7; exact sample SDK10.0.403/runtime10.0.14 and SDK11.0.100/runtime11.0.0; public NuGet restore; no workload, native compiler, credentials, service or device.",
             "Isolate samples from root central packages; retain generated locks and use locked restore. Use absolute dotnet executables and DOTNET_ADD_GLOBAL_TOOLS_TO_PATH=0 for isolated CLI homes."
           ],
           "constraints": [
@@ -216,7 +216,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Public18.11 packages are stable; .NET11 SDK/runtime proof is RC2. No experimental opt-in is required for the current route; removed old pooling was unfinished/obsolete.",
+            "Public18.11 packages are stable; .NET11 SDK/runtime proof is GA. No experimental opt-in is required for the current route; removed old pooling was unfinished/obsolete.",
             "PIN-959 coverage/evidence, PIN-963 actual-GA reconciliation and Human gates remain open; preserve the exact eight .NET10 foundations."
           ]
         },
@@ -318,7 +318,7 @@
       "kind": "compile-and-run",
       "sample": "samples/net11.0/TernHost/TernHost.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "scope": "Real old/current platform consumers with locked artifacts; Test-TernTesting.ps1 verifies removed-contract compilation, discovery/results/cancel/cleanup, real plugin dependency resolution and effective settings/semicolon boundaries."
     },
@@ -326,7 +326,7 @@
       "kind": "compile-and-run",
       "sample": "samples/net11.0/TernHost/Tests/TernTests.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "scope": "Real old/current platform consumers with locked artifacts; Test-TernTesting.ps1 verifies removed-contract compilation, discovery/results/cancel/cleanup, real plugin dependency resolution and effective settings/semicolon boundaries."
     }

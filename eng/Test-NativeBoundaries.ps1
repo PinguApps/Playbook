@@ -49,7 +49,7 @@ try {
   foreach($major in '10','11'){
    $dotnet=if($major -eq '10'){$Net10Dotnet}else{$Net11Dotnet}
    $x86=if($major -eq '10'){$X86Net10}else{$X86Net11}
-   $sdk=if($major -eq '10'){'10.0.403'}else{'11.0.100-rc.3.26522.148'}
+   $sdk=if($major -eq '10'){'10.0.403'}else{'11.0.100'}
    $lang=if($major -eq '10'){'14.0'}else{'15.0'}
    $audit=Get-Content (Join-Path $root 'docs/planning/audits/runtime-security.assets.json') -Raw|ConvertFrom-Json
    $baseline=@($audit.baselines|Where-Object target -CEQ "net$major.0")[0]
@@ -71,7 +71,7 @@ try {
    $dll="bin/Release/net$major.0/MarshHeap.dll"
    $actual=Invoke-Estuary $x86 $directory @($dll,'application')
    Assert-Estuary $actual 'ARCH=X86'
-   Assert-Estuary $actual $(if($major -eq '10'){'.NET 10.0.14'}else{'.NET 11.0.0-rc.3.26522.148'})
+   Assert-Estuary $actual $(if($major -eq '10'){'.NET 10.0.14'}else{'.NET 11.0.0'})
    $actual=Invoke-Estuary $x86 $directory @($dll) -Exit $(if($major -eq '10'){-532462766}else{0})
    Assert-Estuary $actual $(if($major -eq '10'){'RETAINED=134217728'}else{'LIMIT=33554432'})
    Save-EstuaryEvidence $sample $sdk $lang "net$major.0" 'Real Windows x86 application budget, configured 32MiB managed-heap limit, bounded allocation and OOM; old runtime ignores setting, current enforces it. RSS measured separately.' $info 'eng/Test-NativeBoundaries.ps1 -Lane Windows -Record' -ExpectedInputs $inputs

@@ -29,4 +29,6 @@ Ignoring a property does not remove the key from providers, redact logs, protect
 
 ## Evidence
 
-Actual .NET 10 and .NET 11 RC2 projects compile and run the same ordinary-value/excluded-value assertions. Canonical source is embedded into this body. These are managed Windows x64 executions with no mocked binder. Exact SDK, shared-framework and input-hash records accompany the recipe; RC2 evidence does not establish GA behavior. No Human-only check is required for this bounded claim.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
+Actual .NET 10 and .NET 11 GA projects compile and run the same ordinary-value/excluded-value assertions. Canonical source is embedded into this body. These are managed Windows x64 executions with no mocked binder. Exact SDK, shared-framework and input-hash records accompany the recipe; GA execution is limited to the recorded configuration. No Human-only check is required for this bounded claim.

@@ -34,7 +34,7 @@ For a whole-model asynchronous rule, implement both inherited synchronous and as
 
 ## Constraints
 
-The six async Validator families are exercised against the actual RC2 artifacts. Object validation does not recursively validate an arbitrary object graph. Property errors can prevent later object-level validation; do not depend on a particular rule order or use validation as an ordered side-effect pipeline. Concurrent rules must tolerate shared-service concurrency. Cancellation reaches the rule, but the framework can use a linked token: token identity is not guaranteed.
+The six async Validator families are exercised against the actual GA artifacts. Object validation does not recursively validate an arbitrary object graph. Property errors can prevent later object-level validation; do not depend on a particular rule order or use validation as an ordered side-effect pipeline. Concurrent rules must tolerate shared-service concurrency. Cancellation reaches the rule, but the framework can use a linked token: token identity is not guaranteed.
 
 The ledger is an asynchronous in-process policy, not a database or external-registry integration. Required is still synchronous; an async-only rule cannot silently pass a synchronous caller. Do not use Result, Wait or GetAwaiter().GetResult to bridge the contracts.
 
@@ -42,4 +42,6 @@ These are shared DataAnnotations APIs. They do not register Minimal API validati
 
 ## Evidence
 
-Actual .NET 10 and .NET 11 projects compile and execute the same goal. Task barriers prove validation remains pending until a verdict; real cancellation reaches the service; rejection retains the Permit member; Required and IOException propagation remain observable. en-GB/fr-FR culture flows through completion. RC2 additionally runs all six Validator families, rejects the synchronous path, and executes IAsyncValidatableObject without calling Validate. Exact SDKs, dependencies, outputs and input hashes accompany the recipe. RC3 evidence is not GA or web integration evidence.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
+Actual .NET 10 and .NET 11 projects compile and execute the same goal. Task barriers prove validation remains pending until a verdict; real cancellation reaches the service; rejection retains the Permit member; Required and IOException propagation remain observable. en-GB/fr-FR culture flows through completion. GA additionally runs all six Validator families, rejects the synchronous path, and executes IAsyncValidatableObject without calling Validate. Exact SDKs, dependencies, outputs and input hashes accompany the recipe. GA verification is limited to the recorded checks or web integration evidence.

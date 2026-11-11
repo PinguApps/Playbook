@@ -17,7 +17,7 @@ model; their own row round-trips are not claimed.
 
 Putting Sedge's JSON value on its base type instead throws
 `Could not find JSON container column 'Location'` during materialization on the
-pinned RC2 build. Base and concrete queries both failed for that inherited
+pinned GA build. Base and concrete queries both failed for that inherited
 mapping. Moving its declaration and configuration to the concrete subtype
 works in this consumer. This bounded route does not establish that arbitrary
 inherited TPC JSON mappings are safe.
@@ -25,7 +25,7 @@ inherited TPC JSON mappings are safe.
 ## Requirements
 
 EF Core 11 requires the .NET 11 runtime and SDK. The current consumer pins SDK
-11.0.100-rc.3.26522.148, C# 15 and EF SQL Server 11.0.0-rc.2.26504.105.
+11.0.100, C# 15 and EF SQL Server 11.0.0.
 The older consumer pins SDK 10.0.403, C# 14 and EF SQL Server 10.0.13.
 EF11 selects net11.0 EF/Relational/provider assets; net10.0 abstractions do not
 make the full provider compatible with a .NET10 application. Explicit SqlClient
@@ -36,7 +36,7 @@ Execution used Windows x64 against local Linux SQL Server 2025 Developer
 17.0.5035.5. Provider and database compatibility are 170. Native json and
 CREATE JSON INDEX support are prerequisites for the current index path,
 including the clustered primary key. Other providers, engines and platforms
-require their own checks. This is RC2 execution, not actual GA proof.
+require their own checks. This is GA execution, within the recorded verification scope.
 No experimental EF API suppression or database preview opt-in is used here.
 
 Use an empty exclusively owned disposable database. EnsureCreated creates
@@ -88,7 +88,7 @@ and new schemas differ; adoption needs a reviewed data migration.
 ## Newer approach
 
 Use complex values and nested paths as configured below. Keep the documented
-RC2 restrictions when adapting this example. The shared consumer also executes
+GA restrictions when adapting this example. The shared consumer also executes
 the companion inheritance/key/index checks so its provider evidence is concrete.
 
 ### .NET 11
@@ -125,8 +125,8 @@ the companion inheritance/key/index checks so its provider evidence is concrete.
 2. Decide which values need scalar constraints/predicates and which need JSON.
    Inspect generated DDL and actual provider/server support before adoption.
 3. Keep required, bounded scalar key paths separate from JSON lookup paths.
-   Use explicit LINQ identity lookup for the demonstrated RC2 nested key.
-4. On this RC2 baseline declare TPC JSON on the concrete subtype as shown.
+   Use explicit LINQ identity lookup for the demonstrated GA nested key.
+4. On this GA baseline declare TPC JSON on the concrete subtype as shown.
    Do not move it to the base type without new successful execution evidence.
 5. Review migrations against a copy of existing data before production use.
    EnsureCreated is only disposable setup; never use it to upgrade existing data.
@@ -150,11 +150,13 @@ establish distinct actual provider paths, with no optimizer or timing guarantee.
 
 Keys exclude complex collections, nullable complex paths and JSON properties.
 SQL Server JSON indexes require native json and a clustered primary key.
-On RC2 use concrete-subtype TPC JSON and explicit LINQ identity predicates;
+On GA use concrete-subtype TPC JSON and explicit LINQ identity predicates;
 inherited-base TPC JSON and nested-key FindAsync remain failing paths.
 No other provider, optimizer plan, throughput or actual GA claim is made.
 
 ## Evidence
+
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Both canonical projects compile and execute against real SQL Server. Saved
 verification-evidence.json records retain source/configuration hashes, exact

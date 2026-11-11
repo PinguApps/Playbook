@@ -26,7 +26,7 @@ Crucially, `Microsoft.Maui.Controls.Handlers.Compatibility.ShellRenderer` remain
 2. Move supported styling to Shell properties. Remove the renderer registration to select Android's default handler. Keep any temporary legacy registration explicit and document the reason.
 3. Build the actual Android project with the matching workload and inspect the resolved package graph for the removed package. On an available device, verify flyout open/close, destination switching, back navigation and accessibility. Source review does not establish those interactions.
 
-Do not extrapolate this Android default to Apple. At the reviewed RC2 baseline, `UseiOSShellHandler` is an opt-in and the compatibility ShellRenderer remains the Apple default. Apple NavigationPage timing changes and item-handler migrations are outside this Android edition.
+Do not extrapolate this Android default to Apple. At the reviewed GA baseline, `UseiOSShellHandler` is an opt-in and the compatibility ShellRenderer remains the Apple default. Apple NavigationPage timing changes and item-handler migrations are outside this Android edition.
 
 ## Constraints
 
@@ -34,7 +34,9 @@ This edition covers Android only. Use matching Android build tools and the MAUI 
 
 ## Evidence
 
-Canonical previous/current projects use SDK10.0.403/C#14/Controls10.0.110 with net10.0-android36.0 and SDK11.0.100-rc.3.26522.148/C#15/Controls11.0.0-rc.2.26505.5 with net11.0-android37.0. Minimum Android API24 is declared explicitly. Matching native SDK/workloads and Android build tools are required; CoreCLR is the normal runtime, with no NativeAOT claim. This is native rendering with no provider, account or preview-language opt-in. Stable API guidance uses RC2 evidence, not GA verification.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
+Canonical previous/current projects use SDK10.0.403/C#14/Controls10.0.110 with net10.0-android36.0 and SDK11.0.100/C#15/Controls11.0.0 with net11.0-android37.0. Minimum Android API24 is declared explicitly. Matching native SDK/workloads and Android build tools are required; CoreCLR is the normal runtime, with no NativeAOT claim. This is native rendering with no provider, account or preview-language opt-in. Stable API guidance uses GA evidence, within the recorded verification scope.
 
 The older Android project built in Release with the actual installed Android36.1.118 and MAUI10.0.110 toolchain. It was not deployed to a device. The current Android sample is official-review only: the SDK11 installation lacks Microsoft.Maui.Sdk. Current Android compilation and all device behavior are not-tested. This exclusion follows PIN-699 and creates no obligation to acquire another environment. No separately ticketed Human proof is linked to these targets. The source manifest retains exact reviewed source identities; real installed-tool list/get checks establish guidance delivery only. No package, account or resource publication/provisioning is performed.
 
@@ -162,9 +164,9 @@ Android Shell's handler default does not imply an Apple default switch.
 ## Apple evidence and setup
 
 The canonical Apple projects pin SDK10.0.403/Controls10.0.110/C#14 and
-SDK11 RC3/Controls11 RC2/C#15 respectively, with native iOS26/27 assets and
+SDK11 GA/Controls11 GA/C#15 respectively, with native iOS26/27 assets and
 minimum iOS18.2. No preview language, provider or account is involved. API guidance
-is stable, based on RC2 contracts rather than GA execution. Mac Catalyst uses the
+is stable, based on GA contracts rather than GA execution. Mac Catalyst uses the
 same migration but is not a separately compiled sample. Apple compilation and all
 native interactions are explicitly not-tested under PIN-699 because Mac/Xcode is
 unavailable. Exact source hashes and sample inputs are retained; installed stdio

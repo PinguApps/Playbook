@@ -22,7 +22,7 @@ Save this complete `Program.cs`. The unauthenticated `/sign-in` fixture issues a
 
 ## Newer approach — .NET 11 connection callback
 
-Create the same named project in a separate directory, using this project file and `global.json` set to `{"sdk":{"version":"11.0.100-rc.3.26522.148","rollForward":"disable"}}`. The recorded browser assets are **11.0.0-rc.3.26522.148**. Match the Web SDK, reference pack, ASP.NET Core runtime and `blazor.web.js`; do not copy the newer script into an older renderer. C# 15 is the canonical language mode, although the configuration needs no new language syntax. This is pinned RC2 evidence; GA and other browser/platform behaviour are not verified.
+Create the same named project in a separate directory, using this project file and `global.json` set to `{"sdk":{"version":"11.0.100","rollForward":"disable"}}`. The recorded browser assets are **11.0.0**. Match the Web SDK, reference pack, ASP.NET Core runtime and `blazor.web.js`; do not copy the newer script into an older renderer. C# 15 is the canonical language mode, although the configuration needs no new language syntax. This is pinned GA evidence for the recorded browser/platform only; other browser/platform behaviour is not verified.
 
 {{snippet:project-11}}
 
@@ -58,6 +58,8 @@ Create `wwwroot/session.js`. The observer shows connection state and suppresses 
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Open `/sign-in` on the selected loopback port. Immediately relay a note: the receipt must advance and the returned text must match. In browser network tools, negotiation must advertise only WebSockets, the circuit must upgrade with HTTP **101**, and a Long Polling attempt must return **404**, `LongPolling transport not supported by this end point type`. `/policy` reports the configured 8,192/16,384-byte thresholds on the mapped dispatcher metadata.
 
 The original real Chrome check relays `Westmere-` repeated 3,072 times: **27,648 characters** arrive through a component change event and return in an actual render. Success above both thresholds demonstrates that they are not message-size caps. It does **not** measure peak memory, throughput, slow-reader backpressure or capacity under load. Those need workload-specific tests.
@@ -66,11 +68,11 @@ With the default policy, expect `Disconnected` after the ticket expires, and **4
 
 ## Constraints
 
-Both .NET 10 and RC2 hosts were compiled with their actual pinned Web SDKs and executed with matching ASP.NET Core runtimes on Windows/Chrome. Saved compilation is distinct from the real browser execution records; there are no mocks or cross-compilation claims. Static SSR has no live circuit, and WebAssembly uses a different execution model. Interactive Auto, other authentication schemes/providers, reverse proxies, distributed hosting, load behaviour and GA are outside the demonstrated scope.
+Both .NET 10 and GA hosts were compiled with their actual pinned Web SDKs and executed with matching ASP.NET Core runtimes on Windows/Chrome. Saved compilation is distinct from the real browser execution records; there are no mocks or cross-compilation claims. Static SSR has no live circuit, and WebAssembly uses a different execution model. Interactive Auto, other authentication schemes/providers, reverse proxies, distributed hosting and load behaviour are outside the demonstrated scope.
 
 ## Sources
 
 - [Official ConfigureConnection API and release scope](https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.server.servercomponentsendpointoptions.configureconnection?view=aspnetcore-11.0).
 - [SignalR configuration: transports, expiry and separate buffers/message size](https://learn.microsoft.com/en-us/aspnet/core/signalr/configuration?view=aspnetcore-11.0).
-- [Pinned RC2 endpoint options](https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Server/src/Builder/ServerComponentsEndpointOptions.cs) and [previous-release options](https://github.com/dotnet/aspnetcore/blob/0ef4bbfa3291b306a21e5001cb0491277bdd35bc/src/Components/Server/src/Builder/ServerComponentsEndpointOptions.cs).
+- [Pinned endpoint options](https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Server/src/Builder/ServerComponentsEndpointOptions.cs) and [previous-release options](https://github.com/dotnet/aspnetcore/blob/0ef4bbfa3291b306a21e5001cb0491277bdd35bc/src/Components/Server/src/Builder/ServerComponentsEndpointOptions.cs).
 - [Pinned dispatcher pipe options](https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/SignalR/common/Http.Connections/src/HttpConnectionDispatcherOptions.cs) and [connection-manager expiry scan](https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/SignalR/common/Http.Connections/src/Internal/HttpConnectionManager.cs).

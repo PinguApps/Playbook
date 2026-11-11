@@ -43,7 +43,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Measured SDK11 RC3 consumer; not GA evidence."
+            "reason": "Measured SDK11 GA consumer; verification covers only the recorded checks."
           },
           "language": {
             "name": "C#",
@@ -65,7 +65,7 @@
               "name": "Microsoft.EntityFrameworkCore.Sqlite",
               "version": "11.0",
               "match": "release-family",
-              "reason": "Provider and Design versions match; the tested graph pins RC2."
+              "reason": "Provider and Design versions match; the tested graph pins GA."
             },
             {
               "name": "System.Security.Cryptography.Pkcs",
@@ -75,7 +75,7 @@
             }
           ],
           "packageAssets": [
-            "EF10/Design/SQLite10.0.13 and EF11/Design/SQLite11.0.0-rc.2.26504.105; Pkcs10.0.13; independently locked transitive graphs. SDK10.0.403 and SDK11 RC3. EF11 selects net11.0."
+            "EF10/Design/SQLite10.0.13 and EF11/Design/SQLite11.0.0; Pkcs10.0.13; independently locked transitive graphs. SDK10.0.403 and SDK11 GA. EF11 selects net11.0."
           ],
           "providers": [
             "SQLite file database, Windows x64 bundled native engine."
@@ -95,7 +95,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "RC evidence; actual GA reconciliation remains separate."
+            "Recorded evidence; actual GA reconciliation remains separate."
           ]
         },
         "conditional": false,
@@ -118,7 +118,7 @@
   "evidence": [
     {
       "sdk": "10.0.403",
-      "scope": "Independent locked compilation and focused checks in canonical sample/runner; RC evidence only.",
+      "scope": "Independent locked compilation and focused checks in canonical sample/runner; Recorded evidence only.",
       "sample": "samples/net10.0/BitternScaffolding/BitternScaffolding.csproj",
       "kind": "compile",
       "language": "14.0",
@@ -134,8 +134,8 @@
       "sample": "samples/net10.0/BitternScaffolding/BitternScaffolding.csproj"
     },
     {
-      "sdk": "11.0.100-rc.3.26522.148",
-      "scope": "Independent locked compilation and focused checks in canonical sample/runner; RC evidence only.",
+      "sdk": "11.0.100",
+      "scope": "Independent locked compilation and focused checks in canonical sample/runner; Recorded evidence only.",
       "sample": "samples/net11.0/BitternScaffolding/BitternScaffolding.csproj",
       "kind": "compile",
       "language": "15.0",
@@ -145,7 +145,7 @@
       "kind": "execution",
       "language": "15.0",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "scope": "Actual selector extension, schema scaffolding, generated C# compilation and SQLite query.",
       "record": "samples/net11.0/BitternScaffolding/behavior.evidence.json",
       "sample": "samples/net11.0/BitternScaffolding/BitternScaffolding.csproj"

@@ -33,20 +33,20 @@
         "selectionNotes": [
           "Supply missing certificate intermediates explicitly when validating signed data on Linux/OpenSSL, keeping root trust and revocation policy separate from issuer downloads.",
           "Actual Linux x64 OpenSSL execution in pinned Azure Linux containers; separate Windows compilation. Private offline test root only; no TLS/online-revocation/GA claim.",
-          "Verified on .NET 11 RC2; actual-GA reconciliation remains open."
+          "Verified on .NET 11 GA; actual-GA checks are limited to the recorded scope."
         ],
         "requirements": {
           "runtime": {
             "name": ".NET",
             "version": "11.0",
             "match": "release-family",
-            "reason": ".NET 11 runtime for the current net11 consumer; RC2 is the measured artifact, not final GA proof."
+            "reason": ".NET 11 runtime for the current net11 consumer; GA is the measured artifact, within the recorded verification scope."
           },
           "sdk": {
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Build against the .NET 11 reference assemblies; exact RC3 is the reproduction baseline."
+            "reason": "Build against the .NET 11 reference assemblies; exact GA is the reproduction baseline."
           },
           "language": {
             "name": "C#",
@@ -71,12 +71,12 @@
           ],
           "constraints": [
             "Actual Linux x64 OpenSSL execution in pinned Azure Linux containers; separate Windows compilation. Private offline test root only; no TLS/online-revocation/GA claim.",
-            "Previous comparison uses SDK10.0.403 / C#14 / runtime10.0.14; current uses SDK11.0.100-rc.3.26522.148 / C#15 / runtime11RC3. These are verification pins, not a universal support floor.",
+            "Previous comparison uses SDK10.0.403 / C#14 / runtime10.0.14; current uses SDK11.0.100 / C#15 / runtime11RC3. These are verification pins, not a universal support floor.",
             "No device, rendering mode, workload, public service or persistent environment changes. Preserve eight foundations and existing GA/Human/comprehensive gates."
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "RC3 evidence is not actual-GA proof. No selected API experimental opt-in is required."
+            "GA verification is limited to the recorded checks proof. No selected API experimental opt-in is required."
           ]
         },
         "sourceUrls": [
@@ -127,7 +127,7 @@
       "kind": "compile",
       "scope": "Actual Linux x64 OpenSSL execution in pinned Azure Linux containers; separate Windows compilation. Private offline test root only; no TLS/online-revocation/GA claim.",
       "sample": "samples/net11.0/ArchiveManifest/ArchiveManifest.csproj",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "target": "net11.0"
     },
@@ -136,7 +136,7 @@
       "record": "samples/net11.0/ArchiveManifest/linux.evidence.json",
       "scope": "Actual Linux x64 OpenSSL execution in pinned Azure Linux containers; separate Windows compilation. Private offline test root only; no TLS/online-revocation/GA claim.",
       "sample": "samples/net11.0/ArchiveManifest/ArchiveManifest.csproj",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "target": "net11.0"
     }

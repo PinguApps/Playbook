@@ -35,4 +35,4 @@ The exact SDK pins, resolved FSharp.Core dependencies, input hashes, build comma
 
 Official sources: [F# record constructor preview gate](https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/rc1/fsharp.md); [Synthesized all-fields constructor implementation](https://github.com/dotnet/fsharp/pull/19974).
 
-GA refresh: SDK 11.0.100, runtime 11.0.0 and FSharp.Core 11.0.101 were used for the newer consumer. Historical RC observations remain in Git at 307dc932. Experimental language modes remain required. See docs/planning/audits/ga-language-contracts.md for the bounded checks and exclusions.
+GA refresh: SDK 11.0.100, runtime 11.0.0 and FSharp.Core 11.0.101 were used for the newer consumer. Historical RC observations remain in Git at 307dc932. Use only the language opt-ins listed for the selected sample. See docs/planning/audits/ga-language-contracts.md for the bounded checks and exclusions.

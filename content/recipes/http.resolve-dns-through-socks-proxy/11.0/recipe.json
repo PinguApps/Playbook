@@ -34,7 +34,7 @@
         "requirements": {
           "sdk": {
             "match": "release-family",
-            "reason": "Build net11.0 against .NET 11 references; exact SDK11 RC3 is a separate tested baseline.",
+            "reason": "Build net11.0 against .NET 11 references; exact SDK11 GA is a separate tested baseline.",
             "name": ".NET SDK",
             "version": "11.0"
           },
@@ -71,7 +71,7 @@
           "renderingModes": [],
           "optIns": [],
           "stabilityLimitations": [
-            "Actual RC2 verification, not final-GA proof; PIN-962 and PIN-959 remain open."
+            "Actual GA verification, within the recorded verification scope; PIN-962 and PIN-959 remain open."
           ],
           "constraints": [
             "Keep socks5 on .NET 10: its hostname forwarding already works; socks5h is a newer alias.",
@@ -121,7 +121,7 @@
       "kind": "compile-and-run",
       "sample": "samples/net11.0/CairnRelay/CairnRelay.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "scope": "Real Windows x64 SOCKS5 hostname CONNECT, actual loopback target response, authentication success/failure, no acceptable method, refused CONNECT and cancelled negotiation; local negative DNS and old alias rejection. No global DNS privacy, production proxy, other-platform or GA proof."
     }

@@ -115,7 +115,7 @@ Replace the JavaScript-created formula subtree with Razor MathML and bind the va
 ## Build and exercise
 
 The older pin is SDK 10.0.403 / C# 14 / ASP.NET Core 10.0.14. The newer pin is
-SDK 11.0.100-rc.3.26522.148 / C# 15 / ASP.NET Core 11.0.0-rc.3.26522.148.
+SDK 11.0.100 / C# 15 / ASP.NET Core 11.0.0.
 Microsoft.NET.Sdk.Web supplies the implicit Internal.Assets package at the
 matching framework version; no explicit PackageReference is needed. The shared
 framework supplies the server/provider/interop assemblies. Restore needs NuGet
@@ -146,7 +146,9 @@ The checked namespace is http://www.w3.org/1998/Math/MathML. Seven nodes, includ
 
 ## Evidence
 
-API stability is stable in discovery/detail; the measured artifact is RC2, not GA.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
+API stability is stable in discovery/detail; the measured artifact is GA.
 Compilation records preserve exact inputs, SDK, target, language, dependencies and
 source dirty state. Browser execution is separate from compilation. The focused
 receipts are documented in docs/verification/component-interop.md. This recipe makes no

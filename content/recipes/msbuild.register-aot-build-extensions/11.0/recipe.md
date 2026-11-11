@@ -22,17 +22,17 @@ container, workload or production resource is involved.
 
 | Layer | Older managed comparison | Current managed/native host |
 | --- | --- | --- |
-| SDK / Roslyn | 10.0.403 / 5.9.0-1.26523.112 | 11.0.100-rc.3.26522.148 / 5.12.0-1.26522.148 |
-| Framework, reference pack, managed runtime | net10.0 / 10.0.14 | net11.0 / 11.0.0-rc.3.26522.148 |
+| SDK / Roslyn | 10.0.403 / 5.9.0-1.26523.112 | 11.0.100 / 5.12.0-1.26522.148 |
+| Framework, reference pack, managed runtime | net10.0 / 10.0.14 | net11.0 / 11.0.0 |
 | C# compiler setting | 14.0 | 15.0; no preview-language switch |
 | Embedded MSBuild | Installed SDK 18.9.15, via Locator 1.11.2 net8.0 | Independently distributed Microsoft.Build, Framework, Utilities.Core and StringTools **18.11.0**, net11.0 assets |
-| Native compiler/runtime | No older native route claimed | ILC and NativeAOT runtime pack 11.0.0-rc.3.26522.148, win-x64 |
+| Native compiler/runtime | No older native route claimed | ILC and NativeAOT runtime pack 11.0.0, win-x64 |
 | Platform tools | Not required | Visual Studio 18 Build Tools, MSVC 14.51.36231; Windows Kit 10.0.26100.0 |
 
 These are exact tested inputs, separately from the supported prerequisites:
 NativeAOT on Windows needs Visual Studio 2022 or later with Desktop development
 with C++ and its SDK components. This specific route is qualified only with the
-table's compiler, linker, libraries and RC3 SDK. Acquire the complete SDKs from
+table's compiler, linker, libraries and GA SDK. Acquire the complete SDKs from
 official .NET distributions and the public NuGet packages from nuget.org; a lone
 SDK assembly is insufficient. The older alternative needs the complete SDK10
 runtime/SDK context. The native executable includes its runtime, but this example
@@ -51,7 +51,7 @@ The locked current closure also includes `NuGet.Frameworks/7.9.0` (net8.0),
 `Microsoft.VisualStudio.SolutionPersistence/1.0.52` (net8.0), and
 `System.Configuration.ConfigurationManager`, `System.Diagnostics.EventLog`,
 `System.Reflection.MetadataLoadContext` and `System.Security.Cryptography.ProtectedData`
-**10.0.10**. Native compiler/linker package versions are pinned by the RC3 SDK.
+**10.0.10**. Native compiler/linker package versions are pinned by the GA SDK.
 The two explicit helper packages close framework/solution-reader references;
 including them does not qualify solution builds. Keep `packages.lock.json` and
 restore with `RestoreLockedMode=true`. All sample dependencies remain manually
@@ -82,8 +82,8 @@ the current host obtains the same directory through its compiled resolver.
 
 ## Newer approach
 
-Pin `global.json` to **11.0.100-rc.3.26522.148**, with `rollForward: "disable"`
-and `allowPrerelease: true`. Use the following project under the repository's
+Pin `global.json` to **11.0.100**, with `rollForward: "disable"`
+and `allowPrerelease: false`. Use the following project under the repository's
 sample build boundary (`OutputType=Exe`, nullable and implicit usings enabled,
 warnings as errors), and this independent central-package boundary:
 
@@ -192,6 +192,8 @@ logger loading or a project-cache plugin follows different reflective paths.
    `--evaluate-only` must succeed without producing a permit receipt.
 
 ## Evidence
+
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 `eng/Record-NorthQuayBuildHost.ps1` uses the existing sample evidence workflow to
 restore both locked closures into its selected `-Packages` cache before hashing

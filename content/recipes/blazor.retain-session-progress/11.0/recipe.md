@@ -97,7 +97,7 @@ net11.0/HarbourPermit.csproj:
 {{snippet:project}}
 
 Nullable and ImplicitUsings are enabled in the complete project blocks. The canonical previous/current SDK pins are 10.0.403 and
-11.0.100-rc.3.26522.148, C# 14.0/15.0. The Web SDK supplies matching framework
+11.0.100, C# 14.0/15.0. The Web SDK supplies matching framework
 assemblies and its aligned Internal.Assets dependency; there are no explicit
 NuGet packages, native workloads or browser scripts required for these forms.
 
@@ -140,7 +140,7 @@ net10.0/global.json:
 
 net11.0/global.json:
 
-{"sdk":{"version":"11.0.100-rc.3.26522.148","rollForward":"disable"}}
+{"sdk":{"version":"11.0.100","rollForward":"disable"}}
 
 ### Streaming check
 
@@ -206,9 +206,11 @@ an attribute-owned key during migration; clear or migrate the old representation
 Session cookies follow normal consent/security settings. Do not make them
 essential just to hide missing state. Use HTTPS and the application's cookie
 policy in production. These stable contracts require no experimental opt-in;
-current RC3 evidence is not GA verification.
+current GA verification is limited to the recorded checks.
 
 ## Evidence
+
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Actual net10.0/C# 14.0 and net11.0/C# 15.0 Web SDK projects compile with their
 declared SDKs and locked assets. Saved compilation evidence is separate from

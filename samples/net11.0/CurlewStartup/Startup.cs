@@ -1,7 +1,7 @@
 #!/usr/bin/env dotnet
 // snippet:complete
-#:package Microsoft.EntityFrameworkCore.Sqlite@11.0.0-rc.2.26504.105
-#:package Microsoft.EntityFrameworkCore.Design@11.0.0-rc.2.26504.105
+#:package Microsoft.EntityFrameworkCore.Sqlite@11.0.0
+#:package Microsoft.EntityFrameworkCore.Design@11.0.0
 #:property PublishAot=false
 #:property TargetFramework=net11.0
 #:property LangVersion=15.0

@@ -33,7 +33,7 @@
           "https://github.com/dotnet/efcore/blob/v11.0.0-rc.2.26504.105/src/EFCore.SqlServer/Query/Internal/SqlServerSqlTranslatingExpressionVisitor.cs"
         ],
         "selectionNotes": [
-          "DATETRUNC requires SQL Server2022 or later. This sample executes on SQL Server2025 at compatibility170 only. LocalDateTime uses the SQL Server time zone, not the application machine time zone. The translated one-argument DateTimeOffset constructor attaches UTC (+00:00) in this RC2 provider, unlike the local CLR constructor on an Unspecified DateTime. An offset is not a named time zone or a daylight-saving rule."
+          "DATETRUNC requires SQL Server2022 or later. This sample executes on SQL Server2025 at compatibility170 only. LocalDateTime uses the SQL Server time zone, not the application machine time zone. The translated one-argument DateTimeOffset constructor attaches UTC (+00:00) in this GA provider, unlike the local CLR constructor on an Unspecified DateTime. An offset is not a named time zone or a daylight-saving rule."
         ],
         "usage": "primary",
         "target": "11.0",
@@ -48,7 +48,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Build the declared target. Exact recorded SDKs are verification baselines; current-release proof uses RC2, not GA."
+            "reason": "Build the declared target. Exact recorded SDKs are verification baselines; current-release proof uses GA."
           },
           "language": {
             "name": "C#",
@@ -64,7 +64,7 @@
               "name": "Microsoft.EntityFrameworkCore.SqlServer",
               "version": "11.0",
               "match": "release-family",
-              "reason": "EF11 SQL translation/defaults; actual baseline 11.0.0-rc.2.26504.105. Pin SqlClient7.1.0 and Pkcs10.0.13 as in the complete standalone project."
+              "reason": "EF11 SQL translation/defaults; actual baseline 11.0.0. Pin SqlClient7.1.0 and Pkcs10.0.13 as in the complete standalone project."
             }
           ],
           "packageAssets": [
@@ -81,7 +81,7 @@
             "Not applicable: console/database consumer; no renderer or browser"
           ],
           "constraints": [
-            "DATETRUNC requires SQL Server2022 or later. This sample executes on SQL Server2025 at compatibility170 only. LocalDateTime uses the SQL Server time zone, not the application machine time zone. The translated one-argument DateTimeOffset constructor attaches UTC (+00:00) in this RC2 provider, unlike the local CLR constructor on an Unspecified DateTime. An offset is not a named time zone or a daylight-saving rule.",
+            "DATETRUNC requires SQL Server2022 or later. This sample executes on SQL Server2025 at compatibility170 only. LocalDateTime uses the SQL Server time zone, not the application machine time zone. The translated one-argument DateTimeOffset constructor attaches UTC (+00:00) in this GA provider, unlike the local CLR constructor on an Unspecified DateTime. An offset is not a named time zone or a daylight-saving rule.",
             "Only target11 edition is served. EF10 comparison is not an additional .NET10 foundation; EF11 has no net10 route."
           ],
           "prerequisites": [
@@ -90,7 +90,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "No experimental API opt-in; actual .NET11/EF11 proof uses RC2, not GA."
+            "No experimental API opt-in; actual .NET11/EF11 proof uses GA."
           ]
         },
         "conditional": false,
@@ -123,15 +123,15 @@
       "language": "14.0",
       "kind": "compile-and-run",
       "sdk": "10.0.403",
-      "scope": "Real isolated SQL2025 execution: temporal generation, adjacent history periods and rejected direct period update; EF10 shadow reads and parameterized SQL conversion/bucketing; EF11 CLR reads and translated offset members, constructors and hour grouping. RC2 is not GA; no older-engine proof."
+      "scope": "Real isolated SQL2025 execution: temporal generation, adjacent history periods and rejected direct period update; EF10 shadow reads and parameterized SQL conversion/bucketing; EF11 CLR reads and translated offset members, constructors and hour grouping. GA is limited to the recorded checks; no older-engine proof."
     },
     {
       "sample": "samples/net11.0/BeaconHistory/BeaconHistory.csproj",
       "target": "net11.0",
       "language": "15.0",
       "kind": "compile-and-run",
-      "sdk": "11.0.100-rc.3.26522.148",
-      "scope": "Real isolated SQL2025 execution: temporal generation, adjacent history periods and rejected direct period update; EF10 shadow reads and parameterized SQL conversion/bucketing; EF11 CLR reads and translated offset members, constructors and hour grouping. RC2 is not GA; no older-engine proof."
+      "sdk": "11.0.100",
+      "scope": "Real isolated SQL2025 execution: temporal generation, adjacent history periods and rejected direct period update; EF10 shadow reads and parameterized SQL conversion/bucketing; EF11 CLR reads and translated offset members, constructors and hour grouping. GA is limited to the recorded checks; no older-engine proof."
     }
   ],
   "snippets": {

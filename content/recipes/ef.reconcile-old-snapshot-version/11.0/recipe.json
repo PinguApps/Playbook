@@ -44,7 +44,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Measured SDK11 RC3 consumer; not GA evidence."
+            "reason": "Measured SDK11 GA consumer; verification covers only the recorded checks."
           },
           "language": {
             "name": "C#",
@@ -64,7 +64,7 @@
             }
           ],
           "packageAssets": [
-            "Exact current EF package 11.0.0-rc.2.26504.105; older EF10.0.13. SDK10.0.403/C#14/net10.0 and SDK11.0.100-rc.3.26522.148/C#15/net11.0. Independent locks retain all provider/native/transitive package identities; no EF11-on-net10 route."
+            "Exact current EF package 11.0.0; older EF10.0.13. SDK10.0.403/C#14/net10.0 and SDK11.0.100/C#15/net11.0. Independent locks retain all provider/native/transitive package identities; no EF11-on-net10 route."
           ],
           "providers": [
             "Bundled SQLite on Windows x64."
@@ -84,7 +84,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "RC evidence; actual GA reconciliation remains separate."
+            "Recorded evidence; actual GA reconciliation remains separate."
           ]
         },
         "conditional": false,
@@ -116,7 +116,7 @@
     {
       "language": "15.0",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "kind": "compile",
       "sample": "samples/net11.0/AvocetSnapshot/AvocetSnapshot.csproj",
       "scope": "Independent locked compilation; runtime behavior requires separate recorded checks."
@@ -133,7 +133,7 @@
     {
       "language": "15.0",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "kind": "execution",
       "sample": "samples/net11.0/AvocetSnapshot/AvocetSnapshot.csproj",
       "scope": "Combined EF10/EF11 focused runner output; this entry identifies its independent compilation baseline. Actual Windows x64 tooling/schema/persistence controls; RC artifacts only.",

@@ -73,10 +73,12 @@ Never unload a Native AOT library with `dlclose` or `FreeLibrary`. Executables a
 Windows libraries are outside this Unix default-prefix condition; those branches
 are source-reviewed, not executed by this Linux check. Self-contained native
 libraries still need compatible OS/system libraries. The sample uses C# 14/15,
-SDK 10.0.403/11 RC2 and explicit Linux x64 native packs; no optional provider,
-rendering mode or workload is involved. RC2 evidence does not establish GA.
+SDK 10.0.403/11 GA and explicit Linux x64 native packs; no optional provider,
+rendering mode or workload is involved. GA evidence does not establish GA.
 
 ## Evidence
+
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 `eng/Test-TideAndMono.ps1 -Record` captures both actual Linux builds, default and
 opt-out artifacts, symbol inspection, exact-old-name failure, packaged contents

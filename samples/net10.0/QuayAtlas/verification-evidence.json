@@ -6,8 +6,8 @@
   "language": "14.0",
   "command": "eng/Test-QuayMaps.ps1 -Record",
   "scope": "Pinned source/artifact review; native compilation, rendering and service execution not tested.",
-  "recordedAt": "2026-11-06T09:57:51.2120475+00:00",
-  "sourceCommit": "e9b635946fd1a38fee196d183b39d2c4425fd569",
+  "recordedAt": "2026-11-10T23:09:25.5552632+00:00",
+  "sourceCommit": "1250c975d8e4f2f20985e9093d28213b268a457b",
   "sourceDirty": true,
   "inputs": {
     "eng/Test-QuayMaps.ps1": "ec5b06a24d377fdc261a2d21b1a96e327b992de952fc3d32bc13d93b2f15a941",
@@ -24,7 +24,7 @@
     "samples/net10.0/QuayAtlas/QuayAtlas.csproj": "deb9e3874e99dcf61ddd9a679dca903342baecfc48f6e18bd526876f7b91dacc",
     "samples/net10.0/QuayAtlas/Resources/Images/survey.svg": "dd5f249bf8ddeae9f06bf6be59bea3b2380160f4dc7c090f57086dbdd2916ef9",
     "samples/net10.0/QuayAtlas/verification.json": "03c3e827e873823cfeb4e25c5ad9f030399abfb6a960d898b01251c6c535b083",
-    "samples/QuayMaps/sources.json": "fa202b7c21f0a5b5235a792f1683224c6a71b7125d180bd4ef3a9325a2444e78"
+    "samples/QuayMaps/sources.json": "48374489a654b962ac7e5136352af57186c09af9627dbabc1f4dde90f9ac6344"
   },
   "dependencies": [],
   "workloads": [],

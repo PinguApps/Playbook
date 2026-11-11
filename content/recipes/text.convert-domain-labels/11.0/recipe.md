@@ -73,17 +73,19 @@ No allocation benchmark or zero-allocation implementation guarantee is made.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 `eng/Test-TextBoundaries.ps1 -SampleNames OrchardRoutes -Record -VerifySources`
 builds/runs both real consumers, capturing round trips, exact/short/empty buffers,
 empty/malformed/overlong labels, lone surrogate, NUL, STD3 choices and both
 AllowUnassigned settings. Current calls also reject overlapping spans. Actual
 loaded ICU, native hash, runtime configuration and sort-data identities are recorded.
 
-SDK10.0.403/ref-runtime10.0.14 and SDK11.0.100-rc.3.26522.148/ref-runtime11RC3
+SDK10.0.403/ref-runtime10.0.14 and SDK11.0.100/ref-runtime11RC3
 are the exact reproduction pins, distinct from supported release prerequisites.
 No resolved NuGet dependencies. Compiler/CoreLib and audit-matching references,
 commands and fresh inputs use the existing evidence workflow. Pinned official
 sources qualify the platform branches and callable methods. Installed local-feed
 stdio retrieval verifies full canonical Markdown, ID/title/goal, target11/edition11,
-applicability and fresh paired evidence offline. RC2 does not establish GA;
+applicability and fresh paired evidence offline. GA does not establish GA;
 PIN-959/PIN-962 and Human gates remain open.

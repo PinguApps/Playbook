@@ -30,8 +30,10 @@ Select Microsoft.Testing.Platform in global.json's test.runner (the templates ge
 
 ## Constraints
 
-Requires a compatible .NET11 native workload composition and platform toolchain. Source/template package preparation is RC2 evidence, not GA or native execution. Native test apps require MSTest4.3.2 and an MTP runner. Unavailable native checks are sample-specific not-tested exclusions under PIN-699; no Human proof is pending.
+Requires a compatible .NET11 native workload composition and platform toolchain. Source/template package preparation is GA evidence, within the recorded verification scope or native execution. Native test apps require MSTest4.3.2 and an MTP runner. Unavailable native checks are sample-specific not-tested exclusions under PIN-699; no Human proof is pending.
 
 ## Evidence
 
-Run eng/Test-SandpiperFieldwork.ps1 -Record for exact official input hashes and five actual template generations. Canonical current native compilation and all native runtime behavior are explicitly not-tested under PIN-699. Actual template generation uses the host SDK10 engine with exact RC2 template packages; it does not establish a composed SDK11 native build. Packed stdio list/get verifies offline guidance delivery only. No GA or device-test execution is inferred; no Human proof is pending. The eight .NET10 foundations and comprehensive/GA gates remain unchanged.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
+Run eng/Test-SandpiperFieldwork.ps1 -Record for exact official input hashes and five actual template generations. Canonical current native compilation and all native runtime behavior are explicitly not-tested under PIN-699. Actual template generation uses the host SDK10 engine with exact GA template packages; it does not establish a composed SDK11 native build. Packed stdio list/get verifies offline guidance delivery only. No GA or device-test execution is inferred; no Human proof is pending. The eight .NET10 foundations and comprehensive/GA gates remain unchanged.

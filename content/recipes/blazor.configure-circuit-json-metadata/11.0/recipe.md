@@ -100,9 +100,11 @@ Real Interactive Server circuits after activation, same-origin JavaScript and se
 
 ## Evidence
 
-Record-CedarPayload.ps1 captures exact compilation inputs/dependencies, then Test-CedarPayload.mjs runs both real local servers in Chromium with two separate circuits/tabs each. ShowTicket and ExtraNote round-trip over JS interop and DI protected session storage. Trace assertions distinguish four independent serializer options instances in RC2, preserve registration order and exercise reflection fallback; each app retains its own scope values and stored ticket. Ciphertext conceals the payload and an altered ciphertext is rejected by real Data Protection. Compile-only evidence is separate from saved execution records. These checks do not claim exhaustive security or production key management.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
-The exact test sets are .NET 10/C# 14, SDK 10.0.403, framework 10.0.14, and .NET 11/C# 15, SDK 11.0.100-rc.3.26522.148, framework 11.0.0-rc.3.26522.148. These independently pinned consumers are separate from the supported prerequisites above. No native assets or workloads are required. RC execution does not establish GA verification. The .NET 10 comparison adds no catalogue foundation or edition. PIN-959 and PIN-964 remain open.
+Record-CedarPayload.ps1 captures exact compilation inputs/dependencies, then Test-CedarPayload.mjs runs both real local servers in Chromium with two separate circuits/tabs each. ShowTicket and ExtraNote round-trip over JS interop and DI protected session storage. Trace assertions distinguish four independent serializer options instances in GA, preserve registration order and exercise reflection fallback; each app retains its own scope values and stored ticket. Ciphertext conceals the payload and an altered ciphertext is rejected by real Data Protection. Compile-only evidence is separate from saved execution records. These checks do not claim exhaustive security or production key management.
+
+The exact test sets are .NET 10/C# 14, SDK 10.0.403, framework 10.0.14, and .NET 11/C# 15, SDK 11.0.100, framework 11.0.0. These independently pinned consumers are separate from the supported prerequisites above. No native assets or workloads are required. GA execution is limited to the recorded checks. The .NET 10 comparison adds no catalogue foundation or edition. PIN-959 and PIN-964 remain open.
 
 Official source support:
 

@@ -131,7 +131,7 @@ function Get-XmlSurface([string]$Path) {
 Add-Type -Path (Join-Path $Net10Root 'sdk/10.0.403/System.Reflection.MetadataLoadContext.dll')
 $baselines = @(
   @{ root = $Net10Root; sdk = '10.0.403'; runtime = '10.0.14'; target = 'net10.0' },
-  @{ root = $Net11Root; sdk = '11.0.100-rc.3.26522.148'; runtime = '11.0.0-rc.3.26522.148'; target = 'net11.0' }
+  @{ root = $Net11Root; sdk = '11.0.100'; runtime = '11.0.0'; target = 'net11.0' }
 )
 $results = @()
 foreach ($baseline in $baselines) {

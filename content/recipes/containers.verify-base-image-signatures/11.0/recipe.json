@@ -34,7 +34,7 @@
         "usage": "primary",
         "selectionNotes": [
           "Only target11 is advertised; the actual .NET10 comparison adds no ninth foundation. Existing recipe/edition identities and PIN-959/PIN-963/Human gates are preserved.",
-          "Azure Linux4 remains Beta under the reviewed official source. Exact RC2 execution is not actual-GA qualification.",
+          "Azure Linux4 remains Beta under the reviewed official source. Exact GA verification is limited to the recorded checks qualification.",
           "Signature/referrer inspection is not verification. Valid signing proves provenance under this policy, not vulnerability freedom, support or application compatibility.",
           "The selected .NET10 image already carries signatures. Verify both image index and selected linux/amd64 child; immutable digests and strict scope/identity are required.",
           "No system trust-store or ordinary Notation configuration is edited. The HTTP exception is only for an ephemeral loopback registry rejection fixture."
@@ -68,13 +68,13 @@
           ],
           "renderingModes": [],
           "prerequisites": [
-            "Complete SDK10.0.403/ref10.0.13/C#14 and SDK11.0.100-rc.3.26522.148/ref11 RC2/C#15 for paired sample reproduction.",
+            "Complete SDK10.0.403/ref10.0.13/C#14 and SDK11.0.100/ref11 GA/C#15 for paired sample reproduction.",
             "Public MCR access for image acquisition; a working Linux amd64 Docker engine. Installed guidance is embedded offline.",
             "Notation1.3.2; ORAS1.3.6 helper; exact Microsoft signing/TSA roots and strict policy, all hashes retained in the sample. Public certificate/registry access for setup and verification."
           ],
           "constraints": [
             "Only target11 is advertised; the actual .NET10 comparison adds no ninth foundation. Existing recipe/edition identities and PIN-959/PIN-963/Human gates are preserved.",
-            "Azure Linux4 remains Beta under the reviewed official source. Exact RC2 execution is not actual-GA qualification.",
+            "Azure Linux4 remains Beta under the reviewed official source. Exact GA verification is limited to the recorded checks qualification.",
             "Signature/referrer inspection is not verification. Valid signing proves provenance under this policy, not vulnerability freedom, support or application compatibility.",
             "The selected .NET10 image already carries signatures. Verify both image index and selected linux/amd64 child; immutable digests and strict scope/identity are required.",
             "No system trust-store or ordinary Notation configuration is edited. The HTTP exception is only for an ephemeral loopback registry rejection fixture."
@@ -83,7 +83,7 @@
             "Explicit digest, signer, repository scope and strict verification policy."
           ],
           "stabilityLimitations": [
-            "Azure Linux4 Beta status is retained. Actual RC2 and .NET10 servicing evidence does not qualify GA or arbitrary other tool/image versions."
+            "Azure Linux4 Beta status is retained. Actual GA and .NET10 servicing evidence does not qualify GA or arbitrary other tool/image versions."
           ]
         },
         "sourceUrls": [
@@ -132,7 +132,7 @@
       "kind": "compile-and-run",
       "sample": "samples/net11.0/QuayWorker/QuayWorker.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "scope": "Actual paired worker compilation and pinned Linux runtime execution; OS/native/globalization/missing-library failure. Real strict index/platform signature verification with wrong-root/scope/missing/tampered rejection controls.",
       "record": "samples/net11.0/QuayWorker/signatures.evidence.json"

@@ -42,7 +42,7 @@
         "usage": "primary",
         "selectionNotes": [
           "Preserve logical grid values when tensor views share storage by choosing snapshots or independent output; final .NET 11 storage-contract execution remains pending.",
-          "Prepared for full .NET 11 from merged release/11.0 backport #135281. Published RC2/RC3 lack the required behavior. Current evidence is compilation only; PIN-962 owns final execution.",
+          "Prepared for full .NET 11 from merged release/11.0 backport #135281. Published GA lack the required behavior. Current evidence is compilation only; PIN-962 owns final execution.",
           "Provisional pre-GA guidance: pending behavior/final-artifact proof is not successful execution or GA verification."
         ],
         "requirements": {
@@ -56,7 +56,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Use final .NET 11 SDK for GA verification. The installed RC3 SDK is only the current compilation baseline."
+            "reason": "Use final .NET 11 SDK for GA verification. The installed GA SDK is only the current compilation baseline."
           },
           "language": {
             "name": "C#",
@@ -70,11 +70,11 @@
               "name": "System.Numerics.Tensors",
               "version": "11.0",
               "match": "release-family",
-              "reason": "Requires a final .NET 11 package containing release/11.0 backport #135281. RC2/RC3 compilation assets do not implement this contract; final package verification is pending."
+              "reason": "Requires a final .NET 11 package containing release/11.0 backport #135281. GA compilation assets do not implement this contract; final package verification is pending."
             }
           ],
           "packageAssets": [
-            "Canonical route: lib/net11.0/System.Numerics.Tensors.dll. Current compilation uses package11.0.0-rc.2.26504.105, previous execution uses10.0.13/lib/net10.0; neither proves final behavior."
+            "Canonical route: lib/net11.0/System.Numerics.Tensors.dll. Current compilation uses package11.0.0, previous execution uses10.0.13/lib/net10.0; neither proves final behavior."
           ],
           "providers": [],
           "platforms": [
@@ -94,7 +94,7 @@
           "optIns": [],
           "stabilityLimitations": [
             "PIN-962 must select final SDK/runtime/tensor artifacts, execute all storage checks and refresh proof; pending proof blocks stable-release packaging.",
-            "No experimental annotation or opt-in on actual compilation types. Full-release preparation does not advertise RC2/RC3 behavior.",
+            "No experimental annotation or opt-in on actual compilation types. Full-release preparation does not advertise GA behavior.",
             "Provisional pre-GA guidance: pending behavior/final-artifact proof is not successful execution or GA verification."
           ]
         },
@@ -151,9 +151,9 @@
     },
     {
       "kind": "compile",
-      "scope": "Actual SDK11 RC3/locked tensor11RC2 net11 compilation of complete expected-release storage checks, plus bounded --policy-only execution of ownership and Try false controls. No successful current layout rejection, permitted-overlap or Array/covariance execution; final proof pending under PIN-962.",
+      "scope": "Actual SDK11 GA/locked tensor11RC2 net11 compilation of complete expected-release storage checks, plus bounded --policy-only execution of ownership and Try false controls. No successful current layout rejection, permitted-overlap or Array/covariance execution; final proof pending under PIN-962.",
       "sample": "samples/net11.0/GridTransform/GridTransform.csproj",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "target": "net11.0"
     }

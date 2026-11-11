@@ -32,4 +32,6 @@ This shared example calls DataAnnotations directly. Microsoft.Extensions.Validat
 
 ## Evidence
 
-Both actual release projects execute formatting under en-GB and fr-FR and assert culture-specific decimal separators and unchanged range acceptance/rejection. The newer FormatMessage initializes the rule's invariantly parsed limits itself; the older host initializes and maps them explicitly. The related awaited permit check also records culture flow. Saved compilation/execution inputs distinguish the .NET 11 RC2 baseline from GA and from unexecuted resource-provider or rendering integration.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
+Both actual release projects execute formatting under en-GB and fr-FR and assert culture-specific decimal separators and unchanged range acceptance/rejection. The newer FormatMessage initializes the rule's invariantly parsed limits itself; the older host initializes and maps them explicitly. The related awaited permit check also records culture flow. Saved compilation/execution inputs distinguish the .NET 11 GA baseline from GA and from unexecuted resource-provider or rendering integration.

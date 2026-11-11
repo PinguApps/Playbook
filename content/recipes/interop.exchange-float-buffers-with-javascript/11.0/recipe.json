@@ -35,7 +35,7 @@
         "requirements": {
           "sdk": {
             "match": "release-family",
-            "reason": "Build against .NET 11 references; exact RC2 pins record measured artifacts.",
+            "reason": "Build against .NET 11 references; exact GA pins record measured artifacts.",
             "name": ".NET SDK",
             "version": "11.0"
           },
@@ -58,7 +58,7 @@
             {
               "version": "11.0",
               "match": "release-family",
-              "reason": "Use a matching browser host package set; exact 11.0.0-rc.2.26504.105 dependencies are the tested artifacts.",
+              "reason": "Use a matching browser host package set; exact 11.0.0 dependencies are the tested artifacts.",
               "name": "Microsoft.AspNetCore.Components.WebAssembly"
             }
           ],
@@ -82,7 +82,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Actual RC2 verification, not final-GA proof; PIN-962 and PIN-959 remain open."
+            "Actual GA verification, within the recorded verification scope; PIN-962 and PIN-959 remain open."
           ],
           "constraints": [
             "Numeric arrays are copied; spans and ArraySegments use bounded MemoryViews.",
@@ -150,7 +150,7 @@
     },
     {
       "scope": "Actual browser application compilation, resolved dependencies, matching audit references and inspected generated import/export conversion directions.",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "kind": "compile",
       "target": "net11.0",
       "sample": "samples/net11.0/FloatSoundings/FloatSoundings.csproj",
@@ -160,7 +160,7 @@
       "target": "net11.0",
       "sample": "samples/net11.0/FloatSoundings/FloatSoundings.csproj",
       "record": "samples/net11.0/FloatSoundings/browser.evidence.json",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "scope": "Real published Mono browser execution: array copies and special values, span and segment offsets, reentrant generated exports, span expiry, retained segment mutation/disposal and rejected disposed access.",
       "language": "15.0",
       "kind": "execution"

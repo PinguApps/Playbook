@@ -30,9 +30,11 @@ Use Utf8.IndexOfInvalidSubsequence for bytes and Utf16.IndexOfInvalidSubsequence
 
 A trailing partial UTF-8 sequence or unmatched high surrogate is invalid when the input is complete. For streaming input retain incomplete trailing data until the next block instead of treating every block as a complete document. These functions validate encoding, not normalization, grapheme boundaries, application allowlists or display safety. Return the offset in its original units: the test places an invalid byte at 5 after a four-byte scalar, and an unmatched surrogate at UTF-16 offset 3 after a surrogate pair.
 
-This edition targets .NET 11. It has no rendering mode, external provider, optional workload or experimental opt-in. It uses framework APIs and needs no additional package or package asset. The sample SDK pins 10.0.403 and 11.0.100-rc.3.26522.148 are reproducibility baselines, not mandatory exact consumer SDK installations. RC2 execution is not GA verification. No .NET 10 catalogue edition or conditional older-target package route is advertised.
+This edition targets .NET 11. It has no rendering mode, external provider, optional workload or experimental opt-in. It uses framework APIs and needs no additional package or package asset. The sample SDK pins 10.0.403 and 11.0.100 are reproducibility baselines, not mandatory exact consumer SDK installations. Current GA verification is limited to the recorded checks. No .NET 10 catalogue edition or conditional older-target package route is advertised.
 
 ## Evidence
+
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 The original UnicodeText projects compile and run against their declared .NET 10/11 SDKs. Checks cover supplementary replacement, malformed-input position/replacement flags, Turkish comparison, invalid UTF byte/code-unit offsets, scalar search/trim/split, ordinal casing and mixed Unicode newlines including Singleline interaction.
 

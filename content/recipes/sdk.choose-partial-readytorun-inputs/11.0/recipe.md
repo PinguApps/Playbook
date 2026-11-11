@@ -15,9 +15,9 @@ JIT-capable runtime and IL. This is not NativeAOT or an ELF/Mach-O demonstration
 
 | Layer | Older comparison | Current example |
 | --- | --- | --- |
-| SDK / compiler | 10.0.403 / 5.9.0-1.26523.112 | 11.0.100-rc.3.26522.148 / 5.12.0-1.26522.148 |
+| SDK / compiler | 10.0.403 / 5.9.0-1.26523.112 | 11.0.100 / 5.12.0-1.26522.148 |
 | Target / C# setting | net10.0 / 14.0 | net11.0 / 15.0 |
-| Reference/runtime packs and Crossgen2 | 10.0.14, win-x64 | 11.0.0-rc.3.26522.148, win-x64 |
+| Reference/runtime packs and Crossgen2 | 10.0.14, win-x64 | 11.0.0, win-x64 |
 
 Use complete official SDK/runtime distributions and the matching
 `Microsoft.NETCore.App.Runtime.win-x64` and
@@ -25,7 +25,7 @@ Use complete official SDK/runtime distributions and the matching
 and native Crossgen2 hash are recorded separately from the SDK pin. A copied
 compiler or task assembly does not establish a compatible target/runtime route.
 Both samples are framework-dependent and disable apphost generation; run their
-DLLs with the matching absolute dotnet executable. RC2 does not qualify actual GA.
+DLLs with the matching absolute dotnet executable. GA does not qualify actual GA.
 
 ## Older approach
 
@@ -50,7 +50,7 @@ Use `global.json` version **10.0.403**, with `rollForward: "disable"`.
 ## Newer approach
 
 Save the matching project tree under `samples/net11.0/SkylarkReadyToRun`, with
-`global.json` version **11.0.100-rc.3.26522.148**, `rollForward: "disable"`:
+`global.json` version **11.0.100**, `rollForward: "disable"`:
 
 {{snippet:newer}}
 
@@ -125,6 +125,8 @@ performance improvement or SDK11-on-net10 route is claimed. The older comparison
 remains valid and adds no ninth foundation. PIN-959/PIN-963/GA gates remain open.
 
 ## Evidence
+
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 `eng/Test-SkylarkBuild.ps1 -Record` builds both real dependency sets, publishes
 full/selected controls, inspects PE machine/native headers and partial flags, and

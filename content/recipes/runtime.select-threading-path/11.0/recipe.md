@@ -22,7 +22,7 @@ Copy the complete class with imports into a nullable-enabled net11.0 project. Ca
 
 ## Migration
 
-1. Build net11.0 with a .NET11 SDK/runtime and C#15. The tested RC3 SDK/runtime versions are evidence pins, not proof of final-GA behavior.
+1. Build net11.0 with a .NET11 SDK/runtime and C#15. The tested GA SDK/runtime versions are evidence pins, not proof of final-GA behavior.
 2. Replace the older bounded platform condition with IsMultithreadingSupported. Do not equate IsDynamicCodeSupported, processor count or platform annotations with threading support.
 3. Keep independent work per iteration and deterministic result aggregation. Do not mutate counts while scoring. Thread availability does not remove data-race or ownership obligations.
 4. Pass the caller's token to ParallelOptions and check the same token between sequential items. Preserve OperationCanceledException rather than returning an incomplete score. Cancellation is cooperative; a synchronous browser cannot receive UI cancellation while a long uninterrupted call blocks its event loop.
@@ -36,6 +36,8 @@ The console route uses the shared framework with no package, provider, workload 
 The sample checks cancellation before/between work and before returning; it does not prove in-flight externally signaled browser cancellation. Integer overflow is surfaced rather than silently wrapping. Parallel iteration exceptions can be aggregated by Parallel.For; callers must handle normal failures as well as cancellation. No fairness, worker count, ordering or throughput guarantee is made.
 
 ## Evidence
+
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 eng/Record-SupportPaths.ps1 -Record captures paired SDK10.0.403/runtime10.0.14 and SDK11RC3/runtime11RC3 consumers. Windows/Linux execute the threaded branch; actual Mono Chromium consumers report threads=False and use the sequential branch. Both produce score48 and propagate pre-cancellation. The browser path contains no unsupported scheduling; platform annotations alone are not used as execution evidence.
 

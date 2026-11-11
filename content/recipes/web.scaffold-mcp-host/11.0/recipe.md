@@ -16,7 +16,7 @@ A harbour assistant needs one callable operation that returns a berth's load lim
 
 The cumulative .NET 11 release note describes the move into the SDK. Actual SDK **10.0.403** also contains a bundled MCP template archive and generates this server in a fresh CLI home without installing anything. The .NET 10 sample is therefore the same valid approach targeting net10.0, not an invented manual-template workaround. This observation establishes those exact baselines; it does not date the earliest servicing release or imply every .NET 10 SDK bundles it. The catalogue retains edition 11.0 and does not add a ninth .NET 10 foundation.
 
-The template's packaging status is separate from the library API and framework status. These managed examples need no preview language switch or experimental suppression. Evidence uses .NET 11 RC2 and package 2.1.0; later package/GA claims need fresh checks. Public hosting would require its own authentication and authorization design; this loopback demonstration provisions and publishes nothing.
+The template's packaging status is separate from the library API and framework status. These managed examples need no preview language switch or experimental suppression. Evidence uses .NET 11 GA and package 2.1.0; later package/GA claims need fresh checks. Public hosting would require its own authentication and authorization design; this loopback demonstration provisions and publishes nothing.
 
 ## Older approach: .NET 10
 
@@ -84,7 +84,7 @@ Save these at the shown paths under an empty working directory. Keep the directo
 
 ## Constraints
 
-SDK-bundled mcpserver: no dotnet new install is needed on either measured SDK 10.0.403 or 11.0.100-rc.3.26522.148. This corrects the historical release-note implication of .NET 11 exclusivity; earliest servicing introduction was not established.
+SDK-bundled mcpserver: no dotnet new install is needed on either measured SDK 10.0.403 or 11.0.100. This corrects the historical release-note implication of .NET 11 exclusivity; earliest servicing introduction was not established.
 
 Choose --transport remote explicitly: the template defaults to local stdio. The measured route uses stateless Streamable HTTP, framework-dependent managed execution and ModelContextProtocol.AspNetCore 2.1.0. Neither AOT nor self-contained publication is claimed.
 
@@ -92,9 +92,11 @@ The SDK template emits an explicit package version. The canonical repository sam
 
 Loopback demonstration only; the sample has no authentication, authorization or internet exposure. Production hosting security and resource access require separate design. No package publication, account or remote service provisioning is required.
 
-This is an example agent-facing application, separate from Playbook's installed stdio documentation host. Template availability, MCP library maturity and .NET RC verification are separate facts.
+This is an example agent-facing application, separate from Playbook's installed stdio documentation host. Template availability, MCP library maturity and .NET GA SDK verification are separate facts.
 
 ## Evidence
+
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 The exact SDK, language and package inputs are recorded with the samples. Saved compilation records establish the canonical code builds; the separate repeatable `eng/Test-WebTooling.ps1` command establishes real CLI/generated-server behavior. No mocks or cross-compilation are used. Installed-package checks independently compare the entire expanded body and applicability over stdio from an unrelated directory; that delivery check does not replace the runtime checks. GA reconciliation and comprehensive product publication gates remain outstanding.
 

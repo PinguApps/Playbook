@@ -32,7 +32,7 @@
         "conditional": false,
         "usage": "primary",
         "selectionNotes": [
-          "Serviced SDK 10.0.302/10.0.400 and .NET 11 Preview 6 introduce wrapper bypass; actual serviced 10.0.403 and RC2 wrappers were executed.",
+          "Serviced SDK 10.0.302/10.0.400 and .NET 11 Preview 6 introduce wrapper bypass; actual serviced 10.0.403 and GA wrappers were executed.",
           "SDK 9 is a negative command-availability case only; no extra historical foundation or target-10 catalogue edition."
         ],
         "sharedAreas": [],
@@ -77,7 +77,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Measured SDK 10.0.403 and 11 RC2; official sources establish the earlier servicing boundary. RC2 is not GA evidence."
+            "Measured SDK 10.0.403 and 11 GA; official sources establish the earlier servicing boundary. GA is limited to the recorded checks."
           ]
         },
         "sourceUrls": [
@@ -134,13 +134,13 @@
       "record": "samples/net10.0/MuseumCatalogue/commands.evidence.json",
       "sdk": "10.0.403",
       "language": "14.0",
-      "scope": "Real local package execution with SDK 9 negative pin, serviced 10.0.403 and RC2 pins, both shipped wrappers, actual SDK traces/tool runtimes, quoted forwarding and exit 7; Windows x64.",
+      "scope": "Real local package execution with SDK 9 negative pin, serviced 10.0.403 and GA pins, both shipped wrappers, actual SDK traces/tool runtimes, quoted forwarding and exit 7; Windows x64.",
       "kind": "execution",
       "target": "net10.0"
     },
     {
       "sample": "samples/net11.0/MuseumCatalogue/MuseumCatalogue.csproj",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "scope": "Actual independently compiled net10/net11 checker, no external dependencies; dnx behavior is in the separate execution record.",
       "kind": "compile-and-run",
@@ -149,9 +149,9 @@
     {
       "sample": "samples/net11.0/MuseumCatalogue/MuseumCatalogue.csproj",
       "record": "samples/net11.0/MuseumCatalogue/commands.evidence.json",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
-      "scope": "Real local package execution with SDK 9 negative pin, serviced 10.0.403 and RC2 pins, both shipped wrappers, actual SDK traces/tool runtimes, quoted forwarding and exit 7; Windows x64.",
+      "scope": "Real local package execution with SDK 9 negative pin, serviced 10.0.403 and GA pins, both shipped wrappers, actual SDK traces/tool runtimes, quoted forwarding and exit 7; Windows x64.",
       "kind": "execution",
       "target": "net11.0"
     }

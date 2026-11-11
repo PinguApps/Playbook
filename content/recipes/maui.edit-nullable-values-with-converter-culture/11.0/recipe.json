@@ -43,7 +43,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "RC3 compiler check; RC2 native preparation baseline is separate from installed workload availability."
+            "reason": "GA compiler check; reviewed native preparation baseline is separate from installed workload availability."
           },
           "language": {
             "name": "C#",
@@ -57,7 +57,7 @@
           "packages": [
             {
               "name": "Microsoft.Maui.Controls.Core",
-              "version": "11.0.0-rc.2.26505.5",
+              "version": "11.0.0",
               "match": "exact",
               "reason": "Actual neutral binding-engine consumer."
             }
@@ -74,7 +74,7 @@
             "Native MAUI page; neutral executable does not render UI."
           ],
           "prerequisites": [
-            "Native RC2 preparation: SDK11.0.100-rc.2.26504.105, workload set11.0.100-rc.2.26513.2, MAUI11.0.0-rc.2.26505.5. SourceGen compiled XAML requires a matching native MAUI project."
+            "Native GA preparation: SDK11.0.100, workload set11.0.100, MAUI11.0.0. SourceGen compiled XAML requires a matching native MAUI project."
           ],
           "constraints": [
             "Eight .NET10 foundations unchanged; older samples are comparisons only.",
@@ -83,7 +83,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "RC preparation evidence; actual GA reconciliation remains open."
+            "GA artifact-specific evidence; actual GA checks are limited to the recorded scope."
           ]
         },
         "sourceUrls": [
@@ -150,7 +150,7 @@
       "sample": "samples/net11.0/WhimbrelEdit/WhimbrelEdit.csproj",
       "language": "15.0",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "scope": "Actual neutral MAUI binding-engine execution; no native UI."
     }
   ],

@@ -49,7 +49,7 @@ satisfying the generic constraint. No unsafe caller code is needed for this rout
 
 1. Target net11.0 with a .NET 11 SDK/runtime. The canonical project declares
    C#15.0. No package, workload, provider, rendering mode or experimental opt-in
-   is required. Exact test pins below identify the measured RC artifacts.
+   is required. Exact test pins below identify the measured GA artifacts.
 2. Check the real backing type. Preserve existing enum numeric values and masks.
    Replace only casts/CAS plumbing for supported integer or enum storage; retain
    the int-based implementation on .NET 10. No package backport is claimed.
@@ -80,13 +80,15 @@ is claimed; the generic implementation may itself use CAS internally.
 
 The API is not marked experimental in the audited contract. Actual execution here
 is Windows x64 CoreCLR on the paired baselines. Other architectures/runtimes are
-unmeasured; .NET 11 RC2 evidence does not establish final-GA verification.
+unmeasured; .NET 11 GA evidence does not establish final-GA verification.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 eng/Test-RuntimeCalls.ps1 -Record -VerifySources captures actual SDK10.0.403 /
-runtime10.0.14 and SDK11.0.100-rc.3.26522.148 /
-runtime11.0.0-rc.3.26522.148 consumers. Both build with warnings as errors, without
+runtime10.0.14 and SDK11.0.100 /
+runtime11.0.0 consumers. Both build with warnings as errors, without
 NuGet dependencies or workloads. Saved records contain exact input hashes,
 commands, compiler/CoreLib identities and System.Runtime/System.Threading reference
 hashes reconciled against the originating runtime-security audit. The bounded

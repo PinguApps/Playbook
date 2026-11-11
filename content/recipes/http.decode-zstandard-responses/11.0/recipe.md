@@ -48,7 +48,7 @@ policy separately when adapting the handler.
 ## Migration
 
 1. Target net11.0 with a .NET 11 SDK/runtime and retain nullable/implicit usings.
-   SDK11 RC3/C#15.0 are the measured canonical baseline. No package, workload,
+   SDK11 GA/C#15.0 are the measured canonical baseline. No package, workload,
    external provider, rendering mode or experimental opt-in is needed for the
    newer route; System.IO.Compression and its native codec ship with the runtime.
 2. Set AutomaticDecompression to Zstandard plus the other formats you intend to
@@ -94,9 +94,11 @@ This recipe adds no ninth .NET 10 foundation or unrelated request-compression ch
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 eng/Test-ProxyResponses.ps1 -Record -VerifySources builds/runs real paired
 CairnReports consumers with SDK10.0.403/runtime10.0.14 and
-SDK11.0.100-rc.3.26522.148/runtime11.0.0-rc.3.26522.148, zero warnings/errors.
+SDK11.0.100/runtime11.0.0, zero warnings/errors.
 Framework/reference hashes match the runtime/security and data/I/O audits.
 The exact resolved ZstdSharp.Port archive, selected/executed lib/net9.0 assembly,
 compiler/CoreLib and loaded framework/native codec identities are recorded.
@@ -116,5 +118,5 @@ feed/cache and called with real stdio list/get from an unrelated directory.
 Discovery ID/title/goal, full expanded canonical snippets, target11/edition11,
 applicability and fresh paired evidence are checked; target10 has no edition.
 Unusable retrieval proxies prove proxy-independent offline content, not network
-isolation. Other platform/native-handler/GA behavior remains unverified.
+isolation. Other platform/native-handler behavior remains unverified.
 PIN-959/PIN-962, existing Human gates and the eight foundations remain open/intact.

@@ -69,17 +69,19 @@ Save the newer files separately.
 
 ## Constraints and alternatives
 
-- Runtime/SDK/language: built-in Zstandard response/request support requires ASP.NET Core 11 and the .NET 11 codec. Exact tested baseline: SDK 11.0.100-rc.3.26522.148 / C# 15. Older comparison: SDK 10.0.403 / C# 14 / runtime 10.0.14. No .NET 10 Zstandard route is advertised.
+- Runtime/SDK/language: built-in Zstandard response/request support requires ASP.NET Core 11 and the .NET 11 codec. Exact tested baseline: SDK 11.0.100 / C# 15. Older comparison: SDK 10.0.403 / C# 14 / runtime 10.0.14. No .NET 10 Zstandard route is advertised.
 - Packages/assets: matching Microsoft.AspNetCore.App and Microsoft.NETCore.App shared-framework/runtime assets; no separate Zstandard NuGet package. Do not revive the removed preview codec package/namespace as an older-target route.
 - Platform/provider/rendering: actual Windows x64 Kestrel loopback HTTP with built-in codecs. Browser/WASI are unsupported by the built-in codec; no client UI or Blazor mode applies. No external provider, workload, account, custom dictionary or native installation is required.
 - `Accept-Encoding` does not declare upload compression. A response fallback does not authorize accepting another upload format. Gzip and Zstandard are distinct wire formats; do not relabel one as the other.
 - The test disables HttpClient's automatic decompression and checks both the returned header and decoded raw bytes. It tests .NET-to-.NET interoperability, not third-party peers, TLS, proxies, AOT or trimming.
-- Stable API intent uses RC2 evidence under ADR 0004. No experimental opt-in applies; final GA reconciliation remains outstanding.
+- Stable API intent uses GA evidence under ADR 0004. No experimental opt-in applies; final GA checks are limited to the recorded scope.
 
 ## Evidence
+
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Both actual pinned projects compiled and ran through `eng/Record-Evidence.ps1`. Real Kestrel requests check zstd/gzip/identity response selection, quality weighting and q=0, unsupported response fallback, supported upload body equality, unsupported and stacked upload 415, and expanded-body 413. .NET 10 explicitly lacks Zstandard; its positive upload route is gzip. No mock middleware or cross-compilation is counted as execution.
 
 The existing isolated packed-tool harness retrieves full canonical Markdown, complete applicability, discovery title/goal and target edition 11.0 over actual stdio list/get outside the checkout. Target 10.0 does not advertise this edition. Stable identity: `web.negotiate-zstandard-content`, covering WEB-075 and WEB-096 without treating automatic defaults as a separate feature.
 
-Official context: [response compression](https://learn.microsoft.com/en-us/aspnet/core/performance/response-compression?view=aspnetcore-11.0), [request decompression](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/middleware/request-decompression?view=aspnetcore-11.0), [introduction](https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/preview3/aspnetcore.md), and [RC2 decoder registry](https://github.com/dotnet/aspnetcore/blob/v11.0.0-rc.2.26504.105/src/Middleware/RequestDecompression/src/RequestDecompressionOptions.cs). All required code and policy are included above.
+Official context: [response compression](https://learn.microsoft.com/en-us/aspnet/core/performance/response-compression?view=aspnetcore-11.0), [request decompression](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/middleware/request-decompression?view=aspnetcore-11.0), [introduction](https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/preview3/aspnetcore.md), and [Pinned decoder registry](https://github.com/dotnet/aspnetcore/blob/v11.0.0-rc.2.26504.105/src/Middleware/RequestDecompression/src/RequestDecompressionOptions.cs). All required code and policy are included above.

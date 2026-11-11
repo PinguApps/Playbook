@@ -72,6 +72,8 @@ distinct. The old Data key is an application convention, not a framework propert
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 `eng/Test-TextBoundaries.ps1 -SampleNames SeedImports -Record -VerifySources`
 executes real missing-parent read, directory enumeration and deletion under two
 UI cultures, successful import, normalized attempted input, wrapper/inner retention
@@ -80,10 +82,10 @@ and three-argument constructors, null and empty paths and verbatim relative inpu
 Only its newly created temporary tree is removed after validating the parent.
 
 Exact proof pins: SDK10.0.403/ref-runtime10.0.14 and
-SDK11.0.100-rc.3.26522.148/ref-runtime11.0.0-rc.3.26522.148. These are reproduction
+SDK11.0.100/ref-runtime11.0.0. These are reproduction
 artifacts, separate from release-family prerequisites. No resolved packages.
 Existing evidence records retain commands, inputs, compiler/CoreLib and original
 audit-matching references. Pinned official exception/Windows error mapping sources
 qualify availability. The ordinary installed package serves complete canonical
 Markdown, ID/title/goal, applicability, target11/edition11 and current evidence
-offline. RC2 is not GA proof; PIN-959/PIN-962 and existing Human gates stay open.
+offline. GA checks establish only the recorded scope; PIN-959/PIN-962 and existing Human gates stay open.

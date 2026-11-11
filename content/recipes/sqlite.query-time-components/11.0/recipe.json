@@ -43,7 +43,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Build the net11 consumer. Exact RC3 SDK and reference/runtime artifacts are verification pins, not GA evidence."
+            "reason": "Build the net11 consumer. Exact GA SDK and reference/runtime artifacts are verification pins, within the recorded verification scope."
           },
           "language": {
             "name": "C#",
@@ -59,12 +59,12 @@
               "name": "Microsoft.EntityFrameworkCore.Sqlite",
               "version": "11.0",
               "match": "release-family",
-              "reason": "Use the matching EF11 SQLite provider graph that translates TimeOnly Hour, Minute and Second; RC2 is the exact tested graph."
+              "reason": "Use the matching EF11 SQLite provider graph that translates TimeOnly Hour, Minute and Second; GA is the exact tested graph."
             }
           ],
           "packageAssets": [
             "Current EF/Core/Relational/Sqlite.Core lib/net11.0; Abstractions and Microsoft.Data.Sqlite.Core lib/net10.0. Previous EF10 uses lib/net10.0 and Data.Sqlite.Core lib/net8.0.",
-            "Locked actual graphs: EF10.0.13 versus EF11.0.0-rc.2.26504.105; sample packages are author-maintained and do not inherit root update permissions."
+            "Locked actual graphs: EF10.0.13 versus EF11.0.0; sample packages are author-maintained and do not inherit root update permissions."
           ],
           "providers": [
             "Microsoft.EntityFrameworkCore.Sqlite with default TimeOnly TEXT storage; real in-memory SQLite, no EF InMemory or mocks",
@@ -90,7 +90,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "These APIs are not publisher-designated experimental; no diagnostic suppression or experimental opt-in. Evidence uses .NET11 RC2, not actual GA. PIN-965 retains GA reconciliation."
+            "These APIs are not publisher-designated experimental; no diagnostic suppression or experimental opt-in. Evidence uses .NET11 GA. PIN-965 retains GA reconciliation."
           ]
         },
         "selectionNotes": [
@@ -152,7 +152,7 @@
       "kind": "compile-and-run",
       "sample": "samples/net11.0/HeronSignals/HeronSignals.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "scope": "Actual SQLite native version/source ID/DLL hash; eleven exact stored TEXT/null boundary and fractional inputs; tick round-trip; seven executed parameter-safe server filters with exact IDs and strftime SQL. EF11 translates all three component predicates and rejects unsupported Millisecond before any command."
     }

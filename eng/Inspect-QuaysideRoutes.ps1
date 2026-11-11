@@ -8,7 +8,7 @@ New-Item -ItemType Directory -Path ./artifacts/pin796 -Force | Out-Null
 & $dotnet build ./src/PinguApps.Playbook -c Release -p:Version=0.0.0-pin796-inspect
 & $node 'C:\Program Files\nodejs\node_modules\npm\bin\npm-cli.js' install --prefix ./artifacts/inspector --ignore-scripts --no-audit --no-fund @modelcontextprotocol/inspector@2.11.0
 $inspector = (Resolve-Path ./artifacts/inspector/node_modules/@modelcontextprotocol/inspector/clients/launcher/build/index.js).Path
-$server = (Resolve-Path ./src/PinguApps.Playbook/bin/Release/net10.0/PinguApps.Playbook.dll).Path
+$server = (Resolve-Path ./src/PinguApps.Playbook/bin/Release/net11.0/PinguApps.Playbook.dll).Path
 $call = { param($tool, $argument)
   & $node $inspector --cli --format json --quiet --method tools/call --tool-name $tool --tool-arg 'targetVersion="11.0"' --tool-arg $argument -- $dotnet $server mcp | ConvertFrom-Json
 }

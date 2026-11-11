@@ -15,7 +15,7 @@ try {
     New-Item -ItemType Directory $run -Force | Out-Null
     foreach ($release in '10','11') {
         $dotnet = if ($release -eq '10') { $Dotnet10 } else { $Dotnet11 }
-        $version = if ($release -eq '10') { '10.0.13' } else { '11.0.0-rc.2.26504.105' }
+        $version = if ($release -eq '10') { '10.0.13' } else { '11.0.0' }
         $names = @(if ($release -eq '10') { @('CurlewDesign') } else { @('CurlewFileModel','CurlewFile','CurlewStartup') })
         foreach ($name in $names) {
             $file = switch ($name) { 'CurlewFile' { 'Marsh.cs' } 'CurlewStartup' { 'Startup.cs' } default { "$name.csproj" } }

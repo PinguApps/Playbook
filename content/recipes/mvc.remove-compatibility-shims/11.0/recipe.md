@@ -86,16 +86,18 @@ Use a separate directory for this target. Restore/build/run with the same comman
 - MVC source and binary migration only. Removing the no-op registration does not opt an ASP.NET Core 2.x application into equivalent behavior; a 2.x upgrade needs its own migration analysis.
 - The removed surfaces include SetCompatibilityVersion for IMvcBuilder and IMvcCoreBuilder, CompatibilityVersion, MvcCompatibilityOptions and ConfigureCompatibilityOptions<TOptions>. Remove usages rather than inventing implementations under the retired names.
 - The sample proves controller startup and one successful request. It does not prove every MVC option, view, formatter or third-party dependency is compatible. Recompile dependent binaries to avoid removed type/method references.
-- Use matching ASP.NET Core framework/reference packs. No extra package, workload, service account or database is required. SDK 10.0.403 / 11.0.100-rc.3.26522.148 and C# 14 / 15 are the actual sample pins, not minimum language-feature requirements.
-- Stable migration APIs; no experimental opt-in. The exact .NET 11 evidence is RC3. This recipe exposes target 11 only; the older sample is a fair previous-release comparison and not an additional .NET 10 foundation.
+- Use matching ASP.NET Core framework/reference packs. No extra package, workload, service account or database is required. SDK 10.0.403 / 11.0.100 and C# 14 / 15 are the actual sample pins, not minimum language-feature requirements.
+- Stable migration APIs; no experimental opt-in. The exact .NET 11 evidence is GA. This recipe exposes target 11 only; the older sample is a fair previous-release comparison and not an additional .NET 10 foundation.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Real Kestrel startup and GET /archive/crates/27 return the same representative MVC response on both baselines. The saved `verification-evidence.json` beside each project records actual matching-SDK compilation and execution, runtime output, commands and input hashes. No mock, cross-compilation or source-only result is being presented as execution. Build-time freshness checks validate those inputs before embedding the recipe.
 
-The original obsolete usages fail compilation against .NET 11; the migrated examples retain the intended outcome on the pinned artifacts. Official sources establish removal intent separately from those real consumer checks. Windows x64 loopback/managed execution establishes only the named behavior, not GA, browser, NativeAOT, trimming or every supported platform.
+The original obsolete usages fail compilation against .NET 11; the migrated examples retain the intended outcome on the pinned artifacts. Official sources establish removal intent separately from those real consumer checks. Windows x64 loopback/managed execution establishes only the named behavior, within the recorded verification scope, browser, NativeAOT, trimming or every supported platform.
 
 The installed-package Reqnroll `MvcMigration` scenario retrieves all three migrations using real stdio list/get from an isolated feed/cache and unrelated working directory, compares the full expanded canonical body and applicability, checks target-11 selection and rejects target-10 detail. Invalid proxy settings exercise proxy-independent retrieval; this is not OS-level network isolation.
 
 - [Official ASP.NET Core 11 migration and removed APIs](https://learn.microsoft.com/en-us/aspnet/core/breaking-changes/11/mvc-compatibility-options-removed)
-- [Pinned official migration source used for RC2 preparation](https://github.com/dotnet/AspNetCore.Docs/blob/ecf7aca5136aea60aa8db7330f66ac799d3edcf7/aspnetcore/breaking-changes/11/mvc-compatibility-options-removed.md)
+- [Pinned official migration source used for GA preparation](https://github.com/dotnet/AspNetCore.Docs/blob/ecf7aca5136aea60aa8db7330f66ac799d3edcf7/aspnetcore/breaking-changes/11/mvc-compatibility-options-removed.md)

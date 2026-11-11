@@ -16,7 +16,7 @@ Run `dotnet test --project RunnerTests.csproj -c Release` in MTP mode. The accom
 
 For standalone C# projects, add `<ImplicitUsings>enable</ImplicitUsings>` and `<Nullable>enable</Nullable>` inside the project PropertyGroup. The canonical comparisons obtain these settings from their isolated shared sample properties; do not depend on the Playbook checkout to supply them.
 
-Under SDK 11, keep global.json's MTP selection or set DOTNET_TEST_RUNNER=Microsoft.Testing.Platform in the child process environment. A recognised environment value overrides global.json; VSTest is the other supported value. That environment override is an SDK 11 capability, separate from the test application's target. Pin the original SDK to 11.0.100-rc.3.26522.148 for reproduction.
+Under SDK 11, keep global.json's MTP selection or set DOTNET_TEST_RUNNER=Microsoft.Testing.Platform in the child process environment. A recognised environment value overrides global.json; VSTest is the other supported value. That environment override is an SDK 11 capability, separate from the test application's target. Pin the original SDK to 11.0.100 for reproduction.
 
 {{snippet:newer}}
 
@@ -24,7 +24,7 @@ The original assertions are independent of runner selection. PIER_FAIL and PIER_
 
 {{snippet:tests}}
 
-Use `dotnet test --project RunnerTests.csproj -c Release --maximum-failed-tests 1` with PIER_FAIL=1 to get whole-run exit 13. Use --timeout 1s with PIER_DELAY=1 for exit 3. Put these run-level policies before --. Options after -- reach each test application: for example `-- --report-xunit-trx --report-xunit-trx-filename berths.trx` belongs to this xUnit runner. Timeout measures active test-application time, not restore/build time. Our RC2 run returned exit 3 after the delayed test finished; it does not promise immediate process termination.
+Use `dotnet test --project RunnerTests.csproj -c Release --maximum-failed-tests 1` with PIER_FAIL=1 to get whole-run exit 13. Use --timeout 1s with PIER_DELAY=1 for exit 3. Put these run-level policies before --. Options after -- reach each test application: for example `-- --report-xunit-trx --report-xunit-trx-filename berths.trx` belongs to this xUnit runner. Timeout measures active test-application time, not restore/build time. Our GA run returned exit 3 after the delayed test finished; it does not promise immediate process termination.
 
 For a maintained project set, save the following under Traversal/dirs.proj; keep it out of the test project's own obj directory:
 
@@ -46,4 +46,6 @@ MTP-native dotnet test requires Microsoft.Testing.Platform 1.7 or later and an e
 
 ## Evidence
 
-The real original SDK-10 xUnit MTP and NUnit VSTest projects compile and execute; SDK 11 executes both as MTP applications. Focused commands check project selection, traversal's six results, module exclusions, a per-module xUnit TRX artifact, the environment override and the documented run-policy exit codes. --no-dependencies is exercised as an accepted project-mode option; the fixture has no required project-reference build, so the check does not establish build-skipping behavior. Sources establish recursive traversal/deduplication and runtime option semantics; no separate diamond or runtime-switch execution is claimed. Installed stdio list/get checks the full canonical body, goal, applicability and target-11 edition with local-only installation and network-isolated retrieval. Evidence retains exact RC3 SDK/package artifacts, not a GA claim.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
+The real original SDK-10 xUnit MTP and NUnit VSTest projects compile and execute; SDK 11 executes both as MTP applications. Focused commands check project selection, traversal's six results, module exclusions, a per-module xUnit TRX artifact, the environment override and the documented run-policy exit codes. --no-dependencies is exercised as an accepted project-mode option; the fixture has no required project-reference build, so the check does not establish build-skipping behavior. Sources establish recursive traversal/deduplication and runtime option semantics; no separate diamond or runtime-switch execution is claimed. Installed stdio list/get checks the full canonical body, goal, applicability and target-11 edition with local-only installation and network-isolated retrieval. Evidence retains exact GA SDK/package artifacts, not a GA claim.

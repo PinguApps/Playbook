@@ -4,7 +4,7 @@ using System.Runtime.Loader;
 
 if (args is ["--courier-child"]) { Console.WriteLine("Gannet courier ready"); return; }
 #if NET11_0
-const string version = "11.0.100-rc.3.26522.148";
+const string version = "11.0.100";
 #else
 const string version = "10.0.403";
 #endif

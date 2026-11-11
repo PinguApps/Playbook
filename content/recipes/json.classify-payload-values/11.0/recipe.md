@@ -66,7 +66,7 @@ bound input size separately. No streaming/allocation improvement is claimed.
    they are not a replacement source generator and are unnecessary for this route.
 5. Return only a registered candidate. Returning null means no match and raises
    JsonException. An unregistered return such as string raises NotSupportedException
-   in the measured RC2 polymorphic route. Treat both as failed imports; never use
+   in the measured GA polymorphic route. Treat both as failed imports; never use
    classification failure as permission to guess a fallback record.
 6. Test both property orders and complete selected payloads. For these ordinary
    reference types, JSON null becomes a null reference without invoking the
@@ -78,7 +78,7 @@ bound input size separately. No streaming/allocation improvement is claimed.
 ## Constraints
 
 Primary route: .NET11 SDK/runtime, net11.0/C#15. Exact reproduction uses
-SDK11.0.100-rc.3.26522.148 with reference/runtime11.0.0-rc.3.26522.148. The older
+SDK11.0.100 with reference/runtime11.0.0. The older
 sample uses SDK10.0.403, net10.0/C#14 and reference/runtime10.0.14. These exact
 patches identify proof, separately from release-family prerequisites. Both use
 framework assets and SDK/reference-pack source generation, without extra packages.
@@ -90,6 +90,8 @@ are not verified. The structural classifier in json.serialize-closed-results add
 a different property-name goal; it is not proof of this value-based factory.
 
 ## Evidence
+
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 eng/Test-ClassifierAuthentication.ps1 -Record -VerifySources builds and executes
 both actual dependency sets and retains input hashes, exact commands, compiler,

@@ -32,4 +32,6 @@ An all-zero check rejects an invalid result; it does not prove a valid peer iden
 
 ## Evidence
 
-The actual .NET 10 P-256 and .NET 11 X25519 examples compile and execute. Checks compare independently derived keys using FixedTimeEquals, round-trip public SPKI and private PKCS#8 containers, and reject malformed and zero peer input. Pinned SDK 11.0.100-rc.3.26522.148 and OpenSSL 3.5.5 are measured artifacts, not GA evidence or minimum versions. No mock/native shim or certificate-trust proof substitutes for these operations.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
+The actual .NET 10 P-256 and .NET 11 X25519 examples compile and execute. Checks compare independently derived keys using FixedTimeEquals, round-trip public SPKI and private PKCS#8 containers, and reject malformed and zero peer input. Pinned SDK 11.0.100 and OpenSSL 3.5.5 are measured artifacts, within the recorded verification scope or minimum versions. No mock/native shim or certificate-trust proof substitutes for these operations.

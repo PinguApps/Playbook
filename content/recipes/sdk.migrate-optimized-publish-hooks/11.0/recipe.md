@@ -13,17 +13,17 @@ adding a ninth historical foundation or advertising a down-level SDK11 route.
 
 | Layer | Older comparison | Current example |
 | --- | --- | --- |
-| SDK | 10.0.403 | 11.0.100-rc.3.26522.148 |
-| Target / reference and runtime assets | net10.0 / 10.0.14 | net11.0 / 11.0.0-rc.3.26522.148 |
-| Compiler / language | 5.9.0-1.26523.112 / C#14 | 5.12.0-1.26522.148 / C#15 |
-| Native compiler packages | Microsoft.DotNet.ILCompiler and runtime.win-x64.Microsoft.DotNet.ILCompiler 10.0.13 | Same package IDs, 11.0.0-rc.2.26504.105 |
+| SDK | 10.0.403 | 11.0.100 |
+| Target / reference and runtime assets | net10.0 / 10.0.14 | net11.0 / 11.0.0 |
+| Compiler / language | 5.9.0-1.26523.112 / C#14 | 5.12.0-1.26529.118 / C#15 |
+| Native compiler packages | Microsoft.DotNet.ILCompiler and runtime.win-x64.Microsoft.DotNet.ILCompiler 10.0.13 | Same package IDs, 11.0.0 |
 | Native linker / libraries | MSVC link 14.51.36260.0; MSVC 14.51.36231 library directory; Windows SDK 10.0.26100.0 x64 UM/UCRT | Same measured host toolchain |
 
 Use a complete SDK and its matching Native AOT package closure, plus the supported
 Windows x64 native tools. Exact compiler/ref/runtime/Publish.targets hashes are
 recorded separately from these prerequisites. There is no external provider,
-optional workload, UI or rendering dependency. These are RC2 observations, not
-actual-GA, arbitrary SDK/plugin compatibility or performance qualification.
+optional workload, UI or rendering dependency. The GA checks cover this exact
+toolchain and example; they do not establish arbitrary plugin compatibility or performance.
 
 The authoring harness accepts `-Net10Dotnet`, `-Net11Dotnet`, `-VisualCppRoot`
 and `-WindowsSdkLibRoot` to override the measured machine's default paths.
@@ -46,13 +46,13 @@ This is a sidecar used at execution time, not a generated assembly or embedded r
 ## Newer approach
 
 Save this current project at `samples/net11.0/EstuaryNative/EstuaryNative.csproj`.
-Keep the stated relative link to the older program. Select the exact RC3 SDK in
+Keep the stated relative link to the older program. Select SDK 11.0.100 in
 that directory's `global.json`, again with roll-forward disabled.
 
 {{snippet:newer}}
 
-With `PublishAot=true`, the measured SDK11 defaults `UseOptimizedPublish=true`.
-Its publish path invokes compilation without the full `Build` target, so an
+SDK 11.0.100 defaults `UseOptimizedPublish=false`, including Native AOT projects.
+Explicitly setting `UseOptimizedPublish=true` opts into a publish path that invokes compilation without the full `Build` target, so an
 `AfterTargets="Build"` hook need not run. An unchanged legacy project can publish a
 real native executable which fails because its manifest is absent.
 
@@ -76,9 +76,9 @@ private `_Publish*` targets or an SDK-internal extension list.
 4. Execute the published native program with `copper-lanterns`. Expect
    `ESTUARY_NATIVE: copper-lanterns; AOT=True`; confirm the PE has no CLR header.
    Wrong cargo returns 24; a missing sidecar returns 23.
-5. Inspect a binlog using the matching SDK's reader. The SDK11 legacy default/true
-   controls omit full Build and the legacy hook; `UseOptimizedPublish=false`
-   restores them. The migrated publish hook runs on the measured SDK10 and11 paths.
+5. Inspect a binlog using the matching SDK's reader. Only the SDK11 legacy explicit
+   true control omits full Build and the legacy hook. The GA default and explicit
+   false controls retain them. The migrated hook runs on both SDK versions.
 6. Repeat publication with `--no-build -p:EstuaryCargo=amber-buoys`. The publish hook
    must refresh the sidecar and the existing native executable must consume it.
    Repeat again without a change. `--no-build` requires previously compiled inputs;
@@ -98,6 +98,8 @@ Only the measured Windows x64 native toolchain is qualified.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 `eng/Test-EstuaryWindows.ps1 -Record` performs the real paired restores, ILC/link
 publishes, native PE inspection, execution and matching binlog replay. Separate
 fresh directories cover old/current default, explicit false and explicit true,
@@ -105,7 +107,7 @@ then the migrated default, changed sidecar under NoBuild, identical repeat and
 missing/wrong sidecar failures. Logs and raw binlogs stay in ignored artifacts;
 sample evidence records the exact inputs, commands, dependency closures and outcomes.
 No throughput/startup improvement, other RID/OS, general plugin compatibility,
-cross-compilation substitute or GA support is claimed. No recurring native CI
+cross-compilation substitute or general platform support is claimed. No recurring native CI
 matrix is added. The eight foundations and PIN-959/PIN-963/Human gates remain open.
 
 ## Sources

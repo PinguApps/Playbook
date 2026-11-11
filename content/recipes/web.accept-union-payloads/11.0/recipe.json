@@ -42,13 +42,13 @@
             "name": ".NET",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Canonical net11.0 managed server; actual authoring evidence is RC2."
+            "reason": "Canonical net11.0 managed server; actual authoring evidence is GA."
           },
           "sdk": {
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Actual pin 11.0.100-rc.3.26522.148; SDK CLI/template behavior is verified independently of target selection."
+            "reason": "Actual pin 11.0.100; SDK CLI/template behavior is verified independently of target selection."
           },
           "language": {
             "name": "C#",
@@ -87,7 +87,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "The .NET 11 baseline is RC2, not GA verification. Final release artifacts must be reconciled separately."
+            "The .NET 11 baseline is GA verification. Final release artifacts must be reconciled separately."
           ]
         },
         "sourceUrls": [
@@ -128,7 +128,7 @@
       "kind": "compile-and-run",
       "sample": "samples/net11.0/HarbourBodies/HarbourBodies.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "scope": "Real compilation and execution of both delivery shapes and invalid bodies through loopback Minimal API, MVC and SignalR JSON WebSockets. No mocks or cross-compilation."
     }

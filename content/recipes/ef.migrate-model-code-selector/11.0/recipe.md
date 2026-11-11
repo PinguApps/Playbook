@@ -16,7 +16,7 @@ EF11 removes the string overload. Implement Select(ModelCodeGenerationOptions), 
 
 ## Migration
 
-1. Pin compatible EF, Design and SQLite dependencies together. These consumers use EF10.0.13 or EF11 RC2 with SDK10.0.403 or SDK11 RC3 respectively. EF11 requires net11.0; the audit's historical SDK10.0.402/SDK11 RC2 pins remain separate. Preserve the patched Pkcs10.0.13 dependency and locked transitive code-generation graph.
+1. Pin compatible EF, Design and SQLite dependencies together. These consumers use EF10.0.13 or EF11 GA with SDK10.0.403 or SDK11 GA respectively. EF11 requires net11.0; the audit's historical SDK10.0.402/SDK11 GA pins remain separate. Preserve the patched Pkcs10.0.13 dependency and locked transitive code-generation graph.
 2. Make Design compile assets available with IncludeAssets=all and retain PrivateAssets=all. This is an actual Design API consumer, not just an application referencing tooling indirectly.
 3. Change a custom selector implementation from Select(string) to Select(ModelCodeGenerationOptions). Forward the options without reconstructing only Language: the contract allows selection to account for other generation choices. The older decorator demonstrates language-only forwarding; the newer decorator preserves the complete object.
 4. Register EF design-time services and SQLite's provider design services. The provider registration type is internal; the sample confines EF1001 suppression to that one registration. Pin and retest it when packages change. The selector interface itself is public.
@@ -90,4 +90,6 @@ Windows x64 file SQLite only. Exact native/transitive assets remain in the locks
 
 ## Evidence
 
-Independent locked builds and real focused execution were recorded on Windows x64 with SDK10.0.403 and SDK11 RC3. Compilation, service execution and installed offline retrieval establish separate claims. Review the embedded evidence entries for exact inputs, dependencies and command outputs; freshness describes package-build inputs, not the consumer machine or GA. SQLite generated consumers measure engines 3.53.3/3.53.4. Other providers remain unverified.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
+Independent locked builds and real focused execution were recorded on Windows x64 with SDK10.0.403 and SDK11 GA. Compilation, service execution and installed offline retrieval establish separate claims. Review the embedded evidence entries for exact inputs, dependencies and command outputs; freshness describes package-build inputs, not the consumer machine or GA. SQLite generated consumers measure engines 3.53.3/3.53.4. Other providers remain unverified.

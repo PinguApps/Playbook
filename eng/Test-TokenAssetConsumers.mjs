@@ -122,9 +122,7 @@ try {
       const bytes = Buffer.from(await asset.arrayBuffer());
       assert.deepEqual(bytes, await readFile(resolve(root, `samples/net${version}/MaritimeGallery/wwwroot/images/sounding.svg`)));
       assert.equal((await fetch(`${origin}/museum/images/unknown.svg`)).status, 404);
-      const generatedPath = version === '11.0'
-        ? resolve(root, `samples/net${version}/MaritimeGallery/obj/Release/net${version}/Razor/App.razor.g.cs`)
-        : (await files(resolve(root, `samples/net${version}/MaritimeGallery/obj/Release/net${version}/generated`))).find(p => p.endsWith('App_razor.g.cs'));
+      const generatedPath = (await files(resolve(root, `samples/net${version}/MaritimeGallery/obj/Release/net${version}/generated`))).find(p => p.endsWith('App_razor.g.cs'));
       const generated = await readFile(generatedPath, 'utf8');
       assert.match(generated, /Assets\[@?"images\/sounding\.svg"\]/, 'Real generated C# must resolve opted-in asset values');
       if (version === '11.0') assert.match(generated, /Assets\[@?"images\/unknown\.svg"\]/, 'Unknown key uses normal collection fallback');

@@ -34,7 +34,7 @@
         "requirements": {
           "sdk": {
             "match": "release-family",
-            "reason": "Build against .NET 11 references; exact RC2 pins record measured artifacts.",
+            "reason": "Build against .NET 11 references; exact GA pins record measured artifacts.",
             "name": ".NET SDK",
             "version": "11.0"
           },
@@ -71,7 +71,7 @@
           "renderingModes": [],
           "optIns": [],
           "stabilityLimitations": [
-            "Actual RC2 verification, not final-GA proof; PIN-962 and PIN-959 remain open."
+            "Actual GA verification, within the recorded verification scope; PIN-962 and PIN-959 remain open."
           ],
           "constraints": [
             "Key size is constructor metadata, not tag/nonce/ciphertext size, key quality or proof of a usable undisposed cipher.",
@@ -146,7 +146,7 @@
       "kind": "compile-and-run",
       "sample": "samples/net11.0/ParcelKeys/ParcelKeys.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "scope": "Real Windows x64 CNG AES-GCM/CCM 16/24/32-byte keys, roundtrip/tamper/invalid-length/disposal checks; loaded native identities. No other-provider/platform or GA proof."
     }

@@ -33,7 +33,7 @@
         "conditional": false,
         "usage": "primary",
         "selectionNotes": [
-          "Click Read instrument: expect Level 137 cm. Direct real-JS AcceptLevel(138) returns Level 138 cm. Negative input and calling ReceiveLevel instead of AcceptLevel both reject. Toggle the panel off: the component Dispose counter becomes 1 and the saved JS proxy rejects further invocations. The counter measures component disposal; proxy rejection separately demonstrates reference release. The private before control reports Callback unavailable. RC2 reports BL0015 before and none after.",
+          "Click Read instrument: expect Level 137 cm. Direct real-JS AcceptLevel(138) returns Level 138 cm. Negative input and calling ReceiveLevel instead of AcceptLevel both reject. Toggle the panel off: the component Dispose counter becomes 1 and the saved JS proxy rejects further invocations. The counter measures component disposal; proxy rejection separately demonstrates reference release. The private before control reports Callback unavailable. GA reports BL0015 before and none after.",
           "The fixes are valid on .NET 10; only the diagnostic is new in the measured .NET 11 analyzer. No SDK-only older-target analyzer route, package backport or additional .NET 10 foundation is advertised.",
           "Interactive Server with prerender disabled is the executed route. No WASM, static SSR callback, Hybrid, AOT/trimming, arbitrary concurrency, performance or GA execution is established."
         ],
@@ -72,17 +72,17 @@
             "Interactive Server; prerender disabled"
           ],
           "prerequisites": [
-            "Historical comparison: SDK 10.0.403, framework/reference/runtime 10.0.14, C# 14; current SDK 11.0.100-rc.3.26522.148, framework/reference/runtime 11.0.0-rc.3.26522.148, C# 15. These are test baselines, not universal exact consumer requirements.",
+            "Historical comparison: SDK 10.0.403, framework/reference/runtime 10.0.14, C# 14; current SDK 11.0.100, framework/reference/runtime 11.0.0, C# 15. These are test baselines, not universal exact consumer requirements.",
             "Use the complete files below. The implicit Microsoft.AspNetCore.App.Internal.Assets package is the only locked package on each actual project. No provider, account or external service."
           ],
           "constraints": [
-            "Click Read instrument: expect Level 137 cm. Direct real-JS AcceptLevel(138) returns Level 138 cm. Negative input and calling ReceiveLevel instead of AcceptLevel both reject. Toggle the panel off: the component Dispose counter becomes 1 and the saved JS proxy rejects further invocations. The counter measures component disposal; proxy rejection separately demonstrates reference release. The private before control reports Callback unavailable. RC2 reports BL0015 before and none after.",
+            "Click Read instrument: expect Level 137 cm. Direct real-JS AcceptLevel(138) returns Level 138 cm. Negative input and calling ReceiveLevel instead of AcceptLevel both reject. Toggle the panel off: the component Dispose counter becomes 1 and the saved JS proxy rejects further invocations. The counter measures component disposal; proxy rejection separately demonstrates reference release. The private before control reports Callback unavailable. GA reports BL0015 before and none after.",
             "The fixes are valid on .NET 10; only the diagnostic is new in the measured .NET 11 analyzer. No SDK-only older-target analyzer route, package backport or additional .NET 10 foundation is advertised.",
             "Interactive Server with prerender disabled is the executed route. No WASM, static SSR callback, Hybrid, AOT/trimming, arbitrary concurrency, performance or GA execution is established."
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "The demonstrated public APIs and diagnostics are not experimental. The 11.0 edition prepares release-family guidance using RC2 evidence; PIN-964 actual-GA and PIN-959 comprehensive coverage remain open."
+            "The demonstrated public APIs and diagnostics are not experimental. The 11.0 edition prepares release-family guidance using GA evidence; PIN-964 actual-GA and PIN-959 comprehensive coverage remain open."
           ]
         },
         "sourceUrls": [
@@ -132,13 +132,13 @@
       "sdk": "10.0.403",
       "language": "14.0",
       "kind": "execution",
-      "scope": "Click Read instrument: expect Level 137 cm. Direct real-JS AcceptLevel(138) returns Level 138 cm. Negative input and calling ReceiveLevel instead of AcceptLevel both reject. Toggle the panel off: the component Dispose counter becomes 1 and the saved JS proxy rejects further invocations. The counter measures component disposal; proxy rejection separately demonstrates reference release. The private before control reports Callback unavailable. RC2 reports BL0015 before and none after.",
+      "scope": "Click Read instrument: expect Level 137 cm. Direct real-JS AcceptLevel(138) returns Level 138 cm. Negative input and calling ReceiveLevel instead of AcceptLevel both reject. Toggle the panel off: the component Dispose counter becomes 1 and the saved JS proxy rejects further invocations. The counter measures component disposal; proxy rejection separately demonstrates reference release. The private before control reports Callback unavailable. GA reports BL0015 before and none after.",
       "record": "samples/net10.0/WillowQuay/behavior.evidence.json"
     },
     {
       "sample": "samples/net11.0/WillowQuay/WillowQuay.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "kind": "compile",
       "scope": "Actual matching SDK, target, language and locked dependency set."
@@ -146,10 +146,10 @@
     {
       "sample": "samples/net11.0/WillowQuay/WillowQuay.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "kind": "execution",
-      "scope": "Click Read instrument: expect Level 137 cm. Direct real-JS AcceptLevel(138) returns Level 138 cm. Negative input and calling ReceiveLevel instead of AcceptLevel both reject. Toggle the panel off: the component Dispose counter becomes 1 and the saved JS proxy rejects further invocations. The counter measures component disposal; proxy rejection separately demonstrates reference release. The private before control reports Callback unavailable. RC2 reports BL0015 before and none after.",
+      "scope": "Click Read instrument: expect Level 137 cm. Direct real-JS AcceptLevel(138) returns Level 138 cm. Negative input and calling ReceiveLevel instead of AcceptLevel both reject. Toggle the panel off: the component Dispose counter becomes 1 and the saved JS proxy rejects further invocations. The counter measures component disposal; proxy rejection separately demonstrates reference release. The private before control reports Callback unavailable. GA reports BL0015 before and none after.",
       "record": "samples/net11.0/WillowQuay/behavior.evidence.json"
     }
   ],

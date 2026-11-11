@@ -81,7 +81,7 @@
             "No older-target refresh backport, provider/cloud, AOT or actual-GA guarantee."
           ],
           "stabilityLimitations": [
-            "GA-targeted edition verified on .NET 11 RC2; final GA reconciliation remains open."
+            "GA-targeted edition verified on .NET 11 GA; final GA checks are limited to the recorded scope."
           ]
         },
         "sourceUrls": [
@@ -131,7 +131,7 @@
       "kind": "compile",
       "sample": "samples/net11.0/ArchiveAccess/ArchiveAccess.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "scope": "Actual Razor compilation or actual Interactive Server authentication notification and content refresh; local provider only."
     },
@@ -139,7 +139,7 @@
       "kind": "execution",
       "sample": "samples/net11.0/ArchiveAccess/ArchiveAccess.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "scope": "Actual Razor compilation or actual Interactive Server authentication notification and content refresh; local provider only.",
       "record": "samples/net11.0/ArchiveAccess/behavior.evidence.json"

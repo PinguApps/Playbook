@@ -19,8 +19,8 @@ DLL. No independently distributed package is restored by either publisher.
 
 | Input | Older comparison | Current route |
 | --- | --- | --- |
-| SDK / product source | 10.0.403 / `a8dd0577c5c13f43a2f57fe33b4ff11b90f6371e` | 11.0.100-rc.3.26522.148 / `820230c386db5b0106c5430b3e5aee92a7826bf5` |
-| Runtime and reference pack | 10.0.14 | 11.0.0-rc.3.26522.148 |
+| SDK / product source | 10.0.403 / `a8dd0577c5c13f43a2f57fe33b4ff11b90f6371e` | 11.0.100 / `820230c386db5b0106c5430b3e5aee92a7826bf5` |
+| Runtime and reference pack | 10.0.14 | 11.0.0 |
 | Application / language | net10.0 / C#14 | net11.0 / C#15 |
 | Bundled NuGet product | 7.9.0-rc.611 | 8.0.0-rc.605 |
 | Actual NuGet DLL target framework | net8.0 | net10.0 |
@@ -75,7 +75,7 @@ The current project's corresponding settings are:
 
 Both projects inherit `OutputType=Exe`, nullable/implicit usings enabled and
 warnings as errors from `samples/Directory.Build.props`. Pin `global.json` with
-`rollForward: disable`; the newer pin additionally uses `allowPrerelease: true`.
+`rollForward: disable`; the newer pin additionally uses `allowPrerelease: false`.
 Reference with `Private=false`: the exact complete SDK supplies its own runtime
 closure. This is a developer tool bound to that installation, not a redistributable
 client library or a claim of SDK internal implementation stability.
@@ -192,6 +192,8 @@ nuget.org, and no real API key is required.
 
 ## Evidence and limits
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 `eng/Record-FoundryStaging.ps1` uses the existing sample-evidence workflow to
 build/run both actual dependency sets, pack original nupkg/snupkg inputs and
 save fresh input hashes and commands. The old run verifies real publication
@@ -218,7 +220,7 @@ no applicable staging edition; the valid old publication comparison remains in
 this body. Retrieval executes no uploads. These are Windows x64 managed HTTP
 checks, not mock responses injected into NuGet, TLS/provider interoperability,
 performance, other-platform or GA evidence. The API requires no experimental
-diagnostic suppression or preview-language flag; the SDK itself is RC2/preview.
+diagnostic suppression or preview-language flag; the SDK itself is GA/preview.
 The exact eight approved .NET10 foundations, PIN-959 qualifying coverage/evidence,
 PIN-963 actual-GA reconciliation and unrelated Human gates remain open.
 

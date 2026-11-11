@@ -78,7 +78,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "RC2 verification; GA reconciliation remains pending.",
+            "GA verification; GA checks are limited to the recorded scope.",
             "macOS native execution is unverified; Pingu explicitly accepted this evidence gap.",
             "Not tested: macOS execution: no Mac environment. Excluded under PIN-699; recorded Windows/Linux results remain separate."
           ]
@@ -125,7 +125,7 @@
     {
       "sample": "samples/net11.0/ProcessExecution/ProcessExecution.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "kind": "compile-and-run",
       "scope": "Actual ProcessExecution compilation and focused execution on Windows. Additional Linux native execution is recorded separately; macOS has not been executed."
@@ -133,7 +133,7 @@
     {
       "sample": "samples/net11.0/ProcessExecution/ProcessExecution.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "kind": "compile-and-run",
       "scope": "Actual Linux x64 compilation/execution of native processes in a pinned network-disabled container; suspended startup is excluded on Linux. macOS has not been executed.",

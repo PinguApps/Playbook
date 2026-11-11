@@ -3,7 +3,7 @@ param(
   [Parameter(Mandatory)][string]$Artifacts,
   [Parameter(Mandatory)][string]$Suite,
   [Parameter(Mandatory)][string]$PackageVersion,
-  [ValidateSet(10, 11)][int]$RuntimeMajor = 10,
+  [ValidateSet(11)][int]$RuntimeMajor = 11,
   [switch]$Smoke,
   [string]$Results = (Join-Path $Artifacts 'TestResults')
 )

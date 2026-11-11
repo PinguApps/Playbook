@@ -31,7 +31,7 @@
           "runtime": {
             "name": ".NET",
             "match": "release-family",
-            "reason": "Primary net11.0 consumer; actual RC2 proof is distinct from GA verification.",
+            "reason": "Primary net11.0 consumer; actual GA proof is distinct from GA verification.",
             "version": "11.0"
           },
           "sdk": {
@@ -62,12 +62,12 @@
           "constraints": [
             "Windows x64, non-invariant system ICU (measured72.1.0.4); configure System.Globalization.Invariant=false and System.Globalization.UseNls=false. NLS/invariant/other-platform or other-data execution is unverified.",
             "Non-overlapping spans; false/zero for insufficient capacity, ArgumentException for invalid input. Ignore destination on failure. IDNA conversion is not domain authorization or spoofing prevention; AllowUnassigned=true does not guarantee acceptance.",
-            "Previous proof SDK10.0.403/C#14/ref-runtime10.0.14; current SDK11.0.100-rc.3.26522.148/C#15/ref-runtime11RC3. Exact proof pins are distinct from supported release-family prerequisites.",
+            "Previous proof SDK10.0.403/C#14/ref-runtime10.0.14; current SDK11.0.100/C#15/ref-runtime11RC3. Exact proof pins are distinct from supported release-family prerequisites.",
             "No NuGet packages/assets, providers, workloads, rendering modes or experimental opt-ins; no additional .NET10 foundation or optional older-target API route."
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Verified with actual RC2 artifacts; final-GA reconciliation remains open. No experimental diagnostic opt-in on the selected APIs."
+            "Verified with actual GA artifacts; final-GA checks are limited to the recorded scope. No experimental diagnostic opt-in on the selected APIs."
           ]
         },
         "sharedAreas": [],
@@ -129,7 +129,7 @@
     },
     {
       "scope": "Real Windows system ICU Unicode/ASCII round trips, exact/short/empty destinations, malformed/disallowed labels, strict/relaxed STD3 and both AllowUnassigned choices; current span overlap rejection.",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "target": "net11.0",
       "kind": "compile-and-run",
       "sample": "samples/net11.0/OrchardRoutes/OrchardRoutes.csproj",

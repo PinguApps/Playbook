@@ -27,11 +27,13 @@ Use framework Decimal32/64/128 on .NET 11, with explicit finite-value and compar
 
 ## Constraints
 
-For d=1e-34, acos(1-d)=sqrt(2d)*(1+d/12+O(d^2)). The leading term is 1.414213562373095048801688724209698e-17; the omitted correction is below 2e-52. The rounded 34-digit sqrt(2) constant and this bound independently justify the selected absolute tolerance. This is a bounded mathematical reference, not an assertion that RC2 is always correctly rounded.
+For d=1e-34, acos(1-d)=sqrt(2d)*(1+d/12+O(d^2)). The leading term is 1.414213562373095048801688724209698e-17; the omitted correction is below 2e-52. The rounded 34-digit sqrt(2) constant and this bound independently justify the selected absolute tolerance. This is a bounded mathematical reference, not an assertion that GA is always correctly rounded.
 
-The same actual consumer executed with RC1 and RC2 observes Acos(1-1e-34) change from 1.414250203437893161687265742266675e-17 to 1.414213562373095048801688724209698e-17. Log changes from -1.000051818962061097404402609041826e-34 to -1e-34; SinPi changes from 3.141755447660321030278879777191235e-34 to 3.141592653589793238462643383279503e-34. No new signature or switch restoring the previous algorithm is established.
+The same actual consumer executed with RC1 and GA observes Acos(1-1e-34) change from 1.414250203437893161687265742266675e-17 to 1.414213562373095048801688724209698e-17. Log changes from -1.000051818962061097404402609041826e-34 to -1e-34; SinPi changes from 3.141755447660321030278879777191235e-34 to 3.141592653589793238462643383279503e-34. No new signature or switch restoring the previous algorithm is established.
 
 ## Evidence
+
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Current route: net11.0 framework, SDK 11 and C# 15 sample mode; import System.Numerics. Framework-managed functions need no extra package, provider, workload, native platform or rendering context and no experimental opt-in. Older comparison: independent net10.0 SDK 10/C# 14 consumer using Math/double. Exact SDK/runtime pins identify measured artifacts rather than consumer minimums.
 

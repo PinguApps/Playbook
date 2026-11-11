@@ -39,13 +39,13 @@
             "name": ".NET",
             "version": "11.0",
             "match": "release-family",
-            "reason": "New server behavior is verified with the actual .NET 11 RC2 runtime; not a GA execution claim."
+            "reason": "New server behavior is verified with the actual .NET 11 GA runtime; not a GA execution claim."
           },
           "sdk": {
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Sample pin 11.0.100-rc.3.26522.148; restore/build net11.0 assets."
+            "reason": "Sample pin 11.0.100; restore/build net11.0 assets."
           },
           "language": {
             "name": "C#",
@@ -61,11 +61,11 @@
               "name": "Microsoft.AspNetCore.OpenApi",
               "version": "11.0",
               "match": "release-family",
-              "reason": "net11.0 built-in document generator; actual verification pin 11.0.0-rc.2.26504.105."
+              "reason": "net11.0 built-in document generator; actual verification pin 11.0.0."
             }
           ],
           "packageAssets": [
-            "Microsoft.AspNetCore.App net11.0; Microsoft.AspNetCore.OpenApi 11.0.0-rc.2.26504.105 and Microsoft.OpenApi 3.10.2 net11.0-compatible assets in saved locked restore. Older comparison uses OpenApi 10.0.13 and Microsoft.OpenApi 2.12.2 on net10.0."
+            "Microsoft.AspNetCore.App net11.0; Microsoft.AspNetCore.OpenApi 11.0.0 and Microsoft.OpenApi 3.10.2 net11.0-compatible assets in saved locked restore. Older comparison uses OpenApi 10.0.13 and Microsoft.OpenApi 2.12.2 on net10.0."
           ],
           "workloads": [],
           "providers": [
@@ -83,11 +83,11 @@
           ],
           "constraints": [
             "Minimal API/MVC response declarations are additive on .NET 11. Remove stale declarations; same-media schemas can form anyOf. Verify the actual client generator: NSwag 14.7.1 preserves these JSON cases as extension data and does not handle the text branch automatically.",
-            "Response declarations describe behavior; they do not make the handler return those models, negotiate content, or remove an obsolete runtime branch. `anyOf` is not exclusive and introduces no discriminator. The sample's distinct property names let its explicit consumer choose the shape; version wire models deliberately if they become ambiguous. NSwag 14.7.1/NJsonSchema 11.6.1 with System.Text.Json generated code was compiled and executed on .NET 10 against the RC2 server: it does not produce strongly typed anyOf cases, and status 200 chooses JSON even for the text branch. This result is a concrete limitation, not evidence that every generator fails or succeeds. QUERY extension support and OpenAPI 3.2 parsing were not established by this generator check."
+            "Response declarations describe behavior; they do not make the handler return those models, negotiate content, or remove an obsolete runtime branch. `anyOf` is not exclusive and introduces no discriminator. The sample's distinct property names let its explicit consumer choose the shape; version wire models deliberately if they become ambiguous. NSwag 14.7.1/NJsonSchema 11.6.1 with System.Text.Json generated code was compiled and executed on .NET 10 against the GA server: it does not produce strongly typed anyOf cases, and status 200 chooses JSON even for the text branch. This result is a concrete limitation, not evidence that every generator fails or succeeds. QUERY extension support and OpenAPI 3.2 parsing were not established by this generator check."
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Stable framework capability, prepared with .NET 11 RC2 artifacts under ADR 0004. GA source/package/runtime reconciliation remains separate."
+            "Stable framework capability, prepared with .NET 11 GA artifacts under ADR 0004. GA source/package/runtime reconciliation remains separate."
           ]
         },
         "sourceUrls": [
@@ -135,7 +135,7 @@
       "kind": "compile-and-run",
       "sample": "samples/net11.0/ArchiveContracts/ArchiveContracts.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "scope": "Real .NET 10/11 compilation and loopback execution: separate older routes and .NET 11 all media/schema variants on Minimal API/MVC; two same-media anyOf references and no stale media; actual typed consumer handles every branch; 401 metadata and response."
     },
@@ -144,7 +144,7 @@
       "sample": "samples/net11.0/ArchiveContracts/ArchiveContracts.csproj",
       "record": "samples/net11.0/ArchiveContracts/generated-client.evidence.json",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "scope": "NSwag 14.7.1 generates C# from the actual unmodified OpenAPI 3.0 document. Independent net10.0 build and real Minimal API/MVC JSON requests pass via extension data; expected text deserialization failure is checked. No typed-union or universal generator support claim."
     }

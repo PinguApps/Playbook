@@ -20,7 +20,7 @@ Custom validators implement both contracts. A synchronous implementation must pe
 
 {{snippet:dual}}
 
-For source-generated synchronous validation, choose generated or handwritten ownership. This canonical example normally lets the generator provide Validate. Defining EXPLICIT_VALIDATE deliberately enables the conflicting handwritten method and the actual RC2 generator rejects it with SYSLIB1205. Remove that branch for generated ownership, or remove OptionsValidator and own the full manual contract. Async generation is separate.
+For source-generated synchronous validation, choose generated or handwritten ownership. This canonical example normally lets the generator provide Validate. Defining EXPLICIT_VALIDATE deliberately enables the conflicting handwritten method and the actual GA generator rejects it with SYSLIB1205. Remove that branch for generated ownership, or remove OptionsValidator and own the full manual contract. Async generation is separate.
 
 {{snippet:generated}}
 
@@ -28,7 +28,7 @@ For source-generated synchronous validation, choose generated or handwritten own
 
 1. Create a net11.0 console project with C# 15.0, Nullable/ImplicitUsings enabled and FrameworkReference Microsoft.AspNetCore.App. Import Microsoft.Extensions.DependencyInjection, Microsoft.Extensions.Hosting and Microsoft.Extensions.Options; the generated model also uses System.ComponentModel.DataAnnotations.
 2. Register the service and async delegate shown above. In StartupExamples, create HostApplicationBuilder, call RegisterDeparture on its Services, build the host and await StartAsync before any consumer reads these settings or accepts work. Pass a startup cancellation token where appropriate.
-3. For the optional generated example, add a private Microsoft.Extensions.Options PackageReference pinned to 11.0.0-rc.2.26504.105 so its analyzer assets run. The sample suppresses NU1510 for that intentional analyzer reference: net11 runtime types already come from the shared framework. It does not disable analyzer diagnostics.
+3. For the optional generated example, add a private Microsoft.Extensions.Options PackageReference pinned to 11.0.0 so its analyzer assets run. The sample suppresses NU1510 for that intentional analyzer reference: net11 runtime types already come from the shared framework. It does not disable analyzer diagnostics.
 4. Migrate handwritten IAsyncValidateOptions implementations to include Validate as well as ValidateAsync, register them as IValidateOptions or through Validate<TValidator>(), and preserve name matching. Replace new uses of obsolete IStartupValidator (SYSLIB0066) with IAsyncStartupValidator.
 5. Check startup acceptance/rejection and every synchronous access path your application uses. Do not add GetAwaiter().GetResult, synchronous network calls or a success-only validator as a workaround.
 
@@ -42,4 +42,6 @@ PermitRegister is a real asynchronous in-process policy, not proof of an externa
 
 ## Evidence
 
-Both actual release projects run supported Generic Host startup, acceptance and rejection. RC2 additionally executes IAsyncStartupValidator, named dual validation, seeded default/monitor caches, synchronous pre-start/snapshot/factory failures, an async-only plus succeeding synchronous validator collection, and configuration-driven monitor reload failure with zero notifications. The Options package's real generator builds the valid model, rejects the conflicting explicit implementation with SYSLIB1205, and builds/runs again after restoration. Exact artifacts and input hashes are saved. These managed checks are distinct from the source-only custom-factory/legacy-precedence restrictions; no GA, external-service or browser proof is claimed.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
+Both actual release projects run supported Generic Host startup, acceptance and rejection. GA additionally executes IAsyncStartupValidator, named dual validation, seeded default/monitor caches, synchronous pre-start/snapshot/factory failures, an async-only plus succeeding synchronous validator collection, and configuration-driven monitor reload failure with zero notifications. The Options package's real generator builds the valid model, rejects the conflicting explicit implementation with SYSLIB1205, and builds/runs again after restoration. Exact artifacts and input hashes are saved. These managed checks are distinct from the source-only custom-factory/legacy-precedence restrictions; no GA, external-service or browser proof is claimed.

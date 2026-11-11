@@ -11,17 +11,17 @@ image. A smaller base layer or changed AOT compiler alone supplies none of that 
 
 This recipe selects the ordinary **managed runtime** variant on Linux amd64.
 Azure Linux4 is **Beta** in the pinned Preview6 notes; this edition retains that
-status. It is a preparation route with actual RC2 execution, not an assertion of
+status. It is a preparation route with actual GA execution, not an assertion of
 GA OS support or production approval. NativeAOT, distroless-extra/composite,
 ARM64, GCC/Clang changes and image-size/performance comparisons are outside this
 bounded selection and require their own actual artifact/runtime checks.
 
 | Layer | Older | Current |
 | --- | --- | --- |
-| SDK / C# compiler / language | 10.0.403 / 5.9.0-1.26523.112 / 14.0 | 11.0.100-rc.3.26522.148 / 5.12.0-1.26522.148 / 15.0 |
-| Framework / reference pack | net10.0 / 10.0.13 | net11.0 / 11.0.0-rc.2.26504.105 |
-| Runtime image tag | 10.0.13-azurelinux3.0 | 11.0.0-rc.2-azurelinux4.0 |
-| Runtime / OS | .NET10.0.13 / Azure Linux3.0 | .NET11.0.0-rc.2.26504.105 / Azure Linux4.0 Beta |
+| SDK / C# compiler / language | 10.0.403 / 5.9.0-1.26523.112 / 14.0 | 11.0.100 / 5.12.0-1.26522.148 / 15.0 |
+| Framework / reference pack | net10.0 / 10.0.13 | net11.0 / 11.0.0 |
+| Runtime image tag | 10.0.13-azurelinux3.0 | 11.0.0-azurelinux4.0 |
+| Runtime / OS | .NET10.0.13 / Azure Linux3.0 | .NET11.0.0 / Azure Linux4.0 Beta |
 
 Compilation uses the exact Windows x64 SDK/compiler/reference assets pinned in
 the sample record. The compiled portable IL is then executed on the actual Linux
@@ -64,7 +64,7 @@ In a standalone copy, add `OutputType=Exe`, `ImplicitUsings=enable` and
 `Nullable=enable` to each project; those three settings come from the repository's
 sample boundary here. Save `global.json` beside each project with
 `{"sdk":{"version":"10.0.403","rollForward":"disable"}}` for the older directory,
-or `{"sdk":{"version":"11.0.100-rc.3.26522.148","rollForward":"disable"}}` for the
+or `{"sdk":{"version":"11.0.100","rollForward":"disable"}}` for the
 current directory. Use the matching complete SDK executable. The required source
 and configuration are provided above; no generated sample or remote guide is needed.
 
@@ -89,7 +89,7 @@ and configuration are provided above; no generated sample or remote guide is nee
    `docker build --platform linux/amd64 --network none -t quay-worker:check <context>`.
    Image acquisition is online preparation; `--network none` constrains build
    steps. Run `docker run --rm --network none --read-only quay-worker:check`.
-   Expect Azure Linux4.0, the exact .NET11 RC2 runtime, architecture X64,
+   Expect Azure Linux4.0, the exact .NET11 GA runtime, architecture X64,
    fr-FR fee `1234,50`, a zlib version and a compression budget above 4096.
    The Dockerfile uses the image's non-root APP_UID. Compare the older image's
    equivalent output, which must report Azure Linux3.0 and .NET10.0.13.
@@ -119,6 +119,8 @@ Changing a tag string alone cannot prove the authored application works. Do not
 relabel these exact Beta/RC artifacts as actual-GA evidence.
 
 ## Evidence
+
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 `eng/Test-QuayWorker.ps1 -Record` checks exact SDK/native-host/compiler/reference
 hashes, builds both real projects, compares Dockerfile pins with the reviewed

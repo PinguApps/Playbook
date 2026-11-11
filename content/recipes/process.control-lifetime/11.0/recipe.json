@@ -73,11 +73,11 @@
             "Use a net11.0 console project with LangVersion=15.0. Include the imports stated in the recipe."
           ],
           "constraints": [
-            "The exact RC2 reference annotations permit KillOnParentExit on Windows, Linux and Android, contradicting the old cumulative Windows-only headline. This sample verifies Windows and Linux only; Android is not an advertised route. macOS supports the independent/detached route, not this parent-bound route. Windows may reject nested/restrictive job configurations; startup failures must remain visible. Retain explicit standard-handle policy: an independent child must not hold a parent’s capture pipe open. StartAndForget defaults unspecified standard handles to null. PIDs can be reused and are not durable identity tokens."
+            "The exact GA reference annotations permit KillOnParentExit on Windows, Linux and Android, contradicting the old cumulative Windows-only headline. This sample verifies Windows and Linux only; Android is not an advertised route. macOS supports the independent/detached route, not this parent-bound route. Windows may reject nested/restrictive job configurations; startup failures must remain visible. Retain explicit standard-handle policy: an independent child must not hold a parent’s capture pipe open. StartAndForget defaults unspecified standard handles to null. PIDs can be reused and are not durable identity tokens."
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "RC2 verification; GA reconciliation remains pending.",
+            "GA verification; GA checks are limited to the recorded scope.",
             "macOS native execution is unverified; Pingu explicitly accepted this evidence gap.",
             "Not tested: macOS execution: no Mac environment. Excluded under PIN-699; recorded Windows/Linux results remain separate."
           ]
@@ -124,7 +124,7 @@
     {
       "sample": "samples/net11.0/ProcessExecution/ProcessExecution.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "kind": "compile-and-run",
       "scope": "Actual ProcessExecution compilation and focused execution on Windows. Additional Linux native execution is recorded separately; macOS has not been executed."
@@ -132,7 +132,7 @@
     {
       "sample": "samples/net11.0/ProcessExecution/ProcessExecution.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "kind": "compile-and-run",
       "scope": "Actual Linux x64 compilation/execution of native processes in a pinned network-disabled container; suspended startup is excluded on Linux. macOS has not been executed.",

@@ -51,13 +51,13 @@
         "requirements": {
           "runtime": {
             "name": ".NET",
-            "version": "11.0.0-rc.2.26504.105",
+            "version": "11.0.0",
             "match": "exact",
             "reason": "Exact managed runtime used by the SDK-bound publisher. DLL TFM and hosted-provider support are separate facts; actual GA unqualified."
           },
           "sdk": {
             "name": ".NET SDK",
-            "version": "11.0.100-rc.3.26522.148",
+            "version": "11.0.100",
             "match": "exact",
             "reason": "Complete SDK supplies audited NuGet8.0.0-rc.605 public API and compatible closure, compiler/ref/runtime/native-host pins."
           },
@@ -82,7 +82,7 @@
           ],
           "renderingModes": [],
           "prerequisites": [
-            "Complete SDK11.0.100-rc.3.26522.148/runtime+ref11RC3; rollForward=disable, allowPrerelease=true. Launch via the matching absolute dotnet executable.",
+            "Complete SDK11.0.100/runtime+ref11RC3; rollForward=disable, allowPrerelease=false. Launch via the matching absolute dotnet executable.",
             "SDK10.0.403/runtime+ref10.0.14 and C#14 reproduce the valid ordinary publication comparison. Exact file/product/hash pins and actual loaded identities are retained separately.",
             "Original SDK-packed library and portable-PDB snupkg; a compatible authorized provider or the disposable local protocol fixture. PowerShell7 for evidence; no account, real key, native compiler, workload, device or UI/rendering mode."
           ],
@@ -95,7 +95,7 @@
           ],
           "optIns": [
             "PackageSource.AllowInsecureConnections and per-upload allowInsecureConnections=true only for the disposable loopback fixture. Both default false in publisher calls.",
-            "RC3 SDK explicitly allows prerelease. No experimental API suppression or preview-language switch is required."
+            "GA SDK disables preview selection. No experimental API suppression or preview-language switch is required."
           ],
           "stabilityLimitations": [
             "Exact-artifact preview qualification, not a public hosted-service standard/support guarantee or actual GA.",
@@ -144,7 +144,7 @@
     {
       "scope": "Actual audited SDK NuGet8 closure and original nupkg/snupkg; real service-index discovery and exact endpoint/PUT/chunked multipart bytes/routes/filenames/content types; group present/null/empty, key present/absent, 201, HTTP400, distinct absent/unsupported resource, HTTP refusal, loopback/default origin guards, URI-only host/port/scheme controls, real malformed header/chunk/length cleanup, received cancellation/request-timeout. Local protocol conformance, no hosted interoperability/TLS/GA proof.",
       "language": "15.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "target": "net11.0",
       "sample": "samples/net11.0/FoundryPublisher/FoundryPublisher.csproj",
       "kind": "compile-and-run"

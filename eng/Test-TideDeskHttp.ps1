@@ -34,7 +34,7 @@ if ($ProbeSharing) {
   $files = @{
     'Directory.Build.props' = '<Project><PropertyGroup><Nullable>enable</Nullable><ImplicitUsings>enable</ImplicitUsings><TreatWarningsAsErrors>true</TreatWarningsAsErrors></PropertyGroup></Project>'
     'Directory.Packages.props' = '<Project><PropertyGroup><ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally></PropertyGroup></Project>'
-    'global.json' = '{"sdk":{"version":"11.0.100-rc.3.26522.148","rollForward":"disable"}}'
+    'global.json' = '{"sdk":{"version":"11.0.100","rollForward":"disable"}}'
     'Probe.csproj' = '<Project Sdk="Microsoft.NET.Sdk.Web"><PropertyGroup><TargetFramework>net11.0</TargetFramework><LangVersion>15.0</LangVersion></PropertyGroup></Project>'
     'Program.cs' = @'
 using Microsoft.AspNetCore.Components;

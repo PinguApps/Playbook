@@ -1,5 +1,11 @@
 [CmdletBinding()]
-param([switch]$Record)
+param(
+ [switch]$Record,
+ [string]$Net10Dotnet=(Get-Command dotnet -CommandType Application|Select-Object -First 1).Source,
+ [string]$Net11Dotnet=$Net10Dotnet,
+ [string]$Playwright='C:/Users/pingu/AppData/Local/npm-cache/_npx/e41f203b7505f1fb/node_modules/playwright-core',
+ [string]$Chromium='C:/Users/pingu/AppData/Local/ms-playwright/chromium-1248/chrome-win64/chrome.exe'
+)
 $ErrorActionPreference='Stop'
 $PSNativeCommandUseErrorActionPreference=$true
 $root=Split-Path $PSScriptRoot -Parent
@@ -11,7 +17,7 @@ try {
  $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH='0'; $env:DOTNET_GENERATE_ASPNET_CERTIFICATE='false'; $env:MSBUILDUSESERVER='0'; $env:UseSharedCompilation='false'; $env:DOTNET_CLI_WORKLOAD_UPDATE_NOTIFY_DISABLE='true'; $env:DOTNET_CLI_TELEMETRY_OPTOUT='1'
  foreach($source in (Get-Content samples/SupportPaths/sources.json -Raw|ConvertFrom-Json).sources){$bytes=(Invoke-WebRequest $source.url).RawContentStream.ToArray();if([Convert]::ToHexStringLower([Security.Cryptography.SHA256]::HashData($bytes)) -cne $source.sha256){throw 'Source drift'}}
  foreach($major in 10,11){
-  $dn=if($major -eq 10){(Get-Command dotnet -CommandType Application | Select-Object -First 1).Source}else{(Get-Command dotnet -CommandType Application | Select-Object -First 1).Source}
+  $dn=if($major -eq 10){$Net10Dotnet}else{$Net11Dotnet}
   foreach($name in 'ReedStation','ReedStationBrowser'){
    $sample="samples/net$major.0/$name/$name.csproj"
    if($Record){$kind=if($name -eq 'ReedStation'){'compile-and-run'}else{'compile'}; & "$PSScriptRoot/Record-Evidence.ps1" -Sample $sample -Dotnet $dn -Kind $kind}
@@ -35,9 +41,9 @@ try {
  }
  $cleanup=(& "$PSScriptRoot/Test-SupportPathsCleanup.ps1" | Out-String)
  Write-Host $cleanup
- $network=(& "$PSScriptRoot/Test-SupportPaths.ps1" | Out-String)
+ $network=(& "$PSScriptRoot/Test-SupportPaths.ps1" -Net10Dotnet $Net10Dotnet -Net11Dotnet $Net11Dotnet | Out-String)
  Write-Host $network
- & 'C:/Program Files/nodejs/node.exe' "$PSScriptRoot/Test-SupportPaths.mjs" 'C:/Users/pingu/AppData/Local/npm-cache/_npx/e41f203b7505f1fb/node_modules/playwright-core' 'C:/Users/pingu/AppData/Local/ms-playwright/chromium-1248/chrome-win64/chrome.exe'
+ & 'C:/Program Files/nodejs/node.exe' "$PSScriptRoot/Test-SupportPaths.mjs" $Playwright $Chromium
  if($Record){foreach($major in 10,11){foreach($name in 'ReedStation','ReedStationBrowser'){
   $directory="samples/net$major.0/$name"
   $receipt=Get-Content "$directory/verification-evidence.json" -Raw|ConvertFrom-Json -AsHashtable

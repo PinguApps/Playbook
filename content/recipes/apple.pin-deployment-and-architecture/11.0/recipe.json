@@ -47,7 +47,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "RC3 SDK intended; pinned Apple RC2 source/artifact review is separate from a tested native workload composition."
+            "reason": "GA SDK intended; pinned Apple Historical RC2 source and GA artifact review is separate from a tested native workload composition."
           },
           "language": {
             "name": "C#",
@@ -65,7 +65,7 @@
               "match": "release-family",
               "version": "11.0",
               "name": "ios",
-              "reason": "Compatible workload required; RC3 native composition not built."
+              "reason": "Compatible workload required; GA native composition not built."
             }
           ],
           "packageAssets": [
@@ -83,7 +83,7 @@
           ],
           "prerequisites": [
             "Compatible Apple workload and Xcode required for native publishing/execution.",
-            "RC3 SDK intended; RC2 sources reviewed separately, not a verified native composition."
+            "GA SDK intended; RC2 sources reviewed separately, not a verified native composition."
           ],
           "constraints": [
             ".NET10 comparison only; no older-target catalogue route.",
@@ -135,12 +135,12 @@
       "sdk": "10.0.402"
     },
     {
-      "scope": "Exact official RC2 sources and Catalyst artifact reviewed. Canonical net11 Catalyst C# reference compilation passes against the pinned RC2 Mac Catalyst assembly; no native workload compilation, publish output or execution.",
+      "scope": "Exact official RC2 sources and Catalyst artifact reviewed. Canonical net11 Catalyst C# reference compilation passes against the pinned GA Mac Catalyst assembly; no native workload compilation, publish output or execution.",
       "sample": "samples/net11.0/TernPublish/TernPublish.csproj",
       "language": "15.0",
       "kind": "official-review",
       "target": "net11.0-maccatalyst27.0",
-      "sdk": "11.0.100-rc.3.26522.148"
+      "sdk": "11.0.100"
     }
   ],
   "humanProof": {

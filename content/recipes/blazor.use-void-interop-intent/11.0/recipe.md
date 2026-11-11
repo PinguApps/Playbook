@@ -53,7 +53,7 @@ Save all listed files in a separate BreakwaterLab directory. The complete app co
 
 ## Newer approach
 
-The .NET 11 increase handler awaits InvokeVoidAsync for announce. Keep InvokeAsync<IJSObjectReference> for importing the module because import really does return a reference. The source change follows the purpose of BL0010, without implementing an analyzer or claiming that a runtime API was newly introduced. The declared RC2 build also enforces BL0016 error handling; the complete component includes try/catch and module disposal.
+The .NET 11 increase handler awaits InvokeVoidAsync for announce. Keep InvokeAsync<IJSObjectReference> for importing the module because import really does return a reference. The source change follows the purpose of BL0010, without implementing an analyzer or claiming that a runtime API was newly introduced. The declared GA build also enforces BL0016 error handling; the complete component includes try/catch and module disposal.
 
 
 #### .NET 11: `global.json`
@@ -115,7 +115,7 @@ Check that callers do not need the return value. Replace only discarded result c
 ## Build and exercise
 
 The older pin is SDK 10.0.403 / C# 14 / ASP.NET Core 10.0.14. The newer pin is
-SDK 11.0.100-rc.3.26522.148 / C# 15 / ASP.NET Core 11.0.0-rc.3.26522.148.
+SDK 11.0.100 / C# 15 / ASP.NET Core 11.0.0.
 Microsoft.NET.Sdk.Web supplies the implicit Internal.Assets package at the
 matching framework version; no explicit PackageReference is needed. The shared
 framework supplies the server/provider/interop assemblies. Restore needs NuGet
@@ -146,7 +146,9 @@ Blazor JS interop authoring only; analyzer internals, diagnostic implementation 
 
 ## Evidence
 
-API stability is stable in discovery/detail; the measured artifact is RC2, not GA.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
+API stability is stable in discovery/detail; the measured artifact is GA.
 Compilation records preserve exact inputs, SDK, target, language, dependencies and
 source dirty state. Browser execution is separate from compilation. The focused
 receipts are documented in docs/verification/component-interop.md. This recipe makes no

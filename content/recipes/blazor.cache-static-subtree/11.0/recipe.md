@@ -36,7 +36,7 @@ The original local aggregation and content revision are explicit:
 
 ## Migration
 
-1. Use Microsoft.NET.Sdk.Web, net11.0 and C# 15.0. The measured SDK/runtime are 11.0.100-rc.3.26522.148 / 11.0.0-rc.3.26522.148. The older project uses net10.0, C# 14.0, SDK 10.0.403 and runtime/browser assets 10.0.14. Each project locks its SDK-aligned Internal.Assets. No optional workload or experimental opt-in is required. These are RC2 results, not GA proof.
+1. Use Microsoft.NET.Sdk.Web, net11.0 and C# 15.0. The measured SDK/runtime are 11.0.100 / 11.0.0. The older project uses net10.0, C# 14.0, SDK 10.0.403 and runtime/browser assets 10.0.14. Each project locks its SDK-aligned Internal.Assets. No optional workload or experimental opt-in is required. Current GA evidence records define measured coverage and retained exclusions.
 2. Put these components in Playbook.Samples. In _Imports.razor set @namespace Playbook.Samples and import Microsoft.AspNetCore.Components, Microsoft.AspNetCore.Components.Routing, Microsoft.AspNetCore.Http and Playbook.Samples. Use this static App.razor; no interactive activation or browser script is needed:
 
 {{snippet:document}}
@@ -48,7 +48,7 @@ The original local aggregation and content revision are explicit:
 {{snippet:run}}
 
 4. The optional host branch compiles against Microsoft.Extensions.Caching.Hybrid 10.11.0, whose net10.0 asset is actually executed here by net11.0. Pin it in the sample's isolated central package file and lock restore. Omit that branch and package for a default-memory-only host. Registering HybridCache selects it automatically; CacheViewHybridCache can instead select a specific instance. The sample configures no distributed backing store or external service.
-5. Choose a bounded lifetime: the page defaults to 120 seconds via CacheSeconds. ExpiresAfter measures from creation; ExpiresOn sets a deadline. Without either, RC2 uses 30 seconds. The default memory store also accepts ExpiresSliding, bounded by ExpiresOn, then ExpiresAfter, then that default absolute lifetime. HybridCache rejects sliding expiration; choose an absolute lifetime. Memory capacity defaults to 100 MB; this host sets 16 MB. CacheViewSizeLimit does not limit HybridCache, which needs its own storage/size policy.
+5. Choose a bounded lifetime: the page defaults to 120 seconds via CacheSeconds. ExpiresAfter measures from creation; ExpiresOn sets a deadline. Without either, GA uses 30 seconds. The default memory store also accepts ExpiresSliding, bounded by ExpiresOn, then ExpiresAfter, then that default absolute lifetime. HybridCache rejects sliding expiration; choose an absolute lifetime. Memory capacity defaults to 100 MB; this host sets 16 MB. CacheViewSizeLimit does not limit HybridCache, which needs its own storage/size policy.
 6. After a successful content change, advance a server-owned revision and include the same revision snapshot in both VaryBy and child inputs. New requests use new entries; old entries remain until expiry. This is logical invalidation, not a public CacheView.Remove API. The sample's volatile counter is appropriate only for this local demonstration. Production revisions must track the authoritative data and be coordinated across nodes; asynchronous distributed eviction alone is not an authorization guarantee. Avoid a race between committing data and publishing its revision. Keep checks that must be current on every request outside the cached section, and use Enabled=false to bypass reads and writes when freshness cannot be established.
 
 ## Constraints
@@ -62,6 +62,8 @@ Static SSR only; cache hits skip child lifecycle; isolate user-specific markup.
 - The .NET 10 comparison caches data, so child markup and lifecycle remain fresh. The .NET 11 edition is new guidance, not another curated .NET 10 foundation or an optional older-target route. No WebAssembly/Auto, browser interaction, distributed service, trimming/AOT, other OS or GA behavior is established by these tests.
 
 ## Evidence
+
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Both real Web SDK projects compile with their declared SDK/language and locked dependencies. Separate real loopback HTTP execution on Windows x64 uses actual cookie authentication and rendered sections, not calculated keys or a mock renderer. It verifies repeated hits and skipped lifecycle; distinct users, anonymous requests, query and changed permission keys; revision invalidation for multiple users; eight concurrent same-key requests and concurrent distinct users; absolute expiry for both providers; memory sliding/absolute bounds; HybridCache's real sliding refusal; and Enabled=false. The older comparison proves public data reuse while markup renders separately for each reader.
 

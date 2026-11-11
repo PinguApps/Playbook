@@ -157,13 +157,15 @@ The custom Razor sign-in panel is rendered through actual HTTP requests. This pr
 
 In a real application retain the existing HTTPS/RP ID, challenge lifecycle, authenticated account management, passkey-capable persistence, recovery/confirmation flow and template antiforgery protections. The sample uses HTTP loopback solely for software-protocol checks and ephemeral data-protection keys; it does not configure production TLS.
 
-Stable API surface; actual .NET 11 evidence uses RC2, not GA. No experimental opt-in, workload, account, provisioning or package publication is needed for the focused checks.
+Stable API surface; actual .NET 11 evidence uses GA. No experimental opt-in, workload, account, provisioning or package publication is needed for the focused checks.
 
 ## Evidence
 
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
 Saved compile-and-run records identify the exact SDKs, dependencies, source hashes and actual runtime output. The real request path covers confirmation through RequireConfirmedAccount, RequireConfirmedEmail and RequireConfirmedPhoneNumber; future lockout; wrong-origin rejection; absence of an application cookie on refusals; and cookie issuance after valid confirmation. Rename is exercised through the rendered form and actual antiforgery-protected POST, with saved-name and cross-owner checks. The store is an explicit fixture; Identity is not mocked.
 
-The actual SDK 11 RC3 web template archive SHA-256 is 419395f52fdb5648d36e5224e44da952f4de3b97fa74688d21d089efff038b75. eng/Test-PasskeyTemplate.ps1 extracts its licensed PasskeyAuthenticators implementation into ignored temporary output, adds the original fleet entry and compiles/runs known Windows Hello, custom fleet, explicit-name precedence, missing/malformed and unknown-identifier checks. It tests the real mapping code, not a reimplementation. The canonical HTTP consumer separately proves the rename fallback. Neither is evidence of physical authenticator interoperability.
+The actual SDK 11 GA web template archive SHA-256 is 419395f52fdb5648d36e5224e44da952f4de3b97fa74688d21d089efff038b75. eng/Test-PasskeyTemplate.ps1 extracts its licensed PasskeyAuthenticators implementation into ignored temporary output, adds the original fleet entry and compiles/runs known Windows Hello, custom fleet, explicit-name precedence, missing/malformed and unknown-identifier checks. It tests the real mapping code, not a reimplementation. The canonical HTTP consumer separately proves the rename fallback. Neither is evidence of physical authenticator interoperability.
 
 The installed-package Reqnroll scenario uses the actual ordinary nupkg, isolated local feed/cache and an unrelated working directory. It compares full expanded Markdown and complete applicability after real stdio list/get, checks edition 11.0 and rejects target 10.0. Local proxy blocking is not network namespace isolation. Source review, compilation, software protocol execution, physical ceremony and GA verification remain distinct.
 

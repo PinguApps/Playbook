@@ -51,7 +51,7 @@ jobs:
         with:
           ref: ${{ inputs.checkout_ref }}
 
-      - name: Setup .NET 10 SDK
+      - name: Setup .NET 11 GA SDK
         uses: actions/setup-dotnet@a98b56852c35b8e3190ac28c8c2271da59106c68 # v6
         with:
           global-json-file: global.json
@@ -62,7 +62,7 @@ jobs:
         with:
           dotnet-version: |
             9.0.319
-            11.0.100-rc.3.26522.148
+            10.0.403
             11.0.100
 
       - name: Identify dependency policy changes
@@ -106,14 +106,12 @@ jobs:
       - name: Prepare offline test image
         if: '!inputs.smoke || inputs.release_ready'
         run: |
-          docker pull mcr.microsoft.com/dotnet/sdk@sha256:e70cdb7f80b0348f5cb85f19a8f670fca061f033d57eed12fa003d58b0e06317
-          docker pull mcr.microsoft.com/dotnet/sdk@sha256:bfabf51e74c5a7cf2fc4eac852145db86f4867d475257d809518d6a2b0fe71e1
+          docker pull mcr.microsoft.com/dotnet/sdk@sha256:65f3c7c6a25a239ab3e6719f2896147e7b68242ff2d8818dd70498bde6ef8bea
 
       - name: Verify the same package without network or checkout access
         if: '!inputs.smoke || inputs.release_ready'
         shell: pwsh
         run: |
-          ./eng/Test-Offline.ps1 -PackageVersion $env:PACKAGE_VERSION -RuntimeMajor 10
           ./eng/Test-Offline.ps1 -PackageVersion $env:PACKAGE_VERSION -RuntimeMajor 11
 
       - name: Publish test results
@@ -161,7 +159,7 @@ jobs:
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
         with:
           name: playbook-consumer-suite
-          path: tests/PinguApps.Playbook.Tests/bin/Release/net10.0/
+          path: tests/PinguApps.Playbook.Tests/bin/Release/net11.0/
           if-no-files-found: error
 
   desktop:
@@ -188,12 +186,12 @@ jobs:
           sparse-checkout: eng/Test-Package.ps1
           sparse-checkout-cone-mode: false
 
-      - name: Setup .NET 10 SDK
+      - name: Setup .NET 11 GA SDK
         uses: actions/setup-dotnet@a98b56852c35b8e3190ac28c8c2271da59106c68 # v6
         env:
           DOTNET_INSTALL_DIR: ${{ runner.temp }}/playbook-dotnet
         with:
-          dotnet-version: 10.0.403
+          dotnet-version: 11.0.100
 
       - name: Download the exact packed artifact
         uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8

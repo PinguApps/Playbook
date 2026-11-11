@@ -10,7 +10,7 @@ playbook --version
 playbook mcp
 ```
 
-The host needs .NET 10, or a later major runtime when .NET 10 is absent. Installed operation needs no workloads, checkout, accounts, keys or network. MCP stdout is protocol-only; diagnostics use stderr. The tools are `list_recipes` and `get_recipe`. Guidance does not inspect or edit consumer projects.
+The host needs .NET 11 GA, or a later stable major runtime when .NET 11 is absent. Builds and releases use SDK 11.0.100 exactly. Installed operation needs no workloads, checkout, accounts, keys or network. MCP stdout is protocol-only; diagnostics use stderr. The tools are `list_recipes` and `get_recipe`. Guidance does not inspect or edit consumer projects.
 
 Start with [installation, updates and troubleshooting](docs/installation.md), then [connect T3 Code, Codex CLI, Claude Code or VS Code Copilot](docs/clients.md). Add the [companion agent instruction](docs/agent-instructions.md) to your agent's existing guidance.
 

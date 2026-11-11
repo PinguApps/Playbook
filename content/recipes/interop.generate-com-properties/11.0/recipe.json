@@ -33,7 +33,7 @@
         "requirements": {
           "sdk": {
             "match": "release-family",
-            "reason": "Build against .NET 11 references; exact RC2 pins record measured artifacts.",
+            "reason": "Build against .NET 11 references; exact GA pins record measured artifacts.",
             "name": ".NET SDK",
             "version": "11.0"
           },
@@ -70,7 +70,7 @@
           "renderingModes": [],
           "optIns": [],
           "stabilityLimitations": [
-            "Measured RC2 artifacts are not GA verification; PIN-959/PIN-962 and existing Human gates remain open."
+            "Measured GA artifacts cover only the recorded checks; PIN-959/PIN-962 and existing Human gates remain open."
           ],
           "constraints": [
             "Both generated property accessors must be abstract declarations, or both default implementations; count-only MarshalUsing on an accessor is rejected.",
@@ -130,7 +130,7 @@
     {
       "sample": "samples/net11.0/BeaconContracts/BeaconContracts.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "kind": "compile-and-run",
       "scope": "Real Windows x64 C vtable get/set and UTF16 ownership; separate actual compiler/generator diagnostics."

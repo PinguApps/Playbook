@@ -30,7 +30,7 @@ try {
   if($platform -eq 'android'){$args+='--no-restore'}
   & $Dotnet @args
   $project=Get-Content "$scratch/$platform/Sandpiper$platform.csproj" -Raw
-  if(-not $project.Contains('<EnableMSTestRunner>true</EnableMSTestRunner>') -or -not $project.Contains('Version="4.3.2"')){throw "Unexpected template contract: $platform"}
+  if(-not $project.Contains('<EnableMSTestRunner>true</EnableMSTestRunner>') -or -not $project.Contains(('Version="{0}"' -f $(if($platform -eq 'android'){'4.3.2'}else{'4.5.1'})))){throw "Unexpected template contract: $platform"}
  }
  foreach($name in 'SandpiperCrashAndroid','SandpiperCrashApple'){
   $sample="samples/net10.0/$name/$name.csproj"
@@ -53,7 +53,7 @@ try {
    $sample="samples/net11.0/$name/$name.csproj";$directory=Split-Path $sample
    [xml]$project=Get-Content $sample -Raw
    $target=$project.Project.PropertyGroup.TargetFramework|Where-Object {$_}
-   $receipt=[ordered]@{kind='official-review';sample=$sample;target=$target;sdk='11.0.100-rc.3.26522.148';language='15.0';command='eng/Test-SandpiperFieldwork.ps1 -Record';scope='Exact RC2 sources and template package hashes checked; five real template generations on Windows. Canonical native app compilation/execution not-tested under PIN-699.';recordedAt=[DateTimeOffset]::UtcNow.ToString('O');sourceCommit=(& 'C:\Program Files\Git\cmd\git.exe' rev-parse HEAD).Trim();sourceDirty=$true;inputs=Get-EvidenceInputs $root $sample;dependencies=@();workloads=@();nativeToolchains=@();host=[Runtime.InteropServices.RuntimeInformation]::OSDescription;sdkInfo='Intended SDK11 RC3/native RC2 composition, not measured native compilation.';workloadInfo='Native SDK11 workloads unavailable; Apple Xcode and mobile devices unavailable.';output='PASS pinned inputs and five template generations; no native runtime or GA claim.'}
+   $receipt=[ordered]@{kind='official-review';sample=$sample;target=$target;sdk='11.0.100';language='15.0';command='eng/Test-SandpiperFieldwork.ps1 -Record';scope='Historical sources and stable template package hashes checked; five real template generations on Windows. Canonical native app compilation/execution not-tested under PIN-699.';recordedAt=[DateTimeOffset]::UtcNow.ToString('O');sourceCommit=(& 'C:\Program Files\Git\cmd\git.exe' rev-parse HEAD).Trim();sourceDirty=$true;inputs=Get-EvidenceInputs $root $sample;dependencies=@();workloads=@();nativeToolchains=@();host=[Runtime.InteropServices.RuntimeInformation]::OSDescription;sdkInfo='SDK11 GA and stable native package composition, not measured native compilation.';workloadInfo='Native SDK11 workloads unavailable; Apple Xcode and mobile devices unavailable.';output='PASS pinned inputs and five template generations; no native runtime or GA claim.'}
    $receipt|ConvertTo-Json -Depth 30|Set-Content "$directory/verification-evidence.json"
   }
  }

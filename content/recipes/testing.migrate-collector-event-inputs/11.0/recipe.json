@@ -91,7 +91,7 @@
           ],
           "renderingModes": [],
           "prerequisites": [
-            "PowerShell7; SDK10.0.403/runtime-ref10.0.14/C#14 and SDK11.0.100-rc.3.26522.148/runtime-ref11RC3/C#15 for paired qualification.",
+            "PowerShell7; SDK10.0.403/runtime-ref10.0.14/C#14 and SDK11.0.100/runtime-ref11RC3/C#15 for paired qualification.",
             "Public NuGet access to prepare actual locked dependencies; no credentials, service, native compiler or workload. Use isolated homes/caches and disable automatic PATH integration."
           ],
           "constraints": [
@@ -102,7 +102,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Public VSTest18.11 packages are stable; .NET11 proof is RC2. No MTP, Framework, trimming, NativeAOT or arbitrary collector/test-framework compatibility claim."
+            "Public VSTest18.11 packages are stable; .NET11 proof is GA. No MTP, Framework, trimming, NativeAOT or arbitrary collector/test-framework compatibility claim."
           ]
         },
         "sourceUrls": [
@@ -152,7 +152,7 @@
       "kind": "compile-and-run",
       "sample": "samples/net11.0/QuayCollector/QuayCollector.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "scope": "Real matching collector/runner/test-host; start/end identity/name/child=false/outcome match actual TRX and disabled control with one pass/one failed assertion. Separate constructor/visibility and compile-only added-setter checks. No synthetic production result or child=true transport claim."
     },
@@ -160,7 +160,7 @@
       "kind": "compile-and-run",
       "sample": "samples/net11.0/QuayCollector/Tests/QuayTests.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "scope": "Real matching collector/runner/test-host; start/end identity/name/child=false/outcome match actual TRX and disabled control with one pass/one failed assertion. Separate constructor/visibility and compile-only added-setter checks. No synthetic production result or child=true transport claim."
     }

@@ -64,8 +64,10 @@ The .NET10 comparison uses a valid PartialAppManifest overlay for additions and 
 
 ## Constraints
 
-Applicability lists all runtime, SDK, language, workload, artifact, provider, platform, rendering and stability constraints. These are .NET11 Apple workload features, with stable API labels and RC preparation evidence; neither actual GA nor a complete RC3 Apple composition was tested. No preview language syntax or experimental opt-in is used. .NET10 comparison compilation is separate from current task/reference checks.
+Applicability lists all runtime, SDK, language, workload, artifact, provider, platform, rendering and stability constraints. These are .NET11 Apple workload features, with stable API labels and GA reference/API evidence; a complete native GA Apple composition was not tested. No preview language syntax or experimental opt-in is used. .NET10 comparison compilation is separate from current task/reference checks.
 
 ## Evidence
 
-Run eng/Test-AppleAuthoring.ps1 for pinned-source/artifact checks, real typed plist and stripping task output, actual binding generation and generated-source/consumer reference compilation. The source manifest records exact SHA-256 identities. SDK11 RC3 runs RC2 Apple tasks and bgen on Windows; that does not establish native linking, signing or runtime support. Source-review receipts retain sample/input freshness; native exclusions apply to the named examples under PIN-699. No Human action is pending. Packed stdio list/get establishes offline guidance delivery only. The eight .NET10 foundations and the comprehensive/GA gates remain unchanged.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
+Run eng/Test-AppleAuthoring.ps1 for pinned-source/artifact checks, real typed plist and stripping task output, actual binding generation and generated-source/consumer reference compilation. The source manifest records exact SHA-256 identities. SDK11 GA runs GA Apple tasks and bgen on Windows; that does not establish native linking, signing or runtime support. Source-review receipts retain sample/input freshness; native exclusions apply to the named examples under PIN-699. No Human action is pending. Packed stdio list/get establishes offline guidance delivery only. The eight .NET10 foundations and the comprehensive/GA gates remain unchanged.

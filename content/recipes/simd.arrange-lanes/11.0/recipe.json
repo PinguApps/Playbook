@@ -51,7 +51,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Build against the .NET 11 reference assemblies; exact RC2 is the recorded test baseline."
+            "reason": "Build against the .NET 11 reference assemblies; exact GA is the recorded test baseline."
           },
           "language": {
             "name": "C#",
@@ -78,7 +78,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Verified using .NET 11 RC2; GA reconciliation remains pending. These selected contracts have no publisher experimental annotation or required opt-in."
+            "Verified using .NET 11 GA; GA checks are limited to the recorded scope. These selected contracts have no publisher experimental annotation or required opt-in."
           ]
         },
         "sourceUrls": [
@@ -120,7 +120,7 @@
     {
       "sample": "samples/net11.0/VectorLanes/VectorLanes.csproj",
       "target": "net11.0",
-      "sdk": "11.0.100-rc.3.26522.148",
+      "sdk": "11.0.100",
       "language": "15.0",
       "kind": "compile-and-run",
       "scope": "Both actual target builds execute exact zip/unzip order, all concat halves, reverse and patterned lanes. Supplementary forced-disabled execution verifies the software route. No Arm/AVX-512 native or GA verification."

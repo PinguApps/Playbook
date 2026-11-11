@@ -16,15 +16,15 @@ The documented .NET 11 overload supplies a mutable HybridCacheEntryContext to th
 
 {{snippet:newer}}
 
-**Known RC implementation gap:** the tested Microsoft.Extensions.Caching.Hybrid 10.11.0 net10.0 implementation with .NET 11 RC2 abstractions honours the derived local lifetime but ignores LocalSize. The sample requests 24 units and measures an actual L1 size of 12. The setter illustrates the documented .NET 11 contract; it is not verified custom sizing on this implementation. Do not depend on it to enforce an RC cache budget. GA reconciliation must recheck actual package behavior; a future fix is not assumed to have happened.
+**Measured GA implementation gap:** the tested Microsoft.Extensions.Caching.Hybrid 10.11.0 net10.0 implementation with .NET 11 GA abstractions honours the derived local lifetime but ignores LocalSize. The sample requests 24 units and measures an actual L1 size of 12. The setter illustrates the documented .NET 11 contract; it is not verified custom sizing on this implementation. Do not depend on it to enforce that cache budget. The GA rerun retains this mismatch; a future implementation fix is not assumed to have happened.
 
 ## Migration
 
-1. Use a net11.0 console project with C# 15.0, Nullable/ImplicitUsings enabled and FrameworkReference Microsoft.AspNetCore.App. Add Microsoft.Extensions.Caching.Hybrid pinned to 10.11.0 and Microsoft.Extensions.Caching.Abstractions pinned to 11.0.0-rc.2.26504.105. These are independently versioned packages; do not invent HybridCache package 11 from the abstraction's version.
+1. Use a net11.0 console project with C# 15.0, Nullable/ImplicitUsings enabled and FrameworkReference Microsoft.AspNetCore.App. Add Microsoft.Extensions.Caching.Hybrid pinned to 10.11.0 and Microsoft.Extensions.Caching.Abstractions pinned to 11.0.0. These are independently versioned packages; do not invent HybridCache package 11 from the abstraction's version.
 2. Import Microsoft.Extensions.Caching.Hybrid, Microsoft.Extensions.Caching.Memory and Microsoft.Extensions.DependencyInjection. Place the method inside public static class CacheExamples in your application namespace and await ValueOptionsAsync. The latter two imports support the real local-cache observation in this example.
 3. Register AddHybridCache and a dedicated size-limited MemoryCache as shown. Use the context-taking factory overload and await the entire GetOrCreateAsync operation. Keep key/value types and cache policy consistent across callers of the same key.
 4. Select both total and local lifetimes deliberately; local expiration cannot keep an item beyond the overall policy. Respect factory cancellation. Do not reuse the context outside its factory or treat per-call policy changes as retroactive changes to existing hits.
-5. Treat LocalSize as a documented GA-targeted setting with the measured RC restriction above. Use direct MemoryCache Size for verified application-defined units now; recheck the actual HybridCache implementation before depending on custom L1 size accounting. Keep the RC regression check until GA artifacts establish the intended behavior.
+5. Treat LocalSize as a documented GA-targeted setting with the measured GA implementation restriction above. Use direct MemoryCache Size for verified application-defined units now; recheck the actual HybridCache implementation before depending on custom L1 size accounting. Keep the regression check until the selected implementation establishes the intended behavior.
 
 ## Constraints
 
@@ -36,4 +36,6 @@ There is no distributed backend in this workload. Local expiration causes a new 
 
 ## Evidence
 
-Actual .NET 10 and .NET 11 RC2 projects compile and execute the same original value/expiration goal. The newer path verifies a local hit, no duplicate factory call for that hit, another load after local expiry, and the explicit requested-24/observed-12 LocalSize discrepancy. Exact packages, resolved assets, SDK/framework baseline and source hashes are saved. The documented custom LocalSize contract remains unverified on the selected RC implementation, still owed at GA. No GA, external backend or native execution is claimed.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
+Actual .NET 10 and .NET 11 GA projects compile and execute the same original value/expiration goal. The newer path verifies a local hit, no duplicate factory call for that hit, another load after local expiry, and the explicit requested-24/observed-12 LocalSize discrepancy. Exact packages, resolved assets, SDK/framework baseline and source hashes are saved. Custom LocalSize accounting is not established on the selected implementation: the GA rerun still measures the mismatch. No external backend or native execution is claimed.

@@ -31,4 +31,6 @@ No timing measurements, constant-time network request, JIT/disassembly proof, pa
 
 ## Evidence
 
-Both original examples compile and execute. Checks accept an all-zero token, reject nonzero bytes at the first, middle and last positions, and reject the wrong public length. They establish functional behavior and actual use of the specified primitive. They are not a statistical timing test. The .NET 11 result uses pinned RC2, separate from pending GA reconciliation.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+
+Both original examples compile and execute. Checks accept an all-zero token, reject nonzero bytes at the first, middle and last positions, and reject the wrong public length. They establish functional behavior and actual use of the specified primitive. They are not a statistical timing test. The .NET 11 result uses pinned GA, separate from pending GA reconciliation.

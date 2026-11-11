@@ -167,18 +167,20 @@ Pointer type is the browser-supplied PointerEventArgs value. The sample checks a
 mouse pointer, not touch/pen semantics. There is no device control, background
 service, persistence or real valve hardware.
 
-The current sample pins SDK 11.0.100-rc.3.26522.148, net11.0/C# 15 and
-ASP.NET Core/runtime 11.0.0-rc.3.26522.148. The previous sample pins SDK 10.0.403,
+The current sample pins SDK 11.0.100, net11.0/C# 15 and
+ASP.NET Core/runtime 11.0.0. The previous sample pins SDK 10.0.403,
 net10.0/C# 14 and ASP.NET Core/runtime 10.0.14. These are exact verification
 baselines, distinct from the release-family consumer prerequisites above.
 Microsoft.NET.Sdk.Web implicitly resolves the matching
 Microsoft.AspNetCore.App.Internal.Assets package; no other package/provider,
 optional workload or native SDK is needed. The stable APIs need no experimental
-opt-in. RC3 execution does not establish GA verification. Other browsers/OS,
+opt-in. Current GA verification is limited to the recorded checks. Other browsers/OS,
 WebAssembly, Hybrid, deployment and older-target/new-package routes are unverified.
 This edition is selected only for target 11.0; it adds no .NET 10 foundation.
 
 ## Evidence
+
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 Fresh compile records retain the commands, exact resolved assets and input
 hashes for both canonical projects. The pinned source/API audit was rerun against

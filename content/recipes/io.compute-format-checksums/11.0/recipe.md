@@ -41,7 +41,7 @@ different polynomial produces a different checksum, even with the same width.
 
 ## Newer approach
 
-Use System.IO.Hashing 11.0.0-rc.2.26504.105 with net11.0. Add
+Use System.IO.Hashing 11.0.0 with net11.0. Add
 `using System.IO.Hashing;`; keep FrameChecksum in a separate file:
 
 {{snippet:newer}}
@@ -75,7 +75,7 @@ BinaryPrimitives in the required order.
 1. Read the format specification. Fix the covered bytes, width, polynomial,
    initial/final XOR, reflection and byte order; keep its algorithm tag separate.
 2. Create a net11.0/C#15 console project with implicit usings. Pin
-   `<PackageReference Include="System.IO.Hashing" Version="[11.0.0-rc.2.26504.105]" />`
+   `<PackageReference Include="System.IO.Hashing" Version="[11.0.0]" />`
    or use the matching central package pin, commit the reviewed lockfile and
    restore with `-p:RestoreLockedMode=true`. The executed asset is lib/net11.0.
 3. Include FrameChecksum and the current FrameChecksums helper. Replace the
@@ -95,16 +95,16 @@ BinaryPrimitives in the required order.
 ## Constraints
 
 Primary route: net11.0/.NET 11, C#15 sample mode and exact verified prerelease
-package System.IO.Hashing 11.0.0-rc.2.26504.105, compile/runtime lib/net11.0.
+package System.IO.Hashing 11.0.0, compile/runtime lib/net11.0.
 Comparison: net10.0/C#14 with System.IO.Hashing 10.0.13 lib/net10.0. No extra
 provider, workload, rendering mode, native library, experimental opt-in or service.
 The APIs have no required experimental diagnostic opt-in in these artifacts;
-the package is prerelease, and final-GA reconciliation remains required.
+the package is GA, with verification limited to the recorded scope.
 
-SDK reproduction pins are 10.0.403 and 11.0.100-rc.3.26522.148, with
-reference/runtime 10.0.14 and 11.0.0-rc.3.26522.148. SDK/runtime requirements and
+SDK reproduction pins are 10.0.403 and 11.0.100, with
+reference/runtime 10.0.14 and 11.0.0. SDK/runtime requirements and
 these measured pins are distinct. All behavior here was executed on Windows
-x64; no other-platform or performance result is claimed. The RC2 package also
+x64; no other-platform or performance result is claimed. The GA package also
 contains an audited net10 asset, but that optional older-target route was not
 executed or advertised. No ninth .NET 10 foundation is added.
 
@@ -115,6 +115,8 @@ neither a matching CRC nor Adler proves trusted data. Archive ZIP validation and
 TAR representation remain with their existing recipes.
 
 ## Evidence
+
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
 `eng/Test-IntegerFormats.ps1 -Record -VerifySources` runs the paired actual
 consumers with reviewed locks. CRC RevEng independently publishes CRC32C,
@@ -133,6 +135,6 @@ availability, reflection and output order without copying implementation code.
 
 The ordinary locally installed package is inspected using real offline stdio
 list/get for discovery ID/title/goal, full canonical snippets, explicit target11 /
-edition11, applicability and current evidence. This is RC2 proof, not final GA
+edition11, applicability and current evidence. This is GA proof, within the recorded verification scope
 or full catalogue readiness. PIN-959, PIN-962 and existing Human gates remain
 open; no new recurring native/client matrix or external resource is used.
