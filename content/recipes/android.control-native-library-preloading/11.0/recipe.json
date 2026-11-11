@@ -85,7 +85,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "RC source/artifact evidence, within the recorded verification scope certification.",
+            "Pinned source/artifact review only; no native compilation or device execution is established.",
             "Android NativeAOT remains experimental."
           ]
         },

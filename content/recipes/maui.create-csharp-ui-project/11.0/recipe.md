@@ -6,7 +6,7 @@ Use the first-party C# UI template option when screens should be authored in cod
 
 ## Constraints
 
-Current examples pin SDK11.0.100, C#15 and MAUI11.0.0. Older comparisons pin SDK10.0.403, C#14 and MAUI10.0.110. These pins are actual GA/.NET10 evidence, within the recorded verification scope certification or minimum-version promises. Keep independent SDK, native platform/workload and package-asset requirements separate. No provider, account or web-server rendering mode is implied.
+Current examples pin SDK11.0.100, C#15 and MAUI11.0.0. Older comparisons pin SDK10.0.403, C#14 and MAUI10.0.110. These pins identify the recorded GA/.NET10 artifacts. They do not establish native execution or minimum supported versions. Keep independent SDK, native platform/workload and package-asset requirements separate. No provider, account or web-server rendering mode is implied.
 
 The fictional Quay Ledger screen counts checked crates using built-in MAUI controls. Both canonical apps implement that same screen in C#; no third-party fluent UI library is involved.
 

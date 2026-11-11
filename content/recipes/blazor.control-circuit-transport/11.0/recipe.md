@@ -22,7 +22,7 @@ Save this complete `Program.cs`. The unauthenticated `/sign-in` fixture issues a
 
 ## Newer approach — .NET 11 connection callback
 
-Create the same named project in a separate directory, using this project file and `global.json` set to `{"sdk":{"version":"11.0.100","rollForward":"disable"}}`. The recorded browser assets are **11.0.0**. Match the Web SDK, reference pack, ASP.NET Core runtime and `blazor.web.js`; do not copy the newer script into an older renderer. C# 15 is the canonical language mode, although the configuration needs no new language syntax. This is pinned GA evidence; GA and other browser/platform behaviour are not verified.
+Create the same named project in a separate directory, using this project file and `global.json` set to `{"sdk":{"version":"11.0.100","rollForward":"disable"}}`. The recorded browser assets are **11.0.0**. Match the Web SDK, reference pack, ASP.NET Core runtime and `blazor.web.js`; do not copy the newer script into an older renderer. C# 15 is the canonical language mode, although the configuration needs no new language syntax. This is pinned GA evidence for the recorded browser/platform only; other browser/platform behaviour is not verified.
 
 {{snippet:project-11}}
 
@@ -68,7 +68,7 @@ With the default policy, expect `Disconnected` after the ticket expires, and **4
 
 ## Constraints
 
-Both .NET 10 and GA hosts were compiled with their actual pinned Web SDKs and executed with matching ASP.NET Core runtimes on Windows/Chrome. Saved compilation is distinct from the real browser execution records; there are no mocks or cross-compilation claims. Static SSR has no live circuit, and WebAssembly uses a different execution model. Interactive Auto, other authentication schemes/providers, reverse proxies, distributed hosting, load behaviour is outside the demonstrated scope.
+Both .NET 10 and GA hosts were compiled with their actual pinned Web SDKs and executed with matching ASP.NET Core runtimes on Windows/Chrome. Saved compilation is distinct from the real browser execution records; there are no mocks or cross-compilation claims. Static SSR has no live circuit, and WebAssembly uses a different execution model. Interactive Auto, other authentication schemes/providers, reverse proxies, distributed hosting and load behaviour are outside the demonstrated scope.
 
 ## Sources
 

@@ -151,7 +151,7 @@
       "language": "15.0",
       "sdk": "11.0.100",
       "sample": "samples/net11.0/Soundings/Soundings.csproj",
-      "scope": "Matching-SDK compilation with exact locked client assets. Actual .NET-client/Kestrel WebSocket cancellation and mixed-pair execution is recorded separately by eng/Test-Soundings.ps1 and docs/verification/invocation-cancellation.md. No mocks, cross-compilation, browser, external provider, platform matrix or GA proof.",
+      "scope": "Matching-SDK compilation with exact locked client assets. Actual .NET-client/Kestrel WebSocket cancellation and mixed-pair execution is recorded separately by eng/Test-Soundings.ps1 and docs/verification/invocation-cancellation.md. No mocks, cross-compilation, browser, external provider, platform matrix. This entry establishes compilation only; execution has its separate recorded scope.",
       "kind": "compile",
       "target": "net11.0"
     }

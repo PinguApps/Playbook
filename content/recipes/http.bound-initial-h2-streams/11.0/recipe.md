@@ -29,7 +29,7 @@ Avoid an initial burst above a known server's concurrent-stream capacity while a
 
 ## Constraints
 
-Most applications should retain the default. This tuning does not increase a server's capacity or override its advertised limit. All handler settings must be chosen before first use; zero/negative initial values fail. Desktop/server SocketsHttpHandler is demonstrated; browser/WASI/mobile transports are excluded. The API is not experimental in the reviewed contract; actual compilation/execution is GA, with GA checks are limited to the recorded scope.
+Most applications should retain the default. This tuning does not increase a server's capacity or override its advertised limit. All handler settings must be chosen before first use; zero/negative initial values fail. Desktop/server SocketsHttpHandler is demonstrated; browser/WASI/mobile transports are excluded. The API is not experimental in the reviewed contract; actual compilation/execution is GA, with checks limited to the recorded scope.
 
 ## Evidence
 

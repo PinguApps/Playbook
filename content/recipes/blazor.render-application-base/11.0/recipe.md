@@ -80,7 +80,7 @@ BasePath does not rewrite that file. The canonical routes use Interactive Server
 while the document shell is static server-rendered. No WebAssembly/Auto or actual
 reverse-proxy execution is claimed. The .NET 10 sample is a comparison, not a
 conditional package route for BasePath. Contracts are non-experimental; .NET 11
-execution uses GA, with GA checks are limited to the recorded scope.
+execution uses GA, with checks limited to the recorded scope.
 
 ## Evidence
 

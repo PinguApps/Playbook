@@ -47,7 +47,7 @@
             "name": ".NET",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Intended net11.0 consumer; exact RC compilation baseline is recorded separately, within the recorded verification scope behaviour proof."
+            "reason": "Intended net11.0 consumer using SDK11.0.100. Source review and any recorded compilation establish separate scopes and do not prove runtime behavior."
           },
           "sdk": {
             "name": ".NET SDK",

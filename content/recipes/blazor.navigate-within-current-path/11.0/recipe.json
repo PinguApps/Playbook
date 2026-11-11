@@ -80,7 +80,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "GA; GA pending"
+            "GA artifacts; verification is limited to the recorded checks. Existing catalogue readiness gates remain open."
           ]
         },
         "sourceUrls": [

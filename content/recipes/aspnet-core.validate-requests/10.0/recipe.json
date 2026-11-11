@@ -79,7 +79,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Stable AddValidation/filter only; .NET 10 experimental APIs unused. .NET 11 GA proof; reconcile at GA."
+            "Stable AddValidation/filter only; .NET 10 experimental APIs unused. .NET 11 GA checks cover only the recorded scope; catalogue readiness gates remain separate."
           ]
         },
         "evidenceSamples": [
@@ -145,7 +145,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Stable AddValidation/filter only; .NET 10 experimental APIs unused. .NET 11 GA proof; reconcile at GA."
+            "Stable AddValidation/filter only; .NET 10 experimental APIs unused. .NET 11 GA checks cover only the recorded scope; catalogue readiness gates remain separate."
           ]
         },
         "evidenceSamples": [

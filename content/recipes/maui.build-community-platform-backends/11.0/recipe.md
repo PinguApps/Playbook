@@ -6,7 +6,7 @@ Integrate backend services, handler registration and neutral-target folder selec
 
 ## Constraints
 
-Current examples pin SDK11.0.100, C#15 and MAUI11.0.0. Older comparisons pin SDK10.0.403, C#14 and MAUI10.0.110. These pins are actual GA/.NET10 evidence, within the recorded verification scope certification or minimum-version promises. Keep independent SDK, native platform/workload and package-asset requirements separate. No provider, account or web-server rendering mode is implied.
+Current examples pin SDK11.0.100, C#15 and MAUI11.0.0. Older comparisons pin SDK10.0.403, C#14 and MAUI10.0.110. These pins identify the recorded GA/.NET10 artifacts. They do not establish native execution or minimum supported versions. Keep independent SDK, native platform/workload and package-asset requirements separate. No provider, account or web-server rendering mode is implied.
 
 The fictional Quay backend demonstrates supported integration contracts without implementing a new native renderer. The contract-only scope excludes rendering, dialogs, pixels and real-view capture. The screenshot result is an explicit test double whose pixel APIs throw.
 

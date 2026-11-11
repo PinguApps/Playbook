@@ -176,8 +176,9 @@ one-dimensional arrays, lists, sets, collections and string-keyed dictionaries.
 Arbitrary custom JSON classes are not supported. Keys are case-insensitive;
 two supplied properties in the same render must not own the same key.
 
-These stable APIs have no experimental opt-in. All current execution here is
-GA proof. Missing session middleware fails the static request; it is not
+These stable APIs have no experimental opt-in. SDK11.0.100 compilation and the
+separately recorded HTTP checks establish only their stated scopes; existing
+catalogue readiness gates remain open. Missing session middleware fails the static request; it is not
 a harmless empty value. Concurrent requests are not an exactly-once delivery
 transaction: this recipe proves sequential read consumption, not atomic receipt
 or replay prevention. Use application storage when that stronger guarantee matters.

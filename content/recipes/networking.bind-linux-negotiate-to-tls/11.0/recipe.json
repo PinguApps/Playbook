@@ -2,7 +2,7 @@
   "id": "networking.bind-linux-negotiate-to-tls",
   "edition": "11.0",
   "title": "Bind Linux Negotiate authentication to TLS",
-  "goal": "Supply the actual TLS endpoint binding to .NET 11 Linux GSSAPI authentication to reject mismatched bindings; use only where the documented provider behavior fits the security policy, since tested MIT Kerberos accepts clients that omit bindings.",
+  "goal": "Supply the actual TLS endpoint binding to Linux Negotiate authentication when requiring channel binding; the measured .NET 11 GA/MIT Kerberos route rejects mismatched and omitted client bindings.",
   "areas": [
     "libraries"
   ],
@@ -192,13 +192,13 @@
       "record": "samples/net11.0/GannetBinding/behavior.evidence.json",
       "sample": "samples/net11.0/GannetBinding/GannetBinding.csproj",
       "kind": "execution",
-      "scope": "Paired real Linux MIT GSSAPI Kerberos and live loopback TLS: actual older unsupported required policy, matching/mismatched and omitted client binding, absent server binding and missing client credentials. Current MIT omission acceptance is a documented limitation, not mandatory-binding or GA proof.",
+      "scope": "Actual .NET11 GA/MIT GSSAPI Kerberos and live loopback TLS: matching binding accepted; mismatched and omitted client bindings rejected with BadBinding under PolicyEnforcement.Always. Missing server binding and missing client credentials are rejected. This measured disposable Linux route does not establish other providers or production deployment behavior. Earlier RC omission acceptance is historical; the .NET10 unsupported-required-policy comparison remains separate.",
       "target": "net11.0"
     }
   ],
   "humanProof": {
     "status": "not-required",
-    "scope": "Paired real Linux MIT GSSAPI Kerberos and live loopback TLS: actual older unsupported required policy, matching/mismatched and omitted client binding, absent server binding and missing client credentials. Current MIT omission acceptance is a documented limitation, not mandatory-binding or GA proof."
+    "scope": "Actual .NET11 GA/MIT GSSAPI Kerberos and live loopback TLS: matching binding accepted; mismatched and omitted client bindings rejected with BadBinding under PolicyEnforcement.Always. Missing server binding and missing client credentials are rejected. This measured disposable Linux route does not establish other providers or production deployment behavior. Earlier RC omission acceptance is historical; the .NET10 unsupported-required-policy comparison remains separate."
   },
   "snippets": {
     "newer": {

@@ -66,7 +66,7 @@ Rerendered parameters are replayed unchanged, including strings supplied by the 
 
 Use blazor.cache-static-subtree for canonical boundary placement, variation, capacity, expiration, invalidation and optional HybridCache provider guidance. This recipe intentionally uses the default local memory store and a two-minute lifetime only to make repeated requests observable; it does not duplicate provider behavior or establish a distributed/multi-node contract. Nested CacheView, streaming, interactive modes, WebAssembly/Auto, trimming/AOT and other OS behavior are outside this execution scope.
 
-The 11.0 edition is GA guidance verified within the recorded scope or an older-target backport. The inspected annotations have no experimental label. Existing recipe identities and the eight .NET 10 foundations remain unchanged.
+The 11.0 edition uses GA contracts and is verified only within the recorded scope. It does not provide an older-target backport. The inspected annotations have no experimental label. Existing recipe identities and the eight .NET 10 foundations remain unchanged.
 
 ## Evidence
 

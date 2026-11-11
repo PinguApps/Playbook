@@ -80,8 +80,7 @@ targets in content that arrives later may need deliberate post-render scrolling;
 this recipe does not claim automatic discovery of delayed elements. No
 WebAssembly/Auto, accessibility focus behavior or reverse-proxy execution is
 established by the Interactive Server checks. No newer-package route on net10.0
-is claimed. The API is non-experimental; the exact .NET 11 evidence is GA and
-requires GA reconciliation later.
+is claimed. The API is non-experimental; the recorded .NET 11 checks use GA artifacts. Broader catalogue readiness gates remain open.
 
 ## Evidence
 

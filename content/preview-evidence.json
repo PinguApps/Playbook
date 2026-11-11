@@ -14,7 +14,7 @@
         "samples/net10.0/ObservatoryLog/ObservatoryLog.csproj",
         "samples/net11.0/ObservatoryLog/ObservatoryLog.csproj"
       ],
-      "metadataSha256": "35cccf488dd82efeb88dda7c92c98f0b72d06595e65247aeb0d46c89a3c80ee3",
+      "metadataSha256": "0868827e2d938773c3a187a0e25b715029232027fd47c6d1b059f1d259683d62",
       "markdownSha256": "4efdb9f43c87b014a5b170c17a56495947d45b7f8cfa41441f902ce49589dcad"
     },
     {
@@ -27,7 +27,7 @@
         "samples/net10.0/MuseumCaptions/MuseumCaptions.csproj",
         "samples/net11.0/MuseumCaptions/MuseumCaptions.csproj"
       ],
-      "metadataSha256": "5d3a0693fdec39b77084d0f9ea7416c4e1acf38e9ad8e43a5cde9d9f4e6b259c",
+      "metadataSha256": "e8a62cdaed2fadf70d3f54a777de443f9085141aecf22f00958f891897e91d66",
       "markdownSha256": "3110f0bdda615ce1569fe0ff23fa49f34b02f11a6dcb6c13727878241af90d8a"
     },
     {
@@ -66,7 +66,7 @@
         "samples/net10.0/HarbourTls/HarbourTls.csproj",
         "samples/net11.0/HarbourTls/HarbourTls.csproj"
       ],
-      "metadataSha256": "81c28d7ce95efae979cdb27b08386688bf2e37ea8c4636e0a39e010010bffae1",
+      "metadataSha256": "4fafca5cf11ca8577d8e01cb8b5c8ff0b2cf270e0f07b9e084fc2e0daa54ecba",
       "markdownSha256": "ee8f8b2544f6cf3bebfbf1009d4b31802daf323ed450a176ce291f0dce890d96"
     },
     {

@@ -80,7 +80,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "GA; GA unverified."
+            "GA artifacts; verification is limited to the recorded checks. Existing catalogue readiness gates remain open."
           ]
         },
         "evidenceSamples": [

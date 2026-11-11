@@ -68,7 +68,7 @@ Place global.json in **each** project directory. Set sdk.version to
 release, and set `rollForward` to `disable`. For example, the complete
 current file is `{"sdk":{"version":"11.0.100","rollForward":"disable"}}`.
 Use C# 14/.NET 10.0.14 assets versus C# 15/.NET 11.0.0 assets.
-The exact pins are verification baselines; Recorded evidence is limited to the recorded checks certification.
+The exact pins are verification baselines; recorded evidence establishes only the documented checks.
 
 Place the shown Directory.Packages.props in each of the three project directories. It isolates package
 versions from any consuming repository's central policy. If embedding these

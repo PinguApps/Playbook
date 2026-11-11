@@ -50,7 +50,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Build against .NET 11 reference assets; exact RC pins identify test evidence."
+            "reason": "Build against .NET 11 reference assets; exact GA pins identify the recorded test evidence."
           },
           "language": {
             "name": "C#",

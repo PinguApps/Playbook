@@ -79,8 +79,7 @@ arcs; do not validate OIDs by splitting them into fixed-width integers.
 The encoder uses shared framework APIs. The round-trip fixture additionally
 needs an available ECDSA P-256 certificate-signing provider; Windows x64 execution
 is measured. Other providers/platforms and network identity validation are not
-verified here. No UI/rendering integration is required. GA verification is limited to the recorded checks
-verification; PIN-962 retains that reconciliation and PIN-959 stays open.
+verified here. No UI/rendering integration is required. GA verification is limited to the recorded checks. PIN-962 reconciliation and PIN-959 comprehensive readiness remain open.
 
 ## Evidence
 

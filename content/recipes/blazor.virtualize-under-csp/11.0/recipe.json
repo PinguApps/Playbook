@@ -41,7 +41,7 @@
             "The loopback ws://localhost:* connect-src allowance is solely for local Interactive Server testing. Use the deployed application's actual secure circuit origin and independent script policy; no deployment policy audit is claimed."
           ],
           "optIns": [],
-          "stabilityLimitations": ["GA; GA unverified."]
+          "stabilityLimitations": ["GA artifacts; verification is limited to the recorded checks. Existing catalogue readiness gates remain open."]
         },
         "evidenceSamples": ["samples/net11.0/BeaconReadings/BeaconReadings.csproj"],
         "sourceUrls": [

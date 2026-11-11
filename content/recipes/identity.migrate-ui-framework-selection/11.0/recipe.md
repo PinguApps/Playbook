@@ -162,5 +162,5 @@ Fresh compilation/execution records retain exact commands, source/input hashes, 
 ## References
 
 - [Pinned ASP.NET RC1 migration changes retained in GA](https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc1/aspnetcore.md)
-- [Exact Identity UI GA package and build assets](https://www.nuget.org/packages/Microsoft.AspNetCore.Identity.UI/11.0.0-rc.2.26504.105)
+- [Historical pinned Identity UI RC2 package and build assets](https://www.nuget.org/packages/Microsoft.AspNetCore.Identity.UI/11.0.0-rc.2.26504.105)
 - [Bootstrap migration reference](https://getbootstrap.com/docs/5.3/migration/)

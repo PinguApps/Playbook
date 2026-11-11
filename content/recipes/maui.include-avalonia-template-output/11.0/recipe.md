@@ -6,7 +6,7 @@ Use the first-party MAUI template integration to add an Avalonia desktop target 
 
 ## Constraints
 
-Current examples pin SDK11.0.100, C#15 and MAUI11.0.0. Older comparisons pin SDK10.0.403, C#14 and MAUI10.0.110. These pins are actual GA/.NET10 evidence, within the recorded verification scope certification or minimum-version promises. Keep independent SDK, native platform/workload and package-asset requirements separate. No provider, account or web-server rendering mode is implied.
+Current examples pin SDK11.0.100, C#15 and MAUI11.0.0. Older comparisons pin SDK10.0.403, C#14 and MAUI10.0.110. These pins identify the recorded GA/.NET10 artifacts. They do not establish native execution or minimum supported versions. Keep independent SDK, native platform/workload and package-asset requirements separate. No provider, account or web-server rendering mode is implied.
 
 Use the first-party MAUI project template when the desired starting point includes an Avalonia desktop head. Avalonia implements the desktop rendering integration; Microsoft recognizing a template option does not make Avalonia a first-party MAUI platform implementation.
 

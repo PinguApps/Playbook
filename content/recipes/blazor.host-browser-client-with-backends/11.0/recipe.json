@@ -99,7 +99,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "GA; GA pending. No Experimental attribute opt-in in this route."
+            "GA artifacts; verification is limited to the recorded checks. Existing catalogue readiness gates remain open. No Experimental attribute opt-in in this route."
           ]
         },
         "evidenceSamples": [

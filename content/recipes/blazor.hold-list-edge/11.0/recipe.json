@@ -39,7 +39,7 @@
           "The .NET 10 bounded nonvirtualized comparison is compiled/executed, not an older-target route for the new API. No WebAssembly/Auto, table/Safari, other-platform or GA execution is claimed."
         ],
         "optIns": [],
-        "stabilityLimitations": ["GA; GA proof pending."]
+        "stabilityLimitations": ["GA artifacts; verification is limited to the recorded checks. Existing catalogue readiness gates remain open."]
       },
       "evidenceSamples": ["samples/net11.0/OrchardJournal/OrchardJournal.csproj"],
       "sourceUrls": [

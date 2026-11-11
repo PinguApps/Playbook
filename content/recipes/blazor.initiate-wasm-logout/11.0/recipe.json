@@ -99,7 +99,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Stable supported replacements already available in .NET 10; current evidence is .NET 11 GA, with GA checks are limited to the recorded scope.",
+            "Stable supported replacements already available in .NET 10; current evidence is .NET 11 GA, with checks limited to the recorded scope.",
             "No older-target/newer-package route is advertised. The separate net10.0 consumer uses matching 10.0.14 packages; the eight foundations remain unchanged."
           ]
         },

@@ -48,7 +48,7 @@ This affects applications that **directly reference NuGet's own client libraries
 
 These examples exercise package identity reading only. They do not establish remote feed authentication, restore APIs, every NuGet client package, signing verification, plugin loading, trimming or Native AOT compatibility. Windows x64 was executed; other supported .NET platforms require their own claim-specific checks when behavior differs. No provider, rendering mode, workload, external account or provisioned resource is required.
 
-The API is not publisher-designated experimental, but the exact current package and SDK evidence is GA rather than GA. Reconcile final assets/dependencies at GA. Keep sample pins manual under the dependency policy. No library is copied out of the SDK and represented as a restored package.
+The API is not publisher-designated experimental. Current SDK11.0.100 and NuGet11.0.0 checks use GA artifacts; the intentional NuGet8 comparison retains its RC package and remains experimental. Keep sample pins manual under the dependency policy. No library is copied out of the SDK and represented as a restored package.
 
 ## Evidence
 
