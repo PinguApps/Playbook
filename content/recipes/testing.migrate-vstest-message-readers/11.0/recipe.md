@@ -59,7 +59,7 @@ package pin, SDK 10.0.403/C# 14/runtime 10.0.14:
 This conditional package-adoption route is not another .NET 10 foundation. No
 .NET 8/9/Framework route is advertised from asset-directory presence alone.
 TestHost 18.11.0 is a stable public package; the .NET 11 SDK/runtime proof remains
-GA. The SDK's **18.11.0-release-26504-105** copies are separate artifacts, not the
+GA. The SDK's **18.12.0-hotfix-26529-118** copies are separate artifacts, not the
 downloaded 18.11 bytes used here. No experimental API or opt-in is required.
 
 Save this common source as `samples/LaboratoryMessages/LabRun.cs`. The statistics
@@ -105,7 +105,7 @@ compatibility. JSON ownership in tests/extensions is a separate recipe.
 - `Message.MessageType` is the routing key. `RawMessage` is the **entire unchanged
   received JSON envelope**, including its payload. The independently shipped
   TestHost **18.11.0** retains that text in `ToString()` for the synthetic
-  Password control. The GA SDK bundled **18.11.0-release-26504-105** artifact
+  Password control. The GA SDK bundled **18.12.0-hotfix-26529-118** artifact
   instead redacts secret-named string properties in diagnostic `ToString()`.
   An empty current Message returns `{}`. Neither is a payload API. Use
   RawMessage for protocol decoding; do not assume diagnostic text is unchanged

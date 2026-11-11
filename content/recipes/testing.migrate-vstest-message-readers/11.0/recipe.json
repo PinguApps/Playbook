@@ -80,7 +80,7 @@
           "packageAssets": [
             "Both actual TestHost/ObjectModel versions select lib/net8.0 compile/runtime assets on the measured net10/net11 consumers.",
             "Old TestHost 18.7.0 directly brings Newtonsoft 13.0.3 lib/net6.0. Current closure has no Newtonsoft; compiler controls independently add 13.0.4 without restoring removed platform APIs.",
-            "Package ZIP and deployed CommunicationUtilities SHA-256 values match the audit. NuGet-generated locks pin the selected full closure. SDK-bundled 18.11.0-release-26504-105 assemblies are separate artifacts."
+            "Package ZIP and deployed CommunicationUtilities SHA-256 values match the audit. NuGet-generated locks pin the selected full closure. SDK-bundled 18.12.0-hotfix-26529-118 assemblies are separate artifacts."
           ],
           "workloads": [],
           "providers": [],
@@ -167,7 +167,7 @@
           "packageAssets": [
             "Both actual TestHost/ObjectModel versions select lib/net8.0 compile/runtime assets on the measured net10/net11 consumers.",
             "Old TestHost 18.7.0 directly brings Newtonsoft 13.0.3 lib/net6.0. Current closure has no Newtonsoft; compiler controls independently add 13.0.4 without restoring removed platform APIs.",
-            "Package ZIP and deployed CommunicationUtilities SHA-256 values match the audit. NuGet-generated locks pin the selected full closure. SDK-bundled 18.11.0-release-26504-105 assemblies are separate artifacts."
+            "Package ZIP and deployed CommunicationUtilities SHA-256 values match the audit. NuGet-generated locks pin the selected full closure. SDK-bundled 18.12.0-hotfix-26529-118 assemblies are separate artifacts."
           ],
           "workloads": [],
           "providers": [],

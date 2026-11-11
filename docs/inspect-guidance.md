@@ -9,14 +9,14 @@ PowerShell 7, Node and the existing SHA512-verified portable GA SDK:
 ```powershell
 Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-524959b6-8112833c9829366f'
 & ./eng/Test-VSTestMessages.ps1 `
-  -Net10Dotnet 'V:\_worktrees\Playbook\t3-1ead8027\artifacts\dotnet10\dotnet.exe' `
-  -Net11Dotnet 'V:\_worktrees\Playbook\t3-10e315a2-1eead2566af90fbf\artifacts\ga-sdk\extracted\dotnet.exe'
+  -Net10Dotnet 'V:\_worktrees\Playbook\t3-524959b6-8112833c9829366f\artifacts\sdk10\dotnet\dotnet.exe' `
+  -Net11Dotnet 'V:\_worktrees\Playbook\t3-524959b6-8112833c9829366f\artifacts\sdk11\dotnet\dotnet.exe'
 $contracts = Get-Content ./docs/planning/audits/ga-sdk-dispositions.json -Raw | ConvertFrom-Json
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @($contracts.contracts.id) -Query '' `
   -RecipeEdition '11.0' -TargetVersion '11.0' `
   -PackageVersion '0.0.0-pin1301-1302' -BuildAndPack `
-  -Dotnet 'V:\_worktrees\Playbook\t3-10e315a2-1eead2566af90fbf\artifacts\ga-sdk\extracted\dotnet.exe' `
+  -Dotnet 'V:\_worktrees\Playbook\t3-524959b6-8112833c9829366f\artifacts\sdk11\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' -OutputDirectory './artifacts/catalogue-inspection'
 ```
 

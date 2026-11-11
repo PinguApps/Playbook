@@ -1166,8 +1166,8 @@
         "samples/net10.0/LaboratoryBridge/LaboratoryBridge.csproj",
         "samples/net11.0/LaboratoryBridge/LaboratoryBridge.csproj"
       ],
-      "metadataSha256": "8c45228b2213beea1a09cfa16a2ab684a58c42aef05d64475ebb2031282988c2",
-      "markdownSha256": "bf0057053507b13bc6ac1ddd809cf4b1ae786112c3ec4e0b9c346e8b435e72c2"
+      "metadataSha256": "14d5f0c712ef3e8ba132b6163b6cc37dda423a4d423493d073bfb80b85f29db2",
+      "markdownSha256": "e6b1ee617c4adfa3295bc3b6d3e6180fe204952a797579bfc41f7d452d48181f"
     },
     {
       "id": "testing.migrate-vstest-session-host",
