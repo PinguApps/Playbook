@@ -103,7 +103,7 @@
             "Same experimental Components.AI package as the conversation components. AG-UI is required for the remote state protocol; ordinary IChatClient text is not shared-state proof.",
             "The only compiled rendering mode here is Interactive Server with prerender disabled. Local rendered event flow, cancellation and HTTP failure are measured below. Provider authentication and concurrent remote agents remain untested. Do not infer WASM/Hybrid, trimming/AOT or GA support.",
             "This sample accepts complete snapshots and rejects deltas. Its disabled-editor policy avoids concurrent local edits; unrelated clients require server-side revision/authorization enforcement. The pending baseline is displayed only, not durable saved data.",
-            "No runtime or performance claims. After building, running the current app still requires a separately configured AG-UI endpoint; the compilation record does not qualify that integration."
+            "No remote model or performance claims. After building, running the current app still requires a separately configured AG-UI endpoint; the compilation record does not qualify that integration."
           ],
           "optIns": [
             "Explicit experimental Components.AI package reference; compilation required no experimental diagnostic suppression"
@@ -145,7 +145,7 @@
       "sdk": "10.0.403",
       "language": "14.0",
       "kind": "compile",
-      "scope": "Actual matching-SDK compilation only; rendered execution is recorded separately. No remote-model result is inferred."
+      "scope": "Actual .NET 10 matching-SDK compilation only. No .NET 10 rendered execution is recorded."
     },
     {
       "sample": "samples/net11.0/MuseumCaptions/MuseumCaptions.csproj",

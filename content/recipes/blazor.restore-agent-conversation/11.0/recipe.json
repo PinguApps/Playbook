@@ -95,7 +95,7 @@
             "Experimental Components.AI has only a net11.0 asset. The newer 0.1.0-preview.1.26466.103 exposes thread/restore APIs absent from the historical preview-7 audit; actual compilation confirms signatures, not runtime behaviour.",
             "Local browser-tab session storage, text-only completed turns and one active component owner are the bounded design. Host-process restart, key persistence, quota/tampering recovery, arbitrary tool/media/state serialization and multiple concurrent writers are not implemented guarantees.",
             "ThreadId identifies this application thread; IsStateful=false and ConversationId=null do not invent remote provider state. No remote model, provider conversation, AG-UI run/thread ID or resume behaviour is exercised.",
-            "All five available sample builds are compilation only; no browser storage or framework restoration was executed. The scripted client is explicitly not a model."
+            ".NET 10 comparison is compilation only. The .NET 11 Interactive Server renderer and ProtectedSessionStorage were exercised; the scripted client is not a model. Host restart and remote-provider durability are not proved."
           ],
           "optIns": [
             "Explicit experimental Components.AI package reference; compilation required no experimental diagnostic suppression"
@@ -132,7 +132,7 @@
       "sdk": "10.0.403",
       "language": "14.0",
       "kind": "compile",
-      "scope": "Actual matching-SDK compilation only; rendered execution is recorded separately. No remote-model result is inferred."
+      "scope": "Actual .NET 10 matching-SDK compilation only. No .NET 10 rendered execution is recorded."
     },
     {
       "sample": "samples/net11.0/ObservatoryLog/ObservatoryLog.csproj",

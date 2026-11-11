@@ -31,6 +31,19 @@
       "markdownSha256": "1a982b07922714fe360786bc54acd50745409d756481566907d95cc5c61c4cbd"
     },
     {
+      "id": "hosting.select-direct-tls",
+      "edition": "11.0",
+      "classification": "documented-ga-intent",
+      "scope": "GA documentation removed the direct-TLS include; NuGet index offers only RC1, not 11.0.0. RC1 lacks the former documented DirectTlsEndpoint. Current canonical code is ordinary socket HTTPS, not a direct-TLS implementation. Linux/OpenSSL transport selection and negotiation remain not-tested under the native policy. Actual supported direct-TLS artifact/scenario availability remains a PIN-967 stable-gate condition. Pending stable gate is actual supported artifact/scenario availability. Linux/OpenSSL execution remains excluded as not-tested under the existing native policy; no new hardware qualification is requested.",
+      "followUp": "PIN-967",
+      "samples": [
+        "samples/net10.0/HarbourTls/HarbourTls.csproj",
+        "samples/net11.0/HarbourTls/HarbourTls.csproj"
+      ],
+      "metadataSha256": "aa8c2bc4f928d16931d75b28e10b4f5636b9cde7f03519520eb42ec9dc01da83",
+      "markdownSha256": "068139fa98cec8e1d3bb40e56770a6fb3053d8d88f5f16556cbf760d585736c1"
+    },
+    {
       "id": "msbuild.archive-build-artifacts",
       "edition": "11.0",
       "classification": "documented-ga-intent",

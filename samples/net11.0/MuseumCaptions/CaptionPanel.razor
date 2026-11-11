@@ -63,7 +63,7 @@
          await action.InvokeAsync();
          _decision?.TrySetResult();
      }
-     catch (Exception ex) { _status = ex.Message; }
+     catch (Exception ex) { _status = ex.Message; _decision?.TrySetException(ex); }
  }
  private void Cancel() => _run?.Cancel();
  public void Dispose() { _run?.Cancel(); _subscription?.Dispose(); _session.Dispose(); }

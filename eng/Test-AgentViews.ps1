@@ -22,6 +22,8 @@ try {
   }
   $inputs = @{}
   foreach ($name in 'MuseumCaptions','ObservatoryLog') { $inputs[$name] = Get-EvidenceInputs $root "samples/net11.0/$name/$name.csproj" }
+  $renderCommit = (& 'C:/Program Files/Git/cmd/git.exe' -C $root rev-parse HEAD).Trim()
+  $renderDirty = [bool](& 'C:/Program Files/Git/cmd/git.exe' -C $root status --porcelain)
   $output = (& $Node (Join-Path $PSScriptRoot 'Test-AgentViews.cjs') $PlaywrightModule $Dotnet | Out-String).Trim()
   Write-Host $output
   if ($Record) {
@@ -34,7 +36,10 @@ try {
       $receipt.command = "$Node eng/Test-AgentViews.cjs $PlaywrightModule $Dotnet"
       $receipt.scope = 'Real Chromium Interactive Server renderer and actual experimental AI/storage/protocol packages; scripted local endpoint/text source only. No remote model, provider, WASM/Hybrid or performance proof.'
       $receipt.recordedAt = [DateTimeOffset]::UtcNow.ToString('O')
-      $receipt.output = $output
+      $receipt.sourceCommit = $renderCommit
+      $receipt.sourceDirty = $renderDirty
+      $receipt.output = @($output -split '\r?\n' | Where-Object { if ($name -eq 'MuseumCaptions') { $_ -like 'PASS: rendered typed*' } else { $_ -like 'PASS: rendered completed*' } }) -join "`n"
+      if (-not $receipt.output) { throw "Missing rendered result for $name" }
       [IO.File]::WriteAllText((Join-Path $root "samples/net11.0/$name/rendered.evidence.json"), ($receipt | ConvertTo-Json -Depth 40).Replace("`r`n","`n")+"`n")
     }
   }

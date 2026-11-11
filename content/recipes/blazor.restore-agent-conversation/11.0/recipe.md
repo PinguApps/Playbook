@@ -125,7 +125,7 @@ Local browser-tab session storage, text-only completed turns and one active comp
 
 ThreadId identifies this application thread; IsStateful=false and ConversationId=null do not invent remote provider state. No remote model, provider conversation, AG-UI run/thread ID or resume behaviour is exercised.
 
-All five available sample builds are compilation only; no browser storage or framework restoration was executed. The scripted client is explicitly not a model.
+.NET 10 comparison is compilation only. The .NET 11 Interactive Server renderer and ProtectedSessionStorage were exercised; the scripted client is not a model. Host restart and remote-provider durability are not proved.
 
 ## Evidence
 

@@ -6,7 +6,17 @@ decisions through [PIN-986](https://linear.app/pinguapps/issue/PIN-986).
 Closing this audit does not clear comprehensive coverage, compilation, installed
 content or GA publication gates. No served recipe or MCP contract changes here.
 
-## Documentation-first follow-up, 3 November 2026
+## GA follow-up, 11 November 2026
+
+PIN-1308/1309 now record real rendered local AI-state/storage checks. PIN-1310
+withdraws the former DirectTlsEndpoint illustration after canonical documentation
+removal; current HarbourTls compiles ordinary socket HTTPS. The historical CS0246
+observation below applies to the former example, not current code. See the refreshed
+[source record](agent-state.sources.json) and canonical recipe. Supported direct-TLS
+artifact availability remains a pending PIN-967 stable gate; native Linux/OpenSSL
+execution remains not-tested under policy. No remote-model or TLS-handshake proof.
+
+## Documentation-first follow-up, 3 November 2026 (historical)
 
 Subsequent authorized delivery: W11/PIN-1181 now provides
 `hosting.select-direct-tls/11.0` as usable documentation-based guidance.

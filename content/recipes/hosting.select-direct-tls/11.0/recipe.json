@@ -14,9 +14,6 @@
     "harbourtls"
   ],
   "apis": [
-    "UseDirectTls",
-    "DirectTlsEndpoint",
-    "ASPNETCORE_DIRECTTLS_001",
     "KestrelServerOptions.Listen",
     "UseHttps"
   ],
@@ -47,7 +44,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Use matching Razor/compiler assets; sample pins GA. Documentation-only blocked TLS sample has no successful current build."
+            "reason": "GA socket-only sample compiles; no direct-TLS execution or Linux/OpenSSL proof."
           },
           "language": {
             "name": "C#",
@@ -206,10 +203,7 @@
     }
   },
   "humanProof": {
-    "untestedSamples": [
-      "samples/net11.0/HarbourTls/HarbourTls.csproj"
-    ],
-    "status": "not-tested",
-    "scope": "GA documentation removed the direct-TLS include; NuGet index offers only RC1, not 11.0.0. RC1 lacks the former documented DirectTlsEndpoint. Current canonical code is ordinary socket HTTPS, not a direct-TLS implementation. Linux/OpenSSL transport selection and negotiation remain not-tested under the native policy. Actual supported direct-TLS artifact/scenario availability remains a PIN-967 stable-gate condition."
+    "status": "pending",
+    "scope": "GA documentation removed the direct-TLS include; NuGet index offers only RC1, not 11.0.0. RC1 lacks the former documented DirectTlsEndpoint. Current canonical code is ordinary socket HTTPS, not a direct-TLS implementation. Linux/OpenSSL transport selection and negotiation remain not-tested under the native policy. Actual supported direct-TLS artifact/scenario availability remains a PIN-967 stable-gate condition. Pending stable gate is actual supported artifact/scenario availability. Linux/OpenSSL execution remains excluded as not-tested under the existing native policy; no new hardware qualification is requested."
   }
 }
