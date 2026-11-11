@@ -96,11 +96,11 @@ The relevant rules are:
    It checks all five scalar/pairwise Any families, copy/equality, reverse, views,
    multidimensional indexing and extrema; buffers are freed in finally. Insufficient
    memory or an unsupported authoring platform leaves this proof incomplete.
-9. After the final SDK/package is available, PIN-962 must update the deliberate
-   sample pins/locks and declared dependencies, run the full suite through
-   `eng/Record-InstrumentBatch.ps1 -RunReleaseChecks`, refresh actual evidence and
-   inspect the newly packed tool. Clear pending proof only after those results
-   establish the claims. No recurring native/client/OS matrix is required.
+9. When changing the tested SDK/package, refresh sample pins, locks, declared
+   dependencies and evidence together. Run the full suite through
+   `eng/Record-InstrumentBatch.ps1 -RunReleaseChecks` and inspect the newly packed
+   tool. The GA verification recorded below completed both checks before clearing
+   pending proof. No recurring native/client/OS matrix is required.
 
 ## Constraints
 

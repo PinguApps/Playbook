@@ -69,7 +69,7 @@ snapshots cannot make one physical cell hold multiple distinct output values.
    storage rather than covariant reference arrays. A compatible read-only view
    can retain covariance; copying to a new `T[]` is a valid writable alternative.
 7. Select and execute the actual final package containing the backport. Refresh
-   pins, lockfiles, requirements and sample evidence together through PIN-962.
+   pins, lockfiles, requirements and sample evidence together.
    Do not use this guide to infer that an RC package already enforces the contract.
 
 ## Constraints

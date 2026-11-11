@@ -1640,7 +1640,7 @@
       "title": "Align tensor shapes without losing metadata",
       "stability": "stable",
       "metadataSha256": "83e9acce4ed6314b9595c16931179e9aa15c1d3aba1ebb9f58d50132d97d032d",
-      "markdownSha256": "945675bf43f84db6c32b339e742c8387304b6413aea725fecf4a574b6652a7ea",
+      "markdownSha256": "2d7740a2770875371740aee52b60094f6fdcefb6f5feac560a09d545d7739708",
       "requirements": null
     },
     {
@@ -1688,7 +1688,7 @@
       "title": "Copy tensor views with explicit storage ownership",
       "stability": "stable",
       "metadataSha256": "43d0f3e39a35cfe3c8c956e62cde71b39c956be6b8b73479ed18288cfb602fa1",
-      "markdownSha256": "895f770ca505ddf1426e435ad8930c0b628530bca1352a12296bdf39da3e74ea",
+      "markdownSha256": "94597941ab2a022d2dbc2acfbc5c5a35af3cea19a41d27dfca05c3b9b6ce3067",
       "requirements": null
     },
     {
