@@ -44,6 +44,7 @@ $tensor = [ordered]@{ version='11.0.0'; source=$ga; asset='lib/net11.0/System.Nu
 $backport = Get-Content (Join-Path $root 'docs/planning/audits/tensor-release.sources.json') -Raw | ConvertFrom-Json
 $backportComparison = foreach ($source in $backport.sources) {
   $url = $source.url.Replace('dotnet/runtime/' + $backport.sourceCommit, 'dotnet/dotnet/' + $ga + '/src/runtime')
+  if ($url -ceq $source.url) { throw "Backport source URL cannot be mapped to GA: $($source.url)" }
   $bytes = (Invoke-WebRequest $url).RawContentStream.ToArray()
   $hash = [Convert]::ToHexString([Security.Cryptography.SHA256]::HashData($bytes)).ToLowerInvariant()
   [pscustomobject]@{ id=$source.id; gaUrl=$url; gaSha256=$hash; backportSha256=$source.sha256; unchanged=$hash -ceq $source.sha256 }
