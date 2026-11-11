@@ -1,8 +1,8 @@
 {
   "id": "hosting.select-direct-tls",
   "edition": "11.0",
-  "title": "Select a direct TLS transport (Experimental; artifact gap)",
-  "goal": "Prepare the documented Linux direct-TLS endpoint configuration while retaining ordinary socket HTTPS and recognizing when the available package cannot supply the documented endpoint API.",
+  "title": "Select HTTPS while direct TLS is unavailable (Experimental)",
+  "goal": "Use ordinary socket HTTPS when the direct-TLS documentation is withdrawn and the independently published package cannot supply its former endpoint API.",
   "areas": [
     "hosting"
   ],
@@ -34,9 +34,7 @@
         "conditional": false,
         "usage": "primary",
         "selectionNotes": [
-          "Experimental documentation-based recipe: the older socket consumer compiled; the current DirectTls example reproduces CS0246 against RC1 and has no successful compilation. Neither sample was executed.",
-          "Theoretical guidance: source review only for samples/net11.0/HarbourTls/HarbourTls.csproj; this sample has not been compiled successfully or executed. Compilation of other samples is recorded separately. Pending proof blocks stable readiness; preview publication requires a named approved exception.",
-          "Provisional pre-GA guidance: pending behavior/final-artifact proof is not successful execution or GA verification."
+          "GA documentation removed the direct-TLS include; NuGet index offers only RC1, not 11.0.0. RC1 lacks the former documented DirectTlsEndpoint. Current canonical code is ordinary socket HTTPS, not a direct-TLS implementation. Linux/OpenSSL transport selection and negotiation remain not-tested under the native policy. Actual supported direct-TLS artifact/scenario availability remains a PIN-967 stable-gate condition."
         ],
         "requirements": {
           "runtime": {
@@ -63,13 +61,13 @@
           "packages": [
             {
               "name": "Microsoft.AspNetCore.Server.Kestrel.Transport.DirectTls",
-              "version": "11.0.0",
+              "version": "11.0.0-rc.1.26425.128",
               "match": "exact",
-              "reason": "Exact reviewed package; availability and compile status are disclosed in Evidence, not an assertion of runtime support."
+              "reason": "Retained inspection baseline only; socket fallback does not use direct-TLS APIs."
             }
           ],
           "packageAssets": [
-            "DirectTls net11.0 RC1 artifact lacks the documented DirectTlsEndpoint type. Do not run current code against that artifact."
+            "RC1 is an inspection baseline. No supported direct-TLS endpoint implementation is supplied."
           ],
           "workloads": [],
           "providers": [
@@ -83,18 +81,13 @@
             "Save every listed canonical file in its own directory. Restore package pins/lock before offline builds. Directory files isolate repository inheritance. Read Evidence before treating any example as verified."
           ],
           "constraints": [
-            "Experimental Linux-only direct TLS; requires OpenSSL and matching runtime native TLS facilities. No exact supported native combination, Windows transport or GA support is established.",
-            "Only ordinary socket HTTPS compilation succeeded. The newer documented endpoint failed compilation against RC1 with CS0246; XML references to DirectTlsEndpoint do not make that public type available.",
-            "Certificates come from existing local secure configuration; no certificate trust, production resource, hardware, public package or native installation is authorized. No TLS handshake, failure/control or transport-selection check was executed.",
-            "The .NET 10 route remains valid. The current source example teaches the intended contract with an explicit availability gate, not a temporary preview substitute or a working RC1 package route."
+            "GA documentation removed the direct-TLS include; NuGet index offers only RC1, not 11.0.0. RC1 lacks the former documented DirectTlsEndpoint. Current canonical code is ordinary socket HTTPS, not a direct-TLS implementation. Linux/OpenSSL transport selection and negotiation remain not-tested under the native policy. Actual supported direct-TLS artifact/scenario availability remains a PIN-967 stable-gate condition."
           ],
           "optIns": [
-            "Explicit experimental package adoption; ASPNETCORE_DIRECTTLS_001 scoped to transport registration"
+            "Explicit experimental package inspection only; do not enable the withdrawn direct endpoint. Socket HTTPS requires no experimental opt-in."
           ],
           "stabilityLimitations": [
-            "Pingu authorized documentation-based recipe delivery on 3 November 2026. Final GA, browser/provider/AG-UI, renderer/storage and Linux native TLS behaviour checks remain pending and are not claimed. These deferred checks do not block this ticket; stable release readiness remains gated.",
-            "Theoretical guidance: source review only for samples/net11.0/HarbourTls/HarbourTls.csproj; this sample has not been compiled successfully or executed. Compilation of other samples is recorded separately. Pending proof blocks stable readiness; preview publication requires a named approved exception.",
-            "Provisional pre-GA guidance: pending behavior/final-artifact proof is not successful execution or GA verification."
+            "GA documentation removed the direct-TLS include; NuGet index offers only RC1, not 11.0.0. RC1 lacks the former documented DirectTlsEndpoint. Current canonical code is ordinary socket HTTPS, not a direct-TLS implementation. Linux/OpenSSL transport selection and negotiation remain not-tested under the native policy. Actual supported direct-TLS artifact/scenario availability remains a PIN-967 stable-gate condition."
           ]
         },
         "sourceUrls": [
@@ -136,9 +129,8 @@
       "target": "net11.0",
       "sdk": "11.0.100",
       "language": "15.0",
-      "kind": "official-review",
-      "scope": "Documentation-based endpoint example; actual compilation blocked with CS0246 for absent DirectTlsEndpoint. Native Linux/OpenSSL/TLS behaviour and GA support unverified.",
-      "record": "samples/net11.0/HarbourTls/source-review.evidence.json"
+      "kind": "compile",
+      "scope": "GA compilation of ordinary socket HTTPS only; no direct-TLS execution."
     }
   ],
   "snippets": {
@@ -214,7 +206,10 @@
     }
   },
   "humanProof": {
-    "status": "pending",
-    "scope": "Pingu authorized documentation-based recipe delivery on 3 November 2026. Final GA, browser/provider/AG-UI, renderer/storage and Linux native TLS behaviour checks remain pending and are not claimed. These deferred checks do not block this ticket; stable release readiness remains gated."
+    "untestedSamples": [
+      "samples/net11.0/HarbourTls/HarbourTls.csproj"
+    ],
+    "status": "not-tested",
+    "scope": "GA documentation removed the direct-TLS include; NuGet index offers only RC1, not 11.0.0. RC1 lacks the former documented DirectTlsEndpoint. Current canonical code is ordinary socket HTTPS, not a direct-TLS implementation. Linux/OpenSSL transport selection and negotiation remain not-tested under the native policy. Actual supported direct-TLS artifact/scenario availability remains a PIN-967 stable-gate condition."
   }
 }
