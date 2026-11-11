@@ -43,7 +43,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "RC3 compiler check; RC2 native preparation baseline is separate from installed workload availability."
+            "reason": "GA compiler check; reviewed native preparation baseline is separate from installed workload availability."
           },
           "language": {
             "name": "C#",

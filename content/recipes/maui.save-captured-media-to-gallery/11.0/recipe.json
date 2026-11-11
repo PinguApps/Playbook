@@ -62,7 +62,7 @@
               "name": "maui-android / maui-ios / maui-windows (choose target)",
               "version": "11.0",
               "match": "release-family",
-              "reason": "Reviewed RC2 workload set11.0.100 selects MAUI11.0.0, Android37.2.0-rc.2.84 and Apple27.0.12212-net11-rc.2. This is source/artifact provenance, not an installed workload for the pinned RC3 SDK; a matching native workload is still required and unavailable here."
+              "reason": "Reviewed RC2 workload set11.0.100 selects MAUI11.0.0, Android37.2.0-rc.2.84 and Apple27.0.12212-net11-rc.2. This is source/artifact provenance, not an installed workload for the pinned GA SDK; a matching native workload is still required and unavailable here."
             }
           ],
           "providers": [

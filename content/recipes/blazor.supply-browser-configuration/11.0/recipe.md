@@ -22,7 +22,7 @@ The initial endpoint captures JSON precedence before the manual environment regi
 
 ## Newer approach
 
-Create a separate EstuaryBoard directory with these project/package/program files. Add global.json containing {"sdk":{"version":"11.0.100","rollForward":"disable","allowPrerelease":false}}. Use the actual .NET 11 RC3 SDK, C# 15 mode and matching RC3 browser/runtime assets. No C# 15-only syntax is needed. These APIs have no Experimental opt-in in the reviewed artifacts; prerelease verification still does not establish GA behavior.
+Create a separate EstuaryBoard directory with these project/package/program files. Add global.json containing {"sdk":{"version":"11.0.100","rollForward":"disable","allowPrerelease":false}}. Use the actual .NET 11 GA SDK, C# 15 mode and matching RC3 browser/runtime assets. No C# 15-only syntax is needed. These APIs have no Experimental opt-in in the reviewed artifacts; prerelease verification still does not establish GA behavior.
 
 {{snippet:project-11}}
 

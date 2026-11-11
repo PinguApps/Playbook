@@ -47,7 +47,7 @@ The .NET10 comparison uses Mono and the existing generated Java wrappers. Explic
 
 ## Constraints
 
-Requires Android API24+, a matching .NET11 Android workload, Android SDK and JDK21 or25. Gradle through JDK25 requires9.1+. RC3 SDK and reviewed RC2 platform assets are distinct inputs, not a tested composition. No external provider or web render mode. NativeAOT is experimental and unexecuted. Device execution and current native compilation remain not-tested under PIN-699; source review does not establish GA behavior.
+Requires Android API24+, a matching .NET11 Android workload, Android SDK and JDK21 or25. Gradle through JDK25 requires9.1+. GA SDK selection, stable platform artifacts and historical implementation sources are distinct inputs, not a tested native composition. No external provider or web render mode. NativeAOT is experimental and unexecuted. Device execution and current native compilation remain not-tested under PIN-699; source review does not establish GA behavior.
 
 ## Newer approach
 

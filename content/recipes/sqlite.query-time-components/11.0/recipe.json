@@ -43,7 +43,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Build the net11 consumer. Exact RC3 SDK and reference/runtime artifacts are verification pins, not GA evidence."
+            "reason": "Build the net11 consumer. Exact GA SDK and reference/runtime artifacts are verification pins, not GA evidence."
           },
           "language": {
             "name": "C#",

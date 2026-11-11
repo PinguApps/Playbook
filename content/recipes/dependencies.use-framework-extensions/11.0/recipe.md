@@ -57,7 +57,7 @@ assembly's file entry. Removing that implementation reference prevents compilati
    consumer. Restore and build, then inspect obj/project.assets.json: `compile`
    and `runtime` entries show actual selected assets. Do not infer selection from
    the package name or version alone. Refresh reviewed lock files deliberately.
-3. Interpret NU1510 with the actual version syntax. On the pinned RC3 SDK,
+3. Interpret NU1510 with the actual version syntax. On the pinned GA SDK,
    direct `10.0.13` minimum-version references produce nine NU1510 warnings;
    exact `[10.0.13]` references produce none. Both controls retain package entries.
    Minimum-version references have `_._` compile/runtime placeholders; exact pins

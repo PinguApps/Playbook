@@ -47,7 +47,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Exact RC3 SDK is a verification baseline, not a minimum patch requirement."
+            "reason": "Exact GA SDK is a verification baseline, not a minimum patch requirement."
           },
           "language": {
             "name": "C#",

@@ -43,7 +43,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Build net11.0 references; the exact RC3 SDK is an evidence baseline."
+            "reason": "Build net11.0 references; the exact GA SDK is an evidence baseline."
           },
           "language": {
             "name": "C#",

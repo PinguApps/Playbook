@@ -32,7 +32,7 @@ container, workload or production resource is involved.
 These are exact tested inputs, separately from the supported prerequisites:
 NativeAOT on Windows needs Visual Studio 2022 or later with Desktop development
 with C++ and its SDK components. This specific route is qualified only with the
-table's compiler, linker, libraries and RC3 SDK. Acquire the complete SDKs from
+table's compiler, linker, libraries and GA SDK. Acquire the complete SDKs from
 official .NET distributions and the public NuGet packages from nuget.org; a lone
 SDK assembly is insufficient. The older alternative needs the complete SDK10
 runtime/SDK context. The native executable includes its runtime, but this example
@@ -51,7 +51,7 @@ The locked current closure also includes `NuGet.Frameworks/7.9.0` (net8.0),
 `Microsoft.VisualStudio.SolutionPersistence/1.0.52` (net8.0), and
 `System.Configuration.ConfigurationManager`, `System.Diagnostics.EventLog`,
 `System.Reflection.MetadataLoadContext` and `System.Security.Cryptography.ProtectedData`
-**10.0.10**. Native compiler/linker package versions are pinned by the RC3 SDK.
+**10.0.10**. Native compiler/linker package versions are pinned by the GA SDK.
 The two explicit helper packages close framework/solution-reader references;
 including them does not qualify solution builds. Keep `packages.lock.json` and
 restore with `RestoreLockedMode=true`. All sample dependencies remain manually

@@ -45,7 +45,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "RC3 SDK intended; pinned Apple RC2 source/artifact review is separate from a tested native workload composition."
+            "reason": "GA SDK intended; pinned Apple RC2 source/artifact review is separate from a tested native workload composition."
           },
           "language": {
             "name": "C#",
@@ -81,7 +81,7 @@
           ],
           "prerequisites": [
             "Compatible Apple workload and Xcode required for native publishing/execution.",
-            "RC3 SDK intended; RC2 sources reviewed separately, not a verified native composition."
+            "GA SDK intended; RC2 sources reviewed separately, not a verified native composition."
           ],
           "constraints": [
             ".NET10 comparison only; no older-target catalogue route.",

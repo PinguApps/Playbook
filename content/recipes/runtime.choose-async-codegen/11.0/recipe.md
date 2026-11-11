@@ -12,7 +12,7 @@ An ordinary .NET 10 async method compiles to a state machine. It remains a valid
 
 ## Newer approach
 
-The same survey operation can use .NET 11 runtime-managed suspension. In the public RC3 SDK, opt in with the compiler feature in the project:
+The same survey operation can use .NET 11 runtime-managed suspension. In the public GA SDK, opt in with the compiler feature in the project:
 
 Add `using System;`, `using System.Threading.Tasks;`, `using System.Diagnostics;` and `using System.Runtime.CompilerServices;` to the source. These make the snippet complete even when the project does not enable implicit usings.
 
@@ -20,7 +20,7 @@ Add `using System;`, `using System.Threading.Tasks;`, `using System.Diagnostics;
 
 {{snippet:newer}}
 
-`Features` is a compiler-feature list; append rather than discard other entries. The installed RC3 SDK did **not** translate `UseRuntimeAsync=true` into this compiler flag. Some first-party build repositories wire that property themselves. For this public SDK, an explicit `runtime-async=off` compiler feature selects the state-machine implementation; `UseRuntimeAsync=false` alone does not override an explicit on flag. Check effective imports and emitted code rather than assuming the property has an effect. This measured distinction qualifies the cumulative documentation's property-only advice.
+`Features` is a compiler-feature list; append rather than discard other entries. The installed GA SDK did **not** translate `UseRuntimeAsync=true` into this compiler flag. Some first-party build repositories wire that property themselves. For this public SDK, an explicit `runtime-async=off` compiler feature selects the state-machine implementation; `UseRuntimeAsync=false` alone does not override an explicit on flag. Check effective imports and emitted code rather than assuming the property has an effect. This measured distinction qualifies the cumulative documentation's property-only advice.
 
 ## Migration
 

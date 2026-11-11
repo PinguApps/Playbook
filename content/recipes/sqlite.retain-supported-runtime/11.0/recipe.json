@@ -94,7 +94,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Stable migration contract, demonstrated using the .NET11 RC3 SDK and Sqlite11 RC2 artifacts. No experimental API or experimental opt-in is used. Actual GA reconciliation remains pending in the existing release-wide gate."
+            "Stable migration contract, demonstrated using the .NET11 GA SDK and Sqlite11 RC2 artifacts. No experimental API or experimental opt-in is used. Actual GA reconciliation remains pending in the existing release-wide gate."
           ]
         },
         "sourceUrls": [

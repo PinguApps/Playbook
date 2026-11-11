@@ -50,7 +50,7 @@ The client uses its entry origin as HttpClient.BaseAddress. The host's /api/{**c
 
 ## Newer approach
 
-Create a separate newer QuaysideRoutes directory with Client, Defaults and Backend subdirectories. The matching RC3 SDK is 11.0.100 with C# 15 mode; no C# 15-only syntax is required. Save the following common files at the root, and copy global.json into all three project directories. The new edition is target 11 only, not a new .NET 10 foundation.
+Create a separate newer QuaysideRoutes directory with Client, Defaults and Backend subdirectories. The matching GA SDK is 11.0.100 with C# 15 mode; no C# 15-only syntax is required. Save the following common files at the root, and copy global.json into all three project directories. The new edition is target 11 only, not a new .NET 10 foundation.
 
 `global.json`:
 
@@ -88,7 +88,7 @@ The Client/appsettings.json file is server-side Gateway configuration, outside w
 
 ## Generated service defaults
 
-The following library comes from the actual SDK RC2 blazorwasm-servicedefaults template, generated as QuaysideRoutes.Defaults with hosted=false. Its extension and initializer retain Microsoft's license and behavior; they are generated support code, not original application prose. Only project/pin/build integration is adapted. The referenced .csproj.in is the upstream template build input; it is not the exact generated project in the installed SDK nupkg. The generated project and resolved pins were inspected and compiled separately. Save these complete files, or generate the template with the exact SDK and reconcile all resulting files/pins against these declared artifacts. The template's description mentions resilience, but its actual RC2 Extensions.cs registers service discovery and optional OpenTelemetry only; this recipe claims no retry/resilience policy.
+The following library comes from the actual SDK GA blazorwasm-servicedefaults template, generated as QuaysideRoutes.Defaults with hosted=false. Its extension and initializer retain Microsoft's license and behavior; they are generated support code, not original application prose. Only project/pin/build integration is adapted. The referenced .csproj.in is the upstream template build input; it is not the exact generated project in the installed SDK nupkg. The generated project and resolved pins were inspected and compiled separately. Save these complete files, or generate the template with the exact SDK and reconcile all resulting files/pins against these declared artifacts. The template's description mentions resilience, but its actual RC2 Extensions.cs registers service discovery and optional OpenTelemetry only; this recipe claims no retry/resilience policy.
 
 `Defaults/QuaysideRoutes.Defaults.csproj`:
 

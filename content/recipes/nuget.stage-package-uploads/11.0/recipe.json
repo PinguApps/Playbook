@@ -95,7 +95,7 @@
           ],
           "optIns": [
             "PackageSource.AllowInsecureConnections and per-upload allowInsecureConnections=true only for the disposable loopback fixture. Both default false in publisher calls.",
-            "RC3 SDK explicitly allows prerelease. No experimental API suppression or preview-language switch is required."
+            "GA SDK explicitly allows prerelease. No experimental API suppression or preview-language switch is required."
           ],
           "stabilityLimitations": [
             "Exact-artifact preview qualification, not a public hosted-service standard/support guarantee or actual GA.",

@@ -28,7 +28,7 @@
     "routes": [
       {
         "selectionNotes": [
-          "Experimental CoreCLR compiler flag. Public RC3 SDK requires Features; UseRuntimeAsync alone was inert."
+          "Experimental CoreCLR compiler flag. Public GA SDK requires Features; UseRuntimeAsync alone was inert."
         ],
         "usage": "primary",
         "sharedAreas": [
@@ -71,7 +71,7 @@
             "match": "release-family",
             "name": "C#",
             "version": "15.0",
-            "reason": "The public RC2 compiler accepts the explicit feature under C# 15; no preview-language opt-in is required."
+            "reason": "The public GA compiler accepts the explicit feature under C# 15; no preview-language opt-in is required."
           },
           "workloads": [],
           "stabilityLimitations": [

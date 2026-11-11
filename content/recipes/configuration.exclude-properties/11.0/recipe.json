@@ -42,7 +42,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Build against .NET 11 references; the exact RC3 SDK is a verification baseline."
+            "reason": "Build against .NET 11 references; the exact GA SDK is a verification baseline."
           },
           "language": {
             "name": "C#",

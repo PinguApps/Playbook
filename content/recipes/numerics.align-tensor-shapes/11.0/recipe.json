@@ -71,7 +71,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Use final .NET 11 SDK for GA verification. The installed RC3 SDK is only the current compilation baseline."
+            "reason": "Use final .NET 11 SDK for GA verification. The installed GA SDK is only the current compilation baseline."
           },
           "language": {
             "name": "C#",

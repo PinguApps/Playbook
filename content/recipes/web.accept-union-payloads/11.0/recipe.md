@@ -13,7 +13,7 @@ Both union cases begin as JSON objects. A classifier is required to choose betwe
 ## Migration
 
 1. Preserve the wire shapes before changing the parameter model. Save the canonical files and the shared runner at the paths below, including the directory boundaries and linked check path.
-2. On .NET 11 use C# **15.0**, the native union, the two case records and `[JsonUnion(TypeClassifier = typeof(JsonUnionTypeStructuralClassifier))]`. No `preview` language mode is needed on the pinned RC2 compiler.
+2. On .NET 11 use C# **15.0**, the native union, the two case records and `[JsonUnion(TypeClassifier = typeof(JsonUnionTypeStructuralClassifier))]`. No `preview` language mode is needed on the pinned GA compiler.
 3. Use the union directly as a Minimal API body parameter, MVC `[FromBody]` argument and SignalR method argument/result. Keep the SignalR **JSON** protocol. Do not migrate route, query, header or form binding to unions; MessagePack and Newtonsoft protocols do not implement this contract.
 4. Run `dotnet run -c Release` in either canonical project directory. The executable starts real Kestrel, posts both bodies to `/minimal` and `/mvc`, invokes `Echo` through real SignalR JSON WebSocket frames and compares returned JSON structurally with the input.
 5. The same runner sends `null`, `{}`, an unknown property, both case properties together, a numeric locker code and a Boolean body. HTTP returns 400; SignalR returns an invocation error. A changed status, accepted invalid argument or changed response shape fails the runner. It prints a single PASS summary and shuts down when all checks pass. For a normal long-running server replace the proof call with `app.RunAsync()`.

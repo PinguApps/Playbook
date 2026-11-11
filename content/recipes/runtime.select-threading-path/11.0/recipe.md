@@ -22,7 +22,7 @@ Copy the complete class with imports into a nullable-enabled net11.0 project. Ca
 
 ## Migration
 
-1. Build net11.0 with a .NET11 SDK/runtime and C#15. The tested RC3 SDK/runtime versions are evidence pins, not proof of final-GA behavior.
+1. Build net11.0 with a .NET11 SDK/runtime and C#15. The tested GA SDK/runtime versions are evidence pins, not proof of final-GA behavior.
 2. Replace the older bounded platform condition with IsMultithreadingSupported. Do not equate IsDynamicCodeSupported, processor count or platform annotations with threading support.
 3. Keep independent work per iteration and deterministic result aggregation. Do not mutate counts while scoring. Thread availability does not remove data-race or ownership obligations.
 4. Pass the caller's token to ParallelOptions and check the same token between sequential items. Preserve OperationCanceledException rather than returning an incomplete score. Cancellation is cooperative; a synchronous browser cannot receive UI cancellation while a long uninterrupted call blocks its event loop.

@@ -58,7 +58,7 @@
             "name": ".NET SDK",
             "version": "11.0.100",
             "match": "exact",
-            "reason": "Exact qualified RC2 compiler/native publish and complete SDK toolset context; global.json rollForward=disable."
+            "reason": "Exact qualified GA compiler/native publish and complete SDK toolset context; global.json rollForward=disable."
           },
           "language": {
             "name": "C#",

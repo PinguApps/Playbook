@@ -139,7 +139,7 @@
       "sdk": "10.0.403",
       "language": "14.0",
       "kind": "execution",
-      "scope": "Actual generated C#, restored dependencies, published fingerprinted asset HTTP retrieval at non-root base and unmarked/bare/unknown controls; RC2 compiler-route limitation retained.",
+      "scope": "Actual generated C#, restored dependencies, published fingerprinted asset HTTP retrieval at non-root base and unmarked/bare/unknown controls; GA compiler-route limitation retained.",
       "record": "samples/net10.0/MaritimeGallery/behavior.evidence.json"
     },
     {
@@ -156,7 +156,7 @@
       "sdk": "11.0.100",
       "language": "15.0",
       "kind": "execution",
-      "scope": "Actual generated C#, restored dependencies, published fingerprinted asset HTTP retrieval at non-root base and unmarked/bare/unknown controls; RC2 compiler-route limitation retained.",
+      "scope": "Actual generated C#, restored dependencies, published fingerprinted asset HTTP retrieval at non-root base and unmarked/bare/unknown controls; GA compiler-route limitation retained.",
       "record": "samples/net11.0/MaritimeGallery/behavior.evidence.json"
     }
   ],

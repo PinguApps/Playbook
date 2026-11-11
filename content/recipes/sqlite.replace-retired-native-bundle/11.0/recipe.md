@@ -158,7 +158,7 @@ Neither that default graph nor this system graph proves encrypted-file compatibi
 The upstream v3 note's SourceGear native package wording is historical too; do not
 infer an installed native package identity from that prose.
 
-This edition uses .NET11 RC3 SDK/provider artifacts and stable initialization APIs;
+This edition uses .NET11 GA SDK/provider artifacts and stable initialization APIs;
 there is no experimental API or opt-in. It is not GA proof. Direct Sqlite11 has
 net10.0 assets, whereas EF11 separately requires net11.0. Only the executed net11.0
 current route is advertised here; the net10.0 sample is the previous-release

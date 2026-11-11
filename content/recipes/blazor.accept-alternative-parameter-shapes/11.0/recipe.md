@@ -30,7 +30,7 @@ Use the shared host registration, imports and seed.js shown below. The .NET 10 A
 
 ## Newer approach
 
-Use two distinct contracts. BadgeLabel is for local rendering; SeedChoice contains only JSON-compatible data cases. The native union syntax is C# 15, with no preview language switch on the measured RC3 SDK.
+Use two distinct contracts. BadgeLabel is for local rendering; SeedChoice contains only JSON-compatible data cases. The native union syntax is C# 15, with no preview language switch on the measured GA SDK.
 
 {{snippet:choices}}
 

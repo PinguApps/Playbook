@@ -46,7 +46,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "RC3 SDK selected; pinned Apple and MAUI sources are preparation evidence, not a tested RC3 workload composition."
+            "reason": "GA SDK selected; pinned Apple and MAUI sources are preparation evidence, not a tested RC3 workload composition."
           },
           "language": {
             "name": "C#",
