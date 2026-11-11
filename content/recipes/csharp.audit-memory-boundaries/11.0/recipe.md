@@ -4,6 +4,8 @@
 
 Use this recipe when reviewing a low-level API whose caller must guarantee memory remains readable. The experimental updated rules distinguish declaring a pointer from accessing its memory, and let an `unsafe` member pass an audit obligation to its callers. They do not validate addresses, buffer lengths, ownership or lifetime for you.
 
+Before introducing this experimental model, obtain explicit user opt-in. Existing authorization for that introduction remains valid; inspecting or explaining code already opted in needs no repeated approval. Compiler switches alone are not evidence of user consent.
+
 ## Requirements and stability
 
 This edition targets **net11.0**, SDK **11.0**, and **C# preview**, with `Features=$(Features);updated-memory-safety-rules` and `AllowUnsafeBlocks=true`. The measured baseline is SDK **11.0.100**. These are experimental rules, not ordinary C# 15 behavior; the GA compiler still requires preview. No newer-SDK/older-target route is offered. Use the declared compiler mode in both the library and consumers that need caller checking.
@@ -59,9 +61,15 @@ The actual GA `ReadOnlySpan<byte>(void*, int)` call also requires an unsafe cont
 ## Migration
 
 1. Keep a working .NET 10 baseline and inventory each raw operation's length, lifetime, ownership and pinning preconditions.
-2. Opt the .NET 11 library and relevant consumers into preview plus `updated-memory-safety-rules`. Keep `AllowUnsafeBlocks=true` where unsafe syntax is used.
+2. After obtaining explicit user opt-in, opt the .NET 11 library and relevant consumers into preview plus `updated-memory-safety-rules`. Keep `AllowUnsafeBlocks=true` where unsafe syntax is used.
 3. Review every declaration modifier. Add explicit body contexts around actual operations; use member `unsafe` only when the caller has a real obligation. Preserve the narrow checked wrapper and existing public compatibility commitments.
 4. Rebuild every changed project. Confirm valid readings and truncated-input rejection, then compile consumers missing caller/body contexts or violating declaration visibility. Expect compiler rejection, not a runtime safety guarantee.
+
+## Written safety contracts
+
+Document every requires-unsafe API with caller-facing XML remarks covering readable length, allocation lifetime, ownership and pinning. Put a local `SAFETY` comment beside each unsafe operation or safety assertion explaining how those obligations are discharged. The canonical raw reader remains a two-byte synchronous read; it never owns, retains or frees storage. The checked span wrapper stays the normal entry point. Keep raw APIs private/internal unless a cross-assembly caller requires them.
+
+These comments and XML remarks are review recommendations. The compiler checks the opted-in unsafe boundaries and accessibility, not the truth or presence of this prose; no new analyzer enforces it. XML comments in the canonical source reach agents as part of the embedded snippet, without requiring generated XML documentation files.
 
 ## Evidence and limits
 

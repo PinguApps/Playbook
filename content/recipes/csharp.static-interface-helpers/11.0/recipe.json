@@ -33,7 +33,7 @@
       {
         "selectionNotes": [
           "Call helpers on the declaring interface, not through an instance or implementing class.",
-          "The helper surface already works on .NET 10; C# 15 removes a gate for runtimes without default interface methods. No legacy route is advertised."
+          "The helper surface already works on .NET 10. C# 15 removes a runtime gate, but C# 15/netstandard2.0 and .NET Framework are unsupported language/TFM combinations; no legacy route is advertised."
         ],
         "usage": "primary",
         "sharedAreas": [
@@ -50,10 +50,10 @@
         "sourceUrls": [
           "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc1/csharp.md",
           "https://github.com/dotnet/roslyn/pull/83097",
-          "https://github.com/dotnet/csharplang/blob/main/meetings/2026/LDM-2026-02-11.md",
           "https://github.com/dotnet/csharplang/blob/main/proposals/csharp-8.0/default-interface-methods.md",
           "https://github.com/dotnet/csharplang/blob/main/proposals/csharp-11.0/static-abstracts-in-interfaces.md",
-          "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-versioning"
+          "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-versioning",
+          "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/interface"
         ],
         "requirements": {
           "packageAssets": [],
@@ -94,7 +94,7 @@
             "Public helpers are called on the declaring interface; private helpers remain implementation details.",
             "Static abstract and static virtual members are separate dispatch contracts, not fixed helpers.",
             "Preserve an existing public companion method or plan a breaking API migration when relocating it.",
-            "No .NET Framework/netstandard or newer-SDK/older-target route is declared or verified."
+            "Legacy netstandard2.0/.NET Framework routes are excluded by official C# language/TFM support policy; successful down-level compilation would not establish support."
           ],
           "packages": []
         },
@@ -112,10 +112,6 @@
       "url": "https://github.com/dotnet/roslyn/pull/83097"
     },
     {
-      "title": "Language design: static helpers and older runtimes",
-      "url": "https://github.com/dotnet/csharplang/blob/main/meetings/2026/LDM-2026-02-11.md"
-    },
-    {
       "title": "C# 8 default interface methods and static/private members",
       "url": "https://github.com/dotnet/csharplang/blob/main/proposals/csharp-8.0/default-interface-methods.md"
     },
@@ -126,6 +122,10 @@
     {
       "title": "Microsoft C# language versioning",
       "url": "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-versioning"
+    },
+    {
+      "title": "Interface members and accessibility",
+      "url": "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/interface"
     }
   ],
   "evidence": [

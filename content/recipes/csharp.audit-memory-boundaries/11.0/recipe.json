@@ -2,7 +2,7 @@
   "id": "csharp.audit-memory-boundaries",
   "edition": "11.0",
   "title": "Express and check unsafe memory boundaries (experimental)",
-  "goal": "Use experimental unsafe member contracts when a raw memory operation imposes caller obligations; review declaration accessibility and keep checked wrappers available.",
+  "goal": "Use experimental unsafe member contracts with explicit user opt-in when raw memory imposes caller obligations; document safety contracts and retain checked wrappers.",
   "areas": [
     "csharp"
   ],
@@ -47,7 +47,8 @@
           "Experimental: enable LangVersion=preview, updated-memory-safety-rules and AllowUnsafeBlocks=true in projects using unsafe syntax.",
           "public/internal/private still govern declaration accessibility; unsafe grants no access to private members.",
           "Opted-in callers must acknowledge unsafe members; the member body separately needs an unsafe context. Legacy callers do not enforce pointer-free obligations.",
-          "GA pointer span construction still requires unsafe; the overview's project-setting removal claim is not reproduced."
+          "GA pointer span construction still requires unsafe; the overview's project-setting removal claim is not reproduced.",
+          "Obtain explicit user opt-in before introducing the experimental model; inspecting existing opted-in code needs no repeated approval."
         ],
         "requirements": {
           "runtime": {
@@ -79,7 +80,8 @@
           "workloads": [],
           "prerequisites": [
             "Enable implicit usings and nullable; use the complete BeaconFrame source and the project settings in the offline body.",
-            "Both library and callers must opt into the updated model for the demonstrated caller checking."
+            "Both library and callers must opt into the updated model for the demonstrated caller checking.",
+            "Explicit user consent before introduction; XML safety contracts and local SAFETY comments are review guidance, not compiler/analyzer enforcement."
           ],
           "constraints": [
             "A pointer alone proves neither validity nor length nor lifetime; the caller must guarantee two readable bytes.",
@@ -132,6 +134,10 @@
     {
       "title": "Library overview claim checked against actual RC2 artifacts",
       "url": "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/libraries#unsafe-api-accessibility"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/unsafe-code",
+      "title": "Unsafe models and pointer lifetime"
     }
   ],
   "evidence": [
