@@ -2751,7 +2751,7 @@ public sealed class InstalledToolSteps : IDisposable
         Assert.Equal(128, System.Buffers.Binary.BinaryPrimitives.ReadInt32BigEndian(header.AsSpan(16, 4)));
         Assert.Equal(128, System.Buffers.Binary.BinaryPrimitives.ReadInt32BigEndian(header.AsSpan(20, 4)));
         Assert.Equal(6, header[25]); // RGBA: retain transparency in the packaged PNG.
-        await using Stream packedAssembly = await archive.GetEntry("tools/net10.0/any/PinguApps.Playbook.dll")!.OpenAsync().ConfigureAwait(false);
+        await using Stream packedAssembly = await archive.GetEntry("tools/net11.0/any/PinguApps.Playbook.dll")!.OpenAsync().ConfigureAwait(false);
         using FileStream installedAssembly = File.OpenRead(runtimeConfig.Replace(".runtimeconfig.json", ".dll", StringComparison.Ordinal));
         Assert.Equal(await SHA256.HashDataAsync(packedAssembly).ConfigureAwait(false), await SHA256.HashDataAsync(installedAssembly).ConfigureAwait(false));
     }
