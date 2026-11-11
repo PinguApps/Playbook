@@ -230,3 +230,30 @@ retaining the labelled preview package route. These checks establish declared
 layout, conversion classification and callback behavior, not runtime interop layout
 or benchmark savings. New receipts record GA execution; RC receipts are not relabelled.
 PIN-967 remains the global stable-readiness gate; no publication is performed.
+
+## Extension indexers and labeled jumps — 11 November 2026
+
+PIN-1294 extends `csharp.index-existing-types` using the current official
+[extension-indexer specification](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/proposals/csharp-15.0/extension-indexers).
+Disposition: included in the existing stable recipe. The named receiver, lookup
+order, special array/string binding, expression-tree restriction, assignment
+inference, emitted accessors, Count/Length lookup and spread-presizing exclusion
+are reconciled with SDK 11.0.100 and reference/runtime 11.0.0. The canonical
+CollectionLike sample adds an original archive range/list route, copy and bounds
+checks, static named-accessor calls and executable lookup precedence controls.
+
+PIN-1295 extends `csharp.control-nested-loops` using the official
+[IDE0410 reference](https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/ide0410)
+and statement-scope rules already linked by that recipe. Disposition: included
+in the existing stable recipe; no separate analyzer recipe is needed. SDK
+11.0.100 reports IDE0410 on a real configured goto fixture. The documented
+preference default is true; severity/build enforcement are independent. No
+interactive IDE code-fix execution is claimed. Original bounded goto/labeled
+snippets preserve continuation and post-loop work, alongside unchanged cleanup
+checks. Compiler probes reject overlapping labels and non-loop continue targets.
+
+`eng/Test-IndexerJumpContracts.ps1` uses the actual pinned compiler and reference
+assemblies; saved sample compilation records are refreshed only for changed
+net11 consumers. The supplied csharp-15 attachment is a gap inventory, not source
+or execution evidence. No provider, release-readiness or publication claim is
+added; stable IDs, fictional domains and historical original deliveries remain.

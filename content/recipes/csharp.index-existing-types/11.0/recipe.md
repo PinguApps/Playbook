@@ -28,7 +28,27 @@ Reading slot 1 of shelf-c, shelf-a, shelf-b returns shelf-a. Assigning shelf-r a
 
 An extension does not add storage, private-member access, interface implementation or a new virtual slot to LinkedList<T>. Existing applicable instance members take precedence; an extension cannot replace their semantics. Namespace visibility and ordinary extension lookup affect availability; competing extension namespaces may make lookup ambiguous. Resolve that by controlling imports or retaining an explicit helper method.
 
-This example is not thread-safe against concurrent mutation. It promises zero-based integer positions only, with no from-end or range contract. Null checks happen in the implementation because extension calls can receive null. Bracket notation does not imply constant-time lookup.
+The linked-list example is not thread-safe against concurrent mutation. It supplies zero-based integer positions only; the separate range example below supplies a complete range/list-pattern contract. Null checks happen in the implementation because extension calls can receive null. Bracket notation does not imply constant-time lookup.
+
+### Lookup and unsupported contexts
+
+Resolution tries applicable instance indexers, then implicit instance Index/Range indexing, then explicit extension indexers, then implicit extension indexing. For example, an instance Length plus integer indexer continues to handle `receiver[^1]` even if an imported extension declares an Index indexer. For count lookup, search instance scope before extension scopes; within each scope prefer Length to Count. An instance Count therefore wins over an extension Length.
+
+Arrays and strings keep their special element-access binding: declaring an extension indexer does not make new bracket argument types available on them. Extension members are not considered for `base[...]`. Extension indexers cannot appear in expression trees, so an IQueryable selector containing one fails during compilation, before any provider runs. Use a deliberate client-side boundary only when loading and processing those results is appropriate; a static helper compiling inside a tree does not establish provider translation.
+
+Type inference uses the receiver and index arguments, excluding the assigned value. With `extension<T>(int receiver)` and a setter `T this[int slot, T key]`, `receiver[0, null] = new object()` cannot infer T. Passing a typed key succeeds. An explicit static setter call can infer from its final value argument because that is an ordinary method argument.
+
+Extension indexers cannot have init accessors or abstract, virtual, override, new, sealed, partial or protected forms (including protected accessibility combinations). They need a named receiver; static indexers and auto-accessor storage are not supplied. Ref-returning accessors and expression bodies remain possible under their ordinary rules.
+
+### Optional from-end, range and list-pattern access
+
+Use this independent fictional archive type when a copied slice is appropriate. Count, an integer indexer and Slice together support implicit Index/Range access and list patterns. Put these declarations in the same namespace and project settings as above; call RangeShelfWorkflow.Check to exercise the contract. Its module initializer also runs the check when the sample loads.
+
+{{snippet:ranges}}
+
+`^1` selects the last label; `1..^1` copies the middle label, and the list pattern captures a copied tail. Index and slice bounds are checked before copying. Copy mutation leaves the source unchanged. This example exposes a mutable array to make copy isolation visible; it is not a concurrent snapshot API. A null shelf is outside this example's contract. Extension counts participate in countability and implicit indexing, but do not automatically provide collection-expression spread presizing.
+
+The IndexerName attribute changes the emitted accessor name to Label. `ArchiveShelfAccess.get_Label(shelf, 1)` is a compiled call to the actual static implementation, with the receiver first. Ordinary unnamed extension indexers expose get_Item/set_Item; a setter takes receiver, index arguments, then value. Selecting the declaring static class explicitly can resolve ambiguity between imported extension containers. IndexerName controls metadata/accessor naming, not bracket lookup priority, so renaming it alone does not resolve competing bracket candidates.
 
 Canonical RC1 notes stabilize extension indexers in C# 15; the recorded artifacts are GA SDK 11.0.100/runtime 11.0.0. No older-target C# 15 route, package, workload, provider or rendering requirement is claimed.
 
@@ -37,3 +57,5 @@ Canonical RC1 notes stabilize extension indexers in C# 15; the recorded artifact
 Both canonical CollectionLike projects compile on their actual targets (net10.0/C# 14, net11.0/C# 15) and execute reads, middle-node replacement, preserved sequence/length and null/negative/past-end rejection. A rejected write leaves the list unchanged. Exact saved SDK/runtime/input records accompany the samples; focused execution is distinct from source-reviewed general lookup restrictions. No native execution, mocks or cross-compilation is claimed. Full source snippets and instructions are embedded in the offline tool.
 
 GA refresh (PIN-1287): the declared .NET 11 sample was rebuilt and executed with SDK 11.0.100 and runtime 11.0.0. This refresh does not establish broader platform or API behavior.
+
+The expanded GA sample executes range/list matching, rejected bounds, copy isolation, the named static accessor, instance implicit-indexer precedence and instance Count versus extension Length lookup. `eng/Test-IndexerJumpContracts.ps1` compiles real consumers against SDK 11.0.100/reference assemblies 11.0.0, including expression-tree rejection (CS9296), assignment inference, array/string/base rejection and valid static setter inference. No database/provider execution is claimed.

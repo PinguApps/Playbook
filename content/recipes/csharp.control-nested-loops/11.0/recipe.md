@@ -59,6 +59,30 @@ Keep the flags for an older target when they already express the flow clearly. A
 
 ## Evidence
 
+### Analyzer-assisted migration and label scopes
+
+IDE0410 (Use labeled jump statement) recognizes suitable Boolean propagation and goto exit/continuation patterns in C# 15+. Its documented preference default is true. Configure the preference independently of diagnostic severity in .editorconfig:
+
+    [*.cs]
+    csharp_style_prefer_labeled_jump_statements = true
+    dotnet_diagnostic.IDE0410.severity = warning
+
+For build enforcement set `EnforceCodeStyleInBuild` to true in the project. Setting the preference to false disables this rule; severity none suppresses the diagnostic. Do not assume a preference default means every build reports warnings: severity, build settings and installed analyzer support also matter. SDK 11.0.100 actually reports IDE0410 on the bounded goto fixture in `eng/Test-IndexerJumpContracts.ps1` with the configuration above. Interactive IDE suggestions and application of a code fix were not exercised.
+
+The flag example above already preserves cleanup. Here is a second bounded migration with no resources: skip batch 0 after its first reading, complete batch 1, and stop at batch 2 while preserving the final entry. Before:
+
+{{snippet:goto-before}}
+
+After:
+
+{{snippet:goto-after}}
+
+Both return `0:0;1:0;1:1;1:2;complete;finished`. The trailing empty statement in the older form gives the continuation label a statement to mark. Labeled continue advances the for iterator; goto to a label before the for would restart its initialization instead. The post-loop return still runs after labeled break.
+
+Duplicate label names are invalid in overlapping scopes, including a nested label shadowing an outer one. Prefer descriptive unique labels. Labels attach only to the immediately following statement: `first: second: while (...)` makes second the loop label; `continue first` is invalid. Likewise a label on a surrounding block cannot be used as a loop continuation target. Continue targets loops only, whereas break can also target an enclosing switch. Extract a method when the traversal has a separate responsibility, needs several result values or would otherwise require many labels; preserve whether the original jump continued, exited a loop or returned from the caller.
+
+The compiler probes build valid labeled jumps and reject overlapping labels (CS0158) and block/chained-label continuation targets (CS9394). The GA sample executes both goto and labeled versions against the same expected trace. Existing using/finally checks remain intact.
+
 The original .NET 10/C# 14 and .NET 11 GA/C# 15 projects compile and execute identical expected-trace checks. They exercise partial acceptance before skip, skip followed by a completed batch, stop before later batches, empty batches/input, normal completion and inside-out finally/using cleanup. Saved evidence identifies exact SDKs, sources/configuration hashes, commands, runtime output and dependencies. No mocks, native cross-compilation, service resources or extra client/platform matrix are claimed. The portable checks require no targeted Human proof. Official references and full applicability accompany this body in get_recipe.
 
 GA refresh (PIN-1287): the declared .NET 11 sample was rebuilt and executed with SDK 11.0.100 and runtime 11.0.0. This refresh does not establish broader platform or API behavior.
