@@ -7,6 +7,7 @@ const assert = require('node:assert/strict');
 const path = require('node:path');
 const root = path.resolve(__dirname, '..');
 const dotnet = process.argv[3];
+const port = Number(process.env.AGENT_VIEW_PORT_BASE || 5619);
 const children = [];
 let mode = 'snapshot', received, aborted = 0;
 const endpoint = http.createServer(async (req, res) => {
@@ -36,7 +37,7 @@ async function start(name, port, args = []) {
     let output = ''; child.stdout.on('data', x => output += x); child.stderr.on('data', x => output += x);
     for (let i = 0; i < 100; i++) {
         if (child.exitCode !== null) throw Error(output);
-        try { if ((await fetch(`http://127.0.0.1:${port}`)).ok) return; } catch {}
+        try { if (output.includes('Now listening on:') && (await fetch(`http://127.0.0.1:${port}`)).ok) return; } catch {}
         await new Promise(resolve => setTimeout(resolve, 100));
     }
     throw Error(`Host startup timeout: ${output}`);
@@ -50,11 +51,11 @@ async function click(page, name) { await page.getByRole('button', { name, exact:
     let browser;
     try {
         await new Promise(resolve => endpoint.listen(0, '127.0.0.1', resolve));
-        await start('ObservatoryLog', 5619);
-        await start('MuseumCaptions', 5620, ['--CaptionAgentEndpoint', `http://127.0.0.1:${endpoint.address().port}/agent`]);
+        await start('ObservatoryLog', port);
+        await start('MuseumCaptions', port + 1, ['--CaptionAgentEndpoint', `http://127.0.0.1:${endpoint.address().port}/agent`]);
         browser = await chromium.launch({ headless: true });
         const page = await browser.newPage();
-        await page.goto('http://127.0.0.1:5619'); await status(page, 'Restored; ready');
+        await page.goto(`http://127.0.0.1:${port}`); await status(page, 'Restored; ready');
         await page.locator('input').fill('Saturn'); await click(page, 'Send'); await status(page, 'Completed turns saved');
         await page.reload(); await status(page, 'Restored; ready');
         assert.equal(await page.getByText('Observation noted: Saturn', { exact: true }).count(), 1);
@@ -76,7 +77,7 @@ async function click(page, name) { await page.getByRole('button', { name, exact:
         await page.locator('input').fill('Disposed moon'); await click(page, 'Send'); await click(page, 'Recreate view'); await status(page, 'Restored; ready');
         assert.equal(await page.getByText('Observation noted: Disposed moon', { exact: true }).count(), 0);
         console.log('PASS: rendered completed turns, recreate/restore/continue, incomplete-turn exclusion, ordering, no replay duplicates, actual protected session storage failure/retry and component disposal');
-        await page.goto('http://127.0.0.1:5620');
+        await page.goto(`http://127.0.0.1:${port + 1}`);
         await page.getByLabel('Caption', { exact: true }).waitFor();
         await page.getByLabel('Caption', { exact: true }).fill('User tide'); await page.getByLabel('Request').click();
         await click(page, 'Send'); await status(page, 'Run completed');

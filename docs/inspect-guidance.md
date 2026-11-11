@@ -1,5 +1,32 @@
 # Inspect the guidance an agent receives
 
+## Rendered AI state, restoration and withdrawn direct TLS
+
+PIN-1308/1309 exercise the actual experimental packages on the GA host with a
+scripted local endpoint and real protected session storage. PIN-1310 withdraws the
+unavailable DirectTlsEndpoint illustration and preserves socket HTTPS. Remote model,
+provider durability and Linux/OpenSSL direct transport are outside the measured proof.
+PIN-967 remains the final stable gate, including actual direct-TLS availability.
+
+From any directory in PowerShell 7, with SDK11.0.100 and Node installed:
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-effb4fe9-ea38ef9c7cf5ce84'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('blazor.synchronize-agent-view-state','blazor.restore-agent-conversation','hosting.select-direct-tls') `
+  -Query '' -RecipeEdition '11.0' -TargetVersion '11.0' `
+  -PackageVersion '0.0.0-pin1308-1310' -BuildAndPack `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' -OutputDirectory './artifacts/agent-inspection'
+```
+
+Expect ID/title/goal, full canonical Markdown and applicability for all three
+experimental recipes through the actual locally packed and installed stdio server.
+Setup needs NuGet and Inspector access. Retrieval runs outside the checkout with
+unusable proxies; this establishes embedded offline delivery, not OS network isolation.
+No public package or service is published. Use `eng/Test-AgentViews.ps1` with explicit
+Dotnet, Node and PlaywrightModule paths for the separate rendered checks.
+
 ## SDK catalogue contract dispositions
 
 PIN-1302 retains independent package previews and experimental contracts while
