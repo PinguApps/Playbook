@@ -77,6 +77,33 @@ do not reopen or close the completed original delivery merely from this finding.
 
 ## Verification so far
 
+The actual package-host replay also passed: 32 immutable source hashes, seven
+full notes and 23 package ZIPs. Experimental affected-test packages remain
+18.13.0-preview.26519.2; package GA is not inferred from SDK GA. All three
+experimental SDK editions retain their labels. Fourteen other SDK editions
+still carry preview stability metadata and require a narrow final classification
+refresh against their specific GA or independent-package contracts. The native
+RID recipe also names GA SDK11 while retaining an RC3 compiler build in its
+requirements table; reconcile that exact statement with its saved artifact.
+
+Second follow-on draft: reconcile stability and measured-version statements for
+the complete 56-edition SDK catalogue. Estimate **M (3)** for per-contract source
+review, surgical metadata/prose corrections, affected evidence freshness checks
+and real installed discovery/applicability inspection. Keep independently
+versioned previews and deliberately experimental APIs labelled. Do not rerun
+unaffected native/platform matrices. Agent, build/deployment milestone, cycle
+pending explicit choice; source PIN-963 and this catalogue register. This is
+separate from the focused VSTest redaction behavior proof above.
+
+PIN-964 is verified in the same team/project and owns the web-family
+reconciliation, including the static-web-assets/Hot Reload delta forwarded
+here. Its title alone is not proof of delivered web behavior. Packaging recipes
+use public SDK tool contracts rather than the changed private shim paths;
+no additional public packaging goal follows from those private path changes.
+The experimental hashing API remains excluded pending a documented external
+authoring scenario, preserving the earlier cancellation policy rather than
+inventing a consumer solely from API visibility.
+
 `Inspect-GaSdkContracts.ps1` passed: 9 sources, 56 SDK editions, 52 tooling assets.
 `Inspect-SdkBuildApis.ps1` passed against isolated fresh archives: 52/52
 assemblies, 230/232 build files, 2,689 assigned differences. Installed .NET 10
