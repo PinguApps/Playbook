@@ -4978,7 +4978,7 @@ Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-5a933a57-7f7d680da11b7632'
 $ids = @((Get-Content ./docs/planning/audits/ga-native-contracts.sources.json -Raw | ConvertFrom-Json).catalogue |
     Where-Object { $_.id -notmatch '^(wpf|winforms)\.' } | ForEach-Object id)
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 -RecipeId $ids -Query '' `
-    -RecipeEdition '11.0' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+    -RecipeEdition '11.0' -TargetVersion '11.0' `
     -PackageVersion '0.0.0-pin1315-1316' -BuildAndPack `
     -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
     -Node 'C:\Program Files\nodejs\node.exe' -OutputDirectory './artifacts/mobile-ga-inspection'
@@ -4987,8 +4987,7 @@ $ids = @((Get-Content ./docs/planning/audits/ga-native-contracts.sources.json -R
 Expect44 native IDs/titles/explanatory goals, full canonical Markdown and updated
 applicability through the actual locally packed/installed stdio server. The
 harness uses an isolated feed/cache and unrelated directory with unusable retrieval
-proxies; this proves offline delivery, not OS network isolation. Target10 has no
-applicable edition. Seven desktop editions retain their prior inputs.
+proxies; this proves offline delivery, not OS network isolation. Existing older-target routes retain their applicability. Seven desktop editions retain their prior inputs.
 
 Run `eng/Test-AndroidGaContracts.ps1` separately for real GA37.2.31 CS0619/XA1044
 negative controls, corrected runtime-property controls, current binding generation
