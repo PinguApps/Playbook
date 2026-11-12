@@ -1,0 +1,203 @@
+{
+  "id": "sqlite.index-json-path",
+  "edition": "11.0",
+  "title": "Index selected SQLite JSON values",
+  "goal": "Index scalar JSON paths and fixed collection positions in SQLite when lookups need a schema with explicit per-element sort order.",
+  "areas": [
+    "ef-core"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "kestrel-crates",
+    "json-index",
+    "migrations"
+  ],
+  "apis": [
+    "HasIndex",
+    "IsDescending",
+    "RelationalJsonIndex"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "sourceUrls": [
+          "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/efcore/src/EFCore.Relational/Metadata/RelationalJsonIndex.cs"
+        ],
+        "selectionNotes": [
+          "Real Windows x64 SQLite migrations, physical schema and exact scalar/position query results. EF11 checks per-element metadata, null/empty/mixed sort lists, count mismatch and unsupported all-elements rejection. No query-plan, performance, SQL Server execution, other-platform or AOT claim."
+        ],
+        "usage": "primary",
+        "target": "11.0",
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "EF Core 11 requires .NET 11. No older-runtime EF11 route is offered."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Pinned SDK11.0.100 with EF11.0.0; independent SDK10.0.403/EF10.0.13 comparison."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Declared current language mode; no C# 15-specific syntax is required by the example."
+          },
+          "frameworks": [
+            "Microsoft.NET.Sdk console consumer"
+          ],
+          "packages": [
+            {
+              "match": "release-family",
+              "version": "11.0",
+              "reason": "Locked GA package graph.",
+              "name": "Microsoft.EntityFrameworkCore.Sqlite"
+            }
+          ],
+          "packageAssets": [
+            "EF11/Relational/Sqlite lib/net11.0; older EF10 lib/net10.0. SQLitePCLRaw and native SQLite pinned in independent locks."
+          ],
+          "providers": [
+            "Bundled SQLite on Windows x64; not SQL Server native JSON indexes."
+          ],
+          "workloads": [],
+          "platforms": [
+            "Windows x64 executed; other native platforms not-tested."
+          ],
+          "renderingModes": [
+            "Not applicable: console/database extension."
+          ],
+          "constraints": [
+            "Real Windows x64 SQLite migrations, physical schema and exact scalar/position query results. EF11 checks per-element metadata, null/empty/mixed sort lists, count mismatch and unsupported all-elements rejection. No query-plan, performance, SQL Server execution, other-platform or AOT claim."
+          ],
+          "prerequisites": [
+            "Restore each standalone project with its declared SDK. Migrate a new in-memory SQLite database; no external service."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Stable API; database engine and schema support remain provider-specific."
+          ]
+        },
+        "conditional": false,
+        "evidenceSamples": [
+          "samples/net11.0/KestrelCrates/KestrelCrates.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "GA relational JSON-index metadata",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/efcore/src/EFCore.Relational/Metadata/RelationalJsonIndex.cs"
+    },
+    {
+      "title": "SQLite expression indexes",
+      "url": "https://www.sqlite.org/expridx.html"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/KestrelCrates/KestrelCrates.csproj",
+      "sdk": "10.0.403",
+      "target": "net10.0",
+      "kind": "compile-and-run",
+      "language": "14.0",
+      "scope": "Real Windows x64 SQLite migrations, physical schema and exact scalar/position query results. EF11 checks per-element metadata, null/empty/mixed sort lists, count mismatch and unsupported all-elements rejection. No query-plan, performance, SQL Server execution, other-platform or AOT claim."
+    },
+    {
+      "sample": "samples/net11.0/KestrelCrates/KestrelCrates.csproj",
+      "sdk": "11.0.100",
+      "target": "net11.0",
+      "kind": "compile-and-run",
+      "language": "15.0",
+      "scope": "Real Windows x64 SQLite migrations, physical schema and exact scalar/position query results. EF11 checks per-element metadata, null/empty/mixed sort lists, count mismatch and unsupported all-elements rejection. No query-plan, performance, SQL Server execution, other-platform or AOT claim."
+    }
+  ],
+  "snippets": {
+    "n11-directory-build-props": {
+      "language": "xml",
+      "path": "samples/net11.0/KestrelCrates/Directory.Build.props",
+      "region": "complete"
+    },
+    "n10-directory-build-props": {
+      "language": "xml",
+      "path": "samples/net10.0/KestrelCrates/Directory.Build.props",
+      "region": "complete"
+    },
+    "n10-program-cs": {
+      "language": "csharp",
+      "path": "samples/net10.0/KestrelCrates/Program.cs",
+      "region": "complete"
+    },
+    "n11-program-cs": {
+      "language": "csharp",
+      "path": "samples/net11.0/KestrelCrates/Program.cs",
+      "region": "complete"
+    },
+    "n10-kestrelcrates-csproj": {
+      "language": "xml",
+      "path": "samples/net10.0/KestrelCrates/KestrelCrates.csproj",
+      "region": "complete"
+    },
+    "n11-directory-packages-props": {
+      "language": "xml",
+      "path": "samples/net11.0/KestrelCrates/Directory.Packages.props",
+      "region": "complete"
+    },
+    "n11-directory-build-targets": {
+      "language": "xml",
+      "path": "samples/net11.0/KestrelCrates/Directory.Build.targets",
+      "region": "complete"
+    },
+    "n11-kestrelcrates-csproj": {
+      "language": "xml",
+      "path": "samples/net11.0/KestrelCrates/KestrelCrates.csproj",
+      "region": "complete"
+    },
+    "n10-directory-build-targets": {
+      "language": "xml",
+      "path": "samples/net10.0/KestrelCrates/Directory.Build.targets",
+      "region": "complete"
+    },
+    "n11-global-json": {
+      "language": "json",
+      "path": "samples/net11.0/KestrelCrates/global.json",
+      "region": "complete"
+    },
+    "n10-directory-packages-props": {
+      "language": "xml",
+      "path": "samples/net10.0/KestrelCrates/Directory.Packages.props",
+      "region": "complete"
+    },
+    "n10-global-json": {
+      "language": "json",
+      "path": "samples/net10.0/KestrelCrates/global.json",
+      "region": "complete"
+    },
+    "n10-migration": {
+      "language": "csharp",
+      "region": "complete",
+      "path": "samples/net10.0/KestrelCrates/Migrations/20261112083119_CreateCrates.cs"
+    },
+    "n11-migration": {
+      "language": "csharp",
+      "region": "complete",
+      "path": "samples/net11.0/KestrelCrates/Migrations/20261112082858_CreateCrates.cs"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Agent-executable isolated SQLite/SQL checks; no Human proof required."
+  }
+}
