@@ -24,7 +24,7 @@ try {
         $receipt.sourceDirty = $true
         $receipt.command = 'eng/Test-XamlExpressionContracts.ps1 -Record'
         $receipt.scope = 'Actual GA source/artifact hash review. No native compilation, generated-output or execution claim.'
-        $receipt.output = 'PASS GA source and artifact hashes; GA expression specification retains SourceGen and MAUIX2013, removes MAUIX2012. Native checks remain not-tested under PIN-699.'
+        $receipt.output = 'PASS GA source and artifact hashes; Unchanged expression specification retains SourceGen and MAUIX2013 and contains no MAUIX2012; GA consent-gate removal is established by reviewed Build.Tasks/analyzer source and expression diagnostics tests. Native checks remain not-tested under PIN-699.'
         [IO.File]::WriteAllText($path, ($receipt | ConvertTo-Json -Depth 40) + "`n")
     }
     Write-Host 'PASS: GA XAML source/artifact contracts; native checks not-tested.'
