@@ -129,7 +129,7 @@ EF10.0.13/SDK10.0.403/C#14/net10 versus EF11 GA/SDK11 GA/C#15/net11. EF11 has no
 
 The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
-eng/Test-CurlewDesign.ps1 -Record generates fresh migrations in isolated copies, verifies list/script output, applies real schema and persists one original nest row on each route. Generated output is disposable; saved sample receipts retain exact dependencies, inputs and results. Compilation is separate from tooling execution. Ordinary installed offline list/get inspection checks served content only. PIN-959 and PIN-965 remain open; no ninth foundation or public publication is added.
+eng/Test-CurlewDesign.ps1 -Record generates fresh migrations in isolated copies, verifies list/script output, applies real schema and persists one original nest row on each route. Generated output is disposable; saved sample receipts retain exact dependencies, inputs and results. Compilation is separate from tooling execution. Ordinary installed offline list/get inspection checks served content only. PIN-959 and PIN-967 remain open; no ninth foundation or public publication is added.
 
 ## References
 

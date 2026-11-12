@@ -82,7 +82,7 @@
             }
           ],
           "packageAssets": [
-            "EF11 lib/net11.0 and EF10 lib/net10.0; SqlClient7.1.0/6.1.7; exact transitive assets in canonical locks. Matching dotnet-ef11 GA/10.0.13 installed locally, no global tools. The inspected dotnet-ef11 launcher is tools/net10.0/any/dotnet-ef.dll; the actual EF11 application still requires net11.0."
+            "EF11 lib/net11.0 and EF10 lib/net10.0; SqlClient7.1.1/6.1.7; exact transitive assets in canonical locks. Matching dotnet-ef11 GA/10.0.13 installed locally, no global tools. The inspected dotnet-ef11 launcher is tools/net10.0/any/dotnet-ef.dll; the actual EF11 application still requires net11.0."
           ],
           "providers": [
             "Approved isolated SQL Server2025 CU10 Docker database, unique per run; no external server."

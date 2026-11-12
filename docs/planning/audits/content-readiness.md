@@ -247,3 +247,12 @@ Changing inputs, missing approvals/disclosures or stale evidence rejects preview
 packaging. This is a repeatable release decision, not a blanket preview bypass.
 Reconcile and retire exceptions with their existing owners once final artifacts
 and supported consumer contracts can pass; then run the strict stable gate.
+
+## PIN-1313 qualification update
+
+The 8 November checkpoint above remains historical. Plover's direct route is
+withdrawn on shipped EF11.0.0 SQLite; both pinned consumers verify the explicit
+nullable-marker fallback with exact null/default/populated results and composition.
+Only its resolved pending-proof inventory entry and preview-policy hash are
+reconciled here. Other checkpoint inputs and pending gates remain unchanged; this
+does not recertify the historical candidate or the whole readiness checkpoint.

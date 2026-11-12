@@ -36,7 +36,7 @@
         ],
         "selectionNotes": [
           "Project a persisted SqlVector explicitly when EF11 entity materialization omits vector columns.",
-          "Windows x64 local Docker execution is bounded; EF11 vector-search execution remains not-tested under Pingu\u2019s explicit authorization on 2 November 2026."
+          "Windows x64 local Docker execution is bounded; EF11 vector-search execution remains not-tested under Pingu’s explicit authorization on 2 November 2026."
         ],
         "usage": "primary",
         "target": "11.0",
@@ -67,11 +67,11 @@
               "name": "Microsoft.EntityFrameworkCore.SqlServer",
               "version": "11.0",
               "match": "release-family",
-              "reason": "Pinned standalone sample: EF11 GA, SqlClient7.1.0, Pkcs10.0.13; EF11 requires net11.0."
+              "reason": "Pinned standalone sample: EF11 GA, SqlClient7.1.1, Pkcs10.0.13; EF11 requires net11.0."
             }
           ],
           "packageAssets": [
-            "EF Core/Relational/SQL Server11 lib/net11.0; Microsoft.Data.SqlClient7.1.0 ref/net9.0 with runtimes/win/lib/net9.0 selected for net11.0. Previous EF10 lib/net10.0, SqlClient6.1.7 ref/net9.0 with runtimes/win/lib/net9.0. Resolved transitive closure is recorded in each lock and verification manifest."
+            "EF Core/Relational/SQL Server11 lib/net11.0; Microsoft.Data.SqlClient7.1.1 ref/net9.0 with runtimes/win/lib/net9.0 selected for net11.0. Previous EF10 lib/net10.0, SqlClient6.1.7 ref/net9.0 with runtimes/win/lib/net9.0. Resolved transitive closure is recorded in each lock and verification manifest."
           ],
           "providers": [
             "EF SQL Server; SQL2025 native json/vector. JSON index requires clustered primary key. EF11 VectorSearch requires newer syntax unavailable on supplied CU10."
@@ -85,7 +85,7 @@
           ],
           "constraints": [
             "Project a persisted SqlVector explicitly when EF11 entity materialization omits vector columns.",
-            "Windows x64 local Docker execution is bounded; EF11 vector-search execution remains not-tested under Pingu\u2019s explicit authorization on 2 November 2026.",
+            "Windows x64 local Docker execution is bounded; EF11 vector-search execution remains not-tested under Pingu’s explicit authorization on 2 November 2026.",
             "Approximate search can omit true nearest rows; no measured recall/performance guarantee."
           ],
           "prerequisites": [

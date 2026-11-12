@@ -68,11 +68,11 @@
               "name": "Microsoft.EntityFrameworkCore.SqlServer",
               "version": "11.0",
               "match": "release-family",
-              "reason": "EF11 SQL translation/defaults; actual baseline 11.0.0. Pin SqlClient7.1.0 and Pkcs10.0.13 as in the complete standalone project."
+              "reason": "EF11 SQL translation/defaults; actual baseline 11.0.0. Pin SqlClient7.1.1 and Pkcs10.0.13 as in the complete standalone project."
             }
           ],
           "packageAssets": [
-            "EF Core/Relational/SQL Server11 lib/net11.0; Microsoft.Data.SqlClient7.1.0 ref/net9.0 with runtimes/win/lib/net9.0 selected for net11.0. Previous EF10 lib/net10.0, SqlClient6.1.7 ref/net9.0 with runtimes/win/lib/net9.0. Resolved transitive closure is recorded in each lock and verification manifest."
+            "EF Core/Relational/SQL Server11 lib/net11.0; Microsoft.Data.SqlClient7.1.1 ref/net9.0 with runtimes/win/lib/net9.0 selected for net11.0. Previous EF10 lib/net10.0, SqlClient6.1.7 ref/net9.0 with runtimes/win/lib/net9.0. Resolved transitive closure is recorded in each lock and verification manifest."
           ],
           "providers": [
             "Microsoft.EntityFrameworkCore.SqlServer; real SQL Server2025 17.0.5035.5 Developer on Linux, disposable databases at compatibility150 and170. Provider setting150 is independent of database compatibility."

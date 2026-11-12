@@ -250,7 +250,7 @@ neither those checks nor retrieval establishes other native platforms or GA.
 
 - [Reviewed .NET Framework and UWP/classic Xamarin breaking-change baseline](https://github.com/dotnet/EntityFramework.Docs/blob/aa051c4c1cad21b2dc03fa401ac0e925c3644606/entity-framework/core/what-is-new/ef-core-11.0/breaking-changes.md)
 - [Microsoft release notes: Sqlite net10.0 minimum](https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/preview7/efcore.md)
-- [Microsoft.Data.Sqlite.Core 11 GA package assets](https://www.nuget.org/packages/Microsoft.Data.Sqlite.Core/11.0.0-rc.2.26504.105)
+- [Microsoft.Data.Sqlite.Core 11 GA package assets](https://www.nuget.org/packages/Microsoft.Data.Sqlite.Core/11.0.0)
 - [Microsoft.Data.Sqlite.Core 10.0.13 package assets](https://www.nuget.org/packages/Microsoft.Data.Sqlite.Core/10.0.13)
 - [EF Core 11 requires .NET 11](https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew)
 - [Microsoft.Data.Sqlite native-library and bundle configuration](https://learn.microsoft.com/en-us/dotnet/standard/data/sqlite/custom-versions)

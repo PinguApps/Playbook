@@ -74,7 +74,7 @@ The independent .NET11 project uses the current pinned extension contracts. Run 
 
 ## Constraints
 
-EF10.0.13/net10.0 versus EF11.0.0/net11.0. SDK10.0.403/C#14 versus SDK11.0.100/C#15. SQL graphs pin Pkcs10.0.13 and SqlClient6.1.7/7.1.0. SQLite uses the locked platform bundle; actual native DLL hashes are in execution records. EF11 requires .NET11; no older-runtime route is offered. No workload or rendering mode applies. No experimental opt-in or NativeAOT claim. GA verification is limited to the recorded checks reconciliation.
+EF10.0.13/net10.0 versus EF11.0.0/net11.0. SDK10.0.403/C#14 versus SDK11.0.100/C#15. SQLite uses the locked platform bundle; actual native DLL hashes are in execution records. EF11 requires .NET11; no older-runtime route is offered. No workload or rendering mode applies. No experimental opt-in or NativeAOT claim. GA verification is limited to the recorded checks reconciliation.
 
 Windows x64 bundled SQLite. Executed on Windows x64; SQL engine runs in the existing Linux container. No other native platform verified.
 
@@ -82,7 +82,7 @@ Windows x64 bundled SQLite. Executed on Windows x64; SQL engine runs in the exis
 
 The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
-The saved compilation and execution records identify exact commands, inputs and dependency graphs. Run eng/Test-TernExtensions.ps1 -Record to refresh them. PIN-959 comprehensive coverage and PIN-965 GA reconciliation remain open. No new .NET10 foundation is added.
+The saved compilation and execution records identify exact commands, inputs and dependency graphs. Run eng/Test-TernExtensions.ps1 -Record to refresh them. PIN-959 comprehensive coverage and PIN-967 final readiness checks remain open. No new .NET10 foundation is added.
 
 ## References
 

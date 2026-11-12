@@ -94,13 +94,13 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Stable migration contract, demonstrated using the .NET11 GA SDK and Sqlite11 GA artifacts. No experimental API or experimental opt-in is used. Actual GA checks are limited to the recorded scope. in the existing release-wide gate."
+            "Stable migration contract, demonstrated using the .NET11 GA SDK and Sqlite11 GA artifacts. No experimental API or experimental opt-in is used. Actual GA checks are limited to the recorded scope; PIN-967 retains the final readiness gate."
           ]
         },
         "sourceUrls": [
           "https://github.com/dotnet/EntityFramework.Docs/blob/aa051c4c1cad21b2dc03fa401ac0e925c3644606/entity-framework/core/what-is-new/ef-core-11.0/breaking-changes.md",
           "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/preview7/efcore.md",
-          "https://www.nuget.org/packages/Microsoft.Data.Sqlite.Core/11.0.0-rc.2.26504.105",
+          "https://www.nuget.org/packages/Microsoft.Data.Sqlite.Core/11.0.0",
           "https://www.nuget.org/packages/Microsoft.Data.Sqlite.Core/10.0.13",
           "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew",
           "https://learn.microsoft.com/en-us/dotnet/standard/data/sqlite/custom-versions"
@@ -174,13 +174,13 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Stable migration contract, demonstrated using .NET SDK 10.0.403/runtime 10.0.14 with Microsoft.Data.Sqlite 11 GA provider artifacts. No experimental API or experimental opt-in is used. Actual GA checks are limited to the recorded scope. in the existing release-wide gate."
+            "Stable migration contract, demonstrated using .NET SDK 10.0.403/runtime 10.0.14 with Microsoft.Data.Sqlite 11 GA provider artifacts. No experimental API or experimental opt-in is used. Actual GA checks are limited to the recorded scope; PIN-967 retains the final readiness gate."
           ]
         },
         "sourceUrls": [
           "https://github.com/dotnet/EntityFramework.Docs/blob/aa051c4c1cad21b2dc03fa401ac0e925c3644606/entity-framework/core/what-is-new/ef-core-11.0/breaking-changes.md",
           "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/preview7/efcore.md",
-          "https://www.nuget.org/packages/Microsoft.Data.Sqlite.Core/11.0.0-rc.2.26504.105",
+          "https://www.nuget.org/packages/Microsoft.Data.Sqlite.Core/11.0.0",
           "https://www.nuget.org/packages/Microsoft.Data.Sqlite.Core/10.0.13",
           "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew",
           "https://learn.microsoft.com/en-us/dotnet/standard/data/sqlite/custom-versions"
@@ -195,7 +195,7 @@
         "usage": "optional-alternative",
         "selectionNotes": [
           "Retain provider10 deliberately: this net10.0 comparison still works; the separate net48 baseline proves the earlier-dependency alternative on Windows.",
-          "Retained-provider proof uses .NET SDK 10.0.403/runtime 10.0.14 with Microsoft.Data.Sqlite 10.0.13. The separate Sqlite11 comparison has GA, proof. UWP/classic Xamarin native paths are excluded.",
+          "Retained-provider proof uses .NET SDK 10.0.403/runtime 10.0.14 with Microsoft.Data.Sqlite 10.0.13. The separate Sqlite11 comparison has GA proof. UWP/classic Xamarin native paths are excluded.",
           "This 11.0 migration edition does not add a .NET 10 foundation or a .NET Framework catalogue target."
         ],
         "requirements": {
@@ -260,7 +260,7 @@
         "sourceUrls": [
           "https://github.com/dotnet/EntityFramework.Docs/blob/aa051c4c1cad21b2dc03fa401ac0e925c3644606/entity-framework/core/what-is-new/ef-core-11.0/breaking-changes.md",
           "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/preview7/efcore.md",
-          "https://www.nuget.org/packages/Microsoft.Data.Sqlite.Core/11.0.0-rc.2.26504.105",
+          "https://www.nuget.org/packages/Microsoft.Data.Sqlite.Core/11.0.0",
           "https://www.nuget.org/packages/Microsoft.Data.Sqlite.Core/10.0.13",
           "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew",
           "https://learn.microsoft.com/en-us/dotnet/standard/data/sqlite/custom-versions"
@@ -281,8 +281,8 @@
       "url": "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/preview7/efcore.md"
     },
     {
-      "title": "Microsoft.Data.Sqlite.Core 11 RC2 package assets",
-      "url": "https://www.nuget.org/packages/Microsoft.Data.Sqlite.Core/11.0.0-rc.2.26504.105"
+      "title": "Microsoft.Data.Sqlite.Core 11 GA package assets",
+      "url": "https://www.nuget.org/packages/Microsoft.Data.Sqlite.Core/11.0.0"
     },
     {
       "title": "Microsoft.Data.Sqlite.Core 10.0.13 package assets",

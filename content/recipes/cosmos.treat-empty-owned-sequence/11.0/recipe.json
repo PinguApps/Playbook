@@ -69,7 +69,7 @@
               "name": "Microsoft.Azure.Cosmos",
               "reason": "Independent document read-back and approved emulator transport; both comparison consumers pin this SDK.",
               "match": "exact",
-              "version": "3.63.1"
+              "version": "3.63.2"
             },
             {
               "name": "Newtonsoft.Json",
@@ -79,10 +79,10 @@
             }
           ],
           "packageAssets": [
-            "EF Cosmos11 lib/net11.0; EF Cosmos10 lib/net10.0. Both consumers select Microsoft.Azure.Cosmos3.63.1 lib/netstandard2.0 (Client, Core, Direct and Serialization.HybridRow) and Newtonsoft.Json13.0.4 lib/net6.0. Full transitive and native assets are pinned by each package lock."
+            "EF Cosmos11 lib/net11.0; EF Cosmos10 lib/net10.0. The older consumer selects Microsoft.Azure.Cosmos3.63.1 and the current consumer selects Microsoft.Azure.Cosmos3.63.2; both use lib/netstandard2.0 (Client, Core, Direct and Serialization.HybridRow) and Newtonsoft.Json13.0.4 lib/net6.0. Full transitive and native assets are pinned by each package lock."
           ],
           "providers": [
-            "Microsoft.EntityFrameworkCore.Cosmos11.0.0 and Microsoft.Azure.Cosmos3.63.1 against the approved legacy Linux NoSQL emulator2.14.28.0, loopback HTTPS gateway and a uniquely marked playbook_ database. No cloud/account parity."
+            "Microsoft.EntityFrameworkCore.Cosmos11.0.0 and Microsoft.Azure.Cosmos3.63.2 against the approved legacy Linux NoSQL emulator2.14.28.0, loopback HTTPS gateway and a uniquely marked playbook_ database. No cloud/account parity."
           ],
           "workloads": [],
           "platforms": [

@@ -11,7 +11,7 @@ db.Counts.Add(new Count { Id = 1, NestId = 1, Birds = 12 });
 db.SaveChanges();
 Console.WriteLine($"SQLite {db.Database.SqlQueryRaw<string>("select sqlite_version() as Value").Single()}");
 
-if (args.Contains("--qualify-final")) FinalProjection.Qualify(db);
+FinalProjection.Qualify(db);
 void Check(string name, Func<int[]> query, int[] expected)
 {
     var actual = query();

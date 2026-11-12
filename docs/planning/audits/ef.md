@@ -1134,3 +1134,14 @@ support these bounded deliveries. No additional .NET10 foundation or recurring
 native/client/OS matrix is introduced. Historical source manifests are unchanged.
 PIN-959 qualifying coverage, PIN-965 actual-GA reconciliation and Human gates
 remain separate obligations; this delivery does not establish their closure.
+
+## Shipped E25 qualification — PIN-1313
+
+The historical RC disposition above is retained. The actual EF11.0.0 SQLite
+graph reproduces DTO/anonymous/grouped/default-struct materialization failures
+and nullable-struct translation rejection. Both pinned PloverQueries consumers
+now assert exact nullable-marker fallback results and SQL/client composition.
+The unsupported direct-route promise is withdrawn; final-artifact qualification
+is resolved for this bounded fallback. Other providers/platforms and PIN-967's
+final readiness gate remain separate. See ga-ef-contracts.md for PIN-1314's
+requirements/source-label reconciliation.

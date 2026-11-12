@@ -183,5 +183,5 @@ and GA release gates remain pending outside this bounded recipe.
 - [Microsoft native provider configuration](https://learn.microsoft.com/en-us/dotnet/standard/data/sqlite/custom-versions)
 - [Retained Windows system bundle 2.1.11](https://www.nuget.org/packages/SQLitePCLRaw.bundle_winsqlite3/2.1.11)
 - [Windows system provider 3.0.5](https://www.nuget.org/packages/SQLitePCLRaw.provider.winsqlite3/3.0.5)
-- [Direct managed provider GA target assets](https://www.nuget.org/packages/Microsoft.Data.Sqlite.Core/11.0.0-rc.2.26504.105)
+- [Direct managed provider GA target assets](https://www.nuget.org/packages/Microsoft.Data.Sqlite.Core/11.0.0)
 - [Preview 6 SQLite3MC dependency announcement, not the GA graph](https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/preview6/efcore.md)

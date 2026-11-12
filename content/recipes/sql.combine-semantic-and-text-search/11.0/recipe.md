@@ -10,7 +10,7 @@ The score is textRank/1000 + (1 - cosineDistance/2), with a missing text rank co
 
 The full executable requires SQL Server2025 with full-text installed and English language support, compatibility170 and native vector(3). The vector portion uses exact VECTOR_DISTANCE, not VECTOR_SEARCH, WithApproximate or a vector index. It requires no PREVIEW_FEATURES opt-in. EF vector APIs remain experimental EF9105 and the sample explicitly accepts that risk. Full-text modeling and ranked functions themselves are not marked experimental. No renderer or workload is needed.
 
-Current artifacts are SDK11.0.100 / EF11 GA / SqlClient7.1.0. Previous artifacts are SDK10.0.403 / EF10.0.13 / SqlClient6.1.7. Both pin Pkcs10.0.13 rather than accepting the older transitive dependency. EF11 needs net11.0; no EF11-on-net10 route is claimed. Exact package assets and platform limits are in applicability.
+Current artifacts are SDK11.0.100 / EF11 GA / SqlClient7.1.1. Previous artifacts are SDK10.0.403 / EF10.0.13 / SqlClient6.1.7. Both pin Pkcs10.0.13 rather than accepting the older transitive dependency. EF11 needs net11.0; no EF11-on-net10 route is claimed. Exact package assets and platform limits are in applicability.
 
 Full-text DDL runs outside explicit transactions. Population is asynchronous: the bounded readiness wait checks actual matches. Production code should treat freshness as an operational concern. Use only an empty, exclusively owned database: the executable creates and removes its schema. It is an authoring check, not a startup migration strategy. Do not expose an unrestricted full-text search grammar unless that is your intended user interface; parameterization prevents SQL injection but does not validate search expressions.
 

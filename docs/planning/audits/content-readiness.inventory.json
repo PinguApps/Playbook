@@ -16620,18 +16620,6 @@
       ]
     },
     {
-      "id": "ef.materialize-missing-projection",
-      "edition": "11.0",
-      "humanProof": {
-        "status": "pending",
-        "scope": "Final package qualification is deferred by Pingu; no Human approval or successful direct materialization is inferred. Actual-GA reconciliation remains outstanding; PIN-959 permits this explicitly provisional preview."
-      },
-      "samples": [
-        "samples/net10.0/PloverQueries/PloverQueries.csproj",
-        "samples/net11.0/PloverQueries/PloverQueries.csproj"
-      ]
-    },
-    {
       "id": "numerics.align-tensor-shapes",
       "edition": "11.0",
       "humanProof": {
@@ -16707,7 +16695,7 @@
   },
   "previewPolicy": {
     "path": "content/preview-evidence.json",
-    "sha256": "b72f7331701d3e8f9e1c9977e36d05c14f71e2e384c7b5e3355f8d64a7f847e1",
+    "sha256": "f461ec1c0873e7b87d31227b03fd24e983ebd5edd02844f752231cff60681ee1",
     "approvedBy": "Pingu",
     "approvedOn": "2026-11-08",
     "implementationCommit": "28de282680e14de82a09e405d603869d119fccb0",

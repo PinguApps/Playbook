@@ -6,7 +6,7 @@ Restore built-in Entra authentication for EF SQL Server and SQL distributed cach
 
 ## When to use
 
-EF SQL Server and SQL distributed cache share this dependency-migration goal. SqlClient 6.1.7 includes built-in Entra providers; SqlClient 7.1.0 requires the directly referenced matching Microsoft.Data.SqlClient.Extensions.Azure 7.1.0 for driver-managed Active Directory authentication. Active Directory Default selects credentials available to the host; review that selection explicitly. Replace obsolete Active Directory Password with a supported host-appropriate flow. No password mode is retained in these samples. Application-supplied AccessToken/AccessTokenCallback does not require this extension merely to supply a token.
+EF SQL Server and SQL distributed cache share this dependency-migration goal. SqlClient 6.1.7 includes built-in Entra providers; SqlClient 7.1.1 requires the directly referenced matching Microsoft.Data.SqlClient.Extensions.Azure 7.1.0 for driver-managed Active Directory authentication. Active Directory Default selects credentials available to the host; review that selection explicitly. Replace obsolete Active Directory Password with a supported host-appropriate flow. No password mode is retained in these samples. Application-supplied AccessToken/AccessTokenCallback does not require this extension merely to supply a token.
 
 ## Older approach
 
@@ -74,7 +74,7 @@ Reference both driver and Azure extension explicitly. Keep EF and SQL cache alig
 
 ## Constraints
 
-Actual SDK10.0.403/C#14/EF10.0.13/cache10.0.13/SqlClient6.1.7 versus SDK11.0.100/C#15/EF11 and cache11.0.0/SqlClient7.1.0/Azure extension7.1.0. Exact asset graphs are locked in each sample; runtime and package version are separate constraints. No older-runtime EF11 route is offered. Windows x64 compilation, configuration execution and real certificate-backed Default EF/cache authentication; no rendering mode, workload or experimental opt-in. Recorded evidence is limited to the recorded checks.
+Actual SDK10.0.403/C#14/EF10.0.13/cache10.0.13/SqlClient6.1.7 versus SDK11.0.100/C#15/EF11 and cache11.0.0/SqlClient7.1.1/Azure extension7.1.0. Exact asset graphs are locked in each sample; runtime and package version are separate constraints. No older-runtime EF11 route is offered. Windows x64 compilation, configuration execution and real certificate-backed Default EF/cache authentication; no rendering mode, workload or experimental opt-in. Recorded evidence is limited to the recorded checks.
 
 PIN-679 normally provides a SELECT-only certificate identity. For PIN-958, Pingu approved a separate temporary cache table and table-only DML grants. Both original samples used Default with certificate environment configuration, without injected tokens or custom providers. The table and extra grants were removed after verification. Future runs require the same authorized isolated scope; do not bypass restrictions. SQL password and Windows integrated security do not require this extension. No resources are provisioned by this recipe.
 
@@ -82,7 +82,7 @@ PIN-679 normally provides a SELECT-only certificate identity. For PIN-958, Pingu
 
 The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
-The canonical projects compile and execute local registration checks. Their verification records retain exact resolved dependencies and source hashes. On 7 November 2026, PIN-958 exercised both unchanged original samples against the isolated PIN-679 SQL Server 2025 RTM-CU10 instance. Driver-managed Active Directory Default selected the approved application certificate through EnvironmentCredential. Actual EF login and SQL cache write/read/remove passed, with no rows remaining. Temporary table/grants were removed and the container returned to its original stopped state. Exact source/lock/runner hashes and resolved graphs are retained in docs/verification/entra-sql.json. Run eng/Test-MarshEntra.ps1 -CheckEvidence to check input freshness, or rerun the authorized check with -Record after relevant changes. No interactive/MFA, managed/workload identity, production TLS trust or GA proof is claimed; PIN-965 owns GA reconciliation.
+The canonical projects compile and execute local registration checks. Their verification records retain exact resolved dependencies and source hashes. On 7 November 2026, PIN-958 exercised both unchanged original samples against the isolated PIN-679 SQL Server 2025 RTM-CU10 instance. Driver-managed Active Directory Default selected the approved application certificate through EnvironmentCredential. Actual EF login and SQL cache write/read/remove passed, with no rows remaining. Temporary table/grants were removed and the container returned to its original stopped state. Exact source/lock/runner hashes and resolved graphs are retained in docs/verification/entra-sql.json. Run eng/Test-MarshEntra.ps1 -CheckEvidence to check input freshness, or rerun the authorized check with -Record after relevant changes. No interactive/MFA, managed/workload identity, production TLS trust or GA proof is claimed; PIN-967 owns final GA readiness checks.
 
 ## References
 

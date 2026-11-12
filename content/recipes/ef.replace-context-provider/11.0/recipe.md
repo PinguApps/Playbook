@@ -199,8 +199,8 @@ The ordinary packed tool is separately installed through the existing local-only
 feed/cache inspector and queried over stdio from an unrelated directory. That check
 compares discovery ID/title/goal, target11/edition11, complete canonical Markdown,
 applicability and current evidence. It proves embedded offline retrieval with
-unusable proxies, not network isolation. PIN-959 comprehensive coverage and PIN-965
-actual-GA reconciliation remain open. M (3) covers the bounded DI/provider pair,
+unusable proxies, not network isolation. PIN-959 comprehensive coverage and PIN-967
+actual-final readiness checks remain open. M (3) covers the bounded DI/provider pair,
 registration lifetimes and realistic failure controls; no provider matrix is added.
 
 ## Official references

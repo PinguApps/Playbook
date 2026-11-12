@@ -2,7 +2,7 @@
   "id": "ef.materialize-missing-projection",
   "edition": "11.0",
   "title": "Preserve missing non-entity join results",
-  "goal": "Apply the documented .NET11 missing-object join semantics, with explicit-marker fallback while measured the measured GA packages still fail.",
+  "goal": "Preserve unmatched join rows using nullable scalar markers when shipped EF projections cannot materialize missing objects.",
   "areas": [
     "ef-core"
   ],
@@ -31,8 +31,7 @@
           "https://github.com/PinguApps/Playbook/blob/a7fd46cd658708c25a7e0d032735760c3fe6d63f/docs/planning/audits/ef.md"
         ],
         "selectionNotes": [
-          "Pingu authorized provisional guidance on 5 November 2026 for the RC-era discrepancy. The GA rerun also observes that EF11 direct DTO/anonymous projections throw on unmatched rows, including grouped DTO/default struct. Nullable struct composition fails translation. The explicit nullable marker returns -1 and 12 on both editions. Intended direct semantics and final artifact behavior remain pending; compilation and recorded failures are not successful execution proof.",
-          "Provisional pre-GA guidance: pending behavior/final-artifact proof is not successful execution or GA verification."
+          "Actual EF11.0.0 SQLite Windows x64: DTO, anonymous, grouped DTO and default-struct unmatched rows fail materialization after successful translation; nullable-struct composition fails translation. Both pinned consumers verify nullable-marker scalar projection, explicit client DTO/null, nullable/default struct construction, populated (1,12), SQL filtering and client grouping. Direct whole-object missing semantics are withdrawn for this graph. Other providers/platforms are not-tested."
         ],
         "usage": "primary",
         "target": "11.0",
@@ -74,21 +73,20 @@
           ],
           "workloads": [],
           "platforms": [
-            "Executed Windows x64 only; other platforms and GA unverified."
+            "Executed Windows x64 with actual GA EF11 and pinned EF10 comparison; other platforms not-tested."
           ],
           "renderingModes": [
             "Not applicable: console/database extension."
           ],
           "constraints": [
-            "Pingu authorized provisional guidance on 5 November 2026 for the RC-era discrepancy. The GA rerun also observes that EF11 direct DTO/anonymous projections throw on unmatched rows, including grouped DTO/default struct. Nullable struct composition fails translation. The explicit nullable marker returns -1 and 12 on both editions. Intended direct semantics and final artifact behavior remain pending; compilation and recorded failures are not successful execution proof."
+            "Actual EF11.0.0 SQLite Windows x64: DTO, anonymous, grouped DTO and default-struct unmatched rows fail materialization after successful translation; nullable-struct composition fails translation. Both pinned consumers verify nullable-marker scalar projection, explicit client DTO/null, nullable/default struct construction, populated (1,12), SQL filtering and client grouping. Direct whole-object missing semantics are withdrawn for this graph. Other providers/platforms are not-tested."
           ],
           "prerequisites": [
             "Restore with each local global.json pin. Use PowerShell7.3+. No production resources or persistent environment changes."
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Pingu authorized provisional guidance on 5 November 2026 for the RC-era discrepancy. The GA rerun also observes that EF11 direct DTO/anonymous projections throw on unmatched rows, including grouped DTO/default struct. Nullable struct composition fails translation. The explicit nullable marker returns -1 and 12 on both editions. Intended direct semantics and final artifact behavior remain pending; compilation and recorded failures are not successful execution proof.",
-            "Provisional pre-GA guidance: pending behavior/final-artifact proof is not successful execution or GA verification."
+            "Direct missing-object projection is unsupported on the measured shipped graph; use the tested marker fallback."
           ]
         },
         "conditional": false,
@@ -119,7 +117,7 @@
       "kind": "compile-and-run",
       "language": "14.0",
       "sample": "samples/net10.0/PloverQueries/PloverQueries.csproj",
-      "scope": "Pingu authorized provisional guidance on 5 November 2026 for the RC-era discrepancy. The GA rerun also observes that EF11 direct DTO/anonymous projections throw on unmatched rows, including grouped DTO/default struct. Nullable struct composition fails translation. The explicit nullable marker returns -1 and 12 on both editions. Intended direct semantics and final artifact behavior remain pending; compilation and recorded failures are not successful execution proof."
+      "scope": "Actual EF11.0.0 SQLite Windows x64: DTO, anonymous, grouped DTO and default-struct unmatched rows fail materialization after successful translation; nullable-struct composition fails translation. Both pinned consumers verify nullable-marker scalar projection, explicit client DTO/null, nullable/default struct construction, populated (1,12), SQL filtering and client grouping. Direct whole-object missing semantics are withdrawn for this graph. Other providers/platforms are not-tested."
     },
     {
       "sdk": "11.0.100",
@@ -127,7 +125,7 @@
       "kind": "compile-and-run",
       "language": "15.0",
       "sample": "samples/net11.0/PloverQueries/PloverQueries.csproj",
-      "scope": "Pingu authorized provisional guidance on 5 November 2026 for the RC-era discrepancy. The GA rerun also observes that EF11 direct DTO/anonymous projections throw on unmatched rows, including grouped DTO/default struct. Nullable struct composition fails translation. The explicit nullable marker returns -1 and 12 on both editions. Intended direct semantics and final artifact behavior remain pending; compilation and recorded failures are not successful execution proof."
+      "scope": "Actual EF11.0.0 SQLite Windows x64: DTO, anonymous, grouped DTO and default-struct unmatched rows fail materialization after successful translation; nullable-struct composition fails translation. Both pinned consumers verify nullable-marker scalar projection, explicit client DTO/null, nullable/default struct construction, populated (1,12), SQL filtering and client grouping. Direct whole-object missing semantics are withdrawn for this graph. Other providers/platforms are not-tested."
     }
   ],
   "snippets": {
@@ -195,10 +193,15 @@
       "path": "samples/net10.0/PloverQueries/global.json",
       "language": "json",
       "region": "complete"
+    },
+    "n10-finalprojection-cs": {
+      "region": "complete",
+      "language": "csharp",
+      "path": "samples/net10.0/PloverQueries/FinalProjection.cs"
     }
   },
   "humanProof": {
-    "status": "pending",
-    "scope": "Final package qualification is deferred by Pingu; no Human approval or successful direct materialization is inferred. Actual-GA reconciliation remains outstanding; PIN-959 permits this explicitly provisional preview."
+    "status": "not-required",
+    "scope": "Automated SQLite checks establish the bounded fallback and direct-route failures; no interactive Human approval required. Other release gates remain independent."
   }
 }
