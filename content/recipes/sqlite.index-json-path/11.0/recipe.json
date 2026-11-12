@@ -113,7 +113,7 @@
       "target": "net10.0",
       "kind": "compile-and-run",
       "language": "14.0",
-      "scope": "Real Windows x64 SQLite migrations, physical schema and exact scalar/position query results. EF11 checks per-element metadata, null/empty/mixed sort lists, count mismatch and unsupported all-elements rejection. No query-plan, performance, SQL Server execution, other-platform or AOT claim."
+      "scope": "Real SDK10.0.403/EF10.0.13 Windows x64 bundled SQLite: apply explicit expression-index migration, assert physical schema and exact scalar/fixed-position results. EF11-only metadata and rejection controls are in the separate current-consumer receipt. No performance, SQL Server, other-platform or AOT claim."
     },
     {
       "sample": "samples/net11.0/KestrelCrates/KestrelCrates.csproj",

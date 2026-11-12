@@ -66,7 +66,7 @@ stages disabled. Its receipt is not generated-artifact proof. The EF11 route abo
 executes actual GA compiled-model/query artifacts on Windows x64 with bundled
 SQLite. The original automatic route's failure remains visible. No NativeAOT,
 other-provider, arbitrary-query or other-platform qualification is claimed.
-MSBuild/precompilation remain experimental and unsuitable for production.
+MSBuild/precompilation remain experimental and unsuitable for production. No performance gain is established.
 
 The resolved generation exception is removed; other preview exceptions, the eight
 foundations and PIN-967's global stable-release gate remain unchanged.

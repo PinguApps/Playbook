@@ -12,6 +12,8 @@ try {
  $sample=Join-Path $root 'samples/net11.0/FernGeneration'
  $tool=Join-Path $root 'artifacts/ef11'
  if (!(Test-Path "$tool/dotnet-ef.exe")) { & $Dotnet tool install dotnet-ef --version 11.0.0 --tool-path $tool }
+ $cliVersion=(& "$tool/dotnet-ef.exe" --version 2>&1 | Out-String).Trim()
+ if ($cliVersion -notmatch '(?m)^11\.0\.0\s*$') {throw "Expected dotnet-ef11.0.0; received: $cliVersion"}
  Push-Location $sample
  try {
   & $Dotnet build -c Release -p:EFPrecompileQueriesStage=none
@@ -31,7 +33,7 @@ try {
    foreach($file in @((Get-ChildItem CompiledModel -Filter '*.cs').FullName) + @($manifest)) {
     $hashes[[IO.Path]::GetRelativePath($sample,$file).Replace('\','/')]=(Get-FileHash -LiteralPath $file -Algorithm SHA256).Hash.ToLowerInvariant()
    }
-   $receipt=[ordered]@{recordedAt=[DateTimeOffset]::UtcNow.ToString('O');sdk=(& $Dotnet --version);cli=(& "$tool/dotnet-ef.exe" --version);inputs=(Get-EvidenceInputs $root 'samples/net11.0/FernGeneration/FernGeneration.csproj');generatedSources=$hashes;scope='CLI compiled model and Tasks publish interceptors compiled; published SQLite app executed with --require-model. NativeAOT not-tested. Automatic clean model-build failure is not relabelled as success.'}
+   $receipt=[ordered]@{recordedAt=[DateTimeOffset]::UtcNow.ToString('O');sdk=(& $Dotnet --version);cli=$cliVersion;inputs=(Get-EvidenceInputs $root 'samples/net11.0/FernGeneration/FernGeneration.csproj');generatedSources=$hashes;scope='CLI compiled model and Tasks publish interceptors compiled; published SQLite app executed with --require-model. NativeAOT not-tested. Automatic clean model-build failure is not relabelled as success.'}
    [IO.File]::WriteAllText((Join-Path $sample 'generation.evidence.json'),($receipt|ConvertTo-Json -Depth 12)+"`n")
   }
   Write-Output 'PASS: CLI compiled model, Tasks publish interceptors, published SQLite execution. NativeAOT not tested.'
