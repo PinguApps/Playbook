@@ -31,7 +31,7 @@ try {
         $compiler = "$dotnetRoot/sdk/11.0.100/Roslyn/bincore/csc.dll"
         $referenceDirectory = "$dotnetRoot/packs/Microsoft.NETCore.App.Ref/11.0.0/ref/net11.0"
         if (-not (Test-Path $compiler) -or -not (Test-Path $referenceDirectory)) {
-            throw 'Reference compilation requires the pinned RC3 SDK and reference pack; pass -Dotnet with that installation executable.'
+            throw 'Reference compilation requires the pinned GA SDK and reference pack; pass -Dotnet with that installation executable.'
         }
         $references = @(Get-ChildItem "$dotnetRoot/packs/Microsoft.NETCore.App.Ref/11.0.0/ref/net11.0/*.dll") + @(Get-Item "$scratch/reference/ref/net11.0/Microsoft.iOS.dll")
         [IO.File]::WriteAllText("$scratch/GlobalUsings.cs", 'global using System;')
@@ -58,18 +58,18 @@ try {
                 target=if($name -eq 'TernPublish'){'net11.0-maccatalyst27.0'}else{'net11.0-ios27.0'}
                 sdk='11.0.100'; language='15.0'
                 command='eng/Test-AppleRoutes.ps1 -Record'
-                scope='Exact RC2 Apple handler/build source review. Native compilation and execution not-tested under PIN-699; no native publish output or endpoint observation.'
+                scope='Exact GA Apple handler/build source review. Native compilation and execution not-tested under PIN-699; no native publish output or endpoint observation.'
                 recordedAt=[DateTimeOffset]::UtcNow.ToString('O')
                 sourceCommit=(& $Git -C $root rev-parse HEAD).Trim()
                 sourceDirty=[bool](& $Git -C $root status --porcelain -- samples/AppleRoutes "samples/net11.0/$name" eng/Test-AppleRoutes.ps1)
                 inputs=(Get-EvidenceInputs $root $sample); dependencies=@(); workloads=@(); nativeToolchains=@()
                 host=[Runtime.InteropServices.RuntimeInformation]::OSDescription
-                sdkInfo='Intended RC3 SDK pin; no compatible current Apple workload installed.'
+                sdkInfo='Intended GA SDK pin; no compatible current Apple workload installed.'
                 workloadInfo='Apple workload/Xcode execution unavailable.'
                 output='PASS exact official-source hashes. Source review is not compilation or execution.'
             }
             [IO.File]::WriteAllText("$root/samples/net11.0/$name/verification-evidence.json",(ConvertTo-Json $receipt -Depth 30)+"`n")
         }
     }
-    Write-Host 'PASS exact Apple RC2 handler/build sources; native behaviour not-tested.'
+    Write-Host 'PASS exact Apple GA handler/build sources; native behaviour not-tested.'
 } finally { $client.Dispose() }

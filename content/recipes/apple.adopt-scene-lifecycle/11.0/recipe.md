@@ -195,6 +195,15 @@ older-target route and leaves the eight curated .NET10 foundations unchanged.
 
 ## Constraints
 
+The GA Apple manifest task validates the merged plist, including partial
+manifests. With validation enabled, iOS and Mac Catalyst apps built against
+SDK27+ fail MT7199 when `UIApplicationSceneManifest` is missing. App extensions,
+frameworks and other Apple platforms are excluded. An empty dictionary is valid
+when the app delegate supplies configurations dynamically. A declaration in an
+unmerged source file is not proof that the final plist contains the key. Inspect
+the compiled manifest; do not disable validation as a substitute for implementing
+the scene lifecycle. This task validation does not establish native launch behavior.
+
 Use the explicit runtime, SDK, package assets, platforms and requirements returned
 with this recipe. These samples target .NET11 with a .NET10 comparison. The ordinary
 Playbook host requires no native workload. No external provider, account, render

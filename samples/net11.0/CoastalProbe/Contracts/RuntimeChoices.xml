@@ -1,0 +1,12 @@
+<Project>
+  <PropertyGroup>
+    <!-- snippet:rejected -->
+    <!-- Rejected on CoreCLR: XA1044. -->
+    <RunAOTCompilation>false</RunAOTCompilation>
+    <!-- endsnippet:rejected -->
+    <!-- snippet:corrected -->
+    <!-- Remove RunAOTCompilation; deliberately disable CoreCLR ReadyToRun. -->
+    <PublishReadyToRun>false</PublishReadyToRun>
+    <!-- endsnippet:corrected -->
+  </PropertyGroup>
+</Project>

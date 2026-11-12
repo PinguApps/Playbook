@@ -61,11 +61,11 @@
               "name": "android",
               "version": "11.0",
               "match": "release-family",
-              "reason": "Compatible .NET11 Android workload required. Reviewed GA manifest/reference assets are37.2.29; no compatible GA workload composition was tested."
+              "reason": "Compatible .NET11 Android workload required. Reviewed GA manifest/reference assets are37.2.31; no compatible GA workload composition was tested."
             }
           ],
           "packageAssets": [
-            "Microsoft.Android.Ref.37.2/37.2.29 ref/net11.0/Mono.Android.dll"
+            "Microsoft.Android.Ref.37.2/37.2.31 ref/net11.0/Mono.Android.dll"
           ],
           "providers": [
             "No external service or account"
@@ -77,6 +77,7 @@
             "Native Android Activity; no Blazor render mode"
           ],
           "prerequisites": [
+            "GA composition: workload set 11.0.100.1 (Microsoft.NET.Workloads.11.0.100/11.100.1), Android 37.2.31, Apple 27.2.11039 and MAUI 11.0.0. Use JDK21 or25 and the selected Android SDK API37/build tools; Gradle9.1+ when invoked with JDK25. Apple requires Xcode27.2 on macOS Tahoe26.6+; the upstream Apple release says16.6+, conflicting with Apple host requirements. Binding SDK versions are not deployment floors. This source/artifact selection does not establish a locally installed native workload or native execution.",
             "JDK21 or25, Android SDK including selected API; Gradle9.1+ if invoked using JDK25.",
             "A compatible native workload. The current sample build reports NETSDK1147."
           ],
@@ -155,7 +156,7 @@
       "target": "net11.0-android37.2",
       "sdk": "11.0.100",
       "language": "15.0",
-      "scope": "RC2 source and actual reference metadata; GA build fails NETSDK1147. No native compile or execution."
+      "scope": "Actual Android37.2.31 reference/generator compilation and isolated CS0619/XA1044 task controls; no full native build or device execution."
     }
   ],
   "humanProof": {
@@ -167,6 +168,8 @@
     ]
   },
   "snippets": {
+    "callback-api": {"path":"samples/net11.0/CoastalProbe/Contracts/api.xml","language":"xml","region":"complete"},
+    "rejected-callback": {"path":"samples/net11.0/CoastalProbe/Contracts/RejectedCallback.cs.txt","language":"csharp","region":"complete"},
     "net10-coastalprobe-csproj": {
       "path": "samples/net10.0/CoastalProbe/CoastalProbe.csproj",
       "region": "complete",

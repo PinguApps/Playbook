@@ -1,7 +1,7 @@
 [
   {
-    "sha256": "ee5b6dff2651b8ae6e01a9daab11b6bc7784c6b9018d04de2ec94fe32b29ab5c",
-    "url": "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/src/Foundation/NSUrlSessionHandler.cs",
+    "sha256": "4897b22737ee961ac26bd309ef780f8c4fddcacaae883f4c812337c4f5bf8caa",
+    "url": "https://raw.githubusercontent.com/dotnet/macios/34b3b25d471c22f2a62c36ec0971b021d0a0e000/src/Foundation/NSUrlSessionHandler.cs",
     "checks": [
       "if (proxyConfigured)",
       "proxy.GetProxy (destination)",
@@ -13,16 +13,16 @@
     ]
   },
   {
-    "sha256": "a6e1687d5e4d3cde4f386f8027e34a3a0a92e9cd67bc84ed8611908e8968a68a",
-    "url": "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/docs/building-apps/build-properties.md"
+    "sha256": "b79e4ee6d0c2af4fc2f5c66dd7e9852d581821d407743ac3721b4eac4422d5d9",
+    "url": "https://raw.githubusercontent.com/dotnet/macios/34b3b25d471c22f2a62c36ec0971b021d0a0e000/docs/building-apps/build-properties.md"
   },
   {
-    "sha256": "b2af4d89e3dde1324d7e7d3f2775fbd62108beef01da5aad6e279a841879a990",
-    "url": "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/dotnet/targets/Xamarin.Shared.Sdk.targets"
+    "sha256": "e0ddcb15fad749c2a7721da18702b4f0224284070f944f45d312deaf841c5079",
+    "url": "https://raw.githubusercontent.com/dotnet/macios/34b3b25d471c22f2a62c36ec0971b021d0a0e000/dotnet/targets/Xamarin.Shared.Sdk.targets"
   },
   {
     "sha256": "e9f36f0593b0af703cd8dd95ff9a32f28681dd00e321b61d9083c236ec45ee8c",
-    "url": "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/dotnet/targets/Xamarin.Shared.Sdk.props"
+    "url": "https://raw.githubusercontent.com/dotnet/macios/34b3b25d471c22f2a62c36ec0971b021d0a0e000/dotnet/targets/Xamarin.Shared.Sdk.props"
   },
   {
     "url": "https://api.nuget.org/v3-flatcontainer/microsoft.maccatalyst.ref.net11.0_27.2/27.2.11039/microsoft.maccatalyst.ref.net11.0_27.2.27.2.11039.nupkg",

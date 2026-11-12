@@ -1,27 +1,27 @@
 [
   {
-    "url": "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/docs/building-apps/build-items.md",
-    "sha256": "c6fae142b0151513f7519a8908b6ece4b0dcb8db1e9ff3dff412cd77613d4a0a"
+    "url": "https://raw.githubusercontent.com/dotnet/macios/34b3b25d471c22f2a62c36ec0971b021d0a0e000/docs/building-apps/build-items.md",
+    "sha256": "a3697288a8db78a37819f4b2cdad4d9d6bec8e68c4460ce3a839a5723a40f670"
   },
   {
-    "url": "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/docs/building-apps/build-properties.md",
-    "sha256": "a6e1687d5e4d3cde4f386f8027e34a3a0a92e9cd67bc84ed8611908e8968a68a"
+    "url": "https://raw.githubusercontent.com/dotnet/macios/34b3b25d471c22f2a62c36ec0971b021d0a0e000/docs/building-apps/build-properties.md",
+    "sha256": "b79e4ee6d0c2af4fc2f5c66dd7e9852d581821d407743ac3721b4eac4422d5d9"
   },
   {
-    "url": "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/docs/website/binding_types_reference_guide.md",
+    "url": "https://raw.githubusercontent.com/dotnet/macios/34b3b25d471c22f2a62c36ec0971b021d0a0e000/docs/website/binding_types_reference_guide.md",
     "sha256": "fec9a1fe1dae952cf4e02df0b20a5af80e59781a86360cc5bd5c3c535b03a4a3"
   },
   {
-    "url": "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/msbuild/Xamarin.MacDev.Tasks/Tasks/CompileAppManifest.cs",
-    "sha256": "7d468c74413fc1dfedea3f557de50c2e0f89bf5b4e20fe65a82f932077a76972"
+    "url": "https://raw.githubusercontent.com/dotnet/macios/34b3b25d471c22f2a62c36ec0971b021d0a0e000/msbuild/Xamarin.MacDev.Tasks/Tasks/CompileAppManifest.cs",
+    "sha256": "b1ea3f80f89d8cef3dc5d5bc85f481065a7486aada4838db954687fdd5e4cbd2"
   },
   {
-    "url": "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/msbuild/Xamarin.MacDev.Tasks/Tasks/StripFrameworkHeaders.cs",
+    "url": "https://raw.githubusercontent.com/dotnet/macios/34b3b25d471c22f2a62c36ec0971b021d0a0e000/msbuild/Xamarin.MacDev.Tasks/Tasks/StripFrameworkHeaders.cs",
     "sha256": "e5e5d9b7fc43be72a4888406754c4dd489bd24901dc3095dd5a7c496cf8fcd87"
   },
   {
-    "url": "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/dotnet/targets/Xamarin.Shared.Sdk.targets",
-    "sha256": "b2af4d89e3dde1324d7e7d3f2775fbd62108beef01da5aad6e279a841879a990"
+    "url": "https://raw.githubusercontent.com/dotnet/macios/34b3b25d471c22f2a62c36ec0971b021d0a0e000/dotnet/targets/Xamarin.Shared.Sdk.targets",
+    "sha256": "e0ddcb15fad749c2a7721da18702b4f0224284070f944f45d312deaf841c5079"
   },
   {
     "sha256": "c1eb5b989fc315c2bb1f577299c95cef61654de64ebcd4eed7ab8401180f5063",

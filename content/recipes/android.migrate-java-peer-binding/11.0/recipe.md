@@ -56,6 +56,27 @@ The .NET10 comparison uses Mono and the existing generated Java wrappers. Explic
 
 ## Migration
 
+### Rebuild source bindings that create JNI delegates
+
+Direct source calls to `Android.Runtime.JNINativeWrapper.CreateDelegate`
+produce CS0619 in the GA reference contract. Remove hand-authored delegate
+wrappers and regenerate bindings using the current .NET for Android binding
+generator. Keep Java names and signatures stable, and inspect the generated JNI
+callbacks. The canonical `ProbePeer` uses `Java.Interop.Export` rather than
+calling `CreateDelegate` itself.
+
+The public implementation remains for already compiled bindings. That binary
+compatibility does not permit a new source call, and suppressing an ordinary
+obsolete warning does not repair this error-level obsolete contract. Rebuilding
+with the current generator is the migration; runtime callback and device checks
+remain separately not-tested under PIN-699.
+
+{{snippet:rejected-callback}}
+
+The original API description below is passed to the actual GA generator; its generated callbacks compile against the GA reference pack.
+
+{{snippet:callback-api}}
+
 1. Recreate the relevant canonical files in an isolated project directory, retaining the SDK pin and local build/package boundaries.
 2. Apply the choices described above to the owned application/library; inspect generated manifest, wrappers and packaged ABI rather than relying on project text alone.
 3. Build with the matching workload, SDK and JDK; run the focused device check before making a native behavior claim. The unavailable checks below remain excluded.

@@ -46,5 +46,5 @@ Run eng/Test-WhimbrelGuidance.ps1 for older Android selected compile/runtime ass
 
 ## References
 
-- [Official appkit.cs](https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/src/appkit.cs)
-- [Official corenfc.cs](https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/src/corenfc.cs)
+- [Official appkit.cs](https://raw.githubusercontent.com/dotnet/macios/34b3b25d471c22f2a62c36ec0971b021d0a0e000/src/appkit.cs)
+- [Official corenfc.cs](https://raw.githubusercontent.com/dotnet/macios/34b3b25d471c22f2a62c36ec0971b021d0a0e000/src/corenfc.cs)

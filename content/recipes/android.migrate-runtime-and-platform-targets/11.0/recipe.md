@@ -61,6 +61,20 @@ The .NET10 comparison uses Mono and the existing generated Java wrappers. Explic
 
 ## Migration
 
+### An explicit false is still a Mono AOT setting
+
+On the GA CoreCLR route, even `RunAOTCompilation=false` is rejected with
+XA1044. Remove the property rather than setting it to false. To deliberately
+disable CoreCLR ReadyToRun, use `PublishReadyToRun=false` instead. ReadyToRun
+is CoreCLR precompilation; it is not Mono AOT. The .NET10 Mono comparison can
+retain `RunAOTCompilation=false` to disable Mono AOT. Do not copy that setting
+into the .NET11 CoreCLR project. Keep runtime selection separate from this
+compilation choice; `UseMonoRuntime=true` remains rejected on the current route.
+
+{{snippet:rejected-aot}}
+
+{{snippet:corrected-r2r}}
+
 1. Recreate the relevant canonical files in an isolated project directory, retaining the SDK pin and local build/package boundaries.
 2. Apply the choices described above to the owned application/library; inspect generated manifest, wrappers and packaged ABI rather than relying on project text alone.
 3. Build with the matching workload, SDK and JDK; run the focused device check before making a native behavior claim. The unavailable checks below remain excluded.
