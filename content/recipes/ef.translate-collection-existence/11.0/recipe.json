@@ -91,7 +91,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "No experimental suppression required. Recorded package execution is limited to the recorded checks; PIN-965 remains separate."
+            "No experimental suppression required. Recorded package execution is limited to the recorded checks; PIN-967 remains separate."
           ]
         },
         "conditional": false,

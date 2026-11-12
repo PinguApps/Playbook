@@ -78,7 +78,7 @@ Windows x64 bundled SQLite 3.53.3/3.53.4. Executed on Windows x64. SQL2025 runs 
 
 The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
-eng/Test-LarkContracts.ps1 -Record: pinned real compilation and provider checks. No GA, NativeAOT or other-platform claim. Compilation receipts and behaviour records retain exact inputs, resolved dependencies, commands and actual outputs. The ordinary installed stdio harness checks full offline Markdown, canonical snippets, edition and applicability. No ninth .NET10 foundation is added. PIN-959 comprehensive readiness and PIN-965 actual GA reconciliation remain open.
+eng/Test-LarkContracts.ps1 -Record: pinned real compilation and provider checks. No GA, NativeAOT or other-platform claim. Compilation receipts and behaviour records retain exact inputs, resolved dependencies, commands and actual outputs. The ordinary installed stdio harness checks full offline Markdown, canonical snippets, edition and applicability. No ninth .NET10 foundation is added. PIN-959 comprehensive readiness and PIN-967 actual final readiness checks remain open.
 
 ## References
 

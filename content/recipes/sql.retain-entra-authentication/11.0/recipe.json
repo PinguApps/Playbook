@@ -114,7 +114,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Stable SqlClient authentication APIs; EF/cache11 GA artifacts on SDK11 GA require GA reconciliation under PIN-965. Certificate-backed Default route verified; interactive/MFA and managed/workload identity untested."
+            "Stable SqlClient authentication APIs; EF/cache11 GA artifacts on SDK11 GA require GA reconciliation under PIN-967. Certificate-backed Default route verified; interactive/MFA and managed/workload identity untested."
           ]
         },
         "conditional": false,

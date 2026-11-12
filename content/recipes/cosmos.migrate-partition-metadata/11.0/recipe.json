@@ -89,7 +89,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "GA-targeted guidance measured on GA; PIN-965 owns actual GA reconciliation."
+            "GA-targeted guidance measured on GA; PIN-967 owns final GA readiness checks."
           ]
         },
         "conditional": false,

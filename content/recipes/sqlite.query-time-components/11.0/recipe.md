@@ -135,7 +135,7 @@ reference/runtime11.0.0, C#15 and matching EF/Sqlite GA packages.
 These are verification pins, separate from the current route's .NET/SDK/EF11
 release-family prerequisites. No C#15-specific feature is needed. The API is not
 publisher-designated experimental and needs no suppression/opt-in. GA execution
-is limited to the recorded checks; PIN-965 retains that reconciliation.
+is limited to the recorded checks; PIN-965 completed source/artifact reconciliation and PIN-967 retains final readiness checks.
 
 Resolved EF10/Core/Relational/Sqlite.Core assets are net10; direct Sqlite.Core10
 uses net8. EF11/Core/Relational/Sqlite.Core use net11, while Abstractions11 and

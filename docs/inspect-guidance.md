@@ -1,5 +1,27 @@
 # Inspect the guidance an agent receives
 
+## Shipped missing projections and EF requirements
+
+From an unrelated directory in PowerShell 7, select this worktree literally.
+SDK11.0.100 and Node are required; setup restores, builds, packs and installs
+the actual local server. No public package or service is published.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-85107b81-33423914fd82ff19'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('ef.materialize-missing-projection','sql.index-json-path','sqlite.retain-supported-runtime','sqlite.replace-retired-native-bundle','sqlite.query-time-components') `
+  -Query '' -PackageVersion '0.0.0-pin1313-1314' -BuildAndPack `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' -OutputDirectory './artifacts/inspection'
+```
+
+Expect ID/title/goal, canonical expanded Markdown and applicability through the
+actual installed stdio server outside the checkout. Plover teaches the executed
+marker fallback and withdraws direct missing-object semantics on the measured
+EF11.0.0 SQLite graph. Other platforms/providers remain not-tested; package
+inspection does not execute SQL Server/Cosmos or approve final release gates.
+
+
 ## SQLite JSON paths and generated EF artifacts
 
 From an unrelated directory, select the assigned worktree explicitly. Setup

@@ -82,7 +82,7 @@ Windows x64 bundled SQLite. Executed on Windows x64; SQL engine runs in the exis
 
 The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
-The saved compilation and execution records identify exact commands, inputs and dependency graphs. Run eng/Test-TernExtensions.ps1 -Record to refresh them. PIN-959 comprehensive coverage and PIN-965 GA reconciliation remain open. No new .NET10 foundation is added.
+The saved compilation and execution records identify exact commands, inputs and dependency graphs. Run eng/Test-TernExtensions.ps1 -Record to refresh them. PIN-959 comprehensive coverage and PIN-967 final readiness checks remain open. No new .NET10 foundation is added.
 
 ## References
 

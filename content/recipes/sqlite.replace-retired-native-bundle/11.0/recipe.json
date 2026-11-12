@@ -101,7 +101,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Stable provider-initialization API; no experimental API or opt-in. Current managed package and SDK evidence is .NET11 GA. Existing PIN-965 GA reconciliation and catalogue Human/release gates remain in place."
+            "Stable provider-initialization API; no experimental API or opt-in. Current managed package and SDK evidence is .NET11 GA. PIN-965 completed source/artifact reconciliation; PIN-967 and catalogue Human/release gates remain in place."
           ]
         },
         "sourceUrls": [
@@ -110,7 +110,7 @@
           "https://learn.microsoft.com/en-us/dotnet/standard/data/sqlite/custom-versions",
           "https://www.nuget.org/packages/SQLitePCLRaw.bundle_winsqlite3/2.1.11",
           "https://www.nuget.org/packages/SQLitePCLRaw.provider.winsqlite3/3.0.5",
-          "https://www.nuget.org/packages/Microsoft.Data.Sqlite.Core/11.0.0-rc.2.26504.105",
+          "https://www.nuget.org/packages/Microsoft.Data.Sqlite.Core/11.0.0",
           "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/preview6/efcore.md"
         ],
         "evidenceSamples": [
@@ -142,7 +142,7 @@
     },
     {
       "title": "Direct managed provider RC2 target assets",
-      "url": "https://www.nuget.org/packages/Microsoft.Data.Sqlite.Core/11.0.0-rc.2.26504.105"
+      "url": "https://www.nuget.org/packages/Microsoft.Data.Sqlite.Core/11.0.0"
     },
     {
       "title": "Preview 6 SQLite3MC dependency announcement, not the RC2 graph",

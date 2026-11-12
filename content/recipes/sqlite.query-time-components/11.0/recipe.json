@@ -90,7 +90,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "These APIs are not publisher-designated experimental; no diagnostic suppression or experimental opt-in. Evidence uses .NET11 GA. PIN-965 retains GA reconciliation."
+            "These APIs are not publisher-designated experimental; no diagnostic suppression or experimental opt-in. Evidence uses .NET11 GA. PIN-965 completed source/artifact reconciliation; PIN-967 retains final readiness checks."
           ]
         },
         "selectionNotes": [

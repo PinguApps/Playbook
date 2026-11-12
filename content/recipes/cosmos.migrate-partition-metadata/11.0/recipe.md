@@ -97,7 +97,7 @@ Replace singular metadata getters/setters with plural property-name lists. The r
 
 The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
-The sample-evidence workflow captures each exact locked graph, SDK/runtime, inputs and fresh compilation separately from real provider execution. Run `eng/Test-EstuaryProviders.ps1 -Record`. SQL checks insert and query through fresh contexts and inspect retry defaults. EF11 reopens and updates EF10-seeded documents in the same isolated database. Cosmos checks enabled/disabled/omitted options, partition names, persisted values, ETag refresh, stale-write rejection and wrong-partition exclusion. The installed local package is inspected with real stdio list/get from an unrelated directory. PIN-959 comprehensive readiness and PIN-965 GA reconciliation remain open.
+The sample-evidence workflow captures each exact locked graph, SDK/runtime, inputs and fresh compilation separately from real provider execution. Run `eng/Test-EstuaryProviders.ps1 -Record`. SQL checks insert and query through fresh contexts and inspect retry defaults. EF11 reopens and updates EF10-seeded documents in the same isolated database. Cosmos checks enabled/disabled/omitted options, partition names, persisted values, ETag refresh, stale-write rejection and wrong-partition exclusion. The installed local package is inspected with real stdio list/get from an unrelated directory. PIN-959 comprehensive readiness and PIN-967 final readiness checks remain open.
 
 ## References
 

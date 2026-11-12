@@ -1,5 +1,34 @@
 # GA EF and provider reconciliation
 
+## PIN-1313/PIN-1314 delivery update
+
+The 81-edition historical register remains input-bound to its original audit.
+Current metadata and canonical manifests/locks/receipts were compared with prose.
+DuneArchive's SQL JSON-index guidance now identifies SqlClient7.1.1, matching
+its actual GA graph. Direct SQLite runtime/bundle references link the actual
+11.0.0 package rather than presenting an RC2 URL as GA. Historical preview
+release-note links and receipts retain their original identity.
+
+Plover's two independently pinned consumers now check matched controls and
+unmatched materialization failures separately from nullable-struct translation
+failure. Both execute nullable-marker scalar projection followed by explicit
+DTO/null, nullable-struct/null and default-struct construction. Exact populated
+(1,12), zero default fields, SQL filtering and client grouping are asserted.
+The shipped direct route is withdrawn; no future-release wait remains. Only
+Plover's resolved pending proof and preview exception are removed.
+
+PIN-965's source/artifact audit is complete; its historical report below is not
+rewritten as execution proof. Outstanding PIN-965 gate references across the audited family now point to PIN-967, retaining their saved behavior limitations. The time-component and native-bundle applicability
+now name PIN-967 as final readiness owner. Other recipes' narrower saved behavior
+limitations, SQL service/compatibility prerequisites, independent Cosmos SDK/service
+limits and historical RC receipts remain intact. EF11 still needs net11; direct
+Data.Sqlite11 supports its distinct net10 route. No standalone driver/SDK scope,
+release approval, platform execution or global readiness is added. Fern's route
+qualification remains owned by PIN-1312; direct TLS availability by PIN-967.
+No source-review receipt inputs change: the corrected four recipes use existing
+compilation/execution receipts, and reference-only changes require no database rerun.
+
+
 ## PIN-1311/PIN-1312 delivery update
 
 The historical register below retains its original audit inputs and hashes.
