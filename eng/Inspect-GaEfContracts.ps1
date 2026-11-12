@@ -19,6 +19,7 @@ $comparisons = @($sources | Sort-Object url -Unique | ForEach-Object -Parallel {
   $ErrorActionPreference = 'Stop'
   $source = $_
   $heads = $using:heads
+  if (-not $heads.ContainsKey($source.repository)) { throw "Unknown GA source repository: $($source.repository)" }
   $old = (Invoke-WebRequest $source.url).RawContentStream.ToArray()
   $oldHash = [Convert]::ToHexString([Security.Cryptography.SHA256]::HashData($old)).ToLowerInvariant()
   if ($oldHash -cne $source.sha256) { throw "Retained source mismatch: $($source.url)" }
