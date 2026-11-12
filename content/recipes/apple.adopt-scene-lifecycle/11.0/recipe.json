@@ -76,7 +76,7 @@
             }
           ],
           "packageAssets": [
-            "Microsoft.iOS.Ref.net11.0_27.0/27.0.12212-net11-rc.2 ref/net11.0/Microsoft.iOS.dll",
+            "Microsoft.iOS.Ref.net11.0_27.2/27.2.11039 ref/net11.0/Microsoft.iOS.dll",
             "Microsoft.Maui.Core/11.0.0 lib/net11.0-ios27.0/Microsoft.Maui.dll",
             "Microsoft.Maui.Controls.Core/11.0.0 lib/net11.0-ios27.0/Microsoft.Maui.Controls.dll"
           ],
@@ -90,7 +90,8 @@
             "UIKit window scene or MAUI native window; no Blazor render mode"
           ],
           "prerequisites": [
-            "Xcode27.0 on macOS26.6+ for native packaging/execution.",
+            "GA composition: workload set 11.0.100.1 (Microsoft.NET.Workloads.11.0.100/11.100.1), Android 37.2.31, Apple 27.2.11039 and MAUI 11.0.0. Use JDK21 or25 and the selected Android SDK API37/build tools; Gradle9.1+ when invoked with JDK25. Apple requires Xcode27.2 on macOS Tahoe26.6+; the upstream Apple release says16.6+, conflicting with Apple host requirements. Binding SDK versions are not deployment floors. This source/artifact selection does not establish a locally installed native workload or native execution.",
+            "Xcode27.2 on macOS26.6+ for native packaging/execution.",
             "Register the scene delegate using its exact Objective-C name.",
             "MAUI scene configuration name must be __MAUI_DEFAULT_SCENE_CONFIGURATION__."
           ],
@@ -109,7 +110,7 @@
           "https://raw.githubusercontent.com/dotnet/maui/7deff1e006978d1eed341ffcac899a85510f76bb/src/Templates/src/templates/maui-mobile/Platforms/iOS/Info.plist",
           "https://raw.githubusercontent.com/dotnet/maui/7deff1e006978d1eed341ffcac899a85510f76bb/src/Templates/src/templates/maui-mobile/Platforms/iOS/SceneDelegate.cs",
           "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/rc2/dotnetmaui.md",
-          "https://github.com/dotnet/macios/releases/tag/dotnet-11.0.1xx-rc2-12212"
+          "https://github.com/dotnet/macios/releases/tag/dotnet-11.0.1xx-xcode27.2.11039"
         ],
         "evidenceSamples": [
           "samples/net11.0/PuffinScenes/PuffinScenes.csproj",
@@ -136,8 +137,8 @@
       "url": "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/rc2/dotnetmaui.md"
     },
     {
-      "title": "Apple RC2 release requirements",
-      "url": "https://github.com/dotnet/macios/releases/tag/dotnet-11.0.1xx-rc2-12212"
+      "title": "Apple GA release requirements",
+      "url": "https://github.com/dotnet/macios/releases/tag/dotnet-11.0.1xx-xcode27.2.11039"
     }
   ],
   "evidence": [

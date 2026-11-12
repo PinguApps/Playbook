@@ -70,7 +70,7 @@
             }
           ],
           "packageAssets": [
-            "GA Android37.2.29 and Apple27.0.12212-net11-rc.2 workload assets."
+            "GA Android37.2.31 and Apple27.2.11039 workload assets."
           ],
           "providers": [
             "No service, account or external provider required."
@@ -82,6 +82,8 @@
             "Native application process; no browser rendering."
           ],
           "prerequisites": [
+            "Retained RC Android template links are historical implementation-review inputs; use the named GA workload set for current builds. They do not establish GA diagnostic or device execution.",
+            "GA composition: workload set 11.0.100.1 (Microsoft.NET.Workloads.11.0.100/11.100.1), Android 37.2.31, Apple 27.2.11039 and MAUI 11.0.0. Use JDK21 or25 and the selected Android SDK API37/build tools; Gradle9.1+ when invoked with JDK25. Apple requires Xcode27.2 on macOS Tahoe26.6+; the upstream Apple release says16.6+, conflicting with Apple host requirements. Binding SDK versions are not deployment floors. This source/artifact selection does not establish a locally installed native workload or native execution.",
             "Compatible native workload, Android SDK/JDK or Apple Xcode and separately authorized signing/device access."
           ],
           "constraints": [
@@ -98,10 +100,10 @@
           "https://raw.githubusercontent.com/dotnet/android/801f9ecbab5118b13d21cb52409e507ad4b2feb7/Documentation/docs-mobile/building-apps/build-properties.md",
           "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/docs/building-apps/build-properties.md",
           "https://api.nuget.org/v3-flatcontainer/microsoft.android.templates/37.2.0-rc.2.84/microsoft.android.templates.37.2.0-rc.2.84.nupkg",
-          "https://api.nuget.org/v3-flatcontainer/microsoft.ios.templates/27.0.12212-net11-rc.2/microsoft.ios.templates.27.0.12212-net11-rc.2.nupkg",
-          "https://api.nuget.org/v3-flatcontainer/microsoft.tvos.templates/27.0.12212-net11-rc.2/microsoft.tvos.templates.27.0.12212-net11-rc.2.nupkg",
-          "https://api.nuget.org/v3-flatcontainer/microsoft.macos.templates/27.0.12212-net11-rc.2/microsoft.macos.templates.27.0.12212-net11-rc.2.nupkg",
-          "https://api.nuget.org/v3-flatcontainer/microsoft.maccatalyst.templates/27.0.12212-net11-rc.2/microsoft.maccatalyst.templates.27.0.12212-net11-rc.2.nupkg"
+          "https://api.nuget.org/v3-flatcontainer/microsoft.ios.templates/27.2.11039/microsoft.ios.templates.27.2.11039.nupkg",
+          "https://api.nuget.org/v3-flatcontainer/microsoft.tvos.templates/27.2.11039/microsoft.tvos.templates.27.2.11039.nupkg",
+          "https://api.nuget.org/v3-flatcontainer/microsoft.macos.templates/27.2.11039/microsoft.macos.templates.27.2.11039.nupkg",
+          "https://api.nuget.org/v3-flatcontainer/microsoft.maccatalyst.templates/27.2.11039/microsoft.maccatalyst.templates.27.2.11039.nupkg"
         ],
         "evidenceSamples": [
           "samples/net11.0/SandpiperCrashAndroid/SandpiperCrashAndroid.csproj",
@@ -129,20 +131,20 @@
       "url": "https://api.nuget.org/v3-flatcontainer/microsoft.android.templates/37.2.0-rc.2.84/microsoft.android.templates.37.2.0-rc.2.84.nupkg"
     },
     {
-      "title": "Pinned official microsoft.ios.templates.27.0.12212-net11-rc.2.nupkg",
-      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.ios.templates/27.0.12212-net11-rc.2/microsoft.ios.templates.27.0.12212-net11-rc.2.nupkg"
+      "title": "Pinned official microsoft.ios.templates.27.2.11039.nupkg",
+      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.ios.templates/27.2.11039/microsoft.ios.templates.27.2.11039.nupkg"
     },
     {
-      "title": "Pinned official microsoft.tvos.templates.27.0.12212-net11-rc.2.nupkg",
-      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.tvos.templates/27.0.12212-net11-rc.2/microsoft.tvos.templates.27.0.12212-net11-rc.2.nupkg"
+      "title": "Pinned official microsoft.tvos.templates.27.2.11039.nupkg",
+      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.tvos.templates/27.2.11039/microsoft.tvos.templates.27.2.11039.nupkg"
     },
     {
-      "title": "Pinned official microsoft.macos.templates.27.0.12212-net11-rc.2.nupkg",
-      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.macos.templates/27.0.12212-net11-rc.2/microsoft.macos.templates.27.0.12212-net11-rc.2.nupkg"
+      "title": "Pinned official microsoft.macos.templates.27.2.11039.nupkg",
+      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.macos.templates/27.2.11039/microsoft.macos.templates.27.2.11039.nupkg"
     },
     {
-      "title": "Pinned official microsoft.maccatalyst.templates.27.0.12212-net11-rc.2.nupkg",
-      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.maccatalyst.templates/27.0.12212-net11-rc.2/microsoft.maccatalyst.templates.27.0.12212-net11-rc.2.nupkg"
+      "title": "Pinned official microsoft.maccatalyst.templates.27.2.11039.nupkg",
+      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.maccatalyst.templates/27.2.11039/microsoft.maccatalyst.templates.27.2.11039.nupkg"
     }
   ],
   "evidence": [

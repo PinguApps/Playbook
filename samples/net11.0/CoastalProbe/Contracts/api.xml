@@ -1,0 +1,10 @@
+<!-- snippet:complete -->
+<api>
+  <package name="org.coastal.probe">
+    <class name="ProbePeer" abstract="false" final="false" extends="java.lang.Object" visibility="public" deprecated="not deprecated">
+      <constructor name="ProbePeer" type="org.coastal.probe.ProbePeer" visibility="public" deprecated="not deprecated" />
+      <method name="readingCount" return="int" abstract="false" final="false" static="false" visibility="public" deprecated="not deprecated" />
+    </class>
+  </package>
+</api>
+<!-- endsnippet:complete -->

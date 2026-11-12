@@ -257,3 +257,20 @@ All three .NET10 apps compiled. SDK11 RC3 native builds failed NETSDK1147;
 current native compilation/execution and unavailable Android/Apple interactions
 remain sample-specific PIN-699 not-tested exclusions. Official source/package
 identities are retained under samples/TernGuidance. No new Human gate or GA proof.
+
+PIN-1315/PIN-1316 GA overlay: all44 native applicability records name the complete
+11.0.100.1 workload set (Android37.2.31, Apple27.2.11039, MAUI11.0.0), matching
+JDK/Android SDK and Xcode27.2/macOS Tahoe26.6+ prerequisites. Binding versions
+remain distinct from deployment floors. Existing platform-specific exclusions
+and experimental contracts remain; the upstream Apple16.6+ host conflict is
+explicit. Seven desktop editions retain their original inputs.
+
+CoastalProbe extends the existing runtime/platform and Java-peer goals with
+actual GA XA1044/CS0619 negative controls, corrected ReadyToRun/Mono controls and
+current generated JNI callback compilation. `eng/Test-AndroidGaContracts.ps1`
+checks exact37.2.31 SDK/reference hashes and records bounded evidence. Apple
+source/task/reference checks refresh through the existing AppleRoutes and
+AppleAuthoring runners. MT7199 merged scene-manifest validation is source-reviewed.
+No full current Android/Apple native build or device execution follows. Historical
+RC receipts remain at cb318c7; PIN-967 remains the final readiness gate. See
+[audit dispositions](../audits/ga-native-contracts.md#delivered-ab-corrections).

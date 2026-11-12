@@ -74,7 +74,8 @@
             "Native MAUI page; neutral executable does not render UI."
           ],
           "prerequisites": [
-            "Native GA preparation: SDK11.0.100, workload set11.0.100, MAUI11.0.0. SourceGen compiled XAML requires a matching native MAUI project."
+            "GA composition: workload set 11.0.100.1 (Microsoft.NET.Workloads.11.0.100/11.100.1), Android 37.2.31, Apple 27.2.11039 and MAUI 11.0.0. Use JDK21 or25 and the selected Android SDK API37/build tools; Gradle9.1+ when invoked with JDK25. Apple requires Xcode27.2 on macOS Tahoe26.6+; the upstream Apple release says16.6+, conflicting with Apple host requirements. Binding SDK versions are not deployment floors. This source/artifact selection does not establish a locally installed native workload or native execution.",
+            "Native GA preparation: SDK11.0.100, workload set11.0.100.1, MAUI11.0.0. SourceGen compiled XAML requires a matching native MAUI project."
           ],
           "constraints": [
             "Eight .NET10 foundations unchanged; older samples are comparisons only.",

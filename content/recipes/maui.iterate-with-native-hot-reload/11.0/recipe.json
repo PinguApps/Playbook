@@ -63,7 +63,7 @@
               "name": "maui-android / maui-ios / maui-windows (choose target)",
               "version": "11.0",
               "match": "release-family",
-              "reason": "Install the workload matching the selected target. Reviewed set11.0.100 selects MAUI11.0.0, Android37.2.29 and Apple27.0.12212-net11-rc.2."
+              "reason": "Install the workload matching the selected target. Reviewed set11.0.100.1 selects MAUI11.0.0, Android37.2.31 and Apple27.2.11039."
             }
           ],
           "providers": [
@@ -76,8 +76,9 @@
             "Native MAUI controls; no Blazor rendering mode"
           ],
           "prerequisites": [
+            "GA composition: workload set 11.0.100.1 (Microsoft.NET.Workloads.11.0.100/11.100.1), Android 37.2.31, Apple 27.2.11039 and MAUI 11.0.0. Use JDK21 or25 and the selected Android SDK API37/build tools; Gradle9.1+ when invoked with JDK25. Apple requires Xcode27.2 on macOS Tahoe26.6+; the upstream Apple release says16.6+, conflicting with Apple host requirements. Binding SDK versions are not deployment floors. This source/artifact selection does not establish a locally installed native workload or native execution.",
             "Matching native SDK pack, platform tooling and a configured device/emulator for live checks; workload labels alone do not establish availability.",
-            "Android preparation uses JDK25 and Android SDK/build tools matching the reviewed workload; Apple preparation uses the reviewed Xcode27.0 GA composition."
+            "Android preparation uses JDK25 and Android SDK/build tools matching the reviewed workload; Apple preparation uses the reviewed Xcode27.2 GA composition."
           ],
           "constraints": [
             "No provider/account for Playbook retrieval. Device signing/trust is separate and not provisioned by this guidance.",

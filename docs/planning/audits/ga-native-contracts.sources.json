@@ -19901,7 +19901,7 @@
       "areas": [
         "android"
       ],
-      "metadataSha256": "43a9f5582d4f1da06c320190ecf825408883d2585b2bf02751d79c0640c95739",
+      "metadataSha256": "3a3b095fe185227a3882bdb3237ea9ebdaed912cda3b44502a389e1ba48716ba",
       "markdownSha256": "9cc142d6c70706feea0891e6c1ca52ce308e82ef3d77f90d45ed39b8efa0d664",
       "applicability": {
         "routes": [
@@ -19940,11 +19940,11 @@
                   "name": "android",
                   "version": "11.0",
                   "match": "release-family",
-                  "reason": "Compatible .NET11 Android workload required. Reviewed GA manifest/reference assets are 37.2.29; no compatible GA workload composition was tested."
+                  "reason": "Compatible .NET11 Android workload required. Reviewed GA manifest/reference assets are 37.2.31; no compatible GA workload composition was tested."
                 }
               ],
               "packageAssets": [
-                "Microsoft.Android.Ref.37.2/37.2.29 ref/net11.0/Mono.Android.dll"
+                "Microsoft.Android.Ref.37.2/37.2.31 ref/net11.0/Mono.Android.dll"
               ],
               "providers": [
                 "No external service or account"
@@ -19956,6 +19956,7 @@
                 "Native Android Activity; no Blazor render mode"
               ],
               "prerequisites": [
+                "GA composition: workload set 11.0.100.1 (Microsoft.NET.Workloads.11.0.100/11.100.1), Android 37.2.31, Apple 27.2.11039 and MAUI 11.0.0. Use JDK21 or25 and the selected Android SDK API37/build tools; Gradle9.1+ when invoked with JDK25. Apple requires Xcode27.2 on macOS Tahoe26.6+; the upstream Apple release says16.6+, conflicting with Apple host requirements. Binding SDK versions are not deployment floors. This source/artifact selection does not establish a locally installed native workload or native execution.",
                 "Compatible Android workload, SDK and JDK.",
                 "Retain existing navigation implementation; the flag does not implement in-app back handling."
               ],
@@ -20014,7 +20015,7 @@
       "areas": [
         "android"
       ],
-      "metadataSha256": "083b12d300a3130f11b96af377cc2f5d45f094b3cfdea2a1c467c53641f7d7f1",
+      "metadataSha256": "e2b3bed09b04c2f2ae77a2c02f561e6c7eb879e26b5e6ce85602035a37c7ab76",
       "markdownSha256": "cca9c85c59b86f22445191b0e17b333c2ed27bc42397cb1d1932d113d86dc3cc",
       "applicability": {
         "routes": [
@@ -20053,11 +20054,11 @@
                   "name": "android",
                   "version": "11.0",
                   "match": "release-family",
-                  "reason": "Compatible .NET11 Android workload required. Reviewed GA manifest/reference assets are37.2.29; no compatible GA workload composition was tested."
+                  "reason": "Compatible .NET11 Android workload required. Reviewed GA manifest/reference assets are37.2.31; no compatible GA workload composition was tested."
                 }
               ],
               "packageAssets": [
-                "Microsoft.Android.Ref.37.2/37.2.29 ref/net11.0/Mono.Android.dll"
+                "Microsoft.Android.Ref.37.2/37.2.31 ref/net11.0/Mono.Android.dll"
               ],
               "providers": [
                 "No external service or account"
@@ -20069,6 +20070,7 @@
                 "Native Android Activity; no Blazor render mode"
               ],
               "prerequisites": [
+                "GA composition: workload set 11.0.100.1 (Microsoft.NET.Workloads.11.0.100/11.100.1), Android 37.2.31, Apple 27.2.11039 and MAUI 11.0.0. Use JDK21 or25 and the selected Android SDK API37/build tools; Gradle9.1+ when invoked with JDK25. Apple requires Xcode27.2 on macOS Tahoe26.6+; the upstream Apple release says16.6+, conflicting with Apple host requirements. Binding SDK versions are not deployment floors. This source/artifact selection does not establish a locally installed native workload or native execution.",
                 "JDK21 or25, Android SDK including selected API; Gradle9.1+ if invoked using JDK25.",
                 "A compatible native workload. The current sample build reports NETSDK1147."
               ],
@@ -20132,7 +20134,7 @@
       "areas": [
         "android"
       ],
-      "metadataSha256": "a3921073a67e5a818167c32ef6e305c7c78cd03906917a840847038cc29adc5f",
+      "metadataSha256": "24f9c8672eb2108ceb097198430e523bb2e73ca3706ae9b7db08d85ec3945ec2",
       "markdownSha256": "8c34c78aef965cab5402cb099a47ee6d805d1a8998434ff5b941c8f5957f22bf",
       "applicability": {
         "routes": [
@@ -20171,11 +20173,11 @@
                   "name": "android",
                   "version": "11.0",
                   "match": "release-family",
-                  "reason": "Compatible .NET11 Android workload required. Reviewed GA manifest/reference assets are37.2.29; no compatible GA workload composition was tested."
+                  "reason": "Compatible .NET11 Android workload required. Reviewed GA manifest/reference assets are37.2.31; no compatible GA workload composition was tested."
                 }
               ],
               "packageAssets": [
-                "Microsoft.Android.Ref.37.2/37.2.29 ref/net11.0/Mono.Android.dll"
+                "Microsoft.Android.Ref.37.2/37.2.31 ref/net11.0/Mono.Android.dll"
               ],
               "providers": [
                 "No external service or account"
@@ -20187,6 +20189,7 @@
                 "Native Android Activity; no Blazor render mode"
               ],
               "prerequisites": [
+                "GA composition: workload set 11.0.100.1 (Microsoft.NET.Workloads.11.0.100/11.100.1), Android 37.2.31, Apple 27.2.11039 and MAUI 11.0.0. Use JDK21 or25 and the selected Android SDK API37/build tools; Gradle9.1+ when invoked with JDK25. Apple requires Xcode27.2 on macOS Tahoe26.6+; the upstream Apple release says16.6+, conflicting with Apple host requirements. Binding SDK versions are not deployment floors. This source/artifact selection does not establish a locally installed native workload or native execution.",
                 "JDK21 or25, Android SDK including selected API; Gradle9.1+ if invoked using JDK25.",
                 "A compatible native workload. The current sample build reports NETSDK1147."
               ],
@@ -20250,8 +20253,8 @@
       "areas": [
         "android"
       ],
-      "metadataSha256": "cc0c5a08acd7d86bfbc160daa8984ebae11115ded9566db0141282d586ae89b6",
-      "markdownSha256": "b27991d9da4aa3c267b1f5cf565efbc4975492ba6c5acf3c08832e12de088225",
+      "metadataSha256": "4ad6b56ddab6c526bf407e1961419c1d0c67682749f0c29281c6e778755ec656",
+      "markdownSha256": "7a6be1868573204f952a6b898e6177da7035556962cb30a6f141b5be6be1b753",
       "applicability": {
         "routes": [
           {
@@ -20289,11 +20292,11 @@
                   "name": "android",
                   "version": "11.0",
                   "match": "release-family",
-                  "reason": "Compatible .NET11 Android workload required. Reviewed GA manifest/reference assets are37.2.29; no compatible GA workload composition was tested."
+                  "reason": "Compatible .NET11 Android workload required. Reviewed GA manifest/reference assets are37.2.31; no compatible GA workload composition was tested."
                 }
               ],
               "packageAssets": [
-                "Microsoft.Android.Ref.37.2/37.2.29 ref/net11.0/Mono.Android.dll"
+                "Microsoft.Android.Ref.37.2/37.2.31 ref/net11.0/Mono.Android.dll"
               ],
               "providers": [
                 "No external service or account"
@@ -20305,6 +20308,7 @@
                 "Native Android Activity; no Blazor render mode"
               ],
               "prerequisites": [
+                "GA composition: workload set 11.0.100.1 (Microsoft.NET.Workloads.11.0.100/11.100.1), Android 37.2.31, Apple 27.2.11039 and MAUI 11.0.0. Use JDK21 or25 and the selected Android SDK API37/build tools; Gradle9.1+ when invoked with JDK25. Apple requires Xcode27.2 on macOS Tahoe26.6+; the upstream Apple release says16.6+, conflicting with Apple host requirements. Binding SDK versions are not deployment floors. This source/artifact selection does not establish a locally installed native workload or native execution.",
                 "Compatible Android workload, Android SDK and JDK21/25.",
                 "No service/account provisioning; use owned endpoints and Java code."
               ],
@@ -20363,8 +20367,8 @@
       "areas": [
         "android"
       ],
-      "metadataSha256": "fa1e31b3e6034b6bbe16f16f603a9e7dc41919fccc16ce3cd761d6b15c708da5",
-      "markdownSha256": "175734c74bd71cfddf3986eb8988876defd8934fd2b3d7462864188511dd42d8",
+      "metadataSha256": "afe42d4810301202560309a7dfba9e9b27bcad7996fa0f1288d8cfd95063a6e4",
+      "markdownSha256": "ee57cdc5346c3de7db175f78c6e8a9bc4f15509a142d0a1960de21af5a52c94a",
       "applicability": {
         "routes": [
           {
@@ -20402,11 +20406,11 @@
                   "name": "android",
                   "version": "11.0",
                   "match": "release-family",
-                  "reason": "Compatible .NET11 Android workload required. Reviewed GA manifest/reference assets are37.2.29; no compatible GA workload composition was tested."
+                  "reason": "Compatible .NET11 Android workload required. Reviewed GA manifest/reference assets are37.2.31; no compatible GA workload composition was tested."
                 }
               ],
               "packageAssets": [
-                "Microsoft.Android.Ref.37.2/37.2.29 ref/net11.0/Mono.Android.dll"
+                "Microsoft.Android.Ref.37.2/37.2.31 ref/net11.0/Mono.Android.dll"
               ],
               "providers": [
                 "No external service or account"
@@ -20418,6 +20422,7 @@
                 "Native Android Activity; no Blazor render mode"
               ],
               "prerequisites": [
+                "GA composition: workload set 11.0.100.1 (Microsoft.NET.Workloads.11.0.100/11.100.1), Android 37.2.31, Apple 27.2.11039 and MAUI 11.0.0. Use JDK21 or25 and the selected Android SDK API37/build tools; Gradle9.1+ when invoked with JDK25. Apple requires Xcode27.2 on macOS Tahoe26.6+; the upstream Apple release says16.6+, conflicting with Apple host requirements. Binding SDK versions are not deployment floors. This source/artifact selection does not establish a locally installed native workload or native execution.",
                 "JDK21 or25, Android SDK including selected API; Gradle9.1+ if invoked using JDK25.",
                 "A compatible native workload. The current sample build reports NETSDK1147."
               ],
@@ -20462,7 +20467,7 @@
           "target": "net11.0-android37.2",
           "sdk": "11.0.100",
           "language": "15.0",
-          "scope": "RC2 source and actual reference metadata; GA build fails NETSDK1147. No native compile or execution."
+          "scope": "Actual Android37.2.31 reference/generator compilation and isolated CS0619/XA1044 task controls; no full native build or device execution."
         }
       ],
       "humanProof": {
@@ -20481,8 +20486,8 @@
       "areas": [
         "android"
       ],
-      "metadataSha256": "e97d7e271ba589a1cca38ff6a124204e33dae924632e270d5867ab0635f02a21",
-      "markdownSha256": "007825a4b619281aab3a62b787063f80a75855f66631f28967aa88be7592830f",
+      "metadataSha256": "f707b3c984e6df921bf53772c94ad0351182a734fc2f27cd9e79b9b1395b5529",
+      "markdownSha256": "306d8fe20abd69e001def6cac872a77a602621af7dc893db4dd3ef6f88297edb",
       "applicability": {
         "routes": [
           {
@@ -20520,11 +20525,11 @@
                   "name": "android",
                   "version": "11.0",
                   "match": "release-family",
-                  "reason": "Compatible .NET11 Android workload required. Reviewed GA manifest/reference assets are37.2.29; no compatible GA workload composition was tested."
+                  "reason": "Compatible .NET11 Android workload required. Reviewed GA manifest/reference assets are37.2.31; no compatible GA workload composition was tested."
                 }
               ],
               "packageAssets": [
-                "Microsoft.Android.Ref.37.2/37.2.29 ref/net11.0/Mono.Android.dll"
+                "Microsoft.Android.Ref.37.2/37.2.31 ref/net11.0/Mono.Android.dll"
               ],
               "providers": [
                 "No external service or account"
@@ -20536,6 +20541,7 @@
                 "Native Android Activity; no Blazor render mode"
               ],
               "prerequisites": [
+                "GA composition: workload set 11.0.100.1 (Microsoft.NET.Workloads.11.0.100/11.100.1), Android 37.2.31, Apple 27.2.11039 and MAUI 11.0.0. Use JDK21 or25 and the selected Android SDK API37/build tools; Gradle9.1+ when invoked with JDK25. Apple requires Xcode27.2 on macOS Tahoe26.6+; the upstream Apple release says16.6+, conflicting with Apple host requirements. Binding SDK versions are not deployment floors. This source/artifact selection does not establish a locally installed native workload or native execution.",
                 "JDK21 or25, Android SDK including selected API; Gradle9.1+ if invoked using JDK25.",
                 "A compatible native workload. The current sample build reports NETSDK1147."
               ],
@@ -20580,7 +20586,7 @@
           "target": "net11.0-android37.2",
           "sdk": "11.0.100",
           "language": "15.0",
-          "scope": "RC2 source and actual reference metadata; GA build fails NETSDK1147. No native compile or execution."
+          "scope": "Actual Android37.2.31 reference/generator compilation and isolated CS0619/XA1044 task controls; no full native build or device execution."
         }
       ],
       "humanProof": {
@@ -20599,8 +20605,8 @@
       "areas": [
         "android"
       ],
-      "metadataSha256": "74c2a3a1b9bfe00b0d7f3abe428c50fea673a7de6085475413ba7b0d91dbae73",
-      "markdownSha256": "b15515d25d99dea2e03d57c9e564153c06e2c2c133af2ad926b7cd83db48e9ec",
+      "metadataSha256": "6b1609b2be4722bf7d56f46d22c608651a2692b59ddba245da1a4f6a45ef52d4",
+      "markdownSha256": "9955cc05534f85a09782214131f0ed843f813165d6446816d382b28c86efc1db",
       "applicability": {
         "routes": [
           {
@@ -20638,11 +20644,11 @@
                   "name": "android",
                   "version": "11.0",
                   "match": "release-family",
-                  "reason": "Compatible .NET11 Android workload required. Reviewed GA manifest/reference assets are37.2.29; no compatible GA workload composition was tested."
+                  "reason": "Compatible .NET11 Android workload required. Reviewed GA manifest/reference assets are37.2.31; no compatible GA workload composition was tested."
                 }
               ],
               "packageAssets": [
-                "Microsoft.Android.Ref.37.2/37.2.29 ref/net11.0/Mono.Android.dll"
+                "Microsoft.Android.Ref.37.2/37.2.31 ref/net11.0/Mono.Android.dll"
               ],
               "providers": [
                 "No external service or account"
@@ -20654,6 +20660,7 @@
                 "Native Android Activity; no Blazor render mode"
               ],
               "prerequisites": [
+                "GA composition: workload set 11.0.100.1 (Microsoft.NET.Workloads.11.0.100/11.100.1), Android 37.2.31, Apple 27.2.11039 and MAUI 11.0.0. Use JDK21 or25 and the selected Android SDK API37/build tools; Gradle9.1+ when invoked with JDK25. Apple requires Xcode27.2 on macOS Tahoe26.6+; the upstream Apple release says16.6+, conflicting with Apple host requirements. Binding SDK versions are not deployment floors. This source/artifact selection does not establish a locally installed native workload or native execution.",
                 "Compatible Android workload, Android SDK and JDK21/25.",
                 "No service/account provisioning; use owned endpoints and Java code."
               ],
@@ -20722,7 +20729,7 @@
       "areas": [
         "android"
       ],
-      "metadataSha256": "a2e65da5bee975f6d7443c021bdd299b1b9139f886fd0c19ddb94d143eaca0f1",
+      "metadataSha256": "32ba884aa95c699e206c29b4f3d4d10c1eab1f577dc87d207cdcffa95a3b8755",
       "markdownSha256": "b2e391c92702c208440c1d2de3752dc929563ce1e8bc7bed7231ee8f8e4350fe",
       "applicability": {
         "routes": [
@@ -20775,7 +20782,8 @@
                 "Native consumer library; no browser rendering."
               ],
               "prerequisites": [
-                "GA preparation SDK11.0.100; workload set11.0.100. Android37.2.29 or Apple27.0.12212-net11-rc.2 respectively. Apple requires Xcode27.0/macOS26.6+; no arbitrary later pairing implied."
+                "GA composition: workload set 11.0.100.1 (Microsoft.NET.Workloads.11.0.100/11.100.1), Android 37.2.31, Apple 27.2.11039 and MAUI 11.0.0. Use JDK21 or25 and the selected Android SDK API37/build tools; Gradle9.1+ when invoked with JDK25. Apple requires Xcode27.2 on macOS Tahoe26.6+; the upstream Apple release says16.6+, conflicting with Apple host requirements. Binding SDK versions are not deployment floors. This source/artifact selection does not establish a locally installed native workload or native execution.",
+                "GA preparation SDK11.0.100; workload set11.0.100.1. Android37.2.31 or Apple27.2.11039 respectively. Apple requires Xcode27.2/macOS26.6+; no arbitrary later pairing implied."
               ],
               "constraints": [
                 "Eight .NET10 foundations unchanged; older samples are comparisons only.",
@@ -20832,8 +20840,8 @@
         "maccatalyst",
         "maui"
       ],
-      "metadataSha256": "a3b2565ae197ad86818032065f7f8bf2771142d8822e3ca763980257309e8da8",
-      "markdownSha256": "abd50270d1934a73d949cb6d14abeac79d80740fd448c4026768b73538bbca61",
+      "metadataSha256": "169a6d84c80486b84d971f4d9c66b611a7d178a53c6aa62e9d27545e4cda646d",
+      "markdownSha256": "d9a395c6b123dff78380b1497678bca3fe358c0b4dd930649181a4b27fefaeab",
       "applicability": {
         "routes": [
           {
@@ -20884,7 +20892,7 @@
                 }
               ],
               "packageAssets": [
-                "Microsoft.iOS.Ref.net11.0_27.0/27.0.12212-net11-rc.2 ref/net11.0/Microsoft.iOS.dll",
+                "Microsoft.iOS.Ref.net11.0_27.2/27.2.11039 ref/net11.0/Microsoft.iOS.dll",
                 "Microsoft.Maui.Core/11.0.0 lib/net11.0-ios27.0/Microsoft.Maui.dll",
                 "Microsoft.Maui.Controls.Core/11.0.0 lib/net11.0-ios27.0/Microsoft.Maui.Controls.dll"
               ],
@@ -20898,7 +20906,8 @@
                 "UIKit window scene or MAUI native window; no Blazor render mode"
               ],
               "prerequisites": [
-                "Xcode27.0 on macOS26.6+ for native packaging/execution.",
+                "GA composition: workload set 11.0.100.1 (Microsoft.NET.Workloads.11.0.100/11.100.1), Android 37.2.31, Apple 27.2.11039 and MAUI 11.0.0. Use JDK21 or25 and the selected Android SDK API37/build tools; Gradle9.1+ when invoked with JDK25. Apple requires Xcode27.2 on macOS Tahoe26.6+; the upstream Apple release says16.6+, conflicting with Apple host requirements. Binding SDK versions are not deployment floors. This source/artifact selection does not establish a locally installed native workload or native execution.",
+                "Xcode27.2 on macOS26.6+ for native packaging/execution.",
                 "Register the scene delegate using its exact Objective-C name.",
                 "MAUI scene configuration name must be __MAUI_DEFAULT_SCENE_CONFIGURATION__."
               ],
@@ -20917,7 +20926,7 @@
               "https://raw.githubusercontent.com/dotnet/maui/7deff1e006978d1eed341ffcac899a85510f76bb/src/Templates/src/templates/maui-mobile/Platforms/iOS/Info.plist",
               "https://raw.githubusercontent.com/dotnet/maui/7deff1e006978d1eed341ffcac899a85510f76bb/src/Templates/src/templates/maui-mobile/Platforms/iOS/SceneDelegate.cs",
               "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/rc2/dotnetmaui.md",
-              "https://github.com/dotnet/macios/releases/tag/dotnet-11.0.1xx-rc2-12212"
+              "https://github.com/dotnet/macios/releases/tag/dotnet-11.0.1xx-xcode27.2.11039"
             ],
             "evidenceSamples": [
               "samples/net11.0/PuffinScenes/PuffinScenes.csproj",
@@ -20978,7 +20987,7 @@
       "areas": [
         "ios"
       ],
-      "metadataSha256": "dfa6abf3c82176713deccbd72de4b9c68b75a6356e901a1fe9561b8de7361a40",
+      "metadataSha256": "8c5a1bcafbcdbe14919b685f96c477ddc74a80cd48da80e616278f523ca820ad",
       "markdownSha256": "d755b4754a35de3f7a028ddd23fcc28bfc3b11a994eb473dfc934419317374fd",
       "applicability": {
         "routes": [
@@ -21000,7 +21009,7 @@
                 "name": ".NET SDK",
                 "version": "11.0",
                 "match": "release-family",
-                "reason": "GA SDK intended; pinned Apple Historical RC2 source and GA artifact review is separate from a tested native workload composition."
+                "reason": "GA SDK intended; pinned Apple GA source and artifact review is separate from a tested native workload composition."
               },
               "language": {
                 "name": "C#",
@@ -21021,8 +21030,8 @@
                 }
               ],
               "packageAssets": [
-                "Microsoft.iOS.Sdk.net11.0_27.0/27.0.12212-net11-rc.2 tools/lib/bgen and tools/msbuild/net11.0",
-                "Microsoft.iOS.Ref.net11.0_27.0/27.0.12212-net11-rc.2 ref/net11.0/Microsoft.iOS.dll"
+                "Microsoft.iOS.Sdk.net11.0_27.2/27.2.11039 tools/lib/bgen and tools/msbuild/net11.0",
+                "Microsoft.iOS.Ref.net11.0_27.2/27.2.11039 ref/net11.0/Microsoft.iOS.dll"
               ],
               "providers": [
                 "No service, account or external provider required."
@@ -21034,6 +21043,7 @@
                 "Native Apple app or binding library; no browser rendering."
               ],
               "prerequisites": [
+                "GA composition: workload set 11.0.100.1 (Microsoft.NET.Workloads.11.0.100/11.100.1), Android 37.2.31, Apple 27.2.11039 and MAUI 11.0.0. Use JDK21 or25 and the selected Android SDK API37/build tools; Gradle9.1+ when invoked with JDK25. Apple requires Xcode27.2 on macOS Tahoe26.6+; the upstream Apple release says16.6+, conflicting with Apple host requirements. Binding SDK versions are not deployment floors. This source/artifact selection does not establish a locally installed native workload or native execution.",
                 "Matching Apple workload and Xcode for actual native app/binding builds.",
                 "Verification uses SDK11.0.100, exact GA Apple artifacts; no experimental API opt-in."
               ],
@@ -21049,14 +21059,14 @@
               ]
             },
             "sourceUrls": [
-              "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/docs/building-apps/build-items.md",
-              "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/docs/building-apps/build-properties.md",
-              "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/docs/website/binding_types_reference_guide.md",
-              "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/msbuild/Xamarin.MacDev.Tasks/Tasks/CompileAppManifest.cs",
-              "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/msbuild/Xamarin.MacDev.Tasks/Tasks/StripFrameworkHeaders.cs",
-              "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/dotnet/targets/Xamarin.Shared.Sdk.targets",
-              "https://api.nuget.org/v3-flatcontainer/microsoft.ios.sdk.net11.0_27.0/27.0.12212-net11-rc.2/microsoft.ios.sdk.net11.0_27.0.27.0.12212-net11-rc.2.nupkg",
-              "https://api.nuget.org/v3-flatcontainer/microsoft.ios.ref.net11.0_27.0/27.0.12212-net11-rc.2/microsoft.ios.ref.net11.0_27.0.27.0.12212-net11-rc.2.nupkg"
+              "https://raw.githubusercontent.com/dotnet/macios/34b3b25d471c22f2a62c36ec0971b021d0a0e000/docs/building-apps/build-items.md",
+              "https://raw.githubusercontent.com/dotnet/macios/34b3b25d471c22f2a62c36ec0971b021d0a0e000/docs/building-apps/build-properties.md",
+              "https://raw.githubusercontent.com/dotnet/macios/34b3b25d471c22f2a62c36ec0971b021d0a0e000/docs/website/binding_types_reference_guide.md",
+              "https://raw.githubusercontent.com/dotnet/macios/34b3b25d471c22f2a62c36ec0971b021d0a0e000/msbuild/Xamarin.MacDev.Tasks/Tasks/CompileAppManifest.cs",
+              "https://raw.githubusercontent.com/dotnet/macios/34b3b25d471c22f2a62c36ec0971b021d0a0e000/msbuild/Xamarin.MacDev.Tasks/Tasks/StripFrameworkHeaders.cs",
+              "https://raw.githubusercontent.com/dotnet/macios/34b3b25d471c22f2a62c36ec0971b021d0a0e000/dotnet/targets/Xamarin.Shared.Sdk.targets",
+              "https://api.nuget.org/v3-flatcontainer/microsoft.ios.sdk.net11.0_27.2/27.2.11039/microsoft.ios.sdk.net11.0_27.2.27.2.11039.nupkg",
+              "https://api.nuget.org/v3-flatcontainer/microsoft.ios.ref.net11.0_27.2/27.2.11039/microsoft.ios.ref.net11.0_27.2.27.2.11039.nupkg"
             ],
             "evidenceSamples": [
               "samples/net11.0/OystercatcherManifest/OystercatcherManifest.csproj"
@@ -21098,7 +21108,7 @@
       "areas": [
         "ios"
       ],
-      "metadataSha256": "563fddb3306316302ec57859a7f6f6579c1dbfa7a23d4bba16fc497c9b6a9af1",
+      "metadataSha256": "9d8533d7dfa143f8a6cffe656d22af066195e3cc8ac9017f8682084c7710f4d2",
       "markdownSha256": "1b820143afd2e2b17ab2961f9d54945b8fbd3a14cac08234cdde1a49c88a4798",
       "applicability": {
         "routes": [
@@ -21120,7 +21130,7 @@
                 "name": ".NET SDK",
                 "version": "11.0",
                 "match": "release-family",
-                "reason": "GA SDK intended; pinned Apple Historical RC2 source and GA artifact review is separate from a tested native workload composition."
+                "reason": "GA SDK intended; pinned Apple GA source and artifact review is separate from a tested native workload composition."
               },
               "language": {
                 "name": "C#",
@@ -21141,8 +21151,8 @@
                 }
               ],
               "packageAssets": [
-                "Microsoft.iOS.Sdk.net11.0_27.0/27.0.12212-net11-rc.2 tools/lib/bgen and tools/msbuild/net11.0",
-                "Microsoft.iOS.Ref.net11.0_27.0/27.0.12212-net11-rc.2 ref/net11.0/Microsoft.iOS.dll"
+                "Microsoft.iOS.Sdk.net11.0_27.2/27.2.11039 tools/lib/bgen and tools/msbuild/net11.0",
+                "Microsoft.iOS.Ref.net11.0_27.2/27.2.11039 ref/net11.0/Microsoft.iOS.dll"
               ],
               "providers": [
                 "No service, account or external provider required."
@@ -21154,6 +21164,7 @@
                 "Native Apple app or binding library; no browser rendering."
               ],
               "prerequisites": [
+                "GA composition: workload set 11.0.100.1 (Microsoft.NET.Workloads.11.0.100/11.100.1), Android 37.2.31, Apple 27.2.11039 and MAUI 11.0.0. Use JDK21 or25 and the selected Android SDK API37/build tools; Gradle9.1+ when invoked with JDK25. Apple requires Xcode27.2 on macOS Tahoe26.6+; the upstream Apple release says16.6+, conflicting with Apple host requirements. Binding SDK versions are not deployment floors. This source/artifact selection does not establish a locally installed native workload or native execution.",
                 "Matching Apple workload and Xcode for actual native app/binding builds.",
                 "Verification uses SDK11.0.100, exact GA Apple artifacts; no experimental API opt-in."
               ],
@@ -21169,14 +21180,14 @@
               ]
             },
             "sourceUrls": [
-              "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/docs/building-apps/build-items.md",
-              "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/docs/building-apps/build-properties.md",
-              "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/docs/website/binding_types_reference_guide.md",
-              "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/msbuild/Xamarin.MacDev.Tasks/Tasks/CompileAppManifest.cs",
-              "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/msbuild/Xamarin.MacDev.Tasks/Tasks/StripFrameworkHeaders.cs",
-              "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/dotnet/targets/Xamarin.Shared.Sdk.targets",
-              "https://api.nuget.org/v3-flatcontainer/microsoft.ios.sdk.net11.0_27.0/27.0.12212-net11-rc.2/microsoft.ios.sdk.net11.0_27.0.27.0.12212-net11-rc.2.nupkg",
-              "https://api.nuget.org/v3-flatcontainer/microsoft.ios.ref.net11.0_27.0/27.0.12212-net11-rc.2/microsoft.ios.ref.net11.0_27.0.27.0.12212-net11-rc.2.nupkg"
+              "https://raw.githubusercontent.com/dotnet/macios/34b3b25d471c22f2a62c36ec0971b021d0a0e000/docs/building-apps/build-items.md",
+              "https://raw.githubusercontent.com/dotnet/macios/34b3b25d471c22f2a62c36ec0971b021d0a0e000/docs/building-apps/build-properties.md",
+              "https://raw.githubusercontent.com/dotnet/macios/34b3b25d471c22f2a62c36ec0971b021d0a0e000/docs/website/binding_types_reference_guide.md",
+              "https://raw.githubusercontent.com/dotnet/macios/34b3b25d471c22f2a62c36ec0971b021d0a0e000/msbuild/Xamarin.MacDev.Tasks/Tasks/CompileAppManifest.cs",
+              "https://raw.githubusercontent.com/dotnet/macios/34b3b25d471c22f2a62c36ec0971b021d0a0e000/msbuild/Xamarin.MacDev.Tasks/Tasks/StripFrameworkHeaders.cs",
+              "https://raw.githubusercontent.com/dotnet/macios/34b3b25d471c22f2a62c36ec0971b021d0a0e000/dotnet/targets/Xamarin.Shared.Sdk.targets",
+              "https://api.nuget.org/v3-flatcontainer/microsoft.ios.sdk.net11.0_27.2/27.2.11039/microsoft.ios.sdk.net11.0_27.2.27.2.11039.nupkg",
+              "https://api.nuget.org/v3-flatcontainer/microsoft.ios.ref.net11.0_27.2/27.2.11039/microsoft.ios.ref.net11.0_27.2.27.2.11039.nupkg"
             ],
             "evidenceSamples": [
               "samples/net11.0/OystercatcherBinding/OystercatcherBinding.csproj"
@@ -21219,8 +21230,8 @@
         "ios",
         "maccatalyst"
       ],
-      "metadataSha256": "3f0d980719a9cce47e9c4b5d6e7fd133140463ff341e98f7a8d4a80d9f8aada1",
-      "markdownSha256": "87481915e9822d017baf268e2492a7d3b909f255f866883a42f34e1164c0e1f1",
+      "metadataSha256": "4f71211d69169cb3556a8c527be08c35bba2ce52baf152afd50599873f101f45",
+      "markdownSha256": "582a9a59192ac08ca9258930f795f97bb34c9a8f574048ae4420ec99e5ed436f",
       "applicability": {
         "routes": [
           {
@@ -21241,7 +21252,7 @@
                 "name": ".NET SDK",
                 "version": "11.0",
                 "match": "release-family",
-                "reason": "GA SDK intended; pinned Apple Historical RC2 source and GA artifact review is separate from a tested native workload composition."
+                "reason": "GA SDK intended; pinned Apple GA source and artifact review is separate from a tested native workload composition."
               },
               "language": {
                 "name": "C#",
@@ -21263,8 +21274,8 @@
                 }
               ],
               "packageAssets": [
-                "Microsoft.iOS.Ref.net11.0_27.0/27.0.12212-net11-rc.2 ref/net11.0/Microsoft.iOS.dll",
-                "Apple build props/targets at a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d"
+                "Microsoft.iOS.Ref.net11.0_27.2/27.2.11039 ref/net11.0/Microsoft.iOS.dll",
+                "Apple build props/targets at 34b3b25d471c22f2a62c36ec0971b021d0a0e000"
               ],
               "providers": [
                 "No service provisioned; proxy recipe requires an existing authorized HTTP proxy for application execution."
@@ -21276,8 +21287,9 @@
                 "Native Apple app/library; no web rendering mode"
               ],
               "prerequisites": [
+                "GA composition: workload set 11.0.100.1 (Microsoft.NET.Workloads.11.0.100/11.100.1), Android 37.2.31, Apple 27.2.11039 and MAUI 11.0.0. Use JDK21 or25 and the selected Android SDK API37/build tools; Gradle9.1+ when invoked with JDK25. Apple requires Xcode27.2 on macOS Tahoe26.6+; the upstream Apple release says16.6+, conflicting with Apple host requirements. Binding SDK versions are not deployment floors. This source/artifact selection does not establish a locally installed native workload or native execution.",
                 "Compatible Apple workload and Xcode required for native publishing/execution.",
-                "GA SDK intended; RC2 sources reviewed separately, not a verified native composition."
+                "GA SDK intended; GA sources reviewed separately, not a verified native composition."
               ],
               "constraints": [
                 ".NET10 comparison only; no older-target catalogue route.",
@@ -21292,11 +21304,11 @@
               ]
             },
             "sourceUrls": [
-              "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/src/Foundation/NSUrlSessionHandler.cs",
-              "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/docs/building-apps/build-properties.md",
-              "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/dotnet/targets/Xamarin.Shared.Sdk.targets",
-              "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/dotnet/targets/Xamarin.Shared.Sdk.props",
-              "https://api.nuget.org/v3-flatcontainer/microsoft.ios.ref.net11.0_27.0/27.0.12212-net11-rc.2/microsoft.ios.ref.net11.0_27.0.27.0.12212-net11-rc.2.nupkg"
+              "https://raw.githubusercontent.com/dotnet/macios/34b3b25d471c22f2a62c36ec0971b021d0a0e000/src/Foundation/NSUrlSessionHandler.cs",
+              "https://raw.githubusercontent.com/dotnet/macios/34b3b25d471c22f2a62c36ec0971b021d0a0e000/docs/building-apps/build-properties.md",
+              "https://raw.githubusercontent.com/dotnet/macios/34b3b25d471c22f2a62c36ec0971b021d0a0e000/dotnet/targets/Xamarin.Shared.Sdk.targets",
+              "https://raw.githubusercontent.com/dotnet/macios/34b3b25d471c22f2a62c36ec0971b021d0a0e000/dotnet/targets/Xamarin.Shared.Sdk.props",
+              "https://api.nuget.org/v3-flatcontainer/microsoft.ios.ref.net11.0_27.2/27.2.11039/microsoft.ios.ref.net11.0_27.2.27.2.11039.nupkg"
             ],
             "evidenceSamples": [
               "samples/net11.0/TernProxy/TernProxy.csproj"
@@ -21314,7 +21326,7 @@
           "sdk": "10.0.402"
         },
         {
-          "scope": "Exact official RC2 sources reviewed. Canonical net11 proxy C# reference compilation passes against the pinned GA iOS reference assembly; no native workload compilation or execution.",
+          "scope": "Exact official GA sources reviewed. Canonical net11 proxy C# reference compilation passes against the pinned GA iOS reference assembly; no native workload compilation or execution.",
           "sample": "samples/net11.0/TernProxy/TernProxy.csproj",
           "language": "15.0",
           "kind": "official-review",
@@ -21338,8 +21350,8 @@
       "areas": [
         "ios"
       ],
-      "metadataSha256": "44341ea7e8dcdb38fa44b9f9413d20919da7f09c4a7f634a86f3c56a480e82c0",
-      "markdownSha256": "025c5fbfb488ef980684b9f190f0e54e00fd3bff8e302d8c7662fe2186e5e1ee",
+      "metadataSha256": "f44cb2a7ba819b11ea316c7f979ac071c76cac8fe76efc21358a37a67f2fa15f",
+      "markdownSha256": "10e114c3c423debd3ee8659b6279a681ce68b16be710bb36245bebe2316069cc",
       "applicability": {
         "routes": [
           {
@@ -21391,7 +21403,8 @@
                 "Native consumer library; no browser rendering."
               ],
               "prerequisites": [
-                "GA preparation SDK11.0.100; workload set11.0.100. Android37.2.29 or Apple27.0.12212-net11-rc.2 respectively. Apple requires Xcode27.0/macOS26.6+; no arbitrary later pairing implied."
+                "GA composition: workload set 11.0.100.1 (Microsoft.NET.Workloads.11.0.100/11.100.1), Android 37.2.31, Apple 27.2.11039 and MAUI 11.0.0. Use JDK21 or25 and the selected Android SDK API37/build tools; Gradle9.1+ when invoked with JDK25. Apple requires Xcode27.2 on macOS Tahoe26.6+; the upstream Apple release says16.6+, conflicting with Apple host requirements. Binding SDK versions are not deployment floors. This source/artifact selection does not establish a locally installed native workload or native execution.",
+                "GA preparation SDK11.0.100; workload set11.0.100.1. Android37.2.31 or Apple27.2.11039 respectively. Apple requires Xcode27.2/macOS26.6+; no arbitrary later pairing implied."
               ],
               "constraints": [
                 "Eight .NET10 foundations unchanged; older samples are comparisons only.",
@@ -21404,8 +21417,8 @@
               ]
             },
             "sourceUrls": [
-              "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/src/appkit.cs",
-              "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/src/corenfc.cs"
+              "https://raw.githubusercontent.com/dotnet/macios/34b3b25d471c22f2a62c36ec0971b021d0a0e000/src/appkit.cs",
+              "https://raw.githubusercontent.com/dotnet/macios/34b3b25d471c22f2a62c36ec0971b021d0a0e000/src/corenfc.cs"
             ],
             "evidenceSamples": [
               "samples/net11.0/WhimbrelTags/WhimbrelTags.csproj"
@@ -21448,8 +21461,8 @@
         "ios",
         "maccatalyst"
       ],
-      "metadataSha256": "f1e2361b8cb1f33795e339656771b8375bfb35944dda7c881404490a3ad49a9f",
-      "markdownSha256": "72c7c2ebce6ba82c361e87e0ffb5fac0b89c5ce51b93b6e374f7ac35f16a7249",
+      "metadataSha256": "4d9d3ac5b2d7f2949c92e65d7b40021bed3356c7ef1f32598ca23413bb0b5490",
+      "markdownSha256": "8746afe14a786b44a48b6a40726efac2996d68dd2655b59ee76a26eae08e901d",
       "applicability": {
         "routes": [
           {
@@ -21470,7 +21483,7 @@
                 "name": ".NET SDK",
                 "version": "11.0",
                 "match": "release-family",
-                "reason": "GA SDK intended; pinned Apple Historical RC2 source and GA artifact review is separate from a tested native workload composition."
+                "reason": "GA SDK intended; pinned Apple GA source and artifact review is separate from a tested native workload composition."
               },
               "language": {
                 "name": "C#",
@@ -21492,8 +21505,8 @@
                 }
               ],
               "packageAssets": [
-                "Microsoft.MacCatalyst.Ref.net11.0_27.0/27.0.12212-net11-rc.2 ref/net11.0/Microsoft.MacCatalyst.dll",
-                "Apple build props/targets at a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d"
+                "Microsoft.MacCatalyst.Ref.net11.0_27.2/27.2.11039 ref/net11.0/Microsoft.MacCatalyst.dll",
+                "Apple build props/targets at 34b3b25d471c22f2a62c36ec0971b021d0a0e000"
               ],
               "providers": [
                 "No external service or account required."
@@ -21505,8 +21518,9 @@
                 "Native Apple app/library; no web rendering mode"
               ],
               "prerequisites": [
+                "GA composition: workload set 11.0.100.1 (Microsoft.NET.Workloads.11.0.100/11.100.1), Android 37.2.31, Apple 27.2.11039 and MAUI 11.0.0. Use JDK21 or25 and the selected Android SDK API37/build tools; Gradle9.1+ when invoked with JDK25. Apple requires Xcode27.2 on macOS Tahoe26.6+; the upstream Apple release says16.6+, conflicting with Apple host requirements. Binding SDK versions are not deployment floors. This source/artifact selection does not establish a locally installed native workload or native execution.",
                 "Compatible Apple workload and Xcode required for native publishing/execution.",
-                "GA SDK intended; RC2 sources reviewed separately, not a verified native composition."
+                "GA SDK intended; GA sources reviewed separately, not a verified native composition."
               ],
               "constraints": [
                 ".NET10 comparison only; no older-target catalogue route.",
@@ -21519,10 +21533,10 @@
               ]
             },
             "sourceUrls": [
-              "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/docs/building-apps/build-properties.md",
-              "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/dotnet/targets/Xamarin.Shared.Sdk.targets",
-              "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/dotnet/targets/Xamarin.Shared.Sdk.props",
-              "https://api.nuget.org/v3-flatcontainer/microsoft.maccatalyst.ref.net11.0_27.0/27.0.12212-net11-rc.2/microsoft.maccatalyst.ref.net11.0_27.0.27.0.12212-net11-rc.2.nupkg"
+              "https://raw.githubusercontent.com/dotnet/macios/34b3b25d471c22f2a62c36ec0971b021d0a0e000/docs/building-apps/build-properties.md",
+              "https://raw.githubusercontent.com/dotnet/macios/34b3b25d471c22f2a62c36ec0971b021d0a0e000/dotnet/targets/Xamarin.Shared.Sdk.targets",
+              "https://raw.githubusercontent.com/dotnet/macios/34b3b25d471c22f2a62c36ec0971b021d0a0e000/dotnet/targets/Xamarin.Shared.Sdk.props",
+              "https://api.nuget.org/v3-flatcontainer/microsoft.maccatalyst.ref.net11.0_27.2/27.2.11039/microsoft.maccatalyst.ref.net11.0_27.2.27.2.11039.nupkg"
             ],
             "evidenceSamples": [
               "samples/net11.0/TernPublish/TernPublish.csproj"
@@ -21540,7 +21554,7 @@
           "sdk": "10.0.402"
         },
         {
-          "scope": "Exact official RC2 sources and Catalyst artifact reviewed. Canonical net11 Catalyst C# reference compilation passes against the pinned GA Mac Catalyst assembly; no native workload compilation, publish output or execution.",
+          "scope": "Exact official GA sources and Catalyst artifact reviewed. Canonical net11 Catalyst C# reference compilation passes against the pinned GA Mac Catalyst assembly; no native workload compilation, publish output or execution.",
           "sample": "samples/net11.0/TernPublish/TernPublish.csproj",
           "language": "15.0",
           "kind": "official-review",
@@ -21564,7 +21578,7 @@
       "areas": [
         "ios"
       ],
-      "metadataSha256": "9da0fd5d4859225d57d36868603fa587c60c03bc39aabc845990c44e5f57a5b8",
+      "metadataSha256": "b058099b18a9ece9a4dfb3c38772edcded2f47702e9d00d7d149df41060e409f",
       "markdownSha256": "86d169a72693cdf3d5cca1b9c87db27ae38791738f2ddc6d093d6082b6e68ea8",
       "applicability": {
         "routes": [
@@ -21586,7 +21600,7 @@
                 "name": ".NET SDK",
                 "version": "11.0",
                 "match": "release-family",
-                "reason": "GA SDK intended; pinned Apple Historical RC2 source and GA artifact review is separate from a tested native workload composition."
+                "reason": "GA SDK intended; pinned Apple GA source and artifact review is separate from a tested native workload composition."
               },
               "language": {
                 "name": "C#",
@@ -21607,8 +21621,8 @@
                 }
               ],
               "packageAssets": [
-                "Microsoft.iOS.Sdk.net11.0_27.0/27.0.12212-net11-rc.2 tools/lib/bgen and tools/msbuild/net11.0",
-                "Microsoft.iOS.Ref.net11.0_27.0/27.0.12212-net11-rc.2 ref/net11.0/Microsoft.iOS.dll"
+                "Microsoft.iOS.Sdk.net11.0_27.2/27.2.11039 tools/lib/bgen and tools/msbuild/net11.0",
+                "Microsoft.iOS.Ref.net11.0_27.2/27.2.11039 ref/net11.0/Microsoft.iOS.dll"
               ],
               "providers": [
                 "No service, account or external provider required."
@@ -21620,6 +21634,7 @@
                 "Native Apple app or binding library; no browser rendering."
               ],
               "prerequisites": [
+                "GA composition: workload set 11.0.100.1 (Microsoft.NET.Workloads.11.0.100/11.100.1), Android 37.2.31, Apple 27.2.11039 and MAUI 11.0.0. Use JDK21 or25 and the selected Android SDK API37/build tools; Gradle9.1+ when invoked with JDK25. Apple requires Xcode27.2 on macOS Tahoe26.6+; the upstream Apple release says16.6+, conflicting with Apple host requirements. Binding SDK versions are not deployment floors. This source/artifact selection does not establish a locally installed native workload or native execution.",
                 "Matching Apple workload and Xcode for actual native app/binding builds.",
                 "Verification uses SDK11.0.100, exact GA Apple artifacts; no experimental API opt-in."
               ],
@@ -21635,14 +21650,14 @@
               ]
             },
             "sourceUrls": [
-              "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/docs/building-apps/build-items.md",
-              "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/docs/building-apps/build-properties.md",
-              "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/docs/website/binding_types_reference_guide.md",
-              "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/msbuild/Xamarin.MacDev.Tasks/Tasks/CompileAppManifest.cs",
-              "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/msbuild/Xamarin.MacDev.Tasks/Tasks/StripFrameworkHeaders.cs",
-              "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/dotnet/targets/Xamarin.Shared.Sdk.targets",
-              "https://api.nuget.org/v3-flatcontainer/microsoft.ios.sdk.net11.0_27.0/27.0.12212-net11-rc.2/microsoft.ios.sdk.net11.0_27.0.27.0.12212-net11-rc.2.nupkg",
-              "https://api.nuget.org/v3-flatcontainer/microsoft.ios.ref.net11.0_27.0/27.0.12212-net11-rc.2/microsoft.ios.ref.net11.0_27.0.27.0.12212-net11-rc.2.nupkg"
+              "https://raw.githubusercontent.com/dotnet/macios/34b3b25d471c22f2a62c36ec0971b021d0a0e000/docs/building-apps/build-items.md",
+              "https://raw.githubusercontent.com/dotnet/macios/34b3b25d471c22f2a62c36ec0971b021d0a0e000/docs/building-apps/build-properties.md",
+              "https://raw.githubusercontent.com/dotnet/macios/34b3b25d471c22f2a62c36ec0971b021d0a0e000/docs/website/binding_types_reference_guide.md",
+              "https://raw.githubusercontent.com/dotnet/macios/34b3b25d471c22f2a62c36ec0971b021d0a0e000/msbuild/Xamarin.MacDev.Tasks/Tasks/CompileAppManifest.cs",
+              "https://raw.githubusercontent.com/dotnet/macios/34b3b25d471c22f2a62c36ec0971b021d0a0e000/msbuild/Xamarin.MacDev.Tasks/Tasks/StripFrameworkHeaders.cs",
+              "https://raw.githubusercontent.com/dotnet/macios/34b3b25d471c22f2a62c36ec0971b021d0a0e000/dotnet/targets/Xamarin.Shared.Sdk.targets",
+              "https://api.nuget.org/v3-flatcontainer/microsoft.ios.sdk.net11.0_27.2/27.2.11039/microsoft.ios.sdk.net11.0_27.2.27.2.11039.nupkg",
+              "https://api.nuget.org/v3-flatcontainer/microsoft.ios.ref.net11.0_27.2/27.2.11039/microsoft.ios.ref.net11.0_27.2.27.2.11039.nupkg"
             ],
             "evidenceSamples": [
               "samples/net11.0/OystercatcherFramework/OystercatcherFramework.csproj"
@@ -21684,7 +21699,7 @@
       "areas": [
         "maui"
       ],
-      "metadataSha256": "9e4e2b207b6bb118389fb9114242d7df95ae6d966ea7299358adf01a976db22c",
+      "metadataSha256": "7da8fdeded782b50955c22e6801207dac26e7b6ddfa1f76047f6870d359d3988",
       "markdownSha256": "6b3dbcfd85efe447d264beb102e499ffce414c05f50d3c196e53dbbb01980495",
       "applicability": {
         "routes": [
@@ -21743,6 +21758,7 @@
                 "Native host; no Blazor rendering-mode claim"
               ],
               "prerequisites": [
+                "GA composition: workload set 11.0.100.1 (Microsoft.NET.Workloads.11.0.100/11.100.1), Android 37.2.31, Apple 27.2.11039 and MAUI 11.0.0. Use JDK21 or25 and the selected Android SDK API37/build tools; Gradle9.1+ when invoked with JDK25. Apple requires Xcode27.2 on macOS Tahoe26.6+; the upstream Apple release says16.6+, conflicting with Apple host requirements. Binding SDK versions are not deployment floors. This source/artifact selection does not establish a locally installed native workload or native execution.",
                 "Existing native app host; initiate from a user action. Active Windows UI window on its UI thread, HTTPS RP identity, server-generated one-use challenge, exact native origin allowlist; domain/signing prerequisites for Apple/Android."
               ],
               "constraints": [
@@ -21795,7 +21811,7 @@
       "areas": [
         "maui"
       ],
-      "metadataSha256": "aa4f63d26d3467b8a6222fe10bbc7a78bef9687937fcdf0b6c3d763efcceb5bb",
+      "metadataSha256": "247972b4441612d6d2241b14104435a7a8e47cb7fe8230d8d9c30a3fa0b5ed4a",
       "markdownSha256": "2cacad6e08cc0b6b9a0f1450cf1d2fcc9482a58bad54e5c467c90d543160b1b0",
       "applicability": {
         "routes": [
@@ -21838,7 +21854,7 @@
                   "name": "maui-android / maui-ios / maui-windows (choose target)",
                   "version": "11.0",
                   "match": "release-family",
-                  "reason": "Reviewed GA workload set11.0.100 selects MAUI11.0.0, Android37.2.29 and Apple27.0.12212-net11-rc.2. This is source/artifact provenance, not an installed workload for the pinned GA SDK; a matching native workload is still required and unavailable here."
+                  "reason": "Reviewed GA workload set11.0.100.1 selects MAUI11.0.0, Android37.2.31 and Apple27.2.11039. This is source/artifact provenance, not an installed workload for the pinned GA SDK; a matching native workload is still required and unavailable here."
                 }
               ],
               "providers": [
@@ -21851,6 +21867,7 @@
                 "Native MAUI controls; no Blazor rendering mode"
               ],
               "prerequisites": [
+                "GA composition: workload set 11.0.100.1 (Microsoft.NET.Workloads.11.0.100/11.100.1), Android 37.2.31, Apple 27.2.11039 and MAUI 11.0.0. Use JDK21 or25 and the selected Android SDK API37/build tools; Gradle9.1+ when invoked with JDK25. Apple requires Xcode27.2 on macOS Tahoe26.6+; the upstream Apple release says16.6+, conflicting with Apple host requirements. Binding SDK versions are not deployment floors. This source/artifact selection does not establish a locally installed native workload or native execution.",
                 "Matching native MAUI workload; Android SDK for Android; matched Apple workload and Xcode for Apple targets."
               ],
               "constraints": [
@@ -21925,7 +21942,7 @@
       "areas": [
         "maui"
       ],
-      "metadataSha256": "62bb03581f45651a41f661aeeff66ff83368625018cedc0509141a7c21cb63f9",
+      "metadataSha256": "f317c213d80762e4e28a29bdce1b6c41f2fe16def76a41d4befec2028d80ed70",
       "markdownSha256": "dd017568a57ad04897300c75623731f0e1e5260aae04b0a5506f48d99a4fa09b",
       "applicability": {
         "routes": [
@@ -21968,7 +21985,7 @@
                   "name": "maui-android / maui-ios / maui-windows (choose target)",
                   "version": "11.0",
                   "match": "release-family",
-                  "reason": "Install the workload matching the selected target. Reviewed set11.0.100 selects MAUI11.0.0, Android37.2.29 and Apple27.0.12212-net11-rc.2."
+                  "reason": "Install the workload matching the selected target. Reviewed set11.0.100.1 selects MAUI11.0.0, Android37.2.31 and Apple27.2.11039."
                 }
               ],
               "providers": [
@@ -21981,8 +21998,9 @@
                 "Native MAUI controls; no Blazor rendering mode"
               ],
               "prerequisites": [
+                "GA composition: workload set 11.0.100.1 (Microsoft.NET.Workloads.11.0.100/11.100.1), Android 37.2.31, Apple 27.2.11039 and MAUI 11.0.0. Use JDK21 or25 and the selected Android SDK API37/build tools; Gradle9.1+ when invoked with JDK25. Apple requires Xcode27.2 on macOS Tahoe26.6+; the upstream Apple release says16.6+, conflicting with Apple host requirements. Binding SDK versions are not deployment floors. This source/artifact selection does not establish a locally installed native workload or native execution.",
                 "Matching native SDK pack, platform tooling and a configured device/emulator for live checks; workload labels alone do not establish availability.",
-                "Android preparation uses JDK25 and Android SDK/build tools matching the reviewed workload; Apple preparation uses the reviewed Xcode27.0 GA composition."
+                "Android preparation uses JDK25 and Android SDK/build tools matching the reviewed workload; Apple preparation uses the reviewed Xcode27.2 GA composition."
               ],
               "constraints": [
                 "No provider/account for Playbook retrieval. Device signing/trust is separate and not provisioned by this guidance.",
@@ -22075,7 +22093,7 @@
       "areas": [
         "maui"
       ],
-      "metadataSha256": "9714c7bb3fe0252e6cac004a827052eeee42934437df404d1091c1f1d56cb384",
+      "metadataSha256": "e465ead31be746cdab159f3577d95e838d96e358383ff6a78178350618560ab8",
       "markdownSha256": "052cb2a084182756665b4dea26c5f47cf4c15c159bb2497a3f462fe73054253b",
       "applicability": {
         "routes": [
@@ -22131,6 +22149,7 @@
                 "Native MAUI controls; no Blazor rendering mode"
               ],
               "prerequisites": [
+                "GA composition: workload set 11.0.100.1 (Microsoft.NET.Workloads.11.0.100/11.100.1), Android 37.2.31, Apple 27.2.11039 and MAUI 11.0.0. Use JDK21 or25 and the selected Android SDK API37/build tools; Gradle9.1+ when invoked with JDK25. Apple requires Xcode27.2 on macOS Tahoe26.6+; the upstream Apple release says16.6+, conflicting with Apple host requirements. Binding SDK versions are not deployment floors. This source/artifact selection does not establish a locally installed native workload or native execution.",
                 "Use a matching installed MAUI SDK pack; workload-list labels alone do not establish availability."
               ],
               "constraints": [
@@ -22202,7 +22221,7 @@
       "areas": [
         "maui"
       ],
-      "metadataSha256": "90cbb4c70706806591a0c5ec9529310e55705f1a6a07400b0dc1d6d8301224a7",
+      "metadataSha256": "3dd453750ac1e06f099b29035de785f0005e7fb129e9b84b272531d174ebcfa5",
       "markdownSha256": "3befec43ffa7e53cfbe1c2062dc6b7356e7d97ae2169780ed04bb5beac35f89b",
       "applicability": {
         "routes": [
@@ -22257,6 +22276,7 @@
                 "MAUI/native or Avalonia desktop; contract-only tests do not render."
               ],
               "prerequisites": [
+                "GA composition: workload set 11.0.100.1 (Microsoft.NET.Workloads.11.0.100/11.100.1), Android 37.2.31, Apple 27.2.11039 and MAUI 11.0.0. Use JDK21 or25 and the selected Android SDK API37/build tools; Gradle9.1+ when invoked with JDK25. Apple requires Xcode27.2 on macOS Tahoe26.6+; the upstream Apple release says16.6+, conflicting with Apple host requirements. Binding SDK versions are not deployment floors. This source/artifact selection does not establish a locally installed native workload or native execution.",
                 "See exact canonical pins and independent package locks; tool host itself requires no MAUI workload.",
                 "Supplemental raw-asset consumer additionally uses Avalonia.Controls.Maui/Desktop11.0.0-rc.2.26287.618 and Microsoft.Maui.Resizetizer11.0.0; those are not prerequisites for the service-only backend."
               ],
@@ -22341,7 +22361,7 @@
         "blazor",
         "maui"
       ],
-      "metadataSha256": "3db7e937abc30be1cfba6642e04bf9a962a49307d4b1825aa4808c7f8cbc70f1",
+      "metadataSha256": "1e56a8594487440b435758b68a8a9532e220a0609567c92a055fdda0307065d0",
       "markdownSha256": "fb04e761ddbe606414cc850eecdcd386d8743fd1e49b437f543e7f0ef0e3ea1e",
       "applicability": {
         "routes": [
@@ -22397,6 +22417,7 @@
                 "Native Blazor Hybrid static-content serving; neutral callback test is not a WebView renderer."
               ],
               "prerequisites": [
+                "GA composition: workload set 11.0.100.1 (Microsoft.NET.Workloads.11.0.100/11.100.1), Android 37.2.31, Apple 27.2.11039 and MAUI 11.0.0. Use JDK21 or25 and the selected Android SDK API37/build tools; Gradle9.1+ when invoked with JDK25. Apple requires Xcode27.2 on macOS Tahoe26.6+; the upstream Apple release says16.6+, conflicting with Apple host requirements. Binding SDK versions are not deployment floors. This source/artifact selection does not establish a locally installed native workload or native execution.",
                 "See exact canonical pins and independent package locks; tool host itself requires no MAUI workload."
               ],
               "constraints": [
@@ -22475,7 +22496,7 @@
       "areas": [
         "maui"
       ],
-      "metadataSha256": "86649a602699e597f199a4d96fa11c9c635a538fbe19b8514097a9efc5410cb6",
+      "metadataSha256": "47b98cbfa0c734ed7d87515986aa8e67983f9802fd4909597b5948fc4f4dcb06",
       "markdownSha256": "95dda1bf41af9d3fad4359be09611ca12c1a4d42698be8a9c3d69b4cc9c9af71",
       "applicability": {
         "routes": [
@@ -22518,19 +22539,20 @@
                   "name": "maui-android / maui-ios / maui-windows (choose target)",
                   "version": "11.0",
                   "match": "release-family",
-                  "reason": "Install the workload matching the selected target. Reviewed set11.0.100 selects MAUI11.0.0, Android37.2.29 and Apple27.0.12212-net11-rc.2."
+                  "reason": "Install the workload matching the selected target. Reviewed set11.0.100.1 selects MAUI11.0.0, Android37.2.31 and Apple27.2.11039."
                 }
               ],
               "providers": [
                 "No external provider or account"
               ],
               "platforms": [
-                "iOS27.0 binding, deployment minimum18.2; Mac/Xcode27.0 required."
+                "iOS27.0 binding, deployment minimum18.2; Mac/Xcode27.2 required."
               ],
               "renderingModes": [
                 "Local HTML in native HybridWebView; no Blazor rendering mode."
               ],
               "prerequisites": [
+                "GA composition: workload set 11.0.100.1 (Microsoft.NET.Workloads.11.0.100/11.100.1), Android 37.2.31, Apple 27.2.11039 and MAUI 11.0.0. Use JDK21 or25 and the selected Android SDK API37/build tools; Gradle9.1+ when invoked with JDK25. Apple requires Xcode27.2 on macOS Tahoe26.6+; the upstream Apple release says16.6+, conflicting with Apple host requirements. Binding SDK versions are not deployment floors. This source/artifact selection does not establish a locally installed native workload or native execution.",
                 "Matching native toolchain. No provider, credentials or external service."
               ],
               "constraints": [
@@ -22606,7 +22628,7 @@
       "areas": [
         "maui"
       ],
-      "metadataSha256": "68cb1554dec591becefeaa507c4ebe380170ef661c7521b0f82e2c0e27c45742",
+      "metadataSha256": "6c4b2f7cd330ec98832955b55aec70aebc26b54a19ae0d5bd7ef78ac2156cf70",
       "markdownSha256": "fe2a9dd14ac30a01a7def1b308d54fb4d32c6326e109ade65d72cdb2056af610",
       "applicability": {
         "routes": [
@@ -22649,7 +22671,7 @@
                   "name": "maui-android / maui-ios / maui-windows (choose target)",
                   "version": "11.0",
                   "match": "release-family",
-                  "reason": "Reviewed GA workload set11.0.100 selects MAUI11.0.0, Android37.2.29 and Apple27.0.12212-net11-rc.2. This is source/artifact provenance, not an installed workload for the pinned GA SDK; a matching native workload is still required and unavailable here."
+                  "reason": "Reviewed GA workload set11.0.100.1 selects MAUI11.0.0, Android37.2.31 and Apple27.2.11039. This is source/artifact provenance, not an installed workload for the pinned GA SDK; a matching native workload is still required and unavailable here."
                 }
               ],
               "providers": [
@@ -22662,6 +22684,7 @@
                 "Native MAUI controls; no Blazor rendering mode"
               ],
               "prerequisites": [
+                "GA composition: workload set 11.0.100.1 (Microsoft.NET.Workloads.11.0.100/11.100.1), Android 37.2.31, Apple 27.2.11039 and MAUI 11.0.0. Use JDK21 or25 and the selected Android SDK API37/build tools; Gradle9.1+ when invoked with JDK25. Apple requires Xcode27.2 on macOS Tahoe26.6+; the upstream Apple release says16.6+, conflicting with Apple host requirements. Binding SDK versions are not deployment floors. This source/artifact selection does not establish a locally installed native workload or native execution.",
                 "Matching MAUI native SDK and Android tools; Apple needs paired Mac/Xcode."
               ],
               "constraints": [
@@ -22732,7 +22755,7 @@
       "areas": [
         "maui"
       ],
-      "metadataSha256": "e6947ba13bd19b6e3df4f5f0d4455526ab7423cc7f36a1fc283128d3ee5c0df2",
+      "metadataSha256": "a4cd802a41c176954ec58e1d723f9098a9e74bf0148b0c4d08cf467b916509af",
       "markdownSha256": "efecafd52d54e274b9ed64b2152aa92c2d2be511b3f9a37c79ed42eec106913c",
       "applicability": {
         "routes": [
@@ -22788,6 +22811,7 @@
                 "Native MAUI controls; no Blazor rendering mode"
               ],
               "prerequisites": [
+                "GA composition: workload set 11.0.100.1 (Microsoft.NET.Workloads.11.0.100/11.100.1), Android 37.2.31, Apple 27.2.11039 and MAUI 11.0.0. Use JDK21 or25 and the selected Android SDK API37/build tools; Gradle9.1+ when invoked with JDK25. Apple requires Xcode27.2 on macOS Tahoe26.6+; the upstream Apple release says16.6+, conflicting with Apple host requirements. Binding SDK versions are not deployment floors. This source/artifact selection does not establish a locally installed native workload or native execution.",
                 "Use a matching installed MAUI SDK pack; workload-list labels alone do not establish availability."
               ],
               "constraints": [
@@ -22858,7 +22882,7 @@
       "areas": [
         "maui"
       ],
-      "metadataSha256": "67d69dc693ab1bdb11c09fa6e4bb1d51fb4e92df14109930fd88884ee13284f5",
+      "metadataSha256": "251863955f7997c152e4f46aad34a41e002580fde2c8f27297b1eb44342577ca",
       "markdownSha256": "04b0f65b6b5e7d76773ec9a8f01744938960744e98871f3092409c4c13169af5",
       "applicability": {
         "routes": [
@@ -22920,6 +22944,7 @@
                 "Native MAUI map handler; Windows WinUI MapControl uses internal WebView2/Azure Maps JS. No Blazor rendering mode."
               ],
               "prerequisites": [
+                "GA composition: workload set 11.0.100.1 (Microsoft.NET.Workloads.11.0.100/11.100.1), Android 37.2.31, Apple 27.2.11039 and MAUI 11.0.0. Use JDK21 or25 and the selected Android SDK API37/build tools; Gradle9.1+ when invoked with JDK25. Apple requires Xcode27.2 on macOS Tahoe26.6+; the upstream Apple release says16.6+, conflicting with Apple host requirements. Binding SDK versions are not deployment floors. This source/artifact selection does not establish a locally installed native workload or native execution.",
                 "UseMauiMaps registration and matching workload; provider access separately authorized. Placeholder is deliberately invalid. No provisioning or credential acquisition is part of this recipe."
               ],
               "constraints": [
@@ -23012,7 +23037,7 @@
       "areas": [
         "maui"
       ],
-      "metadataSha256": "87658e54c87f9bf96bcda6d181e483b84fb5ab1da4c49887ad49f703d4246bab",
+      "metadataSha256": "2443a60a4ff9c3f8e00183dd788648745d0e7f2f3be5283c3137be20b9e335f9",
       "markdownSha256": "d68e85a0fd86a5949df3c0c4acc84fe65f8d03f5a727b9da8253a86349f25992",
       "applicability": {
         "routes": [
@@ -23068,6 +23093,7 @@
                 "MAUI/native or Avalonia desktop; contract-only tests do not render."
               ],
               "prerequisites": [
+                "GA composition: workload set 11.0.100.1 (Microsoft.NET.Workloads.11.0.100/11.100.1), Android 37.2.31, Apple 27.2.11039 and MAUI 11.0.0. Use JDK21 or25 and the selected Android SDK API37/build tools; Gradle9.1+ when invoked with JDK25. Apple requires Xcode27.2 on macOS Tahoe26.6+; the upstream Apple release says16.6+, conflicting with Apple host requirements. Binding SDK versions are not deployment floors. This source/artifact selection does not establish a locally installed native workload or native execution.",
                 "See exact canonical pins and independent package locks; tool host itself requires no MAUI workload."
               ],
               "constraints": [
@@ -23144,7 +23170,7 @@
       "areas": [
         "maui"
       ],
-      "metadataSha256": "7ea3655b4a319133d4cf975d66b258df69f377f25e2137931febf0ecaf669294",
+      "metadataSha256": "6c3dce3c01b4510ef2b0a95a40de7fef6f4c573b7043d832bde91b763aad39aa",
       "markdownSha256": "703a9453358c7fd59d10a6683b2720e5ae3f411e564cf26d2cfd1c3ba337d8d7",
       "applicability": {
         "routes": [
@@ -23187,7 +23213,7 @@
                   "name": "maui-android / maui-ios / maui-windows (choose target)",
                   "version": "11.0",
                   "match": "release-family",
-                  "reason": "Install the workload matching the selected target. Reviewed set11.0.100 selects MAUI11.0.0, Android37.2.29 and Apple27.0.12212-net11-rc.2."
+                  "reason": "Install the workload matching the selected target. Reviewed set11.0.100.1 selects MAUI11.0.0, Android37.2.31 and Apple27.2.11039."
                 }
               ],
               "providers": [
@@ -23200,6 +23226,7 @@
                 "Native MAUI Android controls; no web rendering mode."
               ],
               "prerequisites": [
+                "GA composition: workload set 11.0.100.1 (Microsoft.NET.Workloads.11.0.100/11.100.1), Android 37.2.31, Apple 27.2.11039 and MAUI 11.0.0. Use JDK21 or25 and the selected Android SDK API37/build tools; Gradle9.1+ when invoked with JDK25. Apple requires Xcode27.2 on macOS Tahoe26.6+; the upstream Apple release says16.6+, conflicting with Apple host requirements. Binding SDK versions are not deployment floors. This source/artifact selection does not establish a locally installed native workload or native execution.",
                 "Matching native toolchain. No provider, credentials or external service."
               ],
               "constraints": [
@@ -23263,7 +23290,7 @@
       "areas": [
         "maui"
       ],
-      "metadataSha256": "b9283031210c20d7706adb6fb8b453f6a73530c505a930f86c9ff0e7831308a0",
+      "metadataSha256": "34b7532c4cbd0398cc145c5f10d6f2d6af60ab6ea356cdfa0ef68773562acce2",
       "markdownSha256": "c6a5d264bff10221bed4f7f4ae093d0378920d5c24a7bfce2825705437118145",
       "applicability": {
         "routes": [
@@ -23316,7 +23343,8 @@
                 "Native MAUI page; neutral executable does not render UI."
               ],
               "prerequisites": [
-                "Native GA preparation: SDK11.0.100, workload set11.0.100, MAUI11.0.0. SourceGen compiled XAML requires a matching native MAUI project."
+                "GA composition: workload set 11.0.100.1 (Microsoft.NET.Workloads.11.0.100/11.100.1), Android 37.2.31, Apple 27.2.11039 and MAUI 11.0.0. Use JDK21 or25 and the selected Android SDK API37/build tools; Gradle9.1+ when invoked with JDK25. Apple requires Xcode27.2 on macOS Tahoe26.6+; the upstream Apple release says16.6+, conflicting with Apple host requirements. Binding SDK versions are not deployment floors. This source/artifact selection does not establish a locally installed native workload or native execution.",
+                "Native GA preparation: SDK11.0.100, workload set11.0.100.1, MAUI11.0.0. SourceGen compiled XAML requires a matching native MAUI project."
               ],
               "constraints": [
                 "Eight .NET10 foundations unchanged; older samples are comparisons only.",
@@ -23378,7 +23406,7 @@
       "areas": [
         "maui"
       ],
-      "metadataSha256": "3e5252a4a17283f4a4d2f626816045cbbe2c1ea67abc3c44eb2eaaf77be24f76",
+      "metadataSha256": "53629a2562018f62944c7756b261d47dbd9fb95d85b80bc08ccdcd5e1f7b9255",
       "markdownSha256": "b84617412f07b10848e020558ffde0ff3d021b8c6d72cfd776664c9ef4dec7ff",
       "applicability": {
         "routes": [
@@ -23440,6 +23468,7 @@
                 "Native MAUI map handler; Windows WinUI MapControl uses internal WebView2/Azure Maps JS. No Blazor rendering mode."
               ],
               "prerequisites": [
+                "GA composition: workload set 11.0.100.1 (Microsoft.NET.Workloads.11.0.100/11.100.1), Android 37.2.31, Apple 27.2.11039 and MAUI 11.0.0. Use JDK21 or25 and the selected Android SDK API37/build tools; Gradle9.1+ when invoked with JDK25. Apple requires Xcode27.2 on macOS Tahoe26.6+; the upstream Apple release says16.6+, conflicting with Apple host requirements. Binding SDK versions are not deployment floors. This source/artifact selection does not establish a locally installed native workload or native execution.",
                 "UseMauiMaps registration and matching workload; provider access separately authorized. Placeholder is deliberately invalid. No provisioning or credential acquisition is part of this recipe."
               ],
               "constraints": [
@@ -23539,6 +23568,7 @@
                 "Native MAUI map handler; Windows WinUI MapControl uses internal WebView2/Azure Maps JS. No Blazor rendering mode."
               ],
               "prerequisites": [
+                "GA composition: workload set 11.0.100.1 (Microsoft.NET.Workloads.11.0.100/11.100.1), Android 37.2.31, Apple 27.2.11039 and MAUI 11.0.0. Use JDK21 or25 and the selected Android SDK API37/build tools; Gradle9.1+ when invoked with JDK25. Apple requires Xcode27.2 on macOS Tahoe26.6+; the upstream Apple release says16.6+, conflicting with Apple host requirements. Binding SDK versions are not deployment floors. This source/artifact selection does not establish a locally installed native workload or native execution.",
                 "UseMauiMaps registration and matching workload; provider access separately authorized. Placeholder is deliberately invalid. No provisioning or credential acquisition is part of this recipe."
               ],
               "constraints": [
@@ -23631,7 +23661,7 @@
       "areas": [
         "maui"
       ],
-      "metadataSha256": "2c914d2dcf39b59c99576245f14ba0f1cfe1c1892fcf97bb60b9744b37597a6c",
+      "metadataSha256": "d0d1d6816807a636ee1d3e67da82a2a260cbecbda7ec390d97f052c974a6f88e",
       "markdownSha256": "2452e91ca86a73415f9806188f3d66116080daca88b1d02341b8a98fd071be35",
       "applicability": {
         "routes": [
@@ -23674,7 +23704,7 @@
                   "name": "maui-android / maui-ios / maui-windows (choose target)",
                   "version": "11.0",
                   "match": "release-family",
-                  "reason": "Install the workload matching the selected target. Reviewed set11.0.100 selects MAUI11.0.0, Android37.2.29 and Apple27.0.12212-net11-rc.2."
+                  "reason": "Install the workload matching the selected target. Reviewed set11.0.100.1 selects MAUI11.0.0, Android37.2.31 and Apple27.2.11039."
                 }
               ],
               "providers": [
@@ -23687,6 +23717,7 @@
                 "Native MAUI controls; no Blazor rendering mode"
               ],
               "prerequisites": [
+                "GA composition: workload set 11.0.100.1 (Microsoft.NET.Workloads.11.0.100/11.100.1), Android 37.2.31, Apple 27.2.11039 and MAUI 11.0.0. Use JDK21 or25 and the selected Android SDK API37/build tools; Gradle9.1+ when invoked with JDK25. Apple requires Xcode27.2 on macOS Tahoe26.6+; the upstream Apple release says16.6+, conflicting with Apple host requirements. Binding SDK versions are not deployment floors. This source/artifact selection does not establish a locally installed native workload or native execution.",
                 "Matching MAUI SDK pack and native platform tools. Apple build/run requires Mac/Xcode; unavailable here and excluded."
               ],
               "constraints": [
@@ -23765,7 +23796,7 @@
       "areas": [
         "maui"
       ],
-      "metadataSha256": "fbb565be91c5c96a190606316730a8e16d3f5b48056cdb2a31f838518b596192",
+      "metadataSha256": "7010940d5c5d49ccfdf8109ea85c7be86d30a3673e115a3afc68c9153e2edc10",
       "markdownSha256": "980168c5cbcad76b3c46b8469a7ea9e3bde9cd3ffb32393200649eecc34f7edf",
       "applicability": {
         "routes": [
@@ -23838,6 +23869,7 @@
                 "MAUI/native or Avalonia desktop; contract-only tests do not render."
               ],
               "prerequisites": [
+                "GA composition: workload set 11.0.100.1 (Microsoft.NET.Workloads.11.0.100/11.100.1), Android 37.2.31, Apple 27.2.11039 and MAUI 11.0.0. Use JDK21 or25 and the selected Android SDK API37/build tools; Gradle9.1+ when invoked with JDK25. Apple requires Xcode27.2 on macOS Tahoe26.6+; the upstream Apple release says16.6+, conflicting with Apple host requirements. Binding SDK versions are not deployment floors. This source/artifact selection does not establish a locally installed native workload or native execution.",
                 "See exact canonical pins and independent package locks; tool host itself requires no MAUI workload.",
                 "Neutral package consumer is workload-free; ordinary generated native heads require matched MAUI workloads and platform toolchains."
               ],
@@ -23912,7 +23944,7 @@
       "areas": [
         "maui"
       ],
-      "metadataSha256": "7079e7ec48a303873ca3fa3c33a41d16ccfb3bf8b9a5a255cbec5e069aca6cf4",
+      "metadataSha256": "0c22d7c7732a0730f587d700838f36a041e8403f5ee7fe79a9597afd5a822fd8",
       "markdownSha256": "a4202b6a9eb2d723423268591638007d82226b808a8e3c0f2e568a7b8e107cbb",
       "applicability": {
         "routes": [
@@ -23955,7 +23987,7 @@
                   "name": "maui-android / maui-ios / maui-windows (choose target)",
                   "version": "11.0",
                   "match": "release-family",
-                  "reason": "Reviewed GA workload set11.0.100 selects MAUI11.0.0, Android37.2.29 and Apple27.0.12212-net11-rc.2. This is source/artifact provenance, not an installed workload for the pinned GA SDK; a matching native workload is still required and unavailable here."
+                  "reason": "Reviewed GA workload set11.0.100.1 selects MAUI11.0.0, Android37.2.31 and Apple27.2.11039. This is source/artifact provenance, not an installed workload for the pinned GA SDK; a matching native workload is still required and unavailable here."
                 }
               ],
               "providers": [
@@ -23968,6 +24000,7 @@
                 "Native MAUI controls; no Blazor rendering mode"
               ],
               "prerequisites": [
+                "GA composition: workload set 11.0.100.1 (Microsoft.NET.Workloads.11.0.100/11.100.1), Android 37.2.31, Apple 27.2.11039 and MAUI 11.0.0. Use JDK21 or25 and the selected Android SDK API37/build tools; Gradle9.1+ when invoked with JDK25. Apple requires Xcode27.2 on macOS Tahoe26.6+; the upstream Apple release says16.6+, conflicting with Apple host requirements. Binding SDK versions are not deployment floors. This source/artifact selection does not establish a locally installed native workload or native execution.",
                 "Matching native MAUI workload; Android SDK for Android; matched Apple workload and Xcode for Apple targets."
               ],
               "constraints": [
@@ -24042,7 +24075,7 @@
       "areas": [
         "maui"
       ],
-      "metadataSha256": "bec01cb8939085bb6e477213c7956eaab8d3790cc565fa432b50d035d5fc62cb",
+      "metadataSha256": "4df6ffa52a93b3412a4923cc086ee7f521afadb120db0b58af24c2440f3c4319",
       "markdownSha256": "a45eb3e92ac0f410294e930a1144ee9e08c38d3bcff78537cc4ca38c19a747ed",
       "applicability": {
         "routes": [
@@ -24104,6 +24137,7 @@
                 "Native MAUI map handler; Windows WinUI MapControl uses internal WebView2/Azure Maps JS. No Blazor rendering mode."
               ],
               "prerequisites": [
+                "GA composition: workload set 11.0.100.1 (Microsoft.NET.Workloads.11.0.100/11.100.1), Android 37.2.31, Apple 27.2.11039 and MAUI 11.0.0. Use JDK21 or25 and the selected Android SDK API37/build tools; Gradle9.1+ when invoked with JDK25. Apple requires Xcode27.2 on macOS Tahoe26.6+; the upstream Apple release says16.6+, conflicting with Apple host requirements. Binding SDK versions are not deployment floors. This source/artifact selection does not establish a locally installed native workload or native execution.",
                 "UseMauiMaps registration and matching workload; provider access separately authorized. Placeholder is deliberately invalid. No provisioning or credential acquisition is part of this recipe."
               ],
               "constraints": [
@@ -24196,8 +24230,8 @@
       "areas": [
         "maui"
       ],
-      "metadataSha256": "f05463db83c3c5542f2f741e8f995ee75cec6ed7ac909f431a6e96374edbba93",
-      "markdownSha256": "cbddc59d7e701f2099b826cd5618bf0682762f69174bf51d77840889dc9b9948",
+      "metadataSha256": "a9dcf2e03644cec453f1c8a22a6bc986b5de43c269a0000fcba0dc671bb93427",
+      "markdownSha256": "31a912fd70c9466b054461fb9d731e3056739d961c91a8d7c2d597cb7cd0fd3e",
       "applicability": {
         "routes": [
           {
@@ -24239,7 +24273,7 @@
                   "name": "maui-android / maui-ios / maui-windows (choose target)",
                   "version": "11.0",
                   "match": "release-family",
-                  "reason": "Install the workload matching the selected target. Reviewed set11.0.100 selects MAUI11.0.0, Android37.2.29 and Apple27.0.12212-net11-rc.2."
+                  "reason": "Install the workload matching the selected target. Reviewed set11.0.100.1 selects MAUI11.0.0, Android37.2.31 and Apple27.2.11039."
                 }
               ],
               "providers": [
@@ -24252,8 +24286,9 @@
                 "Native MAUI controls; no Blazor rendering mode"
               ],
               "prerequisites": [
+                "GA composition: workload set 11.0.100.1 (Microsoft.NET.Workloads.11.0.100/11.100.1), Android 37.2.31, Apple 27.2.11039 and MAUI 11.0.0. Use JDK21 or25 and the selected Android SDK API37/build tools; Gradle9.1+ when invoked with JDK25. Apple requires Xcode27.2 on macOS Tahoe26.6+; the upstream Apple release says16.6+, conflicting with Apple host requirements. Binding SDK versions are not deployment floors. This source/artifact selection does not establish a locally installed native workload or native execution.",
                 "Matching native SDK pack, platform tooling and a configured device/emulator for live checks; workload labels alone do not establish availability.",
-                "Android preparation uses JDK25 and Android SDK/build tools matching the reviewed workload; Apple preparation uses the reviewed Xcode27.0 GA composition."
+                "Android preparation uses JDK25 and Android SDK/build tools matching the reviewed workload; Apple preparation uses the reviewed Xcode27.2 GA composition."
               ],
               "constraints": [
                 "No provider/account for Playbook retrieval. Device signing/trust is separate and not provisioned by this guidance.",
@@ -24347,7 +24382,7 @@
       "areas": [
         "maui"
       ],
-      "metadataSha256": "704de40660fc1aaaa14b53482776dfd49256ffd3db82eeadbd9452d504961438",
+      "metadataSha256": "3ab62f81ae2aab8ff39752e736a7277524d479ed6b443d802b1f19802448eabb",
       "markdownSha256": "da48cd6b1556c26fa6007c5204d8390dcd92aeb32694ea5fd685b280a8d39850",
       "applicability": {
         "routes": [
@@ -24390,7 +24425,7 @@
                   "name": "maui-android / maui-ios / maui-windows (choose target)",
                   "version": "11.0",
                   "match": "release-family",
-                  "reason": "Install the workload matching the selected target. Reviewed set11.0.100 selects MAUI11.0.0, Android37.2.29 and Apple27.0.12212-net11-rc.2."
+                  "reason": "Install the workload matching the selected target. Reviewed set11.0.100.1 selects MAUI11.0.0, Android37.2.31 and Apple27.2.11039."
                 }
               ],
               "providers": [
@@ -24403,6 +24438,7 @@
                 "Native MAUI controls; no Blazor rendering mode"
               ],
               "prerequisites": [
+                "GA composition: workload set 11.0.100.1 (Microsoft.NET.Workloads.11.0.100/11.100.1), Android 37.2.31, Apple 27.2.11039 and MAUI 11.0.0. Use JDK21 or25 and the selected Android SDK API37/build tools; Gradle9.1+ when invoked with JDK25. Apple requires Xcode27.2 on macOS Tahoe26.6+; the upstream Apple release says16.6+, conflicting with Apple host requirements. Binding SDK versions are not deployment floors. This source/artifact selection does not establish a locally installed native workload or native execution.",
                 "Compatible Apple workload, Mac/Xcode and native SDK; unavailable on this Windows authoring machine."
               ],
               "constraints": [
@@ -24493,7 +24529,7 @@
       "areas": [
         "maui"
       ],
-      "metadataSha256": "18fffd1efbe318e194934b785513f5a0147959aa011a7965f0a239d8d6743bf4",
+      "metadataSha256": "ae169996aadef1e35188eb96796e231bd427f1a197c52311c7e99279e62d933d",
       "markdownSha256": "8cb80d6599bc182fbac5645a0cd74cabae8140bc74f69b95fcf077f4ada45bf7",
       "applicability": {
         "routes": [
@@ -24536,7 +24572,7 @@
                   "name": "maui-android / maui-ios / maui-windows (choose target)",
                   "version": "11.0",
                   "match": "release-family",
-                  "reason": "Install the workload matching the selected target. Reviewed set11.0.100 selects MAUI11.0.0, Android37.2.29 and Apple27.0.12212-net11-rc.2."
+                  "reason": "Install the workload matching the selected target. Reviewed set11.0.100.1 selects MAUI11.0.0, Android37.2.31 and Apple27.2.11039."
                 }
               ],
               "providers": [
@@ -24549,6 +24585,7 @@
                 "Native MAUI controls; no Blazor rendering mode"
               ],
               "prerequisites": [
+                "GA composition: workload set 11.0.100.1 (Microsoft.NET.Workloads.11.0.100/11.100.1), Android 37.2.31, Apple 27.2.11039 and MAUI 11.0.0. Use JDK21 or25 and the selected Android SDK API37/build tools; Gradle9.1+ when invoked with JDK25. Apple requires Xcode27.2 on macOS Tahoe26.6+; the upstream Apple release says16.6+, conflicting with Apple host requirements. Binding SDK versions are not deployment floors. This source/artifact selection does not establish a locally installed native workload or native execution.",
                 "Compatible MAUI SDK and platform workload. Current SDK11 installation lacks Microsoft.Maui.Sdk; Android tools/devices are unavailable here."
               ],
               "constraints": [
@@ -24622,7 +24659,7 @@
                   "name": "maui-android / maui-ios / maui-windows (choose target)",
                   "version": "11.0",
                   "match": "release-family",
-                  "reason": "Install the workload matching the selected target. Reviewed set11.0.100 selects MAUI11.0.0, Android37.2.29 and Apple27.0.12212-net11-rc.2."
+                  "reason": "Install the workload matching the selected target. Reviewed set11.0.100.1 selects MAUI11.0.0, Android37.2.31 and Apple27.2.11039."
                 }
               ],
               "providers": [
@@ -24635,6 +24672,7 @@
                 "Native MAUI controls; no Blazor rendering mode"
               ],
               "prerequisites": [
+                "GA composition: workload set 11.0.100.1 (Microsoft.NET.Workloads.11.0.100/11.100.1), Android 37.2.31, Apple 27.2.11039 and MAUI 11.0.0. Use JDK21 or25 and the selected Android SDK API37/build tools; Gradle9.1+ when invoked with JDK25. Apple requires Xcode27.2 on macOS Tahoe26.6+; the upstream Apple release says16.6+, conflicting with Apple host requirements. Binding SDK versions are not deployment floors. This source/artifact selection does not establish a locally installed native workload or native execution.",
                 "Compatible Apple workload, Mac/Xcode and native SDK; unavailable on this Windows authoring machine."
               ],
               "constraints": [
@@ -24722,7 +24760,7 @@
       "areas": [
         "maui"
       ],
-      "metadataSha256": "e2d86664e63afedc6ebdd14fc5ca7f54ca104a837116969f7846f8265bc4a6ee",
+      "metadataSha256": "4800c77bc618a05f0493fcafb1ef5b0181012473b40d8e8c5ab750d016dbc973",
       "markdownSha256": "f8e287fd6adba550279c83f754a3f19b572ca39cb3840e5552de6e0e866911e0",
       "applicability": {
         "routes": [
@@ -24765,7 +24803,7 @@
                   "name": "maui-android / maui-ios / maui-windows (choose target)",
                   "version": "11.0",
                   "match": "release-family",
-                  "reason": "Install the workload matching the selected target. Reviewed set11.0.100 selects MAUI11.0.0, Android37.2.29 and Apple27.0.12212-net11-rc.2."
+                  "reason": "Install the workload matching the selected target. Reviewed set11.0.100.1 selects MAUI11.0.0, Android37.2.31 and Apple27.2.11039."
                 }
               ],
               "providers": [
@@ -24778,6 +24816,7 @@
                 "Native MAUI controls; no Blazor rendering mode"
               ],
               "prerequisites": [
+                "GA composition: workload set 11.0.100.1 (Microsoft.NET.Workloads.11.0.100/11.100.1), Android 37.2.31, Apple 27.2.11039 and MAUI 11.0.0. Use JDK21 or25 and the selected Android SDK API37/build tools; Gradle9.1+ when invoked with JDK25. Apple requires Xcode27.2 on macOS Tahoe26.6+; the upstream Apple release says16.6+, conflicting with Apple host requirements. Binding SDK versions are not deployment floors. This source/artifact selection does not establish a locally installed native workload or native execution.",
                 "Compatible MAUI SDK and platform workload. Current SDK11 installation lacks Microsoft.Maui.Sdk; Android tools/devices are unavailable here."
               ],
               "constraints": [
@@ -24848,7 +24887,7 @@
       "areas": [
         "maui"
       ],
-      "metadataSha256": "68066889beb4cfdf2d5e1c587f9dd77d87549f1217104c2b4f123ff99e39143d",
+      "metadataSha256": "35e1face31e15bf23a466186e459dfa9e310238beb65d255f40f23286141b50d",
       "markdownSha256": "804387ec4d1d9eb2ad1242ed83de9d1a03af3da6e2c02444ecb58879a1b6f52a",
       "applicability": {
         "routes": [
@@ -24891,7 +24930,7 @@
                   "name": "maui-android / maui-ios / maui-windows (choose target)",
                   "version": "11.0",
                   "match": "release-family",
-                  "reason": "Install the workload matching the selected target. Reviewed set11.0.100 selects MAUI11.0.0, Android37.2.29 and Apple27.0.12212-net11-rc.2."
+                  "reason": "Install the workload matching the selected target. Reviewed set11.0.100.1 selects MAUI11.0.0, Android37.2.31 and Apple27.2.11039."
                 }
               ],
               "providers": [
@@ -24904,6 +24943,7 @@
                 "Native MAUI controls; no Blazor rendering mode"
               ],
               "prerequisites": [
+                "GA composition: workload set 11.0.100.1 (Microsoft.NET.Workloads.11.0.100/11.100.1), Android 37.2.31, Apple 27.2.11039 and MAUI 11.0.0. Use JDK21 or25 and the selected Android SDK API37/build tools; Gradle9.1+ when invoked with JDK25. Apple requires Xcode27.2 on macOS Tahoe26.6+; the upstream Apple release says16.6+, conflicting with Apple host requirements. Binding SDK versions are not deployment floors. This source/artifact selection does not establish a locally installed native workload or native execution.",
                 "Matching MAUI SDK pack and native platform tools. Apple build/run requires Mac/Xcode; unavailable here and excluded."
               ],
               "constraints": [
@@ -24982,7 +25022,7 @@
       "areas": [
         "maui"
       ],
-      "metadataSha256": "e1ef457768685fabf4e78a65b5146716bae649cf108ede2adea7d7fba525b7b2",
+      "metadataSha256": "e4f891abf9f00b1f26e6cadb088a09e0eae7054da9270bcfbbc3ebfc4448a172",
       "markdownSha256": "c6856db806c56a0568cc6ff7064f32a4be86d27f35a47a50e6542909d9fbc3e8",
       "applicability": {
         "routes": [
@@ -25025,7 +25065,7 @@
                   "name": "maui-android / maui-ios / maui-windows (choose target)",
                   "version": "11.0",
                   "match": "release-family",
-                  "reason": "Reviewed GA workload set11.0.100 selects MAUI11.0.0, Android37.2.29 and Apple27.0.12212-net11-rc.2. This is source/artifact provenance, not an installed workload for the pinned GA SDK; a matching native workload is still required and unavailable here."
+                  "reason": "Reviewed GA workload set11.0.100.1 selects MAUI11.0.0, Android37.2.31 and Apple27.2.11039. This is source/artifact provenance, not an installed workload for the pinned GA SDK; a matching native workload is still required and unavailable here."
                 }
               ],
               "providers": [
@@ -25038,6 +25078,7 @@
                 "Native MAUI controls; no Blazor rendering mode"
               ],
               "prerequisites": [
+                "GA composition: workload set 11.0.100.1 (Microsoft.NET.Workloads.11.0.100/11.100.1), Android 37.2.31, Apple 27.2.11039 and MAUI 11.0.0. Use JDK21 or25 and the selected Android SDK API37/build tools; Gradle9.1+ when invoked with JDK25. Apple requires Xcode27.2 on macOS Tahoe26.6+; the upstream Apple release says16.6+, conflicting with Apple host requirements. Binding SDK versions are not deployment floors. This source/artifact selection does not establish a locally installed native workload or native execution.",
                 "Matching MAUI native SDK and Android tools; Apple needs paired Mac/Xcode."
               ],
               "constraints": [
@@ -25106,7 +25147,7 @@
       "areas": [
         "maui"
       ],
-      "metadataSha256": "c56f2794940da2706b878e7099a6b3ba173f594cf966e0ae3cf382d5ea9adbd5",
+      "metadataSha256": "2307cf5404d6361149e23a867a44b98a2df050cbf5be94d01ee9b2415022d27f",
       "markdownSha256": "ebc322236ecb55464a60577ed0f6c0ba84c06c500cf1f5bc58d7f37d2fc5a8b9",
       "applicability": {
         "routes": [
@@ -25162,6 +25203,7 @@
                 "Native MAUI controls; no Blazor rendering mode"
               ],
               "prerequisites": [
+                "GA composition: workload set 11.0.100.1 (Microsoft.NET.Workloads.11.0.100/11.100.1), Android 37.2.31, Apple 27.2.11039 and MAUI 11.0.0. Use JDK21 or25 and the selected Android SDK API37/build tools; Gradle9.1+ when invoked with JDK25. Apple requires Xcode27.2 on macOS Tahoe26.6+; the upstream Apple release says16.6+, conflicting with Apple host requirements. Binding SDK versions are not deployment floors. This source/artifact selection does not establish a locally installed native workload or native execution.",
                 "Matching MAUI Windows workload and Windows App SDK; use the canonical unpackaged win-x64 configuration."
               ],
               "constraints": [
@@ -25244,7 +25286,7 @@
       "areas": [
         "maui"
       ],
-      "metadataSha256": "2b251815ae0788f3de893cba45b26d63f80136fa17e2c5999f371df1238d2f03",
+      "metadataSha256": "eb2569e99ddaafe56275eca4c48ad69303eb91100cf54828ff33fcb56b2b95f0",
       "markdownSha256": "baab7e27a78f934e01fa25f8b70eeecdf349d21746e3b1f3cabd9d7b0d60b2df",
       "applicability": {
         "routes": [
@@ -25287,7 +25329,7 @@
                   "name": "maui-android / maui-ios / maui-windows (choose target)",
                   "version": "11.0",
                   "match": "release-family",
-                  "reason": "Reviewed GA workload set11.0.100 selects MAUI11.0.0, Android37.2.29 and Apple27.0.12212-net11-rc.2. This is source/artifact provenance, not an installed workload for the pinned GA SDK; a matching native workload is still required and unavailable here."
+                  "reason": "Reviewed GA workload set11.0.100.1 selects MAUI11.0.0, Android37.2.31 and Apple27.2.11039. This is source/artifact provenance, not an installed workload for the pinned GA SDK; a matching native workload is still required and unavailable here."
                 }
               ],
               "providers": [
@@ -25300,6 +25342,7 @@
                 "Native MAUI controls; no Blazor rendering mode"
               ],
               "prerequisites": [
+                "GA composition: workload set 11.0.100.1 (Microsoft.NET.Workloads.11.0.100/11.100.1), Android 37.2.31, Apple 27.2.11039 and MAUI 11.0.0. Use JDK21 or25 and the selected Android SDK API37/build tools; Gradle9.1+ when invoked with JDK25. Apple requires Xcode27.2 on macOS Tahoe26.6+; the upstream Apple release says16.6+, conflicting with Apple host requirements. Binding SDK versions are not deployment floors. This source/artifact selection does not establish a locally installed native workload or native execution.",
                 "Matching MAUI native SDK and Android tools; Apple needs paired Mac/Xcode."
               ],
               "constraints": [
@@ -25368,7 +25411,7 @@
       "areas": [
         "maui"
       ],
-      "metadataSha256": "7cb18c0c2459720604f65595ca54850d81034d97a96deb36935116ea5db06b88",
+      "metadataSha256": "e35ded2bbb917dcb29a8c65a220ef78695620f45912cbebea2c58257ae538c84",
       "markdownSha256": "5d5515d13916f50efc1c8ee1637e0d8c2f28ea2bf8bdf892bb7ad0aa474b4dbd",
       "applicability": {
         "routes": [
@@ -25427,6 +25470,7 @@
                 "Native host; no Blazor rendering-mode claim"
               ],
               "prerequisites": [
+                "GA composition: workload set 11.0.100.1 (Microsoft.NET.Workloads.11.0.100/11.100.1), Android 37.2.31, Apple 27.2.11039 and MAUI 11.0.0. Use JDK21 or25 and the selected Android SDK API37/build tools; Gradle9.1+ when invoked with JDK25. Apple requires Xcode27.2 on macOS Tahoe26.6+; the upstream Apple release says16.6+, conflicting with Apple host requirements. Binding SDK versions are not deployment floors. This source/artifact selection does not establish a locally installed native workload or native execution.",
                 "Existing native app host; initiate from a user action. Apple workload compatible with package target bindings; Mac/Xcode and eligible hardware are unavailable here."
               ],
               "constraints": [
@@ -25489,7 +25533,7 @@
         "android",
         "ios"
       ],
-      "metadataSha256": "b77547d7dbe9f5c93899c8798d7349febaef4f764a4bd613c8a435ab226c98bc",
+      "metadataSha256": "969236beca78cd173a56cacd7825f2e82d9f1341199d2b60ef28b57d63a17989",
       "markdownSha256": "12683fecf0c93cbdaa57b0697a2aa1208e868fd527bcbb669a8114edde169164",
       "applicability": {
         "routes": [
@@ -25539,7 +25583,7 @@
                 }
               ],
               "packageAssets": [
-                "GA Android37.2.29 and Apple27.0.12212-net11-rc.2 workload assets."
+                "GA Android37.2.31 and Apple27.2.11039 workload assets."
               ],
               "providers": [
                 "No service, account or external provider required."
@@ -25551,6 +25595,8 @@
                 "Native application process; no browser rendering."
               ],
               "prerequisites": [
+                "Retained RC Android template links are historical implementation-review inputs; use the named GA workload set for current builds. They do not establish GA diagnostic or device execution.",
+                "GA composition: workload set 11.0.100.1 (Microsoft.NET.Workloads.11.0.100/11.100.1), Android 37.2.31, Apple 27.2.11039 and MAUI 11.0.0. Use JDK21 or25 and the selected Android SDK API37/build tools; Gradle9.1+ when invoked with JDK25. Apple requires Xcode27.2 on macOS Tahoe26.6+; the upstream Apple release says16.6+, conflicting with Apple host requirements. Binding SDK versions are not deployment floors. This source/artifact selection does not establish a locally installed native workload or native execution.",
                 "Compatible native workload, Android SDK/JDK or Apple Xcode and separately authorized signing/device access."
               ],
               "constraints": [
@@ -25567,10 +25613,10 @@
               "https://raw.githubusercontent.com/dotnet/android/801f9ecbab5118b13d21cb52409e507ad4b2feb7/Documentation/docs-mobile/building-apps/build-properties.md",
               "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/docs/building-apps/build-properties.md",
               "https://api.nuget.org/v3-flatcontainer/microsoft.android.templates/37.2.0-rc.2.84/microsoft.android.templates.37.2.0-rc.2.84.nupkg",
-              "https://api.nuget.org/v3-flatcontainer/microsoft.ios.templates/27.0.12212-net11-rc.2/microsoft.ios.templates.27.0.12212-net11-rc.2.nupkg",
-              "https://api.nuget.org/v3-flatcontainer/microsoft.tvos.templates/27.0.12212-net11-rc.2/microsoft.tvos.templates.27.0.12212-net11-rc.2.nupkg",
-              "https://api.nuget.org/v3-flatcontainer/microsoft.macos.templates/27.0.12212-net11-rc.2/microsoft.macos.templates.27.0.12212-net11-rc.2.nupkg",
-              "https://api.nuget.org/v3-flatcontainer/microsoft.maccatalyst.templates/27.0.12212-net11-rc.2/microsoft.maccatalyst.templates.27.0.12212-net11-rc.2.nupkg"
+              "https://api.nuget.org/v3-flatcontainer/microsoft.ios.templates/27.2.11039/microsoft.ios.templates.27.2.11039.nupkg",
+              "https://api.nuget.org/v3-flatcontainer/microsoft.tvos.templates/27.2.11039/microsoft.tvos.templates.27.2.11039.nupkg",
+              "https://api.nuget.org/v3-flatcontainer/microsoft.macos.templates/27.2.11039/microsoft.macos.templates.27.2.11039.nupkg",
+              "https://api.nuget.org/v3-flatcontainer/microsoft.maccatalyst.templates/27.2.11039/microsoft.maccatalyst.templates.27.2.11039.nupkg"
             ],
             "evidenceSamples": [
               "samples/net11.0/SandpiperCrashAndroid/SandpiperCrashAndroid.csproj",
@@ -25637,7 +25683,7 @@
         "android",
         "ios"
       ],
-      "metadataSha256": "2ebbe74b32a6ea3e2aece2ef98402713723fc49bb86c0d8a2e718f521ea62788",
+      "metadataSha256": "6d7e54f676e37e1a176001dadc0275944887927dff9e9b61934b55fbc8580993",
       "markdownSha256": "eca936f74464a69270a25ddd0b37fda0d9bc45b755568f6f22f61226cf3aeaef",
       "applicability": {
         "routes": [
@@ -25694,7 +25740,7 @@
                 }
               ],
               "packageAssets": [
-                "GA Android37.2.29 and Apple27.0.12212-net11-rc.2 workload assets.",
+                "GA Android37.2.31 and Apple27.2.11039 workload assets.",
                 "MSTest/4.3.2; template-generated instrumentation/application bootstrap and MTP runner."
               ],
               "providers": [
@@ -25707,6 +25753,8 @@
                 "Native application process; no browser rendering."
               ],
               "prerequisites": [
+                "Retained RC Android template links are historical implementation-review inputs; use the named GA workload set for current builds. They do not establish GA diagnostic or device execution.",
+                "GA composition: workload set 11.0.100.1 (Microsoft.NET.Workloads.11.0.100/11.100.1), Android 37.2.31, Apple 27.2.11039 and MAUI 11.0.0. Use JDK21 or25 and the selected Android SDK API37/build tools; Gradle9.1+ when invoked with JDK25. Apple requires Xcode27.2 on macOS Tahoe26.6+; the upstream Apple release says16.6+, conflicting with Apple host requirements. Binding SDK versions are not deployment floors. This source/artifact selection does not establish a locally installed native workload or native execution.",
                 "Compatible native workload, Android SDK/JDK or Apple Xcode and separately authorized signing/device access."
               ],
               "constraints": [
@@ -25723,10 +25771,10 @@
               "https://raw.githubusercontent.com/dotnet/android/801f9ecbab5118b13d21cb52409e507ad4b2feb7/Documentation/docs-mobile/building-apps/build-properties.md",
               "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/docs/building-apps/build-properties.md",
               "https://api.nuget.org/v3-flatcontainer/microsoft.android.templates/37.2.0-rc.2.84/microsoft.android.templates.37.2.0-rc.2.84.nupkg",
-              "https://api.nuget.org/v3-flatcontainer/microsoft.ios.templates/27.0.12212-net11-rc.2/microsoft.ios.templates.27.0.12212-net11-rc.2.nupkg",
-              "https://api.nuget.org/v3-flatcontainer/microsoft.tvos.templates/27.0.12212-net11-rc.2/microsoft.tvos.templates.27.0.12212-net11-rc.2.nupkg",
-              "https://api.nuget.org/v3-flatcontainer/microsoft.macos.templates/27.0.12212-net11-rc.2/microsoft.macos.templates.27.0.12212-net11-rc.2.nupkg",
-              "https://api.nuget.org/v3-flatcontainer/microsoft.maccatalyst.templates/27.0.12212-net11-rc.2/microsoft.maccatalyst.templates.27.0.12212-net11-rc.2.nupkg"
+              "https://api.nuget.org/v3-flatcontainer/microsoft.ios.templates/27.2.11039/microsoft.ios.templates.27.2.11039.nupkg",
+              "https://api.nuget.org/v3-flatcontainer/microsoft.tvos.templates/27.2.11039/microsoft.tvos.templates.27.2.11039.nupkg",
+              "https://api.nuget.org/v3-flatcontainer/microsoft.macos.templates/27.2.11039/microsoft.macos.templates.27.2.11039.nupkg",
+              "https://api.nuget.org/v3-flatcontainer/microsoft.maccatalyst.templates/27.2.11039/microsoft.maccatalyst.templates.27.2.11039.nupkg"
             ],
             "evidenceSamples": [
               "samples/net11.0/SandpiperPlatformAndroid/SandpiperPlatformAndroid.csproj",

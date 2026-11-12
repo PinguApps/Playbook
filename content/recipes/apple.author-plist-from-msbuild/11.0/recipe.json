@@ -42,7 +42,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "GA SDK intended; pinned Apple Historical RC2 source and GA artifact review is separate from a tested native workload composition."
+            "reason": "GA SDK intended; pinned Apple GA source and artifact review is separate from a tested native workload composition."
           },
           "language": {
             "name": "C#",
@@ -63,8 +63,8 @@
             }
           ],
           "packageAssets": [
-            "Microsoft.iOS.Sdk.net11.0_27.0/27.0.12212-net11-rc.2 tools/lib/bgen and tools/msbuild/net11.0",
-            "Microsoft.iOS.Ref.net11.0_27.0/27.0.12212-net11-rc.2 ref/net11.0/Microsoft.iOS.dll"
+            "Microsoft.iOS.Sdk.net11.0_27.2/27.2.11039 tools/lib/bgen and tools/msbuild/net11.0",
+            "Microsoft.iOS.Ref.net11.0_27.2/27.2.11039 ref/net11.0/Microsoft.iOS.dll"
           ],
           "providers": [
             "No service, account or external provider required."
@@ -76,6 +76,7 @@
             "Native Apple app or binding library; no browser rendering."
           ],
           "prerequisites": [
+            "GA composition: workload set 11.0.100.1 (Microsoft.NET.Workloads.11.0.100/11.100.1), Android 37.2.31, Apple 27.2.11039 and MAUI 11.0.0. Use JDK21 or25 and the selected Android SDK API37/build tools; Gradle9.1+ when invoked with JDK25. Apple requires Xcode27.2 on macOS Tahoe26.6+; the upstream Apple release says16.6+, conflicting with Apple host requirements. Binding SDK versions are not deployment floors. This source/artifact selection does not establish a locally installed native workload or native execution.",
             "Matching Apple workload and Xcode for actual native app/binding builds.",
             "Verification uses SDK11.0.100, exact GA Apple artifacts; no experimental API opt-in."
           ],
@@ -91,14 +92,14 @@
           ]
         },
         "sourceUrls": [
-          "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/docs/building-apps/build-items.md",
-          "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/docs/building-apps/build-properties.md",
-          "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/docs/website/binding_types_reference_guide.md",
-          "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/msbuild/Xamarin.MacDev.Tasks/Tasks/CompileAppManifest.cs",
-          "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/msbuild/Xamarin.MacDev.Tasks/Tasks/StripFrameworkHeaders.cs",
-          "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/dotnet/targets/Xamarin.Shared.Sdk.targets",
-          "https://api.nuget.org/v3-flatcontainer/microsoft.ios.sdk.net11.0_27.0/27.0.12212-net11-rc.2/microsoft.ios.sdk.net11.0_27.0.27.0.12212-net11-rc.2.nupkg",
-          "https://api.nuget.org/v3-flatcontainer/microsoft.ios.ref.net11.0_27.0/27.0.12212-net11-rc.2/microsoft.ios.ref.net11.0_27.0.27.0.12212-net11-rc.2.nupkg"
+          "https://raw.githubusercontent.com/dotnet/macios/34b3b25d471c22f2a62c36ec0971b021d0a0e000/docs/building-apps/build-items.md",
+          "https://raw.githubusercontent.com/dotnet/macios/34b3b25d471c22f2a62c36ec0971b021d0a0e000/docs/building-apps/build-properties.md",
+          "https://raw.githubusercontent.com/dotnet/macios/34b3b25d471c22f2a62c36ec0971b021d0a0e000/docs/website/binding_types_reference_guide.md",
+          "https://raw.githubusercontent.com/dotnet/macios/34b3b25d471c22f2a62c36ec0971b021d0a0e000/msbuild/Xamarin.MacDev.Tasks/Tasks/CompileAppManifest.cs",
+          "https://raw.githubusercontent.com/dotnet/macios/34b3b25d471c22f2a62c36ec0971b021d0a0e000/msbuild/Xamarin.MacDev.Tasks/Tasks/StripFrameworkHeaders.cs",
+          "https://raw.githubusercontent.com/dotnet/macios/34b3b25d471c22f2a62c36ec0971b021d0a0e000/dotnet/targets/Xamarin.Shared.Sdk.targets",
+          "https://api.nuget.org/v3-flatcontainer/microsoft.ios.sdk.net11.0_27.2/27.2.11039/microsoft.ios.sdk.net11.0_27.2.27.2.11039.nupkg",
+          "https://api.nuget.org/v3-flatcontainer/microsoft.ios.ref.net11.0_27.2/27.2.11039/microsoft.ios.ref.net11.0_27.2.27.2.11039.nupkg"
         ],
         "evidenceSamples": [
           "samples/net11.0/OystercatcherManifest/OystercatcherManifest.csproj"
@@ -109,35 +110,35 @@
   "sources": [
     {
       "title": "Pinned official Apple build-items.md",
-      "url": "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/docs/building-apps/build-items.md"
+      "url": "https://raw.githubusercontent.com/dotnet/macios/34b3b25d471c22f2a62c36ec0971b021d0a0e000/docs/building-apps/build-items.md"
     },
     {
       "title": "Pinned official Apple build-properties.md",
-      "url": "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/docs/building-apps/build-properties.md"
+      "url": "https://raw.githubusercontent.com/dotnet/macios/34b3b25d471c22f2a62c36ec0971b021d0a0e000/docs/building-apps/build-properties.md"
     },
     {
       "title": "Pinned official Apple binding_types_reference_guide.md",
-      "url": "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/docs/website/binding_types_reference_guide.md"
+      "url": "https://raw.githubusercontent.com/dotnet/macios/34b3b25d471c22f2a62c36ec0971b021d0a0e000/docs/website/binding_types_reference_guide.md"
     },
     {
       "title": "Pinned official Apple CompileAppManifest.cs",
-      "url": "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/msbuild/Xamarin.MacDev.Tasks/Tasks/CompileAppManifest.cs"
+      "url": "https://raw.githubusercontent.com/dotnet/macios/34b3b25d471c22f2a62c36ec0971b021d0a0e000/msbuild/Xamarin.MacDev.Tasks/Tasks/CompileAppManifest.cs"
     },
     {
       "title": "Pinned official Apple StripFrameworkHeaders.cs",
-      "url": "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/msbuild/Xamarin.MacDev.Tasks/Tasks/StripFrameworkHeaders.cs"
+      "url": "https://raw.githubusercontent.com/dotnet/macios/34b3b25d471c22f2a62c36ec0971b021d0a0e000/msbuild/Xamarin.MacDev.Tasks/Tasks/StripFrameworkHeaders.cs"
     },
     {
       "title": "Pinned official Apple Xamarin.Shared.Sdk.targets",
-      "url": "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/dotnet/targets/Xamarin.Shared.Sdk.targets"
+      "url": "https://raw.githubusercontent.com/dotnet/macios/34b3b25d471c22f2a62c36ec0971b021d0a0e000/dotnet/targets/Xamarin.Shared.Sdk.targets"
     },
     {
-      "title": "Pinned official Apple microsoft.ios.sdk.net11.0_27.0.27.0.12212-net11-rc.2.nupkg",
-      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.ios.sdk.net11.0_27.0/27.0.12212-net11-rc.2/microsoft.ios.sdk.net11.0_27.0.27.0.12212-net11-rc.2.nupkg"
+      "title": "Pinned official Apple microsoft.ios.sdk.net11.0_27.2.27.2.11039.nupkg",
+      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.ios.sdk.net11.0_27.2/27.2.11039/microsoft.ios.sdk.net11.0_27.2.27.2.11039.nupkg"
     },
     {
-      "title": "Pinned official Apple microsoft.ios.ref.net11.0_27.0.27.0.12212-net11-rc.2.nupkg",
-      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.ios.ref.net11.0_27.0/27.0.12212-net11-rc.2/microsoft.ios.ref.net11.0_27.0.27.0.12212-net11-rc.2.nupkg"
+      "title": "Pinned official Apple microsoft.ios.ref.net11.0_27.2.27.2.11039.nupkg",
+      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.ios.ref.net11.0_27.2/27.2.11039/microsoft.ios.ref.net11.0_27.2.27.2.11039.nupkg"
     }
   ],
   "evidence": [

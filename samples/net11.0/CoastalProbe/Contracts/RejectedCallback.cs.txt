@@ -1,0 +1,10 @@
+// snippet:complete
+using System;
+
+public static class RejectedCallback
+{
+    // CS0619: regenerate owned bindings with the current generator instead.
+    public static Delegate Make(Delegate value) =>
+        Android.Runtime.JNINativeWrapper.CreateDelegate(value);
+}
+// endsnippet:complete

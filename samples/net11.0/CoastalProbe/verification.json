@@ -1,7 +1,8 @@
 {
   "additionalInputs": [
     "samples/CoastalProbe/sources.json",
-    "samples/CoastalProbe/artifacts.json"
+    "samples/CoastalProbe/artifacts.json",
+    "eng/Test-AndroidGaContracts.ps1"
   ],
   "buildArguments": [],
   "dependencies": [],

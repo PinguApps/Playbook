@@ -4,17 +4,21 @@
   "target": "net11.0-android37.2",
   "sdk": "11.0.100",
   "language": "15.0",
-  "command": "eng/Test-CoastalProbe.ps1 -Record",
-  "scope": "Exact pinned sources and Android RC2 manifest/reference artifact hashes; actual JavaFinalize obsolete metadata. Native compilation/execution not-tested under PIN-699.",
-  "recordedAt": "2026-11-10T23:09:21.5460062+00:00",
-  "sourceCommit": "1250c975d8e4f2f20985e9093d28213b268a457b",
+  "command": "eng/Test-AndroidGaContracts.ps1 -Record",
+  "scope": "GA Android37.2.31 reference compilation, actual binding generator and isolated MSBuild property/diagnostic task controls. CS0619/XA1044 negative controls; corrected generator/CoreCLR/Mono controls pass. No full native build or device execution.",
+  "recordedAt": "2026-11-12T13:11:42.5698672+00:00",
+  "sourceCommit": "cb318c711ac1fedce27d7047344ad569bee0b0ab",
   "sourceDirty": true,
   "inputs": {
+    "eng/Test-AndroidGaContracts.ps1": "19d68e4f1f28ee7bd8b1d180bb6821ab7af0eb3838d8b04374dc6d6e0835b46c",
     "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
     "samples/CoastalProbe/artifacts.json": "3fec0491f6b26a3b2d0dbd417e61980fe0d6e06b5c2ae289e69e6107cace7d41",
     "samples/CoastalProbe/sources.json": "63c633c2cbae22ceb77e86e6a7675fde2cfca9a2e420a4d8fb9e0fb236ef5308",
     "samples/net11.0/CoastalProbe/Bindings/ProbeBindings.csproj": "284c9e5c116cb0ab63dd216bd1deba58881b88262bfcc2db363d96b3c65a46d7",
     "samples/net11.0/CoastalProbe/CoastalProbe.csproj": "d99a24661effd442a2f1533c26294c887a51ba8e65fc0581fe56bcb5832d0e97",
+    "samples/net11.0/CoastalProbe/Contracts/api.xml": "92661cd96f28ecb30db8ef81ed9c4f07e85d2fe6b69777b069f5c34e3a215747",
+    "samples/net11.0/CoastalProbe/Contracts/RejectedCallback.cs.txt": "13495fcc138578426d1ac40176dbf407406fddd0e353aeb29b8c9d6bbfa15a3b",
+    "samples/net11.0/CoastalProbe/Contracts/RuntimeChoices.xml": "f1ba79d9665ba705e32a62220728aeeb1541138d81cbeb4fe65c3cff216bce5b",
     "samples/net11.0/CoastalProbe/Directory.Build.props": "4892f7956b79d97f8b78bff39bfcbb66219aae5b0b4fbd7ac5c5fc00d8d351b6",
     "samples/net11.0/CoastalProbe/Directory.Build.targets": "347e2e29465c6a37869dd07b0b401c55743b8571fb513a4e42b6ee8facc06ca4",
     "samples/net11.0/CoastalProbe/Directory.Packages.props": "347e2e29465c6a37869dd07b0b401c55743b8571fb513a4e42b6ee8facc06ca4",
@@ -24,13 +28,13 @@
     "samples/net11.0/CoastalProbe/ProbeLoader.cs": "50161470b467776eee829964f851a8069a276812958c75df827405eaddcbee0f",
     "samples/net11.0/CoastalProbe/ProbePeer.cs": "07f3385ff99b9692e3c4a55205a112f0db31838b5175e844430337e1e293015c",
     "samples/net11.0/CoastalProbe/Properties/AndroidManifest.xml": "b901d8eb9c3df1c24dd7769083abd7c1bb0637419342b5e08d909c24951ecca2",
-    "samples/net11.0/CoastalProbe/verification.json": "19f5a1d45bc45e9d4ade76809a445575305566da67a713c89f08a7dbc160d3fc"
+    "samples/net11.0/CoastalProbe/verification.json": "064e67fe3ec73eb54efaf51a3028697731c1eabd92c4caf87d3860325a3aa4af"
   },
   "dependencies": [],
   "workloads": [],
   "nativeToolchains": [],
   "host": "Microsoft Windows 10.0.26200",
-  "sdkInfo": "RC3 SDK selected for actual attempted build. RC2 SDK installation lacks runtimeconfig; no SDK files were modified.",
-  "workloadInfo": "RC3 native build failed NETSDK1147: android workload unavailable. Android NDK/device execution unavailable; optional native library not built.",
-  "output": "PASS pinned sources, package hashes and actual reference metadata. No current native generation, JNI order, device callback or GA proof."
+  "sdkInfo": "Actual SDK11.0.100/compiler5.12.0-1.26529.118 and net11 reference11.0.0; Android SDK/reference37.2.31 packages pinned by SHA256 in the runner. Java.Interop declares System.Runtime10: reference compilation emits CS1701; no runtime policy claim.",
+  "workloadInfo": "Isolated SDK task/generator execution on Windows; no installed Android workload, JDK/NDK, APK, device or JNI runtime proof.",
+  "output": "PASS expected CS0619/XA1044, corrected Export peer and generated JNI callback compilation; corrected ReadyToRun and Mono property controls pass. Generated callbacks retain nullable warnings. RC receipts remain historical at cb318c7."
 }
