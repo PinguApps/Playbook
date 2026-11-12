@@ -22,5 +22,17 @@
   {
     "url": "https://raw.githubusercontent.com/dotnet/maui/f9b311be07682fbe1714a18eba44d85ef24180fe/src/AI/src/Essentials.AI/Platform/MaciOS/AppleIntelligenceChatClient.cs",
     "sha256": "2dd0e9e20613d4f09299ae3aef43ec39ee05ea55e0f56d53b41f71a6cb8d3465"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/dotnet/maui-labs/1e7106383947444e5678e5a83c1dc14bbb4d7ca8/src/AI/Microsoft.Maui.Essentials.AI/Microsoft.Maui.Essentials.AI.csproj",
+    "sha256": "b14d480a13a9e0f45a37c06bb844f18d2799ea094cccaf9a29a3341dc560fb2a"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/dotnet/maui-labs/1e7106383947444e5678e5a83c1dc14bbb4d7ca8/src/AI/Microsoft.Maui.Essentials.AI/Platform/MaciOS/AppleIntelligenceChatClient.cs",
+    "sha256": "8c3509c407ad67016e4c17c21b0c4a4e5623546460af3c241aaaa6a1f29b4d4d"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/dotnet/maui-labs/1e7106383947444e5678e5a83c1dc14bbb4d7ca8/src/AI/Microsoft.Maui.Essentials.AI/../AppleBindings.targets",
+    "sha256": "c37844c077ca2f71735dc67fb87c7f0275f4f4f65c373cfad3afe3724d5d2499"
   }
 ]

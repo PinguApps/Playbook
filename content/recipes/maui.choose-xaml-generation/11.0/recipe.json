@@ -41,7 +41,7 @@
           "language": {
             "version": "15.0",
             "match": "exact",
-            "reason": "Explicit C#15 sample mode; XAML preview opt-in is separate from C# language mode.",
+            "reason": "Explicit C#15 sample mode; GA SourceGen expressions require no preview consent.",
             "name": "C#"
           },
           "frameworks": [
@@ -80,14 +80,13 @@
             "Use a matching installed MAUI SDK pack; workload-list labels alone do not establish availability."
           ],
           "constraints": [
-            "Current native sample is source-reviewed only under PIN-699. Standard generator migration does not require preview C# expressions."
+            "Current native sample is source-reviewed only under PIN-699. Incremental XAML Hot Reload remains separate and preview."
           ],
           "optIns": [
-            "MauiXamlInflator=SourceGen; the separate companion page also enables preview expressions."
+            "MauiXamlInflator=SourceGen"
           ],
           "stabilityLimitations": [
-            "GA preparation evidence; no GA verification. x:Code/C# expressions are preview, including in the companion migration sample.",
-            "Reviewed Controls and Build.Tasks 11.0.0 artifacts; intended SDK 11.0.100. The current native dependency closure was not resolved because the SDK pack is unavailable; these are preparation baselines, not required downgrades."
+            "Actual GA source/artifact review; native compilation and execution not-tested."
           ]
         },
         "sharedAreas": [],
@@ -104,12 +103,12 @@
         "sourceUrls": [
           "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/preview4/dotnetmaui.md",
           "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/rc2/dotnetmaui.md",
-          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/docs/specs/XamlCSharpExpressions.md",
-          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Build.Tasks/nuget/buildTransitive/netstandard2.0/Microsoft.Maui.Controls.targets",
-          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/AllowImplicitXmlnsDeclarationAttribute.cs",
-          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/tests/SourceGen.UnitTests/SourceGenXamlCodeBehindTests.cs",
-          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/tests/SourceGen.UnitTests/CSharpExpressionDiagnosticsTests.cs",
-          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/tests/SourceGen.UnitTests/CSharpExpressionInterpolationTests.cs"
+          "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/docs/specs/XamlCSharpExpressions.md",
+          "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Controls/src/Build.Tasks/nuget/buildTransitive/netstandard2.0/Microsoft.Maui.Controls.targets",
+          "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Controls/src/Core/AllowImplicitXmlnsDeclarationAttribute.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Controls/tests/SourceGen.UnitTests/SourceGenXamlCodeBehindTests.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Controls/tests/SourceGen.UnitTests/CSharpExpressionDiagnosticsTests.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Controls/tests/SourceGen.UnitTests/CSharpExpressionInterpolationTests.cs"
         ]
       }
     ]
@@ -124,28 +123,28 @@
       "title": "MAUI RC2 authoring release notes"
     },
     {
-      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/docs/specs/XamlCSharpExpressions.md",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/docs/specs/XamlCSharpExpressions.md",
       "title": "SourceGen C# expression syntax and limits"
     },
     {
-      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Build.Tasks/nuget/buildTransitive/netstandard2.0/Microsoft.Maui.Controls.targets",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Controls/src/Build.Tasks/nuget/buildTransitive/netstandard2.0/Microsoft.Maui.Controls.targets",
       "title": "Controls inflator defaults and deprecation diagnostics"
     },
     {
-      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/AllowImplicitXmlnsDeclarationAttribute.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Controls/src/Core/AllowImplicitXmlnsDeclarationAttribute.cs",
       "title": "Obsolete implicit-namespace opt-out attribute"
     },
     {
-      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/tests/SourceGen.UnitTests/SourceGenXamlCodeBehindTests.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Controls/tests/SourceGen.UnitTests/SourceGenXamlCodeBehindTests.cs",
       "title": "SourceGen implicit namespace and code-behind generator tests"
     },
     {
       "title": "SourceGen expression diagnostic expectations",
-      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/tests/SourceGen.UnitTests/CSharpExpressionDiagnosticsTests.cs"
+      "url": "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Controls/tests/SourceGen.UnitTests/CSharpExpressionDiagnosticsTests.cs"
     },
     {
       "title": "SourceGen interpolated-string syntax tests",
-      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/tests/SourceGen.UnitTests/CSharpExpressionInterpolationTests.cs"
+      "url": "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Controls/tests/SourceGen.UnitTests/CSharpExpressionInterpolationTests.cs"
     }
   ],
   "evidence": [

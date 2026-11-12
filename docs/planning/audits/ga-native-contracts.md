@@ -38,7 +38,11 @@ Current receipts retain exact sample/input identities. Historical RC results,
 native exclusions, feasible Human/provider gates and PIN-967 remain intact.
 The generated register retains the full GA API comparison, platform-specific availability and
 experimental dispositions. No new platform support is inferred from a base
-workload. C–F, resource provisioning, maps requests and release remain excluded.
+workload. E–F, resource provisioning, maps requests and release remain excluded.
+
+## Delivered C/D corrections
+
+PIN-1317/1318 preserve both recipe IDs. GA XAML source review removes consent while retaining SourceGen, ambiguity and async-lambda limits; Incremental Hot Reload stays preview. AI discovery withdraws the stable 11.0.0 acquisition claim and makes net11 applicability conditional. The independently published preview retains MAUIAI0001; text chat and status APIs are source-reviewed. The nuspec declares AI.Abstractions10.4.1 and DI/Hosting/Logging.Abstractions10.0.5 for Apple. An isolated real net11 neutral restore selected the net10.0 asset and resolved AI.Abstractions10.4.1 plus the preview package; that neutral selection proves acquisition only, not Apple dependency closure. Apple resources.zip contains EssentialsAIiOS.xcframework with device/simulator bridge binaries. Source project builds that bridge using XcodeProject and AppleBindings.targets. Native deployment and model execution remain not-tested. PIN-967 still owns final readiness; historical RC receipts are not GA execution.
 
 ## Authority and complete boundary
 
@@ -54,7 +58,7 @@ The [generated register](ga-native-contracts.sources.json) binds **51 prepared
 11.0 editions**: 44 mobile/native and seven desktop editions. Selection includes
 the `mobile` diagnostic/testing recipes through their Android/Apple areas.
 Every edition retains its ID, stability, applicability, metadata/Markdown hashes,
-saved evidence and Human boundary. Current labels are 46 stable, three preview
+saved evidence and Human boundary. Current labels are 47 stable, two preview
 and two experimental; these are observations, not endorsements. The eight
 historical foundations remain unchanged. PIN-966 itself changed no served content or samples; the A/B delivery above updates them.
 
@@ -103,9 +107,9 @@ the full ID/edition list and exact inputs. Follow-ons below own delivery, not th
 | Seven `winforms.*`/`wpf.*` editions | Retain existing clipboard, rendering, startup/VB, batching, fullscreen and Designer goals. Actual RC2→GA declarations are unchanged; no invented desktop API migration follows. Preserve each saved execution/owner limit. The separate Designer extension SDK remains independently versioned, not a framework GA dependency. |
 | Eight `android.*` editions | Retain target/runtime, JNI loading, HTTP, R8, predictive-back, target-SDK and legacy-asset goals. Add current source-call obsoletion and CoreCLR property rejection to existing migration slices (B below). Automatic R8 cache/field-retention and assembly-store repairs remain excluded as standalone goals. |
 | Seven `apple.*` editions | Retain scene lifecycle, deployment/RID/runtime, proxy, plist/framework, failable-initializer and absent-result guidance. Reconcile 27.2 source/ref/host prerequisites and MT7199 merged-scene-manifest validation (A). New OS binding surface alone does not justify an exhaustive native API catalogue. Registrar/build/signing invalidation repairs remain automatic exclusions. |
-| XAML expressions | `maui.author-view-local-csharp-in-xaml` is still labelled preview and requires EnablePreviewFeatures=true. GA source removes that gate/MAUIX2012; SourceGen is still required (C). This does not graduate Incremental Hot Reload. |
+| XAML expressions | PIN-1317 corrects `maui.author-view-local-csharp-in-xaml` to stable GA expressions without EnablePreviewFeatures/MAUIX2012. SourceGen is still required; GA source/artifact review is distinct from excluded native compilation. This does not graduate Incremental Hot Reload. |
 | Other MAUI and two `mobile.*` editions | Retain existing navigation, handlers, bindings, resources, assets, maps, permissions, activations, capture, templates, backend contracts, diagnostics and in-app tests. Source checks retain the previously reviewed converter/nullability/backend/Color decisions. A owns stale workload/host prerequisites and affected source evidence. No browser check substitutes for native execution. |
-| HybridWebView, Hot Reload, Avalonia template output and AI | Keep independent experimental/preview qualifications until contract-specific evidence establishes a change. C only changes XAML expression consent. AI acquisition needs D; a package labelled 11 does not establish net11 assets. Unavailable devices/models remain explicit not-tested exclusions. |
+| HybridWebView, Hot Reload, Avalonia template output and AI | Keep independent experimental/preview qualifications until contract-specific evidence establishes a change. C only changes XAML expression consent. PIN-1318 pins independent AI preview.8.26555.2 and qualifies net11 native compatibility as unverified; its Apple assets are net10.0-ios26.0, with a bundled native bridge. Unavailable devices/models remain explicit not-tested exclusions. |
 
 Moving declarations from Unshipped to Shipped is bookkeeping, not a new feature.
 Deleting stale `*REMOVED*` analyzer records is not an additional callable removal.
