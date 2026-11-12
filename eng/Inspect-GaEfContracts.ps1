@@ -14,6 +14,7 @@ $heads = @{
 $feed = Invoke-RestMethod 'https://builds.dotnet.microsoft.com/dotnet/release-metadata/11.0/releases.json'
 if (-not ($feed.releases | Where-Object 'release-version' -EQ '11.0.0')) { throw 'Actual GA release required.' }
 $sources = (Get-Content (Join-Path $root 'docs/planning/audits/ef.sources.json') -Raw | ConvertFrom-Json).sources
+if (@($sources).Count -ne @($sources | Sort-Object url -Unique).Count) { throw 'Duplicate retained source records.' }
 $comparisons = @($sources | Sort-Object url -Unique | ForEach-Object -Parallel {
   $ErrorActionPreference = 'Stop'
   $source = $_
@@ -32,6 +33,7 @@ $comparisons = @($sources | Sort-Object url -Unique | ForEach-Object -Parallel {
   [ordered]@{ retainedUrl=$source.url; retainedSha256=$oldHash; gaUrl=$url; gaSha256=$hash; unchanged=$hash -ceq $oldHash; added=@($delta | Where-Object SideIndicator -EQ '=>' | ForEach-Object InputObject); removed=@($delta | Where-Object SideIndicator -EQ '<=' | ForEach-Object InputObject) }
 } -ThrottleLimit 8)
 if ($comparisons.Count -ne @($sources | Sort-Object url -Unique).Count) { throw 'Incomplete source comparison.' }
+if (@($comparisons | Where-Object { -not $_.gaSha256 }).Count) { throw 'GA source unavailable; retain an explicit availability wait before recording reconciliation.' }
 $baselineUrl = 'https://raw.githubusercontent.com/PinguApps/Playbook/b7b6c2edc489fe264efe0d559a526a676dca7686/docs/planning/audits/ef.assets.json'
 $beforeBytes = (Invoke-WebRequest $baselineUrl).RawContentStream.ToArray()
 $before = [Text.Encoding]::UTF8.GetString($beforeBytes) | ConvertFrom-Json
