@@ -1,16 +1,4 @@
 {
-  "workloads": [],
-  "buildArguments": [
-    "-p:EFScaffoldModelStage=none",
-    "-p:EFPrecompileQueriesStage=none"
-  ],
-  "additionalInputs": [
-    ".editorconfig",
-    "eng/Evidence.ps1",
-    "eng/Record-Evidence.ps1",
-    "eng/Record-FernGeneration.ps1"
-  ],
-  "nativeToolchains": [],
   "dependencies": [
     "Humanizer.Core/2.14.1",
     "Microsoft.Build.Framework/18.0.2",
@@ -53,5 +41,17 @@
     "System.Composition.Runtime/9.0.0",
     "System.Composition.TypedParts/9.0.0",
     "System.Composition/9.0.0"
+  ],
+  "nativeToolchains": [],
+  "buildArguments": [
+    "-p:EFScaffoldModelStage=none",
+    "-p:EFPrecompileQueriesStage=none"
+  ],
+  "workloads": [],
+  "additionalInputs": [
+    ".editorconfig",
+    "eng/Evidence.ps1",
+    "eng/Record-Evidence.ps1",
+    "eng/Record-FernGeneration.ps1"
   ]
 }

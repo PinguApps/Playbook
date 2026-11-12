@@ -1,6 +1,7 @@
 #Requires -Version 7.3
 [CmdletBinding()]
-param([string]$Dotnet=(Get-Command dotnet -CommandType Application | Select-Object -First 1).Source)
+param([string]$Dotnet=(Get-Command dotnet -CommandType Application | Select-Object -First 1).Source,
+ [string]$Net11Dotnet='C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe')
 $ErrorActionPreference='Stop'
 $PSNativeCommandUseErrorActionPreference=$true
 $root=Split-Path $PSScriptRoot -Parent
@@ -10,6 +11,11 @@ $integration=$env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH
 try {
  $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH='0'
  foreach($release in '10','11') {
+  if ($release -eq '11') {
+   & "$PSScriptRoot/Test-FernGeneration.ps1" -Dotnet $Net11Dotnet -Record
+   & "$PSScriptRoot/Record-Evidence.ps1" -Sample 'samples/net11.0/FernGeneration/FernGeneration.csproj' -Dotnet $Net11Dotnet -Kind compile-and-run
+   continue
+  }
   $sample="samples/net$release.0/FernGeneration/FernGeneration.csproj"
   $directory=Join-Path $root "samples/net$release.0/FernGeneration"
   Push-Location $directory

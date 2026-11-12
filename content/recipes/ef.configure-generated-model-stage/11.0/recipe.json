@@ -2,7 +2,7 @@
   "id": "ef.configure-generated-model-stage",
   "edition": "11.0",
   "title": "Choose when to generate compiled models and queries",
-  "goal": "Choose build or publish stages independently for compiled-model scaffolding and query precompilation when preparing an EF application.",
+  "goal": "Choose generation stages for an EF application, using a tested CLI compiled-model alternative when automatic build scaffolding cannot load the application.",
   "areas": [
     "ef-core"
   ],
@@ -33,8 +33,7 @@
           "https://learn.microsoft.com/en-us/ef/core/cli/msbuild"
         ],
         "selectionNotes": [
-          "Experimental MSBuild integration; documented stage properties. GA clean build generation failed; generated-artifact and NativeAOT proof pending.",
-          "Provisional pre-GA guidance: pending behavior/final-artifact proof is not successful execution or GA verification."
+          "SDK11.0.100/EF11.0.0 clean automatic model-build failure reproduced. Tested bounded alternative: dotnet-ef11.0.0 CLI model generation, compiled generated model, Tasks publish query interceptors and executed published SQLite app using that model. No NativeAOT or universal query-shape claim."
         ],
         "usage": "primary",
         "target": "11.0",
@@ -94,23 +93,20 @@
             "Not applicable: console/database consumer; no renderer or browser"
           ],
           "constraints": [
-            "Build/publish/AOT; do not assume all query shapes support precompilation.",
-            "Context must configure itself at design time; publish needs explicit RID.",
-            "RC generation failed; user authorized documentation-based delivery on 4 November 2026."
+            "Automatic EFScaffoldModelStage=build remains unavailable on the clean recorded route. Use the explicit CLI model-generation step.",
+            "Context configures itself; win-x64 publish; fixed seed-packet query only."
           ],
           "prerequisites": [
             "Pinned SDK11 GA/EF11 GA; historical SDK10.0.403/EF10.0.13.",
             "win-x64 RID for intended publication; NativeAOT additionally needs a platform compiler."
           ],
           "optIns": [
-            "Explicit matching Tasks and Design package references.",
-            "EFScaffoldModelStage=build; EFPrecompileQueriesStage=publish; generated interceptor namespace."
+            "Matching Tasks and direct Design11.0.0; local dotnet-ef11.0.0.",
+            "EFScaffoldModelStage=none for the CLI alternative; EFPrecompileQueriesStage=publish and interceptor namespace."
           ],
           "stabilityLimitations": [
-            "Microsoft labels MSBuild integration, precompilation and NativeAOT experimental and unsuitable for production.",
-            "Source compilation disables generation; generated artifacts and NativeAOT remain unverified.",
-            "No evidence that GA fixes RC failures.",
-            "Provisional pre-GA guidance: pending behavior/final-artifact proof is not successful execution or GA verification."
+            "MSBuild integration, precompilation and NativeAOT remain experimental and unsuitable for production.",
+            "NativeAOT not-tested. Other platforms/providers/query shapes require separate checks."
           ]
         },
         "conditional": false,
@@ -147,9 +143,9 @@
     },
     {
       "language": "15.0",
-      "kind": "compile",
+      "kind": "compile-and-run",
       "sdk": "11.0.100",
-      "scope": "Ordinary source compilation with both generation stages explicitly disabled. No generated-artifact, build/publish generation, runtime or NativeAOT success claimed.",
+      "scope": "SDK11.0.100/EF11.0.0 clean automatic model-build failure reproduced. Tested bounded alternative: dotnet-ef11.0.0 CLI model generation, compiled generated model, Tasks publish query interceptors and executed published SQLite app using that model. No NativeAOT or universal query-shape claim.",
       "sample": "samples/net11.0/FernGeneration/FernGeneration.csproj",
       "target": "net11.0"
     }
@@ -217,7 +213,7 @@
     }
   },
   "humanProof": {
-    "status": "pending",
-    "scope": "Pingu authorized documentation-based PR delivery on 4 November 2026 despite RC2/RC3 generation failure. Actual generated model/query build/publish/AOT evidence remains pending until a working release; this is not GA proof."
+    "scope": "Bounded Windows x64 SQLite compiled-model and publish-query route is agent-executed. NativeAOT and other platforms are excluded as not-tested; no Human qualification claim.",
+    "status": "not-required"
   }
 }
