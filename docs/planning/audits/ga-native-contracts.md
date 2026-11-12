@@ -3,6 +3,39 @@
 PIN-966, 12 November 2026. Source/artifact reconciliation is separate from
 compilation, native execution and permission to publish. PIN-967 remains open.
 
+## Delivered A/B corrections
+
+PIN-1315/PIN-1316 retain the original audit/RC receipts at `cb318c7`.
+The current register binds the updated catalogue. All44 native editions name
+workload set11.0.100.1 (package11.100.1), Android37.2.31, Apple27.2.11039 and
+MAUI11.0.0; seven desktop editions retain their inputs. Both complete18-entry
+maps remain below. Apple requires Xcode27.2/macOS Tahoe26.6+; the upstream16.6+
+host conflict stays explicit. Android uses JDK21/25 and matching API37 SDK/build
+tools, with Gradle9.1+ when invoked using JDK25. Binding levels and app deployment
+floors remain distinct. NativeAOT, Hot Reload, AI and backend limitations remain.
+
+Served Apple applicability replaces stale RC packs; AppleRoutes/AppleAuthoring
+source reviews now pin GA34b3b25d. Their existing runners refresh reference
+compilation, binding generation and real plist/strip task output. Five affected
+.NET10 comparisons are rebuilt. Scene guidance explains MT7199 merged-plist
+validation and its SDK27+ iOS/Catalyst, extension/framework and dynamic-config
+boundaries. MT7199 is source-reviewed here; native launch is not tested.
+
+`eng/Test-AndroidGaContracts.ps1 -Record` verifies SHA256-pinned actual37.2.31
+packages: CS0619 for direct CreateDelegate calls; current generator-produced
+SafeInvokeFunc callbacks compile; actual defaults/diagnostic tasks emit XA1044
+for explicit RunAOTCompilation=false. Corrected PublishReadyToRun=false and
+MonoVM controls pass. This is isolated task/reference proof, not an Android
+workload build. Java.Interop's System.Runtime10 reference produces CS1701;
+generated nullable warnings remain visible. Neither implies runtime proof.
+The canonical negative/corrected inputs extend the two existing recipe goals.
+
+Current receipts retain exact sample/input identities. Historical RC results,
+native exclusions, feasible Human/provider gates and PIN-967 remain intact.
+The full GA API comparison below retains platform-specific availability and
+experimental dispositions. No new platform support is inferred from a base
+workload. C–F, resource provisioning, maps requests and release remain excluded.
+
 ## Authority and complete boundary
 
 Scope follows SPEC.md at `0a8989814ea11346354464b845c79c15bb71c5e9`,

@@ -4967,3 +4967,35 @@ not OS network isolation. SQLite and local signed-token implicit callbacks run o
 Windows x64. PAR, code/hybrid flows, external-provider interoperability and other
 sample deployment platforms are not tested; the recipes explain those boundaries.
 No release, deployment, foundation change or global stable-gate approval occurs.
+
+## GA mobile prerequisites and Android source migrations
+
+From an unrelated directory in PowerShell7, select this exact worktree. Requires
+SDK11.0.100, Node and NuGet access for local setup; no package is published.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-5a933a57-7f7d680da11b7632'
+$ids = @((Get-Content ./docs/planning/audits/ga-native-contracts.sources.json -Raw | ConvertFrom-Json).catalogue |
+    Where-Object { $_.id -notmatch '^(wpf|winforms)\.' } | ForEach-Object id)
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 -RecipeId $ids -Query '' `
+    -RecipeEdition '11.0' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+    -PackageVersion '0.0.0-pin1315-1316' -BuildAndPack `
+    -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
+    -Node 'C:\Program Files\nodejs\node.exe' -OutputDirectory './artifacts/mobile-ga-inspection'
+```
+
+Expect44 native IDs/titles/explanatory goals, full canonical Markdown and updated
+applicability through the actual locally packed/installed stdio server. The
+harness uses an isolated feed/cache and unrelated directory with unusable retrieval
+proxies; this proves offline delivery, not OS network isolation. Target10 has no
+applicable edition. Seven desktop editions retain their prior inputs.
+
+Run `eng/Test-AndroidGaContracts.ps1` separately for real GA37.2.31 CS0619/XA1044
+negative controls, corrected runtime-property controls, current binding generation
+and reference compilation. Apple checks use `eng/Test-AppleRoutes.ps1 -CompileReference`
+and `eng/Test-AppleAuthoring.ps1`. Five affected .NET10 comparisons were rebuilt
+using `eng/Record-Evidence.ps1 -Kind compile` and the installed SDK10.0.402.
+These checks exclude current native workload builds, device/JNI execution and
+Apple launch behavior. MT7199 merged-plist rules are GA source-reviewed; no
+scene-launch claim follows. Prior RC evidence remains historical, and PIN-967
+retains global readiness. No maps service requests or new resources are used.
