@@ -1251,3 +1251,7 @@
 # Inspect-GaEfContracts generates the EF/provider release-decision register.
 # Review its generator and authored dispositions; validate actual artifact/source inputs.
 /docs/planning/audits/ga-ef-contracts.sources.json
+
+# Inspect-GaNativeContracts generates the native source/artifact/catalogue register.
+# Review its generator and authored dispositions; replay checks actual inputs.
+/docs/planning/audits/ga-native-contracts.sources.json
