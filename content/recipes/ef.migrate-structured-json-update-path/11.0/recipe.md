@@ -74,7 +74,7 @@ The independent .NET11 project uses the current pinned extension contracts. Run 
 
 ## Constraints
 
-EF10.0.13/net10.0 versus EF11.0.0/net11.0. SDK10.0.403/C#14 versus SDK11.0.100/C#15. SQL graphs pin Pkcs10.0.13 and SqlClient6.1.7/7.1.0. SQLite uses the locked platform bundle; actual native DLL hashes are in execution records. EF11 requires .NET11; no older-runtime route is offered. No workload or rendering mode applies. No experimental opt-in or NativeAOT claim. GA verification is limited to the recorded checks reconciliation.
+EF10.0.13/net10.0 versus EF11.0.0/net11.0. SDK10.0.403/C#14 versus SDK11.0.100/C#15. SQL graphs pin Pkcs10.0.13 and SqlClient6.1.7/7.1.1. SQLite uses the locked platform bundle; actual native DLL hashes are in execution records. EF11 requires .NET11; no older-runtime route is offered. No workload or rendering mode applies. No experimental opt-in or NativeAOT claim. GA verification is limited to the recorded checks reconciliation.
 
 SQL Server2025 17.0.5035.5 compatibility170; approved isolated Docker route. Executed on Windows x64; SQL engine runs in the existing Linux container. No other native platform verified.
 

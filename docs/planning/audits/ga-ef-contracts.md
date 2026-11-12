@@ -4,8 +4,8 @@
 
 The 81-edition historical register remains input-bound to its original audit.
 Current metadata and canonical manifests/locks/receipts were compared with prose.
-DuneArchive's SQL JSON-index guidance now identifies SqlClient7.1.1, matching
-its actual GA graph. Direct SQLite runtime/bundle references link the actual
+SQL/EF guidance now identifies SqlClient7.1.1 wherever current locked consumers use it, matching
+their actual GA graphs. The independent Azure extension remains7.1.0. Cosmos current requirements now use3.63.2 while older comparisons retain3.63.1. Direct SQLite runtime/bundle references link the actual
 11.0.0 package rather than presenting an RC2 URL as GA. Historical preview
 release-note links and receipts retain their original identity.
 
@@ -25,7 +25,7 @@ limits and historical RC receipts remain intact. EF11 still needs net11; direct
 Data.Sqlite11 supports its distinct net10 route. No standalone driver/SDK scope,
 release approval, platform execution or global readiness is added. Fern's route
 qualification remains owned by PIN-1312; direct TLS availability by PIN-967.
-No source-review receipt inputs change: the corrected four recipes use existing
+No source-review receipt inputs change: the corrected recipes use existing
 compilation/execution receipts, and reference-only changes require no database rerun.
 
 

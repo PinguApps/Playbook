@@ -70,11 +70,11 @@
               "name": "Microsoft.EntityFrameworkCore.SqlServer",
               "version": "11.0",
               "match": "release-family",
-              "reason": "EF SQL Server 11.0.0, SqlClient 7.1.0 and Pkcs 10.0.13 are pinned; no EF11-on-net10 route."
+              "reason": "EF SQL Server 11.0.0, SqlClient 7.1.1 and Pkcs 10.0.13 are pinned; no EF11-on-net10 route."
             }
           ],
           "packageAssets": [
-            "EF Core/Relational/SQL Server11 lib/net11.0; Microsoft.Data.SqlClient7.1.0 ref/net9.0 with runtimes/win/lib/net9.0 selected for net11.0. Previous EF10 lib/net10.0, SqlClient6.1.7 ref/net9.0 with runtimes/win/lib/net9.0. Resolved transitive closure is recorded in each lock and verification manifest."
+            "EF Core/Relational/SQL Server11 lib/net11.0; Microsoft.Data.SqlClient7.1.1 ref/net9.0 with runtimes/win/lib/net9.0 selected for net11.0. Previous EF10 lib/net10.0, SqlClient6.1.7 ref/net9.0 with runtimes/win/lib/net9.0. Resolved transitive closure is recorded in each lock and verification manifest."
           ],
           "providers": [
             "Microsoft.EntityFrameworkCore.SqlServer; actual SQL Server 2025 17.0.5035.5 Developer, native json and CREATE JSON INDEX; provider/database compatibility 170. Other providers and older engines are unverified."
