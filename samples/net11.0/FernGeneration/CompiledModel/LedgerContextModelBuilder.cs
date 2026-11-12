@@ -11,7 +11,7 @@ namespace FernGeneration.CompiledModel;
 public partial class LedgerContextModel
 {
     private LedgerContextModel()
-        : base(skipDetectChanges: false, modelId: new Guid("9aae8bd7-263a-4a4c-af18-ae3a1f0ef28a"), entityTypeCount: 1)
+        : base(skipDetectChanges: false, modelId: new Guid("7150cf2a-f3e2-4a17-9843-7fd9d0a12df9"), entityTypeCount: 1)
     {
     }
 

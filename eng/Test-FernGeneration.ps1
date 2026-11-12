@@ -10,6 +10,13 @@ $integration=$env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH
 try {
  $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH='0'
  $sample=Join-Path $root 'samples/net11.0/FernGeneration'
+ if (!$Record) {
+  $canonical=$sample
+  $sample=Join-Path $root ('artifacts/fern-run-'+[guid]::NewGuid().ToString('N'))
+  New-Item -ItemType Directory -Path $sample | Out-Null
+  Get-ChildItem -LiteralPath $canonical -File | ForEach-Object {Copy-Item -LiteralPath $_.FullName -Destination $sample}
+  Copy-Item -LiteralPath (Join-Path $canonical 'CompiledModel') -Destination $sample -Recurse
+ }
  $tool=Join-Path $root 'artifacts/ef11'
  if (!(Test-Path "$tool/dotnet-ef.exe")) { & $Dotnet tool install dotnet-ef --version 11.0.0 --tool-path $tool }
  $cliVersion=(& "$tool/dotnet-ef.exe" --version 2>&1 | Out-String).Trim()

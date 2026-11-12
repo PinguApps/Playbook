@@ -17,6 +17,8 @@ interceptors with Tasks11.0.0. Both compile and the published Windows x64 SQLite
 app verifies compiled-model loading and exact results. Run
 `eng/Test-FernGeneration.ps1 -Record` for the input-bound generation receipt and
 generated-source hashes; ordinary compilation receipts remain separate.
+Normal verification generates in a disposable copy because EF assigns a fresh
+model identifier; only `-Record` regenerates the canonical model and receipt.
 NativeAOT and other platforms are not-tested. Experimental labels remain.
 
 Only Fern's resolved pending-proof/preview exception is removed. PIN-1313,

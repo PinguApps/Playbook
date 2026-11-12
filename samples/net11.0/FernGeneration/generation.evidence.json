@@ -1,16 +1,16 @@
 {
-  "recordedAt": "2026-11-12T08:56:09.8352151+00:00",
+  "recordedAt": "2026-11-12T08:57:27.9058453+00:00",
   "sdk": "11.0.100",
   "cli": "Entity Framework Core .NET Command-line Tools\r\n11.0.0",
   "inputs": {
     ".editorconfig": "c99359640a7ebc05cb7e8246fa002e9cd12b3b10bc7773f1af574391e8e94664",
     "eng/Evidence.ps1": "b3dbd6b3788e31aefe1533ef89fed66625f2a637993f9291e8d1d4fc8a2ba849",
     "eng/Record-Evidence.ps1": "653a32b1ebe5be60a5489afd9a7a963dbbabf5c2ecfd47fe480974fd5d939498",
-    "eng/Test-FernGeneration.ps1": "8611d54c79dd3a3391b20fff29e6f90080bdf81da9ddffe9f17874d58818f1ae",
+    "eng/Test-FernGeneration.ps1": "982ab813d230ae0940e190d50b03f28e0be68b39d2b6f9dce00511e0ef558e16",
     "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
     "samples/net11.0/FernGeneration/CompiledModel/LedgerContextAssemblyAttributes.cs": "912bfca07a7f7b7fc770e890b4f8324a5c5c3e3d5e746dbb58c5fdadd1d5a07e",
     "samples/net11.0/FernGeneration/CompiledModel/LedgerContextModel.cs": "7422ccc9ae45f02f3d892e7b562f03f6083dcdb6a5013a241a86e3d4652bca4f",
-    "samples/net11.0/FernGeneration/CompiledModel/LedgerContextModelBuilder.cs": "0d83e4df8fa8d52d2d8c0fa899d2eaab5e848ff8d3f91378542fd9cd5fd2bf3b",
+    "samples/net11.0/FernGeneration/CompiledModel/LedgerContextModelBuilder.cs": "318501407e1078ab6e6bd0fd58e82cae50852070d714f56ca3e8096008899c8e",
     "samples/net11.0/FernGeneration/CompiledModel/SeedPacketEntityType.cs": "633f9541d25c425471e253d5ede81d9cfab88c255505b0f22d8cbc27b5b30ba9",
     "samples/net11.0/FernGeneration/Directory.Build.props": "347e2e29465c6a37869dd07b0b401c55743b8571fb513a4e42b6ee8facc06ca4",
     "samples/net11.0/FernGeneration/Directory.Build.targets": "347e2e29465c6a37869dd07b0b401c55743b8571fb513a4e42b6ee8facc06ca4",
@@ -22,11 +22,11 @@
     "samples/net11.0/FernGeneration/verification.json": "08ecbca7162a338655b5d473ce24985b60a7401585cef39d003310de3d28fa01"
   },
   "generatedSources": {
-    "CompiledModel/LedgerContextAssemblyAttributes.cs": "912bfca07a7f7b7fc770e890b4f8324a5c5c3e3d5e746dbb58c5fdadd1d5a07e",
-    "CompiledModel/LedgerContextModelBuilder.cs": "0d83e4df8fa8d52d2d8c0fa899d2eaab5e848ff8d3f91378542fd9cd5fd2bf3b",
-    "CompiledModel/LedgerContextModel.cs": "7422ccc9ae45f02f3d892e7b562f03f6083dcdb6a5013a241a86e3d4652bca4f",
     "obj/Release/net11.0/Program.EFInterceptors.LedgerContext.g.cs": "38d3a8ede884a6b2a2d82b54abcc8cefe25516537b82a819f1a058d5fa277b22",
-    "CompiledModel/SeedPacketEntityType.cs": "633f9541d25c425471e253d5ede81d9cfab88c255505b0f22d8cbc27b5b30ba9"
+    "CompiledModel/SeedPacketEntityType.cs": "633f9541d25c425471e253d5ede81d9cfab88c255505b0f22d8cbc27b5b30ba9",
+    "CompiledModel/LedgerContextAssemblyAttributes.cs": "912bfca07a7f7b7fc770e890b4f8324a5c5c3e3d5e746dbb58c5fdadd1d5a07e",
+    "CompiledModel/LedgerContextModelBuilder.cs": "318501407e1078ab6e6bd0fd58e82cae50852070d714f56ca3e8096008899c8e",
+    "CompiledModel/LedgerContextModel.cs": "7422ccc9ae45f02f3d892e7b562f03f6083dcdb6a5013a241a86e3d4652bca4f"
   },
   "scope": "CLI compiled model and Tasks publish interceptors compiled; published SQLite app executed with --require-model. NativeAOT not-tested. Automatic clean model-build failure is not relabelled as success."
 }
