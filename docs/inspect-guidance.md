@@ -1,5 +1,28 @@
 # Inspect the guidance an agent receives
 
+## GA XAML expressions and independent AI preview
+
+Run from an unrelated directory in PowerShell 7. Setup restores, builds, packs
+and installs the local server; it publishes nothing.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-36a1e293-0907bdbe6a32879c'
+& ./eng/Test-XamlExpressionContracts.ps1
+& ./eng/Test-HeronGuidance.ps1
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('maui.author-view-local-csharp-in-xaml','maui.use-apple-intelligence-abstractions','maui.choose-xaml-generation') `
+  -Query '' -PackageVersion '0.0.0-pin1317-1318' -BuildAndPack `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' -OutputDirectory './artifacts/inspection'
+```
+
+Expect ID/title/goal, expanded Markdown and applicability from the installed
+stdio server with isolated feed/cache, outside the checkout and unusable proxies.
+XAML expressions require SourceGen without preview consent; Incremental Hot Reload
+stays preview. AI remains experimental MAUIAI0001, with an independent preview pin
+and conditional, unverified net11 native compatibility. Native generated output,
+Apple deployment and model execution are not-tested. PIN-967 remains open.
+
 ## Shipped missing projections and EF requirements
 
 From an unrelated directory in PowerShell 7, select this worktree literally.

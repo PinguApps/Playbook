@@ -22089,12 +22089,12 @@
     {
       "id": "maui.author-view-local-csharp-in-xaml",
       "edition": "11.0",
-      "stability": "preview",
+      "stability": "stable",
       "areas": [
         "maui"
       ],
-      "metadataSha256": "e465ead31be746cdab159f3577d95e838d96e358383ff6a78178350618560ab8",
-      "markdownSha256": "052cb2a084182756665b4dea26c5f47cf4c15c159bb2497a3f462fe73054253b",
+      "metadataSha256": "66246c28afc2aa2630f19cc9e761746554c49b17f6f194ea5a27eaeb6f7a2ec2",
+      "markdownSha256": "838680085d201ecfa8dfa36276709ab7d2b6f78c21a3d32bb532e8da38b46edd",
       "applicability": {
         "routes": [
           {
@@ -22114,7 +22114,7 @@
               "language": {
                 "version": "15.0",
                 "match": "exact",
-                "reason": "Explicit C#15 sample mode; XAML preview opt-in is separate from C# language mode.",
+                "reason": "Explicit C#15 sample mode; GA XAML expressions require SourceGen, without preview consent.",
                 "name": "C#"
               },
               "frameworks": [
@@ -22153,15 +22153,14 @@
                 "Use a matching installed MAUI SDK pack; workload-list labels alone do not establish availability."
               ],
               "constraints": [
-                "Current native sample is source-reviewed only under PIN-699. Standard generator migration does not require preview C# expressions."
+                "Current native sample is source-reviewed only under PIN-699. Incremental XAML Hot Reload remains a separate preview feature."
               ],
               "optIns": [
-                "MauiXamlInflator=SourceGen",
-                "EnablePreviewFeatures=true"
+                "MauiXamlInflator=SourceGen"
               ],
               "stabilityLimitations": [
-                "GA preparation evidence; no GA verification. x:Code/C# expressions are preview, including in the companion migration sample.",
-                "Reviewed Controls and Build.Tasks 11.0.0 artifacts; intended SDK 11.0.100. The current native dependency closure was not resolved because the SDK pack is unavailable; these are preparation baselines, not required downgrades."
+                "Actual GA generator source/artifact review; native generated output and execution not-tested.",
+                "SourceGen only: XamlC/runtime inflation do not implement this path. Async lambdas remain unsupported; use normal event methods."
               ]
             },
             "sharedAreas": [],
@@ -22178,12 +22177,12 @@
             "sourceUrls": [
               "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/preview4/dotnetmaui.md",
               "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/rc2/dotnetmaui.md",
-              "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/docs/specs/XamlCSharpExpressions.md",
-              "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Build.Tasks/nuget/buildTransitive/netstandard2.0/Microsoft.Maui.Controls.targets",
-              "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/AllowImplicitXmlnsDeclarationAttribute.cs",
-              "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/tests/SourceGen.UnitTests/SourceGenXamlCodeBehindTests.cs",
-              "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/tests/SourceGen.UnitTests/CSharpExpressionDiagnosticsTests.cs",
-              "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/tests/SourceGen.UnitTests/CSharpExpressionInterpolationTests.cs"
+              "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/docs/specs/XamlCSharpExpressions.md",
+              "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Controls/src/Build.Tasks/nuget/buildTransitive/netstandard2.0/Microsoft.Maui.Controls.targets",
+              "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Controls/src/Core/AllowImplicitXmlnsDeclarationAttribute.cs",
+              "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Controls/tests/SourceGen.UnitTests/SourceGenXamlCodeBehindTests.cs",
+              "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Controls/tests/SourceGen.UnitTests/CSharpExpressionDiagnosticsTests.cs",
+              "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Controls/tests/SourceGen.UnitTests/CSharpExpressionInterpolationTests.cs"
             ]
           }
         ]
@@ -22755,8 +22754,8 @@
       "areas": [
         "maui"
       ],
-      "metadataSha256": "a4cd802a41c176954ec58e1d723f9098a9e74bf0148b0c4d08cf467b916509af",
-      "markdownSha256": "efecafd52d54e274b9ed64b2152aa92c2d2be511b3f9a37c79ed42eec106913c",
+      "metadataSha256": "c12d3116a685128d1afe4dc7dc4340b9437c27181ddcd1af672fa283ae6c10be",
+      "markdownSha256": "481e2e971f3dc2cabd2ade0d2c413e32b59101083f0c7e88ba8e9c38dc51b218",
       "applicability": {
         "routes": [
           {
@@ -22776,7 +22775,7 @@
               "language": {
                 "version": "15.0",
                 "match": "exact",
-                "reason": "Explicit C#15 sample mode; XAML preview opt-in is separate from C# language mode.",
+                "reason": "Explicit C#15 sample mode; GA SourceGen expressions require no preview consent.",
                 "name": "C#"
               },
               "frameworks": [
@@ -22815,14 +22814,13 @@
                 "Use a matching installed MAUI SDK pack; workload-list labels alone do not establish availability."
               ],
               "constraints": [
-                "Current native sample is source-reviewed only under PIN-699. Standard generator migration does not require preview C# expressions."
+                "Current native sample is source-reviewed only under PIN-699. Incremental XAML Hot Reload remains separate and preview."
               ],
               "optIns": [
-                "MauiXamlInflator=SourceGen; the separate companion page also enables preview expressions."
+                "MauiXamlInflator=SourceGen"
               ],
               "stabilityLimitations": [
-                "GA preparation evidence; no GA verification. x:Code/C# expressions are preview, including in the companion migration sample.",
-                "Reviewed Controls and Build.Tasks 11.0.0 artifacts; intended SDK 11.0.100. The current native dependency closure was not resolved because the SDK pack is unavailable; these are preparation baselines, not required downgrades."
+                "Actual GA source/artifact review; native compilation and execution not-tested."
               ]
             },
             "sharedAreas": [],
@@ -22839,12 +22837,12 @@
             "sourceUrls": [
               "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/preview4/dotnetmaui.md",
               "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/rc2/dotnetmaui.md",
-              "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/docs/specs/XamlCSharpExpressions.md",
-              "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Build.Tasks/nuget/buildTransitive/netstandard2.0/Microsoft.Maui.Controls.targets",
-              "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/AllowImplicitXmlnsDeclarationAttribute.cs",
-              "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/tests/SourceGen.UnitTests/SourceGenXamlCodeBehindTests.cs",
-              "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/tests/SourceGen.UnitTests/CSharpExpressionDiagnosticsTests.cs",
-              "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/tests/SourceGen.UnitTests/CSharpExpressionInterpolationTests.cs"
+              "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/docs/specs/XamlCSharpExpressions.md",
+              "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Controls/src/Build.Tasks/nuget/buildTransitive/netstandard2.0/Microsoft.Maui.Controls.targets",
+              "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Controls/src/Core/AllowImplicitXmlnsDeclarationAttribute.cs",
+              "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Controls/tests/SourceGen.UnitTests/SourceGenXamlCodeBehindTests.cs",
+              "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Controls/tests/SourceGen.UnitTests/CSharpExpressionDiagnosticsTests.cs",
+              "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Controls/tests/SourceGen.UnitTests/CSharpExpressionInterpolationTests.cs"
             ]
           }
         ]
@@ -25411,20 +25409,20 @@
       "areas": [
         "maui"
       ],
-      "metadataSha256": "e35ded2bbb917dcb29a8c65a220ef78695620f45912cbebea2c58257ae538c84",
-      "markdownSha256": "5d5515d13916f50efc1c8ee1637e0d8c2f28ea2bf8bdf892bb7ad0aa474b4dbd",
+      "metadataSha256": "0f501ddb100642a4210056665109ecec07655c3ba4ac4da9565dfca0b8b548b9",
+      "markdownSha256": "c63c4433bca6dfeeef9cf099c54896fbfbedc01fb506c3505d6a0002c61b8665",
       "applicability": {
         "routes": [
           {
             "target": "11.0",
-            "conditional": false,
+            "conditional": true,
             "usage": "primary",
             "requirements": {
               "runtime": {
                 "name": ".NET",
                 "version": "11.0",
                 "match": "release-family",
-                "reason": "Canonical current target; RC authoring is limited to the recorded checks execution."
+                "reason": "Current sample source target only; Apple native compatibility and execution not-tested."
               },
               "sdk": {
                 "name": ".NET SDK",
@@ -25444,13 +25442,13 @@
               "packages": [
                 {
                   "name": "Microsoft.Maui.Essentials.AI",
-                  "version": "11.0.0",
+                  "version": "11.0.0-preview.8.26555.2",
                   "match": "exact",
-                  "reason": "Exact inspected sample asset baseline."
+                  "reason": "Actual independent public preview; no public stable 11.0.0 package. Native net11 compatibility is not established."
                 }
               ],
               "packageAssets": [
-                "Apple platform-specific net11.0-ios26.5 assets; neutral assets do not contain the Apple implementation."
+                "Published net10.0-ios26.0 Apple assembly and resources.zip native bridge. No net11-labelled asset; neutral net10.0 assembly does not provide Apple implementation."
               ],
               "workloads": [
                 {
@@ -25474,13 +25472,15 @@
                 "Existing native app host; initiate from a user action. Apple workload compatible with package target bindings; Mac/Xcode and eligible hardware are unavailable here."
               ],
               "constraints": [
-                ".NET 10 is comparison only; no older-target applicability route or ninth foundation. No image, tool, embedding or broad Apple API catalogue claim. Handle unavailable model and cancellation without silently sending notes to a cloud service."
+                ".NET 10 is comparison only; no older-target applicability route or ninth foundation. No image, tool, embedding or broad Apple API catalogue claim. Handle unavailable model and cancellation without silently sending notes to a cloud service.",
+                "Conditional assessment only: net11 Apple dependency closure and native deployment are unverified. Keep manual editing; do not present this as a supported net11 installation route."
               ],
               "optIns": [
                 "#pragma warning disable MAUIAI0001 around experimental API use; restore immediately afterward."
               ],
               "stabilityLimitations": [
-                "Experimental MAUIAI0001 remains despite shipped API status; preview pins may change."
+                "Experimental MAUIAI0001; independently versioned preview from dotnet/maui-labs, not MAUI GA.",
+                "No net11 native support inferred from package version or net10 asset compatibility."
               ]
             },
             "sharedAreas": [],
@@ -25493,7 +25493,8 @@
             ],
             "sourceUrls": [
               "https://raw.githubusercontent.com/dotnet/maui/e7264838d83d55430b219a23cc0e5da6e8b04e9a/src/AI/src/Essentials.AI/Platform/MaciOS/AppleIntelligenceChatClient.cs",
-              "https://raw.githubusercontent.com/dotnet/maui/f9b311be07682fbe1714a18eba44d85ef24180fe/src/AI/src/Essentials.AI/Platform/MaciOS/AppleIntelligenceChatClient.cs"
+              "https://raw.githubusercontent.com/dotnet/maui/f9b311be07682fbe1714a18eba44d85ef24180fe/src/AI/src/Essentials.AI/Platform/MaciOS/AppleIntelligenceChatClient.cs",
+              "https://raw.githubusercontent.com/dotnet/maui-labs/1e7106383947444e5678e5a83c1dc14bbb4d7ca8/src/AI/Microsoft.Maui.Essentials.AI/Platform/MaciOS/AppleIntelligenceChatClient.cs"
             ]
           }
         ]
