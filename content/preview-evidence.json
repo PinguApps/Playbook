@@ -5,19 +5,6 @@
   "decision": "Pre-GA preview may include explicitly disclosed documented GA intent and provisional reference material. Pending proof is retained; this approval is not execution or stable readiness. Local feasible checks, complete offline content, source accuracy and input freshness remain mandatory.",
   "exceptions": [
     {
-      "id": "ef.materialize-missing-projection",
-      "edition": "11.0",
-      "classification": "documented-ga-intent",
-      "scope": "Final package qualification is deferred by Pingu; no Human approval or successful direct materialization is inferred. Actual-GA reconciliation remains outstanding; PIN-959 permits this explicitly provisional preview.",
-      "followUp": "PIN-965",
-      "samples": [
-        "samples/net10.0/PloverQueries/PloverQueries.csproj",
-        "samples/net11.0/PloverQueries/PloverQueries.csproj"
-      ],
-      "metadataSha256": "422489b9ffe441718d4e655bca7421109e8f9564fbe33a45076d0a5b81c22ee7",
-      "markdownSha256": "1a982b07922714fe360786bc54acd50745409d756481566907d95cc5c61c4cbd"
-    },
-    {
       "id": "hosting.select-direct-tls",
       "edition": "11.0",
       "classification": "documented-ga-intent",

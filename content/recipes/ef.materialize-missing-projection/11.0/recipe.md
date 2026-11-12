@@ -2,20 +2,18 @@
 
 ## Goal
 
-Apply the documented .NET11 missing-object join semantics, with explicit-marker fallback while measured the measured GA packages still fail.
+Preserve unmatched join rows using nullable scalar markers when shipped EF projections cannot materialize missing objects.
 
 ## When to use
 
-Pingu authorized provisional guidance on 5 November 2026 for the RC-era discrepancy. The GA rerun also observes that EF11 direct DTO/anonymous projections throw on unmatched rows, including grouped DTO/default struct. Nullable struct composition fails translation. The explicit nullable marker returns -1 and 12 on both editions. Intended direct semantics and final artifact behavior remain pending; compilation and recorded failures are not successful execution proof.
+Use a nullable marker from a non-null inner key to distinguish an absent row from a populated row. EF11.0.0 SQLite does not implement the documented direct missing-object semantics in the tested shapes. The direct route is withdrawn for this graph; this guidance teaches the executed fallback rather than waiting for a future release.
 
 ## Migration
 
-1. Retain a nullable scalar marker in the inner projection on the measured RCs. Test matched and unmatched rows separately. A missing row is different from a real row containing nullable values.
-2. The official .NET11 docs describe whole non-entity projections materializing as null/default through joins and grouping. Use the intended DTO query in FinalProjection below as a qualification target, not as a claim that the measured RCs work.
-3. The current seeded consumer has nests 1 and 2; only nest 1 has a count of 12. Intended reference results are a DTO with 12 and a null object. A nullable struct should remain missing; a non-nullable struct uses its zeroed default. Anonymous projections have the same missing-object boundary as DTOs.
-4. Preserve the whole inner object when composing joins/grouping; do not equate arbitrary constructor translation with materialization. Arbitrary record constructors, entity FullJoin and top-per-group navigation are separate goals. Nullable-struct member composition is still untranslated on the measured graph.
-5. Run the current sample normally to reproduce the failures and verify the marker returns -1 and 12. Run it with `--qualify-final` against the eventual shipped graph to require direct DTO and grouped results; this deliberately fails on the pinned GA package. Extend final qualification to anonymous and nullable/default struct controls before removing the fallback.
-6. Pingu explicitly authorized this documentation-based delivery on 5 November 2026. Final-package execution is pending. The official intended behavior is not a guarantee about an unreleased artifact; keep PIN-959 and GA checks are limited to the recorded scope.
+1. Project a nullable key marker and nullable payload scalars inside the join. Keep all potentially missing columns nullable through SQL materialization.
+2. Compose SQL filters over those scalars before `ToArray`. Then explicitly construct DTO/null, nullable struct/null or non-nullable default struct on the client. Client grouping is separate from SQL grouping.
+3. Run both pinned consumers normally. `FinalProjection` checks matched rows, successful SQL translation followed by unmatched materialization failures, and nullable-struct translation rejection. It then asserts exact fallback results and composition.
+4. The fixture has nests 1 and 2, with only nest 1 populated as (NestId=1, Birds=12). The unmatched DTO and nullable struct are null; the non-nullable struct has both fields zero. No direct-route success is inferred from official intended semantics.
 
 ## Older approach
 
@@ -40,6 +38,10 @@ The independently pinned .NET10 consumer remains a valid comparison.
 ### .NET10 PloverQueries.csproj
 
 {{snippet:n10-ploverqueries-csproj}}
+
+### .NET10 FinalProjection.cs
+
+{{snippet:n10-finalprojection-cs}}
 
 ### .NET10 Program.cs
 
@@ -79,18 +81,14 @@ The independently pinned .NET11 consumer records the actual GA behavior.
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+Actual EF11.0.0 SQLite Windows x64: DTO, anonymous, grouped DTO and default-struct unmatched rows fail materialization after successful translation; nullable-struct composition fails translation. Both pinned consumers verify nullable-marker scalar projection, explicit client DTO/null, nullable/default struct construction, populated (1,12), SQL filtering and client grouping. Direct whole-object missing semantics are withdrawn for this graph. Other providers/platforms are not-tested.
 
-Pingu authorized provisional guidance on 5 November 2026 for the RC-era discrepancy. The GA rerun also observes that EF11 direct DTO/anonymous projections throw on unmatched rows, including grouped DTO/default struct. Nullable struct composition fails translation. The explicit nullable marker returns -1 and 12 on both editions. Intended direct semantics and final artifact behavior remain pending; compilation and recorded failures are not successful execution proof.
+SDK10.0.403/EF10.0.13 and SDK11.0.100/EF11.0.0 run independently locked native SQLite graphs. Fresh verification receipts bind source and dependencies. No InMemory or mock result is used.
 
 ## Constraints
 
-Pending final qualification blocks release-ready packing. This delivery verifies ordinary development packing; PIN-959 and actual-GA reconciliation retain their own gates.
-
-No final-artifact support is inferred from RCs. Source audit baselines, the eight foundations and existing recipe identities remain unchanged.
+EF11 requires net11. Direct Microsoft.Data.Sqlite11 retains its separate net10 route. This recipe does not broaden driver coverage. Historical RC evidence remains historical; PIN-967 and unrelated Human/release gates remain open.
 
 ## References
 
-- [Official EF11 intended behavior](https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew)
-- [EF migrations deployment](https://learn.microsoft.com/en-us/ef/core/managing-schemas/migrations/applying)
-- [Bounded E24/E25/E26 source audit](https://github.com/PinguApps/Playbook/blob/a7fd46cd658708c25a7e0d032735760c3fe6d63f/docs/planning/audits/ef.md)
+- [Official intended semantics](https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew)
