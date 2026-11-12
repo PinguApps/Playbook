@@ -23,7 +23,7 @@
     "samples/net10.0/QuayBoard/Platforms/Windows/App.xaml.cs": "85c10eb0dee64cb06b7eb0b309e90bef7654963c7cdec9daa6910f6f1edc9271",
     "samples/net10.0/QuayBoard/QuayBoard.csproj": "dc3a1632d3d6382d9d0306cbd5850878174931a8cd4906c6dee280b6f5d3de5d",
     "samples/net10.0/QuayBoard/verification.json": "aa2e3f993644f1a7b982b0dc0750da4ba95ae4b8958fbf7df19a21181352f385",
-    "samples/QuayBoard/sources.json": "12bbaf071cb7d6fb7a414941e3c1262618b54a29826f13a51a4dee79e9c88128"
+    "samples/QuayBoard/sources.json": "b99632a66460a7552c58204679a771b17065868e7468efa805d18fc5dc540b76"
   },
   "dependencies": [
     "Microsoft.Extensions.Configuration.Abstractions/10.0.0",

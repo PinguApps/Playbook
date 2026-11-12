@@ -3,9 +3,9 @@
   "nativeToolchains": [],
   "sourceDirty": true,
   "kind": "official-review",
-  "sourceCommit": "d8c25b35b166538a0cdff21cb10316038102ad28",
+  "sourceCommit": "5edc1d38802f2a2fd2db9ea4e6a59f74b51c411d",
   "dependencies": [],
-  "recordedAt": "2026-11-12T22:06:21.0588255+00:00",
+  "recordedAt": "2026-11-12T22:13:31.4860052+00:00",
   "workloadInfo": "No Microsoft.Maui.Sdk pack in separate SDK11 root; workload labels do not establish availability.",
   "language": "15.0",
   "sdk": "11.0.100",
@@ -28,7 +28,7 @@
     "samples/net11.0/QuayBoard/Platforms/Windows/App.xaml.cs": "85c10eb0dee64cb06b7eb0b309e90bef7654963c7cdec9daa6910f6f1edc9271",
     "samples/net11.0/QuayBoard/QuayBoard.csproj": "1804f24c6984c259691c0601d65cd05141d680214228c2ae73cb2e21a5637bf4",
     "samples/net11.0/QuayBoard/verification.json": "662eade49938c9407031fda61d48ad37f6c3d7a7c84418dfa0488bae635718e8",
-    "samples/QuayBoard/sources.json": "12bbaf071cb7d6fb7a414941e3c1262618b54a29826f13a51a4dee79e9c88128"
+    "samples/QuayBoard/sources.json": "b99632a66460a7552c58204679a771b17065868e7468efa805d18fc5dc540b76"
   },
   "target": "net11.0-windows10.0.20348.0"
 }
