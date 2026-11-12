@@ -59,11 +59,11 @@
               "name": "android",
               "version": "11.0",
               "match": "release-family",
-              "reason": "Compatible .NET11 Android workload required. Reviewed GA manifest/reference assets are 37.2.29; no compatible GA workload composition was tested."
+              "reason": "Compatible .NET11 Android workload required. Reviewed GA manifest/reference assets are 37.2.31; no compatible GA workload composition was tested."
             }
           ],
           "packageAssets": [
-            "Microsoft.Android.Ref.37.2/37.2.29 ref/net11.0/Mono.Android.dll"
+            "Microsoft.Android.Ref.37.2/37.2.31 ref/net11.0/Mono.Android.dll"
           ],
           "providers": [
             "No external service or account"

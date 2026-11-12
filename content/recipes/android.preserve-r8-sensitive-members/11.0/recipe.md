@@ -60,7 +60,7 @@ are **not-tested** under PIN-699. No pending Human action or GA proof is claimed
 
 Requires .NET11 Android, C#15, Android API24+, matching Android SDK and JDK21/25.
 Gradle invoked using JDK25 needs9.1+. Canonical SDK is GA; reviewed platform
-assets are GA 37.2.29, not a tested GA composition. No extra NuGet
+assets are GA 37.2.31, not a tested GA composition. No extra NuGet
 package, external provider/account or Blazor rendering mode is required. The
 .NET10 comparison is not a supported older-target catalogue route. NativeAOT
 is experimental and outside this sample. Recorded evidence does not certify GA.

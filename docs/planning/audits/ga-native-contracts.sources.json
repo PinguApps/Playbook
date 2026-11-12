@@ -19901,7 +19901,7 @@
       "areas": [
         "android"
       ],
-      "metadataSha256": "1ce117278cdea6d9ee9cbb3b50d0930e7185554e758203b2cb4b5bfdcd1542d5",
+      "metadataSha256": "3a3b095fe185227a3882bdb3237ea9ebdaed912cda3b44502a389e1ba48716ba",
       "markdownSha256": "9cc142d6c70706feea0891e6c1ca52ce308e82ef3d77f90d45ed39b8efa0d664",
       "applicability": {
         "routes": [
@@ -19940,11 +19940,11 @@
                   "name": "android",
                   "version": "11.0",
                   "match": "release-family",
-                  "reason": "Compatible .NET11 Android workload required. Reviewed GA manifest/reference assets are 37.2.29; no compatible GA workload composition was tested."
+                  "reason": "Compatible .NET11 Android workload required. Reviewed GA manifest/reference assets are 37.2.31; no compatible GA workload composition was tested."
                 }
               ],
               "packageAssets": [
-                "Microsoft.Android.Ref.37.2/37.2.29 ref/net11.0/Mono.Android.dll"
+                "Microsoft.Android.Ref.37.2/37.2.31 ref/net11.0/Mono.Android.dll"
               ],
               "providers": [
                 "No external service or account"
@@ -20015,7 +20015,7 @@
       "areas": [
         "android"
       ],
-      "metadataSha256": "03eb3f319529ce1d2e8034be68cad9aafced6e760f85685671e6141fddd5b036",
+      "metadataSha256": "e2b3bed09b04c2f2ae77a2c02f561e6c7eb879e26b5e6ce85602035a37c7ab76",
       "markdownSha256": "cca9c85c59b86f22445191b0e17b333c2ed27bc42397cb1d1932d113d86dc3cc",
       "applicability": {
         "routes": [
@@ -20054,11 +20054,11 @@
                   "name": "android",
                   "version": "11.0",
                   "match": "release-family",
-                  "reason": "Compatible .NET11 Android workload required. Reviewed GA manifest/reference assets are37.2.29; no compatible GA workload composition was tested."
+                  "reason": "Compatible .NET11 Android workload required. Reviewed GA manifest/reference assets are37.2.31; no compatible GA workload composition was tested."
                 }
               ],
               "packageAssets": [
-                "Microsoft.Android.Ref.37.2/37.2.29 ref/net11.0/Mono.Android.dll"
+                "Microsoft.Android.Ref.37.2/37.2.31 ref/net11.0/Mono.Android.dll"
               ],
               "providers": [
                 "No external service or account"
@@ -20134,7 +20134,7 @@
       "areas": [
         "android"
       ],
-      "metadataSha256": "5d0eda6e97045e6b3c99fac548173660aceb9b0e007d5e7a9e57e60817a8631a",
+      "metadataSha256": "24f9c8672eb2108ceb097198430e523bb2e73ca3706ae9b7db08d85ec3945ec2",
       "markdownSha256": "8c34c78aef965cab5402cb099a47ee6d805d1a8998434ff5b941c8f5957f22bf",
       "applicability": {
         "routes": [
@@ -20173,11 +20173,11 @@
                   "name": "android",
                   "version": "11.0",
                   "match": "release-family",
-                  "reason": "Compatible .NET11 Android workload required. Reviewed GA manifest/reference assets are37.2.29; no compatible GA workload composition was tested."
+                  "reason": "Compatible .NET11 Android workload required. Reviewed GA manifest/reference assets are37.2.31; no compatible GA workload composition was tested."
                 }
               ],
               "packageAssets": [
-                "Microsoft.Android.Ref.37.2/37.2.29 ref/net11.0/Mono.Android.dll"
+                "Microsoft.Android.Ref.37.2/37.2.31 ref/net11.0/Mono.Android.dll"
               ],
               "providers": [
                 "No external service or account"
@@ -20253,8 +20253,8 @@
       "areas": [
         "android"
       ],
-      "metadataSha256": "9acdf227efe54ee78db3c52e712454a440984d2863bbc48fc7454ca341fdd767",
-      "markdownSha256": "b27991d9da4aa3c267b1f5cf565efbc4975492ba6c5acf3c08832e12de088225",
+      "metadataSha256": "4ad6b56ddab6c526bf407e1961419c1d0c67682749f0c29281c6e778755ec656",
+      "markdownSha256": "7a6be1868573204f952a6b898e6177da7035556962cb30a6f141b5be6be1b753",
       "applicability": {
         "routes": [
           {
@@ -20292,11 +20292,11 @@
                   "name": "android",
                   "version": "11.0",
                   "match": "release-family",
-                  "reason": "Compatible .NET11 Android workload required. Reviewed GA manifest/reference assets are37.2.29; no compatible GA workload composition was tested."
+                  "reason": "Compatible .NET11 Android workload required. Reviewed GA manifest/reference assets are37.2.31; no compatible GA workload composition was tested."
                 }
               ],
               "packageAssets": [
-                "Microsoft.Android.Ref.37.2/37.2.29 ref/net11.0/Mono.Android.dll"
+                "Microsoft.Android.Ref.37.2/37.2.31 ref/net11.0/Mono.Android.dll"
               ],
               "providers": [
                 "No external service or account"
@@ -20487,7 +20487,7 @@
         "android"
       ],
       "metadataSha256": "f707b3c984e6df921bf53772c94ad0351182a734fc2f27cd9e79b9b1395b5529",
-      "markdownSha256": "4ffe343f0eaa92b92a903b7a70bd01fd17a8d653b47b156b2c3e928fbfb1790e",
+      "markdownSha256": "306d8fe20abd69e001def6cac872a77a602621af7dc893db4dd3ef6f88297edb",
       "applicability": {
         "routes": [
           {
@@ -20605,8 +20605,8 @@
       "areas": [
         "android"
       ],
-      "metadataSha256": "4f10e0c9b0b26d63ee630d4603ca56325426f82c26d9949b65be94b43e3d04be",
-      "markdownSha256": "b15515d25d99dea2e03d57c9e564153c06e2c2c133af2ad926b7cd83db48e9ec",
+      "metadataSha256": "6b1609b2be4722bf7d56f46d22c608651a2692b59ddba245da1a4f6a45ef52d4",
+      "markdownSha256": "9955cc05534f85a09782214131f0ed843f813165d6446816d382b28c86efc1db",
       "applicability": {
         "routes": [
           {
@@ -20644,11 +20644,11 @@
                   "name": "android",
                   "version": "11.0",
                   "match": "release-family",
-                  "reason": "Compatible .NET11 Android workload required. Reviewed GA manifest/reference assets are37.2.29; no compatible GA workload composition was tested."
+                  "reason": "Compatible .NET11 Android workload required. Reviewed GA manifest/reference assets are37.2.31; no compatible GA workload composition was tested."
                 }
               ],
               "packageAssets": [
-                "Microsoft.Android.Ref.37.2/37.2.29 ref/net11.0/Mono.Android.dll"
+                "Microsoft.Android.Ref.37.2/37.2.31 ref/net11.0/Mono.Android.dll"
               ],
               "providers": [
                 "No external service or account"
@@ -20840,7 +20840,7 @@
         "maccatalyst",
         "maui"
       ],
-      "metadataSha256": "ed440d31c08b29dae3f64503ef3775e5db51759626996e02aac385451b01b7f4",
+      "metadataSha256": "169a6d84c80486b84d971f4d9c66b611a7d178a53c6aa62e9d27545e4cda646d",
       "markdownSha256": "d9a395c6b123dff78380b1497678bca3fe358c0b4dd930649181a4b27fefaeab",
       "applicability": {
         "routes": [
@@ -21230,7 +21230,7 @@
         "ios",
         "maccatalyst"
       ],
-      "metadataSha256": "2dd260a63d1bc837528a6db2995c5eece6174b2f9e42369e06b4e63ff69d72b3",
+      "metadataSha256": "4f71211d69169cb3556a8c527be08c35bba2ce52baf152afd50599873f101f45",
       "markdownSha256": "582a9a59192ac08ca9258930f795f97bb34c9a8f574048ae4420ec99e5ed436f",
       "applicability": {
         "routes": [
@@ -21289,7 +21289,7 @@
               "prerequisites": [
                 "GA composition: workload set 11.0.100.1 (Microsoft.NET.Workloads.11.0.100/11.100.1), Android 37.2.31, Apple 27.2.11039 and MAUI 11.0.0. Use JDK21 or25 and the selected Android SDK API37/build tools; Gradle9.1+ when invoked with JDK25. Apple requires Xcode27.2 on macOS Tahoe26.6+; the upstream Apple release says16.6+, conflicting with Apple host requirements. Binding SDK versions are not deployment floors. This source/artifact selection does not establish a locally installed native workload or native execution.",
                 "Compatible Apple workload and Xcode required for native publishing/execution.",
-                "GA SDK intended; RC2 sources reviewed separately, not a verified native composition."
+                "GA SDK intended; GA sources reviewed separately, not a verified native composition."
               ],
               "constraints": [
                 ".NET10 comparison only; no older-target catalogue route.",
@@ -21326,7 +21326,7 @@
           "sdk": "10.0.402"
         },
         {
-          "scope": "Exact official RC2 sources reviewed. Canonical net11 proxy C# reference compilation passes against the pinned GA iOS reference assembly; no native workload compilation or execution.",
+          "scope": "Exact official GA sources reviewed. Canonical net11 proxy C# reference compilation passes against the pinned GA iOS reference assembly; no native workload compilation or execution.",
           "sample": "samples/net11.0/TernProxy/TernProxy.csproj",
           "language": "15.0",
           "kind": "official-review",
@@ -21461,7 +21461,7 @@
         "ios",
         "maccatalyst"
       ],
-      "metadataSha256": "756f9e210b512de466e6f18085354923201d3a83f857f603525b9cb1188f3ffe",
+      "metadataSha256": "4d9d3ac5b2d7f2949c92e65d7b40021bed3356c7ef1f32598ca23413bb0b5490",
       "markdownSha256": "8746afe14a786b44a48b6a40726efac2996d68dd2655b59ee76a26eae08e901d",
       "applicability": {
         "routes": [
@@ -21520,7 +21520,7 @@
               "prerequisites": [
                 "GA composition: workload set 11.0.100.1 (Microsoft.NET.Workloads.11.0.100/11.100.1), Android 37.2.31, Apple 27.2.11039 and MAUI 11.0.0. Use JDK21 or25 and the selected Android SDK API37/build tools; Gradle9.1+ when invoked with JDK25. Apple requires Xcode27.2 on macOS Tahoe26.6+; the upstream Apple release says16.6+, conflicting with Apple host requirements. Binding SDK versions are not deployment floors. This source/artifact selection does not establish a locally installed native workload or native execution.",
                 "Compatible Apple workload and Xcode required for native publishing/execution.",
-                "GA SDK intended; RC2 sources reviewed separately, not a verified native composition."
+                "GA SDK intended; GA sources reviewed separately, not a verified native composition."
               ],
               "constraints": [
                 ".NET10 comparison only; no older-target catalogue route.",
@@ -21554,7 +21554,7 @@
           "sdk": "10.0.402"
         },
         {
-          "scope": "Exact official RC2 sources and Catalyst artifact reviewed. Canonical net11 Catalyst C# reference compilation passes against the pinned GA Mac Catalyst assembly; no native workload compilation, publish output or execution.",
+          "scope": "Exact official GA sources and Catalyst artifact reviewed. Canonical net11 Catalyst C# reference compilation passes against the pinned GA Mac Catalyst assembly; no native workload compilation, publish output or execution.",
           "sample": "samples/net11.0/TernPublish/TernPublish.csproj",
           "language": "15.0",
           "kind": "official-review",
@@ -23290,7 +23290,7 @@
       "areas": [
         "maui"
       ],
-      "metadataSha256": "7be3a05930ae47d59e0f694b1b5513a333114fa76fdb98149ae16dd1d67a8652",
+      "metadataSha256": "34b7532c4cbd0398cc145c5f10d6f2d6af60ab6ea356cdfa0ef68773562acce2",
       "markdownSha256": "c6a5d264bff10221bed4f7f4ae093d0378920d5c24a7bfce2825705437118145",
       "applicability": {
         "routes": [
@@ -23344,7 +23344,7 @@
               ],
               "prerequisites": [
                 "GA composition: workload set 11.0.100.1 (Microsoft.NET.Workloads.11.0.100/11.100.1), Android 37.2.31, Apple 27.2.11039 and MAUI 11.0.0. Use JDK21 or25 and the selected Android SDK API37/build tools; Gradle9.1+ when invoked with JDK25. Apple requires Xcode27.2 on macOS Tahoe26.6+; the upstream Apple release says16.6+, conflicting with Apple host requirements. Binding SDK versions are not deployment floors. This source/artifact selection does not establish a locally installed native workload or native execution.",
-                "Native GA preparation: SDK11.0.100, workload set11.0.100, MAUI11.0.0. SourceGen compiled XAML requires a matching native MAUI project."
+                "Native GA preparation: SDK11.0.100, workload set11.0.100.1, MAUI11.0.0. SourceGen compiled XAML requires a matching native MAUI project."
               ],
               "constraints": [
                 "Eight .NET10 foundations unchanged; older samples are comparisons only.",
@@ -25533,7 +25533,7 @@
         "android",
         "ios"
       ],
-      "metadataSha256": "18984ff66521135eeff8bb381b0684ca19c13a0a014b97d2a0a9c79222efe871",
+      "metadataSha256": "969236beca78cd173a56cacd7825f2e82d9f1341199d2b60ef28b57d63a17989",
       "markdownSha256": "12683fecf0c93cbdaa57b0697a2aa1208e868fd527bcbb669a8114edde169164",
       "applicability": {
         "routes": [
@@ -25595,6 +25595,7 @@
                 "Native application process; no browser rendering."
               ],
               "prerequisites": [
+                "Retained RC Android template links are historical implementation-review inputs; use the named GA workload set for current builds. They do not establish GA diagnostic or device execution.",
                 "GA composition: workload set 11.0.100.1 (Microsoft.NET.Workloads.11.0.100/11.100.1), Android 37.2.31, Apple 27.2.11039 and MAUI 11.0.0. Use JDK21 or25 and the selected Android SDK API37/build tools; Gradle9.1+ when invoked with JDK25. Apple requires Xcode27.2 on macOS Tahoe26.6+; the upstream Apple release says16.6+, conflicting with Apple host requirements. Binding SDK versions are not deployment floors. This source/artifact selection does not establish a locally installed native workload or native execution.",
                 "Compatible native workload, Android SDK/JDK or Apple Xcode and separately authorized signing/device access."
               ],
@@ -25682,7 +25683,7 @@
         "android",
         "ios"
       ],
-      "metadataSha256": "1ac979e5bb1ba7d7489461259a4cc03b49202f90a0ba62bc3fb2c1dcc79938ba",
+      "metadataSha256": "6d7e54f676e37e1a176001dadc0275944887927dff9e9b61934b55fbc8580993",
       "markdownSha256": "eca936f74464a69270a25ddd0b37fda0d9bc45b755568f6f22f61226cf3aeaef",
       "applicability": {
         "routes": [
@@ -25752,6 +25753,7 @@
                 "Native application process; no browser rendering."
               ],
               "prerequisites": [
+                "Retained RC Android template links are historical implementation-review inputs; use the named GA workload set for current builds. They do not establish GA diagnostic or device execution.",
                 "GA composition: workload set 11.0.100.1 (Microsoft.NET.Workloads.11.0.100/11.100.1), Android 37.2.31, Apple 27.2.11039 and MAUI 11.0.0. Use JDK21 or25 and the selected Android SDK API37/build tools; Gradle9.1+ when invoked with JDK25. Apple requires Xcode27.2 on macOS Tahoe26.6+; the upstream Apple release says16.6+, conflicting with Apple host requirements. Binding SDK versions are not deployment floors. This source/artifact selection does not establish a locally installed native workload or native execution.",
                 "Compatible native workload, Android SDK/JDK or Apple Xcode and separately authorized signing/device access."
               ],

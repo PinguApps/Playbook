@@ -84,7 +84,7 @@
           "prerequisites": [
             "GA composition: workload set 11.0.100.1 (Microsoft.NET.Workloads.11.0.100/11.100.1), Android 37.2.31, Apple 27.2.11039 and MAUI 11.0.0. Use JDK21 or25 and the selected Android SDK API37/build tools; Gradle9.1+ when invoked with JDK25. Apple requires Xcode27.2 on macOS Tahoe26.6+; the upstream Apple release says16.6+, conflicting with Apple host requirements. Binding SDK versions are not deployment floors. This source/artifact selection does not establish a locally installed native workload or native execution.",
             "Compatible Apple workload and Xcode required for native publishing/execution.",
-            "GA SDK intended; RC2 sources reviewed separately, not a verified native composition."
+            "GA SDK intended; GA sources reviewed separately, not a verified native composition."
           ],
           "constraints": [
             ".NET10 comparison only; no older-target catalogue route.",
@@ -111,18 +111,18 @@
   "sources": [
     {
       "url": "https://raw.githubusercontent.com/dotnet/macios/34b3b25d471c22f2a62c36ec0971b021d0a0e000/docs/building-apps/build-properties.md",
-      "title": "Pinned Apple RC2 build-properties.md"
+      "title": "Pinned Apple GA build-properties.md"
     },
     {
       "url": "https://raw.githubusercontent.com/dotnet/macios/34b3b25d471c22f2a62c36ec0971b021d0a0e000/dotnet/targets/Xamarin.Shared.Sdk.targets",
-      "title": "Pinned Apple RC2 Xamarin.Shared.Sdk.targets"
+      "title": "Pinned Apple GA Xamarin.Shared.Sdk.targets"
     },
     {
       "url": "https://raw.githubusercontent.com/dotnet/macios/34b3b25d471c22f2a62c36ec0971b021d0a0e000/dotnet/targets/Xamarin.Shared.Sdk.props",
-      "title": "Pinned Apple RC2 Xamarin.Shared.Sdk.props"
+      "title": "Pinned Apple GA Xamarin.Shared.Sdk.props"
     },
     {
-      "title": "Exact Apple RC2 Mac Catalyst reference package",
+      "title": "Exact Apple GA Mac Catalyst reference package",
       "url": "https://api.nuget.org/v3-flatcontainer/microsoft.maccatalyst.ref.net11.0_27.2/27.2.11039/microsoft.maccatalyst.ref.net11.0_27.2.27.2.11039.nupkg"
     }
   ],
@@ -136,7 +136,7 @@
       "sdk": "10.0.402"
     },
     {
-      "scope": "Exact official RC2 sources and Catalyst artifact reviewed. Canonical net11 Catalyst C# reference compilation passes against the pinned GA Mac Catalyst assembly; no native workload compilation, publish output or execution.",
+      "scope": "Exact official GA sources and Catalyst artifact reviewed. Canonical net11 Catalyst C# reference compilation passes against the pinned GA Mac Catalyst assembly; no native workload compilation, publish output or execution.",
       "sample": "samples/net11.0/TernPublish/TernPublish.csproj",
       "language": "15.0",
       "kind": "official-review",

@@ -137,7 +137,7 @@
       "url": "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/rc2/dotnetmaui.md"
     },
     {
-      "title": "Apple RC2 release requirements",
+      "title": "Apple GA release requirements",
       "url": "https://github.com/dotnet/macios/releases/tag/dotnet-11.0.1xx-xcode27.2.11039"
     }
   ],

@@ -41,7 +41,7 @@ discovery does not select the intended installations. Inspect the merged manifes
 and generated Java before deploying. SDK selection alone does not install workloads.
 
 The .NET11 pin is GA; exact reviewed platform/reference assets are Android
-37.2.29 GA. That provenance is not a tested GA workload composition.
+37.2.31 GA. That provenance is not a tested GA workload composition.
 Obtain a compatible workload before building; do not mix pack directories manually.
 There is no provider/account or Blazor rendering prerequisite.
 
