@@ -1247,3 +1247,7 @@
 # Inspect-GaWebContracts generates the source/artifact/catalogue release register.
 # Review the generator, GA disposition overlay and authored audit instead.
 /docs/planning/audits/ga-web-contracts.sources.json
+
+# Inspect-GaEfContracts generates the EF/provider release-decision register.
+# Review its generator and authored dispositions; validate actual artifact/source inputs.
+/docs/planning/audits/ga-ef-contracts.sources.json
