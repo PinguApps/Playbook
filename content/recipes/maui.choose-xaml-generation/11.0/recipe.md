@@ -10,7 +10,7 @@ The fictional Quay Board page uses explicit MAUI and x namespace mappings, a cus
 
 ## Newer approach
 
-The reviewed GA Controls targets select SourceGen by default. Set MauiXamlInflator=SourceGen explicitly when making the migration intentional. Ordinary SourceGen does not need EnablePreviewFeatures. The companion page enables that property solely to demonstrate preview expressions and x:Code.
+The reviewed GA Controls targets select SourceGen by default. Set MauiXamlInflator=SourceGen explicitly when making the migration intentional. Ordinary SourceGen does not need EnablePreviewFeatures. The companion page uses GA expressions and x:Code without preview consent.
 
 Implicit standard namespaces allow the current root to omit its default and x declarations. Keep xmlns:local for the custom badge and helper; custom libraries, ambiguous names and external assemblies can still require explicit mappings. Do not remove every xmlns declaration mechanically. The old AllowImplicitXmlnsDeclarationAttribute opt-out is obsolete and ignored in the reviewed source.
 
@@ -19,16 +19,16 @@ Implicit standard namespaces allow the current root to omit its default and x de
 ## Migration
 
 1. Review the pinned project, keep names and custom mappings, then migrate the page.
-2. Rebuild the actual project and inspect diagnostics before selecting preview features.
+2. Rebuild the actual project and inspect diagnostics when changing generator options.
 3. Keep the evidence limits below with the delivered guidance.
 
-First keep the explicit namespaces and code-behind, select SourceGen and resolve actual generator diagnostics. Preserve x:Class and x:Name values and event signatures. Only then remove redundant standard mappings. The companion current sample also moves its small handler into preview x:Code; that is an independent optional step, described by maui.author-view-local-csharp-in-xaml.
+First keep the explicit namespaces and code-behind, select SourceGen and resolve actual generator diagnostics. Preserve x:Class and x:Name values and event signatures. Only then remove redundant standard mappings. The companion current sample also moves its small handler into x:Code; that is an independent optional step, described by maui.author-view-local-csharp-in-xaml.
 
-To retain the XamlC route for ordinary markup, choose MauiXamlInflator=XamlC and restore explicit namespace declarations. The pinned GA targets emit MAUI1001 when selecting XamlC or Runtime because those inflators are deprecated; this is a compatibility fallback, not the preferred authoring route. Keep the warning visible. Runtime inflation is a separate fallback; neither fallback supports the preview expressions. Remove those expressions/x:Code first and restore the older handler/property assignments. Rebuild rather than suppressing unknown diagnostics.
+To retain the XamlC route for ordinary markup, choose MauiXamlInflator=XamlC and restore explicit namespace declarations. The pinned GA targets emit MAUI1001 when selecting XamlC or Runtime because those inflators are deprecated; this is a compatibility fallback, not the preferred authoring route. Keep the warning visible. Runtime inflation is a separate fallback; neither fallback supports these expressions. Remove those expressions/x:Code first and restore the older handler/property assignments. Rebuild rather than suppressing unknown diagnostics.
 
 ## Constraints
 
-This is a generator and namespace migration, not evidence of faster startup or a performance benchmark. Keep custom mappings and supported fallback code. The current sample below combines the migration with explicitly preview page logic; using SourceGen alone is not a preview C# opt-in.
+This is a generator and namespace migration, not evidence of faster startup or a performance benchmark. Keep custom mappings and supported fallback code. The current sample below combines the migration with GA SourceGen page logic; using SourceGen alone is not a preview C# opt-in.
 
 ## Canonical samples
 

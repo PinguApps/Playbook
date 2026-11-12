@@ -2,7 +2,7 @@
   "id": "maui.use-apple-intelligence-abstractions",
   "edition": "11.0",
   "title": "Summarise local notes with experimental Apple Intelligence",
-  "goal": "Use the shipped experimental Apple IChatClient implementation while exposing device, model and native build limits.",
+  "goal": "Assess experimental on-device Apple text chat using the independently published preview package; retain manual editing where native compatibility or model availability is unverified.",
   "areas": [
     "maui"
   ],
@@ -26,14 +26,14 @@
     "routes": [
       {
         "target": "11.0",
-        "conditional": false,
+        "conditional": true,
         "usage": "primary",
         "requirements": {
           "runtime": {
             "name": ".NET",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Canonical current target; RC authoring is limited to the recorded checks execution."
+            "reason": "Current sample source target only; Apple native compatibility and execution not-tested."
           },
           "sdk": {
             "name": ".NET SDK",
@@ -53,13 +53,13 @@
           "packages": [
             {
               "name": "Microsoft.Maui.Essentials.AI",
-              "version": "11.0.0",
+              "version": "11.0.0-preview.8.26555.2",
               "match": "exact",
-              "reason": "Exact inspected sample asset baseline."
+              "reason": "Actual independent public preview; no public stable 11.0.0 package. Native net11 compatibility is not established."
             }
           ],
           "packageAssets": [
-            "Apple platform-specific net11.0-ios26.5 assets; neutral assets do not contain the Apple implementation."
+            "Published net10.0-ios26.0 Apple assembly and resources.zip native bridge. No net11-labelled asset; neutral net10.0 assembly does not provide Apple implementation."
           ],
           "workloads": [
             {
@@ -83,13 +83,15 @@
             "Existing native app host; initiate from a user action. Apple workload compatible with package target bindings; Mac/Xcode and eligible hardware are unavailable here."
           ],
           "constraints": [
-            ".NET 10 is comparison only; no older-target applicability route or ninth foundation. No image, tool, embedding or broad Apple API catalogue claim. Handle unavailable model and cancellation without silently sending notes to a cloud service."
+            ".NET 10 is comparison only; no older-target applicability route or ninth foundation. No image, tool, embedding or broad Apple API catalogue claim. Handle unavailable model and cancellation without silently sending notes to a cloud service.",
+            "Conditional assessment only: net11 Apple dependency closure and native deployment are unverified. Keep manual editing; do not present this as a supported net11 installation route."
           ],
           "optIns": [
             "#pragma warning disable MAUIAI0001 around experimental API use; restore immediately afterward."
           ],
           "stabilityLimitations": [
-            "Experimental MAUIAI0001 remains despite shipped API status; preview pins may change."
+            "Experimental MAUIAI0001; independently versioned preview from dotnet/maui-labs, not MAUI GA.",
+            "No net11 native support inferred from package version or net10 asset compatibility."
           ]
         },
         "sharedAreas": [],
@@ -102,7 +104,8 @@
         ],
         "sourceUrls": [
           "https://raw.githubusercontent.com/dotnet/maui/e7264838d83d55430b219a23cc0e5da6e8b04e9a/src/AI/src/Essentials.AI/Platform/MaciOS/AppleIntelligenceChatClient.cs",
-          "https://raw.githubusercontent.com/dotnet/maui/f9b311be07682fbe1714a18eba44d85ef24180fe/src/AI/src/Essentials.AI/Platform/MaciOS/AppleIntelligenceChatClient.cs"
+          "https://raw.githubusercontent.com/dotnet/maui/f9b311be07682fbe1714a18eba44d85ef24180fe/src/AI/src/Essentials.AI/Platform/MaciOS/AppleIntelligenceChatClient.cs",
+          "https://raw.githubusercontent.com/dotnet/maui-labs/1e7106383947444e5678e5a83c1dc14bbb4d7ca8/src/AI/Microsoft.Maui.Essentials.AI/Platform/MaciOS/AppleIntelligenceChatClient.cs"
         ]
       }
     ]
@@ -115,6 +118,10 @@
     {
       "title": "Immutable official implementation",
       "url": "https://raw.githubusercontent.com/dotnet/maui/f9b311be07682fbe1714a18eba44d85ef24180fe/src/AI/src/Essentials.AI/Platform/MaciOS/AppleIntelligenceChatClient.cs"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui-labs/1e7106383947444e5678e5a83c1dc14bbb4d7ca8/src/AI/Microsoft.Maui.Essentials.AI/Platform/MaciOS/AppleIntelligenceChatClient.cs",
+      "title": "Independent published preview implementation"
     }
   ],
   "evidence": [

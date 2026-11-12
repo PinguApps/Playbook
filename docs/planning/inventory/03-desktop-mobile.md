@@ -197,7 +197,7 @@ maui.simplify-xaml-namespaces. The 11.0 edition of
 maui.author-view-local-csharp-in-xaml groups maui.bind-xaml-csharp-expressions.
 Stable goal IDs are retained; no additional .NET10 foundation is introduced.
 Original paired QuayBoard pages retain custom mappings and compare ordinary
-code-behind with preview x:Code, qualified expressions and attached-property reads.
+code-behind with GA SourceGen x:Code, qualified expressions and attached-property reads.
 
 The .NET10 Windows page is compiled on the existing local route. The .NET11
 page is official-review only and explicitly not-tested: the local SDK11 root

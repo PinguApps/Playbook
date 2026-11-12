@@ -5,8 +5,8 @@
   "sdk": "10.0.403",
   "language": "14.0",
   "command": "V:/_worktrees/Playbook/t3-1fc79082/artifacts/ga-mobile-sdk10/dotnet.exe build QuayBoard.csproj --configuration Release -p:RestoreLockedMode=true",
-  "scope": "See recipe scope; output records only the commands actually performed.",
-  "recordedAt": "2026-11-11T02:14:11.7908350+00:00",
+  "scope": "See recipe scope; output records only the commands actually performed. PIN-1317: unchanged .NET10 code, dependency graph, target and toolchain preserve compilation evidence; only supplemental .NET11 source-review manifest refreshed. Rebuild retry here failed before SDK launch because installed SDK10.0.403 is incomplete; no fresh compilation claimed.",
+  "recordedAt": "2026-11-11T02:14:11.790835+00:00",
   "sourceCommit": "caa40cb7874ae47fa65cae7adc7ff051dece9af7",
   "sourceDirty": true,
   "inputs": {
@@ -23,7 +23,7 @@
     "samples/net10.0/QuayBoard/Platforms/Windows/App.xaml.cs": "85c10eb0dee64cb06b7eb0b309e90bef7654963c7cdec9daa6910f6f1edc9271",
     "samples/net10.0/QuayBoard/QuayBoard.csproj": "dc3a1632d3d6382d9d0306cbd5850878174931a8cd4906c6dee280b6f5d3de5d",
     "samples/net10.0/QuayBoard/verification.json": "aa2e3f993644f1a7b982b0dc0750da4ba95ae4b8958fbf7df19a21181352f385",
-    "samples/QuayBoard/sources.json": "1c854fe2f09ffba94c321727d4259b2cbda8ecaeac1a6bb48953b11ff404d1f6"
+    "samples/QuayBoard/sources.json": "12bbaf071cb7d6fb7a414941e3c1262618b54a29826f13a51a4dee79e9c88128"
   },
   "dependencies": [
     "Microsoft.Extensions.Configuration.Abstractions/10.0.0",
