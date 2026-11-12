@@ -2,9 +2,9 @@
 
 ## Goal
 
-Choose which pipeline step generates a model and which precompiles a fixed query. Fern's seed-packet inventory places model scaffolding at build and query precompilation at publish. Both release comparisons describe the same model and query.
+Choose which pipeline step generates a model and which precompiles a fixed query. Fern's seed-packet inventory prepares a model with the CLI before publication and precompiles its query at publish. Both release comparisons describe the same model and query.
 
-**Experimental:** Microsoft documents MSBuild integration, precompilation and NativeAOT as experimental and unsuitable for production. These instructions follow that documentation. Actual GA generation still fails on the recorded route; successful generated-artifact proof remains pending.
+**Experimental:** Microsoft documents MSBuild integration, precompilation and NativeAOT as experimental and unsuitable for production. These instructions follow that documentation. Automatic GA model-build generation fails on the recorded clean route. The bounded CLI model plus Tasks publish-query alternative below is executed successfully.
 
 ## Older approach
 
@@ -24,25 +24,52 @@ EF11 removes EFOptimizeContext. The stage selectors work without it. Remove the 
 
 ## Migration
 
-1. Inventory the existing generated files and select stages deliberately. Each selector accepts build, publish or none and defaults to publish. PublishAot also activates publication generation by default.
-2. Remove EFOptimizeContext for EF11. Set EFScaffoldModelStage for model code and EFPrecompileQueriesStage for query code. This sample selects build/publish. Do not select model generation at publish with query precompilation at build: query code needs its model first.
-3. Keep the context self-contained with IDesignTimeDbContextFactory. Select the publish RuntimeIdentifier; this example uses win-x64. Enable the generated interceptor namespace in the compiler.
-4. Restore in the sample directory, then run dotnet build -c Release and dotnet publish -c Release. Inspect obj/Release/net11.0 and RID subdirectories for EFGeneratedSources.Build.txt and EFGeneratedSources.Publish.txt manifests and every referenced model/query source. Confirm that model code appears at build and query interceptors at publish. Ordinary compilation with generation disabled does not satisfy this check.
-5. Compile the generated output and execute the published app to verify its seed-packet result. Qualify PublishAot separately using the platform compiler and supported query shapes. These generation, generated-consumer and NativeAOT checks remain pending here.
+The clean SDK11.0.100/Tasks11.0.0 build with EFScaffoldModelStage=build fails:
+generation tries to load FernGeneration.dll before that output exists. A bootstrap
+build followed by an incremental build can skip compilation and creates no model
+manifest. That is not successful model generation. Automatic model-build success
+is withdrawn for this route.
+
+Use explicit CLI model generation during build preparation instead:
+
+1. Restore matching Sqlite, Tasks and directly referenced Design11.0.0 packages.
+   Install dotnet-ef11.0.0 in a local tool directory.
+2. Keep EFScaffoldModelStage=none and EFPrecompileQueriesStage=publish.
+   Build with `-p:EFPrecompileQueriesStage=none` to produce the design-time assembly.
+3. Run the local dotnet-ef executable with `dbcontext optimize --configuration Release
+   --no-build --output-dir CompiledModel --namespace FernGeneration.CompiledModel`.
+   Inspect its four generated C# model files and assembly discovery attribute.
+4. Publish Release. The normal compiler compiles the model files; Tasks generates
+   query interceptors listed in obj/Release/net11.0/FernGeneration.EFGeneratedSources.Publish.txt.
+   Verify every manifest entry exists and inspect the interceptor source.
+5. Execute bin/Release/net11.0/win-x64/publish/FernGeneration.dll with
+   `--require-model`. It refuses a noncompiled model and verifies the stored packet.
+   Rerun optimize whenever the model changes; do not retain stale generated files.
+
+`eng/Test-FernGeneration.ps1` executes this exact bounded sequence. CLI model
+files are explicitly inspected rather than described as a Tasks Build manifest.
+The test's setup compilation is not its generation proof: real generated C#,
+Tasks Publish manifest and execution using the compiled model supply that proof.
 
 ## Constraints
 
-Reference Tasks in every participating project; it is not transitive by default. The context must configure itself: selecting a different startup project would create an inverse build dependency. The project must compile before model generation, so partial-method customization of that model does not fit this integration. MSBuild emits NativeAOT-oriented model code; use the documented dotnet-ef CLI alternative for a conventional compiled model without NativeAOT.
-
-The query is fixed and deliberately small. Runtime-composed queries and different providers need separate qualification. No universal precompilation, performance gain or production readiness is established. Console source compilation needs no browser, renderer or optional workload. Native publication has additional platform/toolchain requirements.
+The stage selectors accept build, publish or none and default to publish. Model
+at publish with query precompilation at build is invalid. EF11 rejects any nonempty
+EFOptimizeContext, including false; EF10 retains that enabling property. EF11 Tasks
+does not transitively supply Design. The direct GA package graph and local CLI
+version are required; exact dependencies appear in the sample lock/receipt.
 
 ## Evidence
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The canonical EF10 comparison retains ordinary compilation with both generation
+stages disabled. Its receipt is not generated-artifact proof. The EF11 route above
+executes actual GA compiled-model/query artifacts on Windows x64 with bundled
+SQLite. The original automatic route's failure remains visible. No NativeAOT,
+other-provider, arbitrary-query or other-platform qualification is claimed.
+MSBuild/precompilation remain experimental and unsuitable for production.
 
-SDK10.0.403/EF10.0.13 and SDK11 GA/EF11 RC2 sources compile with both stage selectors explicitly overridden to none in verification.json. This is ordinary compilation only. Clean EF11 GA and isolated GA generation attempts failed because the output DLL did not yet exist. A later GA publish probe emitted query interceptors but failed generated-source compilation; that is not successful generation or execution evidence. No generated model/query or NativeAOT route is certified.
-
-Pingu authorized documentation-based delivery on 4 November 2026 after official-source confirmation. Pending proof remains visible and retains the existing stable-release packaging gate. Refresh actual build/publish artifacts and exact dependency/toolchain evidence on a working release before upgrading these claims.
+The resolved generation exception is removed; other preview exceptions, the eight
+foundations and PIN-967's global stable-release gate remain unchanged.
 
 ## Complete project configuration
 

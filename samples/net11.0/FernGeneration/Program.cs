@@ -6,9 +6,10 @@ namespace FernGeneration;
 
 internal static class Program
 {
-    private static async Task Main()
+    private static async Task Main(string[] args)
     {
         await using LedgerContext context = new();
+        if (args.Contains("--require-model", StringComparer.Ordinal) && context.Model.GetType().Name != "LedgerContextModel") throw new InvalidOperationException("Compiled model was not loaded.");
         await context.Database.OpenConnectionAsync();
         await context.Database.EnsureCreatedAsync();
         context.Add(new SeedPacket { Name = "Fern spores" });

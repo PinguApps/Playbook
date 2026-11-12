@@ -2,6 +2,13 @@
   "note": "First matching rule owns every raw declaration delta and every obsolete/experimental declaration. Ownership records audit responsibility, not delivered content. E proposals and U unknowns are defined in ef.md.",
   "groups": [
     {
+      "disposition": "delivered",
+      "id": "sqlite-json-index-ga",
+      "pattern": "RelationalJsonIndex::|SqliteMigrationsSqlGenerator::Generate.*CreateIndexOperation|JsonIndexAllElementsNotSupported|JsonPathIndexElementsIsDescendingMismatch",
+      "owner": "PIN-1311",
+      "reason": "sqlite.index-json-path/11.0: independent EF10 SQL-expression migration and EF11 modeled paths execute on bundled SQLite. Exact schema/results, per-element metadata, null/empty/mixed sort semantics and unsupported-path controls; no SQL Server or performance inference."
+    },
+    {
       "id": "formatter-history",
       "pattern": "System.ObsoleteAttribute\\(System.String:\"This API supports obsolete formatter-based serialization",
       "disposition": "historical",
@@ -267,7 +274,7 @@
       "pattern": "DbContextModelAttribute|CompiledModelCodeGenerationOptions|RuntimeConstant|CSharpRuntimeAnnotationCodeGenerator",
       "disposition": "grouped",
       "owner": "PIN-887",
-      "reason": "PIN-887 delivers experimental ef.configure-generated-model-stage/11.0 as documented guidance. Generated artifact/provider-identity/runtime-constant proof remains pending under the explicit 4 November 2026 user exception; ordinary compilation disables generation. No successful generation or GA fix is claimed."
+      "reason": "PIN-1312 executes the bounded GA CLI compiled-model/Tasks publish-query route and verifies automatic compiled-model loading. Provider-identity and runtime-constant extension-author contracts remain outside that proof. NativeAOT remains not-tested; experimental status retained."
     },
     {
       "id": "migration-operation",
@@ -302,7 +309,7 @@
       "pattern": "^\\w+ Microsoft\\.EntityFrameworkCore\\.Tools\\.|^\\w+ Microsoft\\.EntityFrameworkCore\\.Tasks\\.",
       "disposition": "grouped",
       "owner": "PIN-887",
-      "reason": "PIN-887 delivers documented independent EFScaffoldModelStage/EFPrecompileQueriesStage and EFOptimizeContext removal in ef.configure-generated-model-stage/11.0. RC2/RC3 clean generation fails; actual generated-artifact/build/publish/AOT proof remains pending under the 4 November 2026 exception and release-ready gate."
+      "reason": "PIN-1312: GA automatic clean model-build failure reproduced; supported bounded CLI11.0.0 compiled model plus Tasks publish query interceptors compile and execute on Windows x64 SQLite. NativeAOT and other routes not-tested; experimental label retained."
     },
     {
       "id": "sqlite-direct",

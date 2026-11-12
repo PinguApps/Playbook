@@ -1,14 +1,13 @@
 {
   "workloads": [],
   "buildArguments": [
-    "-p:EFScaffoldModelStage=none",
     "-p:EFPrecompileQueriesStage=none"
   ],
   "additionalInputs": [
     ".editorconfig",
     "eng/Evidence.ps1",
     "eng/Record-Evidence.ps1",
-    "eng/Record-FernGeneration.ps1"
+    "eng/Test-FernGeneration.ps1"
   ],
   "nativeToolchains": [],
   "dependencies": [

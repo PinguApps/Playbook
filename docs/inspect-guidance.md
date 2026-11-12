@@ -1,5 +1,27 @@
 # Inspect the guidance an agent receives
 
+## SQLite JSON paths and generated EF artifacts
+
+From an unrelated directory, select the assigned worktree explicitly. Setup
+requires the pinned SDKs and NuGet/Inspector access; nothing is published.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-9e113d12-15cf7ede70ada6df'
+& ./eng/Test-FernGeneration.ps1
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('sqlite.index-json-path','ef.configure-generated-model-stage') `
+  -Query '' -PackageVersion '0.0.0-pin1311-1312' -BuildAndPack `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' -OutputDirectory './artifacts/inspection'
+```
+
+Expect ID/title/goal, full canonical Markdown, edition11 applicability and fresh
+receipts through the actual locally installed stdio server. Retrieval runs outside
+the checkout with isolated feed/cache and unusable proxies. This establishes
+embedded delivery, not OS network isolation. Fern's CLI model/Tasks query route
+executes on Windows x64 SQLite; automatic model-build generation remains withdrawn
+and NativeAOT is not-tested. No performance or release claim follows.
+
 ## Rendered AI state, restoration and withdrawn direct TLS
 
 PIN-1308/1309 exercise the actual experimental packages on the GA host with a

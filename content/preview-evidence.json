@@ -5,19 +5,6 @@
   "decision": "Pre-GA preview may include explicitly disclosed documented GA intent and provisional reference material. Pending proof is retained; this approval is not execution or stable readiness. Local feasible checks, complete offline content, source accuracy and input freshness remain mandatory.",
   "exceptions": [
     {
-      "id": "ef.configure-generated-model-stage",
-      "edition": "11.0",
-      "classification": "documented-ga-intent",
-      "scope": "Pingu authorized documentation-based PR delivery on 4 November 2026 despite RC2/RC3 generation failure. Actual generated model/query build/publish/AOT evidence remains pending until a working release; this is not GA proof.",
-      "followUp": "PIN-965",
-      "samples": [
-        "samples/net10.0/FernGeneration/FernGeneration.csproj",
-        "samples/net11.0/FernGeneration/FernGeneration.csproj"
-      ],
-      "metadataSha256": "80537fab8af268f4bb0c7389e533617a4a07a238f3bad9250158749961d7ecfd",
-      "markdownSha256": "67272f0742678924944b9a6b565ff85730345a7ef5143bfd6ca6784ea18b0c3d"
-    },
-    {
       "id": "ef.materialize-missing-projection",
       "edition": "11.0",
       "classification": "documented-ga-intent",

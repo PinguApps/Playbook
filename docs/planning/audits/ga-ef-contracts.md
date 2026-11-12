@@ -1,5 +1,29 @@
 # GA EF and provider reconciliation
 
+## PIN-1311/PIN-1312 delivery update
+
+The historical register below retains its original audit inputs and hashes.
+PIN-1311 adds `sqlite.index-json-path/11.0`: independent KestrelCrates
+SDK10.0.403/EF10.0.13 and SDK11.0.100/EF11.0.0 consumers apply SQLite
+migrations, inspect expression-index schema, and verify scalar/position lookups.
+EF11 checks migration per-element ordering, constructor null/empty/mixed sort
+semantics, count mismatch and all-elements rejection. SQL Server's unsupported
+options remain a separate source-reviewed contract. No performance claim follows.
+
+PIN-1312 reproduces the clean automatic model-build DLL-not-found failure and
+withdraws that successful-generation route. The bounded alternative generates
+a conventional model with dotnet-ef11.0.0 before publish, then generates query
+interceptors with Tasks11.0.0. Both compile and the published Windows x64 SQLite
+app verifies compiled-model loading and exact results. Run
+`eng/Test-FernGeneration.ps1 -Record` for the input-bound generation receipt and
+generated-source hashes; ordinary compilation receipts remain separate.
+NativeAOT and other platforms are not-tested. Experimental labels remain.
+
+Only Fern's resolved pending-proof/preview exception is removed. PIN-1313,
+PIN-1314, PIN-967, other Human gates and the eight foundations remain unchanged.
+Generated model C# and migrations remain reviewable because their mapping/schema
+meaning merits review; no new PR Agent exclusion is added.
+
 PIN-965, 12 November 2026. This is a bounded release-decision audit, not
 database execution proof or permission to publish. PIN-967 remains open and
 the four follow-ons below block its final stable-candidate check.
