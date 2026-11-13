@@ -25139,6 +25139,133 @@
       }
     },
     {
+      "id": "maui.request-drag-moves",
+      "edition": "11.0",
+      "stability": "stable",
+      "areas": [
+        "maui"
+      ],
+      "metadataSha256": "e67b3f87009439c7ce02b74fb41b99193499745cd788568a209ed6dccbc86c5a",
+      "markdownSha256": "bfa84f446770d556cf00a161902b7de67b7c6737035613a06e3362dd81424176",
+      "applicability": {
+        "routes": [
+          {
+            "requirements": {
+              "runtime": {
+                "version": "11.0",
+                "match": "release-family",
+                "reason": "Native MAUI guidance; neutral consumer checks run on Windows without proving native interactions.",
+                "name": ".NET"
+              },
+              "sdk": {
+                "version": "11.0",
+                "match": "release-family",
+                "reason": "Compatible .NET 11 SDK and the selected native workload are required; sample pins SDK11 GA.",
+                "name": ".NET SDK"
+              },
+              "language": {
+                "version": "15.0",
+                "match": "exact",
+                "reason": "Canonical sample pins C#15; no preview C# expressions.",
+                "name": "C#"
+              },
+              "frameworks": [
+                ".NET MAUI"
+              ],
+              "packages": [
+                {
+                  "match": "release-family",
+                  "name": "Microsoft.Maui.Controls",
+                  "reason": "Canonical samples pin Controls11.0.0; exact Core package downloaded and inspected.",
+                  "version": "11.0"
+                }
+              ],
+              "packageAssets": [
+                "Actual neutral MAUI11.0.0 assets compile/run; platform-specific branches source-reviewed only."
+              ],
+              "workloads": [
+                {
+                  "name": "maui-android / maui-ios / maui-windows (choose target)",
+                  "version": "11.0",
+                  "match": "release-family",
+                  "reason": "Reviewed GA workload set11.0.100.1 selects MAUI11.0.0, Android37.2.31 and Apple27.2.11039. This is source/artifact provenance, not an installed workload for the pinned GA SDK; a matching native workload is still required and unavailable here."
+                }
+              ],
+              "providers": [
+                "No external provider or account"
+              ],
+              "platforms": [
+                "Windows source AllowedOperations must permit Move; Apple session must permit Move; Android implementation unchanged, sample retains Copy."
+              ],
+              "renderingModes": [
+                "Native MAUI controls; no Blazor rendering mode"
+              ],
+              "prerequisites": [
+                "GA composition: workload set 11.0.100.1 (Microsoft.NET.Workloads.11.0.100/11.100.1), Android 37.2.31, Apple 27.2.11039 and MAUI 11.0.0. Use JDK21 or25 and the selected Android SDK API37/build tools; Gradle9.1+ when invoked with JDK25. Apple requires Xcode27.2 on macOS Tahoe26.6+; the upstream Apple release says16.6+, conflicting with Apple host requirements. Binding SDK versions are not deployment floors. This source/artifact selection does not establish a locally installed native workload or native execution.",
+                "Matching MAUI native SDK and Android tools; Apple needs paired Mac/Xcode."
+              ],
+              "constraints": [
+                "Canonical console consumer verifies actual neutral APIs and local logic only. Native host setup and platform branches are not compiled or executed here. No older-target route; .NET10 comparison only."
+              ],
+              "optIns": [],
+              "stabilityLimitations": [
+                "Stable GA surface; native interactions not-tested."
+              ]
+            },
+            "sharedAreas": [],
+            "conditional": false,
+            "target": "11.0",
+            "neutralLanguages": [],
+            "usage": "primary",
+            "evidenceSamples": [
+              "samples/net11.0/KittiwakeExchange/KittiwakeExchange.csproj"
+            ],
+            "selectionNotes": [
+              "No verified older-target route; .NET 10 is comparison-only."
+            ],
+            "sourceUrls": [
+              "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Essentials/src/Share/Share.shared.cs",
+              "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Essentials/src/Share/Share.android.cs",
+              "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Essentials/src/Share/Share.ios.cs",
+              "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Essentials/src/Share/Share.windows.cs",
+              "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Controls/src/Core/DragAndDrop/DragEventArgs.cs",
+              "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Controls/src/Core/DragAndDrop/DataPackageOperation.cs",
+              "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Controls/src/Core/DragAndDrop/DropCompletedEventArgs.cs",
+              "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Controls/src/Core/DragAndDrop/PlatformDragStartingEventArgs.cs",
+              "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Controls/src/Core/Platform/iOS/DragAndDropDelegate.cs",
+              "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Controls/src/Core/Platform/Android/DragAndDropGestureHandler.cs"
+            ]
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "language": "14.0",
+          "scope": "Actual neutral package consumer and local data controls; no native UI, platform-conditional compilation or gesture execution.",
+          "sdk": "10.0.402",
+          "target": "net10.0",
+          "kind": "compile-and-run",
+          "sample": "samples/net10.0/KittiwakeExchange/KittiwakeExchange.csproj"
+        },
+        {
+          "language": "15.0",
+          "scope": "Actual neutral package consumer and local data controls; no native UI, platform-conditional compilation or gesture execution.",
+          "sdk": "11.0.100",
+          "target": "net11.0",
+          "kind": "compile-and-run",
+          "sample": "samples/net11.0/KittiwakeExchange/KittiwakeExchange.csproj"
+        }
+      ],
+      "humanProof": {
+        "scope": "Both KittiwakeExchange editions: native share sheets, preview rendering, target delivery, native drag permission/gestures and platform-conditional branches not-tested. Neutral consumer execution is separate. Matching GA native workload unavailable; no Apple/Android device environment. PIN-699 exclusions; no new Human gate.",
+        "status": "not-tested",
+        "untestedSamples": [
+          "samples/net10.0/KittiwakeExchange/KittiwakeExchange.csproj",
+          "samples/net11.0/KittiwakeExchange/KittiwakeExchange.csproj"
+        ]
+      }
+    },
+    {
       "id": "maui.route-single-instance-activations",
       "edition": "11.0",
       "stability": "stable",
@@ -25400,6 +25527,133 @@
           "samples/net11.0/ReefSurvey/ReefSurvey.csproj"
         ],
         "scope": "Current SDK11 MAUI workload unavailable (NETSDK1147); no Android device/emulator for process recreation, capture, gallery, permissions or chrome. Older Android compilation is separate. Apple native routes untested. PIN-699 exclusions; no pending Human obligation."
+      }
+    },
+    {
+      "id": "maui.share-text-with-image-preview",
+      "edition": "11.0",
+      "stability": "stable",
+      "areas": [
+        "maui"
+      ],
+      "metadataSha256": "203134efa92fce4a6f82e5df35c98604d8140891c9210e37242bd11eef79a514",
+      "markdownSha256": "e5af633313f98058dde723f6bf54144d8b33fcc05ad0281fc06441eccd9a6098",
+      "applicability": {
+        "routes": [
+          {
+            "requirements": {
+              "runtime": {
+                "version": "11.0",
+                "match": "release-family",
+                "reason": "Native MAUI guidance; neutral consumer checks run on Windows without proving native interactions.",
+                "name": ".NET"
+              },
+              "sdk": {
+                "version": "11.0",
+                "match": "release-family",
+                "reason": "Compatible .NET 11 SDK and the selected native workload are required; sample pins SDK11 GA.",
+                "name": ".NET SDK"
+              },
+              "language": {
+                "version": "15.0",
+                "match": "exact",
+                "reason": "Canonical sample pins C#15; no preview C# expressions.",
+                "name": "C#"
+              },
+              "frameworks": [
+                ".NET MAUI"
+              ],
+              "packages": [
+                {
+                  "match": "release-family",
+                  "name": "Microsoft.Maui.Controls",
+                  "reason": "Canonical samples pin Controls11.0.0; exact Core package downloaded and inspected.",
+                  "version": "11.0"
+                }
+              ],
+              "packageAssets": [
+                "Actual neutral MAUI11.0.0 assets compile/run; platform-specific branches source-reviewed only."
+              ],
+              "workloads": [
+                {
+                  "name": "maui-android / maui-ios / maui-windows (choose target)",
+                  "version": "11.0",
+                  "match": "release-family",
+                  "reason": "Reviewed GA workload set11.0.100.1 selects MAUI11.0.0, Android37.2.31 and Apple27.2.11039. This is source/artifact provenance, not an installed workload for the pinned GA SDK; a matching native workload is still required and unavailable here."
+                }
+              ],
+              "providers": [
+                "No external provider or account"
+              ],
+              "platforms": [
+                "Preview: Android API29+, iOS and Mac Catalyst; other platforms ignore the property."
+              ],
+              "renderingModes": [
+                "Native MAUI controls; no Blazor rendering mode"
+              ],
+              "prerequisites": [
+                "GA composition: workload set 11.0.100.1 (Microsoft.NET.Workloads.11.0.100/11.100.1), Android 37.2.31, Apple 27.2.11039 and MAUI 11.0.0. Use JDK21 or25 and the selected Android SDK API37/build tools; Gradle9.1+ when invoked with JDK25. Apple requires Xcode27.2 on macOS Tahoe26.6+; the upstream Apple release says16.6+, conflicting with Apple host requirements. Binding SDK versions are not deployment floors. This source/artifact selection does not establish a locally installed native workload or native execution.",
+                "Matching MAUI native SDK and Android tools; Apple needs paired Mac/Xcode."
+              ],
+              "constraints": [
+                "Canonical console consumer verifies actual neutral APIs and local logic only. Native host setup and platform branches are not compiled or executed here. No older-target route; .NET10 comparison only."
+              ],
+              "optIns": [],
+              "stabilityLimitations": [
+                "Stable GA surface; native interactions not-tested."
+              ]
+            },
+            "sharedAreas": [],
+            "conditional": false,
+            "target": "11.0",
+            "neutralLanguages": [],
+            "usage": "primary",
+            "evidenceSamples": [
+              "samples/net11.0/KittiwakeExchange/KittiwakeExchange.csproj"
+            ],
+            "selectionNotes": [
+              "No verified older-target route; .NET 10 is comparison-only."
+            ],
+            "sourceUrls": [
+              "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Essentials/src/Share/Share.shared.cs",
+              "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Essentials/src/Share/Share.android.cs",
+              "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Essentials/src/Share/Share.ios.cs",
+              "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Essentials/src/Share/Share.windows.cs",
+              "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Controls/src/Core/DragAndDrop/DragEventArgs.cs",
+              "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Controls/src/Core/DragAndDrop/DataPackageOperation.cs",
+              "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Controls/src/Core/DragAndDrop/DropCompletedEventArgs.cs",
+              "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Controls/src/Core/DragAndDrop/PlatformDragStartingEventArgs.cs",
+              "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Controls/src/Core/Platform/iOS/DragAndDropDelegate.cs",
+              "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Controls/src/Core/Platform/Android/DragAndDropGestureHandler.cs"
+            ]
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "language": "14.0",
+          "scope": "Actual neutral package consumer and local data controls; no native UI, platform-conditional compilation or gesture execution.",
+          "sdk": "10.0.402",
+          "target": "net10.0",
+          "kind": "compile-and-run",
+          "sample": "samples/net10.0/KittiwakeExchange/KittiwakeExchange.csproj"
+        },
+        {
+          "language": "15.0",
+          "scope": "Actual neutral package consumer and local data controls; no native UI, platform-conditional compilation or gesture execution.",
+          "sdk": "11.0.100",
+          "target": "net11.0",
+          "kind": "compile-and-run",
+          "sample": "samples/net11.0/KittiwakeExchange/KittiwakeExchange.csproj"
+        }
+      ],
+      "humanProof": {
+        "scope": "Both KittiwakeExchange editions: native share sheets, preview rendering, target delivery, native drag permission/gestures and platform-conditional branches not-tested. Neutral consumer execution is separate. Matching GA native workload unavailable; no Apple/Android device environment. PIN-699 exclusions; no new Human gate.",
+        "status": "not-tested",
+        "untestedSamples": [
+          "samples/net10.0/KittiwakeExchange/KittiwakeExchange.csproj",
+          "samples/net11.0/KittiwakeExchange/KittiwakeExchange.csproj"
+        ]
       }
     },
     {

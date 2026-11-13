@@ -10,9 +10,9 @@ public static class TripShare
     public static async Task<string> SendAsync(IShare share, string imagePath,
         CancellationToken cancellationToken)
     {
+        if (cancellationToken.IsCancellationRequested) return "Cancelled before dispatch.";
         try
         {
-            cancellationToken.ThrowIfCancellationRequested();
             var request = new ShareTextRequest
             {
                 Title = "Kittiwake: North ridge walk",
@@ -27,10 +27,6 @@ public static class TripShare
             await share.RequestAsync(request);
             return "Share UI dispatched or closed; delivery and cancellation are unknown.";
         }
-        catch (OperationCanceledException) when (cancellationToken.IsCancellationRequested)
-        {
-            return "Cancelled before dispatch.";
-        }
         catch (Exception error) when (error is IOException or UnauthorizedAccessException
             or ArgumentException or NotSupportedException)
         {
@@ -39,3 +35,4 @@ public static class TripShare
     }
 }
 // endsnippet:complete
+

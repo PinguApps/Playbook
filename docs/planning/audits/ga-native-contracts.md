@@ -38,11 +38,28 @@ Current receipts retain exact sample/input identities. Historical RC results,
 native exclusions, feasible Human/provider gates and PIN-967 remain intact.
 The generated register retains the full GA API comparison, platform-specific availability and
 experimental dispositions. No new platform support is inferred from a base
-workload. E–F, resource provisioning, maps requests and release remain excluded.
+workload. Resource provisioning, maps requests and release remain excluded.
 
 ## Delivered C/D corrections
 
 PIN-1317/1318 preserve both recipe IDs. GA XAML source review removes consent while retaining SourceGen, ambiguity and async-lambda limits; Incremental Hot Reload stays preview. AI discovery withdraws the stable 11.0.0 acquisition claim and makes net11 applicability conditional. The independently published preview retains MAUIAI0001; text chat and status APIs are source-reviewed. The nuspec declares AI.Abstractions10.4.1 and DI/Hosting/Logging.Abstractions10.0.5 for Apple. An isolated real net11 neutral restore selected the net10.0 asset and resolved AI.Abstractions10.4.1 plus the preview package; that neutral selection proves acquisition only, not Apple dependency closure. Apple resources.zip contains EssentialsAIiOS.xcframework with device/simulator bridge binaries. Source project builds that bridge using XcodeProject and AppleBindings.targets. Native deployment and model execution remain not-tested. PIN-967 still owns final readiness; historical RC receipts are not GA execution.
+
+## Delivered E/F guidance
+
+PIN-1319/1320 add `maui.share-text-with-image-preview` and
+`maui.request-drag-moves`. Both KittiwakeExchange editions compile and execute
+against actual Controls10.0.110/11.0.0 neutral assets. Local controls establish
+copy preservation, validated move and rejected destination behaviour; they do
+not execute native gestures. ShareFile/PreviewImage compile against actual GA
+assets; request dispatch, preview rendering, cancellation and delivery remain
+not-tested. Immutable GA sharing/drag source identities are retained in
+`samples/KittiwakeExchange/sources.json` and checked by
+`eng/Test-KittiwakeContracts.ps1`. Windows/Apple platform branches and Android
+behaviour remain source review, not platform compilation/execution. Previous RC
+receipts stay historical. PIN-967 remains open for final readiness.
+
+The refreshed generated register binds 53 editions (46 mobile/native, seven
+desktop); the original 51-edition audit remains available at cb318c7.
 
 ## Authority and complete boundary
 
@@ -54,7 +71,7 @@ delivery prerequisites are Done in PinguApps team
 `62f80270-b641-4fa3-b60c-46be4c4df2c8`, Playbook project
 `b22380c7-6fde-49f4-8826-e5631dc5df7a`. Done is not deferred execution proof.
 
-The [generated register](ga-native-contracts.sources.json) binds **51 prepared
+The [generated register](ga-native-contracts.sources.json) original audit bound **51 prepared
 11.0 editions**: 44 mobile/native and seven desktop editions. Selection includes
 the `mobile` diagnostic/testing recipes through their Android/Apple areas.
 Every edition retains its ID, stability, applicability, metadata/Markdown hashes,
@@ -191,3 +208,4 @@ availability change, failed download, source/baseline hash or catalogue mismatch
 fails. Output is disposable under artifacts. This is metadata/source proof only.
 Unchanged evidence can be reused only while its actual relevant inputs remain valid.
 Global stable readiness requires the delivered corrections and PIN-967's final checks.
+
