@@ -38,5 +38,13 @@
   {
     "sha256": "2444f0c1021577e0f60b0b6e74d0a506f73ac05cc491f4ad7d68a7387825dbd8",
     "url": "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Controls/src/Core/Platform/Android/DragAndDropGestureHandler.cs"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Controls/src/Core/Platform/GestureManager/GesturePlatformManager.Windows.cs",
+    "sha256": "b1e74d360c79bd1c51e17d6dc7ac0b6e5d5c960bed940c7367905b8fa638bee0"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Controls/src/Core/DragAndDrop/DragStartingEventArgs.cs",
+    "sha256": "569a9d818734f3c13070ce6b125fd5c3aee63fe1e666be24fd67984f014a3afa"
   }
 ]

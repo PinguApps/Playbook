@@ -71,11 +71,11 @@ delivery prerequisites are Done in PinguApps team
 `62f80270-b641-4fa3-b60c-46be4c4df2c8`, Playbook project
 `b22380c7-6fde-49f4-8826-e5631dc5df7a`. Done is not deferred execution proof.
 
-The [generated register](ga-native-contracts.sources.json) original audit bound **51 prepared
+The original audit at cb318c7 bound **51 prepared
 11.0 editions**: 44 mobile/native and seven desktop editions. Selection includes
 the `mobile` diagnostic/testing recipes through their Android/Apple areas.
 Every edition retains its ID, stability, applicability, metadata/Markdown hashes,
-saved evidence and Human boundary. Current labels are 47 stable, two preview
+saved evidence and Human boundary. The current 53-edition register has 49 stable, two preview
 and two experimental; these are observations, not endorsements. The eight
 historical foundations remain unchanged. PIN-966 itself changed no served content or samples; the A/B delivery above updates them.
 
@@ -202,7 +202,7 @@ Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-6976e50c-f24bb12c6cdac2ff'
 ```
 
 Expected: actual package identities/hashes, all 18-entry maps, complete 142-file
-MAUI API path set, RC2/GA source comparisons, desktop metadata comparison and 51
+MAUI API path set, RC2/GA source comparisons, desktop metadata comparison and 53
 bound editions. The specifically recorded AI11.0.0 404 is expected; an unexpected
 availability change, failed download, source/baseline hash or catalogue mismatch
 fails. Output is disposable under artifacts. This is metadata/source proof only.

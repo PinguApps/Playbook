@@ -4,6 +4,8 @@
 
 Kittiwake assigns a planned walk by dragging it onto a destination. Copy keeps the planned entry; move removes it only after the destination validates and accepts it.
 
+The comparison files share conditional source: NET11_0_OR_GREATER selects the new API; it is excluded from the .NET10 compilation.
+
 ## Older approach
 
 The .NET10 comparison requests Copy and retains the source. There is no invented older Move API route.
@@ -14,9 +16,9 @@ The .NET10 comparison requests Copy and retains the source. There is no invented
 
 {{snippet:net110-walkboard-cs}}
 
-DragEventArgs.AcceptedOperation defaults to Copy. Move is a request to the native system, not a data transaction. On iOS/Mac Catalyst the native session must allow moving; move-only requests are rejected otherwise. When Copy and Move are both accepted, Copy wins. Custom native drop proposals can override the default mapping. On Windows the source must include Move in native DragStartingEventArgs.AllowedOperations. The conditional branch also sets native text and PlatformArgs.Handled so MAUI does not overwrite source changes. Android's implementation is unchanged; this sample keeps Copy there rather than claiming new native move support.
+DragEventArgs.AcceptedOperation defaults to Copy. Move is a request to the native system, not a data transaction. On iOS/Mac Catalyst the native session must allow moving; move-only requests are rejected otherwise. When Copy and Move are both accepted, Copy wins. Custom native drop proposals can override the default mapping. On Windows the source must include Move in native DragStartingEventArgs.AllowedOperations. The conditional branch sets native text and both handled flags: this exact GA Windows handler uses an OR condition, so PlatformArgs.Handled alone does not bypass its default Copy assignment. The legacy Handled flag needs a scoped CS0618 suppression; recheck this workaround when upgrading. Android's implementation is unchanged; this sample keeps Copy there rather than claiming new native move support.
 
-Attach wires two labels in a native host. The neutral console consumer compiles the common code only; it does not compile the Windows branch or launch a host. Apple session permission must be checked in a real native app before relying on Move. The local ownership marker rejects unrelated drags. This example accepts only one in-process board's payload: it is not a cross-app source-deletion protocol.
+Attach wires two labels in a native host. The neutral console consumer compiles the common code only; it does not compile the Windows branch or launch a host. Apple session permission must be checked in a real native app before relying on Move. DragOver rejects unrelated or stale payloads with None before proposing Move; Drop validates the local ownership marker again. This example accepts only one in-process board's payload: it is not a cross-app source-deletion protocol.
 
 Only the Drop handler commits data, after reading and validating the payload. Rejected destinations and cancelled gestures do not commit. CommitDrop writes the destination first, then removes the source for a move. This synchronous in-memory example assumes the UI thread; durable storage needs an atomic transaction or acknowledgement protocol before removal. Do not remove source data in DragOver, DragLeave or DropCompleted: the latter has no portable public success result and can also fire on cancellation. No automatic source deletion, view movement or CollectionView reordering is promised. Refresh rendered lists from application state in a real host.
 ## Constraints
@@ -25,7 +27,7 @@ Current: SDK11.0.100, C#15, Microsoft.Maui.Controls11.0.0; previous: SDK10.0.402
 
 ## Evidence
 
-Both exact KittiwakeExchange console projects compile and execute against actual packages. They check operation selection and local successful copy/move, rejected destination and duplicate controls. Cancelled gestures do not enter the local drop handler; native cancellation is not executed here. Application share request construction, retained-file, pre-dispatch cancellation and error controls use an IShare spy; this is controlled application proof, not native share execution. Shared code is real API compilation, not a mock MAUI surface. No native share sheet, preview, delivery, Windows branch or drag gesture execution is claimed. PIN-699 marks these unavailable-native behaviours not-tested for both samples. GA immutable source hashes are retained in samples/KittiwakeExchange/sources.json; prior RC evidence remains historical. PIN-967 remains the final readiness gate.
+Both exact KittiwakeExchange console projects compile and execute against actual packages. They check operation selection and local successful copy/move, rejected destination and duplicate controls. Cancelled gestures do not enter the local drop handler; native cancellation is not executed here. The shared consumer also contains separate sharing checks; those are not drag evidence. Shared code is real API compilation, not a mock MAUI surface. No native share sheet, preview, delivery, Windows branch or drag gesture execution is claimed. PIN-699 marks these unavailable-native behaviours not-tested for both samples. GA immutable source hashes are retained in samples/KittiwakeExchange/sources.json; prior RC evidence remains historical. PIN-967 remains the final readiness gate.
 
 ## Migration
 

@@ -11,6 +11,12 @@ public sealed class WalkBoard
 
     public void DragOver(object? sender, DragEventArgs args)
     {
+        if (args.Data is not { } data || !data.Properties.TryGetValue("kittiwake-owner", out var owner)
+            || !ReferenceEquals(owner, this) || !Planned.Contains(data.Text))
+        {
+            args.AcceptedOperation = DataPackageOperation.None;
+            return;
+        }
 #if NET11_0_OR_GREATER && !ANDROID
         args.AcceptedOperation = DataPackageOperation.Move;
 #else
@@ -40,6 +46,9 @@ public sealed class WalkBoard
                 native.AllowedOperations = Windows.ApplicationModel.DataTransfer.DataPackageOperation.Move;
                 native.Data.SetText("north-ridge");
                 args.PlatformArgs.Handled = true;
+#pragma warning disable CS0618 // GA Windows handler checks both flags with OR.
+                args.Handled = true;
+#pragma warning restore CS0618
             }
 #endif
         };

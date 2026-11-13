@@ -2,7 +2,12 @@ using KittiwakeExchange;
 using Microsoft.Maui.Controls;
 
 var board = new WalkBoard();
-var over = new DragEventArgs(new DataPackage());
+var foreign = new DragEventArgs(new DataPackage());
+board.DragOver(null, foreign);
+if (foreign.AcceptedOperation != DataPackageOperation.None) throw new Exception("Foreign drag accepted");
+var payload = new DataPackage { Text = "north-ridge" };
+payload.Properties["kittiwake-owner"] = board;
+var over = new DragEventArgs(payload);
 board.DragOver(null, over);
 #if NET11_0_OR_GREATER
 if (over.AcceptedOperation != DataPackageOperation.Move) throw new Exception("Move proposal missing");

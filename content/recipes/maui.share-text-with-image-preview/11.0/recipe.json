@@ -108,51 +108,61 @@
           "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Controls/src/Core/DragAndDrop/DropCompletedEventArgs.cs",
           "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Controls/src/Core/DragAndDrop/PlatformDragStartingEventArgs.cs",
           "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Controls/src/Core/Platform/iOS/DragAndDropDelegate.cs",
-          "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Controls/src/Core/Platform/Android/DragAndDropGestureHandler.cs"
+          "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Controls/src/Core/Platform/Android/DragAndDropGestureHandler.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Controls/src/Core/Platform/GestureManager/GesturePlatformManager.Windows.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Controls/src/Core/DragAndDrop/DragStartingEventArgs.cs"
         ]
       }
     ]
   },
   "sources": [
     {
-      "title": "Share.shared.cs GA official source",
-      "url": "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Essentials/src/Share/Share.shared.cs"
+      "url": "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Essentials/src/Share/Share.shared.cs",
+      "title": "Share.shared.cs GA official source"
     },
     {
-      "title": "Share.android.cs GA official source",
-      "url": "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Essentials/src/Share/Share.android.cs"
+      "url": "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Essentials/src/Share/Share.android.cs",
+      "title": "Share.android.cs GA official source"
     },
     {
-      "title": "Share.ios.cs GA official source",
-      "url": "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Essentials/src/Share/Share.ios.cs"
+      "url": "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Essentials/src/Share/Share.ios.cs",
+      "title": "Share.ios.cs GA official source"
     },
     {
-      "title": "Share.windows.cs GA official source",
-      "url": "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Essentials/src/Share/Share.windows.cs"
+      "url": "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Essentials/src/Share/Share.windows.cs",
+      "title": "Share.windows.cs GA official source"
     },
     {
-      "title": "DragEventArgs.cs GA official source",
-      "url": "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Controls/src/Core/DragAndDrop/DragEventArgs.cs"
+      "url": "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Controls/src/Core/DragAndDrop/DragEventArgs.cs",
+      "title": "DragEventArgs.cs GA official source"
     },
     {
-      "title": "DataPackageOperation.cs GA official source",
-      "url": "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Controls/src/Core/DragAndDrop/DataPackageOperation.cs"
+      "url": "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Controls/src/Core/DragAndDrop/DataPackageOperation.cs",
+      "title": "DataPackageOperation.cs GA official source"
     },
     {
-      "title": "DropCompletedEventArgs.cs GA official source",
-      "url": "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Controls/src/Core/DragAndDrop/DropCompletedEventArgs.cs"
+      "url": "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Controls/src/Core/DragAndDrop/DropCompletedEventArgs.cs",
+      "title": "DropCompletedEventArgs.cs GA official source"
     },
     {
-      "title": "PlatformDragStartingEventArgs.cs GA official source",
-      "url": "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Controls/src/Core/DragAndDrop/PlatformDragStartingEventArgs.cs"
+      "url": "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Controls/src/Core/DragAndDrop/PlatformDragStartingEventArgs.cs",
+      "title": "PlatformDragStartingEventArgs.cs GA official source"
     },
     {
-      "title": "DragAndDropDelegate.cs GA official source",
-      "url": "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Controls/src/Core/Platform/iOS/DragAndDropDelegate.cs"
+      "url": "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Controls/src/Core/Platform/iOS/DragAndDropDelegate.cs",
+      "title": "DragAndDropDelegate.cs GA official source"
     },
     {
-      "title": "DragAndDropGestureHandler.cs GA official source",
-      "url": "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Controls/src/Core/Platform/Android/DragAndDropGestureHandler.cs"
+      "url": "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Controls/src/Core/Platform/Android/DragAndDropGestureHandler.cs",
+      "title": "DragAndDropGestureHandler.cs GA official source"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Controls/src/Core/Platform/GestureManager/GesturePlatformManager.Windows.cs",
+      "title": "GesturePlatformManager.Windows.cs GA official source"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Controls/src/Core/DragAndDrop/DragStartingEventArgs.cs",
+      "title": "DragStartingEventArgs.cs GA official source"
     }
   ],
   "evidence": [

@@ -25145,8 +25145,8 @@
       "areas": [
         "maui"
       ],
-      "metadataSha256": "e67b3f87009439c7ce02b74fb41b99193499745cd788568a209ed6dccbc86c5a",
-      "markdownSha256": "bfa84f446770d556cf00a161902b7de67b7c6737035613a06e3362dd81424176",
+      "metadataSha256": "f73572d1d5f234c5ff034583d4b7a107367dbfa181aa1a564f1c3e26694c5dd9",
+      "markdownSha256": "4bbfba18f120aa14ad71f9c8d20675b5d9ca7793127b6201b9a88083627142c2",
       "applicability": {
         "routes": [
           {
@@ -25233,7 +25233,9 @@
               "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Controls/src/Core/DragAndDrop/DropCompletedEventArgs.cs",
               "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Controls/src/Core/DragAndDrop/PlatformDragStartingEventArgs.cs",
               "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Controls/src/Core/Platform/iOS/DragAndDropDelegate.cs",
-              "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Controls/src/Core/Platform/Android/DragAndDropGestureHandler.cs"
+              "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Controls/src/Core/Platform/Android/DragAndDropGestureHandler.cs",
+              "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Controls/src/Core/Platform/GestureManager/GesturePlatformManager.Windows.cs",
+              "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Controls/src/Core/DragAndDrop/DragStartingEventArgs.cs"
             ]
           }
         ]
@@ -25536,8 +25538,8 @@
       "areas": [
         "maui"
       ],
-      "metadataSha256": "203134efa92fce4a6f82e5df35c98604d8140891c9210e37242bd11eef79a514",
-      "markdownSha256": "e5af633313f98058dde723f6bf54144d8b33fcc05ad0281fc06441eccd9a6098",
+      "metadataSha256": "628b48fcba8302d35e9a20807f03a411666df745775ffb42ea9f659984ae20bd",
+      "markdownSha256": "41821c1f1e56a7f188b207ad47d27ed51f4f3c88ee669ca890d95d33e8e731a2",
       "applicability": {
         "routes": [
           {
@@ -25624,7 +25626,9 @@
               "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Controls/src/Core/DragAndDrop/DropCompletedEventArgs.cs",
               "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Controls/src/Core/DragAndDrop/PlatformDragStartingEventArgs.cs",
               "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Controls/src/Core/Platform/iOS/DragAndDropDelegate.cs",
-              "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Controls/src/Core/Platform/Android/DragAndDropGestureHandler.cs"
+              "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Controls/src/Core/Platform/Android/DragAndDropGestureHandler.cs",
+              "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Controls/src/Core/Platform/GestureManager/GesturePlatformManager.Windows.cs",
+              "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Controls/src/Core/DragAndDrop/DragStartingEventArgs.cs"
             ]
           }
         ]

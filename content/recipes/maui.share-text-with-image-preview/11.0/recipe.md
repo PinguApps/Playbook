@@ -4,6 +4,8 @@
 
 Kittiwake shares a walk invitation with a recognisable local image. This decorates the native sharing UI; it does not save captured media, create map markers or change an app icon.
 
+The comparison files share conditional source: NET11_0_OR_GREATER selects the new API; it is excluded from the .NET10 compilation.
+
 ## Older approach
 
 The .NET10 comparison leaves the preview unset. It shares text and a link without claiming a built-in older PreviewImage equivalent. Platform integration would be a separate implementation.
@@ -25,7 +27,7 @@ Current: SDK11.0.100, C#15, Microsoft.Maui.Controls11.0.0; previous: SDK10.0.402
 
 ## Evidence
 
-Both exact KittiwakeExchange console projects compile and execute against actual packages. They check operation selection and local successful copy/move, rejected destination and duplicate controls. Cancelled gestures do not enter the local drop handler; native cancellation is not executed here. Application share request construction, retained-file, pre-dispatch cancellation and error controls use an IShare spy; this is controlled application proof, not native share execution. Shared code is real API compilation, not a mock MAUI surface. No native share sheet, preview, delivery, Windows branch or drag gesture execution is claimed. PIN-699 marks these unavailable-native behaviours not-tested for both samples. GA immutable source hashes are retained in samples/KittiwakeExchange/sources.json; prior RC evidence remains historical. PIN-967 remains the final readiness gate.
+Both exact KittiwakeExchange console projects compile and execute against actual packages. This recipe uses the sharing checks in the shared consumer; its separate local copy/move controls belong to the drag recipe. Application share request construction, retained-file, pre-dispatch cancellation and error controls use an IShare spy; this is controlled application proof, not native share execution. Shared code is real API compilation, not a mock MAUI surface. No native share sheet, preview, delivery, Windows branch or drag gesture execution is claimed. PIN-699 marks these unavailable-native behaviours not-tested for both samples. GA immutable source hashes are retained in samples/KittiwakeExchange/sources.json; prior RC evidence remains historical. PIN-967 remains the final readiness gate.
 
 ## Migration
 
