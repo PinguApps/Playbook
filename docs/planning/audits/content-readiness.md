@@ -256,3 +256,15 @@ nullable-marker fallback with exact null/default/populated results and compositi
 Only its resolved pending-proof inventory entry and preview-policy hash are
 reconciled here. Other checkpoint inputs and pending gates remain unchanged; this
 does not recertify the historical candidate or the whole readiness checkpoint.
+
+## PIN-967 DirectTLS disposition
+
+Pingu approved treating the withdrawn DirectTLS feature as unavailable while
+retaining its stable recipe ID and ordinary socket HTTPS fallback. Only that
+pending inventory entry and preview exception are removed; the preview-policy
+hash follows the edited policy. Existing socket compilation records are retained,
+with direct transport/Linux/OpenSSL behavior explicitly not-tested. This does not
+recertify the historical candidate, other checkpoint inputs or pending entries.
+The current stable check instead fails at the GA archive task's pending proof;
+see [the SDK qualification attempt](ga-sdk-contracts.md#pin-967-qualification-attempt).
+No stable candidate is certified or published by this change.

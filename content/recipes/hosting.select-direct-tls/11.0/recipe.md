@@ -4,7 +4,7 @@
 
 Use ordinary socket HTTPS when the direct-TLS documentation is withdrawn and the independently published package cannot supply its former endpoint API.
 
-This is usable documentation-based guidance, authorized before full testing. Read the exact availability and evidence limits below; catalogue target 11 is limited to the recorded checks.
+The supported implementation is ordinary socket HTTPS. Direct TLS is unavailable; read the exact availability and evidence limits below.
 
 ## Older approach
 
@@ -40,7 +40,7 @@ The .NET 10 harbour archive serves /catalogue over ordinary Kestrel socket HTTPS
 
 ## Newer approach
 
-GA documentation removed the direct-TLS include; NuGet index offers only RC1, not 11.0.0. RC1 lacks the former documented DirectTlsEndpoint. Current canonical code is ordinary socket HTTPS, not a direct-TLS implementation. Linux/OpenSSL transport selection and negotiation remain not-tested under the native policy. Actual supported direct-TLS artifact/scenario availability remains a PIN-967 stable-gate condition.
+GA documentation removed the direct-TLS include; NuGet index offers only RC1, not 11.0.0. RC1 lacks the former documented DirectTlsEndpoint. Current canonical code is ordinary socket HTTPS, not a direct-TLS implementation. Linux/OpenSSL transport selection and negotiation remain not-tested under the native policy. The withdrawn direct-TLS route is unavailable and is not a supported GA implementation. Use the socket HTTPS fallback; it requires no direct-TLS artifact.
 
 The former source-only endpoint illustration is withdrawn from the current sample. Historical code and CS0246 evidence remain at fc07b364cbf83d8a4b6285bbc39f23240adcdb0d. Do not fabricate DirectTlsEndpoint or infer support from UseDirectTls registration. Both examples now retain the supported socket fallback.
 
@@ -85,7 +85,7 @@ Direct TLS remains an experimental, unavailable route for the former documented 
 
 ## Evidence
 
-GA documentation removed the direct-TLS include; NuGet index offers only RC1, not 11.0.0. RC1 lacks the former documented DirectTlsEndpoint. Current canonical code is ordinary socket HTTPS, not a direct-TLS implementation. Linux/OpenSSL transport selection and negotiation remain not-tested under the native policy. Actual supported direct-TLS artifact/scenario availability remains a PIN-967 stable-gate condition.
+GA documentation removed the direct-TLS include; NuGet index offers only RC1, not 11.0.0. RC1 lacks the former documented DirectTlsEndpoint. Current canonical code is ordinary socket HTTPS, not a direct-TLS implementation. Linux/OpenSSL transport selection and negotiation remain not-tested under the native policy. The withdrawn direct-TLS route is unavailable and is not a supported GA implementation. Use the socket HTTPS fallback; it requires no direct-TLS artifact.
 
 Both socket examples compile with their declared SDKs. The retained RC1 package is not called. No Linux/OpenSSL or direct transport handshake is claimed. Documentation removal was checked against current canonical source; the public package index still lists RC1 alone. Historical RC proof remains in Git. PIN-967 retains final stable readiness.
 

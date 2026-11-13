@@ -16560,18 +16560,6 @@
       ]
     },
     {
-      "id": "hosting.select-direct-tls",
-      "edition": "11.0",
-      "humanProof": {
-        "status": "pending",
-        "scope": "Pingu authorized documentation-based recipe delivery on 3 November 2026. Final GA, browser/provider/AG-UI, renderer/storage and Linux native TLS behaviour checks remain pending and are not claimed. These deferred checks do not block this ticket; stable release readiness remains gated."
-      },
-      "samples": [
-        "samples/net10.0/HarbourTls/HarbourTls.csproj",
-        "samples/net11.0/HarbourTls/HarbourTls.csproj"
-      ]
-    },
-    {
       "id": "sdk.configure-cli-telemetry",
       "edition": "11.0",
       "humanProof": {
@@ -16695,7 +16683,7 @@
   },
   "previewPolicy": {
     "path": "content/preview-evidence.json",
-    "sha256": "f461ec1c0873e7b87d31227b03fd24e983ebd5edd02844f752231cff60681ee1",
+    "sha256": "52c0641fa8932acabb02cf32dbcbf6a2bfebe1a4bf86ee34a43be8e485c790ee",
     "approvedBy": "Pingu",
     "approvedOn": "2026-11-08",
     "implementationCommit": "28de282680e14de82a09e405d603869d119fccb0",

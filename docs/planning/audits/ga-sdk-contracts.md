@@ -1,5 +1,23 @@
 # GA SDK and package-authoring reconciliation
 
+## PIN-967 qualification attempt
+
+SDK11.0.100 on the current Windows machine reproduces the existing
+`BuildArtifacts` failure at `TarDirectory`: MSB4018 / MSB0001,
+`Cannot call Reacquire() ... when Yield() was called ...`. A second invocation
+with one build node, node reuse disabled and MSBuild servers disabled also
+fails. These are actual GA failures, not successful archive execution or RC
+results relabelled as GA. Ordinary project compilation succeeds before the
+task fails. The unchanged canonical target and its pending proof remain.
+
+The final stable content gate now reaches `msbuild.archive-build-artifacts`
+after the owner-approved DirectTLS availability disposition. The other seven
+SDK editions still retain their explicit pending proof; source/artifact audit
+completion did not establish their deferred behavior. PIN-967 remains In Progress
+and unpublished. A supported archive correction is separately sized work under
+the ticket boundary unless Pingu explicitly approves it within PIN-967.
+
+
 ## Catalogue dispositions after PIN-1302
 
 The [per-contract register](ga-sdk-dispositions.json) records all 56 original

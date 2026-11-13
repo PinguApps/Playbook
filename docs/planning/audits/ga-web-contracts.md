@@ -1,5 +1,20 @@
 # GA web framework reconciliation
 
+## PIN-967 DirectTLS availability decision
+
+Pingu approved reconciling the withdrawn route as unavailable, retaining
+`hosting.select-direct-tls` and the supported socket HTTPS fallback. The public
+NuGet index still offers only `11.0.0-rc.1.26425.128`; that inspected package does
+not supply the former documented endpoint. A nonexistent GA artifact is no
+longer a stable-readiness prerequisite. This is an availability disposition,
+not a successful direct-TLS execution claim. Both canonical socket compilation
+records remain unchanged. Direct transport and Linux/OpenSSL behavior remain
+explicitly sample-specific `not-tested`; only the resolved preview exception is
+removed. The historical audit and its original hashes below remain historical.
+Other pending SDK proof and PIN-967's single stable-candidate validation remain
+required; no package publication or global readiness is established.
+
+
 PIN-964, 11 November 2026. This bounded release-decision audit does not deliver
 the follow-on recipes or authorize a release. PIN-967 remains open.
 
