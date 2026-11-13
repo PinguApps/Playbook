@@ -1,0 +1,50 @@
+[
+  {
+    "sha256": "5c4cf341721fd62be3349cf13d7f215adced4af254dedf6a3804399581ba172b",
+    "url": "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Essentials/src/Share/Share.shared.cs"
+  },
+  {
+    "sha256": "e1234751fae430380c785f42ed728f273ae4038a19e0fb8cea12dd6b51f52ee9",
+    "url": "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Essentials/src/Share/Share.android.cs"
+  },
+  {
+    "sha256": "89f9d8931ec1e88789c3c57d1a14a522ec69c0832a49bfc4b04c0088b56e2f61",
+    "url": "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Essentials/src/Share/Share.ios.cs"
+  },
+  {
+    "sha256": "6af5dcb14c607db89e1b74218992fd43b54657735923c95d194f2ae1b058e373",
+    "url": "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Essentials/src/Share/Share.windows.cs"
+  },
+  {
+    "sha256": "f1718f7dd3ab4d2701c0cc5e77242749b46b058e4d2aad6fc96f436d75bb73a2",
+    "url": "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Controls/src/Core/DragAndDrop/DragEventArgs.cs"
+  },
+  {
+    "sha256": "2cf4d8b3543104c237ff40cf5bdd6cdcb83e1984cd38e64443ee1666be4004bf",
+    "url": "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Controls/src/Core/DragAndDrop/DataPackageOperation.cs"
+  },
+  {
+    "sha256": "f4db5e62b978b2034a07e6eade7cb3b13ab2748595dfc3e14a16a1718302bc07",
+    "url": "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Controls/src/Core/DragAndDrop/DropCompletedEventArgs.cs"
+  },
+  {
+    "sha256": "326488bf34b2d5f99fb03a53ca558ded8a43d898f752c59ef51c6c066d6f0227",
+    "url": "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Controls/src/Core/DragAndDrop/PlatformDragStartingEventArgs.cs"
+  },
+  {
+    "sha256": "111a91cf038e82d03a3943e87647345583eb07c6549427c80e847bb012392ac3",
+    "url": "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Controls/src/Core/Platform/iOS/DragAndDropDelegate.cs"
+  },
+  {
+    "sha256": "2444f0c1021577e0f60b0b6e74d0a506f73ac05cc491f4ad7d68a7387825dbd8",
+    "url": "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Controls/src/Core/Platform/Android/DragAndDropGestureHandler.cs"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Controls/src/Core/Platform/GestureManager/GesturePlatformManager.Windows.cs",
+    "sha256": "b1e74d360c79bd1c51e17d6dc7ac0b6e5d5c960bed940c7367905b8fa638bee0"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/dotnet/maui/4e6582f7397a5736bc85984228c549d09a85a1de/src/Controls/src/Core/DragAndDrop/DragStartingEventArgs.cs",
+    "sha256": "569a9d818734f3c13070ce6b125fd5c3aee63fe1e666be24fd67984f014a3afa"
+  }
+]

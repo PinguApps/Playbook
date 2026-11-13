@@ -1,5 +1,26 @@
 # Inspect the guidance an agent receives
 
+## Sharing previews and safe local drag moves
+
+Run in PowerShell 7 from an unrelated directory. Setup restores, builds, packs
+and installs the local server; no package is published.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-241f00cf-b420963b755d6542'
+& ./eng/Test-KittiwakeContracts.ps1
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('maui.share-text-with-image-preview','maui.request-drag-moves') `
+  -Query '' -PackageVersion '0.0.0-pin1319-1320' -BuildAndPack `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' -OutputDirectory './artifacts/inspection'
+```
+
+Expect ID/title/goal, expanded canonical Markdown and applicability from the
+actual installed stdio server outside the checkout. Neutral .NET10/11 consumers
+compile and run local data controls against actual MAUI packages; native share
+sheets, previews and gestures remain not-tested. PIN-967 remains the final gate.
+
+
 ## GA XAML expressions and independent AI preview
 
 Run from an unrelated directory in PowerShell 7. Setup restores, builds, packs
@@ -5021,3 +5042,4 @@ These checks exclude current native workload builds, device/JNI execution and
 Apple launch behavior. MT7199 merged-plist rules are GA source-reviewed; no
 scene-launch claim follows. Prior RC evidence remains historical, and PIN-967
 retains global readiness. No maps service requests or new resources are used.
+

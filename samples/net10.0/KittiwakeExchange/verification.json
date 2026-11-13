@@ -1,0 +1,29 @@
+{
+  "nativeToolchains": [],
+  "dependencies": [
+    "Microsoft.Extensions.Configuration.Abstractions/10.0.0",
+    "Microsoft.Extensions.Configuration/10.0.0",
+    "Microsoft.Extensions.DependencyInjection.Abstractions/10.0.0",
+    "Microsoft.Extensions.DependencyInjection/10.0.0",
+    "Microsoft.Extensions.Diagnostics.Abstractions/10.0.0",
+    "Microsoft.Extensions.FileProviders.Abstractions/10.0.0",
+    "Microsoft.Extensions.Hosting.Abstractions/10.0.0",
+    "Microsoft.Extensions.Logging.Abstractions/10.0.0",
+    "Microsoft.Extensions.Logging/10.0.0",
+    "Microsoft.Extensions.Options/10.0.0",
+    "Microsoft.Extensions.Primitives/10.0.0",
+    "Microsoft.Maui.Controls.Build.Tasks/10.0.110",
+    "Microsoft.Maui.Controls.Core/10.0.110",
+    "Microsoft.Maui.Controls.Xaml/10.0.110",
+    "Microsoft.Maui.Controls/10.0.110",
+    "Microsoft.Maui.Core/10.0.110",
+    "Microsoft.Maui.Essentials/10.0.110",
+    "Microsoft.Maui.Graphics/10.0.110",
+    "Microsoft.Maui.Resizetizer/10.0.110"
+  ],
+  "additionalInputs": [
+    "samples/KittiwakeExchange/sources.json"
+  ],
+  "buildArguments": [],
+  "workloads": []
+}
