@@ -30,7 +30,7 @@
         "conditional": false,
         "usage": "primary",
         "selectionNotes": [
-          "Windows SDK10/SDK11 canonical helper and glob controls are exercised. SDK11 GA inbox TarDirectory fails; use the supported helper fallback.",
+          "Authored include/exclude/remove patterns are printed separately from expanded files; private/draft fixtures are excluded. On SDK11 an unset MSBuildProvideItemGlobs supplies no patterns.",
           "Target 11 only; no older-target/newer-SDK or Framework MSBuild execution claim."
         ],
         "sharedAreas": [
@@ -84,7 +84,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "GA inbox archive task failure remains explicit; helper execution is separate from inbox-task execution."
+            "Focused Windows authored-versus-expanded controls only; the older XmlPeek diagnostic reads one authored file. No complete imported graph or Framework MSBuild execution is claimed."
           ]
         },
         "sourceUrls": [
@@ -159,6 +159,6 @@
   },
   "humanProof": {
     "status": "not-required",
-    "scope": "Automated Windows canonical helper and glob checks cover the bounded claims. Inbox archive task failure remains explicit; no imported graph, Framework MSBuild, native platform, hostile archive or reproducibility claim."
+    "scope": "Automated Windows canonical glob checks cover authored patterns, expanded files, private/draft exclusions and unset reporting. No complete imported graph or Framework MSBuild execution is claimed."
   }
 }
