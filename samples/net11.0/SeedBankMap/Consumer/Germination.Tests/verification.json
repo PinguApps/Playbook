@@ -1,0 +1,36 @@
+{
+  "buildArguments": [],
+  "dependencies": [
+    "Germination/1.0.0",
+    "Microsoft.ApplicationInsights/2.23.0",
+    "Microsoft.CodeCoverage/18.10.1",
+    "Microsoft.DiaSymReader/2.2.10",
+    "Microsoft.Extensions.DependencyModel/10.0.10",
+    "Microsoft.Extensions.FileSystemGlobbing/9.0.0",
+    "Microsoft.NET.Test.Sdk/18.10.1",
+    "Microsoft.Testing.Extensions.AffectedTests/18.13.0-preview.26519.2",
+    "Microsoft.Testing.Extensions.CodeCoverage/18.13.0-preview.26519.2",
+    "Microsoft.Testing.Extensions.Telemetry/2.6.0-preview.26519.1",
+    "Microsoft.Testing.Extensions.TrxReport.Abstractions/2.6.0-preview.26519.1",
+    "Microsoft.Testing.Extensions.TrxReport/2.6.0-preview.26519.1",
+    "Microsoft.Testing.Platform.MSBuild/2.6.0-preview.26519.1",
+    "Microsoft.Testing.Platform/2.6.0-preview.26519.1",
+    "Microsoft.TestPlatform.ObjectModel/18.10.1",
+    "Microsoft.TestPlatform.TestHost/18.10.1",
+    "Mono.Cecil/0.11.6",
+    "MSTest.Analyzers/4.6.0-preview.26519.1",
+    "MSTest.TestAdapter/4.6.0-preview.26519.1",
+    "MSTest.TestFramework/4.6.0-preview.26519.1",
+    "MSTest/4.6.0-preview.26519.1"
+  ],
+  "additionalInputs": [
+    "samples/net11.0/SeedBankMap/Consumer",
+    "samples/net11.0/SeedBankMap/Host/CancelSelection.cs",
+    "eng/Test-SeedBankSelection.ps1",
+    "eng/Get-SeedSelectionSdk.ps1",
+    "samples/net11.0/SeedBankMap/Test-Selection.ps1",
+    "samples/net11.0/SeedBankMap/Get-SelectionSdk.ps1"
+  ],
+  "workloads": [],
+  "nativeToolchains": []
+}

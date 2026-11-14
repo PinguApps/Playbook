@@ -1,0 +1,23 @@
+// snippet:complete
+{
+  "sdk": {
+    "version": "12.0.100-alpha.1.26509.101",
+    "rollForward": "disable",
+    "allowPrerelease": true
+  },
+  "test": {
+    "runner": "Microsoft.Testing.Platform",
+    "affectedTests": {
+      "changes": {
+        "ignore": [
+          "docs/**"
+        ],
+        "forceAllTests": [
+          "global.json",
+          "**/*.csproj"
+        ]
+      }
+    }
+  }
+}
+// endsnippet:complete

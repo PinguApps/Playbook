@@ -1,5 +1,17 @@
 # SDK/package hosts and affected-test availability: PIN-688
 
+Qualification update, 14 November 2026: PIN-1323 establishes the pinned package's
+actual builder hook and default local storage through two independent original
+consumers. GA SDK11 still fails collection handshakes. The qualified conditional
+net11 route uses the exact publisher SDK12 alpha and preview reference/runtime
+tuple, with conservative unmapped-module fallback explicitly accepted by Pingu.
+`eng/Test-SeedBankSelection.ps1` checks real maps, empty selection, fallback,
+failures and active collection/selection cancellation. The linked storage page
+remains unavailable, but this route needs no invented storage property or API.
+See the [current GA qualification](ga-sdk-contracts.md#pin-1322--pin-1323-consumer-qualification).
+The provisional delivery and source-only history below remain historical;
+experimental status, eight foundations and PIN-967's global gate are preserved.
+
 Provisional delivery update, 3 November 2026: **PIN-1074 / proposal I** adds
 `sdk.select-affected-tests`, edition 11.0, as documentation-based experimental
 guidance. Pingu explicitly authorized using the documentation now while unreleased

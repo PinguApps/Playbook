@@ -2,8 +2,9 @@
 
 Audit checkpoint: 8 November 2026. **Approved pre-GA preview boundary.**
 Pingu approved completing PIN-959 with accountable coverage, feasible local checks
-and explicitly provisional content. Stable/GA certification remains gated by the
-15 named pending editions below. The implementation PR prepares publication; it
+and explicitly provisional content. That checkpoint recorded 15 pending editions.
+The saved inventory retains 10 entries after the qualification updates below;
+current recipe metadata marks five editions pending. Stable/GA certification remains gated. The implementation PR prepares publication; it
 does not publish a package.
 
 The [preview registry](../../../content/preview-evidence.json) binds each exception
@@ -195,7 +196,7 @@ the exact foundation identities and the pending-gate inventory. Pass the local
 candidate's absolute path with `-PackagePath` to also verify its SHA-256. A pass
 means the checkpoint still matches its inputs; it does not certify release readiness.
 
-## Remaining evidence gates
+## 8 November evidence gates (historical)
 
 | Recipe | Exact canonical sample directories, under both `samples/net10.0/` and `samples/net11.0/` | Remaining proof |
 | --- | --- | --- |
@@ -265,3 +266,26 @@ Glob diagnostics distinguish authored patterns from expanded files with private,
 draft and unset-reporting controls. Only these two resolved pending-proof entries
 and preview exceptions are retired. Complete imported graphs and Framework MSBuild
 are not verified. PIN-967 retains the remaining gates and whole-candidate refresh.
+
+## PIN-1322 and PIN-1323 qualification update
+
+On 14 November 2026, the real Windows x64 MSBuild observer and the explicitly
+pinned SDK12/net11 affected-test consumer passed their composed-host checks.
+Pingu accepted the conservative fallback: a Germination-only change executes its
+two mapped tests and ColdStore's full two-test suite. This establishes neither
+cross-module test elimination nor a speed saving. The GA11 collection handshake
+failure and the preview toolchain prerequisite remain documented in the recipes.
+
+Only these two resolved pending-proof entries and preview exceptions are retired.
+The two changed SDK audit hashes and preview-policy hash are reconciled in the
+inventory. The historical candidate package, foundation identities and other gates
+are preserved; the older tables and observations above describe their dated checkpoint.
+
+The whole checkpoint is still invalidated, pending PIN-967's reconciliation and
+candidate refresh. `eng/Test-ContentReadiness.ps1` already fails on the base revision:
+the language/SDK and desktop/mobile inventory hashes, plus the compiler, EF and web
+audit hashes, have pre-existing drift. Five other saved pending-proof entries also
+no longer match current metadata (the two Blazor, two tensor and generated-EF editions).
+These unrelated bindings are deliberately
+not reapproved here. The scoped qualification does not certify the whole corpus
+or the historical candidate for stable publication.

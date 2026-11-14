@@ -1255,3 +1255,13 @@
 # Inspect-GaNativeContracts generates the native source/artifact/catalogue register.
 # Review its generator and authored dispositions; replay checks actual inputs.
 /docs/planning/audits/ga-native-contracts.sources.json
+
+# Generated observer/selection receipts; review canonical sources, pins, manifests
+# and the two executable harnesses. Build/pack enforces saved input freshness.
+/samples/net11.0/BuildAccessObserver/Host/verification-evidence.json
+/samples/net11.0/BuildAccessObserver/Host/native.evidence.json
+/samples/net11.0/SeedBankMap/Consumer/Germination/verification-evidence.json
+/samples/net11.0/SeedBankMap/Consumer/ColdStore/verification-evidence.json
+/samples/net11.0/SeedBankMap/Consumer/Germination.Tests/verification-evidence.json
+/samples/net11.0/SeedBankMap/Consumer/ColdStore.Tests/verification-evidence.json
+/samples/net11.0/SeedBankMap/Consumer/Germination.Tests/selection.evidence.json

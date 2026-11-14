@@ -1,5 +1,15 @@
 # SDK, MSBuild, NuGet and testing authoring coverage: PIN-707
 
+Qualification update, 14 November 2026: PIN-1322 replaces B06's provisional
+composition with an actually compiled net48 observer on Visual Studio x64
+MSBuild18.11.0.47511. Real IO/errors/enumeration, previous/current shared-field
+decoding, two contexts, activation controls and active cancellation are checked by
+`eng/Test-BuildAccessObserver.ps1`. Cancellation omits project-finished; end-build
+abandons remaining observations. No reusable cache state is published. See the
+[current GA qualification](ga-sdk-contracts.md#pin-1322--pin-1323-consumer-qualification).
+Historical audit/RC observations below are retained; experimental status and
+PIN-967's global release gates remain separate.
+
 Reviewed **22 October 2026**. This is a bounded artifact/API/configuration and official-source audit. It supplements [PIN-688's host/migration audit](sdk-package-hosts.md). It delivers no recipe, validates no proposed consumer, and clears no comprehensive-content or GA publication gate. The 29 delivery drafts below require review before ticket creation or implementation.
 
 ## Scope cancellations, 30 October 2026

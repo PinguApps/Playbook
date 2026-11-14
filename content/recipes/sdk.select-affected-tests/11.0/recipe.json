@@ -2,7 +2,7 @@
   "id": "sdk.select-affected-tests",
   "edition": "11.0",
   "title": "Select affected tests with an experimental source map",
-  "goal": "Use the documented experimental source-to-test mapping workflow to plan a faster validation lane while retaining a full-suite fallback; local setup and execution proof remain pending.",
+  "goal": "Collect local source-to-test maps for net11 test projects using an explicitly qualified preview SDK/runtime; retain conservative full-suite fallback for unmapped module changes and truthful failures.",
   "areas": [
     "sdk",
     "testing"
@@ -29,91 +29,101 @@
     "routes": [
       {
         "target": "11.0",
-        "conditional": false,
+        "conditional": true,
         "usage": "primary",
         "selectionNotes": [
-          "Documentation-based experimental guidance authorized by Pingu on 3 November 2026. Original samples are source-reviewed only; compilation and experimental execution proof remain pending.",
-          "Target 11 only; older examples are comparisons, not additional .NET 10 foundations.",
-          "Theoretical guidance: source review only; samples have not been compiled or executed. Pending proof blocks stable readiness; preview publication requires a named approved exception.",
-          "Provisional preview reference: supported host composition is unresolved; this is not a turnkey implementation."
+          "Explicit conditional net11 route: SDK12.0.100-alpha.1.26509.101 with its preview reference pack/runtime; GA SDK11 collection fails its reporting handshake.",
+          "Germination-only changes select Germination tests and conservatively run ColdStore in full; no cross-module elimination or speedup is claimed."
         ],
         "sharedAreas": [],
         "neutralLanguages": [],
         "requirements": {
           "runtime": {
-            "name": ".NET",
-            "version": "11.0",
-            "match": "release-family",
-            "reason": "Intended managed sample target, not an observed execution result or build-host requirement."
+            "version": "12.0.0-alpha.1.26509.101",
+            "match": "exact",
+            "reason": "Explicit preview runtime for the actual net11-targeted consumers; not GA .NET11 runtime qualification.",
+            "name": ".NET"
           },
           "sdk": {
-            "name": ".NET SDK",
-            "version": "11.0",
-            "match": "release-family",
-            "reason": "Documented target family; sample pin 11.0.100 is unbuilt. Host/native/extension requirements are separate."
+            "version": "12.0.100-alpha.1.26509.101",
+            "match": "exact",
+            "reason": "Actual qualified conditional orchestrator; SDK11.0.100 rejects collection handshakes.",
+            "name": ".NET SDK"
           },
           "language": {
             "name": "C#",
             "version": "15.0",
             "match": "exact",
-            "reason": "Intended newer sample language; older comparison uses C#14. No C#15-specific feature is required."
+            "reason": "The original consumer compiles as C#15 with the pinned newer SDK."
           },
           "frameworks": [
-            "MTP-managed test hosts; illustrative test bodies must be placed in two separately built modules with independent product sources."
+            "Two independent net11 product/test modules; MSTest4.6.0-preview.26519.1 and generated MTP entry points."
           ],
           "packages": [
             {
               "name": "Microsoft.Testing.Extensions.AffectedTests",
               "version": "18.13.0-preview.26519.2",
               "match": "exact",
-              "reason": "Audited starting artifact, not a verified composed-consumer pin."
+              "reason": "Actual acquired and executed private experimental extension."
             },
             {
               "name": "Microsoft.Testing.Extensions.CodeCoverage",
               "version": "18.13.0-preview.26519.2",
               "match": "exact",
-              "reason": "Audited starting artifact, not a verified composed-consumer pin."
+              "reason": "Matching actual affected-test instrumentation extension; keep the complete native closure."
             },
             {
               "name": "Microsoft.Testing.Platform",
-              "version": "2.6.0-preview.26515.10",
+              "version": "2.6.0-preview.26519.1",
               "match": "exact",
-              "reason": "Audited starting artifact, not a verified composed-consumer pin."
+              "reason": "Resolved MTP version, distinct from the package minimum2.6.0-preview.26515.10."
+            },
+            {
+              "version": "2.6.0-preview.26519.1",
+              "match": "exact",
+              "reason": "Actual MTP/MSBuild orchestration integration.",
+              "name": "Microsoft.Testing.Platform.MSBuild"
+            },
+            {
+              "version": "4.6.0-preview.26519.1",
+              "match": "exact",
+              "reason": "Actual runner/framework metapackage; full transitive closure is locked.",
+              "name": "MSTest"
             }
           ],
           "packageAssets": [
-            "Audited extension: netstandard2.0/net10.0 and packaged win-x64 collector. Complete restored closure is unverified.",
-            "MTP value is the declared minimum. TestFx independently pins 2.6.0-preview.26519.1; SDK12 alpha rollout does not establish SDK11 GA compatibility."
+            "AffectedTests and matching CodeCoverage18.13.0-preview.26519.2 select net10.0 assets for the net11 consumer.",
+            "Windows x64 Cts_x64.config/ctsrun64.dll and complete coverage profiler/symbol-reader payload are required.",
+            "Preview targeting-pack product12.0.0-alpha.1.26509.101 exposes ref/net11.0; System.Runtime assembly identity11.0.0.0."
           ],
           "workloads": [],
           "providers": [
-            "Local .cts/mappings documented by the package readme; exact configuration and registration contract remain unavailable. No Azure provider."
+            "Package-documented default local .cts/mappings with no storage property and no remote provider."
           ],
           "platforms": [
-            "Windows x64 collector for the audited package. No native execution or other platform claim."
+            "Windows x64 real native collector; no other native platform execution claimed."
           ],
           "renderingModes": [],
           "prerequisites": [
-            "Review the actual Microsoft .NET Library package license and third-party notices. Public feed availability is not stable support.",
-            "Register the compatible extension in every MTP host. CodeCoverage alone is insufficient. Exact local configuration/registration documentation is unavailable (404); do not invent it.",
-            "Keep an ordinary full-test baseline. TestFx known-good orchestration uses SDK12.0.100-alpha.1.26509.101; net11 under it is not verified here."
+            "Review exact Microsoft .NET Library package license and third-party notices.",
+            "Generated MTP entry point consumes the actual TestingPlatformBuilderHook from the package props.",
+            "Clean committed disposable repository, explicit changes.ignore/forceAllTests policy and ordinary full-test baseline."
           ],
           "constraints": [
-            "No production resources, remote storage or public package publication. No recurring native/platform matrix.",
-            "Pending sample proof blocks stable-release packaging. Installed guidance retrieval does not establish sample behaviour.",
-            "Do not combine collection/selection or use device tests, parallel modules or minimum-test policies.",
-            "Collection inventory is not passing-test evidence; unselected modules are not passed or skipped tests. Unknown mapping validity requires a full-test fallback.",
-            "Keep startup/protocol failures and cancellation visible; no global zero-test-success or ignored-handshake workaround."
+            "No production resources, remote storage or public publication; no recurring native matrix.",
+            "No cross-module test elimination: an unmapped changed path conservatively runs that entire module.",
+            "Collection inventory is not passing-test evidence; unselected modules are not passed/skipped.",
+            "Preserve nonzero test/startup/protocol/cancellation exits; never ignore handshakes or globally permit zero tests.",
+            "Do not combine collection/selection, device tests, parallel-module options or minimum-test policies."
           ],
           "optIns": [
             "MTP runner selection in global.json and DOTNET_CLI_ENABLE_AFFECTED_TESTS=1 in affected-command children only.",
             "Never set the SDK-owned DOTNET_CLI_TEST_AFFECTED_TESTS_MODE marker."
           ],
           "stabilityLimitations": [
-            "Documentation-based experimental guidance authorized by Pingu on 3 November 2026. Original samples are source-reviewed only; compilation and experimental execution proof remain pending.",
-            "Experimental contracts may change. Source input freshness is not compilation or runtime evidence. PIN-959 and actual-GA reconciliation remain open.",
-            "Theoretical guidance: source review only; samples have not been compiled or executed. Pending proof blocks stable readiness; preview publication requires a named approved exception.",
-            "Provisional preview reference: supported host composition is unresolved; this is not a turnkey implementation."
+            "Private experimental package and exact preview SDK/runtime composition only; GA11 collection remains unsupported by observed handshakes.",
+            "Missing linked storage docs remain disclosed; working defaults/registration are established by packaged instructions and real consumers.",
+            "No speedup, remote-storage, other-native-platform or general newer-SDK compatibility claim; PIN-967 remains open."
           ]
         },
         "sourceUrls": [
@@ -121,10 +131,12 @@
           "https://github.com/microsoft/testfx/blob/e3d67c4458315461201f6620374af1fbb9c4a722/docs/affected-test-selection.md",
           "https://github.com/microsoft/testfx/blob/e3d67c4458315461201f6620374af1fbb9c4a722/eng/Versions.props",
           "https://pkgs.dev.azure.com/dnceng/public/_packaging/test-tools/nuget/v3/index.json",
-          "https://github.com/microsoft/codecoverage/blob/main/docs/cts/affectedteststorage.md"
+          "https://github.com/microsoft/codecoverage/blob/main/docs/cts/affectedteststorage.md",
+          "https://github.com/microsoft/testfx/blob/e3d67c4458315461201f6620374af1fbb9c4a722/global.json"
         ],
         "evidenceSamples": [
-          "samples/net11.0/SeedBankMap/SeedBankMap.csproj"
+          "samples/net11.0/SeedBankMap/Consumer/Germination.Tests/Germination.Tests.csproj",
+          "samples/net11.0/SeedBankMap/Consumer/ColdStore.Tests/ColdStore.Tests.csproj"
         ]
       }
     ]
@@ -149,6 +161,10 @@
     {
       "title": "Publisher storage pointer (404 at review)",
       "url": "https://github.com/microsoft/codecoverage/blob/main/docs/cts/affectedteststorage.md"
+    },
+    {
+      "url": "https://github.com/microsoft/testfx/blob/e3d67c4458315461201f6620374af1fbb9c4a722/global.json",
+      "title": "Matching SDK and change policy"
     }
   ],
   "evidence": [
@@ -159,7 +175,7 @@
       "target": "net10.0",
       "sdk": "10.0.403",
       "language": "14.0",
-      "scope": "Official documentation/source review and original examples only. Intended sample inputs are uncompiled. No composed consumer, native capture or experimental execution proof."
+      "scope": "Historical source-only review of the provisional draft; later composed-consumer records are separate."
     },
     {
       "kind": "official-review",
@@ -168,7 +184,7 @@
       "target": "net11.0",
       "sdk": "11.0.100",
       "language": "15.0",
-      "scope": "Official documentation/source review and original examples only. Intended sample inputs are uncompiled. No composed consumer, native capture or experimental execution proof."
+      "scope": "Historical source-only review of the provisional draft; later composed-consumer records are separate."
     },
     {
       "kind": "compile",
@@ -177,7 +193,7 @@
       "target": "net10.0",
       "sdk": "10.0.403",
       "language": "14.0",
-      "scope": "Actual locked compilation of this canonical project on Windows. This is not composed-host, provider, telemetry, archive, engine or final-GA behavior proof; .cs.txt integration inputs are not compiled."
+      "scope": "Actual older/rule-only comparison compilation; not a composed MTP or native selection consumer."
     },
     {
       "kind": "compile",
@@ -186,18 +202,54 @@
       "target": "net11.0",
       "sdk": "11.0.100",
       "language": "15.0",
-      "scope": "Actual locked compilation of this canonical project on Windows. This is not composed-host, provider, telemetry, archive, engine or final-GA behavior proof; .cs.txt integration inputs are not compiled."
+      "scope": "Actual older/rule-only comparison compilation; not a composed MTP or native selection consumer."
+    },
+    {
+      "sample": "samples/net11.0/SeedBankMap/Consumer/Germination/Germination.csproj",
+      "scope": "Actual locked compilation of the independent net11 product/test consumer using the explicitly pinned preview SDK/reference pack/runtime; behavior is recorded separately.",
+      "sdk": "12.0.100-alpha.1.26509.101",
+      "kind": "compile",
+      "target": "net11.0",
+      "language": "15.0"
+    },
+    {
+      "sample": "samples/net11.0/SeedBankMap/Consumer/ColdStore/ColdStore.csproj",
+      "scope": "Actual locked compilation of the independent net11 product/test consumer using the explicitly pinned preview SDK/reference pack/runtime; behavior is recorded separately.",
+      "sdk": "12.0.100-alpha.1.26509.101",
+      "kind": "compile",
+      "target": "net11.0",
+      "language": "15.0"
+    },
+    {
+      "sample": "samples/net11.0/SeedBankMap/Consumer/Germination.Tests/Germination.Tests.csproj",
+      "scope": "Actual locked compilation of the independent net11 product/test consumer using the explicitly pinned preview SDK/reference pack/runtime; behavior is recorded separately.",
+      "sdk": "12.0.100-alpha.1.26509.101",
+      "kind": "compile",
+      "target": "net11.0",
+      "language": "15.0"
+    },
+    {
+      "sample": "samples/net11.0/SeedBankMap/Consumer/ColdStore.Tests/ColdStore.Tests.csproj",
+      "scope": "Actual locked compilation of the independent net11 product/test consumer using the explicitly pinned preview SDK/reference pack/runtime; behavior is recorded separately.",
+      "sdk": "12.0.100-alpha.1.26509.101",
+      "kind": "compile",
+      "target": "net11.0",
+      "language": "15.0"
+    },
+    {
+      "kind": "execution",
+      "sdk": "12.0.100-alpha.1.26509.101",
+      "record": "samples/net11.0/SeedBankMap/Consumer/Germination.Tests/selection.evidence.json",
+      "sample": "samples/net11.0/SeedBankMap/Consumer/Germination.Tests/Germination.Tests.csproj",
+      "target": "net11.0",
+      "language": "15.0",
+      "scope": "Both real independent modules: complete local source maps, conservative unmapped-module fallback, empty selection, missing/stale/schema fallbacks, failure exits and active selection/collection cancellation. Explicit preview SDK/reference/runtime; GA11 handshake failure retained."
     }
   ],
   "snippets": {
     "rules": {
       "path": "samples/net10.0/SeedBankMap/SeedRules.cs",
       "region": "rules",
-      "language": "csharp"
-    },
-    "tests": {
-      "path": "samples/net10.0/SeedBankMap/ModuleTests.cs.txt",
-      "region": "tests",
       "language": "csharp"
     },
     "baseline": {
@@ -209,10 +261,105 @@
       "path": "samples/net11.0/SeedBankMap/Commands.ps1",
       "region": "affected",
       "language": "powershell"
+    },
+    "consumer-global": {
+      "path": "samples/net11.0/SeedBankMap/Consumer/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "consumer-props": {
+      "path": "samples/net11.0/SeedBankMap/Consumer/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "consumer-packages": {
+      "path": "samples/net11.0/SeedBankMap/Consumer/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "consumer-feed": {
+      "path": "samples/net11.0/SeedBankMap/Consumer/NuGet.Config",
+      "region": "complete",
+      "language": "xml"
+    },
+    "consumer-solution": {
+      "path": "samples/net11.0/SeedBankMap/Consumer/CwmSeedBank.slnx",
+      "region": "complete",
+      "language": "xml"
+    },
+    "germination-project": {
+      "path": "samples/net11.0/SeedBankMap/Consumer/Germination/Germination.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "germination-product": {
+      "path": "samples/net11.0/SeedBankMap/Consumer/Germination/Germination.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "coldstore-project": {
+      "path": "samples/net11.0/SeedBankMap/Consumer/ColdStore/ColdStore.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "coldstore-product": {
+      "path": "samples/net11.0/SeedBankMap/Consumer/ColdStore/ColdStore.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "germination-tests-project": {
+      "path": "samples/net11.0/SeedBankMap/Consumer/Germination.Tests/Germination.Tests.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "germination-tests": {
+      "path": "samples/net11.0/SeedBankMap/Consumer/Germination.Tests/Tests.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "coldstore-tests-project": {
+      "path": "samples/net11.0/SeedBankMap/Consumer/ColdStore.Tests/ColdStore.Tests.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "coldstore-tests": {
+      "path": "samples/net11.0/SeedBankMap/Consumer/ColdStore.Tests/Tests.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "test-probe": {
+      "path": "samples/net11.0/SeedBankMap/Consumer/Germination.Tests/Probe.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "germination-lock": {
+      "path": "samples/net11.0/SeedBankMap/Consumer/Germination.Tests/packages.lock.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "coldstore-lock": {
+      "path": "samples/net11.0/SeedBankMap/Consumer/ColdStore.Tests/packages.lock.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "cancel-selection": {
+      "path": "samples/net11.0/SeedBankMap/Host/CancelSelection.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "sdk-setup": {
+      "path": "samples/net11.0/SeedBankMap/Get-SelectionSdk.ps1",
+      "region": "complete",
+      "language": "powershell"
+    },
+    "selection-check": {
+      "path": "samples/net11.0/SeedBankMap/Test-Selection.ps1",
+      "region": "complete",
+      "language": "powershell"
     }
   },
   "humanProof": {
-    "status": "pending",
-    "scope": "Pre-GA preview approved by Pingu on 8 November 2026; canonical project compilation is measured. Provisional preview reference: supported host composition is unresolved; this is not a turnkey implementation. Remaining claim-specific behavior and final qualification are not verified; stable readiness remains gated. Final reconciliation: PIN-963."
+    "scope": "Local-only automated consumers and native Windows x64 collection/selection, failure and cancellation checks. Conservative fallback explicitly accepted by Pingu; other/global gates remain separate.",
+    "status": "not-required"
   }
 }

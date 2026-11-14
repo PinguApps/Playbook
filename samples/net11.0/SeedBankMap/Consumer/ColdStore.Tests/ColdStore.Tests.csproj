@@ -1,0 +1,12 @@
+<!-- snippet:complete -->
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup><TargetFramework>net11.0</TargetFramework><LangVersion>15.0</LangVersion><OutputType>Exe</OutputType><EnableMSTestRunner>true</EnableMSTestRunner><IsTestProject>true</IsTestProject></PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../ColdStore/ColdStore.csproj" />
+    <PackageReference Include="MSTest" Version="4.6.0-preview.26519.1" />
+    <PackageReference Include="Microsoft.Testing.Platform.MSBuild" Version="2.6.0-preview.26519.1" />
+    <PackageReference Include="Microsoft.Testing.Extensions.AffectedTests" Version="18.13.0-preview.26519.2" />
+    <PackageReference Include="Microsoft.Testing.Extensions.CodeCoverage" Version="18.13.0-preview.26519.2" />
+  </ItemGroup>
+</Project>
+<!-- endsnippet:complete -->
