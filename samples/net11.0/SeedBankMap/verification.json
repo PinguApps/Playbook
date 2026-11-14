@@ -3,5 +3,8 @@
   "nativeToolchains": [],
   "dependencies": [],
   "buildArguments": [],
-  "additionalInputs": []
+  "additionalInputs": [
+    "eng/Test-SeedBankSelection.ps1",
+    "eng/Get-SeedSelectionSdk.ps1"
+  ]
 }

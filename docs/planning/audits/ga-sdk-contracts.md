@@ -18,6 +18,33 @@ and unpublished. A supported archive correction is separately sized work under
 the ticket boundary unless Pingu explicitly approves it within PIN-967.
 
 
+## PIN-1322 / PIN-1323 consumer qualification
+
+The file-access edition now has a complete SDK11 observer library and a separate
+net48 consumer actually loaded by Visual Studio x64 MSBuild18.11.0.47511.
+`eng/Test-BuildAccessObserver.ps1` checks real IO/errors/enumeration, previous/current
+shared-field decoding, constructor defaults, two contexts, reporting-only and
+capture-disabled controls, failure and active cancellation. This host omits the
+project-finished callback on cancellation; end-build drains the context as
+abandoned. No reusable cache state is published. Exact compiler/managed/native
+identities remain separate in the execution receipt.
+
+AffectedTests/CodeCoverage18.13.0-preview.26519.2 use their packaged builder hook
+and documented default local storage. The real GA SDK11 control passes ordinary
+tests and writes maps but fails the reporting handshake. The qualified conditional
+route retains net11 project targets under SDK12.0.100-alpha.1.26509.101 and its
+explicit preview reference pack/runtime; this is not GA11 orchestration proof.
+`eng/Test-SeedBankSelection.ps1` checks two independent original modules, real
+source maps, empty selection, conservative missing/stale/schema/unmapped fallbacks,
+test/startup/protocol failures and active selection/collection cancellation.
+For a Germination-only change all four tests run: Germination selects two while
+ColdStore conservatively runs two. Pingu explicitly accepted that limit on
+14 November 2026; cross-module elimination and speedup are not claimed.
+
+Only these editions' resolved pending proof and preview exceptions are retired.
+Experimental labels, historical RC records, exact eight foundations, unrelated
+native exclusions and PIN-967's remaining candidate/release gates remain intact.
+
 ## Catalogue dispositions after PIN-1302
 
 The [per-contract register](ga-sdk-dispositions.json) records all 56 original
@@ -222,3 +249,19 @@ and AffectedTests18.13.0-preview.26530.1, unlike this recipe's GA SDK11 and
 18.13.0-preview.26519.2. Its newer handshake fixes and repository-specific Azure
 DevOps configuration are not evidence for the pinned GA11 consumer. Preserve
 that compatibility gap; do not retarget or upgrade the sample implicitly.
+
+## PIN-967 final reconciliation
+
+The completed PIN-1321/PIN-1322/PIN-1323 changes are integrated from main.
+Pingu explicitly approved skipping Podman qualification. The Podman edition
+retains its canonical sample identities and compilation records, with loading,
+multiarchitecture inspection and execution explicitly not-tested rather than
+pending or verified. No engine acquisition or successful Podman claim follows.
+
+The current checkpoint binds all455 current row dispositions, the406 historical
+rows, exact eight foundations, original source audits and six GA audit overlays.
+No pending Human proof remains. Historical RC/preview candidate identities and
+failed GA observations above retain their original meaning. Target11 coverage
+is reconciled comprehensive guidance; target10 remains the curated eight
+foundations/conditional routes. Package and platform validation must consume
+one selected1.0.0 candidate; readiness does not authorize publication.

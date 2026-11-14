@@ -1,0 +1,10 @@
+<!-- snippet:complete -->
+<Project DefaultTargets="Build">
+  <ItemGroup>
+    <ProjectCachePlugin Include="$(ObserverAssembly)" />
+  </ItemGroup>
+  <Target Name="Build">
+    <Exec Command="&quot;$(SeedIo)&quot; &quot;$(SeedRoot)&quot; &quot;$(Batch)&quot; &quot;$(SeedMode)&quot;" />
+  </Target>
+</Project>
+<!-- endsnippet:complete -->

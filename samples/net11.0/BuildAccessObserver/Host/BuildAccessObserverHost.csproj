@@ -1,0 +1,21 @@
+<!-- snippet:complete -->
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>net48</TargetFramework>
+    <LangVersion>15.0</LangVersion>
+    <Nullable>enable</Nullable>
+    <AssemblyName>SeedBuildObserver</AssemblyName>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <AutomaticallyUseReferenceAssemblyPackages>false</AutomaticallyUseReferenceAssemblyPackages>
+    <VisualStudioMSBuildBin Condition="'$(VisualStudioMSBuildBin)' == ''">C:/Program Files/Microsoft Visual Studio/18/Community/MSBuild/Current/Bin/amd64</VisualStudioMSBuildBin>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../AccessDecoder.cs" />
+    <Compile Include="../Observer.cs" />
+    <Compile Include="IsExternalInit.cs" />
+    <Reference Include="Microsoft.Build" HintPath="$(VisualStudioMSBuildBin)/Microsoft.Build.dll" Private="false" />
+    <Reference Include="Microsoft.Build.Framework" HintPath="$(VisualStudioMSBuildBin)/Microsoft.Build.Framework.dll" Private="false" />
+  </ItemGroup>
+</Project>
+<!-- endsnippet:complete -->

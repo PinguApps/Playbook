@@ -4,4 +4,7 @@
     <TargetFramework>net11.0</TargetFramework>
     <LangVersion>15.0</LangVersion>
   </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="Consumer/**/*.cs;Host/**/*.cs" />
+  </ItemGroup>
 </Project>

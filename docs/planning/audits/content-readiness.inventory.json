@@ -15,7 +15,7 @@
       "sha256": "c94cafcf5cc48e306caa8f813e407b722cf91dd6f9b67233bcefc6e1c6773bde"
     }
   ],
-  "status": "PIN-967 current coverage correspondence refreshed; historical candidates retained, stable certification remains gated",
+  "status": "PIN-967 reconciled coverage and zero pending proof; final stable candidate validation is recorded separately",
   "historicalRows": [
     {
       "path": "docs/planning/inventory/01-languages-libraries-sdk.md",
@@ -16202,7 +16202,7 @@
     },
     {
       "path": "docs/planning/audits/sdk-build.md",
-      "sha256": "0e05624a0343fa710a6f02d05b59c0bd29d7a7c9ba268d348a6ea41ae278b1e8",
+      "sha256": "d451f42c3ca0d3e544956f31a4e7fa9066b0d006c40f2c8cd461e1f672da0186",
       "recipeIdentities": [
         "net10.0",
         "net11.0",
@@ -16290,7 +16290,7 @@
     },
     {
       "path": "docs/planning/audits/sdk-package-hosts.md",
-      "sha256": "a3c13877e6715e172bc1924e0efd6fdf71875bed01a0607b3a395d0ce329bbb1",
+      "sha256": "07099fd56b4dfa086a39f08cc244d4e8c63f8d2a65f00841fd09a78a5378f7ad",
       "recipeIdentities": [
         "sdk.select-affected-tests",
         "sdk.configure-legacy-mono-launch",
@@ -16506,68 +16506,7 @@
       ]
     }
   ],
-  "pendingProof": [
-    {
-      "edition": "11.0",
-      "samples": [
-        "samples/net10.0/BuildArtifacts/BuildArtifacts.csproj",
-        "samples/net11.0/BuildArtifacts/BuildArtifacts.csproj"
-      ],
-      "humanProof": {
-        "status": "pending",
-        "scope": "Pre-GA preview approved by Pingu on 8 November 2026; canonical project compilation is measured. Provisional pre-GA guidance: pending behavior/final-artifact proof is not successful execution or GA verification. Remaining claim-specific behavior and final qualification are not verified; stable readiness remains gated. Final reconciliation: PIN-963."
-      },
-      "id": "msbuild.archive-build-artifacts"
-    },
-    {
-      "edition": "11.0",
-      "samples": [
-        "samples/net10.0/BuildAccessObserver/BuildAccessObserver.csproj",
-        "samples/net11.0/BuildAccessObserver/BuildAccessObserver.csproj"
-      ],
-      "humanProof": {
-        "status": "pending",
-        "scope": "Pre-GA preview approved by Pingu on 8 November 2026; canonical project compilation is measured. Provisional preview reference: supported host composition is unresolved; this is not a turnkey implementation. Remaining claim-specific behavior and final qualification are not verified; stable readiness remains gated. Final reconciliation: PIN-963."
-      },
-      "id": "msbuild.inspect-file-access-records"
-    },
-    {
-      "edition": "11.0",
-      "samples": [
-        "samples/net10.0/BuildArtifacts/BuildArtifacts.csproj",
-        "samples/net11.0/BuildArtifacts/BuildArtifacts.csproj"
-      ],
-      "humanProof": {
-        "status": "pending",
-        "scope": "Pre-GA preview approved by Pingu on 8 November 2026; canonical project compilation is measured. Provisional pre-GA guidance: pending behavior/final-artifact proof is not successful execution or GA verification. Remaining claim-specific behavior and final qualification are not verified; stable readiness remains gated. Final reconciliation: PIN-963."
-      },
-      "id": "msbuild.inspect-item-globs"
-    },
-    {
-      "edition": "11.0",
-      "samples": [
-        "samples/net10.0/ContainerPublishing/ContainerPublishing.csproj",
-        "samples/net11.0/ContainerPublishing/ContainerPublishing.csproj"
-      ],
-      "humanProof": {
-        "status": "pending",
-        "scope": "Pre-GA preview approved by Pingu on 8 November 2026; canonical project compilation is measured. Provisional pre-GA guidance: pending behavior/final-artifact proof is not successful execution or GA verification. Remaining claim-specific behavior and final qualification are not verified; stable readiness remains gated. Final reconciliation: PIN-963."
-      },
-      "id": "sdk.publish-multiarch-with-podman"
-    },
-    {
-      "edition": "11.0",
-      "samples": [
-        "samples/net10.0/SeedBankMap/SeedBankMap.csproj",
-        "samples/net11.0/SeedBankMap/SeedBankMap.csproj"
-      ],
-      "humanProof": {
-        "status": "pending",
-        "scope": "Pre-GA preview approved by Pingu on 8 November 2026; canonical project compilation is measured. Provisional preview reference: supported host composition is unresolved; this is not a turnkey implementation. Remaining claim-specific behavior and final qualification are not verified; stable readiness remains gated. Final reconciliation: PIN-963."
-      },
-      "id": "sdk.select-affected-tests"
-    }
-  ],
+  "pendingProof": [],
   "limitations": [
     "Coverage identity/grouping reconciliation is distinct from pending consumer execution and final GA proof.",
     "Named input-bound exceptions permit provisional preview delivery only; stable publication remains gated.",
@@ -16595,7 +16534,7 @@
   },
   "previewPolicy": {
     "path": "content/preview-evidence.json",
-    "sha256": "68f2a7348073b00526c8f6812e27e2349e73bedaeb87bf17e1040d2e37c5f79f",
+    "sha256": "cbc0e58f419dea2fe0ac7da97dba3be69eaf7d165cb1dcf55a779c5ba27dd1a8",
     "approvedBy": "Pingu",
     "approvedOn": "2026-11-08",
     "implementationCommit": "28de282680e14de82a09e405d603869d119fccb0",
@@ -16617,7 +16556,7 @@
     },
     {
       "path": "docs/planning/audits/ga-sdk-contracts.md",
-      "sha256": "5188749a0a630ac4be40ff27166cb7d14621715f86d3ac621f25a6cfe0b7e527"
+      "sha256": "8cc4f0c23e47dc6b34b81dee3d2ab0bcf4420cd1b61453a37154b8caeed5f4e5"
     },
     {
       "path": "docs/planning/audits/ga-web-contracts.md",
