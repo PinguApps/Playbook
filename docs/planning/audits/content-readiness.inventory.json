@@ -16194,7 +16194,7 @@
     },
     {
       "path": "docs/planning/audits/sdk-build.md",
-      "sha256": "0e05624a0343fa710a6f02d05b59c0bd29d7a7c9ba268d348a6ea41ae278b1e8",
+      "sha256": "d451f42c3ca0d3e544956f31a4e7fa9066b0d006c40f2c8cd461e1f672da0186",
       "recipeIdentities": [
         "net10.0",
         "net11.0",
@@ -16282,7 +16282,7 @@
     },
     {
       "path": "docs/planning/audits/sdk-package-hosts.md",
-      "sha256": "a3c13877e6715e172bc1924e0efd6fdf71875bed01a0607b3a395d0ce329bbb1",
+      "sha256": "07099fd56b4dfa086a39f08cc244d4e8c63f8d2a65f00841fd09a78a5378f7ad",
       "recipeIdentities": [
         "sdk.select-affected-tests",
         "sdk.configure-legacy-mono-launch",
@@ -16524,18 +16524,6 @@
       ]
     },
     {
-      "id": "sdk.select-affected-tests",
-      "edition": "11.0",
-      "humanProof": {
-        "status": "pending",
-        "scope": "Pre-GA preview approved by Pingu on 8 November 2026; canonical project compilation is measured. Provisional preview reference: supported host composition is unresolved; this is not a turnkey implementation. Remaining claim-specific behavior and final qualification are not verified; stable readiness remains gated. Final reconciliation: PIN-963."
-      },
-      "samples": [
-        "samples/net10.0/SeedBankMap/SeedBankMap.csproj",
-        "samples/net11.0/SeedBankMap/SeedBankMap.csproj"
-      ]
-    },
-    {
       "id": "numerics.copy-tensor-views-safely",
       "edition": "11.0",
       "humanProof": {
@@ -16620,18 +16608,6 @@
       ]
     },
     {
-      "id": "msbuild.inspect-file-access-records",
-      "edition": "11.0",
-      "humanProof": {
-        "status": "pending",
-        "scope": "Pre-GA preview approved by Pingu on 8 November 2026; canonical project compilation is measured. Provisional preview reference: supported host composition is unresolved; this is not a turnkey implementation. Remaining claim-specific behavior and final qualification are not verified; stable readiness remains gated. Final reconciliation: PIN-963."
-      },
-      "samples": [
-        "samples/net10.0/BuildAccessObserver/BuildAccessObserver.csproj",
-        "samples/net11.0/BuildAccessObserver/BuildAccessObserver.csproj"
-      ]
-    },
-    {
       "id": "sdk.publish-reproducible-containers",
       "edition": "11.0",
       "humanProof": {
@@ -16671,7 +16647,7 @@
   },
   "previewPolicy": {
     "path": "content/preview-evidence.json",
-    "sha256": "f461ec1c0873e7b87d31227b03fd24e983ebd5edd02844f752231cff60681ee1",
+    "sha256": "2ae109ec78995d483590ccd0692d1343184d769b12686e94d1ec605e93f323eb",
     "approvedBy": "Pingu",
     "approvedOn": "2026-11-08",
     "implementationCommit": "28de282680e14de82a09e405d603869d119fccb0",
