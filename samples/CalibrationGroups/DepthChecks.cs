@@ -56,13 +56,13 @@ Reject<InvalidOperationException>(() => new CborWriter(new CborWriterOptions { M
 #else
 var rawReader = new CborReader(Arrays(65));
 for (int i = 0; i < 64; i++) rawReader.ReadStartArray();
-Reject<CborContentException>(() => rawReader.ReadStartArray(), "OLDER reader10.0.13 backport permits64 rejects65");
+Reject<CborContentException>(() => rawReader.ReadStartArray(), "OLDER reader backport permits64 rejects65");
 var rawWriter = new CborWriter();
 for (int i = 0; i < 1001; i++) rawWriter.WriteStartArray(1);
 rawWriter.WriteInt32(17);
 for (int i = 0; i < 1001; i++) rawWriter.WriteEndArray();
 Check(rawWriter.Encode().SequenceEqual(Arrays(1001)), "old raw writer exceeds new default, exact full output");
-Console.WriteLine("OLDER reader10.0.13 already has default64; writer1001 succeeds; application budget8 rejects9 before opening container.");
+Console.WriteLine("OLDER reader already has default64; writer1001 succeeds; application budget8 rejects9 before opening container.");
 #endif
 Console.WriteLine("PASS CalibrationGroups: separate reader/writer, finite limits, zero, sentinel/defaults, invalid settings and complete values.");
 
