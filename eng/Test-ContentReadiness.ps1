@@ -58,4 +58,4 @@ if ($PackagePath) {
         throw 'The supplied artifact is not the audited candidate.'
     }
 }
-Write-Host "PASS: checkpoint input hashes, $($ledger.currentRows.Count) row locations/destinations, exact foundations, preview approval and $($pending.Count) pending gates match. Stable readiness remains gated."
+Write-Host "PASS: checkpoint input hashes, $($ledger.currentRows.Count) row locations/destinations, exact foundations, preview approval and $($pending.Count) pending gates match. Candidate/package validation remains separate."

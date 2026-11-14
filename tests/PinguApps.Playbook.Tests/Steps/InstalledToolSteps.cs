@@ -3044,7 +3044,8 @@ public sealed class InstalledToolSteps : IDisposable
             Assert.Equal(["10.0", "11.0"], result.GetProperty("supportedTargets").EnumerateArray().Select(item => item.GetString()));
             JsonElement[] coverage = [.. result.GetProperty("coverage").EnumerateArray()];
             Assert.Equal(["curated", "comprehensive"], coverage.Select(item => item.GetProperty("scope").GetString()));
-            Assert.All(coverage, item => Assert.False(item.GetProperty("complete").GetBoolean()));
+            Assert.False(coverage[0].GetProperty("complete").GetBoolean());
+            Assert.True(coverage[1].GetProperty("complete").GetBoolean());
         }
 
         JsonElement older = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id = "csharp.validate-property-assignment", targetVersion = "net10.0" }).ConfigureAwait(false));

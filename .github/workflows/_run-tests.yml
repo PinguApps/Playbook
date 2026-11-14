@@ -26,6 +26,19 @@ on:
         type: string
         default: Test Results
   workflow_dispatch:
+    inputs:
+      package_version:
+        description: Candidate version to build and validate without publication.
+        type: string
+        default: 0.0.0-ci
+      release_ready:
+        description: Enforce the stable or preview evidence gate.
+        type: boolean
+        default: false
+      checkout_ref:
+        description: Commit or branch whose exact artifact all lanes consume.
+        type: string
+        default: ''
 
 permissions:
   contents: read

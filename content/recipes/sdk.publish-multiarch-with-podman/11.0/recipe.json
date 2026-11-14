@@ -33,10 +33,7 @@
         "conditional": false,
         "usage": "primary",
         "selectionNotes": [
-          "Theoretical guidance: source review only; samples have not been compiled or executed. Pending proof blocks stable readiness; preview publication requires a named approved exception.",
-          "Requires a working Podman installation and local image/manifest store; no Podman execution has been performed.",
-          "Cross-publishing linux-arm64 is not Arm64 execution or native hardware proof.",
-          "Provisional pre-GA guidance: pending behavior/final-artifact proof is not successful execution or GA verification."
+          "Pingu explicitly approved skipping Podman qualification for PIN-967. Podman loading, multiarchitecture image inspection and container execution are not tested on this host; the engine is unavailable and no acquisition is required. Existing compilation and GA archive/Docker evidence retain their separate scopes and do not establish Podman behavior."
         ],
         "sharedAreas": [
           "aspnetcore",
@@ -88,9 +85,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Theoretical guidance: source review only; samples have not been compiled or executed. Pending proof blocks stable readiness; preview publication requires a named approved exception.",
-            "Official .NET 11 RC documentation and source were reviewed; the pinned GA samples are uncompiled. No experimental API is intentionally used; GA reconciliation remains separate.",
-            "Provisional pre-GA guidance: pending behavior/final-artifact proof is not successful execution or GA verification."
+            "Pingu explicitly approved skipping Podman qualification for PIN-967. Podman loading, multiarchitecture image inspection and container execution are not tested on this host; the engine is unavailable and no acquisition is required. Existing compilation and GA archive/Docker evidence retain their separate scopes and do not establish Podman behavior."
           ]
         },
         "sourceUrls": [
@@ -174,7 +169,11 @@
     }
   },
   "humanProof": {
-    "status": "pending",
-    "scope": "Pre-GA preview approved by Pingu on 8 November 2026; canonical project compilation is measured. Provisional pre-GA guidance: pending behavior/final-artifact proof is not successful execution or GA verification. Remaining claim-specific behavior and final qualification are not verified; stable readiness remains gated. Final reconciliation: PIN-963."
+    "status": "not-tested",
+    "scope": "Pingu explicitly approved skipping Podman qualification for PIN-967. Podman loading, multiarchitecture image inspection and container execution are not tested on this host; the engine is unavailable and no acquisition is required. Existing compilation and GA archive/Docker evidence retain their separate scopes and do not establish Podman behavior.",
+    "untestedSamples": [
+      "samples/net10.0/ContainerPublishing/ContainerPublishing.csproj",
+      "samples/net11.0/ContainerPublishing/ContainerPublishing.csproj"
+    ]
   }
 }
