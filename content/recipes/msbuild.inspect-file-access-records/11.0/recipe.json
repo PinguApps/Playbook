@@ -176,7 +176,7 @@
       "language": "csharp"
     },
     "observer": {
-      "path": "samples/net11.0/BuildAccessObserver/Observer.cs.txt",
+      "path": "samples/net11.0/BuildAccessObserver/Observer.cs",
       "region": "observer",
       "language": "csharp"
     }

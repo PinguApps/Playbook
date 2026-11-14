@@ -5,6 +5,7 @@
     <LangVersion>15.0</LangVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Remove="Host/**/*.cs" />
     <Reference Include="Microsoft.Build" HintPath="$(MSBuildBinPath)/Microsoft.Build.dll" Private="false" />
     <Reference Include="Microsoft.Build.Framework" HintPath="$(MSBuildBinPath)/Microsoft.Build.Framework.dll" Private="false" />
   </ItemGroup>
