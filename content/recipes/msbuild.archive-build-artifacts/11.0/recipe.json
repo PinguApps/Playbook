@@ -1,8 +1,8 @@
 {
   "id": "msbuild.archive-build-artifacts",
   "edition": "11.0",
-  "title": "Create and extract build archives with MSBuild tasks",
-  "goal": "Package build output into a tar artifact and recover its files when a custom build needs inbox archive tasks instead of a separate helper process.",
+  "title": "Create and recover build archives on the GA SDK",
+  "goal": "Package and recover trusted build output with a supported tar helper when SDK 11 GA inbox archive task execution fails.",
   "areas": [
     "msbuild",
     "sdk"
@@ -32,10 +32,8 @@
         "conditional": false,
         "usage": "primary",
         "selectionNotes": [
-          "Theoretical guidance: source review only; samples have not been compiled or executed. Pending proof blocks stable readiness; preview publication requires a named approved exception.",
-          "TarDirectory and Untar require .NET-hosted MSBuild; .NET Framework MSBuild.exe does not provide these tasks.",
-          "Only trusted archives belong in this build workflow.",
-          "Provisional pre-GA guidance: pending behavior/final-artifact proof is not successful execution or GA verification."
+          "Windows SDK10/SDK11 canonical helper and glob controls are exercised. SDK11 GA inbox TarDirectory fails; use the supported helper fallback.",
+          "Target 11 only; no older-target/newer-SDK or Framework MSBuild execution claim."
         ],
         "sharedAreas": [
           "aspnetcore",
@@ -50,13 +48,13 @@
             "name": ".NET",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Intended managed consumer target; not an observed runtime result."
+            "reason": "Managed consumer target exercised on Windows."
           },
           "sdk": {
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "The documented newer SDK family; exact sample pin is unbuilt GA evidence."
+            "reason": "Actual canonical SDK pin 11.0.100; MSBuild 18.12.2-1.26529.118."
           },
           "language": {
             "name": "C#",
@@ -70,12 +68,11 @@
           "workloads": [],
           "providers": [],
           "platforms": [
-            "Platforms supported by the selected .NET SDK; no platform execution is claimed."
+            "Windows x64 measured; other platforms not exercised."
           ],
           "renderingModes": [],
           "prerequisites": [
-            "Select actual absolute executable paths and inspect the consumer global.json, project and shared build/package inheritance.",
-            "These samples are theoretical. No build, package installation, collector, engine, archive or installed MCP retrieval has been exercised."
+            "Select an absolute compatible dotnet executable and inspect global.json and inherited build configuration."
           ],
           "constraints": [
             "TarDirectory and Untar require .NET-hosted MSBuild; .NET Framework MSBuild.exe does not provide these tasks.",
@@ -85,9 +82,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Theoretical guidance: source review only; samples have not been compiled or executed. Pending proof blocks stable readiness; preview publication requires a named approved exception.",
-            "Official .NET 11 RC documentation and source were reviewed; the pinned GA samples are uncompiled. No experimental API is intentionally used; GA reconciliation remains separate.",
-            "Provisional pre-GA guidance: pending behavior/final-artifact proof is not successful execution or GA verification."
+            "GA inbox archive task failure remains explicit; helper execution is separate from inbox-task execution."
           ]
         },
         "sourceUrls": [
@@ -135,22 +130,22 @@
       "scope": "Official-source review and original sample authoring only. SDK/target/language values describe intended inputs, not observed compilation. No compilation, cross-compilation, mock, execution, artifact or installed MCP proof."
     },
     {
-      "kind": "compile",
+      "kind": "compile-and-run",
       "sample": "samples/net10.0/BuildArtifacts/BuildArtifacts.csproj",
       "record": "samples/net10.0/BuildArtifacts/verification-evidence.json",
       "target": "net10.0",
       "sdk": "10.0.403",
       "language": "14.0",
-      "scope": "Actual locked compilation of this canonical project on Windows. This is not composed-host, provider, telemetry, archive, engine or final-GA behavior proof; .cs.txt integration inputs are not compiled."
+      "scope": "Canonical Windows compilation and actual helper/archive and glob controls through eng/Test-BuildArtifacts.ps1."
     },
     {
-      "kind": "compile",
+      "kind": "compile-and-run",
       "sample": "samples/net11.0/BuildArtifacts/BuildArtifacts.csproj",
       "record": "samples/net11.0/BuildArtifacts/verification-evidence.json",
       "target": "net11.0",
       "sdk": "11.0.100",
       "language": "15.0",
-      "scope": "Actual locked compilation of this canonical project on Windows. This is not composed-host, provider, telemetry, archive, engine or final-GA behavior proof; .cs.txt integration inputs are not compiled."
+      "scope": "Canonical Windows compilation and actual helper/archive and glob controls through eng/Test-BuildArtifacts.ps1."
     }
   ],
   "snippets": {
@@ -181,7 +176,7 @@
     }
   },
   "humanProof": {
-    "status": "pending",
-    "scope": "Pre-GA preview approved by Pingu on 8 November 2026; canonical project compilation is measured. Provisional pre-GA guidance: pending behavior/final-artifact proof is not successful execution or GA verification. Remaining claim-specific behavior and final qualification are not verified; stable readiness remains gated. Final reconciliation: PIN-963."
+    "status": "not-required",
+    "scope": "Automated Windows canonical helper and glob checks cover the bounded claims. Inbox archive task failure remains explicit; no imported graph, Framework MSBuild, native platform, hostile archive or reproducibility claim."
   }
 }

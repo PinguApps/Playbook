@@ -4,7 +4,7 @@
 
 Show a build's include, exclude and remove patterns next to the files selected by those patterns. A pattern explains an input rule; an expanded item tells you which path survived evaluation. Neither output alone answers every question about the other.
 
-This provisional walkthrough retains documented GA intent. Consult the evidence section for actual local observations and the remaining unverified behavior.
+The canonical Windows SDK10/SDK11 diagnostics are exercised by `eng/Test-BuildArtifacts.ps1`.
 
 ## Older approach
 
@@ -30,7 +30,7 @@ The fixture contains `payload/departures.txt`, `payload/draft-late.txt` and `pay
 2. For multiple item types, use a project value such as `Compile;Content`. On a command line escape the separator as `%3B`, for example `-p:MSBuildProvideItemGlobs=Compile%3BContent`, so MSBuild does not parse it as another property assignment.
 3. Keep a reporting target that prints each `MSBuildItemGlob` identity and its include/exclude/remove metadata. Print the relevant expanded item collection separately with an unmistakable label. The sample's candidate command is the selected SDK's absolute executable with `build -t:ExplainDispatchInputs` from its directory.
 4. Interpret the rule sequence and expanded output together with project conditions/imports. An empty expanded set can be legitimate even when a glob is present, and a removed path can still appear in an earlier include pattern.
-5. In a future check, compare the three fixture paths with both outputs. Confirm the private and draft files are absent from expanded `DispatchSheet`, while the source wildcard strings remain visible. Also inspect a build without `MSBuildProvideItemGlobs`; no glob items should be supplied for an unset property. None of these commands has been run.
+5. Run `eng/Test-BuildArtifacts.ps1` to check the three fixtures against both outputs: private and draft files are absent from expanded items while authored wildcard patterns remain visible. On SDK11 an unset `MSBuildProvideItemGlobs` supplies no glob patterns. These focused controls do not qualify a complete imported graph.
 6. Preserve a source-inspection diagnostic on older SDKs when it is sufficient. Do not relabel it as complete evaluated-glob support, and do not teach SDK-11 behavior as an older-target route without the required compatible evidence.
 
 ## Constraints
@@ -43,10 +43,4 @@ The **archive tasks** in the companion recipe are unavailable in .NET Framework 
 
 ## Evidence and limitations
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
-
-The canonical .NET10 and .NET11 projects now have actual locked compilation records from Windows, using their declared SDKs and dependencies. The original official-source review is retained separately. Compilation alone does not verify the `ExplainDispatchInputs` output or remaining negative/mutation/import cases.
-
-The pre-GA preview is explicitly provisional. Pending proof remains visible in discovery/detail and blocks stable readiness. The approved preview evidence register names this exact edition, canonical samples, limitations and its final-reconciliation owner; it does not claim successful unperformed checks.
-
-Both targets returned include/exclude/remove descriptions and the expected expanded payload file. Additional negative, mutation and imported-graph behavior is not claimed.
+The canonical Windows SDK 10.0.403 and 11.0.100 builds return authored include/exclude/remove patterns separately from expanded `payload/departures.txt`. Private and draft fixtures are excluded. An unset SDK11 reporting property produces no glob patterns. Exact inputs and SDK/task-host identity are retained in the sample receipts. The older XmlPeek diagnostic reads one authored file; neither check proves complete imported-graph behavior or Framework MSBuild execution. Archive behavior uses the supported helper fallback described by the companion recipe. PIN-967 retains final-candidate qualification.
