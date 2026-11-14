@@ -28,7 +28,7 @@ Save this as `samples/net11.0/BuildAccessObserver/Observer.cs` beside the newer 
 
 {{snippet:observer}}
 
-The key hashes project path, ordered global properties and targets without logging property values. Capture is limited to the disposable input root and 10,000 records per context. Finalization drains only its own context. The plugin always returns a cache miss and never publishes reusable cache state.
+The key hashes length-prefixed project path, ordered global properties and targets without logging property values. Counts and lengths keep property values containing newlines or equals signs unambiguous. Capture is limited to the disposable input root and 10,000 records per context. Finalization drains only its own context. The plugin always returns a cache miss and never publishes reusable cache state.
 
 On this host, active cancellation does **not** call `HandleProjectFinishedAsync`. End-build drains remaining observations as **abandoned**. A killed host may omit end-build too; an empty stream or missing receipt never establishes success.
 
@@ -90,7 +90,7 @@ Use the matching Windows x64 Visual Studio command-line host and complete native
 
 ## Evidence and limitations
 
-The complete net11 observer compiles with SDK11.0.100. The real Framework composition captures successful reads/writes, failed IO with errors2/5, a present `*.seed` pattern, absent patterns and opened directory attributes. Two graph contexts remain distinct. Reporting-only and capture-disabled controls pass. A failed build finalizes as failed; active cancellation returns build failure and end-build abandons its partial context. Shared-field decoding and constructor defaults are checked separately.
+The complete net11 observer compiles with SDK11.0.100. The real Framework composition captures successful reads/writes, failed IO with errors2/5, a present `*.seed` pattern, absent patterns and opened directory attributes. Separate projects and the same project with distinct delimiter-bearing global properties retain distinct contexts. The latter regression fails with the previous delimiter encoding and passes with length prefixes. Reporting-only and capture-disabled controls pass. A failed build finalizes as failed; active cancellation returns build failure and end-build abandons its partial context. Shared-field decoding and constructor defaults are checked separately.
 
 These results qualify the measured Windows x64 host only. SDK10 remains a decoder compilation baseline, not older native-host execution. No cross-version wire compatibility, production cache, performance improvement, IDE, x86, ARM64 or other-OS reporting is claimed. Experimental status, eight .NET10 foundations and the separate PIN-967 release gate remain unchanged.
 

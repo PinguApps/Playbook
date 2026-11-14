@@ -85,6 +85,9 @@ foreach ($batch in 'first','second') {
 if (-not @($rows | Where-Object { $_[4] -eq 'Write' -and $_[5] -eq '5' -and $_[8] -match 'DIRECTORY' }).Count) { throw 'Missing failed write.' }
 if (-not @($rows | Where-Object { $_[4] -eq 'Enumerate' -and $_[7] -eq '*.seed' -and $_[8] -match 'DIRECTORY' }).Count) { throw 'Missing enumeration pattern/opened attributes.' }
 if (-not @($rows | Where-Object { $_[7] -eq '<absent>' -and $_[6] -cne $_[8] }).Count) { throw 'Requested/opened or absent-pattern distinction lost.' }
+$null = Invoke-Check "$scratch/CancelBuild.exe" @((Split-Path $MSBuild),"$source/Host/SeedBuild.proj","$scratch/ObserverProbe.dll","$scratch/inputs","$scratch/SeedIo.exe",'contexts') 0 "$scratch/properties.tsv"
+$contexts = @(Get-Content "$scratch/properties.tsv" | Where-Object { $_.StartsWith("access`t") } | ForEach-Object { $_.Split("`t")[1] } | Sort-Object -Unique)
+if ($contexts.Count -ne 2) { throw 'Distinct global-property contexts collided.' }
 $null = Invoke-Check $MSBuild (@("$source/Host/SeedBuild.proj",'/graph','/reportFileAccesses','/p:Batch=failure','/p:SeedMode=fail') + $common) 1 "$scratch/failed.tsv"
 if ((Get-Content "$scratch/failed.tsv" -Raw) -notmatch 'finished\t[^\t]+\tfailed') { throw 'Failed context did not finalize as failed.' }
 $null = Invoke-Check "$scratch/CancelBuild.exe" @((Split-Path $MSBuild),"$source/Host/SeedBuild.proj","$scratch/ObserverProbe.dll","$scratch/inputs","$scratch/SeedIo.exe") 0 "$scratch/cancelled.tsv"

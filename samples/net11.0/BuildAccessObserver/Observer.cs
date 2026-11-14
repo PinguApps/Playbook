@@ -99,12 +99,24 @@ public sealed class SeedBuildObserver : ProjectCachePluginBase
 #pragma warning disable CA1307 // Framework's ordinal string.Replace has no comparison overload.
     private static string Key(FileAccessContext context)
     {
-        // Include the entire context without exposing possibly sensitive property values.
-        string identity = context.ProjectFullPath + "\n" + string.Join("\n",
-            context.GlobalProperties.OrderBy(p => p.Key, StringComparer.Ordinal)
-                .Select(p => p.Key + "=" + p.Value)) + "\n" + string.Join("\n", context.Targets);
+        // Length-prefix every value and collection; property contents can include
+        // newlines or '='. Hashing ambiguous delimiter text would merge contexts.
+        using MemoryStream identity = new();
+        using (BinaryWriter writer = new(identity, new UTF8Encoding(false, true), true))
+        {
+            writer.Write(context.ProjectFullPath);
+            writer.Write(context.GlobalProperties.Count);
+            foreach (KeyValuePair<string, string> property in
+                context.GlobalProperties.OrderBy(p => p.Key, StringComparer.Ordinal))
+            {
+                writer.Write(property.Key);
+                writer.Write(property.Value);
+            }
+            writer.Write(context.Targets.Count);
+            foreach (string target in context.Targets) writer.Write(target);
+        }
         using SHA256 hash = SHA256.Create();
-        return BitConverter.ToString(hash.ComputeHash(Encoding.UTF8.GetBytes(identity))).Replace("-", "");
+        return BitConverter.ToString(hash.ComputeHash(identity.ToArray())).Replace("-", "");
     }
 
     private static string Escape(string? value) => value is null ? "<absent>"
