@@ -18,19 +18,6 @@
       "markdownSha256": "068139fa98cec8e1d3bb40e56770a6fb3053d8d88f5f16556cbf760d585736c1"
     },
     {
-      "id": "msbuild.archive-build-artifacts",
-      "edition": "11.0",
-      "classification": "documented-ga-intent",
-      "scope": "Pre-GA preview approved by Pingu on 8 November 2026; canonical project compilation is measured. Provisional pre-GA guidance: pending behavior/final-artifact proof is not successful execution or GA verification. Remaining claim-specific behavior and final qualification are not verified; stable readiness remains gated. Final reconciliation: PIN-963.",
-      "followUp": "PIN-963",
-      "samples": [
-        "samples/net10.0/BuildArtifacts/BuildArtifacts.csproj",
-        "samples/net11.0/BuildArtifacts/BuildArtifacts.csproj"
-      ],
-      "metadataSha256": "bd05a1ef430b50b49476123ea202bee98a52e591c105757de8ddc8b4281881f0",
-      "markdownSha256": "2710ba4eaf302e93a6f50f0777b3bce17f2af5dc1364679541b017c2fff31f5d"
-    },
-    {
       "id": "msbuild.inspect-file-access-records",
       "edition": "11.0",
       "classification": "provisional-reference",
@@ -42,19 +29,6 @@
       ],
       "metadataSha256": "d4ca639249500e91561bc62c7de306f3131c2c1b09d700c4ced0b2b79cf2fd54",
       "markdownSha256": "e026d3d2898f9b309dd573f44fb89dcd6727398f6194124fd115ab49aade7a63"
-    },
-    {
-      "id": "msbuild.inspect-item-globs",
-      "edition": "11.0",
-      "classification": "documented-ga-intent",
-      "scope": "Pre-GA preview approved by Pingu on 8 November 2026; canonical project compilation is measured. Provisional pre-GA guidance: pending behavior/final-artifact proof is not successful execution or GA verification. Remaining claim-specific behavior and final qualification are not verified; stable readiness remains gated. Final reconciliation: PIN-963.",
-      "followUp": "PIN-963",
-      "samples": [
-        "samples/net10.0/BuildArtifacts/BuildArtifacts.csproj",
-        "samples/net11.0/BuildArtifacts/BuildArtifacts.csproj"
-      ],
-      "metadataSha256": "1684e06f5cd00f8d0bdf7ee071926547345d7aae3f83836e40487a5a4879f42f",
-      "markdownSha256": "548def875fe71bf30fa40ad18e443ae220dffb3703e1fc59b76f9461d0f28bb6"
     },
     {
       "id": "sdk.configure-cli-telemetry",

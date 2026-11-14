@@ -5,9 +5,9 @@
       <DispatchArchive>$(MSBuildProjectDirectory)/obj/dispatch.tar</DispatchArchive>
       <DispatchExtract>$(MSBuildProjectDirectory)/obj/unpacked</DispatchExtract>
     </PropertyGroup>
-    <TarDirectory SourceDirectory="$(TargetDir)" DestinationFile="$(DispatchArchive)" Overwrite="true" />
-    <Untar SourceFiles="$(DispatchArchive)" DestinationFolder="$(DispatchExtract)"
-           SkipUnchangedFiles="true" OverwriteReadOnlyFiles="false" />
+    <Error Condition="'$(BuildDotnet)' == ''" Text="Supply an absolute BuildDotnet executable path." />
+    <Exec Command="&quot;$(BuildDotnet)&quot; &quot;$(TargetPath)&quot; archive &quot;$(TargetDir).&quot; &quot;$(DispatchArchive)&quot;" />
+    <Exec Command="&quot;$(BuildDotnet)&quot; &quot;$(TargetPath)&quot; extract &quot;$(DispatchArchive)&quot; &quot;$(DispatchExtract)&quot;" />
     <Error Condition="!Exists('$(DispatchExtract)/payload/departures.txt')" Text="Dispatch sheet missing from extracted artifact." />
   </Target>
   <!-- endsnippet:archive -->

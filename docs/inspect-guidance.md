@@ -1,5 +1,29 @@
 # Inspect the guidance an agent receives
 
+## GA build archives and item globs
+
+Run this in PowerShell 7 from an unrelated directory. Use the SHA512-verified
+portable SDK10.0.403 for the older consumer if the shared SDK is incomplete.
+The test accepts its absolute path with `-Net10Dotnet`.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\agent-3bcb1aa1-90a4a6952fcdaca5'
+& ./eng/Test-BuildArtifacts.ps1
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('msbuild.archive-build-artifacts','msbuild.inspect-item-globs') `
+  -Query '' -PackageVersion '0.0.0-pin1321' -BuildAndPack `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' -OutputDirectory './artifacts/inspection'
+```
+
+Setup builds, packs and installs into an isolated local feed/cache. Expect
+ID/title/goal, full canonical Markdown and applicability in structured/text
+responses from the installed stdio server outside the checkout. Unusable proxies
+exercise embedded delivery, not OS network isolation. Helper archive and glob
+controls pass on Windows; GA inbox task failure remains explicit. No Framework
+MSBuild, complete imported graph, hostile archive or reproducibility proof is
+claimed. PIN-967 retains final stable-candidate qualification.
+
 ## Sharing previews and safe local drag moves
 
 Run in PowerShell 7 from an unrelated directory. Setup restores, builds, packs

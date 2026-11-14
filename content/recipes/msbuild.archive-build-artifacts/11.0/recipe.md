@@ -1,62 +1,49 @@
-# Create and extract build archives with MSBuild tasks
+# Create and recover build archives on the GA SDK
 
 ## Goal
 
-Package a dispatch application's build output into a tar archive, then extract it into a separate intermediate directory. Keep the archive outside the directory being archived, and make the intended overwrite behavior explicit.
-
-This provisional walkthrough retains documented GA intent. Consult the evidence section for actual local observations and the remaining unverified behavior.
+Package the Tidal freight dispatch application's build output into an uncompressed tar and recover its files. Keep the archive outside its input directory and choose overwrite behavior explicitly.
 
 ## Older approach
 
-.NET 10 already provides `System.Formats.Tar`. The older original application includes a small helper for creating and extracting tar files:
+.NET 10 already provides the supported `System.Formats.Tar` directory APIs. The original helper deletes an existing tar before creation and overwrites matching files during extraction:
 
 {{snippet:helper}}
-
-An original build target invokes that compiled helper with an explicitly supplied `BuildDotnet` executable path:
 
 {{snippet:older-project}}
 
 {{snippet:older}}
 
-The project copies `payload/departures.txt` into its output. The target archives that output, including the managed executable and its runtime files, then expects the dispatch sheet under `obj/unpacked/payload/departures.txt`. The helper deletes an existing destination tar deliberately and allows extraction overwrite. This is a valid earlier approach with an extra process and helper implementation; it is not a claim that .NET 10 lacked tar support.
-
 ## Newer approach
 
-.NET-hosted MSBuild in SDK 11 supplies inbox `TarDirectory` and `Untar` tasks. The newer target expresses the same build-artifact workflow directly:
+SDK 11.0.100 supplies inbox `TarDirectory` and `Untar`, but the actual Windows GA invocation failed with MSB4018/MSB0001: `Cannot call Reacquire() on thread ... when Yield() was called on thread ...`. This is a GA observation, not an RC-only limitation. Ordinary compilation succeeded first; one build node and disabled node reuse did not repair execution.
+
+The [immutable GA implementation](https://github.com/dotnet/dotnet/blob/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/msbuild/src/Tasks/TarDirectory.cs) calls `BuildEngine3.Yield()` before asynchronous writes using `ConfigureAwait(false)` and calls `Reacquire()` in its finally block. That path permits continuation on another thread, consistent with the observed engine thread check. This source diagnosis does not establish a supported task invocation that avoids the failure.
+
+Retain the supported helper on the current SDK. This canonical target is a fallback through an extra process, **not successful inbox-task execution**:
 
 {{snippet:newer-project}}
 
 {{snippet:newer}}
 
-The default archive is an uncompressed `.tar`. `Compression="GZip"` is the documented `TarDirectory` option for a gzip-compressed archive; use a `.tar.gz` destination when deliberately choosing that format. Changing the suffix alone does not request compression.
-
-`Overwrite="true"` controls an existing archive destination. `Untar` separately controls extracted files: `SkipUnchangedFiles="true"` and `OverwriteReadOnlyFiles="false"` are explicit here. Archive creation and extraction do not share one global overwrite policy.
+Both projects copy only `payload/departures.txt` into output. The target archives all build output, including runtime files. Private/draft glob fixtures are not copied. The helper uses uncompressed tar; a filename suffix alone does not add compression.
 
 ## Migration
 
-1. Keep the app project on its intended framework and inspect its SDK/global.json. Copy the canonical target into a `.targets` file imported by that project, or place it in the project itself. The original projects import `BuildRecipes.targets` and explicitly copy the dispatch sheet.
-2. Keep `DispatchArchive` and `DispatchExtract` outside `TargetDir`. The sample uses the project's intermediate `obj` directory. An archive placed inside its own source tree can accidentally become an input.
-3. On the older comparison, build and invoke `ArchiveDispatch` with the absolute selected SDK executable also supplied as `-p:BuildDotnet=<absolute-dotnet-path>`. The helper's runtime and tar behavior are separate from the MSBuild host.
-4. On the newer comparison, the candidate command from its directory is `dotnet build -c Release -t:ArchiveDispatch` using the selected SDK's absolute executable. The target depends on `Build`; successful execution should create `obj/dispatch.tar` and the extracted output. This command was attempted on SDK 11 GA and failed inside the SDK archive task; successful newer extraction remains unverified.
-5. In a future check, inspect the actual tar entries and compare extracted `payload/departures.txt` bytes with the copied build output. Check the existing-archive case, a repeated extraction and a changed file deliberately. An `Exists` guard only detects a missing file, not content equality or incremental correctness.
-6. Remove the old helper only when its other callers no longer need it. Keep a custom helper or another archive format when the inbox tasks do not meet the workflow's requirements.
+1. Select the intended SDK using the project's exact global.json. Keep the app's intended framework and shared configuration.
+2. Import the target into the project. Supply an absolute SDK executable as `BuildDotnet`; the helper runtime is separate from the MSBuild task host.
+3. From either canonical sample directory, invoke the selected absolute executable with `build -c Release -t:ArchiveDispatch -p:BuildDotnet=<absolute-dotnet-path>`. Expect `obj/dispatch.tar` and `obj/unpacked/payload/departures.txt`.
+4. Inspect tar entries and compare extracted payload bytes. `eng/Test-BuildArtifacts.ps1` checks both declared SDKs, existing archive replacement, repeated extraction, deliberately changed payload and retention of an unrelated destination file.
+5. Keep the fallback until a supported inbox-task route is independently verified against the exact selected artifacts. Do not remove the helper on the strength of compilation alone.
 
 ## Constraints
 
-The SDK-11 archive tasks depend on `System.Formats.Tar` and are available in **.NET-hosted MSBuild**, not Visual Studio's .NET Framework `MSBuild.exe`. Use the intended `dotnet` SDK to run them. The managed application target and the MSBuild task-host runtime are separate facts; this edition demonstrates target 11 and does not infer a verified older-target/newer-SDK route.
+The inbox archive tasks require .NET-hosted MSBuild; this does not establish Framework MSBuild execution. The helper uses supported managed APIs and requires its compatible runtime. Only the target-10/SDK10 and target-11/SDK11 consumers are exercised here.
 
-`FailIfNotIncremental` supports question-mode failure when archive work would be needed; it is not a promise that creating a tar is always incremental. `Untar` skips unchanged files by default and does not make an existing extraction directory an exact mirror: files removed from a later archive can remain there. Use a separately managed clean destination when that matters. Read-only extraction overwrite is opt-in.
+Creation deletes the previous destination archive. Extraction overwrites matching paths and leaves unrelated files in place: it does not mirror an exact directory. Use a separately managed clean destination when that matters. The helper does not implement inbox `SkipUnchangedFiles`, question mode or read-only overwrite policy.
 
-The tar helper and tasks are for trusted build artifacts. This recipe does not establish safe handling of hostile paths, links or archive bombs. It does not claim tar-byte reproducibility, normalize all metadata, or equate archive timestamps with NuGet-package or container reproducibility. There are no extra packages, workloads, providers or rendering modes in the original console projects.
-
-The private/draft fixture files support the independent glob recipe. They are not copied to the output by this project. Item inspection does not itself change which files a publish/archive target consumes.
+Use trusted build artifacts. No hostile-path/link/archive-bomb safety, byte reproducibility or metadata normalization is claimed. Glob inspection does not itself select archive inputs.
 
 ## Evidence and limitations
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
-
-The canonical .NET10 and .NET11 projects now have actual locked compilation records from Windows, using their declared SDKs and dependencies. The original official-source review is retained separately. Compilation alone does not execute `ArchiveDispatch` or prove tar/extraction behavior.
-
-The pre-GA preview is explicitly provisional. Pending proof remains visible in discovery/detail and blocks stable readiness. The approved preview evidence register names this exact edition, canonical samples, limitations and its final-reconciliation owner; it does not claim successful unperformed checks.
-
-The older archive helper extracted payload bytes correctly. SDK11 GA TarDirectory failed internally, including a single-node retry. The documented GA implementation is retained; newer extraction and incremental behavior are not verified.
+Windows execution uses SDK 10.0.403 and SDK 11.0.100 with their actual task-host/runtime identities in the canonical receipts. Both supported helper routes pass entries and payload-byte controls, existing archive replacement, repeated and changed-file extraction, and retained destination file checks. The GA inbox failure remains explicit; no successful `TarDirectory` or `Untar` execution is claimed. Historical RC source references remain historical context. Installed stdio retrieval establishes offline guidance delivery, not additional platform execution. PIN-967 owns the wider final-candidate qualification.
