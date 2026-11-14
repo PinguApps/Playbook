@@ -5,11 +5,13 @@
   "sdk": "11.0.100",
   "language": "15.0",
   "command": "PowerShell source/artifact hash review and SDK 11.0.100 build attempt; native compilation/execution remains excluded.",
-  "scope": "Current GA SDK pin and unchanged canonical source reviewed against the declared immutable references. Historical RC references are retained as context. This source-review receipt does not establish GA native compilation or device behavior.",
-  "recordedAt": "2026-11-10T23:00:17.0558724+00:00",
+  "scope": "Unchanged canonical wrapper and previously reviewed API contracts; added local verification harness reviewed. This source review does not establish execution; separate compilation and telemetry receipts carry observed proof.",
+  "recordedAt": "2026-11-14T01:17:04.04704+00:00",
   "sourceCommit": "1250c975d8e4f2f20985e9093d28213b268a457b",
   "sourceDirty": true,
   "inputs": {
+    "eng/Test-CliTelemetry.mjs": "810df268fecd881bf2e5c8f3e365bccc319f4a6e198e1736bba6eb081dd3928b",
+    "eng/Test-CliTelemetry.ps1": "3e6b4a7722eda49e7e99749cf2d6567cd8d898c81d27b3e316d01ffdcfb184c4",
     "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
     "samples/Directory.Build.props": "ac524510d3e5112332f8c69b4c7b367c90642848dfd249163bd084405502def6",
     "samples/Directory.Build.targets": "17284cb74605517cbec8a8153505da71a685b28694b67b5ef80608cd79b1c0ea",
@@ -17,7 +19,7 @@
     "samples/net11.0/CliTelemetry/CliTelemetry.csproj": "9bcaea61ecbcc2ec18391e3d30ba5157b4390c316312e5d082e74f70c9d11015",
     "samples/net11.0/CliTelemetry/global.json": "7453ffc9a1c551489a11e18f6bbd4ec256d81d6e86566018fde7222a534f5e12",
     "samples/net11.0/CliTelemetry/Program.cs": "3f6836a580aa8dcdafb11b3aea7e15c68ad2bf7414ea148d0794a7f97efa3aa9",
-    "samples/net11.0/CliTelemetry/verification.json": "69deeb654058ff092031a07a2bf40daa732d175cac180a96bf510844a549e83c"
+    "samples/net11.0/CliTelemetry/verification.json": "241c6274ee2b7f546f8d2f2d338d90c5e2712f624b440a48ccb0b72563f56371"
   },
   "dependencies": [],
   "workloads": [],

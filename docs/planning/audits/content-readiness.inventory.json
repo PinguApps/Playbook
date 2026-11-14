@@ -4,7 +4,7 @@
   "inputs": [
     {
       "path": "docs/planning/inventory/01-languages-libraries-sdk.md",
-      "sha256": "681bbc33aab2cef7839bb12c4bbb5c0143270b139160ad21c96542196f860d73"
+      "sha256": "0f890be98a59ba562fa0f8a7c0e068840faba08f279dd5b16d2b49d58e53a25e"
     },
     {
       "path": "docs/planning/inventory/02-web-data.md",
@@ -12,10 +12,10 @@
     },
     {
       "path": "docs/planning/inventory/03-desktop-mobile.md",
-      "sha256": "a6139a7c28ad0238309d89e1843774c48d00dcdb9a073141c1a745e52d91f9ed"
+      "sha256": "c94cafcf5cc48e306caa8f813e407b722cf91dd6f9b67233bcefc6e1c6773bde"
     }
   ],
-  "status": "approved pre-GA preview boundary; stable certification remains gated",
+  "status": "PIN-967 current coverage correspondence refreshed; historical candidates retained, stable certification remains gated",
   "historicalRows": [
     {
       "path": "docs/planning/inventory/01-languages-libraries-sdk.md",
@@ -5573,7 +5573,7 @@
       "ids": [
         "csharp.closed-results"
       ],
-      "disposition": "| `csharp.closed-results` | Represent one of several unrelated outcomes; replace object-based contracts with unions. | C# 15/net11; RC1 stabilized; default/null cases need explicit treatment. | [C], [CR1] | included; edition 11.0 delivered with actual .NET 10/11 compilation, execution and consumer exhaustiveness checks; [PIN-711 evidence](https://github.com/PinguApps/Playbook/blob/e60419660a082da40dfc1bd8f0667401677c53f3/docs/verification/PIN-711.md). GA reconciliation remains pending. |",
+      "disposition": "| `csharp.closed-results` | Represent one of several unrelated outcomes; replace object-based contracts with unions. | C# 15/net11; RC1 stabilized; default/null cases need explicit treatment. | [C], [CR1] | included; edition 11.0 delivered with actual .NET 10/11 compilation, execution and consumer exhaustiveness checks; [PIN-711 evidence](https://github.com/PinguApps/Playbook/blob/e60419660a082da40dfc1bd8f0667401677c53f3/docs/verification/PIN-711.md). GA reconciliation remains pending. PIN-1290/PIN-1291 extend the GA SDK 11.0.100 consumer with custom tagged/provider contracts, typed matching and conversion diagnostics; the official union proposal is checked against actual behavior. No unsynchronized copy or recursive flattening guarantee is taught. |",
       "directRecipeMatches": [
         "csharp.closed-results"
       ],
@@ -5581,6 +5581,8 @@
         "https://github.com/PinguApps/Playbook/blob/e60419660a082da40dfc1bd8f0667401677c53f3/docs/verification/PIN-711.md"
       ],
       "tickets": [
+        "PIN-1290",
+        "PIN-1291",
         "PIN-711"
       ],
       "assessment": "direct recipe identity exists; claim-specific evidence still required",
@@ -5678,16 +5680,17 @@
       "ids": [
         "csharp.static-interface-helpers"
       ],
-      "disposition": "| `csharp.static-interface-helpers` | Share non-virtual static helpers beside their owning contract without adding implementer obligations. | C# 15 removes the DIM runtime gate; ordinary static helpers already work on .NET 10. No legacy-target route is advertised. | [CR1], [Roslyn 83097](https://github.com/dotnet/roslyn/pull/83097), [C# 8 static/private rules](https://github.com/dotnet/csharplang/blob/main/proposals/csharp-8.0/default-interface-methods.md) | included; edition 11.0 delivered with original .NET 10/11 compilation/execution, external consumer/access checks and packed offline retrieval; [PIN-714 evidence](https://github.com/PinguApps/Playbook/blob/e60419660a082da40dfc1bd8f0667401677c53f3/docs/verification/PIN-714.md). Legacy runtime behavior remains source-reviewed only; GA reconciliation is pending. |",
+      "disposition": "| `csharp.static-interface-helpers` | Share non-virtual static helpers beside their owning contract without adding implementer obligations. | C# 15 removes the DIM runtime gate; ordinary static helpers already work on .NET 10. PIN-1296: netstandard2.0/.NET Framework excluded by official language/TFM support policy; nearest supported net10/net11 routes retained. | [CR1], [Roslyn 83097](https://github.com/dotnet/roslyn/pull/83097), [C# 8 static/private rules](https://github.com/dotnet/csharplang/blob/main/proposals/csharp-8.0/default-interface-methods.md) | included; edition 11.0 delivered with original .NET 10/11 compilation/execution, external consumer/access checks and packed offline retrieval; [PIN-714 evidence](https://github.com/PinguApps/Playbook/blob/e60419660a082da40dfc1bd8f0667401677c53f3/docs/verification/PIN-714.md). Legacy runtime behavior remains source-reviewed only; GA reconciliation is pending. |",
       "directRecipeMatches": [
         "csharp.static-interface-helpers"
       ],
       "links": [
-        "https://github.com/dotnet/roslyn/pull/83097",
         "https://github.com/dotnet/csharplang/blob/main/proposals/csharp-8.0/default-interface-methods.md",
+        "https://github.com/dotnet/roslyn/pull/83097",
         "https://github.com/PinguApps/Playbook/blob/e60419660a082da40dfc1bd8f0667401677c53f3/docs/verification/PIN-714.md"
       ],
       "tickets": [
+        "PIN-1296",
         "PIN-714"
       ],
       "assessment": "direct recipe identity exists; claim-specific evidence still required",
@@ -5701,7 +5704,7 @@
       "ids": [
         "csharp.audit-memory-boundaries"
       ],
-      "disposition": "| `csharp.audit-memory-boundaries` | Make unsafe caller obligations and safe declarations explicit under the revised model. | Experimental C# preview plus updated-memory-safety-rules and AllowUnsafeBlocks for unsafe syntax; visibility and caller/body duties remain distinct. | [C], [CR1] | included; edition 11.0 delivered with original .NET 10/11 builds/execution, safe layout declaration, real consumer/compiler checks and installed offline retrieval; [PIN-715 evidence](https://github.com/PinguApps/Playbook/blob/e60419660a082da40dfc1bd8f0667401677c53f3/docs/verification/PIN-715.md). GA reconciliation remains pending. |",
+      "disposition": "| `csharp.audit-memory-boundaries` | Make unsafe caller obligations and safe declarations explicit under the revised model. | PIN-1297: explicit user consent before introduction; XML length/lifetime/ownership/pinning contracts and local SAFETY comments. Experimental C# preview plus updated-memory-safety-rules and AllowUnsafeBlocks for unsafe syntax; comments are review guidance, not compiler/analyzer enforcement. | [C], [CR1] | included; edition 11.0 delivered with original .NET 10/11 builds/execution, safe layout declaration, real consumer/compiler checks and installed offline retrieval; [PIN-715 evidence](https://github.com/PinguApps/Playbook/blob/e60419660a082da40dfc1bd8f0667401677c53f3/docs/verification/PIN-715.md). GA reconciliation remains pending. |",
       "directRecipeMatches": [
         "csharp.audit-memory-boundaries"
       ],
@@ -5709,6 +5712,7 @@
         "https://github.com/PinguApps/Playbook/blob/e60419660a082da40dfc1bd8f0667401677c53f3/docs/verification/PIN-715.md"
       ],
       "tickets": [
+        "PIN-1297",
         "PIN-715"
       ],
       "assessment": "direct recipe identity exists; claim-specific evidence still required",
@@ -13411,12 +13415,14 @@
       "ids": [
         "maui.author-view-local-csharp-in-xaml"
       ],
-      "disposition": "- **Included \u2014 `maui.author-view-local-csharp-in-xaml`.** Use SourceGen `x:Code` only with the documented preview opt-in and disclose limitations versus code-behind. This is included despite preview status; exact GA status remains to reconcile. [Source][M4].",
+      "disposition": "- **Included \u2014 `maui.author-view-local-csharp-in-xaml`.** Use GA SourceGen `x:Code` without preview consent and disclose limitations versus code-behind (PIN-1317). Incremental XAML Hot Reload remains a separate preview feature. [Source][M4].",
       "directRecipeMatches": [
         "maui.author-view-local-csharp-in-xaml"
       ],
       "links": [],
-      "tickets": [],
+      "tickets": [
+        "PIN-1317"
+      ],
       "assessment": "direct recipe identity exists; claim-specific evidence still required",
       "resolvedRecipeMatches": [
         "maui.author-view-local-csharp-in-xaml"
@@ -13428,12 +13434,14 @@
       "ids": [
         "maui.bind-xaml-csharp-expressions"
       ],
-      "disposition": "- **Included \u2014 `maui.bind-xaml-csharp-expressions`.** Author SourceGen C# expressions, namespace-qualified types, and attached-property access with `EnablePreviewFeatures`. XamlC/runtime inflation does not provide the expression path. Include relevant expression diagnostics; do not confuse automatic binding fixes with new syntax. [Source][M2RC], [PR](https://github.com/dotnet/maui/pull/35007).",
+      "disposition": "- **Included \u2014 `maui.bind-xaml-csharp-expressions`.** Author SourceGen C# expressions, namespace-qualified types, and attached-property access without `EnablePreviewFeatures` consent (PIN-1317). XamlC/runtime inflation does not provide the expression path. Include relevant expression diagnostics; do not confuse automatic binding fixes with new syntax. [Source][M2RC], [PR](https://github.com/dotnet/maui/pull/35007).",
       "directRecipeMatches": [],
       "links": [
         "https://github.com/dotnet/maui/pull/35007"
       ],
-      "tickets": [],
+      "tickets": [
+        "PIN-1317"
+      ],
       "assessment": "grouped/renamed goal; destination content identified; retain its exact evidence and exclusions",
       "resolvedRecipeMatches": [
         "maui.author-view-local-csharp-in-xaml"
@@ -15640,7 +15648,7 @@
     },
     {
       "path": "docs/planning/audits/compiler-contracts.md",
-      "sha256": "a064061dc3d17fac095d46cf0e4c5278c964ba68909edde8eded8fb3b0d434af",
+      "sha256": "fa8acc2a896d497ef789a694bf76a20e3a782e68ca26585878ffb3a1f33de4ec",
       "recipeIdentities": [
         "vb.release-review",
         "languages.compiler-migrations",
@@ -15786,7 +15794,7 @@
     },
     {
       "path": "docs/planning/audits/ef.md",
-      "sha256": "06e4111539efa329638e5aaf8b225c1d527ad0eec2c6474558c1d48ab9760bfd",
+      "sha256": "c2fd8d526f13d02fd5f5a83ab08c29567dd19af9089f3c33c65bcf8da5d2177d",
       "recipeIdentities": [
         "net10.0",
         "release.json",
@@ -16366,7 +16374,7 @@
     },
     {
       "path": "docs/planning/audits/web.md",
-      "sha256": "54bd54f365a8836e21490f10ba363e8ba8577617367f9a3685c4eea389bb0ef1",
+      "sha256": "144cf3672015d260ade317904bb60df5629b719ac49d2c1e4903c2c3242bbf78",
       "recipeIdentities": [
         "net10.0",
         "net11.0",
@@ -16500,160 +16508,64 @@
   ],
   "pendingProof": [
     {
-      "id": "sdk.select-local-container-engine",
       "edition": "11.0",
-      "humanProof": {
-        "status": "pending",
-        "scope": "Pre-GA preview approved by Pingu on 8 November 2026; canonical project compilation is measured. Provisional pre-GA guidance: pending behavior/final-artifact proof is not successful execution or GA verification. Remaining claim-specific behavior and final qualification are not verified; stable readiness remains gated. Final reconciliation: PIN-963."
-      },
-      "samples": [
-        "samples/net10.0/ContainerPublishing/ContainerPublishing.csproj",
-        "samples/net11.0/ContainerPublishing/ContainerPublishing.csproj"
-      ]
-    },
-    {
-      "id": "blazor.synchronize-agent-view-state",
-      "edition": "11.0",
-      "humanProof": {
-        "status": "pending",
-        "scope": "Pingu authorized documentation-based recipe delivery on 3 November 2026. Final GA, browser/provider/AG-UI, renderer/storage and Linux native TLS behaviour checks remain pending and are not claimed. These deferred checks do not block this ticket; stable release readiness remains gated."
-      },
-      "samples": [
-        "samples/net10.0/MuseumCaptions/MuseumCaptions.csproj",
-        "samples/net11.0/MuseumCaptions/MuseumCaptions.csproj"
-      ]
-    },
-    {
-      "id": "sdk.select-affected-tests",
-      "edition": "11.0",
-      "humanProof": {
-        "status": "pending",
-        "scope": "Pre-GA preview approved by Pingu on 8 November 2026; canonical project compilation is measured. Provisional preview reference: supported host composition is unresolved; this is not a turnkey implementation. Remaining claim-specific behavior and final qualification are not verified; stable readiness remains gated. Final reconciliation: PIN-963."
-      },
-      "samples": [
-        "samples/net10.0/SeedBankMap/SeedBankMap.csproj",
-        "samples/net11.0/SeedBankMap/SeedBankMap.csproj"
-      ]
-    },
-    {
-      "id": "msbuild.archive-build-artifacts",
-      "edition": "11.0",
-      "humanProof": {
-        "status": "pending",
-        "scope": "Pre-GA preview approved by Pingu on 8 November 2026; canonical project compilation is measured. Provisional pre-GA guidance: pending behavior/final-artifact proof is not successful execution or GA verification. Remaining claim-specific behavior and final qualification are not verified; stable readiness remains gated. Final reconciliation: PIN-963."
-      },
       "samples": [
         "samples/net10.0/BuildArtifacts/BuildArtifacts.csproj",
         "samples/net11.0/BuildArtifacts/BuildArtifacts.csproj"
-      ]
-    },
-    {
-      "id": "numerics.copy-tensor-views-safely",
-      "edition": "11.0",
-      "humanProof": {
-        "status": "pending",
-        "scope": "Pingu authorized full-release preparation on 30 October 2026 with final-package execution deferred to PIN-962. Select actual final SDK/runtime/tensor assets, run every committed storage check, refresh evidence and clear pending proof only after successful execution. Current compilation and merged source are not that proof; stable-release packaging remains blocked."
-      },
-      "samples": [
-        "samples/net10.0/GridTransform/GridTransform.csproj",
-        "samples/net11.0/GridTransform/GridTransform.csproj"
-      ]
-    },
-    {
-      "id": "sdk.configure-cli-telemetry",
-      "edition": "11.0",
+      ],
       "humanProof": {
         "status": "pending",
         "scope": "Pre-GA preview approved by Pingu on 8 November 2026; canonical project compilation is measured. Provisional pre-GA guidance: pending behavior/final-artifact proof is not successful execution or GA verification. Remaining claim-specific behavior and final qualification are not verified; stable readiness remains gated. Final reconciliation: PIN-963."
       },
-      "samples": [
-        "samples/net10.0/CliTelemetry/CliTelemetry.csproj",
-        "samples/net11.0/CliTelemetry/CliTelemetry.csproj"
-      ]
+      "id": "msbuild.archive-build-artifacts"
     },
     {
-      "id": "ef.configure-generated-model-stage",
       "edition": "11.0",
-      "humanProof": {
-        "status": "pending",
-        "scope": "Pingu authorized documentation-based PR delivery on 4 November 2026 despite RC2/RC3 generation failure. Actual generated model/query build/publish/AOT evidence remains pending until a working release; this is not GA proof."
-      },
-      "samples": [
-        "samples/net10.0/FernGeneration/FernGeneration.csproj",
-        "samples/net11.0/FernGeneration/FernGeneration.csproj"
-      ]
-    },
-    {
-      "id": "blazor.restore-agent-conversation",
-      "edition": "11.0",
-      "humanProof": {
-        "status": "pending",
-        "scope": "Pingu authorized documentation-based recipe delivery on 3 November 2026. Final GA, browser/provider/AG-UI, renderer/storage and Linux native TLS behaviour checks remain pending and are not claimed. These deferred checks do not block this ticket; stable release readiness remains gated."
-      },
-      "samples": [
-        "samples/net10.0/ObservatoryLog/ObservatoryLog.csproj",
-        "samples/net11.0/ObservatoryLog/ObservatoryLog.csproj"
-      ]
-    },
-    {
-      "id": "msbuild.inspect-item-globs",
-      "edition": "11.0",
-      "humanProof": {
-        "status": "pending",
-        "scope": "Pre-GA preview approved by Pingu on 8 November 2026; canonical project compilation is measured. Provisional pre-GA guidance: pending behavior/final-artifact proof is not successful execution or GA verification. Remaining claim-specific behavior and final qualification are not verified; stable readiness remains gated. Final reconciliation: PIN-963."
-      },
-      "samples": [
-        "samples/net10.0/BuildArtifacts/BuildArtifacts.csproj",
-        "samples/net11.0/BuildArtifacts/BuildArtifacts.csproj"
-      ]
-    },
-    {
-      "id": "numerics.align-tensor-shapes",
-      "edition": "11.0",
-      "humanProof": {
-        "status": "pending",
-        "scope": "Pingu authorized full .NET11 release preparation on30October2026 with final-package execution deferred. PIN-962 must select GA SDK/runtime/tensor assets, run all shape/view/scalar-pairwise Any checks and memory-preflighted native traversal beyond int.MaxValue, refresh actual sample evidence and clear pending proof only on success. Current code compilation and source review are not this proof; stable-release packaging stays blocked."
-      },
-      "samples": [
-        "samples/net10.0/InstrumentBatch/InstrumentBatch.csproj",
-        "samples/net11.0/InstrumentBatch/InstrumentBatch.csproj"
-      ]
-    },
-    {
-      "id": "sdk.publish-multiarch-with-podman",
-      "edition": "11.0",
-      "humanProof": {
-        "status": "pending",
-        "scope": "Pre-GA preview approved by Pingu on 8 November 2026; canonical project compilation is measured. Provisional pre-GA guidance: pending behavior/final-artifact proof is not successful execution or GA verification. Remaining claim-specific behavior and final qualification are not verified; stable readiness remains gated. Final reconciliation: PIN-963."
-      },
-      "samples": [
-        "samples/net10.0/ContainerPublishing/ContainerPublishing.csproj",
-        "samples/net11.0/ContainerPublishing/ContainerPublishing.csproj"
-      ]
-    },
-    {
-      "id": "msbuild.inspect-file-access-records",
-      "edition": "11.0",
-      "humanProof": {
-        "status": "pending",
-        "scope": "Pre-GA preview approved by Pingu on 8 November 2026; canonical project compilation is measured. Provisional preview reference: supported host composition is unresolved; this is not a turnkey implementation. Remaining claim-specific behavior and final qualification are not verified; stable readiness remains gated. Final reconciliation: PIN-963."
-      },
       "samples": [
         "samples/net10.0/BuildAccessObserver/BuildAccessObserver.csproj",
         "samples/net11.0/BuildAccessObserver/BuildAccessObserver.csproj"
-      ]
+      ],
+      "humanProof": {
+        "status": "pending",
+        "scope": "Pre-GA preview approved by Pingu on 8 November 2026; canonical project compilation is measured. Provisional preview reference: supported host composition is unresolved; this is not a turnkey implementation. Remaining claim-specific behavior and final qualification are not verified; stable readiness remains gated. Final reconciliation: PIN-963."
+      },
+      "id": "msbuild.inspect-file-access-records"
     },
     {
-      "id": "sdk.publish-reproducible-containers",
       "edition": "11.0",
+      "samples": [
+        "samples/net10.0/BuildArtifacts/BuildArtifacts.csproj",
+        "samples/net11.0/BuildArtifacts/BuildArtifacts.csproj"
+      ],
       "humanProof": {
         "status": "pending",
         "scope": "Pre-GA preview approved by Pingu on 8 November 2026; canonical project compilation is measured. Provisional pre-GA guidance: pending behavior/final-artifact proof is not successful execution or GA verification. Remaining claim-specific behavior and final qualification are not verified; stable readiness remains gated. Final reconciliation: PIN-963."
       },
+      "id": "msbuild.inspect-item-globs"
+    },
+    {
+      "edition": "11.0",
       "samples": [
         "samples/net10.0/ContainerPublishing/ContainerPublishing.csproj",
         "samples/net11.0/ContainerPublishing/ContainerPublishing.csproj"
-      ]
+      ],
+      "humanProof": {
+        "status": "pending",
+        "scope": "Pre-GA preview approved by Pingu on 8 November 2026; canonical project compilation is measured. Provisional pre-GA guidance: pending behavior/final-artifact proof is not successful execution or GA verification. Remaining claim-specific behavior and final qualification are not verified; stable readiness remains gated. Final reconciliation: PIN-963."
+      },
+      "id": "sdk.publish-multiarch-with-podman"
+    },
+    {
+      "edition": "11.0",
+      "samples": [
+        "samples/net10.0/SeedBankMap/SeedBankMap.csproj",
+        "samples/net11.0/SeedBankMap/SeedBankMap.csproj"
+      ],
+      "humanProof": {
+        "status": "pending",
+        "scope": "Pre-GA preview approved by Pingu on 8 November 2026; canonical project compilation is measured. Provisional preview reference: supported host composition is unresolved; this is not a turnkey implementation. Remaining claim-specific behavior and final qualification are not verified; stable readiness remains gated. Final reconciliation: PIN-963."
+      },
+      "id": "sdk.select-affected-tests"
     }
   ],
   "limitations": [
@@ -16683,7 +16595,7 @@
   },
   "previewPolicy": {
     "path": "content/preview-evidence.json",
-    "sha256": "52c0641fa8932acabb02cf32dbcbf6a2bfebe1a4bf86ee34a43be8e485c790ee",
+    "sha256": "68f2a7348073b00526c8f6812e27e2349e73bedaeb87bf17e1040d2e37c5f79f",
     "approvedBy": "Pingu",
     "approvedOn": "2026-11-08",
     "implementationCommit": "28de282680e14de82a09e405d603869d119fccb0",
@@ -16693,5 +16605,31 @@
     "name": "PinguApps.Playbook.0.0.0-preview.959.nupkg",
     "sha256": "e1a83a33f9169c0db140bd69814a4f31bd90846111cf90f15bc2ecb3586b5f22",
     "scope": "Superseded before two stale historical check statements were reconciled with existing observations."
-  }
+  },
+  "gaAudits": [
+    {
+      "path": "docs/planning/audits/ga-language-contracts.md",
+      "sha256": "0de86e04a63e01a68ac288d8c96dc81f148135bae000d104049ad5a7b35410aa"
+    },
+    {
+      "path": "docs/planning/audits/ga-library-contracts.md",
+      "sha256": "0afe10eebd9746b7c0b601c47ba01fc8abeb9a30235e107152f7546563dc3094"
+    },
+    {
+      "path": "docs/planning/audits/ga-sdk-contracts.md",
+      "sha256": "5188749a0a630ac4be40ff27166cb7d14621715f86d3ac621f25a6cfe0b7e527"
+    },
+    {
+      "path": "docs/planning/audits/ga-web-contracts.md",
+      "sha256": "30c8a9214292f391b53b4665c1908a368887c12f5cb90e7b42b35afda27fc502"
+    },
+    {
+      "path": "docs/planning/audits/ga-ef-contracts.md",
+      "sha256": "50a3c6c7fd25a9a2171434388e7d43bf0919ac4b464d6f347582f078f03aec49"
+    },
+    {
+      "path": "docs/planning/audits/ga-native-contracts.md",
+      "sha256": "2fad831a9a54852f8641f19a2b85fdbef42bc08e6cc73dcb3daae8e93e054847"
+    }
+  ]
 }

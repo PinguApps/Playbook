@@ -268,3 +268,21 @@ recertify the historical candidate, other checkpoint inputs or pending entries.
 The current stable check instead fails at the GA archive task's pending proof;
 see [the SDK qualification attempt](ga-sdk-contracts.md#pin-967-qualification-attempt).
 No stable candidate is certified or published by this change.
+
+## PIN-967 current coverage checkpoint
+
+The coverage correspondence now reflects the five changed language/native rows
+and three amended legacy audits, plus input-bound links to all six GA audits.
+The extraction boundary remains455 current rows and406 historical rows; the
+new native overlay paragraphs introduce no additional goal rows under that rule.
+Historical rows and candidate package identities are retained. The full current
+pending-proof list is reconciled from canonical recipe metadata, rather than
+retaining already qualified AI/EF/tensor entries as current blockers.
+
+The checkpoint check passes455 row locations/destinations, the exact eight
+foundations, audit/input hashes and the current preview policy. This is coverage
+correspondence and evidence-freshness bookkeeping, not certification of the
+historical package or successful execution of remaining pending consumers.
+Telemetry local-collector, container archive reproducibility and explicit engine-selection qualification reduce current pending editions to five.
+Archive/glob is separately assigned to PIN-1321. Global stable readiness remains
+gated; content/coverage.json remains incomplete pending final candidate checks.

@@ -5,7 +5,7 @@ $ErrorActionPreference = 'Stop'
 $root = Split-Path $PSScriptRoot -Parent
 $ledger = Get-Content -LiteralPath (Join-Path $root 'docs/planning/audits/content-readiness.inventory.json') -Raw | ConvertFrom-Json -AsHashtable
 
-foreach ($checkpointInput in @($ledger.inputs) + @($ledger.audits)) {
+foreach ($checkpointInput in @($ledger.inputs) + @($ledger.audits) + @($ledger.gaAudits)) {
     $path = Join-Path $root $checkpointInput.path
     if ((Get-FileHash -LiteralPath $path -Algorithm SHA256).Hash.ToLowerInvariant() -cne $checkpointInput.sha256) {
         throw "Readiness checkpoint input changed: $($checkpointInput.path). Reconcile the affected coverage before refreshing the checkpoint."
@@ -43,6 +43,8 @@ if ($ledger.previewPolicy) {
         throw 'Preview approval changed; reconcile the checkpoint.'
     }
     $policy = Get-Content -LiteralPath $policyPath -Raw | ConvertFrom-Json
+    $approvedPending = @($policy.exceptions | ForEach-Object { "$($_.id)/$($_.edition)" })
+    if (@(Compare-Object $pending $approvedPending).Count -ne 0) { throw 'Preview exceptions must match current pending editions; no pending gate may be silently omitted.' }
     foreach ($exception in $policy.exceptions) {
         $directory = Join-Path $root "content/recipes/$($exception.id)/$($exception.edition)"
         if ((Get-FileHash -LiteralPath (Join-Path $directory 'recipe.json') -Algorithm SHA256).Hash.ToLowerInvariant() -cne $exception.metadataSha256 -or

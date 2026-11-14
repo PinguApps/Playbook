@@ -32,10 +32,7 @@
         "conditional": false,
         "usage": "primary",
         "selectionNotes": [
-          "Theoretical guidance: source review only; samples have not been compiled or executed. Pending proof blocks stable readiness; preview publication requires a named approved exception.",
-          "Pin a base image index covering both requested architectures; a mutable tag is insufficient.",
-          "NuGet package timestamp reproducibility is a separate claim.",
-          "Provisional pre-GA guidance: pending behavior/final-artifact proof is not successful execution or GA verification."
+          "GA SDK11.0.100 produced two local x64/Arm64 OCI archives with fixed SOURCE_DATE_EPOCH and pinned runtime index; all file entries and content-addressed blobs match after clean. Archive output does not exercise Docker/Podman loading, image execution or registry pushes."
         ],
         "sharedAreas": [
           "aspnetcore",
@@ -50,13 +47,13 @@
             "name": ".NET",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Intended managed consumer target; not an observed runtime result."
+            "reason": "Canonical managed application target; no container runtime execution is claimed."
           },
           "sdk": {
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "The documented newer SDK family; exact sample pin is unbuilt GA evidence."
+            "reason": "SDK11 supplies container publishing and SOURCE_DATE_EPOCH; exact measured archive-output conditions are separate evidence."
           },
           "language": {
             "name": "C#",
@@ -76,8 +73,8 @@
           ],
           "renderingModes": [],
           "prerequisites": [
-            "Select actual absolute executable paths and inspect the consumer global.json, project and shared build/package inheritance.",
-            "These samples are theoretical. No build, package installation, collector, engine, archive or installed MCP retrieval has been exercised."
+            "Supply a real compatible pinned runtime image index and the fixed source-snapshot epoch.",
+            "Use ContainerArchiveOutputPath for engine-independent archive output. Local engine loading is a separate path requiring the selected engine."
           ],
           "constraints": [
             "Pin a base image index covering both requested architectures; a mutable tag is insufficient.",
@@ -87,9 +84,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Theoretical guidance: source review only; samples have not been compiled or executed. Pending proof blocks stable readiness; preview publication requires a named approved exception.",
-            "Official .NET 11 RC documentation and source were reviewed; the pinned GA samples are uncompiled. No experimental API is intentionally used; GA reconciliation remains separate.",
-            "Provisional pre-GA guidance: pending behavior/final-artifact proof is not successful execution or GA verification."
+            "GA SDK11.0.100 produced two local x64/Arm64 OCI archives with fixed SOURCE_DATE_EPOCH and pinned runtime index; all file entries and content-addressed blobs match after clean. Archive output does not exercise Docker/Podman loading, image execution or registry pushes."
           ]
         },
         "sourceUrls": [
@@ -153,6 +148,15 @@
       "sdk": "11.0.100",
       "language": "15.0",
       "scope": "Actual locked compilation of this canonical project on Windows. This is not composed-host, provider, telemetry, archive, engine or final-GA behavior proof; .cs.txt integration inputs are not compiled."
+    },
+    {
+      "sample": "samples/net11.0/ContainerPublishing/ContainerPublishing.csproj",
+      "sdk": "11.0.100",
+      "record": "samples/net11.0/ContainerPublishing/reproducibility.evidence.json",
+      "kind": "execution",
+      "target": "net11.0",
+      "scope": "GA SDK11.0.100 produced two local x64/Arm64 OCI archives with fixed SOURCE_DATE_EPOCH and pinned runtime index; all file entries and content-addressed blobs match after clean. Archive output does not exercise Docker/Podman loading, image execution or registry pushes.",
+      "language": "15.0"
     }
   ],
   "snippets": {
@@ -173,7 +177,7 @@
     }
   },
   "humanProof": {
-    "status": "pending",
-    "scope": "Pre-GA preview approved by Pingu on 8 November 2026; canonical project compilation is measured. Provisional pre-GA guidance: pending behavior/final-artifact proof is not successful execution or GA verification. Remaining claim-specific behavior and final qualification are not verified; stable readiness remains gated. Final reconciliation: PIN-963."
+    "status": "verified",
+    "scope": "GA SDK11.0.100 produced two local x64/Arm64 OCI archives with fixed SOURCE_DATE_EPOCH and pinned runtime index; all file entries and content-addressed blobs match after clean. Archive output does not exercise Docker/Podman loading, image execution or registry pushes."
   }
 }

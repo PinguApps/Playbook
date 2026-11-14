@@ -3,5 +3,8 @@
   "nativeToolchains": [],
   "dependencies": [],
   "buildArguments": [],
-  "additionalInputs": []
+  "additionalInputs": [
+    "eng/Test-CliTelemetry.mjs",
+    "eng/Test-CliTelemetry.ps1"
+  ]
 }

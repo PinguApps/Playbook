@@ -5043,3 +5043,36 @@ Apple launch behavior. MT7199 merged-plist rules are GA source-reviewed; no
 scene-launch claim follows. Prior RC evidence remains historical, and PIN-967
 retains global readiness. No maps service requests or new resources are used.
 
+
+## PIN-967 bounded SDK qualification
+
+Run from an unrelated directory in PowerShell7, then select this exact worktree.
+The checks use the existing complete portable SDK10.0.403 and installed SDK11.0.100,
+plus Node. No package is published. Telemetry qualification binds a temporary
+loopback collector on4318; it fails if that port is already occupied.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\agent-a328cf26-fc7556bef59f32d7'
+& ./eng/Test-CliTelemetry.ps1 `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
+  -Net10Dotnet 'V:\_worktrees\Playbook\t3-1ead8027\artifacts\dotnet10\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe'
+& ./eng/Test-ContentReadiness.ps1
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('sdk.configure-cli-telemetry','sdk.publish-reproducible-containers','sdk.select-local-container-engine') `
+  -Query '' -RecipeEdition '11.0' -TargetVersion '11.0' `
+  -PackageVersion '0.0.0-pin967-qualification' -BuildAndPack `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' -OutputDirectory './artifacts/ga-readiness/sdk-inspection'
+```
+
+Expect paired opt-out controls, GA local traces/metrics receipt, current coverage
+correspondence and the three IDs/titles/goals, full Markdown and applicability
+from the actual locally packed/installed stdio server. The inspection uses an
+isolated feed/cache, unrelated retrieval directory and unusable proxies; it
+establishes embedded retrieval rather than OS network isolation. Telemetry proof
+is local receipt, not absence at all network destinations or production delivery.
+The container receipts distinguish actual archive-object identity, actual Docker
+load/run and absent-Podman failure from untested successful Podman operation.
+Other pending SDK proof, PIN-1321 and the global single stable-candidate gate
+remain separate. The temporary development package is not a stable certification.
