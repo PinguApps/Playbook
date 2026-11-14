@@ -1,0 +1,8 @@
+<!-- snippet:complete -->
+<Solution>
+  <Project Path="ColdStore.Tests/ColdStore.Tests.csproj" />
+  <Project Path="ColdStore/ColdStore.csproj" />
+  <Project Path="Germination.Tests/Germination.Tests.csproj" />
+  <Project Path="Germination/Germination.csproj" />
+</Solution>
+<!-- endsnippet:complete -->

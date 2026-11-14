@@ -3,5 +3,8 @@
   "nativeToolchains": [],
   "dependencies": [],
   "buildArguments": [],
-  "additionalInputs": []
+  "additionalInputs": [
+    "eng/Test-BuildAccessObserver.ps1",
+    "samples/net10.0/BuildAccessObserver/AccessDecoder.cs"
+  ]
 }

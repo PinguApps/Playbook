@@ -1,5 +1,36 @@
 # Inspect the guidance an agent receives
 
+## Experimental file observation and local affected-test maps
+
+Run in PowerShell7 from an unrelated directory. This selects the task's exact
+checkout, checks the measured Windows x64 consumers, builds/packs the ordinary
+tool and inspects its actual installed stdio server in an isolated feed/cache.
+No package is published. SDK setup uses a private extracted archive; it does not
+change PATH or install SDKs globally. Visual Studio Community x64 MSBuild and
+Framework4.8 references are required for the native observer check.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\agent-3dfab8b7-ac36dc6d0240b969'
+$sdk12 = & ./eng/Get-SeedSelectionSdk.ps1 -Destination './artifacts/pin1322-1323/sdk12'
+& ./eng/Test-BuildAccessObserver.ps1
+& ./eng/Test-SeedBankSelection.ps1 -Sdk12Dotnet $sdk12
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('msbuild.inspect-file-access-records','sdk.select-affected-tests') `
+  -Query '' -UnsupportedTargetVersion '10.0' -PackageVersion '0.0.0-pin1322-1323' -BuildAndPack `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' -OutputDirectory './artifacts/inspection-pin1322-1323'
+```
+
+Expect discovery ID/title/goal, full expanded canonical Markdown and applicability
+in equal structured/text responses from the installed artifact outside the
+checkout. Target10 is rejected for these editions. The Framework observer
+captures real IO and abandons partial cancelled contexts. The affected-test
+consumer keeps net11 targets but explicitly needs the qualified preview SDK,
+reference pack and runtime; GA11 collection fails handshakes. An unmapped module
+conservatively runs its full suite, so cross-module test elimination and speedup
+are not claimed. Other native hosts/platforms and PIN-967's final global gate
+remain outside this qualification.
+
 ## GA build archives and item globs
 
 Run this in PowerShell 7 from an unrelated directory. Use the SHA512-verified

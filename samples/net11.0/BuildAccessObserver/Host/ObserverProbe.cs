@@ -1,3 +1,4 @@
+// snippet:complete
 using System;
 using System.Threading;
 using System.Threading.Tasks;
@@ -38,3 +39,4 @@ namespace CwmSeedBank.Host
         public override Task EndBuildAsync(PluginLoggerBase logger, CancellationToken token) => observer.EndBuildAsync(logger, token);
     }
 }
+// endsnippet:complete

@@ -2,7 +2,7 @@
   "id": "msbuild.inspect-file-access-records",
   "edition": "11.0",
   "title": "Read experimental build file-access records correctly",
-  "goal": "Decode enumeration patterns and opened attributes separately from requested access when maintaining an experimental MSBuild project-cache observer; live capture proof remains pending.",
+  "goal": "Observe real build file IO through a composed experimental Windows x64 Visual Studio MSBuild observer; preserve contexts, errors and cancellation without publishing partial cache state.",
   "areas": [
     "msbuild",
     "sdk"
@@ -33,25 +33,23 @@
         "conditional": false,
         "usage": "primary",
         "selectionNotes": [
-          "Documentation-based experimental guidance authorized by Pingu on 3 November 2026. Original samples are source-reviewed only; compilation and experimental execution proof remain pending.",
-          "Target 11 only; older examples are comparisons, not additional .NET 10 foundations.",
-          "Theoretical guidance: source review only; samples have not been compiled or executed. Pending proof blocks stable readiness; preview publication requires a named approved exception.",
-          "Provisional preview reference: supported host composition is unresolved; this is not a turnkey implementation."
+          "Qualified on Visual Studio x64 MSBuild18.11.0.47511 with graph plus file-access reporting; SDK-local compilation is a separate check.",
+          "Target11 guidance with older comparison only; preserves the eight foundations."
         ],
         "sharedAreas": [],
         "neutralLanguages": [],
         "requirements": {
           "runtime": {
-            "name": ".NET",
-            "version": "11.0",
-            "match": "release-family",
-            "reason": "Intended managed sample target, not an observed execution result or build-host requirement."
+            "name": ".NET Framework",
+            "match": "exact",
+            "reason": "Actual reporting plugin runtime; the separate SDK-managed comparison library targets net11.",
+            "version": "4.8"
           },
           "sdk": {
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Documented target family; sample pin 11.0.100 is unbuilt. Host/native/extension requirements are separate."
+            "reason": "SDK11.0.100 compiles the complete canonical observer; Visual Studio Roslyn separately compiles the real Framework plugin."
           },
           "language": {
             "name": "C#",
@@ -60,7 +58,7 @@
             "reason": "Intended newer sample language; older comparison uses C#14. No C#15-specific feature is required."
           },
           "frameworks": [
-            "Existing MSBuild ProjectCachePluginBase observer. Example libraries are decoders, not complete deployable plugins."
+            "Complete ProjectCachePluginBase observation consumer plus Framework reporting-host harness."
           ],
           "packages": [],
           "packageAssets": [
@@ -68,39 +66,37 @@
           ],
           "workloads": [],
           "providers": [
-            "Host-provided Detours reporting to an existing project-cache plugin; actual native payload/version and callback delivery remain unverified."
+            "Matching Visual Studio BuildXL and Detours Windows x64 instrumentation; actual file versions/hashes recorded by the harness."
           ],
           "platforms": [
             "Publisher documents Visual Studio MSBuild.exe Windows x64 command-line reporting. Not dotnet msbuild, IDE, x86 or Arm64."
           ],
           "renderingModes": [],
           "prerequisites": [
-            "Reconcile matching build host, plugin, managed and native assets; record product version separately from assembly version.",
-            "Use disposable input/output paths and an existing supported plugin. The example decoder target/runtime is separate from the reporting host."
+            "Visual Studio Community x64 MSBuild18.11.0.47511 and matching managed/native assets; installed Framework4.8 reference assemblies.",
+            "Disposable paths; graph plus reportFileAccesses for the qualified item-discovered composition."
           ],
           "constraints": [
-            "No production resources, remote storage or public package publication. No recurring native/platform matrix.",
-            "Pending sample proof blocks stable-release packaging. Installed guidance retrieval does not establish sample behaviour.",
-            "Eleven-argument FileAccessData construction remains available; new fields default to null/0.",
-            "EnumerationPattern absence is not a wildcard; requested FlagsAndAttributes are not kernel-observed OpenedFileOrDirectoryAttributes.",
-            "Preserve context/errors, bound observer storage and do not publish cancelled/failed partial data as a successful cache result."
+            "Observation only: every cache lookup misses; no reusable successful state is published.",
+            "Keep contexts and OS errors; requested flags are distinct from opened attributes; absent enumeration patterns remain absent.",
+            "Cancellation can omit the project-finished callback; end-build drains remaining contexts as abandoned.",
+            "No production resources, remote storage, process arguments or recurring native matrix."
           ],
           "optIns": [
-            "/reportFileAccesses or BuildParameters.ReportFileAccesses on the documented Windows x64 host.",
-            "No blanket diagnostic suppression or unrelated experimental switch."
+            "/graph /reportFileAccesses /nr:false for the measured item-discovered composition."
           ],
           "stabilityLimitations": [
-            "Documentation-based experimental guidance authorized by Pingu on 3 November 2026. Original samples are source-reviewed only; compilation and experimental execution proof remain pending.",
-            "Experimental contracts may change. Source input freshness is not compilation or runtime evidence. PIN-959 and actual-GA reconciliation remain open.",
-            "Theoretical guidance: source review only; samples have not been compiled or executed. Pending proof blocks stable readiness; preview publication requires a named approved exception.",
-            "Provisional preview reference: supported host composition is unresolved; this is not a turnkey implementation."
+            "Experimental contract and measured Windows x64 host only; no older native-host or cross-version wire-compatibility claim.",
+            "PIN-967 remains the final global candidate gate."
           ]
         },
         "sourceUrls": [
           "https://github.com/dotnet/msbuild/blob/main/documentation/specs/project-cache.md",
           "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/msbuild/src/Build/FileAccess/FileAccessData.cs",
           "https://github.com/dotnet/dotnet/blob/a8dd0577c5c13f43a2f57fe33b4ff11b90f6371e/src/msbuild/src/Build/FileAccess/FileAccessData.cs",
-          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/msbuild/src/Build/BackEnd/Components/ProjectCache/ProjectCachePluginBase.cs"
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/msbuild/src/Build/BackEnd/Components/ProjectCache/ProjectCachePluginBase.cs",
+          "https://github.com/dotnet/msbuild/blob/3cde5c8ec22ccb6ca106fe1554412cace0979413/src/Build/BackEnd/Components/ProjectCache/ProjectCachePluginBase.cs",
+          "https://github.com/dotnet/msbuild/blob/3cde5c8ec22ccb6ca106fe1554412cace0979413/src/Build/BackEnd/Components/ProjectCache/FileAccessContext.cs"
         ],
         "evidenceSamples": [
           "samples/net11.0/BuildAccessObserver/BuildAccessObserver.csproj"
@@ -124,6 +120,14 @@
     {
       "title": "Project cache callbacks",
       "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/msbuild/src/Build/BackEnd/Components/ProjectCache/ProjectCachePluginBase.cs"
+    },
+    {
+      "url": "https://github.com/dotnet/msbuild/blob/3cde5c8ec22ccb6ca106fe1554412cace0979413/src/Build/BackEnd/Components/ProjectCache/ProjectCachePluginBase.cs",
+      "title": "Measured host ProjectCachePluginBase"
+    },
+    {
+      "url": "https://github.com/dotnet/msbuild/blob/3cde5c8ec22ccb6ca106fe1554412cace0979413/src/Build/BackEnd/Components/ProjectCache/FileAccessContext.cs",
+      "title": "Measured host FileAccessContext"
     }
   ],
   "evidence": [
@@ -134,7 +138,7 @@
       "target": "net10.0",
       "sdk": "10.0.403",
       "language": "14.0",
-      "scope": "Official documentation/source review and original examples only. Intended sample inputs are uncompiled. No composed consumer, native capture or experimental execution proof."
+      "scope": "Historical source-review baseline; later compilation and native execution are recorded separately."
     },
     {
       "kind": "official-review",
@@ -143,7 +147,7 @@
       "target": "net11.0",
       "sdk": "11.0.100",
       "language": "15.0",
-      "scope": "Official documentation/source review and original examples only. Intended sample inputs are uncompiled. No composed consumer, native capture or experimental execution proof."
+      "scope": "Historical source-review baseline; later compilation and native execution are recorded separately."
     },
     {
       "kind": "compile",
@@ -161,7 +165,24 @@
       "target": "net11.0",
       "sdk": "11.0.100",
       "language": "15.0",
-      "scope": "Actual locked compilation of this canonical project on Windows. This is not composed-host, provider, telemetry, archive, engine or final-GA behavior proof; .cs.txt integration inputs are not compiled."
+      "scope": "Complete canonical observer library compiled by SDK11; the separate net48 host consumer establishes native reporting."
+    },
+    {
+      "sample": "samples/net11.0/BuildAccessObserver/Host/BuildAccessObserverHost.csproj",
+      "sdk": "11.0.100",
+      "scope": "Actual Framework4.8 reporting consumer, built by SDK11 against the installed Visual Studio Microsoft.Build/Framework assemblies.",
+      "target": "net48",
+      "language": "15.0",
+      "kind": "compile"
+    },
+    {
+      "record": "samples/net11.0/BuildAccessObserver/Host/native.evidence.json",
+      "sample": "samples/net11.0/BuildAccessObserver/Host/BuildAccessObserverHost.csproj",
+      "sdk": "11.0.100",
+      "scope": "Actual built Framework consumer loaded by Visual Studio x64 MSBuild: real IO, contexts, controls, failures and active cancellation; no reusable cache publication.",
+      "target": "net48",
+      "language": "15.0",
+      "kind": "execution"
     }
   ],
   "snippets": {
@@ -179,10 +200,50 @@
       "path": "samples/net11.0/BuildAccessObserver/Observer.cs",
       "region": "observer",
       "language": "csharp"
+    },
+    "seed-io": {
+      "path": "samples/net11.0/BuildAccessObserver/Host/SeedIo.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "seed-build": {
+      "path": "samples/net11.0/BuildAccessObserver/Host/SeedBuild.proj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "observer-probe": {
+      "path": "samples/net11.0/BuildAccessObserver/Host/ObserverProbe.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "cancel-build": {
+      "path": "samples/net11.0/BuildAccessObserver/Host/CancelBuild.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "host-check": {
+      "path": "samples/net11.0/BuildAccessObserver/Test-Observer.ps1",
+      "region": "complete",
+      "language": "powershell"
+    },
+    "host-project": {
+      "language": "xml",
+      "region": "complete",
+      "path": "samples/net11.0/BuildAccessObserver/Host/BuildAccessObserverHost.csproj"
+    },
+    "host-shim": {
+      "language": "csharp",
+      "region": "complete",
+      "path": "samples/net11.0/BuildAccessObserver/Host/IsExternalInit.cs"
+    },
+    "host-global": {
+      "language": "json",
+      "region": "complete",
+      "path": "samples/net11.0/BuildAccessObserver/Host/global.json"
     }
   },
   "humanProof": {
-    "status": "pending",
-    "scope": "Pre-GA preview approved by Pingu on 8 November 2026; canonical project compilation is measured. Provisional preview reference: supported host composition is unresolved; this is not a turnkey implementation. Remaining claim-specific behavior and final qualification are not verified; stable readiness remains gated. Final reconciliation: PIN-963."
+    "scope": "Real local automated Framework-host capture and cancellation require no Human approval. Other native and global release gates remain separate.",
+    "status": "not-required"
   }
 }

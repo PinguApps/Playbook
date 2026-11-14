@@ -1,0 +1,14 @@
+{
+  "buildArguments": [],
+  "dependencies": [],
+  "additionalInputs": [
+    "samples/net11.0/SeedBankMap/Consumer",
+    "samples/net11.0/SeedBankMap/Host/CancelSelection.cs",
+    "eng/Test-SeedBankSelection.ps1",
+    "eng/Get-SeedSelectionSdk.ps1",
+    "samples/net11.0/SeedBankMap/Test-Selection.ps1",
+    "samples/net11.0/SeedBankMap/Get-SelectionSdk.ps1"
+  ],
+  "workloads": [],
+  "nativeToolchains": []
+}

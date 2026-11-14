@@ -1,3 +1,4 @@
+// snippet:complete
 using System;
 using System.IO;
 using System.Threading;
@@ -25,3 +26,4 @@ namespace CwmSeedBank.Host
         }
     }
 }
+// endsnippet:complete

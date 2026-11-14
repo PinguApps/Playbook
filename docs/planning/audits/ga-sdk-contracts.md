@@ -1,5 +1,32 @@
 # GA SDK and package-authoring reconciliation
 
+## PIN-1322 / PIN-1323 consumer qualification
+
+The file-access edition now has a complete SDK11 observer library and a separate
+net48 consumer actually loaded by Visual Studio x64 MSBuild18.11.0.47511.
+`eng/Test-BuildAccessObserver.ps1` checks real IO/errors/enumeration, previous/current
+shared-field decoding, constructor defaults, two contexts, reporting-only and
+capture-disabled controls, failure and active cancellation. This host omits the
+project-finished callback on cancellation; end-build drains the context as
+abandoned. No reusable cache state is published. Exact compiler/managed/native
+identities remain separate in the execution receipt.
+
+AffectedTests/CodeCoverage18.13.0-preview.26519.2 use their packaged builder hook
+and documented default local storage. The real GA SDK11 control passes ordinary
+tests and writes maps but fails the reporting handshake. The qualified conditional
+route retains net11 project targets under SDK12.0.100-alpha.1.26509.101 and its
+explicit preview reference pack/runtime; this is not GA11 orchestration proof.
+`eng/Test-SeedBankSelection.ps1` checks two independent original modules, real
+source maps, empty selection, conservative missing/stale/schema/unmapped fallbacks,
+test/startup/protocol failures and active selection/collection cancellation.
+For a Germination-only change all four tests run: Germination selects two while
+ColdStore conservatively runs two. Pingu explicitly accepted that limit on
+14 November 2026; cross-module elimination and speedup are not claimed.
+
+Only these editions' resolved pending proof and preview exceptions are retired.
+Experimental labels, historical RC records, exact eight foundations, unrelated
+native exclusions and PIN-967's remaining candidate/release gates remain intact.
+
 ## Catalogue dispositions after PIN-1302
 
 The [per-contract register](ga-sdk-dispositions.json) records all 56 original

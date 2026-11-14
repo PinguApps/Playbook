@@ -127,22 +127,23 @@
       "id": "msbuild.inspect-file-access-records",
       "previousStability": "experimental",
       "stability": "experimental",
-      "disposition": "Retain experimental file-access contract and opt-in.",
+      "disposition": "Retain experimental; real Visual Studio x64 Framework observer, IO/context/cancellation qualification under PIN-1322.",
       "sources": [
         "https://github.com/dotnet/msbuild/blob/main/documentation/specs/project-cache.md",
         "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/msbuild/src/Build/FileAccess/FileAccessData.cs",
         "https://github.com/dotnet/dotnet/blob/a8dd0577c5c13f43a2f57fe33b4ff11b90f6371e/src/msbuild/src/Build/FileAccess/FileAccessData.cs",
-        "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/msbuild/src/Build/BackEnd/Components/ProjectCache/ProjectCachePluginBase.cs"
+        "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/msbuild/src/Build/BackEnd/Components/ProjectCache/ProjectCachePluginBase.cs",
+        "https://github.com/dotnet/msbuild/blob/3cde5c8ec22ccb6ca106fe1554412cace0979413/src/Build/BackEnd/Components/ProjectCache/ProjectCachePluginBase.cs",
+        "https://github.com/dotnet/msbuild/blob/3cde5c8ec22ccb6ca106fe1554412cace0979413/src/Build/BackEnd/Components/ProjectCache/FileAccessContext.cs"
       ],
       "packages": [],
       "evidence": [
         "samples/net10.0/BuildAccessObserver/BuildAccessObserver.csproj",
         "samples/net11.0/BuildAccessObserver/BuildAccessObserver.csproj",
-        "samples/net10.0/BuildAccessObserver/BuildAccessObserver.csproj",
-        "samples/net11.0/BuildAccessObserver/BuildAccessObserver.csproj"
+        "samples/net11.0/BuildAccessObserver/Host/BuildAccessObserverHost.csproj"
       ],
-      "metadataSha256": "d4ca639249500e91561bc62c7de306f3131c2c1b09d700c4ced0b2b79cf2fd54",
-      "markdownSha256": "e026d3d2898f9b309dd573f44fb89dcd6727398f6194124fd115ab49aade7a63"
+      "metadataSha256": "fb2440ec03bf03099425c482432abe359b16f62ae0afc7579d44ef6610c4e18f",
+      "markdownSha256": "b588f72a405b8ced582359464cb804752f6c3f2a155e08d9cd6e2507abca08e4"
     },
     {
       "id": "msbuild.inspect-import-tree",
@@ -960,27 +961,32 @@
       "id": "sdk.select-affected-tests",
       "previousStability": "experimental",
       "stability": "experimental",
-      "disposition": "Retain experimental: AffectedTests/CodeCoverage 18.13.0-preview.26519.2 and Platform 2.6.0-preview.26515.10.",
+      "disposition": "Retain experimental; actual default-local-storage consumer under explicit SDK12/net11 preview route. GA11 handshake failure and conservative unmapped-module full fallback retained; Pingu accepted the latter under PIN-1323.",
       "sources": [
         "https://github.com/dotnet/docs/blob/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/core/tools/dotnet-test-mtp.md",
         "https://github.com/microsoft/testfx/blob/e3d67c4458315461201f6620374af1fbb9c4a722/docs/affected-test-selection.md",
         "https://github.com/microsoft/testfx/blob/e3d67c4458315461201f6620374af1fbb9c4a722/eng/Versions.props",
         "https://pkgs.dev.azure.com/dnceng/public/_packaging/test-tools/nuget/v3/index.json",
-        "https://github.com/microsoft/codecoverage/blob/main/docs/cts/affectedteststorage.md"
+        "https://github.com/microsoft/codecoverage/blob/main/docs/cts/affectedteststorage.md",
+        "https://github.com/microsoft/testfx/blob/e3d67c4458315461201f6620374af1fbb9c4a722/global.json"
       ],
       "packages": [
         "Microsoft.Testing.Extensions.AffectedTests/18.13.0-preview.26519.2",
         "Microsoft.Testing.Extensions.CodeCoverage/18.13.0-preview.26519.2",
-        "Microsoft.Testing.Platform/2.6.0-preview.26515.10"
+        "Microsoft.Testing.Platform.MSBuild/2.6.0-preview.26519.1",
+        "Microsoft.Testing.Platform/2.6.0-preview.26519.1",
+        "MSTest/4.6.0-preview.26519.1"
       ],
       "evidence": [
         "samples/net10.0/SeedBankMap/SeedBankMap.csproj",
-        "samples/net11.0/SeedBankMap/SeedBankMap.csproj",
-        "samples/net10.0/SeedBankMap/SeedBankMap.csproj",
+        "samples/net11.0/SeedBankMap/Consumer/ColdStore.Tests/ColdStore.Tests.csproj",
+        "samples/net11.0/SeedBankMap/Consumer/ColdStore/ColdStore.csproj",
+        "samples/net11.0/SeedBankMap/Consumer/Germination.Tests/Germination.Tests.csproj",
+        "samples/net11.0/SeedBankMap/Consumer/Germination/Germination.csproj",
         "samples/net11.0/SeedBankMap/SeedBankMap.csproj"
       ],
-      "metadataSha256": "e461dca8ab1ee8eb7be88ca3f2e466e25a6398c0da391d22dd31c846f1dead8c",
-      "markdownSha256": "b838fe0dbace4a2c469273c7175e1120591408cb6003e2c88dc2acfd280dc8d0"
+      "metadataSha256": "b36b22ab86deffde51c840fe18aa04ede64c65c19bc8879c70496609a50ecf31",
+      "markdownSha256": "4a59f9cde7b843d2e544247d7b542ce244024d017026e92db657b18e41312eda"
     },
     {
       "id": "sdk.select-local-container-engine",

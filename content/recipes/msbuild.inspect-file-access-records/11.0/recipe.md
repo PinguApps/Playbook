@@ -2,76 +2,102 @@
 
 ## Goal
 
-Use this when an existing MSBuild project-cache observer needs to interpret directory enumeration and opened-file attributes correctly. **Experimental, documentation-based guidance.** The original decoder projects compile, but have not been exercised with a live event stream. Pingu authorized this provisional delivery on 3 November 2026; pending execution proof remains explicit.
+Observe real file accesses in a disposable Windows x64 build, preserving build context, OS errors, enumeration patterns and opened attributes. This is an **experimental observation plugin**, not a successful-build cache implementation. The reporting host is command-line Visual Studio x64 `MSBuild.exe`, not `dotnet msbuild` or the IDE.
 
 ## Older approach
 
-Cwm Seed Bank's build observer records source reads, generated-report writes and input-directory enumeration. The previous decoder records the operation, requested access, OS error and requested attributes:
+The original Cwm Seed Bank decoder preserves paths, operations, requested access, errors and requested flags. It remains useful when richer fields are unavailable:
 
 {{snippet:older}}
 
-These values do not tell you which search pattern a directory enumeration used, or the attributes the kernel actually observed on the opened object. Keep OS failures alongside paths; do not interpret a failed read as proof that input bytes were consumed.
-
 ## Newer approach
 
-The newer `FileAccessData` adds `EnumeratePattern` and `OpenedFileOrDirectoryAttributes`. Keep them distinct from `FlagsAndAttributes`, which records what the caller requested:
+Keep enumeration patterns and opened-object attributes separate from requested flags. A missing pattern is absent, not `*`. An unsuccessful access is not proof that contents were read or written.
 
 {{snippet:newer}}
 
-A null enumeration pattern must remain absent, not be replaced by `*` or treated as proof of an empty directory. Opened attributes describe the opened file/directory; requested flags do not substitute for them. Preserve the raw operation and error rather than classifying every observed path as a successful content read or write. This small decoder deliberately omits process arguments, which can contain credentials.
+When saving **either** decoder as `AccessDecoder.cs`, prepend `using Microsoft.Build.Experimental.FileAccess;` and then `namespace CwmSeedBank.Build;`. Those canonical file-header lines are outside the extracted decoder regions and are required by the complete fixture below. Keep the older file under `samples/net10.0/BuildAccessObserver/` and the newer file under `samples/net11.0/BuildAccessObserver/`.
 
-### Construction and compatibility
+The eleven-argument constructor remains present; its new fields default to null and zero. The thirteen-argument overload appends enumeration pattern and opened attributes. Constructor fixtures establish defaults only; real callbacks establish capture. Do not parse private wire packets or log process arguments.
 
-The pinned older source has an eleven-argument constructor: operation, requested access, process ID, access ID, correlation ID, error, desired access, requested flags/attributes, path, process arguments and augmented-access flag. The pinned current source **retains that constructor** and adds a thirteen-argument overload appending enumeration pattern and opened-file/directory attributes. The retained overload delegates with `null` and `0` for the new fields. It is wrong to describe it as removed or to infer rich observations from its defaults.
+Use `Microsoft.Build.ProjectCache` for plugin, context and result types. Do not also import obsolete `Microsoft.Build.Experimental.ProjectCache` aliases. File-access types retain the separate `Microsoft.Build.Experimental.FileAccess` namespace.
 
-Prefer decoding records delivered by the host. A hand-constructed record can test formatting or constructor defaults; it cannot prove instrumentation, event delivery or actual file access. Do not parse private MSBuild wire packets or claim cross-version serialization compatibility. Reconcile host and plugin binaries together. The source audit compares SDK **10.0.403** and **11.0.100**; assembly version `15.1.0.0` is not the MSBuild product version.
+## Complete observer
 
-## Supported host boundary
-
-Microsoft's project-cache specification restricts experimental file-access reporting to **Windows x64 Visual Studio `MSBuild.exe` from the command line**, using `/reportFileAccesses` or `BuildParameters.ReportFileAccesses`. It does not promise that `dotnet msbuild`, x86/Arm64 hosts or the Visual Studio IDE emit these reports. The ordinary .NET SDK can expose the record type without providing the native instrumentation route.
-
-The existing project-cache plugin is discovered through `ProjectCachePlugin` items, or the documented programmatic descriptor. Reporting uses Detours on worker nodes. It disables the in-process node and task yielding so records can be associated with build requests. `/graph` concerns the cache-get scenario; `/reportFileAccesses` enables the file reporting needed by cache-add. Do not enable multithreaded mode or another unrelated experimental switch as a substitute.
-
-The observer fragment belongs **inside an existing supported `ProjectCachePluginBase` subclass**, with imports for `Microsoft.Build.ProjectCache`, `Microsoft.Build.Experimental.ProjectCache`, `Microsoft.Build.Experimental.FileAccess` and `Microsoft.Build.Execution`, plus standard threading/task imports. It is not a complete distributable plugin. Bound and drain the illustrative queue per context in the application before using it on a large build:
+Save this as `samples/net11.0/BuildAccessObserver/Observer.cs` beside the newer decoder. The SDK11 library compiles it against SDK-local managed assemblies. That compilation alone does not deploy a plugin into the Framework reporting host.
 
 {{snippet:observer}}
 
-The callback's `FileAccessContext` preserves request association. Handle finalization only after the host reports project completion; its pipe synchronization flushes access reports before moving a worker to another request. Do not build a cache that publishes partial or cancelled observations as a successful result. The decoder has no cache-hit policy or persistence implementation.
+The key hashes project path, ordered global properties and targets without logging property values. Capture is limited to the disposable input root and 10,000 records per context. Finalization drains only its own context. The plugin always returns a cache miss and never publishes reusable cache state.
+
+On this host, active cancellation does **not** call `HandleProjectFinishedAsync`. End-build drains remaining observations as **abandoned**. A killed host may omit end-build too; an empty stream or missing receipt never establishes success.
+
+## Host composition and reproduction
+
+Measured Windows host: Visual Studio Community x64 MSBuild **18.11.0.47511**, product **18.11.0-1.26475.11+3cde5c8ec22ccb6ca106fe1554412cace0979413**, running on .NET Framework. Matching Microsoft.Build/Framework assemblies, BuildXL managed instrumentation and `Bin/x64` native assets are separate from the SDK compiler/runtime. The harness records selected file versions and SHA256 hashes. Library compilation uses SDK **11.0.100**, C#15; the older comparison retains SDK **10.0.403**, C#14.
+
+The real reporting plugin is compiled by SDK11 as a separate **net48** consumer against installed Framework4.8 references and the matching Visual Studio assemblies. Visual Studio's `Bin/Roslyn/csc.exe` compiles the small probe/IO/cancellation companions. No installation, PATH or persistent environment change is required.
+
+The item-discovered composition requires **both `/graph` and `/reportFileAccesses`** on this host. Reporting alone runs the fixture without activating the observer. Graph without reporting activates the plugin but emits no access records. These measured controls do not generalize to every programmatic descriptor route. Use `/nr:false` to disable node reuse.
+
+Save these complete companion files under `samples/net11.0/BuildAccessObserver/Host/`:
+
+`BuildAccessObserverHost.csproj` links the canonical decoder and observer. Its actual net48 DLL is loaded by the real reporting host; the net11 library is not loaded into Framework:
+
+{{snippet:host-project}}
+
+`IsExternalInit.cs` supports records on Framework without changing the runtime contract:
+
+{{snippet:host-shim}}
+
+`global.json` pins the compiler SDK for this separate consumer:
+
+{{snippet:host-global}}
+
+`SeedIo.cs` performs actual successful/failed reads and writes plus enumeration on disposable original inputs:
+
+{{snippet:seed-io}}
+
+`SeedBuild.proj` discovers the plugin and runs the input consumer:
+
+{{snippet:seed-build}}
+
+`ObserverProbe.cs` composes the canonical observer and compares shared fields from both decoders on every live callback. Only the older decoder's namespace is renamed. This does not claim execution of an older native host:
+
+{{snippet:observer-probe}}
+
+`CancelBuild.cs` calls the real MSBuild graph API's `CancelAllSubmissions` only after the IO consumer writes its active marker:
+
+{{snippet:cancel-build}}
+
+Save this harness as `samples/net11.0/BuildAccessObserver/Test-Observer.ps1` and invoke it directly. The checkout's `eng/Test-BuildAccessObserver.ps1` is a thin wrapper. Keep both decoder files at their shown paths. It supplies the shim and compiles the Framework consumers. The cancellation driver's configuration retains the installed host's binding redirects with absolute codebase paths. Disposable output goes under `artifacts/build-access/`.
+
+{{snippet:host-check}}
 
 ## Migration
 
-1. Identify the actual Visual Studio x64 host, its product version and matching Microsoft.Build/Framework/native instrumentation assets. Keep compiler SDK, app runtime and build-host requirements separate. The example projects reference SDK-local managed DLLs for intended decoder compilation; they are **not** plugin deployment or native-host qualification.
-2. Keep the older decoder for an older host. Use the newer decoder only against a host exposing the added fields. Preserve the eleven-argument construction route when callers have no richer data; use the extended overload only when real observations supply its values. Do not invent values to make old records appear complete.
-3. Integrate the callback in the existing plugin, keep context with every observation and avoid process-argument logging. Review output paths and access controls because even file names may be sensitive. Keep capture on disposable inputs and application-owned storage.
-4. Invoke the supported host with `/reportFileAccesses` and `/nr:false` on the disposable project containing the configured plugin. Select an absolute executable path. No SDK, Visual Studio installation, PATH change or system-wide environment switch is performed by consulting this recipe.
-5. In the seed-bank fixture, read an authored seed manifest, write a generated report and enumerate `*.seed` inputs. Capture **real** callback records, including error/operation/context, and compare old/new decoding. Verify a nonmatching entry is not inferred as matching merely because its directory was enumerated.
-6. Cancel a build while the fixture is active. Verify cancellation reaches finalization and no successful reusable cache result is published for a partial context. Run an ordinary capture-disabled build as a control. Empty callback output must not be called success without establishing that the host, plugin and instrumentation actually ran.
-7. Save actual old/current compilation, host/native identities, commands, inputs and event/cancellation observations through the existing sample-evidence workflow. Until then retain `official-review` and pending proof. Revalidate on relevant host, plugin or instrumentation changes; add no recurring native/OS matrix.
+1. Identify the reporting host and matching managed/native assets. Separate SDK library compilation, Framework plugin compilation and native execution evidence.
+2. Retain the older decoder when only common fields exist. Decode richer fields only when delivered by the host; do not manufacture observations.
+3. Save the complete sources and harness in the shown layout. Override `-MSBuild` or `-FrameworkReferences` only for a separately qualified matching host.
+4. Compare reporting-only, capture-disabled and enabled graph builds. Check real success/errors, `*.seed` enumeration, absent patterns and requested/opened attribute differences.
+5. Verify first/second projects retain distinct context keys. Do not infer unmatched files were read merely because a directory was enumerated.
+6. Exercise failure and active cancellation. Keep abandoned/failed state separate from success. A future cache implementation needs its own validity and publication policy.
+7. Refresh affected evidence when sources, compiler, host or instrumentation change. Preserve historical RC records and unrelated native exclusions. PIN-967 owns final candidate readiness.
 
 ## Constraints
 
-| Claim | Required check, not yet performed |
-| --- | --- |
-| Previous/current decoding | Compile both actual dependency sets; decode the same supported fixture observations without conflating requested/opened attributes. |
-| Constructor compatibility | Compile the old overload on both; verify new-field defaults and the extended overload on the current set. Synthetic fixtures prove only this contract. |
-| Read/write events | Observe real successful and failed I/O on disposable inputs through the plugin, preserving request association and OS errors. |
-| Directory enumeration | Observe the real pattern and opened-directory attributes; distinguish absent patterns and unmatched files. |
-| Opt-in/control | Compare enabled reporting with capture disabled; a successful ordinary build does not prove event delivery. |
-| Cancellation | Observe a cancelled active build and ensure partial data is not published as successful cache evidence. |
+Use the matching Windows x64 Visual Studio command-line host and complete native instrumentation. The observer is bounded, local and observation-only. Preserve errors/context and never infer successful completion from an empty stream. Cancellation may omit per-project finalization; end-build abandonment is separate from a reusable cache result.
 
 ## Evidence and limitations
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The complete net11 observer compiles with SDK11.0.100. The real Framework composition captures successful reads/writes, failed IO with errors2/5, a present `*.seed` pattern, absent patterns and opened directory attributes. Two graph contexts remain distinct. Reporting-only and capture-disabled controls pass. A failed build finalizes as failed; active cancellation returns build failure and end-build abandons its partial context. Shared-field decoding and constructor defaults are checked separately.
 
-The canonical .NET10 and .NET11 projects now have actual locked compilation records from Windows, using their declared SDKs and dependencies. The original official-source review is retained separately. Compilation of the rules/decoder library does not compile illustrative .cs.txt host integration or establish behavior.
-
-The pre-GA preview is explicitly provisional. Pending proof remains visible in discovery/detail and blocks stable readiness. The approved preview evidence register names this exact edition, canonical samples, limitations and its final-reconciliation owner; it does not claim successful unperformed checks.
-
-Only the canonical decoder libraries compiled. The .cs.txt callback is not compiled into a composed project-cache observer. Native Visual Studio x64 host instrumentation, real event capture and cancellation behavior remain unverified. This edition is provisional reference material.
+These results qualify the measured Windows x64 host only. SDK10 remains a decoder compilation baseline, not older native-host execution. No cross-version wire compatibility, production cache, performance improvement, IDE, x86, ARM64 or other-OS reporting is claimed. Experimental status, eight .NET10 foundations and the separate PIN-967 release gate remain unchanged.
 
 ## Official references
 
-- [MSBuild project-cache design and Windows x64 reporting restrictions](https://github.com/dotnet/msbuild/blob/main/documentation/specs/project-cache.md)
-- [Pinned current FileAccessData contract](https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/msbuild/src/Build/FileAccess/FileAccessData.cs)
-- [Pinned previous FileAccessData contract](https://github.com/dotnet/dotnet/blob/a8dd0577c5c13f43a2f57fe33b4ff11b90f6371e/src/msbuild/src/Build/FileAccess/FileAccessData.cs)
-- [Pinned project-cache callbacks](https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/msbuild/src/Build/BackEnd/Components/ProjectCache/ProjectCachePluginBase.cs)
+- [Project-cache design and host restrictions](https://github.com/dotnet/msbuild/blob/main/documentation/specs/project-cache.md)
+- [Measured host's plugin contract](https://github.com/dotnet/msbuild/blob/3cde5c8ec22ccb6ca106fe1554412cace0979413/src/Build/BackEnd/Components/ProjectCache/ProjectCachePluginBase.cs)
+- [Measured host's build context](https://github.com/dotnet/msbuild/blob/3cde5c8ec22ccb6ca106fe1554412cace0979413/src/Build/BackEnd/Components/ProjectCache/FileAccessContext.cs)
+- [Historical current FileAccessData](https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/msbuild/src/Build/FileAccess/FileAccessData.cs)
+- [Historical previous FileAccessData](https://github.com/dotnet/dotnet/blob/a8dd0577c5c13f43a2f57fe33b4ff11b90f6371e/src/msbuild/src/Build/FileAccess/FileAccessData.cs)
