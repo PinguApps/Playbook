@@ -1,5 +1,29 @@
 # Inspect the guidance an agent receives
 
+## Serviced CBOR comparisons
+
+Run in PowerShell 7 from an unrelated directory. Uses the existing portable
+SDK10.0.403 and GA11.0.100; setup builds, packs and installs a development tool.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\agent-11af982a-0241524801ca722e'
+& ./eng/Test-CborServicing.ps1 -VerifySources `
+  -Net10Dotnet 'V:\_worktrees\Playbook\t3-1ead8027\artifacts\dotnet10\dotnet.exe'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('cbor.read-chunks','text.encode-base64','cbor.bound-nesting') `
+  -Query '' -UnsupportedTargetVersion '10.0' -PackageVersion '0.0.0-pin1325' -BuildAndPack `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' -OutputDirectory './artifacts/inspection-pin1325'
+```
+
+Expect paired Base64/split/malformed CBOR and finite-depth checks, exact
+10.0.15/net10.0 and 11.0.0/net11.0 package assets, then discovery ID/title/goal,
+full canonical Markdown, applicability and current evidence from installed stdio.
+The harness uses an isolated feed/cache and unrelated retrieval directory.
+Historical 10.0.13 observations remain historical. Windows managed execution
+and embedded offline delivery do not qualify other platforms or PIN-967's
+single final stable candidate. No publication or audit suppression occurs.
+
 ## Experimental file observation and local affected-test maps
 
 Run in PowerShell7 from an unrelated directory. This selects the task's exact

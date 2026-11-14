@@ -1,12 +1,14 @@
 {
   "dependencies": [
-    "System.Formats.Cbor/10.0.13"
+    "System.Formats.Cbor/10.0.15"
   ],
   "workloads": [],
   "additionalInputs": [
     "samples/BinaryDataChecks.cs",
     "eng/Record-Evidence.ps1",
-    "eng/Evidence.ps1"
+    "eng/Evidence.ps1",
+    "eng/Test-CborServicing.ps1",
+    "docs/planning/audits/cbor-servicing.assets.json"
   ],
   "buildArguments": [],
   "nativeToolchains": []
