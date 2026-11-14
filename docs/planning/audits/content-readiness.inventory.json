@@ -15,7 +15,7 @@
       "sha256": "c94cafcf5cc48e306caa8f813e407b722cf91dd6f9b67233bcefc6e1c6773bde"
     }
   ],
-  "status": "PIN-967 reconciled coverage and zero pending proof; final stable candidate validation is recorded separately",
+  "status": "PIN-967 reconciled coverage and zero pending Human proof; final stable validation is blocked by PIN-1325 (CBOR advisory); no stable candidate is selected",
   "historicalRows": [
     {
       "path": "docs/planning/inventory/01-languages-libraries-sdk.md",

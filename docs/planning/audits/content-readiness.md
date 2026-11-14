@@ -335,3 +335,23 @@ failed GA observations above retain their original meaning. Target11 coverage
 is reconciled comprehensive guidance; target10 remains the curated eight
 foundations/conditional routes. Package and platform validation must consume
 one selected1.0.0 candidate; readiness does not authorize publication.
+
+### Final validation blocked by a new package advisory
+
+The full stable-validation attempt at commit
+`9a38b8e955bdd9bd8971604860d5c267fa303024` is retained in
+[run43651523293](https://github.com/PinguApps/Playbook/actions/runs/43651523293).
+It stopped before packing: the .NET10 BinaryData consumer restores
+System.Formats.Cbor10.0.13, which now fails NU1902 for
+[GHSA-vmv3-wvjp-wqpj](https://github.com/advisories/GHSA-vmv3-wvjp-wqpj).
+The separately pinned .NET10 CalibrationGroups consumer has the same affected
+package. The fixed10.x package is10.0.15; GA11.0.0 is already fixed.
+
+Pingu approved the separate M(3) Current-cycle correction PIN-1325. It covers
+both consumers, their dependency locks, the three affected recipes and fresh
+real-consumer/evidence checks. Auditing and warnings-as-errors remain enabled.
+PIN-967 remains unpublished and In Progress. No selected stable package or
+Windows/macOS installed-smoke success follows from the failed run. Re-run the
+single-candidate validation after PIN-1325 reaches main; keep the existing
+preview package identities historical. The reporting job's missing-runner error
+is secondary to the build failure, not a separate successful-validation claim.

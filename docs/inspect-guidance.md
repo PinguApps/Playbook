@@ -5131,3 +5131,35 @@ The container receipts distinguish actual archive-object identity, actual Docker
 load/run and absent-Podman failure from untested successful Podman operation.
 Other pending SDK proof, PIN-1321 and the global single stable-candidate gate
 remain separate. The temporary development package is not a stable certification.
+
+## Reconciled GA checkpoint inspection
+
+The earlier bounded inspection above is historical. After integrating
+PIN-1321/PIN-1322/PIN-1323 and Pingu's explicit Podman skip, this command was
+verified from `C:\Windows\Temp` using PowerShell7, SDK11.0.100 and Node.
+It builds, packs and installs a development artifact; it does not publish it.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\agent-a328cf26-fc7556bef59f32d7'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('hosting.select-direct-tls','sdk.configure-cli-telemetry','sdk.publish-multiarch-with-podman','sdk.publish-reproducible-containers','sdk.select-local-container-engine') `
+  -Query '' -RecipeEdition '11.0' -TargetVersion '11.0' `
+  -PackageVersion '0.0.0-pin967-checkpoint' -BuildAndPack `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory './artifacts/ga-readiness/checkpoint-inspection'
+```
+
+Expect five discovery IDs/titles/explanatory goals, full expanded canonical
+Markdown, applicability, fresh evidence and matching structured/text results
+from the real installed stdio server. DirectTLS retains its ID, unavailable
+disposition and supported HTTPS fallback. Successful Podman operation remains
+explicitly not-tested. The three bounded SDK qualification limits above remain.
+The isolated feed/cache and unrelated retrieval directory use unusable proxies;
+this establishes embedded retrieval, not OS network isolation or sample execution.
+
+The observed development package SHA256 was
+`b367d15afd7e0feb270e4728c0b549f198e13309a5bb50370cfec13ae3fae86c`.
+This is separate from the failed full stable validation: PIN-1325 must correct
+the newly reported CBOR package vulnerability before PIN-967 selects and verifies
+one stable candidate. No stable artifact or platform-smoke success is claimed.
