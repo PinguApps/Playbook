@@ -16536,18 +16536,6 @@
       ]
     },
     {
-      "id": "msbuild.archive-build-artifacts",
-      "edition": "11.0",
-      "humanProof": {
-        "status": "pending",
-        "scope": "Pre-GA preview approved by Pingu on 8 November 2026; canonical project compilation is measured. Provisional pre-GA guidance: pending behavior/final-artifact proof is not successful execution or GA verification. Remaining claim-specific behavior and final qualification are not verified; stable readiness remains gated. Final reconciliation: PIN-963."
-      },
-      "samples": [
-        "samples/net10.0/BuildArtifacts/BuildArtifacts.csproj",
-        "samples/net11.0/BuildArtifacts/BuildArtifacts.csproj"
-      ]
-    },
-    {
       "id": "numerics.copy-tensor-views-safely",
       "edition": "11.0",
       "humanProof": {
@@ -16605,18 +16593,6 @@
       "samples": [
         "samples/net10.0/ObservatoryLog/ObservatoryLog.csproj",
         "samples/net11.0/ObservatoryLog/ObservatoryLog.csproj"
-      ]
-    },
-    {
-      "id": "msbuild.inspect-item-globs",
-      "edition": "11.0",
-      "humanProof": {
-        "status": "pending",
-        "scope": "Pre-GA preview approved by Pingu on 8 November 2026; canonical project compilation is measured. Provisional pre-GA guidance: pending behavior/final-artifact proof is not successful execution or GA verification. Remaining claim-specific behavior and final qualification are not verified; stable readiness remains gated. Final reconciliation: PIN-963."
-      },
-      "samples": [
-        "samples/net10.0/BuildArtifacts/BuildArtifacts.csproj",
-        "samples/net11.0/BuildArtifacts/BuildArtifacts.csproj"
       ]
     },
     {

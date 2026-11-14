@@ -204,8 +204,6 @@ means the checkpoint still matches its inputs; it does not certify release readi
 | `ef.configure-generated-model-stage` | `FernGeneration` | Working generated model/query, build/publish/AOT outputs; known RC generation failures remain |
 | `ef.materialize-missing-projection` | `PloverQueries` | Successful direct materialization on qualified final packages |
 | `hosting.select-direct-tls` | `HarbourTls` | Actual Linux native TLS behavior and final artifact qualification |
-| `msbuild.archive-build-artifacts` | `BuildArtifacts` | Official-docs implementation retained by Pingu; newer archive execution and extraction/incremental behavior remain unverified on RC3 |
-| `msbuild.inspect-item-globs` | `BuildArtifacts` | Remaining negative/mutation/import checks beyond the observed happy path |
 | `numerics.align-tensor-shapes` | `InstrumentBatch` | Final tensor/runtime shape, Any/view and memory-preflighted native-width traversal |
 | `numerics.copy-tensor-views-safely` | `GridTransform` | Final tensor/runtime storage and copying execution |
 | `sdk.configure-cli-telemetry` | `CliTelemetry` | Measured opt-out/configuration/network/collector behavior |
@@ -256,3 +254,14 @@ nullable-marker fallback with exact null/default/populated results and compositi
 Only its resolved pending-proof inventory entry and preview-policy hash are
 reconciled here. Other checkpoint inputs and pending gates remain unchanged; this
 does not recertify the historical candidate or the whole readiness checkpoint.
+
+## PIN-1321 qualification update
+
+The 8 November checkpoint above remains historical. SDK11.0.100 GA reproduces
+the inbox TarDirectory Yield/Reacquire thread mismatch. Both declared SDKs now
+execute the supported TarFile helper fallback with archive-entry and payload-byte
+checks, replacement, repeated/changed extraction and retained unrelated files.
+Glob diagnostics distinguish authored patterns from expanded files with private,
+draft and unset-reporting controls. Only these two resolved pending-proof entries
+and preview exceptions are retired. Complete imported graphs and Framework MSBuild
+are not verified. PIN-967 retains the remaining gates and whole-candidate refresh.
