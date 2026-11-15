@@ -130,10 +130,10 @@ Feature: Installed offline guidance
     When the client closes its input
     Then the server exits cleanly with diagnostics on stderr
 
-  Scenario: Provisional SDK and build recipes distinguish compilation from pending behavior offline
+  Scenario: SDK and build recipes retain bounded proof statuses offline
     Given the actual package is installed from an isolated local feed and cache
     When a client initializes the installed stdio server outside the checkout
-    Then provisional SDK and build recipes retain complete bodies and distinguish compilation from pending behavior
+    Then SDK and build recipes retain complete bodies and bounded proof statuses
     When the client closes its input
     Then the server exits cleanly with diagnostics on stderr
 
