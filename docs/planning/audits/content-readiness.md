@@ -367,3 +367,14 @@ The earlier failed attempt above remains historical. Full single-candidate
 validation resumes in [run43659477871](https://github.com/PinguApps/Playbook/actions/runs/43659477871)
 at commit `6f120d0cb5e2c1e288adb3e81b63b0267b27f50c`; its outcome is separate
 from the successful focused consumer replay. Podman remains explicitly skipped.
+
+That run completed sample/build/pack validation, then reported47/51 passing
+offline installed-package tests. Four expectations predated the reconciled GA
+guidance: three expected-body builders omitted newly added canonical snippet
+expansion, and the SDK scenario expected pending proof/compile-only receipts
+after qualification. Commit `138f52eb` refreshes those validation expectations;
+all four affected installed scenarios passed locally against the retained
+development checkpoint artifact. No served recipe changed in that fix.
+The failed run uploaded no stable candidate and ran no desktop smoke.
+Full validation restarts at that exact commit in
+[run43661367449](https://github.com/PinguApps/Playbook/actions/runs/43661367449).
