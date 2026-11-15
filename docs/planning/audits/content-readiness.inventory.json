@@ -4,7 +4,7 @@
   "inputs": [
     {
       "path": "docs/planning/inventory/01-languages-libraries-sdk.md",
-      "sha256": "0f890be98a59ba562fa0f8a7c0e068840faba08f279dd5b16d2b49d58e53a25e"
+      "sha256": "15d158f4bf8811234164cd771f580847070e9d059d668ab322220b6ef140640c"
     },
     {
       "path": "docs/planning/inventory/02-web-data.md",
@@ -8662,7 +8662,7 @@
       "ids": [
         "sdk.select-local-container-engine"
       ],
-      "disposition": "| `sdk.select-local-container-engine` | Keep publishing directed at an intended container engine after default preference changes. | LocalRegistry override; platform-native wslc/container precede Docker/Podman. | [S], [B] | [theoretical edition](../../../content/recipes/sdk.select-local-container-engine/11.0/recipe.md); source review only, engine/image proof pending |",
+      "disposition": "| `sdk.select-local-container-engine` | Keep publishing directed at an intended container engine after default preference changes. | LocalRegistry override; platform-native wslc/container precede Docker/Podman. | [S], [B] | [qualified edition](../../../content/recipes/sdk.select-local-container-engine/11.0/recipe.md); paired compilation, actual GA Docker load/run and absent-Podman failure without fallback; successful Podman operation not-tested |",
       "directRecipeMatches": [
         "sdk.select-local-container-engine"
       ],
@@ -8681,7 +8681,7 @@
       "ids": [
         "sdk.publish-reproducible-containers"
       ],
-      "disposition": "| `sdk.publish-reproducible-containers` | Produce stable image digests from stable inputs. | SOURCE_DATE_EPOCH; registry cache bypass only when meaningful, not an invented speedup recipe. | [SR1] | [theoretical edition](../../../content/recipes/sdk.publish-reproducible-containers/11.0/recipe.md); no repeated image/digest or NuGet timestamp experiment |",
+      "disposition": "| `sdk.publish-reproducible-containers` | Produce stable image digests from stable inputs. | SOURCE_DATE_EPOCH; registry cache bypass only when meaningful, not an invented speedup recipe. | [SR1] | [qualified edition](../../../content/recipes/sdk.publish-reproducible-containers/11.0/recipe.md); two clean GA multiarchitecture OCI archive publishes matched entry bytes and content blobs; engine operation excluded |",
       "directRecipeMatches": [
         "sdk.publish-reproducible-containers"
       ],
@@ -8700,7 +8700,7 @@
       "ids": [
         "sdk.publish-multiarch-with-podman"
       ],
-      "disposition": "| `sdk.publish-multiarch-with-podman` | Publish multi-architecture images without assuming Docker. | Podman support; engine/manifest/platform requirements. | [S] | [theoretical edition](../../../content/recipes/sdk.publish-multiarch-with-podman/11.0/recipe.md); Podman access/checks waived by Pingu, no image/index execution evidence |",
+      "disposition": "| `sdk.publish-multiarch-with-podman` | Publish multi-architecture images without assuming Docker. | Podman support; engine/manifest/platform requirements. | [S] | [bounded edition](../../../content/recipes/sdk.publish-multiarch-with-podman/11.0/recipe.md); paired compilation and GA multiarchitecture archive output; successful Podman loading/inspection/execution explicitly skipped and not-tested |",
       "directRecipeMatches": [
         "sdk.publish-multiarch-with-podman"
       ],
@@ -8719,7 +8719,7 @@
       "ids": [
         "sdk.configure-cli-telemetry"
       ],
-      "disposition": "| `sdk.configure-cli-telemetry` | Export SDK telemetry using standard OTLP environment settings. | SDK tooling configuration; inspect opt-out/explicit export behavior, never runtime telemetry in Playbook. | [S] | [theoretical edition](../../../content/recipes/sdk.configure-cli-telemetry/11.0/recipe.md); documented switches/defaults/source reviewed, transport and command behavior unverified |",
+      "disposition": "| `sdk.configure-cli-telemetry` | Export SDK telemetry using standard OTLP environment settings. | SDK tooling configuration; inspect opt-out/explicit export behavior, never runtime telemetry in Playbook. | [S] | [qualified edition](../../../content/recipes/sdk.configure-cli-telemetry/11.0/recipe.md); paired opt-out wrappers and GA loopback OTLP traces/metrics exercised; Azure Monitor and production delivery untested |",
       "directRecipeMatches": [
         "sdk.configure-cli-telemetry"
       ],
