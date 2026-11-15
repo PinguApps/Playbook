@@ -355,3 +355,15 @@ Windows/macOS installed-smoke success follows from the failed run. Re-run the
 single-candidate validation after PIN-1325 reaches main; keep the existing
 preview package identities historical. The reporting job's missing-runner error
 is secondary to the build failure, not a separate successful-validation claim.
+
+### CBOR correction integrated
+
+On15 November2026, PIN-1325 merged in PR319 at `1fdb9f2a` and was integrated
+into this checkpoint. The real paired BinaryData/CalibrationGroups consumers
+passed again with SDK10.0.403/11.0.100, CBOR10.0.15/11.0.0, identical accepted
+CBOR bytes/values and exact package/selected/executed asset hashes. The coverage
+checkpoint still passes455 current rows and the exact eight foundations.
+The earlier failed attempt above remains historical. Full single-candidate
+validation resumes in [run43659477871](https://github.com/PinguApps/Playbook/actions/runs/43659477871)
+at commit `6f120d0cb5e2c1e288adb3e81b63b0267b27f50c`; its outcome is separate
+from the successful focused consumer replay. Podman remains explicitly skipped.
