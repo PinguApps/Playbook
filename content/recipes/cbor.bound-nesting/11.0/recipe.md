@@ -8,7 +8,7 @@ finite payload contract when reading and writing CBOR (a binary data format).
 
 ## Older approach
 
-The actual System.Formats.Cbor 10.0.13 reader already has a default limit of 64,
+The corrected System.Formats.Cbor 10.0.15 reader already has a default limit of 64,
 backported before this comparison; its writer accepts the tested depth 1001.
 The historical .NET 11 breaking note describes an earlier unlimited reader
 baseline and therefore does not describe this exact older patch. Neither default
@@ -52,7 +52,7 @@ finite limits, deliberately rejecting -1 instead of inheriting runtime defaults.
 2. Target net11.0 and reference System.Formats.Cbor 11. Use the complete current
    codec and shared traversal in separate source files with their imports.
    The verified package pin is 11.0.0, selecting lib/net11.0;
-   the older consumer pins 10.0.13 and selects lib/net10.0. Generate/review the
+   the older consumer pins 10.0.15 and selects lib/net10.0. Generate/review the
    package lock and restore locked when reproducing the comparison.
 3. Carry over conformance, multiple-root and indefinite-encoding choices explicitly.
    These samples use Strict, one root and ConvertIndefiniteLengthEncodings=false.
@@ -80,13 +80,13 @@ finite limits, deliberately rejecting -1 instead of inheriting runtime defaults.
 Primary route: .NET11 SDK/runtime, net11.0/C#15, System.Formats.Cbor 11
 lib/net11.0. Exact proof uses SDK11.0.100 and package/runtime
 11.0.0. The valid older route uses SDK10.0.403, net10.0/C#14,
-runtime10.0.14 and package10.0.13 lib/net10.0. Exact SDK patches identify
+runtime10.0.14 and package10.0.15 lib/net10.0. Exact SDK patches identify
 reproduction; they are not universal consumer requirements.
 
 No cloud account, provider, native asset/toolchain, workload, rendering mode or
 experimental opt-in is required. Managed execution is measured on Windows x64.
 The package's other target assets, including its newer-package-on-net10 route,
-are not executed or advertised here. Actual GA, other-platform and trimming/AOT
+are not executed or advertised here. Other-platform and trimming/AOT
 behavior remain unverified. This is complete finite-buffer processing;
 cbor.read-chunks owns incremental input. Indefinite strings, encoded-value APIs,
 multiple roots, canonical sorting and arbitrary CBOR schemas are outside this
@@ -96,7 +96,7 @@ sample's claims. Runtime defaults are not an application-specific safety policy.
 
 The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
 
-eng/Test-PrecisionDepth.ps1 -Record -VerifySources executes both actual
+eng/Test-CborServicing.ps1 -Record -VerifySources executes both actual
 CalibrationGroups consumers. Accepted outputs at depth0/1/7/8, maps/arrays and
 both definite/indefinite forms match byte-for-byte across releases and decode to
 17. Separate checks reject depth9, truncated input, extra members and trailing
@@ -106,9 +106,9 @@ with complete accepted boundary controls and exact exception types. Values below
 -1 fail at assignment. The old reader64/65 security-backport boundary and complete
 writer1001 control are executed rather than inferred from historical prose.
 
-Saved sample evidence retains commands, resolved package locks, compiler/CoreLib,
+Saved sample evidence retains commands, resolved package locks,
 runtime and input hashes. Package archive/selected/executed assembly hashes and
-reference packs are checked against the original serialization/data-I/O audits.
+selected/executed assets are checked against the servicing audit.
 Immutable implementation sources qualify the documented older-reader drift.
 
 Ordinary build/pack and exact isolated local-feed installation are followed by
@@ -117,3 +117,11 @@ canonical Markdown, target11/edition11, applicability, fresh evidence and matchi
 structured/text JSON offline. Target10 returns no_applicable_edition. Existing
 IDs, exactly eight foundations, PIN-959/PIN-962 and Human gates remain unchanged;
 GA execution establishes the recorded behavior, not publication readiness.
+
+The corrected comparison uses System.Formats.Cbor 10.0.15 (lib/net10.0);
+11.0.0 (lib/net11.0) remains the current pin. NU1902 was reproduced for
+10.0.13 against GHSA-vmv3-wvjp-wqpj with warnings as errors. Historical
+10.0.13 audit observations remain in serialization.assets.json; current package
+assets and immutable implementation hashes are in cbor-servicing.assets.json.
+Run eng/Test-CborServicing.ps1 -Record -VerifySources for fresh paired checks.
+PIN-967 separately qualifies the final stable candidate.

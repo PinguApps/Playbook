@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 1,
+  "baselines": [
+    {
+      "sdk": "10.0.403",
+      "referencePack": "10.0.14",
+      "packageVersion": "10.0.15",
+      "target": "net10.0",
+      "framework": [],
+      "packages": [
+        {
+          "id": "system.formats.cbor",
+          "version": "10.0.15",
+          "url": "https://api.nuget.org/v3-flatcontainer/system.formats.cbor/10.0.15/system.formats.cbor.10.0.15.nupkg",
+          "sha256": "e079a2c5c0e4909d0df027e31caa0c001bcabf8e04ce0ba2184a74c723388f7d",
+          "repository": "https://github.com/dotnet/dotnet",
+          "commit": "8e0f8ed2312954727f8919d7d1c2f78b483b4ee7",
+          "assets": [
+            {
+              "path": "lib/net10.0/System.Formats.Cbor.dll",
+              "surface": {
+                "sha256": "0ad82c7fc90f9afdc2c57950410f01a2fd5744ab2555add12e5d6cde11daf608"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sdk": "11.0.100",
+      "referencePack": "11.0.0",
+      "packageVersion": "11.0.0",
+      "target": "net11.0",
+      "framework": [],
+      "packages": [
+        {
+          "id": "system.formats.cbor",
+          "version": "11.0.0",
+          "url": "https://api.nuget.org/v3-flatcontainer/system.formats.cbor/11.0.0/system.formats.cbor.11.0.0.nupkg",
+          "sha256": "fb7cce527121f80f0882a146eef383415e8f60d0fc59509c425b38b43ecee2eb",
+          "repository": "https://github.com/dotnet/dotnet",
+          "commit": "297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f",
+          "assets": [
+            {
+              "path": "lib/net11.0/System.Formats.Cbor.dll",
+              "surface": {
+                "sha256": "41b9fbecc5c1db57c4b836660b77dd818e2113b3104cf0d5058ddfc5a78490ee"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "version": "10.0.15",
+      "sha256": "65a36a54c37baa991baffb74c61e219ae16bc435c4e9ff88d7d29836f2b99c42",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/8e0f8ed2312954727f8919d7d1c2f78b483b4ee7/src/runtime/src/libraries/System.Formats.Cbor/ref/System.Formats.Cbor.cs"
+    },
+    {
+      "version": "10.0.15",
+      "sha256": "eb92ca4c5e88d7285ffcafce196a7bbf997669f621c0e0a0e4aad3d69bb4bdc6",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/8e0f8ed2312954727f8919d7d1c2f78b483b4ee7/src/runtime/src/libraries/System.Formats.Cbor/src/System/Formats/Cbor/Reader/CborReader.cs"
+    },
+    {
+      "version": "10.0.15",
+      "sha256": "0c0d9dd6700e689529a5c70f0ee7e2f1e5475977103221e48e7f8afaa0ee4be2",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/8e0f8ed2312954727f8919d7d1c2f78b483b4ee7/src/runtime/src/libraries/System.Formats.Cbor/src/System/Formats/Cbor/Writer/CborWriter.cs"
+    },
+    {
+      "version": "11.0.0",
+      "sha256": "c53869234ad1ca3f8f6d0914cc32886b0bed6f9c30641ea3d69793de13d24843",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/System.Formats.Cbor/ref/System.Formats.Cbor.cs"
+    },
+    {
+      "version": "11.0.0",
+      "sha256": "1afb95886c0a8c2ed8ac659621175888aa7172156abe09bdc3ba7a2477956ec4",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/System.Formats.Cbor/src/System/Formats/Cbor/Reader/CborReader.cs"
+    },
+    {
+      "version": "11.0.0",
+      "sha256": "195d7b4e5fd407dbb6b7711dff1d082290b0f122d7437ba0232ed8742c2d0d7b",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/297acf930fb0f5c07fd4e51d78e521b4ad2e5d1f/src/runtime/src/libraries/System.Formats.Cbor/src/System/Formats/Cbor/Writer/CborWriter.cs"
+    }
+  ]
+}

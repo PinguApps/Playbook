@@ -27,13 +27,12 @@ try {
       Write-Host "SOURCE $($source.id) $hash"
     }
   }
+  # CBOR checks moved to Test-CborServicing.ps1; this runner retains numeric audit checks.
   $numericAudit = Get-Content (Join-Path $root 'docs/planning/audits/data-io.assets.json') -Raw | ConvertFrom-Json
-  $cborAudit = Get-Content (Join-Path $root 'docs/planning/audits/serialization.assets.json') -Raw | ConvertFrom-Json
-  $accepted = @{}
   foreach ($variant in 'net10.0','net11.0') {
     $dotnet = if ($variant -eq 'net10.0') { $Net10Dotnet } else { $Net11Dotnet }
     $baseline = @($numericAudit.baselines | Where-Object target -CEQ $variant)[0]
-    foreach ($name in 'SensorArchive','CalibrationGroups') {
+    foreach ($name in 'SensorArchive') {
       $sample = "samples/$variant/$name/$name.csproj"
       $project = Join-Path $root $sample
       Push-Location (Split-Path $project)
@@ -47,10 +46,7 @@ try {
           $output = (& $dotnet "bin/Release/$variant/$name.dll" | Out-String).Trim()
           Write-Host $output
         }
-        if ($name -eq 'CalibrationGroups') {
-          $accepted[$variant] = (($output -split '\r?\n' | Where-Object { $_ -cmatch '^ACCEPT ' }) -join "`n")
-          if (-not $accepted[$variant]) { throw 'Missing accepted CBOR values.' }
-        }
+
         $pack = (& $dotnet msbuild $project -t:ResolveFrameworkReferences -p:Configuration=Release -getItem:ResolvedTargetingPack | ConvertFrom-Json).Items.ResolvedTargetingPack |
           Where-Object Identity -CEQ 'Microsoft.NETCore.App'
         if ($pack.NuGetPackageVersion -cne $baseline.referencePack) { throw "Reference pack drift: $sample" }
@@ -61,20 +57,7 @@ try {
           if ((Get-FileHash $path).Hash.ToLowerInvariant() -cne $expected) { throw "Audit asset mismatch: $path" }
           $artifacts += $path
         }
-        if ($name -eq 'CalibrationGroups') {
-          $package = @((@($cborAudit.baselines | Where-Object target -CEQ $variant)[0]).packages | Where-Object id -CEQ 'system.formats.cbor')[0]
-          $assets = Get-Content obj/project.assets.json -Raw | ConvertFrom-Json -AsHashtable
-          $packageRoot = @($assets.packageFolders.Keys)[0]
-          $packageDirectory = Join-Path $packageRoot "system.formats.cbor/$($package.version)"
-          $archive = Join-Path $packageDirectory "system.formats.cbor.$($package.version).nupkg"
-          if ((Get-FileHash $archive).Hash.ToLowerInvariant() -cne $package.sha256) { throw 'CBOR package differs from audit.' }
-          $relative = "lib/$variant/System.Formats.Cbor.dll"
-          $path = Join-Path $packageDirectory $relative
-          $expected = @($package.assets | Where-Object path -CEQ $relative)[0].surface.sha256
-          if ((Get-FileHash $path).Hash.ToLowerInvariant() -cne $expected) { throw 'CBOR selected assembly differs from audit.' }
-          if ((Get-FileHash "bin/Release/$variant/System.Formats.Cbor.dll").Hash.ToLowerInvariant() -cne $expected) { throw 'Executed CBOR assembly differs from audit.' }
-          $artifacts += $archive,$path
-        }
+
         $sdk = (Get-Content global.json -Raw | ConvertFrom-Json).sdk.version
         $artifacts += Join-Path (Split-Path $dotnet) "sdk/$sdk/Roslyn/bincore/Microsoft.CodeAnalysis.CSharp.dll"
         $artifacts += Join-Path (Split-Path $dotnet) "shared/Microsoft.NETCore.App/$($baseline.referencePack)/System.Private.CoreLib.dll"
@@ -85,17 +68,16 @@ try {
         if ($Record) {
           $recordPath = Join-Path (Split-Path $project) 'verification-evidence.json'
           $evidence = Get-Content $recordPath -Raw | ConvertFrom-Json -AsHashtable
-          $evidence.command += "; $dotnet msbuild $project -t:ResolveFrameworkReferences -p:Configuration=Release -getItem:ResolvedTargetingPack; compare selected references/package/executed CBOR SHA256 with data-io.assets.json and serialization.assets.json; SHA256 compiler/CoreLib"
+          $evidence.command += "; $dotnet msbuild $project -t:ResolveFrameworkReferences -p:Configuration=Release -getItem:ResolvedTargetingPack; compare selected reference SHA256 with data-io.assets.json; SHA256 compiler/CoreLib"
           $evidence.output += "`n" + ($lines -join "`n")
-          $evidence.scope = 'Actual Windows x64 paired numeric precision or finite CBOR consumer. Output records real inputs, accepted results, error budgets and separate failure types. Exact audit-matching artifacts and compiler/CoreLib hashes. No other-platform, serialization of BFloat16, performance, unlimited-depth or final-GA claim.'
+          $evidence.scope = 'Actual Windows x64 paired numeric precision consumer. Output records real inputs, accepted results, error budgets and separate failure types. Exact audit-matching artifacts and compiler/CoreLib hashes. No other-platform, serialization of BFloat16, performance, unlimited-depth or final-GA claim.'
           [IO.File]::WriteAllText($recordPath, ($evidence | ConvertTo-Json -Depth 40).Replace("`r`n","`n") + "`n")
         }
       }
       finally { Pop-Location }
     }
   }
-  if ($accepted['net10.0'] -cne $accepted['net11.0']) { throw 'Paired CBOR accepted bytes/values differ.' }
-  Write-Host 'PASS: paired precision/depth consumers, identical accepted CBOR bytes/values and exact audit artifacts.'
+  Write-Host 'PASS: paired precision consumers and exact audit artifacts.'
 }
 finally {
   foreach ($key in $previous.Keys) { [Environment]::SetEnvironmentVariable($key,$previous[$key]) }

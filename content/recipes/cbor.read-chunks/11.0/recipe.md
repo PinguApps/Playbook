@@ -6,7 +6,7 @@ A beacon instrument delivers the array [31,-8,1024] in pieces, including splits 
 
 ## Older approach
 
-Create a net10.0 / C# 14 console project. Use System.Buffers.Text, System.Buffers and System.Formats.Cbor; omit imports for namespaces not used by the selected snippet. All snippets belong inside a static class in namespace Playbook.Samples; System, System.IO, System.Linq, System.Collections.Generic and System.Threading.Tasks come from implicit usings. Add System.Formats.Cbor 10.0.13 for the comparison project.
+Create a net10.0 / C# 14 console project. Use System.Buffers.Text, System.Buffers and System.Formats.Cbor; omit imports for namespaces not used by the selected snippet. All snippets belong inside a static class in namespace Playbook.Samples; System, System.IO, System.Linq, System.Collections.Generic and System.Threading.Tasks come from implicit usings. Add System.Formats.Cbor 10.0.15 for the comparison project.
 
 The .NET 10 reader consumes one contiguous input buffer, so this complete finite-input example collects all chunks first. That valid baseline needs storage proportional to the complete encoded document.
 
@@ -39,3 +39,11 @@ The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The
 The original BinaryData projects compile and run against their declared .NET 10/11 SDKs and locked matching CBOR packages. Checks round-trip the original payload through characters and UTF-8, verify short destinations and non-final Base64 tails, exercise every CBOR split plus one-byte chunks, reject a truncated final token and reject trailing roots. The GA malformed-Try exception is explicitly checked.
 
 Saved evidence includes exact input hashes, source commit/dirty marker, SDK/runtime host, commands, dependencies and output. No mocks or cross-compilation substitute for execution. Consult the embedded records for what actually ran; no complete-catalogue, native-deployment or product-publication readiness is implied.
+
+The corrected comparison uses System.Formats.Cbor 10.0.15 (lib/net10.0);
+11.0.0 (lib/net11.0) remains the current pin. NU1902 was reproduced for
+10.0.13 against GHSA-vmv3-wvjp-wqpj with warnings as errors. Historical
+10.0.13 audit observations remain in serialization.assets.json; current package
+assets and immutable implementation hashes are in cbor-servicing.assets.json.
+Run eng/Test-CborServicing.ps1 -Record -VerifySources for fresh paired checks.
+PIN-967 separately qualifies the final stable candidate.
