@@ -206,6 +206,21 @@ jobs:
         with:
           dotnet-version: 11.0.100
 
+      - name: Isolate the smoke host to .NET 11
+        shell: pwsh
+        run: |
+          # setup-dotnet also installs the current LTS runtime. This host is
+          # disposable and must exercise the packaged tool with only .NET 11.
+          $hostRoot = Join-Path $env:RUNNER_TEMP 'playbook-dotnet'
+          $coreRoot = (Resolve-Path -LiteralPath (Join-Path $hostRoot 'shared/Microsoft.NETCore.App')).Path
+          $prefix = $coreRoot + [IO.Path]::DirectorySeparatorChar
+          foreach ($runtime in Get-ChildItem -LiteralPath $coreRoot -Directory) {
+            if ($runtime.Name -notmatch '^\d+\.' -or $runtime.Name -match '^11\.') { continue }
+            $target = (Resolve-Path -LiteralPath $runtime.FullName).Path
+            if (-not $target.StartsWith($prefix, [StringComparison]::Ordinal)) { throw 'Unexpected smoke-runtime path.' }
+            Remove-Item -LiteralPath $target -Recurse -Force
+          }
+
       - name: Download the exact packed artifact
         uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8
         with:
