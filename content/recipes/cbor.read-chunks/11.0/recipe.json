@@ -113,7 +113,7 @@
       "sdk": "10.0.403",
       "language": "14.0",
       "kind": "compile-and-run",
-      "scope": "Actual BinaryData compilation and focused execution on Windows. No mocks, cross-compilation, native deployment or GA proof."
+      "scope": "Actual BinaryData compilation and focused execution on Windows. System.Formats.Cbor 10.0.15/net10.0 and 11.0.0/net11.0 assets checked separately. No mocks or other-platform proof."
     },
     {
       "sample": "samples/net11.0/BinaryData/BinaryData.csproj",
@@ -121,7 +121,7 @@
       "sdk": "11.0.100",
       "language": "15.0",
       "kind": "compile-and-run",
-      "scope": "Actual BinaryData compilation and focused execution on Windows. No mocks, cross-compilation, native deployment or GA proof."
+      "scope": "Actual BinaryData compilation and focused execution on Windows. System.Formats.Cbor 10.0.15/net10.0 and 11.0.0/net11.0 assets checked separately. No mocks or other-platform proof."
     }
   ],
   "snippets": {

@@ -4,14 +4,14 @@
     "samples/CalibrationGroups/DepthChecks.cs",
     "eng/Record-Evidence.ps1",
     "eng/Evidence.ps1",
-    "eng/Test-PrecisionDepth.ps1",
+    "eng/Test-CborServicing.ps1",
     "docs/planning/audits/data-io.assets.json",
-    "docs/planning/audits/serialization.assets.json",
+    "docs/planning/audits/cbor-servicing.assets.json",
     "docs/planning/audits/precision-depth.sources.json"
   ],
   "buildArguments": [],
   "nativeToolchains": [],
   "dependencies": [
-    "System.Formats.Cbor/10.0.13"
+    "System.Formats.Cbor/10.0.15"
   ]
 }
