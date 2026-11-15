@@ -427,3 +427,22 @@ current rows. No sample, dependency, toolchain or runtime source changed.
 The qualified692b9f48 artifact above is now historical; the corrected served
 wording requires a refreshed final candidate. Full validation runs at
 [run43665673690](https://github.com/PinguApps/Playbook/actions/runs/43665673690).
+
+### Final corrected candidate qualification
+
+Run43665673690 passed full build/package validation, all51 Linux offline tests
+and Windows/macOS installed smoke1/1 each. The final corrected artifact is
+`PinguApps.Playbook.1.0.0.nupkg`, built once at
+`cbc0ada6697c41aee2891e399bf93209838fc1ed`, SHA256
+`60fd52a2c5bc83201bc4d4b06c436c227254a9ea5c08784448c60fdd9b518165`.
+Both desktop receipts show that hash, CoreCLR11.0.0 and shutdown exit0. The
+downloaded same artifact passed the unrelated-directory local installed MCP
+check for all five changed recipes, full Markdown, applicability and freshness.
+This supersedes the historical692b9f48 candidate above; original identities and
+failed attempts remain retained. No repack or public publication occurred.
+
+Both incremental pre-PR reviewers approved the qualification wording correction.
+A non-blocking planning consistency note was resolved by updating four planning
+rows and their current-row mirrors/hash to the already qualified bounded proof.
+The parent verified this documentation-only follow-up with the checkpoint; it
+changes no served content, sample, dependency or runtime behavior.

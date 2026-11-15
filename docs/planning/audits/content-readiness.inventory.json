@@ -15,7 +15,7 @@
       "sha256": "c94cafcf5cc48e306caa8f813e407b722cf91dd6f9b67233bcefc6e1c6773bde"
     }
   ],
-  "status": "PIN-967 reconciled coverage and zero pending Human proof; the served wording correction requires a refreshed final candidate",
+  "status": "PIN-967 final corrected stable candidate verified; coverage reconciled and zero pending Human proof; publication remains separate",
   "historicalRows": [
     {
       "path": "docs/planning/inventory/01-languages-libraries-sdk.md",
@@ -16513,6 +16513,13 @@
     "Native/Maps not-tested scopes remain unchanged; compilation does not waive execution."
   ],
   "candidatePackage": {
+    "name": "PinguApps.Playbook.1.0.0.nupkg",
+    "sha256": "60fd52a2c5bc83201bc4d4b06c436c227254a9ea5c08784448c60fdd9b518165",
+    "scope": "Final corrected stable candidate: full Linux/offline51, Windows/macOS smoke1 each, and local installed five-recipe MCP inspection passed against this exact artifact. Publication remains separate.",
+    "sourceCommit": "cbc0ada6697c41aee2891e399bf93209838fc1ed",
+    "validationRun": "https://github.com/PinguApps/Playbook/actions/runs/43665673690"
+  },
+  "priorQualifiedCandidatePackage": {
     "name": "PinguApps.Playbook.1.0.0.nupkg",
     "sha256": "ccc8ccdaa3558513b0e3920f16f58922cf8406d2a4603b150bbd7713c7b4ebc8",
     "scope": "Historical qualified candidate before the served wording correction: Linux full/offline 51 scenarios, Windows/macOS smoke and local MCP inspection passed. A refreshed final candidate is required for the corrected wording.",
