@@ -378,3 +378,39 @@ development checkpoint artifact. No served recipe changed in that fix.
 The failed run uploaded no stable candidate and ran no desktop smoke.
 Full validation restarts at that exact commit in
 [run43661367449](https://github.com/PinguApps/Playbook/actions/runs/43661367449).
+
+### Selected stable candidate
+
+That attempt passed all51 offline scenarios and local installed MCP inspection,
+but both desktop prerequisites failed: the pinned setup-dotnet action installs
+the current LTS runtime10.0.15 alongside11.0.0. Commit `692b9f48` retains only
+the11.x Core runtime inside each disposable smoke host, with resolved-path
+containment checks. The strict11-only assertion remains enabled.
+
+[Run43663021315](https://github.com/PinguApps/Playbook/actions/runs/43663021315)
+then passed the full sample/build/package checks, real Renovate permissions,
+all51 Linux offline installed scenarios, Windows installed smoke1/1 and macOS
+installed smoke1/1. Both desktop receipts name CoreCLR11.0.0 and clean exit0.
+All three consume the same selected `PinguApps.Playbook.1.0.0.nupkg`, built once
+at `692b9f482b52c463d5737280d5b57ecc0c61f2e0`, SHA256
+`ccc8ccdaa3558513b0e3920f16f58922cf8406d2a4603b150bbd7713c7b4ebc8`.
+The earlier partial stable attempt had hash
+`9a5b5caed68d29ac0b6411c45ab6ac252b586063f1f753ee39b6522f35e90c18`;
+it is historical and is not the selected candidate.
+
+The downloaded selected artifact also passed real Windows installed stdio MCP
+inspection from an unrelated directory: all five changed recipe IDs/titles/goals,
+full expanded canonical Markdown, applicability, fresh evidence and identical
+structured/text responses. The checkpoint matches455 current rows,406 retained
+historical rows, exact eight foundations, all audit/input hashes and zero pending
+Human proof, and verifies the selected package hash. Target11 is comprehensive;
+target10 retains its curated foundations and conditional routes.
+
+Earlier client connection/usability receipts remain scoped to their recorded
+client/artifact versions. The two-tool transport contract is unchanged; current
+installed initialization/list/get/shutdown and full-payload regressions are
+covered by this candidate's real package suite. No new client-version or fresh
+ordinary-agent-thread claim follows. Native sample-specific exclusions and the
+explicit successful-Podman skip remain not-tested; Docker/archive checks do not
+substitute for them. PIN-968 retains owner publication approval. This qualification
+does not publish a package or approve an untested native/provider behavior.

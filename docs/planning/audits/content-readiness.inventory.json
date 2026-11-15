@@ -15,7 +15,7 @@
       "sha256": "c94cafcf5cc48e306caa8f813e407b722cf91dd6f9b67233bcefc6e1c6773bde"
     }
   ],
-  "status": "PIN-967 reconciled coverage and zero pending Human proof; PIN-1325 is integrated; final stable candidate validation is in progress",
+  "status": "PIN-967 reconciled coverage, zero pending Human proof and one verified stable candidate; publication remains separate",
   "historicalRows": [
     {
       "path": "docs/planning/inventory/01-languages-libraries-sdk.md",
@@ -16513,6 +16513,13 @@
     "Native/Maps not-tested scopes remain unchanged; compilation does not waive execution."
   ],
   "candidatePackage": {
+    "name": "PinguApps.Playbook.1.0.0.nupkg",
+    "sha256": "ccc8ccdaa3558513b0e3920f16f58922cf8406d2a4603b150bbd7713c7b4ebc8",
+    "scope": "Selected stable candidate: Linux full/offline 51 scenarios and Windows/macOS installed smoke share this exact artifact. Local installed MCP inspection passed. Explicit native/Podman exclusions remain; publication is separate.",
+    "sourceCommit": "692b9f482b52c463d5737280d5b57ecc0c61f2e0",
+    "validationRun": "https://github.com/PinguApps/Playbook/actions/runs/43663021315"
+  },
+  "preGaPreviewCandidatePackage": {
     "name": "PinguApps.Playbook.0.0.0-preview.959.nupkg",
     "sha256": "5a3cddd59963690cc87db0e95d062704780d3cb23d0d87d34fde84e79e23310e",
     "scope": "Approved pre-GA preview with sample-specific limitations and historical check statements reconciled;15 pending gates retained."
