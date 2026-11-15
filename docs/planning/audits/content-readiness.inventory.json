@@ -15,7 +15,7 @@
       "sha256": "c94cafcf5cc48e306caa8f813e407b722cf91dd6f9b67233bcefc6e1c6773bde"
     }
   ],
-  "status": "PIN-967 reconciled coverage, zero pending Human proof and one verified stable candidate; publication remains separate",
+  "status": "PIN-967 reconciled coverage and zero pending Human proof; the served wording correction requires a refreshed final candidate",
   "historicalRows": [
     {
       "path": "docs/planning/inventory/01-languages-libraries-sdk.md",
@@ -16515,7 +16515,7 @@
   "candidatePackage": {
     "name": "PinguApps.Playbook.1.0.0.nupkg",
     "sha256": "ccc8ccdaa3558513b0e3920f16f58922cf8406d2a4603b150bbd7713c7b4ebc8",
-    "scope": "Selected stable candidate: Linux full/offline 51 scenarios and Windows/macOS installed smoke share this exact artifact. Local installed MCP inspection passed. Explicit native/Podman exclusions remain; publication is separate.",
+    "scope": "Historical qualified candidate before the served wording correction: Linux full/offline 51 scenarios, Windows/macOS smoke and local MCP inspection passed. A refreshed final candidate is required for the corrected wording.",
     "sourceCommit": "692b9f482b52c463d5737280d5b57ecc0c61f2e0",
     "validationRun": "https://github.com/PinguApps/Playbook/actions/runs/43663021315"
   },

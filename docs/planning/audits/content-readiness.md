@@ -416,3 +416,14 @@ ordinary-agent-thread claim follows. Native sample-specific exclusions and the
 explicit successful-Podman skip remain not-tested; Docker/archive checks do not
 substitute for them. PIN-968 retains owner publication approval. This qualification
 does not publish a package or approve an untested native/provider behavior.
+
+### Review correction and final artifact refresh
+
+Pre-PR review found stale theoretical/unbuilt/pending-proof sentences in four
+served SDK recipes. Commit `cbc0ada6` replaces those statements with the actual
+bounded observations and explicit untested limits. It also scopes historical
+readiness statements and distinguishes retained historical rows from checked
+current rows. No sample, dependency, toolchain or runtime source changed.
+The qualified692b9f48 artifact above is now historical; the corrected served
+wording requires a refreshed final candidate. Full validation runs at
+[run43665673690](https://github.com/PinguApps/Playbook/actions/runs/43665673690).
