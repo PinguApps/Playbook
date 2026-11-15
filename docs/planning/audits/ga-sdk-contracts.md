@@ -1,5 +1,23 @@
 # GA SDK and package-authoring reconciliation
 
+## PIN-967 qualification attempt
+
+SDK11.0.100 on the current Windows machine reproduces the existing
+`BuildArtifacts` failure at `TarDirectory`: MSB4018 / MSB0001,
+`Cannot call Reacquire() ... when Yield() was called ...`. A second invocation
+with one build node, node reuse disabled and MSBuild servers disabled also
+fails. These are actual GA failures, not successful archive execution or RC
+results relabelled as GA. Ordinary project compilation succeeds before the
+task fails. The unchanged canonical target and its pending proof remain.
+
+The final stable content gate now reaches `msbuild.archive-build-artifacts`
+after the owner-approved DirectTLS availability disposition. The other seven
+SDK editions still retain their explicit pending proof; source/artifact audit
+completion did not establish their deferred behavior. PIN-967 remains In Progress
+and unpublished. A supported archive correction is separately sized work under
+the ticket boundary unless Pingu explicitly approves it within PIN-967.
+
+
 ## PIN-1322 / PIN-1323 consumer qualification
 
 The file-access edition now has a complete SDK11 observer library and a separate
@@ -176,3 +194,75 @@ assemblies, 230/232 build files, 2,689 assigned differences. Installed .NET 10
 SDK inspection failed on missing inspection-library/return metadata; the fresh
 archive replay replaces that failed scan, without modifying the shared SDK.
 No package execution, native platform execution or global stable check is claimed.
+
+## PIN-967 telemetry qualification
+
+`eng/Test-CliTelemetry.ps1 -Record` runs the canonical SDK10.0.403 and
+SDK11.0.100 wrappers against a temporary local HTTP/protobuf collector. Both
+opt-out controls return successfully without collector requests. GA export
+produces nonempty `/v1/traces` and `/v1/metrics` payloads carrying `dotnet-cli`.
+Microsoft trace export is disabled only in the verification process using the
+actual GA TelemetryClient source contract. This measures local receipt, not
+absence at every network destination, Azure Monitor behavior, retry reliability
+or production collector delivery. The wrapper source is unchanged.
+
+The shared SDK10.0.403 entry lacks its runtime configuration; the complete
+portable installation supplies that comparison. Existing source-review and
+fresh compilation receipts remain distinct from new execution receipts. Only
+`sdk.configure-cli-telemetry` pending proof and preview exception are resolved.
+Archive/glob remains PIN-1321; the other SDK gates and final stable candidate
+remain open. Historical RC/source/artifact registers retain their identities.
+
+PIN-967 container qualification: two SDK11.0.100 publishes separated by clean
+produce the same image-index blob 22c084002b3f98c9d7a3e8ee06da52465cc68a1fea03804681a3503f0124c635,
+21 matching regular-entry byte sequences and 19 matching content-addressed blobs.
+The runtime base is pinned to index 3fe5f5495141c97986a49d3a4e76061f6225c3f93f94e8a7e522781376193863.
+Both Linux x64/Arm64 manifests are retained. ContainerArchiveOutputPath avoids
+engine loading; passing LocalRegistry=Docker in this route is not Docker or
+Podman execution proof. Only the archive-reproducibility edition's pending proof
+and preview exception are resolved. Engine selection/Podman qualification and
+other SDK gates remain separate.
+
+PIN-967 engine selection qualification: explicit Docker29.6.1 loading succeeded
+for an owned linux-x64 tag. Network-disabled execution printed both expected
+records and the owned image was removed. Explicit Podman on this host without
+Podman failed CONTAINER1012 rather than falling back to Docker. Only the bounded
+engine-selection gate is resolved; successful Podman loading/multiarchitecture
+execution remains unverified in its separate recipe. No Podman acquisition or
+new environment is implied.
+
+The installed Visual Studio x64 MSBuild18.11.0.47511 accepts /reportFileAccesses
+and exposes the new FileAccessData fields. A disposable complete plugin captured
+real fixture reads/writes and enumeration through /graph plus /reportFileAccesses;
+reporting alone did not activate that item-discovered plugin. This is host
+feasibility evidence, not proof of the canonical illustrative observer's complete
+context/cancellation behavior. The artifact probe also found the old experimental
+project-cache aliases obsolete in favor of Microsoft.Build.ProjectCache. Keep
+file-access pending until the composed canonical path is reconciled and verified.
+The affected-test storage-documentation pointer still returns 404; its composed
+host/registration/storage contract remains unresolved. These two reference-only
+consumer gaps are not cleared by the successful decoder/rules library builds.
+
+The current upstream affected-test rollout at TestFx commit
+5ea46ecee95d6d7339c71b87d62b94524fea3609 uses SDK12.0.100-alpha.1.26509.101
+and AffectedTests18.13.0-preview.26530.1, unlike this recipe's GA SDK11 and
+18.13.0-preview.26519.2. Its newer handshake fixes and repository-specific Azure
+DevOps configuration are not evidence for the pinned GA11 consumer. Preserve
+that compatibility gap; do not retarget or upgrade the sample implicitly.
+
+## PIN-967 final reconciliation
+
+The completed PIN-1321/PIN-1322/PIN-1323 changes are integrated from main.
+Pingu explicitly approved skipping Podman qualification. The Podman edition
+retains its canonical sample identities and compilation records, with loading,
+multiarchitecture inspection and execution explicitly not-tested rather than
+pending or verified. No engine acquisition or successful Podman claim follows.
+
+The current checkpoint checks all455 current row dispositions, exact eight
+foundations, original source audits and six GA audit overlays. It retains the406
+historical rows without revalidating their original identities.
+No pending Human proof remains. Historical RC/preview candidate identities and
+failed GA observations above retain their original meaning. Target11 coverage
+is reconciled comprehensive guidance; target10 remains the curated eight
+foundations/conditional routes. Package and platform validation must consume
+one selected1.0.0 candidate; readiness does not authorize publication.

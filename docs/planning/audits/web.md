@@ -12,8 +12,8 @@ PIN-1308/1309 now record real rendered local AI-state/storage checks. PIN-1310
 withdraws the former DirectTlsEndpoint illustration after canonical documentation
 removal; current HarbourTls compiles ordinary socket HTTPS. The historical CS0246
 observation below applies to the former example, not current code. See the refreshed
-[source record](agent-state.sources.json) and canonical recipe. Supported direct-TLS
-artifact availability remains a pending PIN-967 stable gate; native Linux/OpenSSL
+[source record](agent-state.sources.json) and canonical recipe. Pingu subsequently approved treating withdrawn direct TLS as unavailable in PIN-967;
+no nonexistent GA artifact is required. Native Linux/OpenSSL
 execution remains not-tested under policy. No remote-model or TLS-handshake proof.
 
 ## Documentation-first follow-up, 3 November 2026 (historical)

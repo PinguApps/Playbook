@@ -26,6 +26,19 @@ on:
         type: string
         default: Test Results
   workflow_dispatch:
+    inputs:
+      package_version:
+        description: Candidate version to build and validate without publication.
+        type: string
+        default: 0.0.0-ci
+      release_ready:
+        description: Enforce the stable or preview evidence gate.
+        type: boolean
+        default: false
+      checkout_ref:
+        description: Commit or branch whose exact artifact all lanes consume.
+        type: string
+        default: ''
 
 permissions:
   contents: read
@@ -192,6 +205,21 @@ jobs:
           DOTNET_INSTALL_DIR: ${{ runner.temp }}/playbook-dotnet
         with:
           dotnet-version: 11.0.100
+
+      - name: Isolate the smoke host to .NET 11
+        shell: pwsh
+        run: |
+          # setup-dotnet also installs the current LTS runtime. This host is
+          # disposable and must exercise the packaged tool with only .NET 11.
+          $hostRoot = Join-Path $env:RUNNER_TEMP 'playbook-dotnet'
+          $coreRoot = (Resolve-Path -LiteralPath (Join-Path $hostRoot 'shared/Microsoft.NETCore.App')).Path
+          $prefix = $coreRoot + [IO.Path]::DirectorySeparatorChar
+          foreach ($runtime in Get-ChildItem -LiteralPath $coreRoot -Directory) {
+            if ($runtime.Name -notmatch '^\d+\.' -or $runtime.Name -match '^11\.') { continue }
+            $target = (Resolve-Path -LiteralPath $runtime.FullName).Path
+            if (-not $target.StartsWith($prefix, [StringComparison]::Ordinal)) { throw 'Unexpected smoke-runtime path.' }
+            Remove-Item -LiteralPath $target -Recurse -Force
+          }
 
       - name: Download the exact packed artifact
         uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8

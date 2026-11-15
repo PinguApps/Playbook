@@ -256,6 +256,37 @@ Only its resolved pending-proof inventory entry and preview-policy hash are
 reconciled here. Other checkpoint inputs and pending gates remain unchanged; this
 does not recertify the historical candidate or the whole readiness checkpoint.
 
+## PIN-967 DirectTLS disposition
+
+Pingu approved treating the withdrawn DirectTLS feature as unavailable while
+retaining its stable recipe ID and ordinary socket HTTPS fallback. Only that
+pending inventory entry and preview exception are removed; the preview-policy
+hash follows the edited policy. Existing socket compilation records are retained,
+with direct transport/Linux/OpenSSL behavior explicitly not-tested. This does not
+recertify the historical candidate, other checkpoint inputs or pending entries.
+The current stable check instead fails at the GA archive task's pending proof;
+see [the SDK qualification attempt](ga-sdk-contracts.md#pin-967-qualification-attempt).
+No stable candidate is certified or published by this change.
+
+## PIN-967 current coverage checkpoint
+
+The coverage correspondence now reflects the five changed language/native rows
+and three amended legacy audits, plus input-bound links to all six GA audits.
+The extraction boundary remains455 current rows and406 historical rows; the
+new native overlay paragraphs introduce no additional goal rows under that rule.
+Historical rows and candidate package identities are retained. The full current
+pending-proof list is reconciled from canonical recipe metadata, rather than
+retaining already qualified AI/EF/tensor entries as current blockers.
+
+The checkpoint check passes455 row locations/destinations, the exact eight
+foundations, audit/input hashes and the current preview policy. This is coverage
+correspondence and evidence-freshness bookkeeping, not certification of the
+historical package or successful execution of remaining pending consumers.
+Telemetry local-collector, container archive reproducibility and explicit engine-selection qualification reduce current pending editions to five.
+Archive/glob is separately assigned to PIN-1321. Global stable readiness remains
+gated at this historical checkpoint; content/coverage.json was incomplete pending
+final candidate checks. The later selected-candidate section supersedes that state.
+
 ## PIN-1321 qualification update
 
 The 8 November checkpoint above remains historical. SDK11.0.100 GA reproduces
@@ -289,3 +320,129 @@ no longer match current metadata (the two Blazor, two tensor and generated-EF ed
 These unrelated bindings are deliberately
 not reapproved here. The scoped qualification does not certify the whole corpus
 or the historical candidate for stable publication.
+
+## PIN-967 final reconciliation
+
+The completed PIN-1321/PIN-1322/PIN-1323 changes are integrated from main.
+Pingu explicitly approved skipping Podman qualification. The Podman edition
+retains its canonical sample identities and compilation records, with loading,
+multiarchitecture inspection and execution explicitly not-tested rather than
+pending or verified. No engine acquisition or successful Podman claim follows.
+
+The current checkpoint checks all455 current row dispositions, exact eight
+foundations, original source audits and six GA audit overlays. It retains the406
+historical rows without revalidating their original identities.
+No pending Human proof remains. Historical RC/preview candidate identities and
+failed GA observations above retain their original meaning. Target11 coverage
+is reconciled comprehensive guidance; target10 remains the curated eight
+foundations/conditional routes. Package and platform validation must consume
+one selected1.0.0 candidate; readiness does not authorize publication.
+
+### Final validation blocked by a new package advisory
+
+The full stable-validation attempt at commit
+`9a38b8e955bdd9bd8971604860d5c267fa303024` is retained in
+[run43651523293](https://github.com/PinguApps/Playbook/actions/runs/43651523293).
+It stopped before packing: the .NET10 BinaryData consumer restores
+System.Formats.Cbor10.0.13, which now fails NU1902 for
+[GHSA-vmv3-wvjp-wqpj](https://github.com/advisories/GHSA-vmv3-wvjp-wqpj).
+The separately pinned .NET10 CalibrationGroups consumer has the same affected
+package. The fixed10.x package is10.0.15; GA11.0.0 is already fixed.
+
+Pingu approved the separate M(3) Current-cycle correction PIN-1325. It covers
+both consumers, their dependency locks, the three affected recipes and fresh
+real-consumer/evidence checks. Auditing and warnings-as-errors remain enabled.
+PIN-967 remains unpublished and In Progress. No selected stable package or
+Windows/macOS installed-smoke success follows from the failed run. Re-run the
+single-candidate validation after PIN-1325 reaches main; keep the existing
+preview package identities historical. The reporting job's missing-runner error
+is secondary to the build failure, not a separate successful-validation claim.
+
+### CBOR correction integrated
+
+On15 November2026, PIN-1325 merged in PR319 at `1fdb9f2a` and was integrated
+into this checkpoint. The real paired BinaryData/CalibrationGroups consumers
+passed again with SDK10.0.403/11.0.100, CBOR10.0.15/11.0.0, identical accepted
+CBOR bytes/values and exact package/selected/executed asset hashes. The coverage
+checkpoint still passes455 current rows and the exact eight foundations.
+The earlier failed attempt above remains historical. Full single-candidate
+validation resumes in [run43659477871](https://github.com/PinguApps/Playbook/actions/runs/43659477871)
+at commit `6f120d0cb5e2c1e288adb3e81b63b0267b27f50c`; its outcome is separate
+from the successful focused consumer replay. Podman remains explicitly skipped.
+
+That run completed sample/build/pack validation, then reported47/51 passing
+offline installed-package tests. Four expectations predated the reconciled GA
+guidance: three expected-body builders omitted newly added canonical snippet
+expansion, and the SDK scenario expected pending proof/compile-only receipts
+after qualification. Commit `138f52eb` refreshes those validation expectations;
+all four affected installed scenarios passed locally against the retained
+development checkpoint artifact. No served recipe changed in that fix.
+The failed run uploaded no stable candidate and ran no desktop smoke.
+Full validation restarts at that exact commit in
+[run43661367449](https://github.com/PinguApps/Playbook/actions/runs/43661367449).
+
+### Selected stable candidate
+
+That attempt passed all51 offline scenarios and local installed MCP inspection,
+but both desktop prerequisites failed: the pinned setup-dotnet action installs
+the current LTS runtime10.0.15 alongside11.0.0. Commit `692b9f48` retains only
+the11.x Core runtime inside each disposable smoke host, with resolved-path
+containment checks. The strict11-only assertion remains enabled.
+
+[Run43663021315](https://github.com/PinguApps/Playbook/actions/runs/43663021315)
+then passed the full sample/build/package checks, real Renovate permissions,
+all51 Linux offline installed scenarios, Windows installed smoke1/1 and macOS
+installed smoke1/1. Both desktop receipts name CoreCLR11.0.0 and clean exit0.
+All three consume the same selected `PinguApps.Playbook.1.0.0.nupkg`, built once
+at `692b9f482b52c463d5737280d5b57ecc0c61f2e0`, SHA256
+`ccc8ccdaa3558513b0e3920f16f58922cf8406d2a4603b150bbd7713c7b4ebc8`.
+The earlier partial stable attempt had hash
+`9a5b5caed68d29ac0b6411c45ab6ac252b586063f1f753ee39b6522f35e90c18`;
+it is historical and is not the selected candidate.
+
+The downloaded selected artifact also passed real Windows installed stdio MCP
+inspection from an unrelated directory: all five changed recipe IDs/titles/goals,
+full expanded canonical Markdown, applicability, fresh evidence and identical
+structured/text responses. The checkpoint matches455 current rows,406 retained
+historical rows, exact eight foundations, all audit/input hashes and zero pending
+Human proof, and verifies the selected package hash. Target11 is comprehensive;
+target10 retains its curated foundations and conditional routes.
+
+Earlier client connection/usability receipts remain scoped to their recorded
+client/artifact versions. The two-tool transport contract is unchanged; current
+installed initialization/list/get/shutdown and full-payload regressions are
+covered by this candidate's real package suite. No new client-version or fresh
+ordinary-agent-thread claim follows. Native sample-specific exclusions and the
+explicit successful-Podman skip remain not-tested; Docker/archive checks do not
+substitute for them. PIN-968 retains owner publication approval. This qualification
+does not publish a package or approve an untested native/provider behavior.
+
+### Review correction and final artifact refresh
+
+Pre-PR review found stale theoretical/unbuilt/pending-proof sentences in four
+served SDK recipes. Commit `cbc0ada6` replaces those statements with the actual
+bounded observations and explicit untested limits. It also scopes historical
+readiness statements and distinguishes retained historical rows from checked
+current rows. No sample, dependency, toolchain or runtime source changed.
+The qualified692b9f48 artifact above is now historical; the corrected served
+wording requires a refreshed final candidate. Full validation runs at
+[run43665673690](https://github.com/PinguApps/Playbook/actions/runs/43665673690).
+
+### Final corrected candidate qualification
+
+Run43665673690 passed full build/package validation, all51 Linux offline tests
+and Windows/macOS installed smoke1/1 each. The final corrected artifact is
+`PinguApps.Playbook.1.0.0.nupkg`, built once at
+`cbc0ada6697c41aee2891e399bf93209838fc1ed`, SHA256
+`60fd52a2c5bc83201bc4d4b06c436c227254a9ea5c08784448c60fdd9b518165`.
+Both desktop receipts show that hash, CoreCLR11.0.0 and shutdown exit0. The
+downloaded same artifact passed the unrelated-directory local installed MCP
+check for all five changed recipes, full Markdown, applicability and freshness.
+This supersedes the historical692b9f48 candidate above; original identities and
+failed attempts remain retained. No repack or public publication occurred.
+
+Both incremental pre-PR reviewers approved the qualification wording correction.
+A non-blocking planning consistency note was resolved by updating four planning
+rows and their current-row mirrors/hash to the already qualified bounded proof.
+The parent verified this documentation-only follow-up with the checkpoint; it
+changes no served content, sample, dependency or runtime behavior.

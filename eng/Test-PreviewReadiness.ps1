@@ -14,17 +14,32 @@ function Reject([string[]]$Arguments, [string]$Expected) {
 Reject @('-PreviewReady','-PackageVersion','1.0.0') 'Preview readiness requires a preview.N package version.'
 Reject @('-PreviewReady','-PackageVersion',"1.0.0-preview.1`n") 'Preview readiness requires a preview.N package version.'
 Reject @('-PreviewReady','-ReleaseReady','-PackageVersion','1.0.0-preview.1') 'Choose stable or preview readiness'
-$policy = Get-Content -LiteralPath $policyPath -Raw | ConvertFrom-Json -AsHashtable
-$first = @($policy.exceptions | Sort-Object id)[0]
-$policy.exceptions = @($policy.exceptions | Where-Object { $_.id -cne $first.id })
+# Synthetic pending content keeps the rejection guards useful after every real
+# exception has been reconciled. It reuses canonical compiled sample inputs.
+$recipes = Join-Path $run 'recipes'
+$edition = Join-Path $recipes 'csharp.validate-property-assignment/10.0'
+New-Item -ItemType Directory -Path $edition -Force | Out-Null
+Copy-Item (Join-Path $root 'content/recipes/csharp.validate-property-assignment/10.0/*') $edition
+$recipe = Get-Content (Join-Path $edition 'recipe.json') -Raw | ConvertFrom-Json -AsHashtable
+$recipe.humanProof = @{ status = 'pending'; scope = 'Synthetic unverified consumer for readiness rejection checks; not a shipped claim.' }
+$recipe | ConvertTo-Json -Depth 40 | Set-Content (Join-Path $edition 'recipe.json')
+Add-Content (Join-Path $edition 'recipe.md') "`nSynthetic pending proof remains unverified."
+$exception = @{
+    id = $recipe.id; edition = $recipe.edition; classification = 'documented-ga-intent'
+    scope = 'Synthetic guard fixture only.'; followUp = 'PIN-967'
+    samples = @($recipe.evidence.sample | Sort-Object -Unique)
+    metadataSha256 = (Get-FileHash (Join-Path $edition 'recipe.json')).Hash.ToLowerInvariant()
+    markdownSha256 = (Get-FileHash (Join-Path $edition 'recipe.md')).Hash.ToLowerInvariant()
+}
+$policy = @{ schemaVersion = 1; approvedBy = 'Pingu'; exceptions = @() }
 $fixture = Join-Path $run 'policy.json'
-$policy | ConvertTo-Json -Depth 20 | Set-Content -LiteralPath $fixture
-Reject @('-PreviewReady','-PackageVersion','1.0.0-preview.1','-PreviewPolicyPath',$fixture) 'Unapproved pending preview evidence'
-$policy = Get-Content -LiteralPath $policyPath -Raw | ConvertFrom-Json -AsHashtable
-@($policy.exceptions | Sort-Object id)[0].markdownSha256 = '0' * 64
-$policy | ConvertTo-Json -Depth 20 | Set-Content -LiteralPath $fixture
-Reject @('-PreviewReady','-PackageVersion','1.0.0-preview.1','-PreviewPolicyPath',$fixture) 'Preview exception inputs changed'
-Reject @('-ReleaseReady') 'Pending Human proof blocks release readiness'
+$policy | ConvertTo-Json -Depth 20 | Set-Content $fixture
+Reject @('-RecipeRoot',$recipes,'-PreviewReady','-PackageVersion','1.0.0-preview.1','-PreviewPolicyPath',$fixture) 'Unapproved pending preview evidence'
+$exception.markdownSha256 = '0' * 64
+$policy.exceptions = @($exception)
+$policy | ConvertTo-Json -Depth 20 | Set-Content $fixture
+Reject @('-RecipeRoot',$recipes,'-PreviewReady','-PackageVersion','1.0.0-preview.1','-PreviewPolicyPath',$fixture) 'Preview exception inputs changed'
+Reject @('-RecipeRoot',$recipes,'-ReleaseReady') 'Pending Human proof blocks release readiness'
 if ($GuardsOnly) {
     Write-Host 'PASS: preview/stable channel, unapproved pending proof and changed exception inputs are guarded.'
     $global:LASTEXITCODE = 0

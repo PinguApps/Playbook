@@ -31,10 +31,9 @@
         "conditional": false,
         "usage": "primary",
         "selectionNotes": [
-          "Theoretical guidance: source review only; samples have not been compiled or executed. Pending proof blocks stable readiness; preview publication requires a named approved exception.",
+          "Windows SDK10.0.403 and SDK11.0.100 opt-out wrappers returned successfully with no local collector requests. GA export delivered dotnet-cli traces and metrics over HTTP/protobuf to a temporary loopback collector. Microsoft trace export was disabled only in the verification process. No global network absence, Azure Monitor behavior, retry or production delivery guarantee is established.",
           "OTLP export requires an existing collector and an explicit choice to enable CLI collection.",
-          "Configuring an OTLP endpoint is not an exclusive redirect of Microsoft telemetry.",
-          "Provisional pre-GA guidance: pending behavior/final-artifact proof is not successful execution or GA verification."
+          "Configuring an OTLP endpoint is not an exclusive redirect of Microsoft telemetry."
         ],
         "sharedAreas": [
           "aspnetcore",
@@ -49,19 +48,19 @@
             "name": ".NET",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Intended managed consumer target; not an observed runtime result."
+            "reason": "Runtime target of the canonical managed wrapper; see exact compilation and execution evidence separately."
           },
           "sdk": {
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "The documented newer SDK family; exact sample pin is unbuilt GA evidence."
+            "reason": "The SDK supplies CLI telemetry; canonical SDK11.0.100 was executed against a local OTLP endpoint."
           },
           "language": {
             "name": "C#",
             "version": "15.0",
             "match": "exact",
-            "reason": "Intended language mode of the original managed consumer; the XML glob configuration itself is language-neutral."
+            "reason": "Language mode of the managed launcher; the environment contract is language-neutral."
           },
           "frameworks": [],
           "packages": [],
@@ -69,12 +68,12 @@
           "workloads": [],
           "providers": [],
           "platforms": [
-            "Platforms supported by the selected .NET SDK; no platform execution is claimed."
+            "SDK-supported hosts; measured wrapper and local-collector behavior is Windows only."
           ],
           "renderingModes": [],
           "prerequisites": [
-            "Select actual absolute executable paths and inspect the consumer global.json, project and shared build/package inheritance.",
-            "These samples are theoretical. No build, package installation, collector, engine, archive or installed MCP retrieval has been exercised."
+            "Select actual absolute executable paths and inspect global.json, project and shared configuration.",
+            "An explicitly chosen collector is required for export. The sample loopback HTTP/protobuf endpoint is a local example."
           ],
           "constraints": [
             "OTLP export requires an existing collector and an explicit choice to enable CLI collection.",
@@ -84,9 +83,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Theoretical guidance: source review only; samples have not been compiled or executed. Pending proof blocks stable readiness; preview publication requires a named approved exception.",
-            "Official .NET 11 RC documentation and source were reviewed; the pinned GA samples are uncompiled. No experimental API is intentionally used; GA reconciliation remains separate.",
-            "Provisional pre-GA guidance: pending behavior/final-artifact proof is not successful execution or GA verification."
+            "Windows SDK10.0.403 and SDK11.0.100 opt-out wrappers returned successfully with no local collector requests. GA export delivered dotnet-cli traces and metrics over HTTP/protobuf to a temporary loopback collector. Microsoft trace export was disabled only in the verification process. No global network absence, Azure Monitor behavior, retry or production delivery guarantee is established."
           ]
         },
         "sourceUrls": [
@@ -155,6 +152,24 @@
       "sdk": "11.0.100",
       "language": "15.0",
       "scope": "Actual locked compilation of this canonical project on Windows. This is not composed-host, provider, telemetry, archive, engine or final-GA behavior proof; .cs.txt integration inputs are not compiled."
+    },
+    {
+      "kind": "execution",
+      "sdk": "10.0.403",
+      "record": "samples/net10.0/CliTelemetry/telemetry.evidence.json",
+      "language": "14.0",
+      "scope": "Windows SDK10.0.403 and SDK11.0.100 opt-out wrappers returned successfully with no local collector requests. GA export delivered dotnet-cli traces and metrics over HTTP/protobuf to a temporary loopback collector. Microsoft trace export was disabled only in the verification process. No global network absence, Azure Monitor behavior, retry or production delivery guarantee is established.",
+      "sample": "samples/net10.0/CliTelemetry/CliTelemetry.csproj",
+      "target": "net10.0"
+    },
+    {
+      "kind": "execution",
+      "sdk": "11.0.100",
+      "record": "samples/net11.0/CliTelemetry/telemetry.evidence.json",
+      "language": "15.0",
+      "scope": "Windows SDK10.0.403 and SDK11.0.100 opt-out wrappers returned successfully with no local collector requests. GA export delivered dotnet-cli traces and metrics over HTTP/protobuf to a temporary loopback collector. Microsoft trace export was disabled only in the verification process. No global network absence, Azure Monitor behavior, retry or production delivery guarantee is established.",
+      "sample": "samples/net11.0/CliTelemetry/CliTelemetry.csproj",
+      "target": "net11.0"
     }
   ],
   "snippets": {
@@ -180,7 +195,7 @@
     }
   },
   "humanProof": {
-    "status": "pending",
-    "scope": "Pre-GA preview approved by Pingu on 8 November 2026; canonical project compilation is measured. Provisional pre-GA guidance: pending behavior/final-artifact proof is not successful execution or GA verification. Remaining claim-specific behavior and final qualification are not verified; stable readiness remains gated. Final reconciliation: PIN-963."
+    "status": "verified",
+    "scope": "Windows SDK10.0.403 and SDK11.0.100 opt-out wrappers returned successfully with no local collector requests. GA export delivered dotnet-cli traces and metrics over HTTP/protobuf to a temporary loopback collector. Microsoft trace export was disabled only in the verification process. No global network absence, Azure Monitor behavior, retry or production delivery guarantee is established."
   }
 }

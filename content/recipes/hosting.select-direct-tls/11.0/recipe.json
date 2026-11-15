@@ -31,7 +31,7 @@
         "conditional": false,
         "usage": "primary",
         "selectionNotes": [
-          "GA documentation removed the direct-TLS include; NuGet index offers only RC1, not 11.0.0. RC1 lacks the former documented DirectTlsEndpoint. Current canonical code is ordinary socket HTTPS, not a direct-TLS implementation. Linux/OpenSSL transport selection and negotiation remain not-tested under the native policy. Actual supported direct-TLS artifact/scenario availability remains a PIN-967 stable-gate condition."
+          "GA documentation removed the direct-TLS include; NuGet index offers only RC1, not 11.0.0. RC1 lacks the former documented DirectTlsEndpoint. Current canonical code is ordinary socket HTTPS, not a direct-TLS implementation. Linux/OpenSSL transport selection and negotiation remain not-tested under the native policy. The withdrawn direct-TLS route is unavailable and is not a supported GA implementation. Use the socket HTTPS fallback; it requires no direct-TLS artifact."
         ],
         "requirements": {
           "runtime": {
@@ -78,13 +78,13 @@
             "Save every listed canonical file in its own directory. Restore package pins/lock before offline builds. Directory files isolate repository inheritance. Read Evidence before treating any example as verified."
           ],
           "constraints": [
-            "GA documentation removed the direct-TLS include; NuGet index offers only RC1, not 11.0.0. RC1 lacks the former documented DirectTlsEndpoint. Current canonical code is ordinary socket HTTPS, not a direct-TLS implementation. Linux/OpenSSL transport selection and negotiation remain not-tested under the native policy. Actual supported direct-TLS artifact/scenario availability remains a PIN-967 stable-gate condition."
+            "GA documentation removed the direct-TLS include; NuGet index offers only RC1, not 11.0.0. RC1 lacks the former documented DirectTlsEndpoint. Current canonical code is ordinary socket HTTPS, not a direct-TLS implementation. Linux/OpenSSL transport selection and negotiation remain not-tested under the native policy. The withdrawn direct-TLS route is unavailable and is not a supported GA implementation. Use the socket HTTPS fallback; it requires no direct-TLS artifact."
           ],
           "optIns": [
             "Explicit experimental package inspection only; do not enable the withdrawn direct endpoint. Socket HTTPS requires no experimental opt-in."
           ],
           "stabilityLimitations": [
-            "GA documentation removed the direct-TLS include; NuGet index offers only RC1, not 11.0.0. RC1 lacks the former documented DirectTlsEndpoint. Current canonical code is ordinary socket HTTPS, not a direct-TLS implementation. Linux/OpenSSL transport selection and negotiation remain not-tested under the native policy. Actual supported direct-TLS artifact/scenario availability remains a PIN-967 stable-gate condition."
+            "GA documentation removed the direct-TLS include; NuGet index offers only RC1, not 11.0.0. RC1 lacks the former documented DirectTlsEndpoint. Current canonical code is ordinary socket HTTPS, not a direct-TLS implementation. Linux/OpenSSL transport selection and negotiation remain not-tested under the native policy. The withdrawn direct-TLS route is unavailable and is not a supported GA implementation. Use the socket HTTPS fallback; it requires no direct-TLS artifact."
           ]
         },
         "sourceUrls": [
@@ -203,7 +203,8 @@
     }
   },
   "humanProof": {
-    "status": "pending",
-    "scope": "GA documentation removed the direct-TLS include; NuGet index offers only RC1, not 11.0.0. RC1 lacks the former documented DirectTlsEndpoint. Current canonical code is ordinary socket HTTPS, not a direct-TLS implementation. Linux/OpenSSL transport selection and negotiation remain not-tested under the native policy. Actual supported direct-TLS artifact/scenario availability remains a PIN-967 stable-gate condition. Pending stable gate is actual supported artifact/scenario availability. Linux/OpenSSL execution remains excluded as not-tested under the existing native policy; no new hardware qualification is requested."
+    "untestedSamples": ["samples/net10.0/HarbourTls/HarbourTls.csproj", "samples/net11.0/HarbourTls/HarbourTls.csproj"],
+    "status": "not-tested",
+    "scope": "GA documentation removed the direct-TLS include; NuGet index offers only RC1, not 11.0.0. RC1 lacks the former documented DirectTlsEndpoint. Current canonical code is ordinary socket HTTPS, not a direct-TLS implementation. Linux/OpenSSL transport selection and negotiation remain not-tested under the native policy. The withdrawn direct-TLS route is unavailable and is not a supported GA implementation. Use the socket HTTPS fallback; it requires no direct-TLS artifact. Linux/OpenSSL execution remains excluded as not-tested under the existing native policy; no new hardware qualification is requested."
   }
 }

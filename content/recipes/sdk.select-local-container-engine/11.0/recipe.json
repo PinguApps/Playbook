@@ -34,10 +34,8 @@
         "conditional": false,
         "usage": "primary",
         "selectionNotes": [
-          "Theoretical guidance: source review only; samples have not been compiled or executed. Pending proof blocks stable readiness; preview publication requires a named approved exception.",
-          "An already installed, reachable engine is required; Playbook neither installs nor contacts it.",
-          "Wslc and MacOSContainer are property values; wslc and container are executable names.",
-          "Provisional pre-GA guidance: pending behavior/final-artifact proof is not successful execution or GA verification."
+          "Actual Windows GA SDK explicit Docker selection, owned linux-x64 image load and network-disabled execution; payload printed both dispatch records and image was removed. Explicit absent Podman failed CONTAINER1012 without Docker fallback. Successful Podman loading/execution and other platforms are not established.",
+          "The selected engine must be installed and available; choosing an unavailable engine is an error."
         ],
         "sharedAreas": [
           "aspnetcore",
@@ -58,7 +56,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "The documented newer SDK family; exact sample pin is unbuilt GA evidence."
+            "reason": "SDK11 supplies explicit LocalRegistry selection; observed available-Docker and absent-Podman controls are separate evidence."
           },
           "language": {
             "name": "C#",
@@ -78,8 +76,8 @@
           ],
           "renderingModes": [],
           "prerequisites": [
-            "Select actual absolute executable paths and inspect the consumer global.json, project and shared build/package inheritance.",
-            "These samples are theoretical. No build, package installation, collector, engine, archive or installed MCP retrieval has been exercised."
+            "Install and configure the engine you explicitly select; no engine is installed by consulting this guidance.",
+            "Select a real compatible base image and keep registry pushes separate from local engine loading."
           ],
           "constraints": [
             "An already installed, reachable engine is required; Playbook neither installs nor contacts it.",
@@ -89,9 +87,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Theoretical guidance: source review only; samples have not been compiled or executed. Pending proof blocks stable readiness; preview publication requires a named approved exception.",
-            "Official .NET 11 RC documentation and source were reviewed; the pinned GA samples are uncompiled. No experimental API is intentionally used; GA reconciliation remains separate.",
-            "Provisional pre-GA guidance: pending behavior/final-artifact proof is not successful execution or GA verification."
+            "Actual Windows GA SDK explicit Docker selection, owned linux-x64 image load and network-disabled execution; payload printed both dispatch records and image was removed. Explicit absent Podman failed CONTAINER1012 without Docker fallback. Successful Podman loading/execution and other platforms are not established."
           ]
         },
         "sourceUrls": [
@@ -155,6 +151,15 @@
       "sdk": "11.0.100",
       "language": "15.0",
       "scope": "Actual locked compilation of this canonical project on Windows. This is not composed-host, provider, telemetry, archive, engine or final-GA behavior proof; .cs.txt integration inputs are not compiled."
+    },
+    {
+      "sample": "samples/net11.0/ContainerPublishing/ContainerPublishing.csproj",
+      "sdk": "11.0.100",
+      "target": "net11.0",
+      "language": "15.0",
+      "record": "samples/net11.0/ContainerPublishing/engine-selection.evidence.json",
+      "scope": "Actual Windows GA SDK explicit Docker selection, owned linux-x64 image load and network-disabled execution; payload printed both dispatch records and image was removed. Explicit absent Podman failed CONTAINER1012 without Docker fallback. Successful Podman loading/execution and other platforms are not established.",
+      "kind": "execution"
     }
   ],
   "snippets": {
@@ -175,7 +180,7 @@
     }
   },
   "humanProof": {
-    "status": "pending",
-    "scope": "Pre-GA preview approved by Pingu on 8 November 2026; canonical project compilation is measured. Provisional pre-GA guidance: pending behavior/final-artifact proof is not successful execution or GA verification. Remaining claim-specific behavior and final qualification are not verified; stable readiness remains gated. Final reconciliation: PIN-963."
+    "scope": "Actual Windows GA SDK explicit Docker selection, owned linux-x64 image load and network-disabled execution; payload printed both dispatch records and image was removed. Explicit absent Podman failed CONTAINER1012 without Docker fallback. Successful Podman loading/execution and other platforms are not established.",
+    "status": "verified"
   }
 }

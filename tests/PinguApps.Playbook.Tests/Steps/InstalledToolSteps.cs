@@ -1904,7 +1904,38 @@ public sealed class InstalledToolSteps : IDisposable
         return (await reader.ReadToEndAsync().ConfigureAwait(false)).Replace("\r\n", "\n", StringComparison.Ordinal);
     }
 
-    [Then("provisional SDK and build recipes retain complete bodies and distinguish compilation from pending behavior")]
+    private static async Task<string> ExpandGaSnippetsAsync(string markdown, string id)
+    {
+        if (!markdown.Contains("{{snippet:", StringComparison.Ordinal))
+        {
+            return markdown;
+        }
+        async Task<string> ReadAsync(string path)
+        {
+            System.Reflection.Assembly assembly = typeof(InstalledToolSteps).Assembly;
+            string name = Assert.Single(assembly.GetManifestResourceNames(), value => value.StartsWith("GaInput.", StringComparison.Ordinal) && value.Replace('\\', '/').EndsWith(path, StringComparison.Ordinal));
+            await using Stream stream = assembly.GetManifestResourceStream(name)!;
+            using StreamReader reader = new(stream);
+            return (await reader.ReadToEndAsync().ConfigureAwait(false)).Replace("\r\n", "\n", StringComparison.Ordinal);
+        }
+        using JsonDocument metadata = JsonDocument.Parse(await ReadAsync($"content/recipes/{id}/11.0/recipe.json").ConfigureAwait(false));
+        foreach (JsonProperty snippet in metadata.RootElement.GetProperty("snippets").EnumerateObject())
+        {
+            if (!markdown.Contains($"{{{{snippet:{snippet.Name}}}}}", StringComparison.Ordinal))
+            {
+                continue;
+            }
+            string source = await ReadAsync(snippet.Value.GetProperty("path").GetString()!).ConfigureAwait(false);
+            string region = System.Text.RegularExpressions.Regex.Escape(snippet.Value.GetProperty("region").GetString()!);
+            System.Text.RegularExpressions.Match match = System.Text.RegularExpressions.Regex.Match(source, $@"(?ms)^[ \t]*// snippet:{region}\n(.*?)^[ \t]*// endsnippet:{region}$");
+            Assert.True(match.Success, $"Missing canonical region {id}/{snippet.Name}");
+            string language = snippet.Value.GetProperty("language").GetString()!;
+            markdown = markdown.Replace($"{{{{snippet:{snippet.Name}}}}}", $"```{language}\n{match.Groups[1].Value.TrimEnd()}\n```", StringComparison.Ordinal);
+        }
+        return markdown;
+    }
+
+    [Then("SDK and build recipes retain complete bodies and bounded proof statuses")]
     public async Task CheckTheoreticalBuildGuidanceAsync()
     {
         string[] ids = ["sdk.select-local-container-engine", "sdk.publish-reproducible-containers", "sdk.publish-multiarch-with-podman", "sdk.configure-cli-telemetry", "msbuild.archive-build-artifacts", "msbuild.inspect-item-globs"];
@@ -1931,13 +1962,19 @@ public sealed class InstalledToolSteps : IDisposable
             Assert.Equal("11.0", recipe.GetProperty("edition").GetString());
             Assert.Equal(expected, recipe.GetProperty("markdown").GetString());
             AssertSelection(summary, recipe);
-            Assert.Equal("pending", recipe.GetProperty("humanProof").GetProperty("status").GetString());
-            Assert.Contains("Provisional pre-GA guidance", summary.ToString(), StringComparison.Ordinal);
+            string expectedProof = id switch
+            {
+                "sdk.publish-multiarch-with-podman" => "not-tested",
+                "msbuild.archive-build-artifacts" or "msbuild.inspect-item-globs" => "not-required",
+                _ => "verified",
+            };
+            Assert.Equal(expectedProof, recipe.GetProperty("humanProof").GetProperty("status").GetString());
+            Assert.DoesNotContain("Provisional pre-GA guidance", summary.ToString(), StringComparison.Ordinal);
             JsonElement[] records = [.. recipe.GetProperty("evidence").EnumerateArray()];
             Assert.Contains(records, evidence => evidence.GetProperty("kind").GetString() == "official-review" && evidence.GetProperty("role").GetString() == "source-review");
             foreach (string target in new[] { "net10.0", "net11.0" })
             {
-                Assert.Contains(records, evidence => evidence.GetProperty("kind").GetString() == "compile" && evidence.GetProperty("target").GetString() == target);
+                Assert.Contains(records, evidence => evidence.GetProperty("kind").GetString() is "compile" or "compile-and-run" && evidence.GetProperty("target").GetString() == target);
             }
             Assert.All(records, evidence => Assert.Equal("current", evidence.GetProperty("freshness").GetString()));
             JsonElement route = Assert.Single(recipe.GetProperty("applicability").GetProperty("routes").EnumerateArray());
@@ -2295,6 +2332,7 @@ public sealed class InstalledToolSteps : IDisposable
             expected = expected.Replace($"{{{{snippet:{token}}}}}", $"```csharp\n{snippet}\n```", StringComparison.Ordinal);
         }
 
+        expected = await ExpandGaSnippetsAsync(expected, id).ConfigureAwait(false);
         Assert.Equal(expected, recipe.GetProperty("markdown").GetString());
         Assert.DoesNotContain("{{snippet:", expected, StringComparison.Ordinal);
         JsonElement requirements = Assert.Single(recipe.GetProperty("applicability").GetProperty("routes").EnumerateArray()).GetProperty("requirements");
@@ -2421,6 +2459,7 @@ public sealed class InstalledToolSteps : IDisposable
                 expected = expected.Replace($"{{{{snippet:{token}}}}}", $"```csharp\n{snippet}\n```", StringComparison.Ordinal);
             }
 
+            expected = await ExpandGaSnippetsAsync(expected, id).ConfigureAwait(false);
             Assert.Equal(expected, recipe.GetProperty("markdown").GetString());
             Assert.DoesNotContain("{{snippet:", expected, StringComparison.Ordinal);
             JsonElement requirements = Assert.Single(recipe.GetProperty("applicability").GetProperty("routes").EnumerateArray()).GetProperty("requirements");
@@ -2500,6 +2539,7 @@ public sealed class InstalledToolSteps : IDisposable
                 Assert.Equal(edition, recipe.GetProperty("edition").GetString());
                 Assert.Equal(edition, recipe.GetProperty("introducedIn").GetString());
                 Assert.Equal("stable", recipe.GetProperty("stability").GetString());
+                expected = await ExpandGaSnippetsAsync(expected, id).ConfigureAwait(false);
                 Assert.Equal(expected, recipe.GetProperty("markdown").GetString());
                 Assert.DoesNotContain("{{snippet:", expected, StringComparison.Ordinal);
                 JsonElement route = Assert.Single(recipe.GetProperty("applicability").GetProperty("routes").EnumerateArray());
@@ -3044,7 +3084,8 @@ public sealed class InstalledToolSteps : IDisposable
             Assert.Equal(["10.0", "11.0"], result.GetProperty("supportedTargets").EnumerateArray().Select(item => item.GetString()));
             JsonElement[] coverage = [.. result.GetProperty("coverage").EnumerateArray()];
             Assert.Equal(["curated", "comprehensive"], coverage.Select(item => item.GetProperty("scope").GetString()));
-            Assert.All(coverage, item => Assert.False(item.GetProperty("complete").GetBoolean()));
+            Assert.False(coverage[0].GetProperty("complete").GetBoolean());
+            Assert.True(coverage[1].GetProperty("complete").GetBoolean());
         }
 
         JsonElement older = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id = "csharp.validate-property-assignment", targetVersion = "net10.0" }).ConfigureAwait(false));

@@ -8,7 +8,7 @@
   {
     "target": "11.0",
     "scope": "comprehensive",
-    "complete": false,
-    "description": "Comprehensive .NET 11 author-facing coverage is the launch commitment, not the current completion state. This development catalogue is incomplete and records RC evidence separately from GA verification."
+    "complete": true,
+    "description": "Reconciled .NET 11 author-facing coverage with current source dispositions and exact sample evidence. Experimental contracts, conditional toolchains and explicit not-tested exclusions remain disclosed per recipe; an empty search is not proof that a goal has no implementation."
   }
 ]

@@ -4,7 +4,7 @@
 
 Keep an SDK container publish directed at the intended local image store. This matters when a workstation has several engines: a successful load into one store does not make the image available in another.
 
-This is provisional guidance prepared from official sources. Both canonical projects have recorded compilation; the newer comparison's Docker selection, image load and run passed. Podman and failure/fallback behavior remain unverified.
+This is provisional guidance prepared from official sources. Both canonical projects have recorded compilation; the newer comparison's Docker selection, image load and run passed. The explicit absent-Podman request failed with CONTAINER1012 without falling back to Docker; successful Podman loading and execution remain untested.
 
 ## Older approach
 
@@ -31,8 +31,8 @@ The app is deliberately independent of the engine:
 1. Inspect the project and publish profile for `LocalRegistry`, `ContainerRegistry`, `ContainerArchiveOutputPath`, command-line overrides and inherited properties. A remote `ContainerRegistry` or archive destination is a different output path from loading a local engine.
 2. Decide which existing image store the consumer uses. Set its supported `LocalRegistry` value in the project or selected publish profile. Leave it absent only when automatic discovery is intentional.
 3. Supply `PinnedContainerBase` as a compatible .NET 11 runtime index reference of the form `mcr.microsoft.com/dotnet/runtime@sha256:<actual-index-digest>`. Resolve the digest from the chosen official image; no account or registry publication is part of this recipe.
-4. When execution is authorized, invoke the selected SDK's absolute executable from the newer sample directory with `publish -c Release /t:PublishContainer -p:ContainerRegistry= -p:PinnedContainerBase=<reference>`. The sample defaults to Podman; use `-p:LocalRegistry=Docker` for an intended Docker override. These commands have not been run.
-5. In a future verification pass, inspect the **same** engine's local image/index store. An image missing from Docker Desktop says nothing about whether it was loaded into Podman. Record the selected tool/version and resulting local reference before claiming success.
+4. When execution is authorized, invoke the selected SDK's absolute executable from the newer sample directory with `publish -c Release /t:PublishContainer -p:ContainerRegistry= -p:PinnedContainerBase=<reference>`. The sample defaults to Podman; use `-p:LocalRegistry=Docker` for an intended Docker override. The explicit Docker override and absent-Podman failure control have run; successful Podman loading remains unverified.
+5. When verifying a selected engine, inspect the **same** engine's local image/index store. An image missing from Docker Desktop says nothing about whether it was loaded into Podman. Record the selected tool/version and resulting local reference before claiming success.
 
 ## Constraints
 
@@ -40,14 +40,14 @@ The app is deliberately independent of the engine:
 
 Both samples use SDK-provided container tasks, a framework-dependent console app, and no package references, workloads, provider, rendering mode or Dockerfile. The image needs a compatible runtime base. The sample architecture declarations describe outputs, not machines on which the program has run. Existing Dockerfile-based builds remain appropriate when custom image build steps are required.
 
-The actual base image, engine and manifests are absent from this source-only delivery. The earlier access assessment found Docker but no Podman; Pingu explicitly chose theoretical implementation without obtaining Podman. No installation or live check is requested by consulting this content.
+The GA verification uses the explicitly pinned runtime index and existing Docker engine. The earlier access assessment found Docker but no Podman; Pingu explicitly chose theoretical implementation without obtaining Podman. No installation or live check is requested by consulting this content.
 
 ## Evidence and limitations
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. The sample-specific limitations below remain; this edition has no pending Human proof gate.
 
 The canonical .NET10 and .NET11 projects now have actual locked compilation records from Windows, using their declared SDKs and dependencies. The original official-source review is retained separately. Compilation alone does not verify engine selection, dispatch or fallback behavior.
 
-The pre-GA preview is explicitly provisional. Pending proof remains visible in discovery/detail and blocks stable readiness. The approved preview evidence register names this exact edition, canonical samples, limitations and its final-reconciliation owner; it does not claim successful unperformed checks.
+The existing-format execution receipt qualifies explicit engine selection on the recorded host. It resolves this edition's pending proof, not global stable readiness or successful Podman operation.
 
-SDK11 explicitly selected Docker, loaded an owned Linux x64 image and ran it with networking disabled; the image was removed. Podman and engine failure/fallback controls remain unverified.
+Actual Windows GA SDK explicit Docker selection, owned linux-x64 image load and network-disabled execution; payload printed both dispatch records and image was removed. Explicit absent Podman failed CONTAINER1012 without Docker fallback. Successful Podman loading/execution and other platforms are not established.
