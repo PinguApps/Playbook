@@ -4,7 +4,7 @@
 
 Keep an SDK container publish directed at the intended local image store. This matters when a workstation has several engines: a successful load into one store does not make the image available in another.
 
-This is provisional guidance prepared from official sources. Both canonical projects have recorded compilation; the newer comparison's Docker selection, image load and run passed. Podman and failure/fallback behavior remain unverified.
+This is provisional guidance prepared from official sources. Both canonical projects have recorded compilation; the newer comparison's Docker selection, image load and run passed. The explicit absent-Podman request failed with CONTAINER1012 without falling back to Docker; successful Podman loading and execution remain untested.
 
 ## Older approach
 
@@ -44,7 +44,7 @@ The GA verification uses the explicitly pinned runtime index and existing Docker
 
 ## Evidence and limitations
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. The sample-specific limitations below remain; this edition has no pending Human proof gate.
 
 The canonical .NET10 and .NET11 projects now have actual locked compilation records from Windows, using their declared SDKs and dependencies. The original official-source review is retained separately. Compilation alone does not verify engine selection, dispatch or fallback behavior.
 

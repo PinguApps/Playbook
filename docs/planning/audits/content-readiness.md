@@ -284,7 +284,8 @@ correspondence and evidence-freshness bookkeeping, not certification of the
 historical package or successful execution of remaining pending consumers.
 Telemetry local-collector, container archive reproducibility and explicit engine-selection qualification reduce current pending editions to five.
 Archive/glob is separately assigned to PIN-1321. Global stable readiness remains
-gated; content/coverage.json remains incomplete pending final candidate checks.
+gated at this historical checkpoint; content/coverage.json was incomplete pending
+final candidate checks. The later selected-candidate section supersedes that state.
 
 ## PIN-1321 qualification update
 
@@ -328,8 +329,9 @@ retains its canonical sample identities and compilation records, with loading,
 multiarchitecture inspection and execution explicitly not-tested rather than
 pending or verified. No engine acquisition or successful Podman claim follows.
 
-The current checkpoint binds all455 current row dispositions, the406 historical
-rows, exact eight foundations, original source audits and six GA audit overlays.
+The current checkpoint checks all455 current row dispositions, exact eight
+foundations, original source audits and six GA audit overlays. It retains the406
+historical rows without revalidating their original identities.
 No pending Human proof remains. Historical RC/preview candidate identities and
 failed GA observations above retain their original meaning. Target11 coverage
 is reconciled comprehensive guidance; target10 remains the curated eight

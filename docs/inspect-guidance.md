@@ -5184,6 +5184,7 @@ this establishes embedded retrieval, not OS network isolation or sample executio
 
 The observed development package SHA256 was
 `b367d15afd7e0feb270e4728c0b549f198e13309a5bb50370cfec13ae3fae86c`.
-This is separate from the failed full stable validation: PIN-1325 must correct
-the newly reported CBOR package vulnerability before PIN-967 selects and verifies
-one stable candidate. No stable artifact or platform-smoke success is claimed.
+At this historical development checkpoint, the CBOR correction and stable
+validation were still pending. PIN-1325 has since merged; the selected stable
+candidate and successful platform checks are recorded in
+[the readiness report](planning/audits/content-readiness.md#selected-stable-candidate).

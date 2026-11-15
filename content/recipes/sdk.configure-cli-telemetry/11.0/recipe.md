@@ -4,7 +4,7 @@
 
 Make a deliberate choice about SDK usage collection and optional export for a command process. Keep that choice separate from application diagnostics, from suppressing the welcome banner, and from the environment of unrelated builds.
 
-This guidance is theoretical: no collector, telemetry transport, child command or comparison build has been exercised.
+Both canonical projects have recorded compilation. The paired opt-out wrappers and the GA loopback OTLP export branch were exercised; Azure Monitor and production delivery remain untested.
 
 ## Older approach
 
@@ -49,7 +49,7 @@ OTLP generic endpoints are base addresses; transport and per-signal overrides af
 
 ## Evidence and limitations
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. The sample-specific limitations below remain; this edition has no pending Human proof gate.
 
 The canonical .NET10 and .NET11 projects now have actual locked compilation records from Windows, using their declared SDKs and dependencies. The original official-source review is retained separately. Compilation alone does not exercise the export branch or measure telemetry configuration/network behavior.
 

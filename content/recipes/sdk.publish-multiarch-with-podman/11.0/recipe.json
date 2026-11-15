@@ -54,7 +54,7 @@
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "The documented newer SDK family; exact sample pin is unbuilt GA evidence."
+            "reason": "The documented newer SDK family; exact sample pins and recorded GA compilation are separate from untested Podman operation."
           },
           "language": {
             "name": "C#",
@@ -75,7 +75,7 @@
           "renderingModes": [],
           "prerequisites": [
             "Select actual absolute executable paths and inspect the consumer global.json, project and shared build/package inheritance.",
-            "These samples are theoretical. No build, package installation, collector, engine, archive or installed MCP retrieval has been exercised."
+            "Both samples have recorded compilation and the GA sample has local multiarchitecture archive evidence. Successful Podman loading, inspection and execution remain explicitly not-tested; archive and Docker checks do not establish Podman behavior."
           ],
           "constraints": [
             "Requires a working Podman installation and local image/manifest store; no Podman execution has been performed.",

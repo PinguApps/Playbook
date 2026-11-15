@@ -4,7 +4,7 @@
 
 Offer one image reference to Linux x64 and Arm64 consumers, with a matching image for each architecture. Use Podman when that is the consumer's chosen local engine, rather than assuming Docker's image store.
 
-This is a source-reviewed implementation plan. Podman is not installed for this work, and no local images, manifests or running containers have been created from the samples.
+Both canonical projects have recorded compilation, and the GA sample produced local multiarchitecture OCI archives. Successful Podman loading, manifest inspection and container execution remain explicitly not-tested under Pingu’s approved skip.
 
 ## Older approach
 
@@ -45,7 +45,7 @@ The explicit request for theoretical implementation superseded this task's requi
 
 ## Evidence and limitations
 
-The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. Existing native exclusions and pending Human gates still apply.
+The .NET 11 SDK baseline is now 11.0.100 GA with preview selection disabled. The .NET 10 comparisons retain their declared SDKs. Use the current sample pins, dependency locks and GA verification records for current coverage. The sample-specific limitations below remain; this edition has no pending Human proof gate.
 
 The canonical .NET10 and .NET11 projects now have actual locked compilation records from Windows, using their declared SDKs and dependencies. The original official-source review is retained separately. Compilation alone does not load, inspect or run a multiarchitecture image in Podman.
 
