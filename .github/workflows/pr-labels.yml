@@ -11,6 +11,8 @@ permissions:
 jobs:
   labelling:
     name: Labelling
+    # Every match of label-pattern contains this literal prefix, including unchecked boxes.
+    if: contains(github.event.pull_request.body, '- [')
     runs-on: blacksmith-2vcpu-ubuntu-2404
     steps:
       # This workflow never checks out or executes pull-request code.
