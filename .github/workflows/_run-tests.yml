@@ -4,7 +4,7 @@ on:
   workflow_call:
     inputs:
       smoke:
-        description: Run only the installed MCP smoke test; releases always use full validation.
+        description: Use PR validation (installed MCP smoke or allowlisted docs checks).
         type: boolean
         default: false
       package_version:
@@ -63,8 +63,23 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
           ref: ${{ inputs.checkout_ref }}
+          fetch-depth: ${{ inputs.smoke && !inputs.release_ready && github.event_name == 'pull_request' && 2 || 1 }}
+
+      - name: Classify the checked-out PR merge
+        id: scope
+        if: inputs.smoke && !inputs.release_ready && github.event_name == 'pull_request'
+        shell: pwsh
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          MERGE_SHA: ${{ github.sha }}
+        run: |
+          $scope = ./eng/Get-PrValidationScope.ps1 -BaseSha $env:BASE_SHA -HeadSha $env:HEAD_SHA -MergeSha $env:MERGE_SHA
+          "docs_only=$($scope.DocsOnly.ToString().ToLowerInvariant())" >> $env:GITHUB_OUTPUT
+          "policy_required=$($scope.PolicyRequired.ToString().ToLowerInvariant())" >> $env:GITHUB_OUTPUT
 
       - name: Setup .NET 11 GA SDK
+        if: steps.scope.outputs.docs_only != 'true'
         uses: actions/setup-dotnet@0f4a354dd5547a28c70b7853dbd95d5b67886e73 # v6
         with:
           global-json-file: global.json
@@ -78,25 +93,8 @@ jobs:
             10.0.403
             11.0.100
 
-      - name: Identify dependency policy changes
-        id: dependency_changes
-        if: inputs.smoke && !inputs.release_ready && github.event_name == 'pull_request'
-        shell: pwsh
-        env:
-          GH_TOKEN: ${{ github.token }}
-          REPOSITORY: ${{ github.repository }}
-          PR_NUMBER: ${{ github.event.pull_request.number }}
-        run: |
-          $ErrorActionPreference = 'Stop'
-          $PSNativeCommandUseErrorActionPreference = $true
-          $gh = (Get-Command gh -CommandType Application | Select-Object -First 1).Source
-          $files = @(& $gh api "repos/$env:REPOSITORY/pulls/$env:PR_NUMBER/files?per_page=100" --paginate --jq '.[] | .filename, (.previous_filename // empty)')
-          if (-not $files.Count) { throw 'Could not identify changed files.' }
-          $required = @($files | Where-Object { $_ -match '(^\.github/workflows/|^eng/|^renovate\.json$|^docs/dependency-updates\.md$|(^|/)(Directory\.[^/]+|global\.json|NuGet\.[Cc]onfig|packages\.lock\.json|dotnet-tools\.json)$|\.(csproj|fsproj|vbproj|props|targets|slnx?)$)' }).Count -gt 0
-          "required=$($required.ToString().ToLowerInvariant())" >> $env:GITHUB_OUTPUT
-
       - name: Verify Renovate update permissions
-        if: '!inputs.smoke || inputs.release_ready || steps.dependency_changes.outputs.required != ''false'''
+        if: steps.scope.outputs.policy_required != 'false'
         shell: pwsh
         env:
           GITHUB_COM_TOKEN: ${{ github.token }}
@@ -106,13 +104,18 @@ jobs:
         shell: pwsh
         run: ./eng/Test-Publishing.ps1
 
+      - name: Check dependency inventory for docs-only PRs
+        if: steps.scope.outputs.docs_only == 'true'
+        shell: pwsh
+        run: ./eng/Test-DependencyPolicy.ps1
+
       - name: Compile samples and verify the packed tool
         if: '!inputs.smoke || inputs.release_ready'
         shell: pwsh
         run: ./eng/Verify.ps1 -PackageVersion $env:PACKAGE_VERSION -ReleaseReady:([bool]::Parse($env:RELEASE_READY)) -SkipInstalledTests
 
       - name: Build pack install list get and shut down once
-        if: inputs.smoke && !inputs.release_ready
+        if: inputs.smoke && !inputs.release_ready && steps.scope.outputs.docs_only != 'true'
         shell: pwsh
         run: ./eng/Test-Smoke.ps1 -PackageVersion $env:PACKAGE_VERSION
 
@@ -128,13 +131,31 @@ jobs:
           ./eng/Test-Offline.ps1 -PackageVersion $env:PACKAGE_VERSION -RuntimeMajor 11
 
       - name: Publish test results
-        if: (success() || failure()) && inputs.publish_test_results_to_github
+        if: (success() || failure()) && inputs.publish_test_results_to_github && steps.scope.outputs.docs_only != 'true'
         uses: EnricoMi/publish-unit-test-result-action/linux@da5b7be67623cd59bbbd1a0ce4f022050a55605f # v2
         with:
           files: artifacts/TestResults/**/*.trx
           check_name: ${{ inputs.publish_test_results_check_name }}
           comment_mode: ${{ inputs.publish_test_results_comment_mode }}
           job_summary: false
+
+      - name: Report docs validation under the PR results check
+        if: (success() || failure()) && inputs.publish_test_results_to_github && steps.scope.outputs.docs_only == 'true'
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          CHECK_NAME: ${{ inputs.publish_test_results_check_name }}
+          GUARD_STATUS: ${{ job.status }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $PSNativeCommandUseErrorActionPreference = $true
+          $gh = (Get-Command gh -CommandType Application | Select-Object -First 1).Source
+          & $gh api "repos/$env:GITHUB_REPOSITORY/check-runs" --method POST `
+            -f "name=$env:CHECK_NAME" -f "head_sha=$env:PR_HEAD_SHA" -f status=completed `
+            -f "conclusion=$env:GUARD_STATUS" -f 'output[title]=Docs-only validation' `
+            -f "output[summary]=Publication guards and dependency inventory: $env:GUARD_STATUS. The verified merge changes only allowlisted unserved paths." `
+            -f "details_url=$env:GITHUB_SERVER_URL/$env:GITHUB_REPOSITORY/actions/runs/$env:GITHUB_RUN_ID" --silent
 
       - name: Summarize test results
         if: always()
@@ -151,7 +172,7 @@ jobs:
           if (Test-Path artifacts/package.sha256) { Get-Content artifacts/package.sha256 >> $env:GITHUB_STEP_SUMMARY }
 
       - name: Upload test results
-        if: always()
+        if: always() && steps.scope.outputs.docs_only != 'true'
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
         with:
           name: test-results
@@ -159,6 +180,7 @@ jobs:
           if-no-files-found: warn
 
       - name: Upload verified package
+        if: '!inputs.smoke || inputs.release_ready'
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
         with:
           name: playbook-package

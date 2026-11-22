@@ -60,7 +60,9 @@ Use [the contribution check-selection and retention policy](contributing.md#choo
 
 `eng/Test-Smoke.ps1` builds both maintained root consumers with analyzers and warnings as errors. Normal build/pack content generation still checks all recipe metadata, canonical snippets and saved evidence freshness. It installs the actual package from a fresh local feed/cache outside the checkout, checks help/version, initializes MCP, discovers both tools, lists recipes, retrieves one known ID with complete Markdown/applicability, checks canonical snippets, then verifies clean shutdown. Exactly one passing scenario is required; failed, skipped or empty test selections fail the job. Recipe-specific scenarios are reserved for full validation, so adding a recipe does not add another PR test.
 
-The inexpensive dependency inventory check runs on every PR. The real Renovate rule checks run when a PR changes workflows, engineering scripts, dependency policy/configuration, project/solution files or shared build/package/SDK/tool files (including previous names of renamed files). Full and manual validation always run them. Failure to retrieve the changed-file list fails validation rather than skipping policy checks.
+PRs that only change the unserved paths listed in `eng/Get-PrValidationScope.ps1` run publication guards and the dependency inventory on the same job, without SDK setup, packing or installation. The PR results check reports those guards directly. The packed README, served recipes, samples, and every other path use installed smoke.
+
+The dependency inventory runs on every PR. The real Renovate rule checks run for workflow, engineering, dependency policy/configuration, project/solution and shared build/package/SDK/tool changes. The classifier verifies the event's merge and parents against the checkout and compares both sides of a rename as separate paths. Uncertain classification runs installed smoke and the Renovate checks. Both manual validation entry points and release validation run the full suite.
 
 The policy check also parses the publishing and validation YAML to check reusable-workflow permission contracts. The release-draft caller must grant `actions: read` through `publish.yml` to verification, even when publication is gated off: GitHub validates the composed workflow before evaluating job conditions. OIDC remains scoped to the publishing job and its reusable caller. See [PIN-1023 verification](https://github.com/PinguApps/Playbook/blob/e60419660a082da40dfc1bd8f0667401677c53f3/docs/verification/PIN-1023.md) for the reproduced failure and safe hosted validation.
 
@@ -71,7 +73,7 @@ Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-4d84c6cb'
 & ./eng/Test-Smoke.ps1
 ```
 
-Expect the final `PASS: built, packed and installed the actual tool` message and one passed scenario in `artifacts/TestResults/smoke.trx`. The PR retains that result, server runtime evidence and the exact package/hash as artifacts. It does not establish .NET 11 roll-forward, network isolation or Windows/macOS compatibility; full release/manual validation retains those checks.
+Expect the final `PASS: built, packed and installed the actual tool` message and one passed scenario in `artifacts/TestResults/smoke.trx`. PR smoke uploads that result and server runtime evidence. Full validation also uploads the package and hash for the desktop and publication jobs, and covers .NET roll-forward, network isolation and Windows/macOS compatibility.
 
 ## Packed-host validation
 
