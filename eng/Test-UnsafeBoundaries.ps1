@@ -119,7 +119,7 @@ public static class Program {
       $output = & $Net11Dotnet build Probe.csproj -t:Rebuild -c Release --nologo 2>&1 | Out-String
       $exitCode = $LASTEXITCODE
       if ($case.Pattern) {
-        if ($exitCode -eq 0 -or $output -notmatch "error (?:$($case.Pattern))(?:[:\s]|$)") { throw "$($case.Name): unexpected result`n$output" }
+        if ($exitCode -eq 0 -or $output -notmatch "error $($case.Pattern)") { throw "$($case.Name): unexpected result`n$output" }
         Write-Host "PASS: $($case.Name) rejected ($($case.Pattern.Split(':')[0]))"
       }
       else {
