@@ -16,8 +16,17 @@ internal sealed class RecipeTools
         _catalogue = catalogue;
     }
 
+    [McpServerTool(Name = "find_guidance", ReadOnly = true, Destructive = false, Idempotent = true, OpenWorld = false, UseStructuredContent = true, OutputSchemaType = typeof(GuidanceDiscovery))]
+    [Description("Use before choosing .NET APIs or patterns for a feature or migration. Send one goal per meaningful decision, including setup, processing and output where relevant. Results group candidate recipes by goal and show their route constraints. Retrieve full detail with get_recipe, check the chosen route's supported types and setup, then verify the behaviour at runtime.")]
+    public CallToolResult FindGuidance(
+        [Description("Required application target release: 10/10.0/net10.0 or 11/11.0/net11.0. Use latest deliberately for exploration only.")] string targetVersion,
+        [Description("One to six separate plain-English implementation goals, each up to 200 characters. Use focused phrases, for example: find minimum and maximum directly from a span; write one JSON object per line.")] string[] goals)
+    {
+        return Invoke(() => _catalogue.FindGuidance(targetVersion, goals));
+    }
+
     [McpServerTool(Name = "list_recipes", ReadOnly = true, Destructive = false, Idempotent = true, OpenWorld = false, UseStructuredContent = true, OutputSchemaType = typeof(RecipeList))]
-    [Description("List concise installed recipe summaries with selection conditions and warnings, not complete prerequisites or evidence. Empty results explain effective filters and may suggest an explicit list_recipes request preserving compatibility constraints; the agent chooses whether to retry. No match is not proof that a capability does not exist; inspect coverage. Before applying any recipe, retrieve get_recipe and check its full requirements, alternatives and limitations. Inspect the application's TargetFramework/TargetFrameworks and relevant project/global.json context; repeat targetVersion on get_recipe. No consumer inspection or network access.")]
+    [Description("Browse installed recipe summaries using exact keyword and compatibility filters. For a feature with multiple implementation decisions, start with find_guidance. Empty results explain effective filters and may suggest a retry preserving compatibility constraints. Check coverage before drawing conclusions from no matches. Before applying any recipe, retrieve get_recipe and check its full requirements, alternatives and limitations. Repeat the application targetVersion on every call.")]
     public CallToolResult ListRecipes(
         [Description("Required target release: 10/10.0/net10.0 or 11/11.0/net11.0; not an exact SDK version. Use latest deliberately for exploratory/theoretical guidance or an unknown target: newest installed catalogue release only, not proof of consumer compatibility. Missing/null/blank, patch, RC and platform-qualified values fail; check prerequisites separately.")] string targetVersion,
         [Description("Area identifiers from supportedAreas. Omitted/empty means all; multiple values match any. Different filter types combine with AND.")] string[]? areas = null,
@@ -33,7 +42,7 @@ internal sealed class RecipeTools
     [McpServerTool(Name = "get_recipe", ReadOnly = true, Destructive = false, Idempotent = true, OpenWorld = false, UseStructuredContent = true, OutputSchemaType = typeof(RecipeDetail))]
     [Description("Get complete offline Markdown, application requirements, optional alternative routes, official sources and exact verification baselines (not installation requirements) for a stable recipe ID. Inspect the application's TargetFramework/TargetFrameworks and relevant project/global.json context; repeat the chosen targetVersion independently of list_recipes.")]
     public CallToolResult GetRecipe(
-        [Description("Stable goal-based recipe ID from list_recipes.")] string id,
+        [Description("Stable goal-based recipe ID from find_guidance or list_recipes.")] string id,
         [Description("Required target release: 10/10.0/net10.0 or 11/11.0/net11.0; not an exact SDK version. Use latest deliberately for exploratory/theoretical guidance or an unknown target: newest installed catalogue release only, not proof of consumer compatibility. Missing/null/blank, patch, RC and platform-qualified values fail; check prerequisites separately.")] string targetVersion)
     {
         return Invoke(() => _catalogue.Get(id, targetVersion));

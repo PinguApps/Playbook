@@ -9,8 +9,8 @@ For the unpublished development package, replace `playbook` with the absolute ex
 Use T3 Code's **Codex provider** for this connection path. T3 Code runs providers on the selected environment's machine; configure the same Codex home that provider uses.
 
 1. Open **Settings → Providers**, select the environment and Codex instance, and check its **CODEX_HOME path**. With the default home, follow the Codex CLI setup below on that machine. For a custom home, merge the TOML entry into that home's `config.toml` instead. Do not register it in an unrelated local Codex home.
-2. Start a fresh T3 Code thread with that Codex instance after saving the configuration. Ask the agent to discover Playbook's tools and perform the list/get check below. Check that both the Markdown and applicability reach the agent.
-3. Add the [companion instruction](agent-instructions.md) to the project's existing `AGENTS.md` or the selected provider's personal instructions. Include its empty-search recovery paragraph: replay the suggestion with the original selection filters before any separately explained narrower search. Refresh an older copied instruction when updating Playbook.
+2. Start a fresh T3 Code thread with that Codex instance after saving the configuration. Ask the agent to discover Playbook's tools and perform the list/get check below. Check that both the Markdown and applicability reach the agent. For multi-part tasks, Playbook also exposes `find_guidance`, which searches several implementation goals in one call.
+3. To reinforce the workflow for this project, you can add the [companion instruction](agent-instructions.md) to the project's existing `AGENTS.md` or the selected provider's personal instructions. Include its empty-search recovery paragraph if you copy it.
 
 T3 Code's Claude provider instead uses Claude Code's configuration; follow the Claude Code section with the same **CLAUDE_CONFIG_DIR path** selected in provider settings. This is an alternative, not an additional required client check. Other providers may have different MCP configuration; these examples do not establish support for every provider.
 

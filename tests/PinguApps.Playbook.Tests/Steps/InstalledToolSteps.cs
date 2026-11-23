@@ -2827,6 +2827,7 @@ public sealed class InstalledToolSteps : IDisposable
         }).ConfigureAwait(false);
         Assert.True(initialized.GetProperty("capabilities").TryGetProperty("tools", out _));
         string instructions = initialized.GetProperty("instructions").GetString()!;
+        Assert.Contains("find_guidance", instructions, StringComparison.Ordinal);
         Assert.Contains("TargetFramework", instructions, StringComparison.Ordinal);
         Assert.Contains("global.json", instructions, StringComparison.Ordinal);
         Assert.Contains("targetVersion", instructions, StringComparison.Ordinal);
@@ -2834,12 +2835,12 @@ public sealed class InstalledToolSteps : IDisposable
         await SendAsync(new { jsonrpc = "2.0", method = "notifications/initialized" }).ConfigureAwait(false);
     }
 
-    [Then("exactly the two read-only tools advertise output schemas")]
+    [Then("exactly the three read-only tools advertise output schemas")]
     public async Task CheckToolsAsync()
     {
         JsonElement response = await RequestAsync("tools/list", new { }).ConfigureAwait(false);
         JsonElement[] tools = [.. response.GetProperty("tools").EnumerateArray()];
-        Assert.Equal(["get_recipe", "list_recipes"], tools.Select(tool => tool.GetProperty("name").GetString()).Order(StringComparer.Ordinal));
+        Assert.Equal(["find_guidance", "get_recipe", "list_recipes"], tools.Select(tool => tool.GetProperty("name").GetString()).Order(StringComparer.Ordinal));
         foreach (JsonElement tool in tools)
         {
             JsonElement annotations = tool.GetProperty("annotations");
@@ -2855,6 +2856,203 @@ public sealed class InstalledToolSteps : IDisposable
                 Assert.DoesNotContain("evidenceSamples", schema, StringComparison.Ordinal);
                 Assert.DoesNotContain("prerequisites", schema, StringComparison.Ordinal);
             }
+        }
+    }
+
+    [Then("guidance discovery covers independent plain-English goals at the requested target")]
+    public async Task CheckGuidanceDiscoveryAsync()
+    {
+        string[] goals =
+        [
+            "Run a single-file console app",
+            "Deduplicate by station ID ignoring case",
+            "Find minimum and maximum directly from the readings span",
+            "Write one JSON object per line as records arrive",
+            "Quantum teleportation",
+            "Write json records alongside lunar orbital ephemeris calculations",
+        ];
+        string[] expected = ["sdk.run-file-utility", "collections.compare-by-key", "collections.find-span-extrema", "json.stream-json-lines"];
+        JsonElement discovery = AssertMatchingRepresentations(await CallAsync("find_guidance", new { targetVersion = "net11.0", goals }).ConfigureAwait(false));
+        Assert.Equal("11.0", discovery.GetProperty("resolvedTarget").GetString());
+        Assert.Contains("only the goals you sent", discovery.GetProperty("nextStep").GetString(), StringComparison.Ordinal);
+        JsonElement[] groups = [.. discovery.GetProperty("goals").EnumerateArray()];
+        Assert.Equal(goals, groups.Select(group => group.GetProperty("goal").GetString()));
+        for (int i = 0; i < expected.Length; i++)
+        {
+            Assert.Equal("matched", groups[i].GetProperty("status").GetString());
+            JsonElement first = groups[i].GetProperty("matches")[0];
+            Assert.Equal(expected[i], first.GetProperty("id").GetString());
+            Assert.False(string.IsNullOrWhiteSpace(first.GetProperty("whyMatched").GetString()));
+            Assert.All(first.GetProperty("applicability").GetProperty("routes").EnumerateArray(),
+                route => Assert.Equal("11.0", route.GetProperty("target").GetString()));
+        }
+
+        Assert.Equal("no_match", groups[4].GetProperty("status").GetString());
+        Assert.Empty(groups[4].GetProperty("matches").EnumerateArray());
+        Assert.False(groups[4].TryGetProperty("suggestedRequest", out _));
+        Assert.Equal("no_match", groups[5].GetProperty("status").GetString());
+        Assert.False(groups[5].TryGetProperty("suggestedRequest", out _));
+
+        string[] trialGoals =
+        [
+            "run a one-file C# console app with dotnet run --file and target framework directive",
+            "simulate delayed batches with an async iterator",
+            "keep the first station ID using ordinal case-insensitive matching",
+            "find minimum and maximum directly from a read-only integer span",
+            "write compact JSON Lines to standard output",
+        ];
+        JsonElement trial = await FindAsync(trialGoals).ConfigureAwait(false);
+        AssertFirstMatch(trial[0], expected[0]);
+        AssertFirstMatch(trial[2], expected[1]);
+        AssertFirstMatch(trial[3], expected[2]);
+        AssertFirstMatch(trial[4], expected[3]);
+        Assert.DoesNotContain(trial[2].GetProperty("matches").EnumerateArray(),
+            match => match.GetProperty("id").GetString() == "blazor.preserve-route-matching");
+
+        string[] paraphrasedGoals =
+        [
+            "Run a single C# source file targeting net11.0 without a project file",
+            "Deduplicate station names with ordinal case-insensitive matching preserving first arrival",
+            "Stream compact JSON objects to stdout one per line",
+            "Restore sort and page on a table from a shareable link",
+            "Show a success message once after redirecting to the confirmation page",
+            "Use browser validation on a static server-rendered form before submission",
+        ];
+        JsonElement paraphrased = await FindAsync(paraphrasedGoals).ConfigureAwait(false);
+        AssertFirstMatch(paraphrased[0], expected[0]);
+        AssertFirstMatch(paraphrased[1], expected[1]);
+        AssertFirstMatch(paraphrased[2], expected[3]);
+        AssertFirstMatch(paraphrased[3], "blazor.share-grid-view");
+        AssertFirstMatch(paraphrased[4], "blazor.show-once-after-redirect");
+        AssertFirstMatch(paraphrased[5], "blazor.check-input-before-post");
+
+        string[] blazorGoals =
+        [
+            "Store a draft across page navigation using a browser session",
+            "Show a notice only once after a redirect and clear it on refresh",
+            "Apply the model's validation attributes in a statically rendered form so errors are visible before a browser post",
+        ];
+        JsonElement blazor = await FindAsync(blazorGoals).ConfigureAwait(false);
+        AssertFirstMatch(blazor[0], "blazor.retain-session-progress");
+        JsonElement sessionConstraints = blazor[0].GetProperty("matches")[0].GetProperty("routeConstraints");
+        JsonElement primarySessionRoute = Assert.Single(sessionConstraints.EnumerateArray(), route => route.GetProperty("usage").GetString() == "primary");
+        Assert.Contains(primarySessionRoute.GetProperty("constraints").EnumerateArray(),
+            constraint => constraint.GetString()!.Contains("Supported scalar/collection values only", StringComparison.Ordinal));
+        Assert.Contains(primarySessionRoute.GetProperty("constraints").EnumerateArray(),
+            constraint => constraint.GetString()!.Contains("custom record or class", StringComparison.Ordinal));
+        AssertFirstMatch(blazor[1], "blazor.show-once-after-redirect");
+        AssertFirstMatch(blazor[2], "blazor.check-input-before-post");
+
+        string[] compoundBlazorGoals =
+        [
+            "Persist session and one-time flash messages across Blazor static SSR requests",
+            "Persist a booking draft per browser session across static SSR pages and consume a one-time confirmation",
+            "Preserve booking draft across static SSR requests in a browser session",
+        ];
+        JsonElement compoundBlazor = await FindAsync(compoundBlazorGoals).ConfigureAwait(false);
+        for (int i = 0; i < 2; i++)
+        {
+            string?[] ids = [.. compoundBlazor[i].GetProperty("matches").EnumerateArray().Select(match => match.GetProperty("id").GetString())];
+            Assert.Contains("blazor.retain-session-progress", ids);
+            Assert.Contains("blazor.show-once-after-redirect", ids);
+        }
+
+        AssertFirstMatch(compoundBlazor[2], "blazor.retain-session-progress");
+
+        string[] blazorRecheckGoals =
+        [
+            "Persist independent QuickGrid sorting and pagination in query strings for two grids on one static SSR page",
+            "Persist a booking draft across server-rendered pages with SupplyParameterFromSession",
+            "Store a session-specific booking draft and consume a confirmation message once in Blazor static SSR",
+            "Register a StaticWebAssetGroupDefinition for this project",
+        ];
+        JsonElement blazorRecheck = await FindAsync(blazorRecheckGoals).ConfigureAwait(false);
+        AssertFirstMatch(blazorRecheck[0], "blazor.share-grid-view");
+        AssertFirstMatch(blazorRecheck[1], "blazor.retain-session-progress");
+        string?[] combinedIds = [.. blazorRecheck[2].GetProperty("matches").EnumerateArray().Select(match => match.GetProperty("id").GetString())];
+        Assert.Contains("blazor.retain-session-progress", combinedIds);
+        Assert.Contains("blazor.show-once-after-redirect", combinedIds);
+        AssertFirstMatch(blazorRecheck[3], "sdk.declare-static-asset-groups");
+
+        string[] firstPerGroupGoals =
+        [
+            "Keep the first station occurrence in arrival order using ordinal case-insensitive matching",
+            "Keep the first async batch for each station by ordinal case insensitive ID in arrival order",
+            "Retain the first measurement for every sensor in input order",
+            "Keep only the first station using ordinal case-insensitive equality in an async stream",
+            "Keep the first seen station with ordinal case-insensitive equality",
+        ];
+        JsonElement grouped = await FindAsync(firstPerGroupGoals).ConfigureAwait(false);
+        Assert.All(grouped.EnumerateArray(), group => AssertFirstMatch(group, expected[1]));
+
+        string[] spanGoals =
+        [
+            "Compute integer minimum and maximum without copying a read-only span and return null when empty",
+            "Calculate min and max values of a ReadOnlySpan of scores",
+        ];
+        JsonElement spans = await FindAsync(spanGoals).ConfigureAwait(false);
+        Assert.All(spans.EnumerateArray(), group => AssertFirstMatch(group, expected[2]));
+
+        string[] jsonLineGoals =
+        [
+            "Write one compact JSON object per line to stdout as batches arrive",
+            "Emit each received event in JSON on a separate line",
+        ];
+        JsonElement jsonLines = await FindAsync(jsonLineGoals).ConfigureAwait(false);
+        Assert.All(jsonLines.EnumerateArray(), group => AssertFirstMatch(group, expected[3]));
+
+        string[] setupAndGridGoals =
+        [
+            "Declare target and run file-based C# console app",
+            "Run a console tool directly from a single C# source file",
+            "Multiple sortable paginated QuickGrids with independent query state",
+            "Keep uploaded documents in file-based storage",
+        ];
+        JsonElement setupAndGrid = await FindAsync(setupAndGridGoals).ConfigureAwait(false);
+        AssertFirstMatch(setupAndGrid[0], expected[0]);
+        AssertFirstMatch(setupAndGrid[1], expected[0]);
+        AssertFirstMatch(setupAndGrid[2], "blazor.share-grid-view");
+        Assert.DoesNotContain(setupAndGrid[3].GetProperty("matches").EnumerateArray(),
+            match => match.GetProperty("id").GetString() == "sdk.run-file-utility");
+
+        string[] otherGoals =
+        [
+            "retain the first shipment per tracking identifier",
+            "one contact per external key",
+            "preserve parameterized Blazor route matching with PreferExactMatches and case insensitivity",
+            "publish static asset groups and generated TypeScript",
+            "find tidal stations",
+            "run a single-file console app; write compact JSON Lines to standard output",
+        ];
+        JsonElement other = await FindAsync(otherGoals).ConfigureAwait(false);
+        AssertFirstMatch(other[0], expected[1]);
+        AssertFirstMatch(other[1], expected[1]);
+        AssertFirstMatch(other[2], "blazor.preserve-route-matching");
+        AssertFirstMatch(other[3], "sdk.declare-static-asset-groups");
+        Assert.Equal("no_match", other[4].GetProperty("status").GetString());
+        Assert.False(other[4].TryGetProperty("suggestedRequest", out _));
+        JsonElement retry = other[5].GetProperty("suggestedRequest");
+        Assert.Equal("net11.0", retry.GetProperty("targetVersion").GetString());
+        Assert.Equal(otherGoals[5].Split("; "), retry.GetProperty("goals").EnumerateArray().Select(goal => goal.GetString()));
+        JsonElement replay = AssertMatchingRepresentations(await CallAsync("find_guidance", retry).ConfigureAwait(false));
+        AssertFirstMatch(replay.GetProperty("goals")[0], expected[0]);
+        AssertFirstMatch(replay.GetProperty("goals")[1], expected[3]);
+
+        JsonElement older = AssertMatchingRepresentations(await CallAsync("find_guidance",
+            new { targetVersion = "10", goals = new[] { expected[2] } }).ConfigureAwait(false));
+        Assert.Equal("10.0", older.GetProperty("resolvedTarget").GetString());
+        Assert.Empty(older.GetProperty("goals")[0].GetProperty("matches").EnumerateArray());
+        string[] blankGoals = [" "];
+        AssertToolError(await CallAsync("find_guidance", new { targetVersion = "11", goals = blankGoals }).ConfigureAwait(false), "invalid_goals");
+
+        async Task<JsonElement> FindAsync(string[] queries) =>
+            AssertMatchingRepresentations(await CallAsync("find_guidance", new { targetVersion = "net11.0", goals = queries }).ConfigureAwait(false))
+                .GetProperty("goals");
+
+        static void AssertFirstMatch(JsonElement group, string id)
+        {
+            Assert.Equal("matched", group.GetProperty("status").GetString());
+            Assert.Equal(id, group.GetProperty("matches")[0].GetProperty("id").GetString());
         }
     }
 
@@ -3033,7 +3231,7 @@ public sealed class InstalledToolSteps : IDisposable
         }
     }
 
-    [Then("both tools require a nonnullable target string")]
+    [Then("all tools require a nonnullable target string")]
     public async Task CheckRequiredSchemasAsync()
     {
         JsonElement response = await RequestAsync("tools/list", new { }).ConfigureAwait(false);
@@ -3047,17 +3245,17 @@ public sealed class InstalledToolSteps : IDisposable
         }
     }
 
-    [Then("omitted null and blank targets fail helpfully on both tools")]
+    [Then("omitted null and blank targets fail helpfully on all tools")]
     public async Task CheckRequiredTargetsAsync()
     {
-        foreach (string tool in new[] { "list_recipes", "get_recipe" })
+        foreach (string tool in new[] { "find_guidance", "list_recipes", "get_recipe" })
         {
             foreach (object arguments in new object[]
             {
-                new { id = "csharp.validate-property-assignment" },
-                new { id = "csharp.validate-property-assignment", targetVersion = (string?)null },
-                new { id = "csharp.validate-property-assignment", targetVersion = "" },
-                new { id = "csharp.validate-property-assignment", targetVersion = " \t\n" },
+                new { id = "csharp.validate-property-assignment", goals = new[] { "validate property assignment" } },
+                new { id = "csharp.validate-property-assignment", goals = new[] { "validate property assignment" }, targetVersion = (string?)null },
+                new { id = "csharp.validate-property-assignment", goals = new[] { "validate property assignment" }, targetVersion = "" },
+                new { id = "csharp.validate-property-assignment", goals = new[] { "validate property assignment" }, targetVersion = " \t\n" },
             })
             {
                 JsonElement result = await CallAsync(tool, arguments).ConfigureAwait(false);

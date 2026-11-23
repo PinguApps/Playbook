@@ -1,17 +1,49 @@
 # PinguApps.Playbook
 
-Original .NET guidance served offline to coding agents through a client-owned stdio MCP process.
+Give your coding agent practical guidance for modern .NET.
 
-The catalogue covers .NET 11 goals with original previous-release comparisons and selected .NET 10 foundations. Pre-GA previews retain explicitly labelled provisional guidance and unverified behavior; they do not establish GA compatibility or stable-release readiness. The [release policy](docs/planning/release-plan.md) requires named, input-bound exceptions alongside the normal source, offline-content and evidence checks. Both tools require an explicit application target or deliberate `latest` choice. `latest` means the newest release in the installed catalogue, not an SDK build or consumer compatibility.
+An agent can build a working app while overlooking newer framework features or choosing patterns from an older release. Playbook gives it a searchable catalogue of original implementation recipes for .NET 11 and selected .NET 10 foundations, with examples, setup steps, previous-release comparisons and verification limits.
+
+Connect it to your agent through MCP, then ask for your feature as usual. The agent can discover relevant recipes and read the full guidance before writing code. For example, a Blazor task might call for bookmarkable grid sorting and paging, browser validation for a server-rendered form, or a confirmation that appears once after a redirect.
+
+## What you get
+
+- **Guidance for your application's target.** Each request selects .NET 10 or .NET 11 explicitly, independently of the SDK used to build your app.
+- **Implementation detail the agent can use.** Recipes include complete Markdown, canonical examples, configuration and migration steps, sources and applicability requirements.
+- **Visible limits.** Requirements, optional routes and saved verification evidence help distinguish a supported approach from provisional or unverified behaviour.
+- **Offline operation.** Once installed, Playbook needs no account, API key, checkout or network connection. Updating the package updates the bundled catalogue.
+
+Playbook supplies guidance; your agent implements and tests the changes. It does not inspect or edit your project itself. Coverage is incomplete, and an empty search does not mean a framework capability is unavailable.
+
+## Get started
+
+Until a release is published, use the [local development package walkthrough](docs/installation.md#build-and-inspect-the-current-development-package). After publication, install the NuGet tool:
 
 ```powershell
-playbook --help
+dotnet tool install --global PinguApps.Playbook
 playbook --version
-playbook mcp
 ```
 
-The host needs .NET 11 GA, or a later stable major runtime when .NET 11 is absent. Builds and releases use SDK 11.0.100 exactly. Installed operation needs no workloads, checkout, accounts, keys or network. MCP stdout is protocol-only; diagnostics use stderr. The tools are `list_recipes` and `get_recipe`. Guidance does not inspect or edit consumer projects.
+The server needs .NET 11 GA, or a later stable major runtime when .NET 11 is absent. No desktop or mobile workloads are required to run it. Your application may need additional SDKs, packages or workloads specified by a recipe.
 
-Start with [installation, updates and troubleshooting](docs/installation.md), then [connect T3 Code, Codex CLI, Claude Code or VS Code Copilot](docs/clients.md). Add the [companion agent instruction](docs/agent-instructions.md) to your agent's existing guidance.
+Follow the [client setup guide](docs/clients.md) for T3 Code, Codex CLI, Claude Code or VS Code Copilot. Each client launches `playbook mcp` as its own stdio process. Use `find_guidance` to discover recipes for several implementation goals at once, `list_recipes` to browse the catalogue with filters, and `get_recipe` to read the full guidance.
 
-To see what an agent receives, follow [the interactive list/get walkthrough](docs/inspect-guidance.md). See [verification and authoring](docs/contributing.md) for adding recipes, and [repository automation](docs/automation.md) for CI and publication.
+Playbook tells the agent how to search for guidance as part of normal feature work. Tool use depends on the agent and client. The [companion instruction](docs/agent-instructions.md) is available if you want to reinforce the workflow in your own projects.
+
+Try asking your agent:
+
+> Build a .NET 11 Blazor Web App with a sortable, paginated grid. Make the current sort and page reproducible by sharing the URL.
+
+Every tool call requires a target. A deliberate `latest` choice selects the newest release in the installed catalogue; it does not establish application compatibility.
+
+## Release status and verification
+
+Pre-GA preview packages retain explicitly labelled provisional guidance and unverified behaviour. They do not establish GA compatibility or stable-release readiness. The [release policy](docs/planning/release-plan.md) defines the evidence and named exceptions required for publication. Check each recipe's applicability and evidence rather than treating inclusion as proof that every scenario has been executed.
+
+## Learn more
+
+- [Installation, updates and troubleshooting](docs/installation.md)
+- [See exactly what an agent receives](docs/inspect-guidance.md)
+- [Connect your agent](docs/clients.md)
+- [Contribute and verify recipes](docs/contributing.md)
+- [Repository automation and publication](docs/automation.md)

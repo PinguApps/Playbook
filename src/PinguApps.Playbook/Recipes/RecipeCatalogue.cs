@@ -38,11 +38,7 @@ internal sealed class RecipeCatalogue
         }
 
         string[] terms = query?.Split((char[]?)null, StringSplitOptions.RemoveEmptyEntries) ?? [];
-        RecipeEdition[] candidates = [.. _editions
-            .Where(edition => edition.SupportedTargets.Contains(target, StringComparer.Ordinal))
-            .GroupBy(edition => edition.Id, StringComparer.Ordinal)
-            .OrderBy(group => group.Key, StringComparer.Ordinal)
-            .Select(group => group.OrderByDescending(edition => Version.Parse(edition.Edition)).First())
+        RecipeEdition[] candidates = [.. SelectEditions(target)
             .Select(edition => edition with
             {
                 Applicability = new Applicability
@@ -60,20 +56,7 @@ internal sealed class RecipeCatalogue
                 || edition.Goal.Contains(term, StringComparison.OrdinalIgnoreCase)
                 || edition.Tags.Any(tag => tag.Contains(term, StringComparison.OrdinalIgnoreCase))
                 || edition.Apis.Any(api => api.Contains(term, StringComparison.OrdinalIgnoreCase))))
-            .Select(edition => new RecipeSummary
-            {
-                Id = edition.Id,
-                Edition = edition.Edition,
-                Title = edition.Title,
-                Goal = edition.Goal,
-                IntroducedIn = edition.IntroducedIn,
-                Areas = edition.Areas,
-                ExampleLanguages = edition.ExampleLanguages,
-                LanguageNeutral = edition.LanguageNeutral,
-                SupportedTargets = edition.SupportedTargets,
-                Stability = edition.Stability,
-                Applicability = ApplicabilitySummary.From(edition.Applicability),
-            })];
+            .Select(Summarize)];
         RecipeSummary[] page = [.. summaries.Skip(offset).Take(limit)];
         bool keywordRetry = summaries.Length == 0 && terms.Length > 0 && candidates.Length > 0;
         RecipeSearchRecovery? recovery = null;
@@ -133,6 +116,48 @@ internal sealed class RecipeCatalogue
         };
     }
 
+    public GuidanceDiscovery FindGuidance(string targetVersion, string[]? goals)
+    {
+        string target = ResolveTarget(targetVersion);
+        if (goals is null or { Length: < 1 or > 6 }
+            || goals.Any(goal => string.IsNullOrWhiteSpace(goal) || goal.Length > 200))
+        {
+            throw Failure("invalid_goals", "Supply between 1 and 6 nonblank implementation goals, up to 200 characters each.", targetVersion, null, []);
+        }
+
+        return new GuidanceDiscovery
+        {
+            RequestedTarget = targetVersion,
+            ResolvedTarget = target,
+            Coverage = _coverage,
+            Goals = GuidanceSearch.Find(goals, targetVersion, SelectEditions(target)
+                .Select(edition => edition with { Applicability = ForTarget(edition.Applicability, target) })
+                .Where(edition => edition.Applicability.Routes.Count > 0)),
+            NextStep = "Use get_recipe for each distinct decision represented in the matches. Check routeConstraints and confirm the chosen route's prerequisites, supported input types and limits in the full recipe before implementing. Exercise the affected entry points at runtime. Replay suggestedRequest to separate a combined goal. If an important goal has no match, try once with a shorter phrase that keeps the distinguishing behaviour. These results cover only the goals you sent.",
+        };
+    }
+
+    internal static RecipeSummary Summarize(RecipeEdition edition) => new()
+    {
+        Id = edition.Id,
+        Edition = edition.Edition,
+        Title = edition.Title,
+        Goal = edition.Goal,
+        IntroducedIn = edition.IntroducedIn,
+        Areas = edition.Areas,
+        ExampleLanguages = edition.ExampleLanguages,
+        LanguageNeutral = edition.LanguageNeutral,
+        SupportedTargets = edition.SupportedTargets,
+        Stability = edition.Stability,
+        Applicability = ApplicabilitySummary.From(edition.Applicability),
+    };
+
+    private IEnumerable<RecipeEdition> SelectEditions(string target) => _editions
+        .Where(edition => edition.SupportedTargets.Contains(target, StringComparer.Ordinal))
+        .GroupBy(edition => edition.Id, StringComparer.Ordinal)
+        .OrderBy(group => group.Key, StringComparer.Ordinal)
+        .Select(group => group.OrderByDescending(edition => Version.Parse(edition.Edition)).First());
+
     private static void ValidateFilter(string[]? requested, string[] supported, string filter, string code)
     {
         string[] invalid = [.. (requested ?? []).Except(supported, StringComparer.Ordinal)];
@@ -157,7 +182,7 @@ internal sealed class RecipeCatalogue
         RecipeEdition[] available = [.. _editions.Where(candidate => candidate.Id == id)];
         if (available.Length == 0)
         {
-            throw Failure("unknown_recipe", $"Unknown recipe '{id}'. Use list_recipes to discover installed IDs.", targetVersion, id, []);
+            throw Failure("unknown_recipe", $"Unknown recipe '{id}'. Use find_guidance or list_recipes to discover installed IDs.", targetVersion, id, []);
         }
 
         RecipeEdition edition = available
@@ -182,7 +207,7 @@ internal sealed class RecipeCatalogue
         if (string.IsNullOrWhiteSpace(targetVersion))
         {
             throw Failure("required_target",
-                "targetVersion is required on every list_recipes and get_recipe call. Choose a supported target release or explicitly use latest for the newest installed catalogue release; inspect consumer prerequisites separately.",
+                "targetVersion is required on every tool call. Choose a supported target release or explicitly use latest for the newest installed catalogue release; inspect consumer prerequisites separately.",
                 targetVersion, null, []);
         }
 
