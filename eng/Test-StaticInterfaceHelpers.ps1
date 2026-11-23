@@ -49,10 +49,12 @@ public static class Program {
           if ($exitCode -ne 0) { throw $output }
           & $Net11Dotnet ./bin/Release/net11.0/Probe.dll
           if ($LASTEXITCODE -ne 0) { throw 'External consumer execution failed.' }
+          Write-Host "PASS: $($case.Name)"
         }
-        elseif ($exitCode -eq 0 -or $output -notmatch $case.Pattern) { throw "$($case.Name): unexpected result`n$output" }
-        Write-Host "PASS: $($case.Name)"
-        if ($case.Pattern) { $output -split '\r?\n' | Where-Object { $_ -match 'error CS' } | Select-Object -Unique | Write-Host }
+        else {
+          if ($exitCode -eq 0 -or $output -notmatch "error $($case.Pattern):") { throw "$($case.Name): unexpected result`n$output" }
+          Write-Host "PASS: $($case.Name) rejected ($($case.Pattern))"
+        }
       }
     }
     finally { $PSNativeCommandUseErrorActionPreference = $previousNativePreference }

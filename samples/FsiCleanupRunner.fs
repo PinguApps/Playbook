@@ -26,16 +26,18 @@ let main arguments =
         let output, errors = child.StandardOutput.ReadToEndAsync(), child.StandardError.ReadToEndAsync()
         if not (child.WaitForExit 30000) then child.Kill(true); failwith "FSI timed out"
         let text = output.GetAwaiter().GetResult() + errors.GetAwaiter().GetResult()
-        printfn "%s" text
         child.ExitCode, text, directory
     let exitCode, output, directory = run "Cleanup.fsx"
+    printfn "%s" output
     if exitCode <> 0 || not (output.Contains "PASS: script completion follows cleanup") then failwith "FSI lifetime check failed"
     if File.Exists(Path.Combine(directory, "UnsupportedUse.fsx")) then
         let exitCode, output, _ = run "UnsupportedUse.fsx"
-        if exitCode = 0 || not (output.Contains "IDisposable") then failwith "Expected previous FSI asynchronous Using rejection"
-        printfn "PASS: previous FSI rejects asynchronous Using; explicit awaited cleanup succeeds"
+        if exitCode = 0 || not (output.Contains "error FS0001:" && output.Contains "IDisposable") then
+            failwith $"Expected previous FSI asynchronous Using rejection (exit {exitCode})\n{output}"
+        printfn "PASS: previous FSI rejects asynchronous Using (FS0001)"
     if File.Exists(Path.Combine(directory, "ExplicitCleanup.fsx")) then
         let exitCode, output, _ = run "ExplicitCleanup.fsx"
+        printfn "%s" output
         if exitCode <> 0 || not (output.Contains "PASS: script completion follows cleanup") then failwith "Explicit cleanup alternative failed on the newer FSI"
         printfn "PASS: newer FSI also supports explicit cleanup with propagated cleanup failures"
     0

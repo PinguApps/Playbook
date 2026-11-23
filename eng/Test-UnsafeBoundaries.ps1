@@ -119,8 +119,8 @@ public static class Program {
       $output = & $Net11Dotnet build Probe.csproj -t:Rebuild -c Release --nologo 2>&1 | Out-String
       $exitCode = $LASTEXITCODE
       if ($case.Pattern) {
-        if ($exitCode -eq 0 -or $output -notmatch $case.Pattern) { throw "$($case.Name): unexpected result`n$output" }
-        $output -split '\r?\n' | Where-Object { $_ -match 'error CS' } | Select-Object -Unique | Write-Host
+        if ($exitCode -eq 0 -or $output -notmatch "error $($case.Pattern)") { throw "$($case.Name): unexpected result`n$output" }
+        Write-Host "PASS: $($case.Name) rejected ($($case.Pattern.Split(':')[0]))"
       }
       else {
         if ($exitCode -ne 0) { throw $output }
@@ -128,8 +128,8 @@ public static class Program {
           & $Net11Dotnet ./bin/Release/net11.0/Probe.dll
           if ($LASTEXITCODE -ne 0) { throw 'Consumer execution failed.' }
         }
+        Write-Host "PASS: $($case.Name)"
       }
-      Write-Host "PASS: $($case.Name)"
     }
 
     # Build the exact offline setup without the repository's shared sample properties or test program.

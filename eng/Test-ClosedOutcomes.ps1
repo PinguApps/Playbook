@@ -28,7 +28,7 @@ try {
       @{ Name = 'added union case requires arm'; Pattern = 'CS8509'; Source = 'public union U(int, bool, string); public class Probe { public int Match(U x) => x switch { int => 1, bool => 2, null => 0 }; }' },
       @{ Name = 'untyped property uses wrapper'; Pattern = 'CS0117'; Source = 'using Playbook.Samples; public class Probe { public bool Match(Outcome x) => x is { ShelfCode: "C-24" }; }' },
       @{ Name = 'recursive declaration alone'; Pattern = $null; Source = 'public union RecursiveShelf(RecursiveShelf, string);' },
-      @{ Name = 'private provider rejected'; Pattern = 'CS9385'; Source = 'using System.Runtime.CompilerServices; [Union] public class U : U.IUnionMembers { private interface IUnionMembers { public static U Create(int x) => new(); public object? Value { get; } } public object? Value => null; }' },
+      @{ Name = 'private provider'; Pattern = 'CS9385'; Source = 'using System.Runtime.CompilerServices; [Union] public class U : U.IUnionMembers { private interface IUnionMembers { public static U Create(int x) => new(); public object? Value { get; } } public object? Value => null; }' },
       @{ Name = 'missing union case'; Pattern = 'CS8509'; Source = 'using Playbook.Samples; public static class Probe { public static int Match(Outcome x) => x switch { ArchiveReceipt => 1, null => 0 }; }' },
       @{ Name = 'missing hierarchy case'; Pattern = 'CS8509'; Source = 'using Playbook.Samples; public static class Probe { public static int Match(IntakeState? x) => x switch { Waiting => 1, null => 0 }; }' },
       @{ Name = 'external direct descendant'; Pattern = 'CS9382'; Source = 'using Playbook.Samples; public record Intruder : IntakeState;' },
@@ -44,10 +44,12 @@ try {
         $exitCode = $LASTEXITCODE
         if ($null -eq $case.Pattern) {
           if ($exitCode -ne 0) { throw $output }
+          Write-Host "PASS: $($case.Name)"
         }
-        elseif ($exitCode -eq 0 -or $output -notmatch $case.Pattern) { throw "$($case.Name): unexpected result`n$output" }
-        Write-Host "PASS: $($case.Name)"
-        if ($case.Pattern) { $output -split '\r?\n' | Where-Object { $_ -match 'error (CS|SYSLIB)' } | Select-Object -Unique | Write-Host }
+        else {
+          if ($exitCode -eq 0 -or $output -notmatch "error $($case.Pattern):") { throw "$($case.Name): unexpected result`n$output" }
+          Write-Host "PASS: $($case.Name) rejected ($($case.Pattern))"
+        }
       }
     }
     finally { $PSNativeCommandUseErrorActionPreference = $previousNativePreference }

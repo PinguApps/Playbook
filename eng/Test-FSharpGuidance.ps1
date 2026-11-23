@@ -25,7 +25,7 @@ let original = { Mass = 4.25M }
 let transfer: Transfer = { ...original; Dock = 6 }
 let copy = {| ...transfer; Dock = 8 |}
 if transfer.Mass <> 4.25M || copy.Dock <> 8 || transfer.Dock <> 6 then failwith "Spread changed"' },
-      @{ Name = 'record constructor needs preview'; Flags = @(); Pattern = 'FS[0-9]+'; Source = 'module Probe
+      @{ Name = 'record constructor needs preview'; Flags = @(); Pattern = 'FS0800'; Source = 'module Probe
 type Load = { Mass: decimal }
 let value = Load(4.25M)' },
       @{ Name = 'record constructor with preview'; Flags = @('-p:LangVersion=preview'); Pattern = $null; Source = 'module Probe
@@ -43,15 +43,15 @@ if $"{mass}" <> "4.25" || $"{explicitValue}" <> "4.25" then failwith "Culture ch
       $case.Source | Set-Content Probe.fs
       $output = & $Net11Dotnet build Probe.fsproj -c Release --nologo @($case.Flags) 2>&1 | Out-String
       if ($case.Pattern) {
-        if ($LASTEXITCODE -eq 0 -or $output -notmatch $case.Pattern) { throw "$($case.Name): $output" }
-        $output -split '\r?\n' | Where-Object { $_ -match 'error FS' } | Select-Object -Unique | Write-Host
+        if ($LASTEXITCODE -eq 0 -or $output -notmatch "error $($case.Pattern):") { throw "$($case.Name): $output" }
+        Write-Host "PASS: $($case.Name) rejected ($($case.Pattern))"
       }
       else {
         if ($LASTEXITCODE -ne 0) { throw $output }
         & $Net11Dotnet ./bin/Release/net11.0/Probe.dll
         if ($LASTEXITCODE -ne 0) { throw "$($case.Name) failed at runtime." }
+        Write-Host "PASS: $($case.Name)"
       }
-      Write-Host "PASS: $($case.Name)"
     }
   }
   finally { Pop-Location }

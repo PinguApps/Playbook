@@ -73,15 +73,15 @@ let operation: Async<int> = async {
       $project | Set-Content Probe.fsproj
       $output = & $Net11Dotnet build Probe.fsproj -c Release --nologo -t:Rebuild 2>&1 | Out-String
       if ($case.Pattern) {
-        if ($LASTEXITCODE -eq 0 -or $output -notmatch $case.Pattern) { throw "$($case.Name): $output" }
-        $output -split '\r?\n' | Where-Object { $_ -match 'error FS' } | Select-Object -Unique | Write-Host
+        if ($LASTEXITCODE -eq 0 -or $output -notmatch "error $($case.Pattern):") { throw "$($case.Name): $output" }
+        Write-Host "PASS: $($case.Name) ($($case.Pattern))"
       }
       else {
         if ($LASTEXITCODE -ne 0) { throw "$($case.Name): $output" }
         & $Net11Dotnet ./bin/Release/net11.0/Probe.dll
         if ($LASTEXITCODE -ne 0) { throw "$($case.Name) failed at runtime." }
+        Write-Host "PASS: $($case.Name)"
       }
-      Write-Host "PASS: $($case.Name)"
     }
   }
   finally { Pop-Location }

@@ -56,9 +56,9 @@ let value (pending: Task<int>) (depths: int array) = __runtimeAsyncReturn (
 "@ | Set-Content Probe.fsproj
       ("module Probe`n#nowarn `"9`"`nopen System`nopen System.Threading.Tasks`nopen System.Runtime.CompilerServices`nopen Microsoft.FSharp.Core.CompilerServices.StateMachineHelpers`nopen Microsoft.FSharp.NativeInterop`n" + $case.Body) | Set-Content Probe.fs
       $output = & $Net11Dotnet build Probe.fsproj -c Release -t:Rebuild --nologo 2>&1 | Out-String
-      if ($LASTEXITCODE -eq 0 -or $output -notmatch $case.Pattern) { throw "$($case.Name): $output" }
-      $output -split '\r?\n' | Where-Object { $_ -match 'error FS' } | Select-Object -Unique | Write-Host
-      Write-Host "PASS: $($case.Name)"
+      $diagnostic = [regex]::Match($output, "error (?=(?:$($case.Pattern)))(?<code>FS\d+):")
+      if ($LASTEXITCODE -eq 0 -or -not $diagnostic.Success) { throw "$($case.Name): $output" }
+      Write-Host "PASS: $($case.Name) rejected ($($diagnostic.Groups['code'].Value))"
     }
     Copy-Item (Join-Path $root 'samples/net11.0/RuntimeAsync/Survey.cs') Survey.cs
     '<Project Sdk="Microsoft.NET.Sdk"><PropertyGroup><TargetFramework>net11.0</TargetFramework><OutputType>Exe</OutputType><ImplicitUsings>enable</ImplicitUsings><LangVersion>preview</LangVersion></PropertyGroup></Project>' | Set-Content Bare.csproj

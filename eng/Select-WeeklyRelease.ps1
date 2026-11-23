@@ -10,8 +10,11 @@ $stable = '^v(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\z'
 $latest = $Releases | Where-Object { $_.draft -eq $false -and $_.prerelease -eq $false -and $_.tag_name -cmatch $stable } |
   Sort-Object published_at -Descending | Select-Object -First 1
 if (-not $latest) { Write-Host 'No published stable release; first stable publication is manual'; return }
-& $git -C $Repository merge-base --is-ancestor $latest.tag_name HEAD
-if ($LASTEXITCODE -ne 0) { throw 'Latest stable release is not on main.' }
+$ancestryOutput = & {
+  $PSNativeCommandUseErrorActionPreference = $false
+  & $git -C $Repository merge-base --is-ancestor $latest.tag_name HEAD 2>&1
+} | Out-String
+if ($LASTEXITCODE -ne 0) { throw "Latest stable release is not on main (Git exit $LASTEXITCODE).`n$ancestryOutput" }
 $count = & $git -C $Repository rev-list --count "$($latest.tag_name)..HEAD"
 if ($LASTEXITCODE -ne 0) { throw 'Cannot count main commits.' }
 if ($count -eq '0') { Write-Host 'No new main commits'; return }

@@ -1,16 +1,23 @@
 [CmdletBinding()]
 param()
 $ErrorActionPreference = 'Stop'
+$PSNativeCommandUseErrorActionPreference = $true
 $git = (Get-Command git -CommandType Application | Select-Object -First 1).Source
 $select = Join-Path $PSScriptRoot 'Select-WeeklyRelease.ps1'
 function Release($tag, $draft = $false, $preview = $false) {
   @{ id = 123; tag_name = $tag; draft = $draft; prerelease = $preview; published_at = '2026-11-01T00:00:00Z'; body = '' }
 }
-function Expect($releases, $expected, [switch]$Reject) {
-  $failed = $false
-  try { $result = & $select -Releases $releases -Repository $scratch } catch { $failed = $true }
-  if ($Reject) { if (-not $failed) { throw 'Expected rejection.' }; return }
-  if ($failed -or $result.tag_name -cne $expected) { throw "Expected '$expected'." }
+function Expect($releases, $expected) {
+  $result = & $select -Releases $releases -Repository $scratch
+  if ($result.tag_name -cne $expected) { throw "Expected '$expected'." }
+}
+function ExpectRejection($releases, [string]$name, [string]$expectedError) {
+  try { $result = & $select -Releases $releases -Repository $scratch } catch {
+    if ($_.Exception.Message -notmatch $expectedError) { throw }
+    Write-Host "PASS: $name rejected"
+    return
+  }
+  throw "Expected rejection for $name. Selector returned: $(ConvertTo-Json -InputObject $result -Compress)"
 }
 $scratch = Join-Path ([IO.Path]::GetTempPath()) ('playbook-weekly-' + [guid]::NewGuid().ToString('N'))
 try {
@@ -37,14 +44,15 @@ try {
   Expect @($stable) $null
   Expect @($stable, (Release v1.0.1 $true $true)) $null
   foreach ($tag in @('v1.0.1-preview.1', 'v01.0.1', 'v1.0.01', 'v1.0.0', 'v0.9.9', 'v1.0.1+meta', "v1.0.1`n")) {
-    Expect @($stable, (Release $tag $true)) $null -Reject
+    $displayTag = $tag.Replace("`n", '\n')
+    ExpectRejection @($stable, (Release $tag $true)) "invalid or non-increasing draft tag ($displayTag)" '^Draft must have a newer stable tag\.$'
   }
-  Expect @($stable, $draft, (Release v2.0.0 $true)) $null -Reject
+  ExpectRejection @($stable, $draft, (Release v2.0.0 $true)) 'ambiguous release drafts' '^Multiple release drafts; refusing to choose one\.$'
   Expect @($stable, (Release v1.0.10 $true)) v1.0.10
   & $git -C $scratch -c tag.gpgsign=false tag v2.0.0
   & $git -C $scratch reset --quiet --hard v1.0.0
-  Expect @((Release v2.0.0), (Release v2.0.1 $true)) $null -Reject
-  Expect @((Release v9.0.0), $draft) $null -Reject # Missing stable tag fails closed.
+  ExpectRejection @((Release v2.0.0), (Release v2.0.1 $true)) 'stable tag outside main history (v2.0.0)' '^Latest stable release is not on main \(Git exit 1\)\.\s*$'
+  ExpectRejection @((Release v9.0.0), $draft) 'missing stable tag (v9.0.0)' '(?s)Git exit 128.*fatal: Not a valid object name v9\.0\.0'
 }
 finally {
   if (Test-Path -LiteralPath $scratch) { Remove-Item -LiteralPath $scratch -Recurse -Force }
