@@ -26,6 +26,8 @@ internal static partial class GuidanceSearch
     [
         new("run a C# file directly", "dotnet run file",
             [["c source file", "c file", "file based", "dotnet run file"], ["single", "one file", "directly", "without a project file", "without a csproj"]]),
+        new("run a file-based C# application", "dotnet run file",
+            [["file based", "single file", "source file"], ["c", "csharp", "dotnet", "net11"], ["run", "execute", "console"], ["app", "application", "console", "projectless"]]),
         new("keep one item per key", "enumerable distinct",
             [["deduplicate", "deduplication", "dedupe", "remove duplicates"], ["first arrival", "first occurrence", "first seen", "case insensitive", "ignoring case", "per key", "per id"]]),
         new("retain the earliest item in each group", "enumerable distinct",
@@ -40,7 +42,7 @@ internal static partial class GuidanceSearch
         new("write newline-delimited JSON", "jsonserializer serializeasyncenumerable",
             [["json"], ["one", "each", "separate", "newline"], ["per line", "own line", "separate line", "separate lines", "newline delimited"]]),
         new("restore grid state from the URL", "queryparameternameoptions",
-            [["grid", "quickgrid", "table"], ["sort", "sorted", "sorting", "page", "paging", "pagination"], ["url", "query string", "bookmark", "bookmarkable", "shareable link"]]),
+            [["grid", "grids", "quickgrid", "quickgrids", "table", "tables"], ["sort", "sorted", "sorting", "sortable", "page", "paging", "pagination", "paginated"], ["url", "query string", "query state", "query parameters", "bookmark", "bookmarkable", "shareable link"]]),
         new("validate a static form in the browser and on the server", "disableclientvalidation",
             [["static ssr", "static server rendered", "server rendered form", "statically rendered form", "server side rendered form"], ["validation", "validate", "invalid"], ["browser", "before posting", "before submission", "client side"]]),
         new("carry temporary progress between pages in the same session", "supplyparameterfromsessionattribute",

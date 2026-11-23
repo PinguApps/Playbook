@@ -2980,6 +2980,20 @@ public sealed class InstalledToolSteps : IDisposable
         JsonElement jsonLines = await FindAsync(jsonLineGoals).ConfigureAwait(false);
         Assert.All(jsonLines.EnumerateArray(), group => AssertFirstMatch(group, expected[3]));
 
+        string[] setupAndGridGoals =
+        [
+            "Declare target and run file-based C# console app",
+            "Run a console tool directly from a single C# source file",
+            "Multiple sortable paginated QuickGrids with independent query state",
+            "Keep uploaded documents in file-based storage",
+        ];
+        JsonElement setupAndGrid = await FindAsync(setupAndGridGoals).ConfigureAwait(false);
+        AssertFirstMatch(setupAndGrid[0], expected[0]);
+        AssertFirstMatch(setupAndGrid[1], expected[0]);
+        AssertFirstMatch(setupAndGrid[2], "blazor.share-grid-view");
+        Assert.DoesNotContain(setupAndGrid[3].GetProperty("matches").EnumerateArray(),
+            match => match.GetProperty("id").GetString() == "sdk.run-file-utility");
+
         string[] otherGoals =
         [
             "retain the first shipment per tracking identifier",
