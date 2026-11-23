@@ -2934,6 +2934,12 @@ public sealed class InstalledToolSteps : IDisposable
         ];
         JsonElement blazor = await FindAsync(blazorGoals).ConfigureAwait(false);
         AssertFirstMatch(blazor[0], "blazor.retain-session-progress");
+        JsonElement sessionConstraints = blazor[0].GetProperty("matches")[0].GetProperty("routeConstraints");
+        JsonElement primarySessionRoute = Assert.Single(sessionConstraints.EnumerateArray(), route => route.GetProperty("usage").GetString() == "primary");
+        Assert.Contains(primarySessionRoute.GetProperty("constraints").EnumerateArray(),
+            constraint => constraint.GetString()!.Contains("Supported scalar/collection values only", StringComparison.Ordinal));
+        Assert.Contains(primarySessionRoute.GetProperty("constraints").EnumerateArray(),
+            constraint => constraint.GetString()!.Contains("custom record or class", StringComparison.Ordinal));
         AssertFirstMatch(blazor[1], "blazor.show-once-after-redirect");
         AssertFirstMatch(blazor[2], "blazor.check-input-before-post");
 
@@ -2952,6 +2958,21 @@ public sealed class InstalledToolSteps : IDisposable
         }
 
         AssertFirstMatch(compoundBlazor[2], "blazor.retain-session-progress");
+
+        string[] blazorRecheckGoals =
+        [
+            "Persist independent QuickGrid sorting and pagination in query strings for two grids on one static SSR page",
+            "Persist a booking draft across server-rendered pages with SupplyParameterFromSession",
+            "Store a session-specific booking draft and consume a confirmation message once in Blazor static SSR",
+            "Register a StaticWebAssetGroupDefinition for this project",
+        ];
+        JsonElement blazorRecheck = await FindAsync(blazorRecheckGoals).ConfigureAwait(false);
+        AssertFirstMatch(blazorRecheck[0], "blazor.share-grid-view");
+        AssertFirstMatch(blazorRecheck[1], "blazor.retain-session-progress");
+        string?[] combinedIds = [.. blazorRecheck[2].GetProperty("matches").EnumerateArray().Select(match => match.GetProperty("id").GetString())];
+        Assert.Contains("blazor.retain-session-progress", combinedIds);
+        Assert.Contains("blazor.show-once-after-redirect", combinedIds);
+        AssertFirstMatch(blazorRecheck[3], "sdk.declare-static-asset-groups");
 
         string[] firstPerGroupGoals =
         [

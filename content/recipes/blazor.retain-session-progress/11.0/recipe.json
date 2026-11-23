@@ -32,6 +32,7 @@
         "conditional": false,
         "usage": "primary",
         "selectionNotes": [
+          "Bind each saved value to a separate supported property. SupplyParameterFromSession rejects custom draft records and classes at runtime.",
           "Values survive reads, unlike TempData. Cache+AddSession+UseSession required; missing setup fails.",
           "Cookie before streaming flush; temporary, non-locking, per browser."
         ],
@@ -79,6 +80,7 @@
             "Microsoft.AspNetCore.App 11; Microsoft.NET.Sdk.Web"
           ],
           "constraints": [
+            "Do not apply SupplyParameterFromSession to a custom record or class. Bind supported scalar or collection properties under separate keys; compose the draft model separately.",
             "Storage is tied to the request and browser cookies, not a circuit, authenticated identity or durable database. No net10.0 package route is claimed.",
             "Use unique case-insensitive keys per supplied property in one rendered page. Supported scalar/collection values only; arbitrary user-defined JSON classes are not supported.",
             "No concurrent-update atomicity, durable permit record, multi-server provider execution, interactive hydration, browser UI automation or GA execution is claimed.",

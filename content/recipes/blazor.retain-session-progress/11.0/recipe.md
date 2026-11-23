@@ -7,6 +7,12 @@ another change. Keep the berth and step between independent page requests.
 Reading progress must not delete it. A one-use outcome belongs in TempData;
 the draft belongs in session until it expires or the application clears it.
 
+**Bind one supported value per key.** Do not put `[SupplyParameterFromSession]`
+on a custom draft record or class. Bind separate properties such as the berth
+string and step number below. Compose a draft model from those values for the
+UI, and keep the posted form model under `[SupplyParameterFromForm]`. Binding
+the custom type can compile but fails when a request renders the component.
+
 ## Older approach
 
 .NET 10 supports ASP.NET Core ISession in static SSR through the cascaded

@@ -42,17 +42,19 @@ internal static partial class GuidanceSearch
         new("write newline-delimited JSON", "jsonserializer serializeasyncenumerable",
             [["json"], ["one", "each", "separate", "newline"], ["per line", "own line", "separate line", "separate lines", "newline delimited"]]),
         new("restore grid state from the URL", "queryparameternameoptions",
-            [["grid", "grids", "quickgrid", "quickgrids", "table", "tables"], ["sort", "sorted", "sorting", "sortable", "page", "paging", "pagination", "paginated"], ["url", "query string", "query state", "query parameters", "bookmark", "bookmarkable", "shareable link"]]),
+            [["grid", "grids", "quickgrid", "quickgrids", "table", "tables"], ["sort", "sorted", "sorting", "sortable", "page", "paging", "pagination", "paginated"], ["url", "query string", "query strings", "query state", "query parameters", "bookmark", "bookmarkable", "shareable link"]]),
         new("validate a static form in the browser and on the server", "disableclientvalidation",
             [["static ssr", "static server rendered", "server rendered form", "statically rendered form", "server side rendered form"], ["validation", "validate", "invalid"], ["browser", "before posting", "before submission", "client side"]]),
         new("carry temporary progress between pages in the same session", "supplyparameterfromsessionattribute",
-            [["session"], ["progress", "draft", "selection", "state"], ["remember", "restore", "retain", "resume", "persist", "preserve", "keep", "store", "save"], ["page", "pages", "refresh", "reload", "redirect", "navigation", "requests"]]),
+            [["session"], ["progress", "draft", "selection", "state"], ["remember", "restore", "retain", "resume", "persist", "preserve", "keep", "store", "save"], ["page", "pages", "refresh", "reload", "redirect", "navigation", "requests", "static ssr", "server rendered"]]),
         new("persist session state across server-rendered requests", "supplyparameterfromsessionattribute",
             [["session"], ["persist", "preserve", "retain", "store", "save", "keep"], ["static ssr", "server rendered"], ["request", "requests", "page", "pages", "navigation"]]),
         new("show one-use feedback after a redirect", "supplyparameterfromtempdataattribute",
             [["confirmation", "message", "messages", "notification", "notice", "feedback"], ["redirect", "redirected", "redirecting", "post redirect get"], ["once", "one use", "one time", "disappear", "refresh", "reload", "first view"]]),
         new("consume a one-time confirmation without clearing the session draft", "supplyparameterfromtempdataattribute",
             [["flash message", "flash messages", "one time confirmation", "one use confirmation"], ["static ssr", "server rendered", "consume", "redirect", "refresh", "reload"]]),
+        new("consume one-time feedback in static server rendering", "supplyparameterfromtempdataattribute",
+            [["confirmation", "flash message", "flash messages", "notice"], ["once", "one time", "one use"], ["static ssr", "server rendered", "consume"]]),
     ];
 
     public static GuidanceGoal[] Find(string[] goals, string requestedTarget, IEnumerable<RecipeEdition> editions)
@@ -60,14 +62,18 @@ internal static partial class GuidanceSearch
         SearchEntry[] entries = [.. editions.Select(CreateEntry)];
         Dictionary<string, int> frequency = entries.SelectMany(entry => entry.Words)
             .CountBy(word => word, StringComparer.Ordinal).ToDictionary(pair => pair.Key, pair => pair.Value, StringComparer.Ordinal);
-        return [.. goals.Select(goal => FindGoal(goal, requestedTarget, entries, frequency))];
+        HashSet<string> uniqueSymbols = entries.SelectMany(entry => entry.ApiSymbols)
+            .CountBy(word => word, StringComparer.Ordinal).Where(pair => pair.Value == 1)
+            .Select(pair => pair.Key).ToHashSet(StringComparer.Ordinal);
+        SearchIndex index = new(entries, frequency, uniqueSymbols);
+        return [.. goals.Select(goal => FindGoal(goal, requestedTarget, index))];
     }
 
-    private static GuidanceGoal FindGoal(string goal, string requestedTarget, SearchEntry[] entries, Dictionary<string, int> frequency)
+    private static GuidanceGoal FindGoal(string goal, string requestedTarget, SearchIndex index)
     {
         // A retry may separate decisions that the caller already supplied. It never replaces the goal with a guessed recipe ID.
         string[] clauses = goal.Split([';', '\r', '\n'], StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
-        if (clauses.Length is >= 2 and <= 6 && clauses.All(clause => Search(clause, entries, frequency).Any()))
+        if (clauses.Length is >= 2 and <= 6 && clauses.All(clause => Search(clause, index).Any()))
         {
             return new GuidanceGoal(goal, "no_match", [])
             {
@@ -75,22 +81,25 @@ internal static partial class GuidanceSearch
             };
         }
 
-        GuidanceMatch[] matches = [.. Search(goal, entries, frequency).Take(3).Select(match =>
+        GuidanceMatch[] matches = [.. Search(goal, index).Take(3).Select(match =>
         {
             RecipeEdition edition = match.Edition;
             return new GuidanceMatch(edition.Id, edition.Edition, edition.Title, edition.Goal, edition.Stability, match.Reason,
+                [.. edition.Applicability.Routes.Select(route => new GuidanceRouteConstraints(
+                    route.Usage, route.Conditional, route.Requirements.Constraints))],
                 ApplicabilitySummary.From(edition.Applicability));
         })];
         return new GuidanceGoal(goal, matches.Length == 0 ? "no_match" : "matched", matches);
     }
 
-    private static IEnumerable<RankedMatch> Search(string goal, SearchEntry[] entries, Dictionary<string, int> frequency)
+    private static IEnumerable<RankedMatch> Search(string goal, SearchIndex index)
     {
         string phrase = Normalize(goal);
         string[] words = [.. Words(phrase).Where(word => !_commonWords.Contains(word)).Distinct(StringComparer.Ordinal)];
         bool distinctByKey = DistinctByKeyPattern().IsMatch(phrase);
         GuidanceIntent[] intents = [.. _intents.Where(intent => intent.Signals.All(group => group.Any(signal => ContainsPhrase(phrase, signal))))];
-        return entries.Select(entry => Rank(entry, phrase, words, distinctByKey, intents, frequency))
+        string[] symbols = [.. words.Where(index.UniqueApiSymbols.Contains)];
+        return index.Entries.Select(entry => Rank(entry, phrase, words, distinctByKey, intents, symbols, index.WordFrequency))
             .OfType<RankedMatch>()
             .OrderByDescending(match => match.Tier)
             .ThenByDescending(match => match.Score)
@@ -99,7 +108,7 @@ internal static partial class GuidanceSearch
     }
 
     private static RankedMatch? Rank(SearchEntry entry, string phrase, string[] words, bool distinctByKey, GuidanceIntent[] intents,
-        Dictionary<string, int> frequency)
+        string[] symbols, Dictionary<string, int> frequency)
     {
         if (phrase == entry.Id)
         {
@@ -115,6 +124,12 @@ internal static partial class GuidanceSearch
         if (intent is not null)
         {
             return new RankedMatch(entry.Edition, 2, intent.Signals.Count, 0, $"Recognized intent: {intent.Description}.");
+        }
+
+        string? symbol = symbols.FirstOrDefault(entry.ApiSymbols.Contains);
+        if (symbol is not null)
+        {
+            return new RankedMatch(entry.Edition, 2, 1, 0, $"Distinctive catalogue API name: {symbol}.");
         }
 
         string? alias = entry.Aliases.FirstOrDefault(value => ContainsPhrase(phrase, value));
@@ -147,7 +162,28 @@ internal static partial class GuidanceSearch
         return new SearchEntry(edition, labels[0], labels, labels.SelectMany(Words).ToHashSet(StringComparer.Ordinal),
             edition.Tags.SelectMany(tag => Words(Normalize(tag))).ToHashSet(StringComparer.Ordinal),
             edition.Apis.Select(Normalize).ToHashSet(StringComparer.Ordinal),
+            edition.Apis.SelectMany(ApiSymbols).ToHashSet(StringComparer.Ordinal),
             [.. (_aliases.GetValueOrDefault(edition.Id) ?? []).Select(Normalize)]);
+    }
+
+    private static IEnumerable<string> ApiSymbols(string api)
+    {
+        foreach (Match match in WordPattern().Matches(api))
+        {
+            string name = match.Value;
+            // Ignore short, generic names and qualified-name fragments such as System.
+            if (name.Length < 8 || name.Count(char.IsUpper) < 2 || !name.Any(char.IsLower))
+            {
+                continue;
+            }
+
+            string symbol = name.ToLowerInvariant();
+            yield return symbol;
+            if (name.EndsWith("Attribute", StringComparison.Ordinal) && name.Length > "Attribute".Length)
+            {
+                yield return symbol[..^"Attribute".Length];
+            }
+        }
     }
 
     private static bool ContainsPhrase(string text, string value) =>
@@ -164,8 +200,10 @@ internal static partial class GuidanceSearch
     [GeneratedRegex(@"\b(?:(?:first|one)(?: \w+){0,4} (?:per|for each|by)(?: \w+){0,4} (?:keys?|ids?|identifiers?)|(?:keep|retain|take|preserve) (?:only )?(?:the )?first(?: \w+){0,4} (?:key|id|identifier) (?:using |with )?(?:ordinal )?(?:case insensitive|ignoring case))\b")]
     private static partial Regex DistinctByKeyPattern();
 
+    private sealed record SearchIndex(IReadOnlyList<SearchEntry> Entries, Dictionary<string, int> WordFrequency, HashSet<string> UniqueApiSymbols);
+
     private sealed record SearchEntry(RecipeEdition Edition, string Id, IReadOnlyList<string> Labels, HashSet<string> Words, HashSet<string> Tags,
-        HashSet<string> Apis, IReadOnlyList<string> Aliases);
+        HashSet<string> Apis, HashSet<string> ApiSymbols, IReadOnlyList<string> Aliases);
 
     private sealed record RankedMatch(RecipeEdition Edition, int Tier, double Score, int TagOverlap, string Reason);
 }

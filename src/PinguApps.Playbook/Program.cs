@@ -38,7 +38,7 @@ internal static class Program
         builder.Logging.AddConsole(options => options.LogToStandardErrorThreshold = LogLevel.Trace);
         builder.Services.AddSingleton<RecipeCatalogue>();
         builder.Services.AddMcpServer(options => options.ServerInstructions =
-            "Before choosing .NET APIs or implementation patterns for a feature or migration, use find_guidance with one short goal per meaningful decision. Include the important framework-specific behavior across setup, processing and output. Retrieve the best relevant full recipe for each matched decision before choosing an approach. "
+            "Before choosing .NET APIs or implementation patterns for a feature or migration, use find_guidance with one short goal per meaningful decision. Include the important framework-specific behavior across setup, processing and output. Retrieve the best relevant full recipe for each matched decision, and check its route constraints before choosing types and wiring. "
             + "Inspect the application's TargetFramework/TargetFrameworks and relevant project files, Directory.Build.props and global.json. "
             + "Choose the application's target release, not the exact SDK version; global.json selects an SDK and does not establish the target framework. "
             + "Supply targetVersion explicitly on every tool call and page. Use list_recipes for filtered catalogue browsing. "

@@ -12,13 +12,16 @@ candidate's ID with `get_recipe` to read its full guidance.
 
 Results echo the requested and resolved target and disclose catalogue coverage.
 Each goal has a `matched` or `no_match` status. Matches include the title, goal,
-edition, stability, match reason and compact target-specific applicability.
+edition, stability, match reason, each selected route's constraints and compact
+target-specific applicability. Check the chosen route's full prerequisites in
+`get_recipe` before implementing.
 Ranking uses installed catalogue titles, goals, APIs, phrase aliases and
 recognized implementation intents. Intent rules combine signals that can
 appear anywhere in a goal, such as JSON objects and one value per line. A
 rule only matches recipes that advertise the associated API for the requested
 target. A goal can return separate recipes when it contains signals for
-several decisions. Distinctive terms carry more weight than
+several decisions. Distinctive API names can also match directly, including
+C# attribute shorthand. Distinctive terms carry more weight than
 common ones. Tags can help order otherwise equal matches. Keyword matches
 must cover most of the meaningful query words. A semicolon or newline
 can separate decisions within a goal. If each clause has an independent match,

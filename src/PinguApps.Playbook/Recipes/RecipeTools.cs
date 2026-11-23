@@ -17,7 +17,7 @@ internal sealed class RecipeTools
     }
 
     [McpServerTool(Name = "find_guidance", ReadOnly = true, Destructive = false, Idempotent = true, OpenWorld = false, UseStructuredContent = true, OutputSchemaType = typeof(GuidanceDiscovery))]
-    [Description("Use before choosing .NET APIs or patterns for a feature or migration. Send one goal per meaningful decision in one call, such as how the app runs, processes data and delivers results. Results are grouped by goal with candidate recipes, match reasons and selection requirements. If you searched only setup, check the remaining .NET decisions separately. Retrieve full detail with get_recipe before applying a recipe.")]
+    [Description("Use before choosing .NET APIs or patterns for a feature or migration. Send one goal per meaningful decision, including setup, processing and output where relevant. Results group candidate recipes by goal and show their route constraints. Retrieve full detail with get_recipe, check the chosen route's supported types and setup, then verify the behaviour at runtime.")]
     public CallToolResult FindGuidance(
         [Description("Required application target release: 10/10.0/net10.0 or 11/11.0/net11.0. Use latest deliberately for exploration only.")] string targetVersion,
         [Description("One to six separate plain-English implementation goals, each up to 200 characters. Use focused phrases, for example: find minimum and maximum directly from a span; write one JSON object per line.")] string[] goals)
