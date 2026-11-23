@@ -22,12 +22,16 @@ Playbook supplies guidance; your agent implements and tests the changes. It does
 
 ### 1. Install Playbook
 
-Install the .NET tool on the machine where your agent runs. Playbook requires the .NET 11 GA runtime, or a later stable major runtime when .NET 11 is absent.
+Install Playbook on the machine where your agent runs. The install command needs a .NET SDK. Playbook runs on the .NET 11 GA runtime, or a later stable major runtime when .NET 11 is absent. Install any SDKs, packages, or workloads that your chosen recipes require for your application.
+
+Once the stable release is on NuGet, run:
 
 ```powershell
 dotnet tool install --global PinguApps.Playbook
 playbook --version
 ```
+
+Before the stable release, use the [local development install](docs/installation.md#build-and-inspect-the-current-development-package).
 
 ### 2. Connect your agent
 
@@ -85,7 +89,7 @@ Add Playbook under `servers` in your workspace's `.vscode/mcp.json`. For a perso
 
 In the Command Palette, use **MCP: List Servers → playbook → Start** and approve the trust prompt. In Copilot chat, make sure Playbook is enabled in the tool picker.
 
-For repository-local tool manifests, remote environments, and more connection checks, see the [client setup guide](docs/clients.md). To test a checkout before publishing a package, use the [local development install](docs/installation.md#build-and-inspect-the-current-development-package).
+For repository-local tool manifests, remote environments, and more connection checks, see the [client setup guide](docs/clients.md).
 
 ### 3. Check the connection
 
