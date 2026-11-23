@@ -44,9 +44,13 @@ internal static partial class GuidanceSearch
         new("validate a static form in the browser and on the server", "disableclientvalidation",
             [["static ssr", "static server rendered", "server rendered form", "statically rendered form", "server side rendered form"], ["validation", "validate", "invalid"], ["browser", "before posting", "before submission", "client side"]]),
         new("carry temporary progress between pages in the same session", "supplyparameterfromsessionattribute",
-            [["session", "browser session"], ["progress", "draft", "selection", "state"], ["remember", "restore", "retain", "resume", "persist", "keep", "store", "save"], ["page", "pages", "refresh", "reload", "redirect", "navigation", "requests"]]),
+            [["session"], ["progress", "draft", "selection", "state"], ["remember", "restore", "retain", "resume", "persist", "preserve", "keep", "store", "save"], ["page", "pages", "refresh", "reload", "redirect", "navigation", "requests"]]),
+        new("persist session state across server-rendered requests", "supplyparameterfromsessionattribute",
+            [["session"], ["persist", "preserve", "retain", "store", "save", "keep"], ["static ssr", "server rendered"], ["request", "requests", "page", "pages", "navigation"]]),
         new("show one-use feedback after a redirect", "supplyparameterfromtempdataattribute",
-            [["confirmation", "message", "notification", "notice", "feedback"], ["redirect", "redirected", "redirecting", "post redirect get"], ["once", "one use", "one time", "disappear", "refresh", "reload", "first view"]]),
+            [["confirmation", "message", "messages", "notification", "notice", "feedback"], ["redirect", "redirected", "redirecting", "post redirect get"], ["once", "one use", "one time", "disappear", "refresh", "reload", "first view"]]),
+        new("consume a one-time confirmation without clearing the session draft", "supplyparameterfromtempdataattribute",
+            [["flash message", "flash messages", "one time confirmation", "one use confirmation"], ["static ssr", "server rendered", "consume", "redirect", "refresh", "reload"]]),
     ];
 
     public static GuidanceGoal[] Find(string[] goals, string requestedTarget, IEnumerable<RecipeEdition> editions)

@@ -2937,6 +2937,22 @@ public sealed class InstalledToolSteps : IDisposable
         AssertFirstMatch(blazor[1], "blazor.show-once-after-redirect");
         AssertFirstMatch(blazor[2], "blazor.check-input-before-post");
 
+        string[] compoundBlazorGoals =
+        [
+            "Persist session and one-time flash messages across Blazor static SSR requests",
+            "Persist a booking draft per browser session across static SSR pages and consume a one-time confirmation",
+            "Preserve booking draft across static SSR requests in a browser session",
+        ];
+        JsonElement compoundBlazor = await FindAsync(compoundBlazorGoals).ConfigureAwait(false);
+        for (int i = 0; i < 2; i++)
+        {
+            string?[] ids = [.. compoundBlazor[i].GetProperty("matches").EnumerateArray().Select(match => match.GetProperty("id").GetString())];
+            Assert.Contains("blazor.retain-session-progress", ids);
+            Assert.Contains("blazor.show-once-after-redirect", ids);
+        }
+
+        AssertFirstMatch(compoundBlazor[2], "blazor.retain-session-progress");
+
         string[] firstPerGroupGoals =
         [
             "Keep the first station occurrence in arrival order using ordinal case-insensitive matching",
