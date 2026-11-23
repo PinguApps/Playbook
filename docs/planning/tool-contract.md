@@ -14,7 +14,10 @@ Results echo the requested and resolved target and disclose catalogue coverage.
 Each goal has a `matched` or `no_match` status. Matches include the title, goal,
 edition, stability, match reason and compact target-specific applicability.
 Ranking uses installed catalogue titles, goals, APIs, phrase aliases and
-recognized implementation intents. Distinctive terms carry more weight than
+recognized implementation intents. Intent rules combine signals that can
+appear anywhere in a goal, such as JSON objects and one value per line. A
+rule only matches recipes that advertise the associated API for the requested
+target. Distinctive terms carry more weight than
 common ones. Tags can help order otherwise equal matches. Keyword matches
 must cover most of the meaningful query words. A semicolon or newline
 can separate decisions within a goal. If each clause has an independent match,

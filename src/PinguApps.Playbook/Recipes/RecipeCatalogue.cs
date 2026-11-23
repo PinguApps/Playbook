@@ -133,7 +133,7 @@ internal sealed class RecipeCatalogue
             Goals = GuidanceSearch.Find(goals, targetVersion, SelectEditions(target)
                 .Select(edition => edition with { Applicability = ForTarget(edition.Applicability, target) })
                 .Where(edition => edition.Applicability.Routes.Count > 0)),
-            NextStep = "Retrieve full detail with get_recipe for matches that could change your implementation. Replay suggestedRequest when it separates a combined goal. These results cover only the goals you sent. If you searched setup only, check the other .NET decisions separately.",
+            NextStep = "Use get_recipe on the best relevant match for each implementation decision, then check its applicability. Replay suggestedRequest to separate a combined goal. If an important goal has no match, try once with a shorter capability phrase or a known .NET API. These results cover only the goals you sent.",
         };
     }
 

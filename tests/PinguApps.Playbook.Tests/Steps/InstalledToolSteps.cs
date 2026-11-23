@@ -2909,6 +2909,34 @@ public sealed class InstalledToolSteps : IDisposable
         Assert.DoesNotContain(trial[2].GetProperty("matches").EnumerateArray(),
             match => match.GetProperty("id").GetString() == "blazor.preserve-route-matching");
 
+        string[] paraphrasedGoals =
+        [
+            "Run a single C# source file targeting net11.0 without a project file",
+            "Deduplicate station names with ordinal case-insensitive matching preserving first arrival",
+            "Stream compact JSON objects to stdout one per line",
+            "Restore sort and page on a table from a shareable link",
+            "Show a success message once after redirecting to the confirmation page",
+            "Use browser validation on a static server-rendered form before submission",
+        ];
+        JsonElement paraphrased = await FindAsync(paraphrasedGoals).ConfigureAwait(false);
+        AssertFirstMatch(paraphrased[0], expected[0]);
+        AssertFirstMatch(paraphrased[1], expected[1]);
+        AssertFirstMatch(paraphrased[2], expected[3]);
+        AssertFirstMatch(paraphrased[3], "blazor.share-grid-view");
+        AssertFirstMatch(paraphrased[4], "blazor.show-once-after-redirect");
+        AssertFirstMatch(paraphrased[5], "blazor.check-input-before-post");
+
+        string[] blazorGoals =
+        [
+            "Store a draft across page navigation using a browser session",
+            "Show a notice only once after a redirect and clear it on refresh",
+            "Apply the model's validation attributes in a statically rendered form so errors are visible before a browser post",
+        ];
+        JsonElement blazor = await FindAsync(blazorGoals).ConfigureAwait(false);
+        AssertFirstMatch(blazor[0], "blazor.retain-session-progress");
+        AssertFirstMatch(blazor[1], "blazor.show-once-after-redirect");
+        AssertFirstMatch(blazor[2], "blazor.check-input-before-post");
+
         string[] otherGoals =
         [
             "retain the first shipment per tracking identifier",

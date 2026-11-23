@@ -20,6 +20,26 @@ internal static partial class GuidanceSearch
         "using", "want", "when", "while", "with", "without",
     ];
 
+    // Each signal group represents a different part of an intent. One phrase
+    // from every group must appear, in any order, before matching a catalogue API.
+    private static readonly GuidanceIntent[] _intents =
+    [
+        new("run a C# file directly", "dotnet run file",
+            [["c source file", "c file", "file based", "dotnet run file"], ["single", "one file", "directly", "without a project file", "without a csproj"]]),
+        new("keep one item per key", "enumerable distinct",
+            [["deduplicate", "deduplication", "dedupe", "remove duplicates"], ["first arrival", "first occurrence", "first seen", "case insensitive", "ignoring case", "per key", "per id"]]),
+        new("write newline-delimited JSON", "jsonserializer serializeasyncenumerable",
+            [["json object", "json objects", "json record", "json records"], ["one per line", "one object per line", "one record per line", "each on its own line", "newline delimited"]]),
+        new("restore grid state from the URL", "queryparameternameoptions",
+            [["grid", "quickgrid", "table"], ["sort", "sorted", "sorting", "page", "paging", "pagination"], ["url", "query string", "bookmark", "bookmarkable", "shareable link"]]),
+        new("validate a static form in the browser and on the server", "disableclientvalidation",
+            [["static ssr", "static server rendered", "server rendered form", "statically rendered form", "server side rendered form"], ["validation", "validate", "invalid"], ["browser", "before posting", "before submission", "client side"]]),
+        new("carry temporary progress between pages in the same session", "supplyparameterfromsessionattribute",
+            [["session", "browser session"], ["progress", "draft", "selection", "state"], ["remember", "restore", "retain", "resume", "persist", "keep", "store", "save"], ["page", "pages", "refresh", "reload", "redirect", "navigation", "requests"]]),
+        new("show one-use feedback after a redirect", "supplyparameterfromtempdataattribute",
+            [["confirmation", "message", "notification", "notice", "feedback"], ["redirect", "redirected", "redirecting", "post redirect get"], ["once", "one use", "one time", "disappear", "refresh", "reload", "first view"]]),
+    ];
+
     public static GuidanceGoal[] Find(string[] goals, string requestedTarget, IEnumerable<RecipeEdition> editions)
     {
         SearchEntry[] entries = [.. editions.Select(CreateEntry)];
@@ -54,7 +74,8 @@ internal static partial class GuidanceSearch
         string phrase = Normalize(goal);
         string[] words = [.. Words(phrase).Where(word => !_commonWords.Contains(word)).Distinct(StringComparer.Ordinal)];
         bool distinctByKey = DistinctByKeyPattern().IsMatch(phrase);
-        return entries.Select(entry => Rank(entry, phrase, words, distinctByKey, frequency))
+        GuidanceIntent[] intents = [.. _intents.Where(intent => intent.Signals.All(group => group.Any(signal => ContainsPhrase(phrase, signal))))];
+        return entries.Select(entry => Rank(entry, phrase, words, distinctByKey, intents, frequency))
             .OfType<RankedMatch>()
             .OrderByDescending(match => match.Tier)
             .ThenByDescending(match => match.Score)
@@ -62,7 +83,8 @@ internal static partial class GuidanceSearch
             .ThenBy(match => match.Edition.Id, StringComparer.Ordinal);
     }
 
-    private static RankedMatch? Rank(SearchEntry entry, string phrase, string[] words, bool distinctByKey, Dictionary<string, int> frequency)
+    private static RankedMatch? Rank(SearchEntry entry, string phrase, string[] words, bool distinctByKey, GuidanceIntent[] intents,
+        Dictionary<string, int> frequency)
     {
         if (phrase == entry.Id)
         {
@@ -72,6 +94,12 @@ internal static partial class GuidanceSearch
         if (distinctByKey && entry.Labels.Contains("enumerable distinct", StringComparer.Ordinal))
         {
             return new RankedMatch(entry.Edition, 2, 0, 0, "Recognized intent: keep one item per key.");
+        }
+
+        GuidanceIntent? intent = intents.FirstOrDefault(intent => entry.Apis.Contains(intent.Api));
+        if (intent is not null)
+        {
+            return new RankedMatch(entry.Edition, 2, intent.Signals.Count, 0, $"Recognized intent: {intent.Description}.");
         }
 
         string? alias = entry.Aliases.FirstOrDefault(value => ContainsPhrase(phrase, value));
@@ -103,6 +131,7 @@ internal static partial class GuidanceSearch
         string[] labels = [.. new[] { edition.Id, edition.Title, edition.Goal }.Concat(edition.Apis).Select(Normalize)];
         return new SearchEntry(edition, labels[0], labels, labels.SelectMany(Words).ToHashSet(StringComparer.Ordinal),
             edition.Tags.SelectMany(tag => Words(Normalize(tag))).ToHashSet(StringComparer.Ordinal),
+            edition.Apis.Select(Normalize).ToHashSet(StringComparer.Ordinal),
             [.. (_aliases.GetValueOrDefault(edition.Id) ?? []).Select(Normalize)]);
     }
 
@@ -120,7 +149,8 @@ internal static partial class GuidanceSearch
     [GeneratedRegex(@"\b(?:(?:first|one)(?: \w+){0,4} (?:per|for each|by)(?: \w+){0,4} (?:keys?|ids?|identifiers?)|(?:keep|retain|take|preserve) (?:only )?(?:the )?first(?: \w+){0,4} (?:key|id|identifier) (?:using |with )?(?:ordinal )?(?:case insensitive|ignoring case))\b")]
     private static partial Regex DistinctByKeyPattern();
 
-    private sealed record SearchEntry(RecipeEdition Edition, string Id, IReadOnlyList<string> Labels, HashSet<string> Words, HashSet<string> Tags, IReadOnlyList<string> Aliases);
+    private sealed record SearchEntry(RecipeEdition Edition, string Id, IReadOnlyList<string> Labels, HashSet<string> Words, HashSet<string> Tags,
+        HashSet<string> Apis, IReadOnlyList<string> Aliases);
 
     private sealed record RankedMatch(RecipeEdition Edition, int Tier, double Score, int TagOverlap, string Reason);
 }
