@@ -6,9 +6,12 @@ $select = Join-Path $PSScriptRoot 'Select-WeeklyRelease.ps1'
 function Release($tag, $draft = $false, $preview = $false) {
   @{ id = 123; tag_name = $tag; draft = $draft; prerelease = $preview; published_at = '2026-11-01T00:00:00Z'; body = '' }
 }
-function Expect($releases, $expected, [switch]$Reject) {
+function Expect($releases, $expected, [switch]$Reject, [string]$ExpectedError) {
   $failed = $false
-  try { $result = & $select -Releases $releases -Repository $scratch } catch { $failed = $true }
+  try { $result = & $select -Releases $releases -Repository $scratch } catch {
+    if ($ExpectedError -and $_.Exception.Message -notmatch $ExpectedError) { throw }
+    $failed = $true
+  }
   if ($Reject) { if (-not $failed) { throw 'Expected rejection.' }; return }
   if ($failed -or $result.tag_name -cne $expected) { throw "Expected '$expected'." }
 }
@@ -44,7 +47,8 @@ try {
   & $git -C $scratch -c tag.gpgsign=false tag v2.0.0
   & $git -C $scratch reset --quiet --hard v1.0.0
   Expect @((Release v2.0.0), (Release v2.0.1 $true)) $null -Reject
-  Expect @((Release v9.0.0), $draft) $null -Reject # Missing stable tag fails closed.
+  Expect @((Release v9.0.0), $draft) $null -Reject -ExpectedError '(?s)Git exit 128.*fatal: Not a valid object name v9\.0\.0'
+  Write-Host 'PASS: missing stable tag rejected (v9.0.0)'
 }
 finally {
   if (Test-Path -LiteralPath $scratch) { Remove-Item -LiteralPath $scratch -Recurse -Force }
