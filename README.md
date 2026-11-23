@@ -93,11 +93,11 @@ For repository-local tool manifests, remote environments, and more connection ch
 
 ### 3. Check the connection
 
-Ask your agent to use Playbook to find .NET 11 guidance for keeping two Blazor QuickGrid views in the URL, then open the best recipe. A working connection returns candidate guidance from `find_guidance` and the full recipe and applicability from `get_recipe`. Use `list_recipes` when you want to browse by filters.
-
-Once connected, ask for a feature as usual. For example:
+Once connected, ask for a feature as usual. The agent can discover relevant Playbook guidance on its own, with no changes to your prompt. For example:
 
 > Build a .NET 11 Blazor Web App with a sortable, paginated grid. Make the current sort and page reproducible by sharing the URL.
+
+If your client shows tool activity, look for `find_guidance` to find candidate recipes and `get_recipe` to read the relevant guidance and its applicability. `list_recipes` is available for browsing by filters.
 
 Every tool call requires a target. Use the app's target framework for implementation. `latest` selects the newest release in the installed catalogue for exploration. The [companion instruction](docs/agent-instructions.md) is available if you want to reinforce the workflow.
 
