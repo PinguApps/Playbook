@@ -1,8 +1,26 @@
 # MCP contract
 
-Status: core contract, packaging, and discovery/applicability semantics accepted through Round 6; independent package SemVer accepted in Round 7. Not implemented. Experimental APIs remain included with explicit labels. See the [release plan](release-plan.md) for accepted publication policy.
+The core contract, packaging and discovery/applicability semantics were accepted through Round 6. Independent package SemVer was accepted in Round 7. Experimental APIs remain included with explicit labels. See the [release plan](release-plan.md) for publication policy.
 
 ## Catalogue discovery
+
+`find_guidance` is the starting point for a feature or migration. It accepts
+an explicit `targetVersion` and one to six plain-English `goals` (up to
+200 characters each), one per implementation decision. It searches each goal
+independently and returns up to three ranked candidates per goal. Use the
+candidate's ID with `get_recipe` to read its full guidance.
+
+Results echo the requested and resolved target and disclose catalogue coverage.
+Each goal has a `matched` or `no_match` status. Matches include the title, goal,
+edition, stability, match reason and compact target-specific applicability.
+Ranking uses installed catalogue metadata and local phrase aliases. When there
+is substantial keyword overlap but no strong match, a `suggestedRequest` may
+offer a narrower `find_guidance` call with the same target selection.
+Results cover the goals supplied in the request. Check any other implementation
+decisions separately. A match does not establish consumer compatibility and
+an empty result does not establish feature absence.
+
+## Filtered catalogue browsing
 
 `list_recipes` requires `targetVersion`, with optional `areas`, `languages`, and `query` filters, plus `includeShared` (default true) and `offset`/`limit` paging arguments. PIN-971 supersedes the historical omission default. The earlier proposed preview/experimental status filter is not approved.
 
@@ -23,7 +41,7 @@ Illustrative request shape:
 Accepted semantics:
 
 - Every call requires a concrete supported target release or explicit `latest`; missing, null and blank values fail helpfully with `required_target`. `latest` resolves numerically to the newest target release represented in the installed catalogue, using no network, installed SDK inventory or SDK build number. Echo the original `requestedTarget` and canonical `resolvedTarget`; retain `targetAssumed: false` for existing readers. No successful target is assumed.
-- Inspect the application's `TargetFramework`/`TargetFrameworks` and relevant project/`global.json` context before selecting a release. An SDK version is not the application's target release. Repeat `targetVersion` on both tools and each page: calls share no target state. Use `latest` deliberately for exploratory/theoretical requests or an unknown target; it does not establish consumer compatibility. Retrieve full detail and check prerequisites before applying guidance.
+- Inspect the application's `TargetFramework`/`TargetFrameworks` and relevant project/`global.json` context before selecting a release. An SDK version is not the application's target release. Repeat `targetVersion` on every call and each page: calls share no target state. Use `latest` deliberately for exploratory/theoretical requests or an unknown target; it does not establish consumer compatibility. Retrieve full detail and check prerequisites before applying guidance.
 - Omitted/empty area filter means all areas. Multiple requested areas match any of them. Multiple languages similarly match any requested language.
 - `languages` matches languages demonstrated by the recipe's examples, plus applicable genuinely language-neutral configuration/build recipes under Round 8. Broader API language applicability is recorded separately; a C#-only programming example does not satisfy an F# filter. Label neutral results explicitly. Language-specific project settings/directives are not neutral just because their files contain configuration.
 - With an area filter, `includeShared: true` also matches relevant shared language/library/SDK recipes through explicit applicability metadata. False limits area matching to directly tagged areas. Deduplicate shared matches. Without an area filter, all areas remain eligible regardless of this switch.
@@ -31,7 +49,7 @@ Accepted semantics:
 - Keyword matching is deterministic, case-insensitive, and uses recipe titles, goals, tags, and API names. The agent interprets natural language; the server does not host an AI search system.
 - Page size: 20 summaries by default, at most 50. Use stable ordering for identical arguments and return the next offset when more results exist.
 - Summaries contain identity, goal, areas, key applicability/status, and enough information to choose detail. Do not put full examples in catalogue responses.
-- Include the supported area identifiers in discovery metadata so clients can form valid filters without a third tool.
+- Include the supported area identifiers in discovery metadata so clients can form valid filters.
 
 These are filtering rules, not a claim that an application has been inspected. A caller can request more than one area for shared language/library guidance. Retagging a recipe does not duplicate its content.
 
@@ -114,7 +132,7 @@ An empty `recipes` page includes optional `recovery` in the same complete struct
 
 `suggestedRequest`, when present, is a complete arguments object for the existing `list_recipes` tool: `targetVersion`, `areas`, `languages`, `query`, `includeShared`, `offset`, `limit`. It retains the caller's original alias or deliberate `latest`, set values/order, shared setting and page size. Keyword removal also resets offset to 0 for the changed result set. Blank keywords normalize to null with unchanged matching semantics. The caller decides whether to execute it. The server never retries automatically, changes compatibility filters, searches online, invents matches, or claims the consumer meets recipe requirements. Check full detail before applying a recovered recipe.
 
-Recovery is one explanation and at most one request, without candidate previews or a separate search tool. A representative ordinary recovery object must fit 1,200 UTF-8 bytes; existing discovery budgets still apply. Caller-supplied filter/query lengths remain variable: the server never truncates them or essential disclosures to fit a budget. This optional additive response capability is `minor` under the package SemVer policy. Development packages remain unpublished candidates. See the [tested Inspector recovery walkthrough](https://github.com/PinguApps/Playbook/blob/e60419660a082da40dfc1bd8f0667401677c53f3/docs/verification/PIN-975.md).
+Recovery is one explanation and at most one request, without candidate previews. A representative ordinary recovery object must fit 1,200 UTF-8 bytes; existing discovery budgets still apply. Caller-supplied filter/query lengths remain variable: the server never truncates them or essential disclosures to fit a budget. This optional additive response capability is `minor` under the package SemVer policy. Development packages remain unpublished candidates. See the [tested Inspector recovery walkthrough](https://github.com/PinguApps/Playbook/blob/e60419660a082da40dfc1bd8f0667401677c53f3/docs/verification/PIN-975.md).
 
 Exact error codes and transport serialization remain to design within standard MCP behavior; this is the intended caller-visible contract.
 

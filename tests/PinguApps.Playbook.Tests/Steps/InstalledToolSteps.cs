@@ -2827,6 +2827,7 @@ public sealed class InstalledToolSteps : IDisposable
         }).ConfigureAwait(false);
         Assert.True(initialized.GetProperty("capabilities").TryGetProperty("tools", out _));
         string instructions = initialized.GetProperty("instructions").GetString()!;
+        Assert.Contains("find_guidance", instructions, StringComparison.Ordinal);
         Assert.Contains("TargetFramework", instructions, StringComparison.Ordinal);
         Assert.Contains("global.json", instructions, StringComparison.Ordinal);
         Assert.Contains("targetVersion", instructions, StringComparison.Ordinal);
@@ -2834,12 +2835,12 @@ public sealed class InstalledToolSteps : IDisposable
         await SendAsync(new { jsonrpc = "2.0", method = "notifications/initialized" }).ConfigureAwait(false);
     }
 
-    [Then("exactly the two read-only tools advertise output schemas")]
+    [Then("exactly the three read-only tools advertise output schemas")]
     public async Task CheckToolsAsync()
     {
         JsonElement response = await RequestAsync("tools/list", new { }).ConfigureAwait(false);
         JsonElement[] tools = [.. response.GetProperty("tools").EnumerateArray()];
-        Assert.Equal(["get_recipe", "list_recipes"], tools.Select(tool => tool.GetProperty("name").GetString()).Order(StringComparer.Ordinal));
+        Assert.Equal(["find_guidance", "get_recipe", "list_recipes"], tools.Select(tool => tool.GetProperty("name").GetString()).Order(StringComparer.Ordinal));
         foreach (JsonElement tool in tools)
         {
             JsonElement annotations = tool.GetProperty("annotations");
@@ -2856,6 +2857,52 @@ public sealed class InstalledToolSteps : IDisposable
                 Assert.DoesNotContain("prerequisites", schema, StringComparison.Ordinal);
             }
         }
+    }
+
+    [Then("guidance discovery covers independent plain-English goals at the requested target")]
+    public async Task CheckGuidanceDiscoveryAsync()
+    {
+        string[] goals =
+        [
+            "Run a single-file console app",
+            "Deduplicate by station ID ignoring case",
+            "Find minimum and maximum directly from the readings span",
+            "Write one JSON object per line as records arrive",
+            "Quantum teleportation",
+            "Write json records alongside lunar orbital ephemeris calculations",
+        ];
+        string[] expected = ["sdk.run-file-utility", "collections.compare-by-key", "collections.find-span-extrema", "json.stream-json-lines"];
+        JsonElement discovery = AssertMatchingRepresentations(await CallAsync("find_guidance", new { targetVersion = "net11.0", goals }).ConfigureAwait(false));
+        Assert.Equal("11.0", discovery.GetProperty("resolvedTarget").GetString());
+        Assert.Contains("only the goals you sent", discovery.GetProperty("nextStep").GetString(), StringComparison.Ordinal);
+        JsonElement[] groups = [.. discovery.GetProperty("goals").EnumerateArray()];
+        Assert.Equal(goals, groups.Select(group => group.GetProperty("goal").GetString()));
+        for (int i = 0; i < expected.Length; i++)
+        {
+            Assert.Equal("matched", groups[i].GetProperty("status").GetString());
+            JsonElement first = groups[i].GetProperty("matches")[0];
+            Assert.Equal(expected[i], first.GetProperty("id").GetString());
+            Assert.False(string.IsNullOrWhiteSpace(first.GetProperty("whyMatched").GetString()));
+            Assert.All(first.GetProperty("applicability").GetProperty("routes").EnumerateArray(),
+                route => Assert.Equal("11.0", route.GetProperty("target").GetString()));
+        }
+
+        Assert.Equal("no_match", groups[4].GetProperty("status").GetString());
+        Assert.Empty(groups[4].GetProperty("matches").EnumerateArray());
+        Assert.False(groups[4].TryGetProperty("suggestedRequest", out _));
+        Assert.Equal("no_match", groups[5].GetProperty("status").GetString());
+        JsonElement retry = groups[5].GetProperty("suggestedRequest");
+        Assert.Equal("net11.0", retry.GetProperty("targetVersion").GetString());
+        JsonElement replay = AssertMatchingRepresentations(await CallAsync("find_guidance", retry).ConfigureAwait(false));
+        Assert.Equal(retry.GetProperty("goals")[0].GetString(),
+            replay.GetProperty("goals")[0].GetProperty("matches")[0].GetProperty("id").GetString());
+
+        JsonElement older = AssertMatchingRepresentations(await CallAsync("find_guidance",
+            new { targetVersion = "10", goals = new[] { expected[2] } }).ConfigureAwait(false));
+        Assert.Equal("10.0", older.GetProperty("resolvedTarget").GetString());
+        Assert.Empty(older.GetProperty("goals")[0].GetProperty("matches").EnumerateArray());
+        string[] blankGoals = [" "];
+        AssertToolError(await CallAsync("find_guidance", new { targetVersion = "11", goals = blankGoals }).ConfigureAwait(false), "invalid_goals");
     }
 
     [Then("discovery and detail preserve complete structured and text results")]
@@ -3033,7 +3080,7 @@ public sealed class InstalledToolSteps : IDisposable
         }
     }
 
-    [Then("both tools require a nonnullable target string")]
+    [Then("all tools require a nonnullable target string")]
     public async Task CheckRequiredSchemasAsync()
     {
         JsonElement response = await RequestAsync("tools/list", new { }).ConfigureAwait(false);
@@ -3047,17 +3094,17 @@ public sealed class InstalledToolSteps : IDisposable
         }
     }
 
-    [Then("omitted null and blank targets fail helpfully on both tools")]
+    [Then("omitted null and blank targets fail helpfully on all tools")]
     public async Task CheckRequiredTargetsAsync()
     {
-        foreach (string tool in new[] { "list_recipes", "get_recipe" })
+        foreach (string tool in new[] { "find_guidance", "list_recipes", "get_recipe" })
         {
             foreach (object arguments in new object[]
             {
-                new { id = "csharp.validate-property-assignment" },
-                new { id = "csharp.validate-property-assignment", targetVersion = (string?)null },
-                new { id = "csharp.validate-property-assignment", targetVersion = "" },
-                new { id = "csharp.validate-property-assignment", targetVersion = " \t\n" },
+                new { id = "csharp.validate-property-assignment", goals = new[] { "validate property assignment" } },
+                new { id = "csharp.validate-property-assignment", goals = new[] { "validate property assignment" }, targetVersion = (string?)null },
+                new { id = "csharp.validate-property-assignment", goals = new[] { "validate property assignment" }, targetVersion = "" },
+                new { id = "csharp.validate-property-assignment", goals = new[] { "validate property assignment" }, targetVersion = " \t\n" },
             })
             {
                 JsonElement result = await CallAsync(tool, arguments).ConfigureAwait(false);

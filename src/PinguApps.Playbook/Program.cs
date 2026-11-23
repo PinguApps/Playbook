@@ -38,9 +38,10 @@ internal static class Program
         builder.Logging.AddConsole(options => options.LogToStandardErrorThreshold = LogLevel.Trace);
         builder.Services.AddSingleton<RecipeCatalogue>();
         builder.Services.AddMcpServer(options => options.ServerInstructions =
-            "Before applying .NET guidance, inspect the application's TargetFramework/TargetFrameworks and relevant project files, Directory.Build.props and global.json. "
+            "Before choosing .NET APIs or implementation patterns for a feature or migration, use find_guidance with one goal per meaningful decision. Consider how the app runs, processes data and delivers results where relevant. A setup match only covers setup. Check the other decisions before implementing. "
+            + "Inspect the application's TargetFramework/TargetFrameworks and relevant project files, Directory.Build.props and global.json. "
             + "Choose the application's target release, not the exact SDK version; global.json selects an SDK and does not establish the target framework. "
-            + "Supply targetVersion explicitly on both list_recipes and get_recipe, repeating it on every call and page; calls do not share a target. "
+            + "Supply targetVersion explicitly on every tool call and page. Use list_recipes for filtered catalogue browsing. "
             + "Use latest deliberately for exploratory/theoretical requests or an unknown target: it resolves numerically to the newest target release represented in this installed catalogue, without consulting the network or installed SDKs. "
             + "latest does not establish consumer compatibility. Discovery contains compact selection conditions, not complete prerequisites or evidence. Before applying any recipe, retrieve get_recipe and check each route's full requirements and limitations against the application. Primary routes and optional alternatives are separate choices. "
             + "Evidence records are exact verification baselines, not mandatory installation versions; RC evidence is not GA verification. Then apply and verify the guidance.")
@@ -48,7 +49,7 @@ internal static class Program
             .WithRequestFilters(filters => filters.AddCallToolFilter(next => async (request, cancellationToken) =>
             {
                 // The SDK rejects missing required arguments before invoking the tool, hiding its helpful validation.
-                if (request.Params is { Name: "list_recipes" or "get_recipe" } parameters
+                if (request.Params is { Name: "find_guidance" or "list_recipes" or "get_recipe" } parameters
                     && (parameters.Arguments is null || !parameters.Arguments.ContainsKey("targetVersion")))
                 {
                     return new CallToolResult
@@ -59,7 +60,7 @@ internal static class Program
                             Text = JsonSerializer.Serialize(new
                             {
                                 code = "required_target",
-                                message = "targetVersion is required on every list_recipes and get_recipe call. Supply a supported target release or explicitly choose latest; inspect consumer prerequisites separately.",
+                                message = "targetVersion is required on every tool call. Supply a supported target release or explicitly choose latest; inspect consumer prerequisites separately.",
                             }),
                         }],
                     };

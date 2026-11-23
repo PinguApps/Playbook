@@ -249,9 +249,10 @@ Feature: Installed offline guidance
     Given the actual package is installed from an isolated local feed and cache
     Then bare invocation help and version identify the installed command
     When a client initializes the installed stdio server outside the checkout
-    Then exactly the two read-only tools advertise output schemas
+    Then exactly the three read-only tools advertise output schemas
     And discovery and detail preserve complete structured and text results
     And the served examples match the canonical compiled sample sources
+    And guidance discovery covers independent plain-English goals at the requested target
     When the client closes its input
     Then the server exits cleanly with diagnostics on stderr
 
@@ -294,8 +295,8 @@ Feature: Installed offline guidance
   Scenario: Every discovery and detail request requires its own explicit target release
     Given the actual package is installed from an isolated local feed and cache
     When a client initializes the installed stdio server outside the checkout
-    Then both tools require a nonnullable target string
-    And omitted null and blank targets fail helpfully on both tools
+    Then all tools require a nonnullable target string
+    And omitted null and blank targets fail helpfully on all tools
     When the client closes its input
     Then the server exits cleanly with diagnostics on stderr
 
