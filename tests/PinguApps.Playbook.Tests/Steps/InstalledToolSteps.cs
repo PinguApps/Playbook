@@ -2937,6 +2937,33 @@ public sealed class InstalledToolSteps : IDisposable
         AssertFirstMatch(blazor[1], "blazor.show-once-after-redirect");
         AssertFirstMatch(blazor[2], "blazor.check-input-before-post");
 
+        string[] firstPerGroupGoals =
+        [
+            "Keep the first station occurrence in arrival order using ordinal case-insensitive matching",
+            "Keep the first async batch for each station by ordinal case insensitive ID in arrival order",
+            "Retain the first measurement for every sensor in input order",
+            "Keep only the first station using ordinal case-insensitive equality in an async stream",
+            "Keep the first seen station with ordinal case-insensitive equality",
+        ];
+        JsonElement grouped = await FindAsync(firstPerGroupGoals).ConfigureAwait(false);
+        Assert.All(grouped.EnumerateArray(), group => AssertFirstMatch(group, expected[1]));
+
+        string[] spanGoals =
+        [
+            "Compute integer minimum and maximum without copying a read-only span and return null when empty",
+            "Calculate min and max values of a ReadOnlySpan of scores",
+        ];
+        JsonElement spans = await FindAsync(spanGoals).ConfigureAwait(false);
+        Assert.All(spans.EnumerateArray(), group => AssertFirstMatch(group, expected[2]));
+
+        string[] jsonLineGoals =
+        [
+            "Write one compact JSON object per line to stdout as batches arrive",
+            "Emit each received event in JSON on a separate line",
+        ];
+        JsonElement jsonLines = await FindAsync(jsonLineGoals).ConfigureAwait(false);
+        Assert.All(jsonLines.EnumerateArray(), group => AssertFirstMatch(group, expected[3]));
+
         string[] otherGoals =
         [
             "retain the first shipment per tracking identifier",
