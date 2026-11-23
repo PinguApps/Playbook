@@ -1,5 +1,8 @@
 # PinguApps.Playbook
 
+[![PinguApps.Playbook version](https://img.shields.io/nuget/v/PinguApps.Playbook?style=for-the-badge&label=PinguApps.Playbook)](https://www.nuget.org/packages/PinguApps.Playbook/)
+[![PinguApps.Playbook downloads](https://img.shields.io/nuget/dt/PinguApps.Playbook?style=for-the-badge&label=downloads)](https://www.nuget.org/packages/PinguApps.Playbook/)
+
 Give your coding agent practical guidance for modern .NET.
 
 An agent can build a working app while overlooking newer framework features or choosing patterns from an older release. Playbook gives it a searchable catalogue of original implementation recipes for .NET 11 and selected .NET 10 foundations, with examples, setup steps, previous-release comparisons and verification limits.
@@ -17,24 +20,86 @@ Playbook supplies guidance; your agent implements and tests the changes. It does
 
 ## Get started
 
-Until a release is published, use the [local development package walkthrough](docs/installation.md#build-and-inspect-the-current-development-package). After publication, install the NuGet tool:
+### 1. Install Playbook
+
+Install Playbook on the machine where your agent runs. The install command needs a .NET SDK. Playbook runs on the .NET 11 GA runtime, or a later stable major runtime when .NET 11 is absent. Install any SDKs, packages, or workloads that your chosen recipes require for your application.
+
+Once the stable release is on NuGet, run:
 
 ```powershell
 dotnet tool install --global PinguApps.Playbook
 playbook --version
 ```
 
-The server needs .NET 11 GA, or a later stable major runtime when .NET 11 is absent. No desktop or mobile workloads are required to run it. Your application may need additional SDKs, packages or workloads specified by a recipe.
+Before the stable release, use the [local development install](docs/installation.md#build-and-inspect-the-current-development-package).
 
-Follow the [client setup guide](docs/clients.md) for T3 Code, Codex CLI, Claude Code or VS Code Copilot. Each client launches `playbook mcp` as its own stdio process. Use `find_guidance` to discover recipes for several implementation goals at once, `list_recipes` to browse the catalogue with filters, and `get_recipe` to read the full guidance.
+### 2. Connect your agent
 
-Playbook tells the agent how to search for guidance as part of normal feature work. Tool use depends on the agent and client. The [companion instruction](docs/agent-instructions.md) is available if you want to reinforce the workflow in your own projects.
+The client launches `playbook mcp` as a local stdio process. Set the command to `playbook` and pass `mcp` as its only argument. If your agent cannot find `playbook`, use the full executable path. A global install normally puts it at `%USERPROFILE%\.dotnet\tools\playbook.exe` on Windows or `~/.dotnet/tools/playbook` on Linux and macOS. Use an expanded absolute path in the config.
 
-Try asking your agent:
+#### Codex CLI
+
+Register Playbook and inspect the saved entry:
+
+```powershell
+codex mcp add playbook -- playbook mcp
+codex mcp get playbook
+```
+
+You can also merge the equivalent entry into `~/.codex/config.toml`:
+
+```toml
+[mcp_servers.playbook]
+command = "playbook"
+args = ["mcp"]
+```
+
+Start a new Codex session and run `/mcp` to check the connection.
+
+#### T3 Code (Codex provider)
+
+Open **Settings → Providers**, select your Codex instance, and check its **CODEX_HOME path**. Use the Codex setup above on the machine where that instance runs. If it uses a custom home, put the TOML entry in that home's `config.toml`. After saving, refresh providers in T3 Code and start a fresh thread with that Codex instance.
+
+#### Claude Code
+
+Register Playbook for your user account:
+
+```powershell
+claude mcp add --transport stdio --scope user playbook -- playbook mcp
+claude mcp get playbook
+```
+
+Use `--scope project` if you want Claude Code to save a project entry in `.mcp.json`. Start a new session and use `/mcp` to check the connection and approve the server if prompted.
+
+#### VS Code with GitHub Copilot
+
+Add Playbook under `servers` in your workspace's `.vscode/mcp.json`. For a personal setup, open **MCP: Open User Configuration** from the Command Palette and add the same entry.
+
+```json
+{
+  "servers": {
+    "playbook": {
+      "type": "stdio",
+      "command": "playbook",
+      "args": ["mcp"]
+    }
+  }
+}
+```
+
+In the Command Palette, use **MCP: List Servers → playbook → Start** and approve the trust prompt. In Copilot chat, make sure Playbook is enabled in the tool picker.
+
+For repository-local tool manifests, remote environments, and more connection checks, see the [client setup guide](docs/clients.md).
+
+### 3. Check the connection
+
+Once connected, ask for a feature as usual. The agent can discover relevant Playbook guidance on its own, with no changes to your prompt. For example:
 
 > Build a .NET 11 Blazor Web App with a sortable, paginated grid. Make the current sort and page reproducible by sharing the URL.
 
-Every tool call requires a target. A deliberate `latest` choice selects the newest release in the installed catalogue; it does not establish application compatibility.
+If your client shows tool activity, look for `find_guidance` to find candidate recipes and `get_recipe` to read the relevant guidance and its applicability. `list_recipes` is available for browsing by filters.
+
+Every tool call requires a target. Use the app's target framework for implementation. `latest` selects the newest release in the installed catalogue for exploration. The [companion instruction](docs/agent-instructions.md) is available if you want to reinforce the workflow.
 
 ## Release status and verification
 
