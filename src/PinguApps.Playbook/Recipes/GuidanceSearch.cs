@@ -7,7 +7,7 @@ internal static partial class GuidanceSearch
     // Alternate developer terminology for concepts whose catalogue labels use different words.
     private static readonly Dictionary<string, string[]> _aliases = new(StringComparer.Ordinal)
     {
-        ["collections.compare-by-key"] = ["deduplicate by", "dedupe by", "deduplicate records", "deduplicate stations", "case insensitive deduplication", "case insensitive station ids", "first record per key"],
+        ["collections.compare-by-key"] = ["deduplicate by", "dedupe by", "deduplicate records", "case insensitive deduplication"],
         ["collections.find-span-extrema"] = ["span extrema", "span min max", "min max directly", "minimum and maximum directly", "min and max directly", "minimum and maximum from a span"],
         ["json.stream-json-lines"] = ["ndjson", "jsonl", "json lines", "one json object per line", "one json record per line", "newline delimited json"],
         ["sdk.run-file-utility"] = ["file based app", "file based console", "single file console", "single file c#", "run a c# file directly", "dotnet run file", "without a csproj"],
@@ -23,61 +23,86 @@ internal static partial class GuidanceSearch
     public static GuidanceGoal[] Find(string[] goals, string requestedTarget, IEnumerable<RecipeEdition> editions)
     {
         SearchEntry[] entries = [.. editions.Select(CreateEntry)];
-        return [.. goals.Select(goal => FindGoal(goal, requestedTarget, entries))];
+        Dictionary<string, int> frequency = entries.SelectMany(entry => entry.Words)
+            .CountBy(word => word, StringComparer.Ordinal).ToDictionary(pair => pair.Key, pair => pair.Value, StringComparer.Ordinal);
+        return [.. goals.Select(goal => FindGoal(goal, requestedTarget, entries, frequency))];
     }
 
-    private static GuidanceGoal FindGoal(string goal, string requestedTarget, SearchEntry[] entries)
+    private static GuidanceGoal FindGoal(string goal, string requestedTarget, SearchEntry[] entries, Dictionary<string, int> frequency)
     {
-        string phrase = Normalize(goal);
-        string[] words = [.. Words(phrase).Where(word => !_commonWords.Contains(word)).Distinct(StringComparer.Ordinal)];
-        RankedMatch[] ranked = [.. entries.Select(entry => Rank(entry, phrase, words))
-            .Where(match => match.Score > 0)
-            .OrderByDescending(match => match.Score)
-            .ThenBy(match => match.Edition.Id, StringComparer.Ordinal)];
-        GuidanceMatch[] matches = [.. ranked.Where(match => match.Confident).Take(3).Select(match =>
+        // A retry may separate decisions that the caller already supplied. It never replaces the goal with a guessed recipe ID.
+        string[] clauses = goal.Split([';', '\r', '\n'], StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
+        if (clauses.Length is >= 2 and <= 6 && clauses.All(clause => Search(clause, entries, frequency).Any()))
+        {
+            return new GuidanceGoal(goal, "no_match", [])
+            {
+                SuggestedRequest = new GuidanceRequest(requestedTarget, clauses),
+            };
+        }
+
+        GuidanceMatch[] matches = [.. Search(goal, entries, frequency).Take(3).Select(match =>
         {
             RecipeEdition edition = match.Edition;
             return new GuidanceMatch(edition.Id, edition.Edition, edition.Title, edition.Goal, edition.Stability, match.Reason,
                 ApplicabilitySummary.From(edition.Applicability));
         })];
-
-        // Suggest a narrower query only when a particular installed candidate had substantial overlap.
-        RankedMatch? near = matches.Length == 0 ? ranked.FirstOrDefault() : null;
-        return new GuidanceGoal(goal, matches.Length == 0 ? "no_match" : "matched", matches)
-        {
-            SuggestedRequest = near is null ? null : new GuidanceRequest(requestedTarget, [near.Edition.Id]),
-        };
+        return new GuidanceGoal(goal, matches.Length == 0 ? "no_match" : "matched", matches);
     }
 
-    private static RankedMatch Rank(SearchEntry entry, string phrase, string[] words)
+    private static IEnumerable<RankedMatch> Search(string goal, SearchEntry[] entries, Dictionary<string, int> frequency)
+    {
+        string phrase = Normalize(goal);
+        string[] words = [.. Words(phrase).Where(word => !_commonWords.Contains(word)).Distinct(StringComparer.Ordinal)];
+        bool distinctByKey = DistinctByKeyPattern().IsMatch(phrase);
+        return entries.Select(entry => Rank(entry, phrase, words, distinctByKey, frequency))
+            .OfType<RankedMatch>()
+            .OrderByDescending(match => match.Tier)
+            .ThenByDescending(match => match.Score)
+            .ThenByDescending(match => match.TagOverlap)
+            .ThenBy(match => match.Edition.Id, StringComparer.Ordinal);
+    }
+
+    private static RankedMatch? Rank(SearchEntry entry, string phrase, string[] words, bool distinctByKey, Dictionary<string, int> frequency)
     {
         if (phrase == entry.Id)
         {
-            return new RankedMatch(entry.Edition, 1000, true, "Exact recipe ID.");
+            return new RankedMatch(entry.Edition, 3, 0, 0, "Exact recipe ID.");
+        }
+
+        if (distinctByKey && entry.Labels.Contains("enumerable distinct", StringComparer.Ordinal))
+        {
+            return new RankedMatch(entry.Edition, 2, 0, 0, "Recognized intent: keep one item per key.");
         }
 
         string? alias = entry.Aliases.FirstOrDefault(value => ContainsPhrase(phrase, value));
         if (alias is not null)
         {
-            return new RankedMatch(entry.Edition, 200, true, $"Recognized wording: {alias}.");
+            return new RankedMatch(entry.Edition, 2, Words(alias).Length, 0, $"Recognized wording: {alias}.");
         }
 
         string? label = entry.Labels.FirstOrDefault(value => words.Length != 0 && ContainsPhrase(value, phrase));
         if (label is not null)
         {
-            return new RankedMatch(entry.Edition, 100, true, $"Catalogue phrase: {phrase}.");
+            return new RankedMatch(entry.Edition, 1, 0, 0, $"Catalogue phrase: {phrase}.");
         }
 
         string[] overlap = [.. words.Where(entry.Words.Contains)];
-        bool confident = overlap.Length >= 2 && overlap.Length * 5 >= words.Length * 3;
-        return new RankedMatch(entry.Edition, overlap.Length >= 2 ? overlap.Length : 0, confident,
-            $"Shared catalogue terms: {string.Join(", ", overlap)}.");
+        if (overlap.Length < 2 || overlap.Length * 5 < words.Length * 3)
+        {
+            return null;
+        }
+
+        // Rare catalogue terms carry more information than terms shared by many unrelated recipes.
+        double score = overlap.Sum(word => 1 / Math.Sqrt(frequency[word]));
+        int tagOverlap = words.Count(entry.Tags.Contains);
+        return new RankedMatch(entry.Edition, 0, score, tagOverlap, $"Shared catalogue terms: {string.Join(", ", overlap)}.");
     }
 
     private static SearchEntry CreateEntry(RecipeEdition edition)
     {
-        string[] labels = [.. new[] { edition.Id, edition.Title, edition.Goal }.Concat(edition.Tags).Concat(edition.Apis).Select(Normalize)];
+        string[] labels = [.. new[] { edition.Id, edition.Title, edition.Goal }.Concat(edition.Apis).Select(Normalize)];
         return new SearchEntry(edition, labels[0], labels, labels.SelectMany(Words).ToHashSet(StringComparer.Ordinal),
+            edition.Tags.SelectMany(tag => Words(Normalize(tag))).ToHashSet(StringComparer.Ordinal),
             [.. (_aliases.GetValueOrDefault(edition.Id) ?? []).Select(Normalize)]);
     }
 
@@ -92,7 +117,10 @@ internal static partial class GuidanceSearch
     [GeneratedRegex(@"[\p{L}\p{Nd}]+")]
     private static partial Regex WordPattern();
 
-    private sealed record SearchEntry(RecipeEdition Edition, string Id, IReadOnlyList<string> Labels, HashSet<string> Words, IReadOnlyList<string> Aliases);
+    [GeneratedRegex(@"\b(?:(?:first|one)(?: \w+){0,4} (?:per|for each|by)(?: \w+){0,4} (?:keys?|ids?|identifiers?)|(?:keep|retain|take|preserve) (?:only )?(?:the )?first(?: \w+){0,4} (?:key|id|identifier) (?:using |with )?(?:ordinal )?(?:case insensitive|ignoring case))\b")]
+    private static partial Regex DistinctByKeyPattern();
 
-    private sealed record RankedMatch(RecipeEdition Edition, int Score, bool Confident, string Reason);
+    private sealed record SearchEntry(RecipeEdition Edition, string Id, IReadOnlyList<string> Labels, HashSet<string> Words, HashSet<string> Tags, IReadOnlyList<string> Aliases);
+
+    private sealed record RankedMatch(RecipeEdition Edition, int Tier, double Score, int TagOverlap, string Reason);
 }

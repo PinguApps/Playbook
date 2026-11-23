@@ -2891,11 +2891,46 @@ public sealed class InstalledToolSteps : IDisposable
         Assert.Empty(groups[4].GetProperty("matches").EnumerateArray());
         Assert.False(groups[4].TryGetProperty("suggestedRequest", out _));
         Assert.Equal("no_match", groups[5].GetProperty("status").GetString());
-        JsonElement retry = groups[5].GetProperty("suggestedRequest");
+        Assert.False(groups[5].TryGetProperty("suggestedRequest", out _));
+
+        string[] trialGoals =
+        [
+            "run a one-file C# console app with dotnet run --file and target framework directive",
+            "simulate delayed batches with an async iterator",
+            "keep the first station ID using ordinal case-insensitive matching",
+            "find minimum and maximum directly from a read-only integer span",
+            "write compact JSON Lines to standard output",
+        ];
+        JsonElement trial = await FindAsync(trialGoals).ConfigureAwait(false);
+        AssertFirstMatch(trial[0], expected[0]);
+        AssertFirstMatch(trial[2], expected[1]);
+        AssertFirstMatch(trial[3], expected[2]);
+        AssertFirstMatch(trial[4], expected[3]);
+        Assert.DoesNotContain(trial[2].GetProperty("matches").EnumerateArray(),
+            match => match.GetProperty("id").GetString() == "blazor.preserve-route-matching");
+
+        string[] otherGoals =
+        [
+            "retain the first shipment per tracking identifier",
+            "one contact per external key",
+            "preserve parameterized Blazor route matching with PreferExactMatches and case insensitivity",
+            "publish static asset groups and generated TypeScript",
+            "find tidal stations",
+            "run a single-file console app; write compact JSON Lines to standard output",
+        ];
+        JsonElement other = await FindAsync(otherGoals).ConfigureAwait(false);
+        AssertFirstMatch(other[0], expected[1]);
+        AssertFirstMatch(other[1], expected[1]);
+        AssertFirstMatch(other[2], "blazor.preserve-route-matching");
+        AssertFirstMatch(other[3], "sdk.declare-static-asset-groups");
+        Assert.Equal("no_match", other[4].GetProperty("status").GetString());
+        Assert.False(other[4].TryGetProperty("suggestedRequest", out _));
+        JsonElement retry = other[5].GetProperty("suggestedRequest");
         Assert.Equal("net11.0", retry.GetProperty("targetVersion").GetString());
+        Assert.Equal(otherGoals[5].Split("; "), retry.GetProperty("goals").EnumerateArray().Select(goal => goal.GetString()));
         JsonElement replay = AssertMatchingRepresentations(await CallAsync("find_guidance", retry).ConfigureAwait(false));
-        Assert.Equal(retry.GetProperty("goals")[0].GetString(),
-            replay.GetProperty("goals")[0].GetProperty("matches")[0].GetProperty("id").GetString());
+        AssertFirstMatch(replay.GetProperty("goals")[0], expected[0]);
+        AssertFirstMatch(replay.GetProperty("goals")[1], expected[3]);
 
         JsonElement older = AssertMatchingRepresentations(await CallAsync("find_guidance",
             new { targetVersion = "10", goals = new[] { expected[2] } }).ConfigureAwait(false));
@@ -2903,6 +2938,16 @@ public sealed class InstalledToolSteps : IDisposable
         Assert.Empty(older.GetProperty("goals")[0].GetProperty("matches").EnumerateArray());
         string[] blankGoals = [" "];
         AssertToolError(await CallAsync("find_guidance", new { targetVersion = "11", goals = blankGoals }).ConfigureAwait(false), "invalid_goals");
+
+        async Task<JsonElement> FindAsync(string[] queries) =>
+            AssertMatchingRepresentations(await CallAsync("find_guidance", new { targetVersion = "net11.0", goals = queries }).ConfigureAwait(false))
+                .GetProperty("goals");
+
+        static void AssertFirstMatch(JsonElement group, string id)
+        {
+            Assert.Equal("matched", group.GetProperty("status").GetString());
+            Assert.Equal(id, group.GetProperty("matches")[0].GetProperty("id").GetString());
+        }
     }
 
     [Then("discovery and detail preserve complete structured and text results")]

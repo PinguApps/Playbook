@@ -13,9 +13,13 @@ candidate's ID with `get_recipe` to read its full guidance.
 Results echo the requested and resolved target and disclose catalogue coverage.
 Each goal has a `matched` or `no_match` status. Matches include the title, goal,
 edition, stability, match reason and compact target-specific applicability.
-Ranking uses installed catalogue metadata and local phrase aliases. When there
-is substantial keyword overlap but no strong match, a `suggestedRequest` may
-offer a narrower `find_guidance` call with the same target selection.
+Ranking uses installed catalogue titles, goals, APIs, phrase aliases and
+recognized implementation intents. Distinctive terms carry more weight than
+common ones. Tags can help order otherwise equal matches. Keyword matches
+must cover most of the meaningful query words. A semicolon or newline
+can separate decisions within a goal. If each clause has an independent match,
+`suggestedRequest` replays the original clauses as separate goals with the same
+target selection. Ordinary no-match results offer no speculative substitute.
 Results cover the goals supplied in the request. Check any other implementation
 decisions separately. A match does not establish consumer compatibility and
 an empty result does not establish feature absence.
