@@ -4,6 +4,7 @@ param(
   [Parameter(Mandatory)][string]$PackageVersion,
   [Parameter(Mandatory)][string]$Results,
   [string]$ExpectedRid,
+  [string]$InstallerFeed,
   [string]$Dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source
 )
 
@@ -26,7 +27,12 @@ foreach ($scope in @('Process', 'User', 'Machine')) {
 $scratch = Join-Path ([IO.Path]::GetTempPath()) ('playbook-bundled-' + [guid]::NewGuid().ToString('N'))
 $null = New-Item -ItemType Directory -Path $scratch
 $feed = [Security.SecurityElement]::Escape((Resolve-Path -LiteralPath $Artifacts).Path)
-"<configuration><packageSources><clear/><add key='local' value='$feed'/></packageSources></configuration>" |
+$sources = "<add key='playbook' value='$feed'/>"
+if ($InstallerFeed) {
+  $installerSource = [Security.SecurityElement]::Escape((Resolve-Path -LiteralPath $InstallerFeed).Path)
+  $sources += "<add key='installer' value='$installerSource'/>"
+}
+"<configuration><packageSources><clear/>$sources</packageSources></configuration>" |
   Set-Content -LiteralPath (Join-Path $scratch 'NuGet.Config')
 
 function Start-Child([string]$File, [string[]]$Arguments, [switch]$Mcp) {

@@ -50,7 +50,7 @@ jobs:
   test:
     name: Build and verify package
     runs-on: blacksmith-2vcpu-ubuntu-2404
-    timeout-minutes: ${{ inputs.smoke && !inputs.release_ready && 10 || 30 }}
+    timeout-minutes: ${{ inputs.smoke && !inputs.release_ready && 10 || 40 }}
     env:
       CI: true
       DOTNET_CLI_TELEMETRY_OPTOUT: true
@@ -247,7 +247,24 @@ jobs:
           EXPECTED_RID: ${{ matrix.rid }}
         run: |
           $dotnet = Join-Path $env:RUNNER_TEMP "playbook-dotnet/$(if ($IsWindows) { 'dotnet.exe' } else { 'dotnet' })"
-          ./eng/Test-BundledTool.ps1 -Artifacts ./artifacts -PackageVersion $env:PACKAGE_VERSION -Results ./artifacts/TestResults -Dotnet $dotnet -ExpectedRid $env:EXPECTED_RID
+          $options = @{}
+          $appHostPacks = @{
+            'win-arm64' = @('win-x64', '41D6989224D9E273880072041C0FA7A2D8C92F1CF11E989E8967D3D589A066AD')
+            'osx-arm64' = @('osx-x64', '6B00DC51FCDDE7A1B318C15B63FCAC8937F0C02CCF6960115F71B51920285EFE')
+          }
+          if ($appHostPacks.ContainsKey($env:EXPECTED_RID)) {
+            # The SDK resolves an x64 shim template for tools/any even when it
+            # will use the bundled executable directly. Supply it offline.
+            $hostRid, $hash = $appHostPacks[$env:EXPECTED_RID]
+            $id = "microsoft.netcore.app.host.$hostRid"
+            $file = "$id.10.0.15.nupkg"
+            $installerFeed = New-Item -ItemType Directory -Path (Join-Path $env:RUNNER_TEMP 'playbook-installer-feed')
+            $destination = Join-Path $installerFeed.FullName $file
+            Invoke-WebRequest -Uri "https://api.nuget.org/v3-flatcontainer/$id/10.0.15/$file" -OutFile $destination
+            if ((Get-FileHash -LiteralPath $destination -Algorithm SHA256).Hash -cne $hash) { throw "Hash mismatch for $file." }
+            $options.InstallerFeed = $installerFeed.FullName
+          }
+          ./eng/Test-BundledTool.ps1 -Artifacts ./artifacts -PackageVersion $env:PACKAGE_VERSION -Results ./artifacts/TestResults -Dotnet $dotnet -ExpectedRid $env:EXPECTED_RID @options
 
       - name: Upload smoke results and runtime evidence
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
