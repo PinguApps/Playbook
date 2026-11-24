@@ -180,7 +180,7 @@ Set-Location -LiteralPath 'V:\_worktrees\Playbook\agent-788b14ab-a700d1594145d2e
 From the repository root after verification:
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\agent-788b14ab-a700d1594145d2ef'
 # Use fresh directories; if these exist from an earlier run, choose new names.
 New-Item -ItemType Directory ./artifacts/manual-feed | Out-Null
 Copy-Item ./artifacts/packages/1.0.0-preview.1/*.nupkg ./artifacts/manual-feed/
