@@ -22,20 +22,18 @@ Playbook supplies guidance; your agent implements and tests the changes. It does
 
 ### 1. Install Playbook
 
-Install Playbook on the machine where your agent runs. The install command needs a .NET SDK. Bundled releases include .NET 11 for Windows, macOS and glibc-based Linux on x64 and Arm64. Other targets use the portable package with a compatible shared runtime. See the [installation guide](docs/installation.md) for SDK and runtime requirements.
-
-Once the stable release is on NuGet, run:
+Install `PinguApps.Playbook` on the machine where your agent runs. With the .NET 10 SDK or later, `dotnet tool install` automatically downloads the package for your OS and architecture. Bundled packages include the .NET 11 runtime for Windows, macOS and glibc-based Linux on x64 and Arm64. Other targets use the portable package, which requires a shared .NET 11 or later stable runtime. See the [installation guide](docs/installation.md) for SDK and runtime requirements.
 
 ```powershell
 dotnet tool install --global PinguApps.Playbook
 playbook --version
 ```
 
-Before the stable release, use the [local development install](docs/installation.md#build-and-inspect-the-current-development-package).
+To update an existing global installation, run `dotnet tool update --global PinguApps.Playbook` and restart your agent's MCP connection.
 
 ### 2. Connect your agent
 
-The client launches `playbook mcp` as a local stdio process. Set the command to `playbook` and pass `mcp` as its only argument. If your agent cannot find `playbook`, use the full executable path. A global install normally puts it at `%USERPROFILE%\.dotnet\tools\playbook.exe` on Windows or `~/.dotnet/tools/playbook` on Linux and macOS. Use an expanded absolute path in the config.
+The client launches `playbook mcp` as a local stdio process. Set the command to `playbook` and pass `mcp` as its only argument. If your agent cannot find `playbook`, use the expanded absolute path to the installed command. Global bundled installs use `%USERPROFILE%\.dotnet\tools\playbook.cmd` on Windows and `~/.dotnet/tools/playbook` on Linux and macOS.
 
 #### Codex CLI
 
