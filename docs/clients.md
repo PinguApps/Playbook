@@ -2,7 +2,7 @@
 
 First [install Playbook](installation.md) in the environment where the agent runs and check `playbook --version`. All four connections use a client-owned **stdio** process: command `playbook`, argument `mcp`. There is no URL, port, daemon, API key or Playbook account. The examples below are instructions for you to apply; Playbook does not register itself or edit client settings.
 
-For the unpublished development package, replace `playbook` with the absolute executable path from the installation walkthrough. On Windows use `playbook.exe`; on Linux/macOS use `playbook`. Put the executable alone in `command`, and `mcp` in `args`. JSON Windows paths need doubled backslashes (or forward slashes). GUI clients may not inherit your shell's PATH. Install and configure on the executing environment, including a remote machine/container when applicable.
+For an explicit-path install, use the absolute path to the installed command. On Windows the SDK creates `playbook.cmd` for the bundled package and `playbook.exe` for the framework-dependent package. On Linux and macOS use `playbook`. Set `command` to that path and `args` to `["mcp"]`. JSON Windows paths need doubled backslashes or forward slashes. Install and configure Playbook where the agent runs, including a remote machine or container.
 
 ## T3 Code
 

@@ -250,6 +250,8 @@ public sealed class InstalledToolSteps : IDisposable
     private string? _executable;
     private int _requestId;
     private string _packageVariable = "PLAYBOOK_TEST_PACKAGE";
+    private string? _installedPackage;
+    private bool _bundledRuntime;
 
     [Then("deliberate resource hints retain complete guidance and actual target boundaries offline")]
     public async Task CheckDeliberateResourceHintsAsync()
@@ -2746,15 +2748,30 @@ public sealed class InstalledToolSteps : IDisposable
             ?? throw new InvalidOperationException("Run eng/Verify.ps1 to pack and provide PLAYBOOK_TEST_PACKAGE.");
         Assert.True(File.Exists(package), package);
         Directory.CreateDirectory(_directory);
-        string feed = Path.Combine(_directory, "feed");
-        Directory.CreateDirectory(feed);
-        File.Copy(package, Path.Combine(feed, Path.GetFileName(package)));
-        string config = Path.Combine(_directory, "NuGet.Config");
-        await File.WriteAllTextAsync(config, "<configuration><packageSources><clear/><add key=\"local\" value=\"feed\"/></packageSources></configuration>").ConfigureAwait(false);
         string version = Environment.GetEnvironmentVariable("PLAYBOOK_TEST_VERSION")
             ?? throw new InvalidOperationException("Missing PLAYBOOK_TEST_VERSION.");
+        string packageDirectory = Path.GetDirectoryName(Path.GetFullPath(package))!;
+        bool hasPayloads = File.Exists(Path.Combine(packageDirectory, $"PinguApps.Playbook.any.{version}.nupkg"));
+        string feed = packageDirectory;
+        if (!hasPayloads)
+        {
+            feed = Directory.CreateDirectory(Path.Combine(_directory, "feed")).FullName;
+            File.Copy(package, Path.Combine(feed, Path.GetFileName(package)));
+        }
+
+        string rid = System.Runtime.InteropServices.RuntimeInformation.RuntimeIdentifier;
+        _bundledRuntime = hasPayloads && File.Exists(Path.Combine(packageDirectory, $"PinguApps.Playbook.{rid}.{version}.nupkg"));
+        if (!_bundledRuntime)
+        {
+            rid = "any";
+        }
+        Assert.False(_bundledRuntime && Environment.GetEnvironmentVariable("PLAYBOOK_TEST_REQUIRE_FALLBACK") == "1",
+            $"Fallback verification requires a host without a bundled payload. Host RID: {rid}.");
+        _installedPackage = hasPayloads ? Path.Combine(packageDirectory, $"PinguApps.Playbook.{rid}.{version}.nupkg") : package;
+        string config = Path.Combine(_directory, "NuGet.Config");
+        await File.WriteAllTextAsync(config, $"<configuration><packageSources><clear/><add key=\"local\" value=\"{System.Security.SecurityElement.Escape(feed)}\"/></packageSources></configuration>").ConfigureAwait(false);
         ProcessStartInfo install = CreateStartInfo("dotnet", "tool", "install", "PinguApps.Playbook", "--version", version,
-            "--tool-path", Path.Combine(_directory, "tool"), "--configfile", config, "--no-cache");
+            "--tool-path", Path.Combine(_directory, "tool"), "--configfile", config, "--no-http-cache");
         string? processPath = Environment.GetEnvironmentVariable("PATH");
         string? userPath = OperatingSystem.IsWindows() ? Environment.GetEnvironmentVariable("PATH", EnvironmentVariableTarget.User) : null;
         string? machinePath = OperatingSystem.IsWindows() ? Environment.GetEnvironmentVariable("PATH", EnvironmentVariableTarget.Machine) : null;
@@ -2768,15 +2785,30 @@ public sealed class InstalledToolSteps : IDisposable
 
         Assert.True(exitCode == 0, stdout + stderr);
         _executable = Path.Combine(_directory, "tool", OperatingSystem.IsWindows() ? "playbook.exe" : "playbook");
+        if (OperatingSystem.IsWindows() && !File.Exists(_executable))
+        {
+            _executable = Path.Combine(_directory, "tool", "playbook.cmd");
+        }
         Assert.True(File.Exists(_executable));
         Assert.True(Directory.Exists(Path.Combine(_directory, "tool", ".store", "pinguapps.playbook", version)), "Installation must use this scenario's fresh tool store.");
         string runtimeConfig = Directory.GetFiles(Path.Combine(_directory, "tool", ".store"), "PinguApps.Playbook.runtimeconfig.json", SearchOption.AllDirectories).Single();
         using JsonDocument configuration = JsonDocument.Parse(await File.ReadAllTextAsync(runtimeConfig).ConfigureAwait(false));
         JsonElement runtime = configuration.RootElement.GetProperty("runtimeOptions");
         Assert.Equal("net11.0", runtime.GetProperty("tfm").GetString());
-        Assert.Equal("Major", runtime.GetProperty("rollForward").GetString());
-        Assert.Equal("Microsoft.NETCore.App", runtime.GetProperty("framework").GetProperty("name").GetString());
-        await using ZipArchive archive = await ZipFile.OpenReadAsync(package).ConfigureAwait(false);
+        if (_bundledRuntime)
+        {
+            Assert.False(runtime.TryGetProperty("framework", out _));
+            JsonElement framework = Assert.Single(runtime.GetProperty("includedFrameworks").EnumerateArray());
+            Assert.Equal("Microsoft.NETCore.App", framework.GetProperty("name").GetString());
+            Assert.StartsWith("11.", framework.GetProperty("version").GetString(), StringComparison.Ordinal);
+        }
+        else
+        {
+            Assert.Equal("Major", runtime.GetProperty("rollForward").GetString());
+            Assert.Equal("Microsoft.NETCore.App", runtime.GetProperty("framework").GetProperty("name").GetString());
+        }
+
+        await using ZipArchive archive = await ZipFile.OpenReadAsync(_installedPackage).ConfigureAwait(false);
         ZipArchiveEntry specEntry = Assert.Single(archive.Entries, entry => entry.FullName.EndsWith(".nuspec", StringComparison.Ordinal));
         await using Stream specStream = await specEntry.OpenAsync().ConfigureAwait(false);
         System.Xml.Linq.XDocument spec = await System.Xml.Linq.XDocument.LoadAsync(specStream, System.Xml.Linq.LoadOptions.None, CancellationToken.None).ConfigureAwait(false);
@@ -2791,7 +2823,8 @@ public sealed class InstalledToolSteps : IDisposable
         Assert.Equal(128, System.Buffers.Binary.BinaryPrimitives.ReadInt32BigEndian(header.AsSpan(16, 4)));
         Assert.Equal(128, System.Buffers.Binary.BinaryPrimitives.ReadInt32BigEndian(header.AsSpan(20, 4)));
         Assert.Equal(6, header[25]); // RGBA: retain transparency in the packaged PNG.
-        await using Stream packedAssembly = await archive.GetEntry("tools/net11.0/any/PinguApps.Playbook.dll")!.OpenAsync().ConfigureAwait(false);
+        ZipArchiveEntry assembly = Assert.Single(archive.Entries, entry => entry.FullName.EndsWith("/PinguApps.Playbook.dll", StringComparison.Ordinal));
+        await using Stream packedAssembly = await assembly.OpenAsync().ConfigureAwait(false);
         using FileStream installedAssembly = File.OpenRead(runtimeConfig.Replace(".runtimeconfig.json", ".dll", StringComparison.Ordinal));
         Assert.Equal(await SHA256.HashDataAsync(packedAssembly).ConfigureAwait(false), await SHA256.HashDataAsync(installedAssembly).ConfigureAwait(false));
     }
@@ -4050,7 +4083,12 @@ public sealed class InstalledToolSteps : IDisposable
         string coreClr = Assert.Single(trace.Split('\n'), line => line.StartsWith("CoreCLR path =", StringComparison.Ordinal));
         _output.WriteLine(coreClr);
         string? expectedRuntime = Environment.GetEnvironmentVariable("PLAYBOOK_TEST_RUNTIME_MAJOR");
-        if (expectedRuntime is not null)
+        if (_bundledRuntime)
+        {
+            string store = Path.Combine(_directory, "tool", ".store") + Path.DirectorySeparatorChar;
+            Assert.StartsWith("CoreCLR path = '" + store, coreClr, StringComparison.OrdinalIgnoreCase);
+        }
+        else if (expectedRuntime is not null)
         {
             Assert.Contains($"/shared/Microsoft.NETCore.App/{expectedRuntime}.", coreClr.Replace('\\', '/'), StringComparison.Ordinal);
         }
@@ -4061,7 +4099,7 @@ public sealed class InstalledToolSteps : IDisposable
             Directory.CreateDirectory(evidenceDirectory);
             string evidencePath = Path.Combine(evidenceDirectory, Path.GetFileName(_directory));
             File.Copy(Path.Combine(_directory, "host.log"), evidencePath + ".host.log");
-            string package = Environment.GetEnvironmentVariable(_packageVariable)!;
+            string package = _installedPackage!;
             using FileStream packageStream = File.OpenRead(package);
             string packageHash = Convert.ToHexStringLower(await SHA256.HashDataAsync(packageStream).ConfigureAwait(false));
             string evidence = JsonSerializer.Serialize(new
@@ -4112,6 +4150,14 @@ public sealed class InstalledToolSteps : IDisposable
             RedirectStandardError = true,
             CreateNoWindow = true,
         };
+        if (OperatingSystem.IsWindows() && file.EndsWith(".cmd", StringComparison.OrdinalIgnoreCase))
+        {
+            info.FileName = Path.Combine(Environment.SystemDirectory, "cmd.exe");
+            info.ArgumentList.Add("/d");
+            info.ArgumentList.Add("/c");
+            info.ArgumentList.Add(@".\tool\playbook.cmd");
+        }
+
         foreach (string arg in args)
         {
             info.ArgumentList.Add(arg);
@@ -4123,10 +4169,18 @@ public sealed class InstalledToolSteps : IDisposable
         info.Environment["DOTNET_NOLOGO"] = "1";
         // Every fresh CLI home triggers first-run setup, even with an explicit --tool-path.
         info.Environment["DOTNET_ADD_GLOBAL_TOOLS_TO_PATH"] = "0";
+        info.Environment["DOTNET_GENERATE_ASPNET_CERTIFICATE"] = "false";
         info.Environment["DOTNET_CLI_TELEMETRY_OPTOUT"] = "1";
         info.Environment["HTTP_PROXY"] = "http://127.0.0.1:1";
         info.Environment["HTTPS_PROXY"] = "http://127.0.0.1:1";
         info.Environment["ALL_PROXY"] = "http://127.0.0.1:1";
+        if (_bundledRuntime)
+        {
+            foreach (string name in info.Environment.Keys.Where(name => name.StartsWith("DOTNET_ROOT", StringComparison.OrdinalIgnoreCase)).ToArray())
+            {
+                info.Environment.Remove(name);
+            }
+        }
         return info;
     }
 

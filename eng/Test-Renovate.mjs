@@ -60,8 +60,11 @@ const download = publishSteps.find(step => step.uses?.startsWith('actions/downlo
 assert.deepEqual(download.with, { name: 'playbook-package', path: 'artifacts' });
 const identityIndex = publishSteps.findIndex(step => step.run?.includes('./eng/Assert-PublishPackage.ps1'));
 const loginIndex = publishSteps.findIndex(step => step.uses?.startsWith('NuGet/login@'));
-const pushIndex = publishSteps.findIndex(step => step.run?.startsWith('dotnet nuget push'));
+const pushIndex = publishSteps.findIndex(step => step.run?.includes('dotnet nuget push'));
 assert(identityIndex >= 0 && identityIndex < loginIndex && loginIndex < pushIndex);
+assert.match(publishSteps[pushIndex].run, /Assert-PublishPackage\.ps1[^\n]+-PassThru/);
+assert.match(publishSteps[pushIndex].run, /foreach \(\$package in \$plan\) \{\s+dotnet nuget push \$package\.Path/);
+assert(!publishSteps[pushIndex].run.includes('--skip-duplicate'));
 for (const index of [loginIndex, pushIndex]) {
   assert.equal(publishSteps[index].if, "github.event_name != 'workflow_dispatch' || !inputs.validate_only");
 }

@@ -1,5 +1,6 @@
 [CmdletBinding()]
 param(
+  [ValidatePattern('^\d+\.\d+\.\d+(?:-[a-zA-Z0-9]+(?:[.-][a-zA-Z0-9]+)*)?\z')]
   [string]$PackageVersion = '0.0.0-smoke',
   [string]$Dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source
 )
@@ -8,6 +9,7 @@ $ErrorActionPreference = 'Stop'
 $PSNativeCommandUseErrorActionPreference = $true
 $root = Split-Path $PSScriptRoot -Parent
 $artifacts = Join-Path $root 'artifacts'
+$packages = Join-Path $artifacts "packages/$PackageVersion"
 $results = Join-Path $artifacts 'TestResults'
 $previous = @{}
 foreach ($key in @('DOTNET_ADD_GLOBAL_TOOLS_TO_PATH', 'PLAYBOOK_TEST_PACKAGE', 'PLAYBOOK_TEST_VERSION', 'PLAYBOOK_TEST_RUNTIME_MAJOR', 'PLAYBOOK_TEST_EVIDENCE_DIRECTORY')) {
@@ -22,14 +24,12 @@ try {
   $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH = '0'
   & (Join-Path $PSScriptRoot 'Test-DependencyPolicy.ps1')
   & $dotnet build PinguApps.Playbook.slnx --configuration Release "-p:Version=$PackageVersion"
-  & $dotnet pack src/PinguApps.Playbook --configuration Release --no-build "-p:PackageVersion=$PackageVersion" --output $artifacts
-  $env:PLAYBOOK_TEST_PACKAGE = Join-Path $artifacts "PinguApps.Playbook.$PackageVersion.nupkg"
+  & $dotnet pack src/PinguApps.Playbook --configuration Release "-p:Version=$PackageVersion" -p:PlaybookBundleRuntime=true --output $packages
+  & (Join-Path $PSScriptRoot 'Assert-PublishPackage.ps1') -Artifacts $packages -PackageVersion $PackageVersion -Record -BuildVersion
+  $env:PLAYBOOK_TEST_PACKAGE = Join-Path $packages "PinguApps.Playbook.$PackageVersion.nupkg"
   $env:PLAYBOOK_TEST_VERSION = $PackageVersion
   $env:PLAYBOOK_TEST_RUNTIME_MAJOR = '11'
   $env:PLAYBOOK_TEST_EVIDENCE_DIRECTORY = Join-Path $results 'runtime'
-  $hash = Get-FileHash -Algorithm SHA256 -LiteralPath $env:PLAYBOOK_TEST_PACKAGE
-  "$($hash.Hash.ToLowerInvariant())  $([IO.Path]::GetFileName($env:PLAYBOOK_TEST_PACKAGE))" |
-    Set-Content -LiteralPath (Join-Path $artifacts 'package.sha256') -Encoding ascii
   New-Item -ItemType Directory -Path $results -Force | Out-Null
   & $dotnet exec tests/PinguApps.Playbook.Tests/bin/Release/net11.0/PinguApps.Playbook.Tests.dll `
     -noLogo -failSkips -trait 'Category=HostSmoke' -result-trx (Join-Path $results 'smoke.trx')

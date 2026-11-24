@@ -33,4 +33,8 @@
   <Target Name="ValidatePackedRecipeContent" BeforeTargets="GenerateNuspec">
     <Exec Command="pwsh -NoProfile -File &quot;$(MSBuildProjectDirectory)/../../eng/Build-Content.ps1&quot; -OutputPath &quot;$(MSBuildProjectDirectory)/$(IntermediateOutputPath)Generated/pack-catalogue.json&quot; -RecipeRoot &quot;$(RecipeRoot)&quot; -RepositoryRoot &quot;$(EvidenceRepositoryRoot)&quot; $(ReleaseEvidenceArgument) -VerifyAgainst &quot;$(MSBuildProjectDirectory)/$(IntermediateOutputPath)Generated/compiled-catalogue.json&quot;" />
   </Target>
+  <Target Name="RouteMuslToolsToPortablePayload" AfterTargets="GenerateToolsSettingsFileFromBuildProperty"
+          Condition="'$(PlaybookBundleRuntime)' == 'true' and '$(RuntimeIdentifier)' == ''">
+    <Exec Command="pwsh -NoProfile -File &quot;$(MSBuildProjectDirectory)/../../eng/Set-PortableToolFallback.ps1&quot; -SettingsPath &quot;$(IntermediateOutputPath)DotnetToolSettings.xml&quot;" />
+  </Target>
 </Project>

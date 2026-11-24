@@ -56,6 +56,7 @@ jobs:
       DOTNET_CLI_TELEMETRY_OPTOUT: true
       DOTNET_NOLOGO: true
       DOTNET_ADD_GLOBAL_TOOLS_TO_PATH: '0'
+      DOTNET_GENERATE_ASPNET_CERTIFICATE: 'false'
       PACKAGE_VERSION: ${{ inputs.package_version || '0.0.0-ci' }}
       RELEASE_READY: ${{ inputs.release_ready || false }}
     steps:
@@ -123,12 +124,16 @@ jobs:
         if: '!inputs.smoke || inputs.release_ready'
         run: |
           docker pull mcr.microsoft.com/dotnet/sdk@sha256:65f3c7c6a25a239ab3e6719f2896147e7b68242ff2d8818dd70498bde6ef8bea
+          docker pull mcr.microsoft.com/dotnet/sdk@sha256:fe0fd4e93bd2fbb47c883b7a6369e5c8d3db8bf01cdc5981f6ee35fbdf3ff4fb
+          docker pull mcr.microsoft.com/dotnet/sdk@sha256:52556c0fb9d0f609ae9aeab9efeeba96f4acc2f7038f7696f2235ccbdbb8e290
 
       - name: Verify the same package without network or checkout access
         if: '!inputs.smoke || inputs.release_ready'
         shell: pwsh
         run: |
           ./eng/Test-Offline.ps1 -PackageVersion $env:PACKAGE_VERSION -RuntimeMajor 11
+          ./eng/Test-Offline.ps1 -PackageVersion $env:PACKAGE_VERSION -Mode Bundled
+          ./eng/Test-Offline.ps1 -PackageVersion $env:PACKAGE_VERSION -Mode Fallback
 
       - name: Publish test results
         if: (success() || failure()) && inputs.publish_test_results_to_github && steps.scope.outputs.docs_only != 'true'
@@ -169,7 +174,8 @@ jobs:
             $counts = $trx.TestRun.ResultSummary.Counters
             "- $($file.Name): passed $($counts.passed), failed $($counts.failed), skipped $($counts.notExecuted), total $($counts.total)" >> $env:GITHUB_STEP_SUMMARY
           }
-          if (Test-Path artifacts/package.sha256) { Get-Content artifacts/package.sha256 >> $env:GITHUB_STEP_SUMMARY }
+          $manifest = "artifacts/packages/$env:PACKAGE_VERSION/package.sha256"
+          if (Test-Path $manifest) { Get-Content $manifest >> $env:GITHUB_STEP_SUMMARY }
 
       - name: Upload test results
         if: always() && steps.scope.outputs.docs_only != 'true'
@@ -179,103 +185,81 @@ jobs:
           path: artifacts/TestResults/
           if-no-files-found: warn
 
-      - name: Upload verified package
+      - name: Upload verified package set
         if: '!inputs.smoke || inputs.release_ready'
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
         with:
           name: playbook-package
           path: |
-            artifacts/PinguApps.Playbook.${{ env.PACKAGE_VERSION }}.nupkg
-            artifacts/package.sha256
+            artifacts/packages/${{ env.PACKAGE_VERSION }}/*.nupkg
+            artifacts/packages/${{ env.PACKAGE_VERSION }}/package.sha256
           if-no-files-found: error
 
-      - name: Upload the compiled consumer suite
-        if: '!inputs.smoke || inputs.release_ready'
-        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
-        with:
-          name: playbook-consumer-suite
-          path: tests/PinguApps.Playbook.Tests/bin/Release/net11.0/
-          if-no-files-found: error
-
-  desktop:
-    name: ${{ matrix.name }} installed smoke
+  native-smoke:
+    name: ${{ matrix.rid }} installed smoke
     if: '!inputs.smoke || inputs.release_ready'
     needs: test
     strategy:
       fail-fast: false
       matrix:
         include:
-          - name: Windows
+          - rid: win-x64
             os: blacksmith-2vcpu-windows-2025
-          - name: macOS
+          - rid: win-arm64
+            os: windows-11-arm
+          - rid: osx-x64
+            os: macos-15-intel
+          - rid: osx-arm64
             os: blacksmith-6vcpu-macos-15
+          - rid: linux-arm64
+            os: blacksmith-2vcpu-ubuntu-2404-arm
     runs-on: ${{ matrix.os }}
-    timeout-minutes: 5
+    timeout-minutes: 8
     env:
       DOTNET_ADD_GLOBAL_TOOLS_TO_PATH: '0'
     steps:
-      - name: Checkout consumer script only
+      - name: Checkout consumer scripts only
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
           ref: ${{ inputs.checkout_ref }}
-          sparse-checkout: eng/Test-Package.ps1
+          sparse-checkout: |
+            eng/Test-BundledTool.ps1
+            eng/Assert-PublishPackage.ps1
           sparse-checkout-cone-mode: false
 
-      - name: Setup .NET 11 GA SDK
+      - name: Install pinned .NET 10 SDK into an isolated directory
         uses: actions/setup-dotnet@0f4a354dd5547a28c70b7853dbd95d5b67886e73 # v6
         env:
           DOTNET_INSTALL_DIR: ${{ runner.temp }}/playbook-dotnet
         with:
-          dotnet-version: 11.0.100
+          dotnet-version: 10.0.404
 
-      - name: Isolate the smoke host to .NET 11
-        shell: pwsh
-        run: |
-          # setup-dotnet also installs the current LTS runtime. This host is
-          # disposable and must exercise the packaged tool with only .NET 11.
-          $hostRoot = Join-Path $env:RUNNER_TEMP 'playbook-dotnet'
-          $coreRoot = (Resolve-Path -LiteralPath (Join-Path $hostRoot 'shared/Microsoft.NETCore.App')).Path
-          $prefix = $coreRoot + [IO.Path]::DirectorySeparatorChar
-          foreach ($runtime in Get-ChildItem -LiteralPath $coreRoot -Directory) {
-            if ($runtime.Name -notmatch '^\d+\.' -or $runtime.Name -match '^11\.') { continue }
-            $target = (Resolve-Path -LiteralPath $runtime.FullName).Path
-            if (-not $target.StartsWith($prefix, [StringComparison]::Ordinal)) { throw 'Unexpected smoke-runtime path.' }
-            Remove-Item -LiteralPath $target -Recurse -Force
-          }
-
-      - name: Download the exact packed artifact
+      - name: Download the exact packed artifacts
         uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8
         with:
           name: playbook-package
           path: artifacts
 
-      - name: Download the compiled consumer suite
-        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8
-        with:
-          name: playbook-consumer-suite
-          path: suite
-
-      - name: Install initialize list get and shut down once
+      - name: Verify the selected payload and initialize MCP
         shell: pwsh
         env:
           PACKAGE_VERSION: ${{ inputs.package_version || '0.0.0-ci' }}
-          DOTNET_ROOT: ${{ runner.temp }}/playbook-dotnet
-          DOTNET_ROOT_X64: ${{ runner.temp }}/playbook-dotnet
-          DOTNET_ROOT_ARM64: ${{ runner.temp }}/playbook-dotnet
-        run: ./eng/Test-Package.ps1 -Artifacts ./artifacts -Suite ./suite -PackageVersion $env:PACKAGE_VERSION -Smoke
+          EXPECTED_RID: ${{ matrix.rid }}
+        run: |
+          $dotnet = Join-Path $env:RUNNER_TEMP "playbook-dotnet/$(if ($IsWindows) { 'dotnet.exe' } else { 'dotnet' })"
+          ./eng/Test-BundledTool.ps1 -Artifacts ./artifacts -PackageVersion $env:PACKAGE_VERSION -Results ./artifacts/TestResults -Dotnet $dotnet -ExpectedRid $env:EXPECTED_RID
 
       - name: Upload smoke results and runtime evidence
-        if: always()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
         with:
-          name: smoke-${{ matrix.name }}
+          name: smoke-${{ matrix.rid }}
           path: artifacts/TestResults/
           if-no-files-found: error
 
   summary:
     name: Validation time and results
     if: always() && (!inputs.smoke || inputs.release_ready)
-    needs: [test, desktop]
+    needs: [test, native-smoke]
     runs-on: blacksmith-2vcpu-ubuntu-2404
     timeout-minutes: 2
     steps:
@@ -285,7 +269,7 @@ jobs:
           pattern: '*results'
           path: evidence
 
-      - name: Download desktop evidence
+      - name: Download native smoke evidence
         uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8
         with:
           pattern: smoke-*
@@ -310,8 +294,8 @@ jobs:
             "- $($record.package) SHA-256 $($record.sha256): $($record.coreClr); exit $($record.shutdownExitCode)" >> $env:GITHUB_STEP_SUMMARY
           }
           $pages = gh api "repos/$env:REPOSITORY/actions/runs/$env:RUN_ID/attempts/$env:RUN_ATTEMPT/jobs?per_page=100" --paginate --slurp | ConvertFrom-Json
-          $jobs = @($pages.jobs | Where-Object { $_.name -match '(Build and verify package|Windows installed smoke|macOS installed smoke)$' -and $_.completed_at })
-          if ($jobs.Count -ne 3) { throw 'Expected timing records for all three validation runners.' }
+          $jobs = @($pages.jobs | Where-Object { $_.name -match '(Build and verify package|(?:win|osx|linux)-(?:x64|arm64) installed smoke)$' -and $_.completed_at })
+          if ($jobs.Count -ne 6) { throw 'Expected timing records for the package builder and five native smoke runners.' }
           $seconds = 0.0
           foreach ($job in $jobs) {
             $duration = ([datetimeoffset]$job.completed_at - [datetimeoffset]$job.started_at).TotalSeconds
@@ -320,5 +304,5 @@ jobs:
           }
           $start = ($jobs | ForEach-Object { [datetimeoffset]$_.started_at } | Sort-Object | Select-Object -First 1)
           $end = ($jobs | ForEach-Object { [datetimeoffset]$_.completed_at } | Sort-Object | Select-Object -Last 1)
-          "Elapsed validation: $(($end - $start).TotalSeconds) seconds. Total runner time: $seconds seconds across the three validation jobs (setup/teardown included)." >> $env:GITHUB_STEP_SUMMARY
+          "Elapsed validation: $(($end - $start).TotalSeconds) seconds. Total runner time: $seconds seconds across the six validation jobs (setup/teardown included)." >> $env:GITHUB_STEP_SUMMARY
           'Reporting-job time is excluded. These are execution durations, not a billed-cost estimate; provider rates, discounts and rounding are not inferred. No cost-saving claim is made.' >> $env:GITHUB_STEP_SUMMARY

@@ -156,9 +156,9 @@ Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 pwsh -NoProfile -File ./eng/Verify.ps1
 ```
 
-If a comparison SDK is installed separately, pass its executable with `-Net9Dotnet <path-to-dotnet>` or `-Net10Dotnet <path-to-dotnet>`. `-Dotnet` selects the exact SDK 11.0.100 used for the host; `-Net11Dotnet` can select a separate GA installation for samples. The script rejects the focused invalid-content fixture, compiles and executes the real .NET 9/10/11 samples, including a .NET 11 SDK build of a .NET 10 target, then builds the solution with analyzers/warnings as errors and checks real `pack --no-build` rejection of incomplete/stale content. It packs the ordinary artifact once and tests it; its SHA-256 identifies that package. A second package under `artifacts/release-fixture/` contains contract-only identities and is never published. Fixture packing restores ordinary build output afterwards.
+If a comparison SDK is installed separately, pass its executable with `-Net9Dotnet <path-to-dotnet>` or `-Net10Dotnet <path-to-dotnet>`. `-Dotnet` selects the exact SDK 11.0.100 used for the host; `-Net11Dotnet` can select a separate GA installation for samples. The script rejects the focused invalid-content fixture, compiles and executes the real .NET 9/10/11 samples, including a .NET 11 SDK build of a .NET 10 target, then builds the solution with analyzers/warnings as errors and checks real `pack --no-build` rejection of incomplete/stale content. It packs and tests the release package set under `artifacts/packages/<version>/`, with a SHA-256 manifest covering all eight packages. A second package under `artifacts/release-fixture/` contains contract-only identities and is never published. Fixture packing restores ordinary build output afterwards.
 
-The `Rejected ...` and `Pack --no-build rejected ...` messages are expected passing checks. Temporary fixtures deliberately contain invalid content or stale/missing evidence; these messages confirm the guards refuse them. They do not mean your authored recipe or final package was rejected. A successful run ends with all selected scenarios passing, zero failures/skips and a package SHA-256. SDK 11.0.100 must be selected without a preview-SDK warning; a TRX overwrite warning replaces the previous report. An unhandled error, nonzero script exit or failed test indicates failure.
+The `Rejected ...` and `Pack --no-build rejected ...` messages are expected passing checks. Temporary fixtures deliberately contain invalid content or stale/missing evidence; these messages confirm the guards refuse them. They do not mean your authored recipe or final package was rejected. A successful run ends with all selected scenarios passing, zero failures/skips and a SHA-256 for each package. SDK 11.0.100 must be selected without a preview-SDK warning; a TRX overwrite warning replaces the previous report. An unhandled error, nonzero script exit or failed test indicates failure.
 
 The focused Reqnroll scenarios install from a local-only feed and new cache under unrelated temporary directories. They exercise bare/help/version, stdio initialization/instructions, three read-only tools and output schemas, required nonnullable target schemas, omitted/null/blank rejection on all tools, deliberate catalogue-only `latest`, independent list/get selection, complete structured/JSON-text equality, canonical snippets, aliases, coverage, unchanged edition reuse, retained changed editions, conditional routes, response-size budgets, empty-search recovery, independent goal discovery and actionable errors. The fixture scenario tests newest-compatible selection when editions overlap, a known ID without an applicable edition, and a pre-introduction conditional route. Generation also rejects that route without its conditional flag. Synthetic fixture introduction metadata is not API introduction or release coverage evidence. All scenarios require a clean shutdown and stderr diagnostics; none project-reference production code. Temporary installs are deleted afterwards.
 
@@ -166,7 +166,14 @@ Fresh `DOTNET_CLI_HOME` directories trigger SDK first-run setup. Every harness c
 
 Local checks set unusable HTTP proxies, which establishes proxy-independent operation but is **not** network isolation. On Linux use `pwsh -NoProfile -File ./eng/Verify.ps1 -IsolateNetwork`: after build/pack, the installed-consumer tests run under `sudo unshare --net` with no external network routes. Only the local package feed is available. SDK downloads/restores happen before network isolation.
 
-With Docker available, run `pwsh -NoProfile -File ./eng/Test-Offline.ps1 -RuntimeMajor 10` and `pwsh -NoProfile -File ./eng/Test-Offline.ps1 -RuntimeMajor 11` after verification. Each reruns all Reqnroll scenarios against the exact package with `--network none`. Only package artifacts, test binaries and the artifact-consumer script are mounted; no recipe or sample source is accessible. Canonical sample text is embedded independently in the test assembly for comparison. Both images are digest-pinned, with only runtime 10.0.12 or 11.0.0-rc.2.26504.105 available; pulling them is an online preparation step. Host traces assert the installed server's actual CoreCLR path. The .NET 11 lane explicitly permits prerelease selection and verifies the package's own major roll-forward policy. CI also downloads the same package and compiled suite for one brief Windows and one brief macOS smoke. See [packed-host evidence and commands](https://github.com/PinguApps/Playbook/blob/e60419660a082da40dfc1bd8f0667401677c53f3/docs/verification/PIN-673.md).
+With Docker available, run all three offline checks after full verification. The digest-pinned containers use the same package set and have no network or source checkout. The suite runs on .NET 11, the bundled smoke installs with SDK 10 and checks that CoreCLR loads from the tool, and the Alpine smoke runs the portable payload on its shared .NET 11 runtime.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\agent-788b14ab-a700d1594145d2ef'
+& ./eng/Test-Offline.ps1
+& ./eng/Test-Offline.ps1 -Mode Bundled
+& ./eng/Test-Offline.ps1 -Mode Fallback
+```
 
 ## Inspect the development package
 
@@ -176,7 +183,7 @@ From the repository root after verification:
 Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a392df65'
 # Use fresh directories; if these exist from an earlier run, choose new names.
 New-Item -ItemType Directory ./artifacts/manual-feed | Out-Null
-Copy-Item ./artifacts/PinguApps.Playbook.1.0.0-preview.1.nupkg ./artifacts/manual-feed/
+Copy-Item ./artifacts/packages/1.0.0-preview.1/*.nupkg ./artifacts/manual-feed/
 $feed = (Resolve-Path ./artifacts/manual-feed).Path
 $config = Join-Path $feed 'NuGet.Config'
 '<configuration><packageSources><clear/><add key="local" value="{0}"/></packageSources></configuration>' -f [Security.SecurityElement]::Escape($feed) | Set-Content $config
@@ -328,7 +335,7 @@ For native claims, use the current Windows authoring environment and available t
 
 Use `humanProof.status: pending` with an exact scope for targeted Human checks still owed; set `verified` only after recording traceable results, or `not-required` with a defensible reason. Pending proof may be served in incremental packages but fails `pwsh -NoProfile -File ./eng/Verify.ps1 -ReleaseReady` and `dotnet pack -p:PlaybookReleaseReady=true`. Missing compilation blocks ordinary build/pack too, except for pending source-only guidance or explicitly named not-tested samples. Pending source-only guidance does not satisfy release readiness; approved exclusions do not establish compilation. Report access or toolchain blockers explicitly; audits, mocks and unavailable-machine placeholders cannot satisfy verified delivery.
 
-Commit native authoring evidence for routine validation to consume without installing native workloads. Keep broad native builds, UI/device/emulator suites and recurring native matrices out of CI, including separate manual-dispatch matrices. Routine Windows/macOS checks remain tiny installed-tool smokes; the Linux/core lane remains portable. Reuse unchanged native proof and refresh affected locally required checks when relevant inputs change; refresh source review for excluded samples.
+Commit native authoring evidence for routine validation to consume without installing native workloads. Keep broad native builds, UI/device/emulator suites and recurring native matrices out of CI, including separate manual-dispatch matrices. Playbook release checks use brief installed-tool smokes on each bundled target. Reuse unchanged native proof and refresh affected locally required checks when relevant inputs change; refresh source review for excluded samples.
 
 ## Review the delivered artifact
 
