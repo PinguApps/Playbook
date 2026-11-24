@@ -22,7 +22,7 @@ Playbook supplies guidance; your agent implements and tests the changes. It does
 
 ### 1. Install Playbook
 
-Install `PinguApps.Playbook` on the machine where your agent runs. With the .NET 10 SDK or later, `dotnet tool install` automatically downloads the package for your OS and architecture. Bundled packages include the .NET 11 runtime for Windows, macOS and glibc-based Linux on x64 and Arm64. Other targets use the portable package with a shared .NET 11 runtime. See the [installation guide](docs/installation.md) for SDK and runtime requirements.
+Install `PinguApps.Playbook` on the machine where your agent runs. With the .NET 10 SDK or later, `dotnet tool install` automatically downloads the package for your OS and architecture. Bundled packages include the .NET 11 runtime for Windows, macOS and glibc-based Linux on x64 and Arm64. Other targets use the portable package, which requires a shared .NET 11 or later stable runtime. See the [installation guide](docs/installation.md) for SDK and runtime requirements.
 
 ```powershell
 dotnet tool install --global PinguApps.Playbook
