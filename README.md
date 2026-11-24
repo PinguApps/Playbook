@@ -22,7 +22,7 @@ Playbook supplies guidance; your agent implements and tests the changes. It does
 
 ### 1. Install Playbook
 
-Install Playbook on the machine where your agent runs. The install command needs a .NET SDK. Playbook runs on the .NET 11 GA runtime, or a later stable major runtime when .NET 11 is absent. Install any SDKs, packages, or workloads that your chosen recipes require for your application.
+Install Playbook on the machine where your agent runs. The install command needs a .NET SDK. Bundled releases include .NET 11 for Windows, macOS and glibc-based Linux on x64 and Arm64. Other targets use the portable package with a compatible shared runtime. See the [installation guide](docs/installation.md) for SDK and runtime requirements.
 
 Once the stable release is on NuGet, run:
 

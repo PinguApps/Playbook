@@ -1,12 +1,12 @@
 # Repository automation
 
-The six GitHub Actions roles follow the examples in `V:/Aspire.Hosting.Dashboard.Railway`, `V:/Aspire.Hosting.Upstash.Redis`, `V:/RazorStyle` and `V:/CodeStyle.Analyzers`. Product-specific Aspire setup is omitted. Actions are SHA-pinned and every runner is hosted by Blacksmith: Linux jobs use `blacksmith-2vcpu-ubuntu-2404`, Windows smoke uses `blacksmith-2vcpu-windows-2025`, and macOS smoke uses `blacksmith-6vcpu-macos-15`. Windows Server 2025 is currently a public-beta runner; macOS 15 uses Apple Silicon M4 (ARM64). These are the smallest documented sizes for each selected OS, and runner versions remain manually maintained. See [Blacksmith's runner inventory](https://docs.blacksmith.sh/blacksmith-runners/overview).
+The six GitHub Actions roles follow the examples in `V:/Aspire.Hosting.Dashboard.Railway`, `V:/Aspire.Hosting.Upstash.Redis`, `V:/RazorStyle` and `V:/CodeStyle.Analyzers`. Product-specific Aspire setup is omitted. Actions are SHA-pinned. Blacksmith runs the build, Windows x64, macOS Arm64 and Linux Arm64 jobs. GitHub-hosted runners cover Windows Arm64 and macOS x64. The Linux build uses `blacksmith-2vcpu-ubuntu-2404`, Windows x64 smoke uses `blacksmith-2vcpu-windows-2025`, and macOS Arm64 smoke uses `blacksmith-6vcpu-macos-15`. Windows Server 2025 is currently a public-beta runner; macOS 15 uses Apple Silicon M4 (ARM64). These are the smallest documented sizes for each selected OS, and runner versions remain manually maintained. See [Blacksmith's runner inventory](https://docs.blacksmith.sh/blacksmith-runners/overview).
 
 - On pull requests, `pr-validation.yml` cancels superseded runs and uses one Linux job with a ten-minute limit. Package-affecting changes build and pack `0.0.0-ci.<run-number>` and run one `HostSmoke` scenario against the installed package. Allowlisted docs changes run guards and inventory, with their result reported in the check on the PR head. GitHub test comments and check reporting are disabled for forks. Manual dispatch runs the full suite.
-- `_run-tests.yml` defaults to full validation for manual runs and release callers. It builds the independently pinned portable samples and packs the host once with the caller's version on Blacksmith Linux. A digest-pinned, network-disabled container runs the focused installed-package suite with SDK 11.0.100 and the .NET 11 GA runtime. Each Windows/macOS runner downloads that same package and the precompiled tests, then runs exactly one `HostSmoke` scenario; neither builds samples nor repacks. The unpublished contract fixture is separate from the shipped package. `release_ready` always forces this full path even if a caller requests smoke validation.
+- `_run-tests.yml` defaults to full validation for manual runs and release callers. It builds the independently pinned portable samples and packs the host once with the caller's version on Blacksmith Linux. A digest-pinned, network-disabled container runs the focused installed-package suite with SDK 11.0.100 and the .NET 11 GA runtime. The same package set is used for bundled smoke checks across all six targets, plus a portable fallback smoke on Alpine Linux. The unpublished contract fixture is separate from the shipped package. `release_ready` always forces this full path even if a caller requests smoke validation.
 - `pr-labels.yml` applies the PR template's category/version labels. Its `pull_request_target` job skips bodies without a possible checkbox and never checks out or executes PR code.
 - `release-drafter.yml` updates the draft after main changes, starting the first stable draft at `1.0.0`, then using the usual major/minor/patch labels.
-- `publish.yml` gets the version from the supplied release tag, calls the same package verification against that tag, downloads and checks that exact artifact, then publishes it using NuGet OIDC. It does not rebuild or repack after verification.
+- `publish.yml` gets the version from the supplied release tag, validates against that tag, then downloads and checks the exact package set. It publishes the six platform payloads and the portable fallback using NuGet OIDC, then publishes the pointer package.
 - `publish-release-draft.yml` retains the agreed Sunday 18:17 UTC schedule and any-new-main-commit behavior. It requires an explicit activation variable, a prior published stable release, and one newer stable draft. Preview releases cannot unlock weekly stable publishing.
 
 The production project declares no package version. `eng/Test-Smoke.ps1` and `eng/Verify.ps1` have local development defaults; Actions passes its CI/release version explicitly through build and pack.
@@ -73,21 +73,21 @@ Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-4d84c6cb'
 & ./eng/Test-Smoke.ps1
 ```
 
-Expect the final `PASS: built, packed and installed the actual tool` message and one passed scenario in `artifacts/TestResults/smoke.trx`. PR smoke uploads that result and server runtime evidence. Full validation also uploads the package and hash for the desktop and publication jobs, and covers .NET roll-forward, network isolation and Windows/macOS compatibility.
+Expect the final `PASS: built, packed and installed the actual tool` message and one passed scenario in `artifacts/TestResults/smoke.trx`. PR smoke uploads that result and server runtime evidence. Full validation uploads all eight packages and their SHA-256 manifest for the native smoke and publication jobs.
 
 ## Packed-host validation
 
 Full-validation artifact consumers check `package.sha256` before installation. Every installed scenario, including PR smoke, uses a fresh local feed, NuGet cache, tool store and unrelated working directory, then compares the installed assembly with the assembly in the supplied package. The smoke scenario initializes real stdio MCP, discovers all three tools, retrieves discovery and complete Markdown/applicability, verifies embedded snippets, and closes cleanly. No workloads, native samples, UI, devices, emulators or client-by-OS checks run in these lanes.
 
-`eng/Test-Package.ps1` rejects mixed-major runtime inventories. The installed server writes a host trace, and its actual CoreCLR path must match the lane's expected major. The test runner's `dotnet exec --roll-forward Major` applies only to the runner; the installed command uses the package's own `Major` policy without a `DOTNET_ROLL_FORWARD` override. The .NET 11 lane explicitly permits prerelease runtime selection with `DOTNET_ROLL_FORWARD_TO_PRERELEASE=1`; that is RC evidence, not GA evidence. [Host tracing documentation](https://learn.microsoft.com/dotnet/core/tools/dotnet-environment-variables#dotnet_host_trace).
+`eng/Test-Package.ps1` rejects mixed-major runtime inventories. The installed server writes a host trace, and its actual CoreCLR path must match the lane's expected major. The test runner's `dotnet exec --roll-forward Major` applies only to the runner; the installed command uses the package's own `Major` policy without a `DOTNET_ROLL_FORWARD` override. The Alpine lane verifies that the portable payload uses the shared .NET 11 runtime. The six bundled smoke checks use an isolated .NET 10 SDK for installation and assert that CoreCLR loads from the expected tool payload with the `DOTNET_ROOT*` overrides cleared. [Host tracing documentation](https://learn.microsoft.com/dotnet/core/tools/dotnet-environment-variables#dotnet_host_trace).
 
-Linux TRX files, server traces and package/runtime identity records are retained in `test-results`; desktop equivalents are in `smoke-Windows` and `smoke-macOS`. `playbook-package` contains the ordinary package and its manifest; `playbook-consumer-suite` contains the compiled tests, not another product. The final job summarizes all four TRX files and reports elapsed validation time alongside the sum of all three validation runners' full job durations. Its own reporting-job duration is explicitly excluded from that in-run subtotal; include it when auditing the completed workflow through the [jobs API](https://docs.github.com/rest/actions/workflow-jobs). Execution seconds do not establish billed cost: provider rates, discounts and rounding need separate billing evidence. See [PIN-673 verification](https://github.com/PinguApps/Playbook/blob/e60419660a082da40dfc1bd8f0667401677c53f3/docs/verification/PIN-673.md) for actual measurements and copyable commands.
+Linux TRX files, server traces and package/runtime identity records are retained in `test-results`; the remaining five targets record the selected package and CoreCLR path in `smoke-<rid>`. `playbook-package` carries the eight packages and their manifest. The final job reports test results, elapsed time and total runner time. Its own reporting-job duration is explicitly excluded from that in-run subtotal; include it when auditing the completed workflow through the [jobs API](https://docs.github.com/rest/actions/workflow-jobs). Execution seconds do not establish billed cost: provider rates, discounts and rounding need separate billing evidence. See [PIN-673 verification](https://github.com/PinguApps/Playbook/blob/e60419660a082da40dfc1bd8f0667401677c53f3/docs/verification/PIN-673.md) for actual measurements and copyable commands.
 
 ## Owner-controlled publication setup
 
 No publication or schedule activation was performed while implementing these workflows. Before the first public release, complete the catalogue/client/evidence gates in the [release plan](planning/release-plan.md).
 
-Configure the `NUGET_USER` Actions secret with the nuget.org profile name, and a NuGet trusted-publishing policy for owner `PinguApps`, repository `Playbook`, workflow file `publish.yml`, with no environment. These match the [official NuGet setup](https://learn.microsoft.com/en-us/nuget/nuget-org/trusted-publishing). A live credential exchange and NuGet push have not been tested by local package checks.
+Configure the `NUGET_USER` Actions secret with the nuget.org profile name, and a NuGet trusted-publishing policy for owner `PinguApps`, repository `Playbook`, workflow file `publish.yml`, with no environment. Grant the policy permission to publish `PinguApps.Playbook` and the seven payload IDs under `PinguApps.Playbook.*`, including first-time package creation. See the [official NuGet setup](https://learn.microsoft.com/en-us/nuget/nuget-org/trusted-publishing).
 
 After the first manual stable publication and a fresh organization schedule check, set the Actions repository variable `ENABLE_WEEKLY_PUBLISH` to `true` to activate weekly publishing. It is unset by default. Draft preparation can run before activation; it does not publish a package.
 
@@ -96,9 +96,9 @@ Repository settings: [Actions secrets and variables](https://github.com/PinguApp
 ## Validate package publication safely
 
 Manual `publish.yml` dispatch defaults `validate_only` to `true`. It resolves the
-selected tag, runs the full publication checks (including the desktop lanes),
-downloads `playbook-package` from this same run, and checks the sole package's
-filename, SHA-256 manifest and embedded NuGet ID/version. NuGet login and push
+selected tag, runs the full publication checks (including the native smoke lanes),
+downloads `playbook-package` from this same run, and checks each of the eight
+filenames, SHA-256 hashes and embedded NuGet IDs and versions. NuGet login and push
   are skipped. The selected `preview.N` version uses only the named, input-bound
   preview exceptions; stable versions reject pending proof. Missing required
   catalogue/evidence checks still fail validation. `validate_only` does not change
@@ -108,21 +108,25 @@ publication and requires separate owner authorization.
 Preview tags use `1.0.0-preview.N` and are accepted only by manual dispatch.
 Published stable releases must have a stable tag and must not be marked prerelease.
 Release Drafter continues to choose independent package SemVer from PR labels.
-The package artifact cannot be selected from another run, and publishing never
-packs again. A successful reusable validation call requires all required Linux,
-Windows and macOS lanes; summaries do not turn a failed lane into success.
+Publishing uses the current run's verified package set. The pointer is pushed
+after all seven payload pushes succeed. A duplicate or failed push stops
+publication. If a run partially uploads a version, prepare a new version for
+the next release attempt so its pointer cannot expose a mixed set.
+
+A successful reusable validation call requires the Linux suite, Alpine fallback
+and all six bundled smoke checks.
 
 Run local negative checks without accounts or publication:
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-8f87e0df'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\agent-788b14ab-a700d1594145d2ef'
 & ./eng/Test-Publishing.ps1
-# After an ordinary local package build, also inspect that actual artifact:
-& ./eng/Test-Publishing.ps1 -Package ./artifacts/PinguApps.Playbook.1.0.0-preview.1.nupkg
+# After full verification, inspect the same package set:
+& ./eng/Test-Publishing.ps1 -Artifacts ./artifacts/packages/1.0.0-preview.1
 ```
 
-The default check uses a synthetic ZIP solely to test rejection paths. Supplying
-`-Package` checks the real artifact too; neither mode establishes NuGet login,
+The default check uses synthetic ZIPs to exercise the guards. Supplying
+`-Artifacts` checks the real package set too. These checks do not establish NuGet login,
 push, hosted runner success or release readiness. The existing package checks
 remain responsible for installed tool behavior. Dispatch the **Publish NuGet
 Packages** workflow on the reviewed branch with a release-ready tag containing

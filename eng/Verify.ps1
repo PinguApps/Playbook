@@ -1,5 +1,6 @@
 [CmdletBinding()]
 param(
+  [ValidatePattern('^\d+\.\d+\.\d+(?:-[a-zA-Z0-9]+(?:[.-][a-zA-Z0-9]+)*)?\z')]
   [string]$PackageVersion = '1.0.0-preview.1',
   [string]$Dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source,
   [string]$Net10Dotnet = $Dotnet,
@@ -14,6 +15,7 @@ $ErrorActionPreference = 'Stop'
 $PSNativeCommandUseErrorActionPreference = $true
 $root = Split-Path $PSScriptRoot -Parent
 $artifacts = Join-Path $root 'artifacts'
+$packages = Join-Path $artifacts "packages/$PackageVersion"
 New-Item -ItemType Directory -Path $artifacts -Force | Out-Null
 Push-Location $root
 $previous = @{}
@@ -180,9 +182,10 @@ try {
   & $Dotnet build PinguApps.Playbook.slnx --configuration Release -p:Version=$PackageVersion
   & (Join-Path $PSScriptRoot 'Test-Content.ps1') -Pack -Dotnet $Dotnet
   & (Join-Path $PSScriptRoot 'Test-Evidence.ps1') -Pack -Dotnet $Dotnet
-  & $Dotnet pack src/PinguApps.Playbook --configuration Release --no-build -p:PackageVersion=$PackageVersion "-p:PlaybookReleaseReady=$ReleaseReady" --output $artifacts
+  & $Dotnet pack src/PinguApps.Playbook --configuration Release -p:Version=$PackageVersion -p:PlaybookBundleRuntime=true "-p:PlaybookReleaseReady=$ReleaseReady" --output $packages
+  & (Join-Path $PSScriptRoot 'Assert-PublishPackage.ps1') -Artifacts $packages -PackageVersion $PackageVersion -Record -BuildVersion
   & (Join-Path $PSScriptRoot 'Pack-ReleaseFixture.ps1') -PackageVersion $PackageVersion -Dotnet $Dotnet
-  $env:PLAYBOOK_TEST_PACKAGE = Join-Path $artifacts "PinguApps.Playbook.$PackageVersion.nupkg"
+  $env:PLAYBOOK_TEST_PACKAGE = Join-Path $packages "PinguApps.Playbook.$PackageVersion.nupkg"
   $env:PLAYBOOK_TEST_VERSION = $PackageVersion
   $env:PLAYBOOK_TEST_RELEASE_FIXTURE = Join-Path $artifacts "release-fixture/PinguApps.Playbook.$PackageVersion.nupkg"
   $testArgs = @('test', 'tests/PinguApps.Playbook.Tests', '--configuration', 'Release', '--no-build', '--no-restore', '--logger', 'trx;LogFileName=playbook.trx', '--results-directory', (Join-Path $artifacts 'TestResults'))
@@ -197,10 +200,6 @@ try {
   else {
     & $Dotnet @testArgs
   }
-  $hash = Get-FileHash -Algorithm SHA256 -LiteralPath $env:PLAYBOOK_TEST_PACKAGE
-  "$($hash.Hash.ToLowerInvariant())  $([IO.Path]::GetFileName($env:PLAYBOOK_TEST_PACKAGE))" |
-    Set-Content -LiteralPath (Join-Path $artifacts 'package.sha256') -Encoding ascii
-  $hash
 }
 finally {
   foreach ($key in $previous.Keys) { [Environment]::SetEnvironmentVariable($key, $previous[$key]) }
